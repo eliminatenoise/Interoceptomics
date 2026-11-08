@@ -1,5 +1,7 @@
 # Interoceptomics
 
+Development is paused while work focuses on [NeuroSurge](https://github.com/eliminatenoise/NeuroSurge). The selected drafts below remain available; work on this project resumes only after further notice.
+
 What lets you feel a heartbeat or a breath, and how are the neural connections involved arranged? Interoceptomics brings those questions together. It is our proposed field combining **interoception**, the sensing of internal bodily conditions, with **connectomics**, the study of neural connectivity.
 
 The starting point is familiar: a body has an internal condition, signals are recorded or reported, and a nervous system carries and processes information related to that condition. The research problem is to connect these observations without assuming that a wiring diagram already tells us what the system does.
