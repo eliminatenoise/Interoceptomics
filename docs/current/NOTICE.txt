@@ -1,0 +1,7 @@
+The project owner's original prose in these four Interoceptomics script files is dedicated under CC0 1.0 to the extent the owner holds the relevant rights. See LICENSE-CC0-1.0.txt.
+
+References, quoted source material, names and trademarks retain their respective rights. Their appearance does not imply endorsement. CC0 does not apply to works owned by others or grant rights to imagery in separate presentation editions.
+
+The PDFs contain existing embedded sans-serif font subsets, including Liberation Sans and Comic Sans MS Bold. Their font programs retain the applicable original licenses. Copies of the Microsoft Core Fonts EULA and Liberation SIL Open Font License accompany this preview as FONT-LICENSE-Microsoft-CoreFonts.txt and FONT-LICENSE-Liberation.txt. No standalone font binary or font-installation package is distributed here. The DOCX files contain no embedded font program, image, comment or OLE object.
+
+This partial experimental preview contains current scripts only. No presentation imagery, clinical protocol, validated universal neural model or demonstrated skill transfer is supplied. Preserve the scientific qualifications and references when reusing the prose.

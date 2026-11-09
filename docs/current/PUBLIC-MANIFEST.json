@@ -1,0 +1,59 @@
+{
+  "edition": "Interoceptomics experimental script preview",
+  "status": "PARTIAL_CURRENT_SCRIPTS_ONLY",
+  "core_count": 4,
+  "presentation_included": false,
+  "scientific_or_clinical_validation": false,
+  "files": [
+    {
+      "name": "FONT-LICENSE-Liberation.txt",
+      "bytes": 4414,
+      "sha256": "93fed46019c38bbe566b479d22148e2e8a1e85ada614accb0211c37b2c61c19b"
+    },
+    {
+      "name": "FONT-LICENSE-Microsoft-CoreFonts.txt",
+      "bytes": 4863,
+      "sha256": "2f4ddfab76725b733505a55821db32152189cde34b65beb1c8500f047c049ea7"
+    },
+    {
+      "name": "Interoceptomics-Script-Simple.docx",
+      "bytes": 26125,
+      "sha256": "a6da93e48e1bbd6cea2f85350600cd2eb3444a3c8840dede3d79dcbc0a3ba937"
+    },
+    {
+      "name": "Interoceptomics-Script-Simple.pdf",
+      "bytes": 351943,
+      "sha256": "84d864225b00db11ac7cadbd397d034e5879033c29503d191622dc838357dcbb"
+    },
+    {
+      "name": "Interoceptomics-Script-Technical.docx",
+      "bytes": 59910,
+      "sha256": "c948d24f4c06a007a0938fe2cf00389121e52ec1333b2e3c8dea132a96e7e6de"
+    },
+    {
+      "name": "Interoceptomics-Script-Technical.pdf",
+      "bytes": 573659,
+      "sha256": "591f3e136f7a0ceb9f44d04b47a0bbc1a35657018d275f70a386725f59226a49"
+    },
+    {
+      "name": "LICENSE-CC0-1.0.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "name": "NOTICE.txt",
+      "bytes": 1187,
+      "sha256": "255e87ad3892e9933612ada4bc89aa11faafb32da776cdec9430023f91878031"
+    },
+    {
+      "name": "README.md",
+      "bytes": 4879,
+      "sha256": "71fe92225a3e23179bb89e97ef94eaee8a9b8ec360d4ebde15e3afab6caf69e5"
+    },
+    {
+      "name": "RELEASE-NOTES.md",
+      "bytes": 1243,
+      "sha256": "292772e36f37ca54ea5106e20faa64ba2b034605cbda112e41d0ca2047e303d1"
+    }
+  ]
+}
