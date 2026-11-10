@@ -16,6 +16,8 @@ The longer programme connects this work to body–brain interfacing and models o
 
 ## What is available here
 
+[Download a Windows, macOS or Linux launcher](https://eliminatenoise.github.io/Interoceptomics/START.html) to open the current script hub.
+
 [Open the current experimental script preview](https://eliminatenoise.github.io/Interoceptomics/). It contains four newer, unchanged provisional script files: technical and simple scripts in DOCX and PDF. The newer presentation is excluded while exact image permissions are resolved. [Preview notes, licences and hashes](docs/current/README.md) describe that partial selection. Development remains paused; publishing existing previews does not restart research.
 
 The [older R42 presentation and scripts](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft) remain a historical complete edition with six core files. They do not match the newer scripts:

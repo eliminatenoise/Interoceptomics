@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Interoceptomics Script Preview
+Comment=Open the current experimental technical and simple scripts
+Exec=xdg-open https://eliminatenoise.github.io/Interoceptomics/
+TryExec=xdg-open
+Icon=web-browser
+Terminal=false
+Categories=Education;Science;
+StartupNotify=true
+X-Brain2Body-Launcher=interoceptomics-web-preview-v1
