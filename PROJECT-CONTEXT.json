@@ -15,10 +15,10 @@
     ]
   },
   "scope_note": "Names and definitions identify the programme and development scope. They do not establish a completed game, validated model, biological or clinical capability.",
-  "release_policy": "Selected reviewed production-grade drafts and items intended for production deployment; current selected files replace previous live versions. Git history and original local evidence remain.",
+  "release_policy": "Current experimental previews are published with their actual edition and known limitations. Current selected files replace superseded live copies; Git history and original local evidence remain. Preview publication does not establish finished-product acceptance.",
   "license_note": "Project-owned contributions CC0-1.0; third-party materials retain their own rights and notices.",
-  "development_status": "paused until further user notice; existing selected drafts remain available",
-  "programme_focus": "NeuroSurge is the sole active project. All other projects are paused following the current-version GitHub sync.",
+  "development_status": "Model work active; presentation and matched-script work paused.",
+  "programme_focus": "All three projects are active, with priority NeuroTranslation, NeuroSurge, then Interoceptomics.",
   "experimental_preview": {
     "status": "partial current script preview",
     "source": "existing provisional outputs, created4November2026UTC",
@@ -26,7 +26,15 @@
     "presentation_included": false,
     "reason": "exact third-party image rights remain unresolved",
     "site": "https://eliminatenoise.github.io/Interoceptomics/",
-    "development": "paused; current-output publication authorized",
+    "development": "Presentation and matched-script work paused; existing script files remain available unchanged.",
     "complete_scientific_or_production_acceptance": false
+  },
+  "experimental_model_preview": {
+    "edition": "Brain R8 experimental preview, package R3",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R3.zip",
+    "bytes": 38619239,
+    "sha256": "09b401353cb66e1f8d4aaca566de53bc963d126c5b865fd1308c0cb9d14beb64",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r3",
+    "limitations": "Source-left atlas with 121 of 141 occupied labels; 20 are absent. No neural weights, individual fit, demonstrated biological function or complete scientific, native-platform, visual or export acceptance."
   }
 }

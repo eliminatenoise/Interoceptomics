@@ -1,6 +1,6 @@
 # Interoceptomics
 
-Development is paused while work focuses on [NeuroSurge](https://github.com/eliminatenoise/NeuroSurge). The selected drafts below remain available; work on this project resumes only after further notice.
+Development continues on NeuroTranslation, NeuroSurge and Interoceptomics, in that order of priority. Interoceptomics model work is active; the presentation and its matched scripts are paused.
 
 What lets you feel a heartbeat or a breath, and how are the neural connections involved arranged? Interoceptomics brings those questions together. It is our proposed field combining **interoception**, the sensing of internal bodily conditions, with **connectomics**, the study of neural connectivity.
 
@@ -18,7 +18,7 @@ The longer programme connects this work to body–brain interfacing and models o
 
 [Download a Windows, macOS or Linux launcher](https://eliminatenoise.github.io/Interoceptomics/START.html) to open the current script hub.
 
-[Open the current experimental script preview](https://eliminatenoise.github.io/Interoceptomics/). It contains four newer, unchanged provisional script files: technical and simple scripts in DOCX and PDF. The newer presentation is excluded while exact image permissions are resolved. [Preview notes, licences and hashes](docs/current/README.md) describe that partial selection. Development remains paused; publishing existing previews does not restart research.
+[Open the current experimental script preview](https://eliminatenoise.github.io/Interoceptomics/). It contains four newer, unchanged provisional script files: technical and simple scripts in DOCX and PDF. The newer presentation is excluded while exact image permissions are resolved. [Preview notes, licences and hashes](docs/current/README.md) describe that partial selection. Presentation and matched-script work remain paused. The model preview below is a separate active stream.
 
 The [older R42 presentation and scripts](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft) remain a historical complete edition with six core files. They do not match the newer scripts:
 
@@ -49,3 +49,16 @@ The projects share terminology and evidence standards. Their purposes and demons
 The project’s original contributions are dedicated to the public domain under [CC0 1.0](LICENSE), to the extent the project holds the rights. The presentation and companions may incorporate third-party material with separate rights. CC0 does not change those rights; see the release’s provenance and notice files.
 
 [Terminology and project scope](PROJECT-CONTEXT.json).
+
+
+## Brain R8 model preview
+
+Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles, with selected association colours and territory isolation. The colours do not measure activity or draw complete functional boundaries.
+
+[Brain R8 ZIP — package R3](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R3.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R3.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r3) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+
+Extract the whole archive and open its README. Dedicated Windows, macOS and Linux launchers use an installed Python 3.10+ environment and a modern WebGL browser. The local server prints a loopback address; keep its terminal open and stop it with Ctrl+C. **Restore this view** restores the selected view’s default camera framing and turns off isolation.
+
+The map includes 121 of 141 occupied source labels; 20 are absent. It has no individual body fit or trained neural weights. Fine anatomy, biological function and complete native-platform, visual and export acceptance remain unresolved. Earlier checks covered selected Linux mechanics and views on the producing host; Windows, macOS and every control or camera angle have not been verified.
+
+R3 carries the complete official version1 metadata table and an exact field/source binding alongside the original model. Its CC BY-covered fields and checked adaptations, the actual November 4 API acquisition record and Three.js keep their respective source notices. The repository’s original-contribution CC0 statement does not replace them.
