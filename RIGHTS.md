@@ -1,18 +1,18 @@
 # The map and its sources
 
-## Brain R8 package R3
+## Brain R8 package R5
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R3.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R5.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R3.zip` |
-| Size | 38,619,239 bytes |
-| SHA256 | `09b401353cb66e1f8d4aaca566de53bc963d126c5b865fd1308c0cb9d14beb64` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R3.zip.sha256) |
-| Model and controls | R6 source-left geometry and R8 browser files; all 34 functional base files preserved |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R5.zip` |
+| Size | 38,628,788 bytes |
+| SHA256 | `991dd2b8ba677cd0868e6a97669c8c316ecb924f0bbb5df671a87f9851eb1858` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R5.zip.sha256) |
+| Model and controls | R6 source-left geometry and R8 browser files unchanged; 20 registry omission notes corrected |
 
-The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The manifest identifies every file except itself; the archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
+The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 43 regular files. The current package manifest identifies the other 42 files; the archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
 
 ### Atlas-derived anatomy and overview
 
@@ -20,15 +20,17 @@ Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Les
 
 The [official atlas README](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf) states [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) effective 1 September 2022. This source applies to the atlas-derived model, vertex identities and generated overview. Keep the creators, copyright, source and licence links, disclaimers and previous change notices; identify further changes. No endorsement is implied. The full legal text travels in `licenses/CC-BY-4.0.txt` and its readable HTML page. [Original atlas collection](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/).
 
-The derivative selects native RAS R≤0, extracts surfaces from 0.5 mm annotation voxels, constructs a midline cap and applies bounded display approximation and normal treatment. Structural unions, thirty added source-label masks, teaching colours, cameras and interaction are authored changes. R6 bakes the proper source-to-world frame and corrects normal direction; R8 adds icons with that geometry unchanged. R2 corrected the description of **Restore this view**. R3 changes documentation and source support, preserving all model, runtime and launcher files.
+The derivative selects native RAS R≤0, extracts surfaces from 0.5 mm annotation voxels, constructs a midline cap and applies bounded display approximation and normal treatment. Structural unions, thirty added source-label masks, teaching colours, cameras and interaction are authored changes. R6 bakes the proper source-to-world frame and corrects normal direction; R8 adds icons with that geometry unchanged. R2 corrected the description of **Restore this view**. R3 changed documentation and source support while preserving its 34 functional base files. R4 corrected the notes for the 20 omitted labels and added their index. R5 clarifies which source comparison is historical and which manifest identifies current files. Geometry, viewer code, controls and launchers are unchanged. Of the original 34 base files, 33 remain exact; the registry differs only in those 20 omission notes.
 
 The overview is the generated medial render of that derivative. No underlying MNI MRI or internal comparison photographs are included. Source identity does not establish complete anatomical accuracy, and the licence supplies no accuracy or fitness warranty.
 
 ### The exact labels and hierarchy
 
-The [official version1 CSV](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv) is a listed member of the same atlas collection. R3 includes its complete, unchanged 479,643 bytes, SHA256 `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f`. It was retrieved on 15 November 2026 Melbourne; the observed Last-Modified header is 19 February 2025. A version1 directory name and that header do not prove frozen-2020 bytes.
+The [official version1 CSV](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv) is a listed member of the same atlas collection. R5 retains its complete, unchanged 479,643 bytes, SHA256 `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f`. It was retrieved on 15 November 2026 Melbourne; the observed Last-Modified header is 19 February 2025. A version1 directory name and that header do not prove frozen-2020 bytes.
 
-All 141 delivered registry rows exactly match its IDs, names, acronyms and full ordered ancestry paths. The retained 3,317-row production API snapshot and CSV have identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that narrow comparison and the checked source-use witnesses. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
+The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields; only the 20 omission notes changed. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was not rewritten or rerun for R5. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
+
+The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 259,848 bytes, SHA256 `8c2c83b1cba48df2434c5ae149f346254cefbce261d205292a40f987db4278f4`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained R6 model manifest also describes its historical registry, not current R5 file identity.
 
 The collection README explicitly includes ontology/hierarchy examples in its materials. Its CC BY grant therefore supplies a parallel, identified permission basis for these precise matching fields and checked adaptations. That source application was independently accepted; it does not redate the production query. Preserve the direct upstream CC BY offer, attribution and changes. Do not relicense this material as project-owned CC0 or add a noncommercial restriction to it. No blanket licence for the whole API response, every future Improvement, AI use or the complete model is created here.
 
@@ -36,7 +38,7 @@ The collection README explicitly includes ontology/hierarchy examples in its mat
 
 The model used a current Allen Brain Map graph16 response retrieved on 4 November 2026 through the [official query](https://api.brain-map.org/api/v2/data/query.json?criteria=model%3A%3AStructure%2Crma%3A%3Acriteria%2C%5Bgraph_id%24eq16%5D%2Crma%3A%3Aoptions%5Border%24eq%27structures.graph_order%27%5D%5Bnum_rows%24eqall%5D). Its SHA256 remains `70281f17ee7b23bd4076606c25038d31b3f4fca69973356138a05bceb9896341`. The full response is not shipped. Its query, date, hash and model-generation history remain in the manifest and original payload records.
 
-The [Allen general terms](https://alleninstitute.org/legal/terms-of-use/), updated 23 October 2026, separately record research/noncommercial permissions, citation, retained ownership, commercial redistribution limits and nonassertion against Allen’s independently developed improvements. They also restrict posting on sites requiring acknowledgement of ownership of the posted Content. R3 preserves this acquisition record; it does not waive those obligations or establish unrestricted rights for unexamined response fields or unrelated Improvements. Lack of a whole-response grant does not impose an extra NC restriction on the separately identified CC BY-covered metadata above.
+The [Allen general terms](https://alleninstitute.org/legal/terms-of-use/), updated 23 October 2026, separately record research/noncommercial permissions, citation, retained ownership, commercial redistribution limits and nonassertion against Allen’s independently developed improvements. They also restrict posting on sites requiring acknowledgement of ownership of the posted Content. R5 preserves this acquisition record; it does not waive those obligations or establish unrestricted rights for unexamined response fields or unrelated Improvements. Lack of a whole-response grant does not impose an extra NC restriction on the separately identified CC BY-covered metadata above.
 
 ### Browser software and original contributions
 
@@ -46,6 +48,6 @@ The repository’s [CC0 statement](LICENSE) concerns original contributions only
 
 ### Read the biological limits with the colours
 
-The model includes 121 of 141 occupied labels and omits 20. Combined surfaces do not isolate every nucleus. The 0.5 mm source grid, constructed cap of at most 0.25 mm and prior display approximation of at most 0.125 mm describe derivation, not biological accuracy. Fine autonomic nuclei, cortical functional fields and independent basal-forebrain, septal and bed-nucleus shape confirmation remain open.
+The model’s 40 meshes cover 121 of 141 occupied labels; 20 labels lack included surfaces. The omitted labels remain in the registry and are listed in the archive’s `payload/brain-outward-r6/omissions.html`. Combined surfaces do not isolate every nucleus. The 0.5 mm source grid, constructed cap of at most 0.25 mm and prior display approximation of at most 0.125 mm describe derivation, not biological accuracy. Fine autonomic nuclei, cortical functional fields and independent basal-forebrain, septal and bed-nucleus shape confirmation remain open.
 
-Local surface-direction countercases, deep-view differences, occlusion and stock-export colour differences remain. There is no right-half option or fit to an individual person. No neural activity, neural writing, learned skill transfer, clinical safety or complete biological function has been demonstrated by the model. Native Windows/macOS, every control and angle, new rendered documentation and other-machine behavior remain unverified. The archive README retains the detailed qualifications; original scientific, real-reference SERIES, held-out, rights, privacy, visual, native and export gates remain.
+Local surface-direction countercases, deep-view differences, occlusion and stock-export colour differences remain. There is no right-half option or fit to an individual person. No neural activity, neural writing, learned skill transfer, clinical safety or complete biological function has been demonstrated by the model. Native Windows/macOS execution, every control and angle, and other-machine behaviour remain unverified. The archive README retains the detailed qualifications; original scientific, real-reference SERIES, held-out, rights, privacy, visual, native and export gates remain.
