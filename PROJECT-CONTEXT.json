@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R6",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R6.zip",
-    "bytes": 38628511,
-    "sha256": "8dae55e8ee34caaac7d1384549b9e7aa2c09a7752e36323d9ecae21027259fa2",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r6",
+    "edition": "Brain R8 experimental preview, package R7",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R7.zip",
+    "bytes": 38629348,
+    "sha256": "fec89d48abf9c71054f082aa1f1c35c049afc39f244c6f7009dd572c4808d9f8",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r7",
     "regular_files": 43,
-    "uncompressed_bytes": 74492464,
+    "uncompressed_bytes": 74497946,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 45803,
-      "sha256": "2f2612a5779913ab7c7c0829cf92fc6d5e08baef099b1a92a653db06cd252476",
+      "bytes": 49850,
+      "sha256": "3ba2dc183dc03eec7512510433f0591e0d0594ea50b5797b23984609d894cbde",
       "scope": "Current file identities; the manifest excludes itself from its 42 entries.",
-      "historical_inner_record": "The geometry-era payload MANIFEST.json retains older registry and viewer hashes; use the current package manifest for R6 file identity."
+      "historical_inner_record": "The geometry-era payload MANIFEST.json retains older registry and viewer hashes; use the current package manifest for R7 file identity."
     },
-    "change": "R6 repairs stale highlight inputs when view or model-variant changes clear isolation. Geometry, registry, identity files, palette, dependencies and launchers retain their R5 bytes; 39 of 43 package files are unchanged. Earlier omission notes and the historical R3 source-field comparison remain unchanged; no comparison was rerun.",
+    "change": "R7 moves renderer setup inside the existing error handler and adds a plain startup message with ordinary error identity, retaining stack/fallback and rethrow. The successful scene/control code and R6 highlight repair remain unchanged. Geometry, registry, identity files, palette, dependencies and launchers retain their R6 bytes; 39 of 43 files are unchanged. Earlier omission notes and the historical R3 source-field comparison remain unchanged; no comparison was rerun.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 259848,
@@ -53,9 +53,9 @@
     "limitations": "40 meshes cover 121 of 141 occupied source labels; 20 labels lack surfaces. No neural weights, individual fit, demonstrated biological function or complete scientific, native-platform, visual or export acceptance.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 16543,
-      "sha256": "a19f812edc41388e70a74da03f40f7c3cce3dabf4201183718934b7a8e1fce51",
-      "code_change": "Refresh colours for view or model-variant commands that clear isolation; no source colour retuning or geometry change."
+      "bytes": 16703,
+      "sha256": "34b337134952369b26f0b6982ed65cdfe99933124210f033eb09ec0af4a92b1d",
+      "code_change": "Renderer-startup error boundary and plain textContent diagnostic message only; successful scene/control body and renderer settings unchanged."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -69,7 +69,9 @@
         "passes": 5,
         "failures": 0
       },
-      "full_browser_GPU_visual_or_performance_validation": false
+      "full_browser_GPU_visual_or_performance_validation": false,
+      "R6_viewer_sha256": "a19f812edc41388e70a74da03f40f7c3cce3dabf4201183718934b7a8e1fce51",
+      "historical_scope": "Accepted earlier R6 constructed control-fixture evidence, not rerun on R7; no startup-runtime result."
     },
     "verification_limits": {
       "C01": "Original isolate/lateral/deep visual check remains open; no confirmation or falsification from the constructed software checks.",
@@ -83,9 +85,20 @@
         1200
       ],
       "pending": "Full browser controls, GPU/colour appearance, performance, real-reference SERIES, anatomy, donor/scale/function, rights/privacy, held-out, native visual/export, OS and actual documentation layout/font fallback.",
-      "earlier_images_and_pixel_results": "Historical build scope only, not fresh R6 visual acceptance."
+      "earlier_images_and_pixel_results": "Historical build scope only, not fresh R7 visual acceptance.",
+      "retained_C01_stop": "SwiftShader/wrong-window readiness STOP before control actions; original AMD/RADV target and thresholds retained.",
+      "startup_error_visibility_and_successful_R7_startup": "Unexecuted; twenty static checks are source evidence only."
     },
     "complete_scientific_or_production_acceptance": false,
-    "launchers": "Dedicated Windows, macOS and Linux launchers retained byte-exact; Python3.10+ and WebGL browser required. No new native OS execution."
+    "launchers": "Dedicated Windows, macOS and Linux launchers retained byte-exact; Python3.10+ and WebGL browser required. No new native OS execution.",
+    "startup_error_source_checks": {
+      "kind": "Static renderer-startup source checks only",
+      "passed": 20,
+      "total": 20,
+      "actual_JavaScript_or_visible_error": false,
+      "actual_successful_WebGL_model_startup": false,
+      "actual_OS_C01_GPU_or_scientific_readiness": false,
+      "limits": "Module import/parse errors, pre-try constants and later asynchronous interaction failures remain outside the repair; exotic thrown-value coercions remain unqualified."
+    }
   }
 }

@@ -1,16 +1,16 @@
 # The map and its sources
 
-## Brain R8 package R6
+## Brain R8 package R7
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R6.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R7.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R6.zip` |
-| Size | 38,628,511 bytes |
-| SHA256 | `8dae55e8ee34caaac7d1384549b9e7aa2c09a7752e36323d9ecae21027259fa2` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R6.zip.sha256) |
-| Model and controls | Source-left geometry retained; viewer highlight refresh repaired; 20 omission notes retained |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R7.zip` |
+| Size | 38,629,348 bytes |
+| SHA256 | `fec89d48abf9c71054f082aa1f1c35c049afc39f244c6f7009dd572c4808d9f8` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R7.zip.sha256) |
+| Model and controls | Source-left geometry retained; startup-error source repair; R6 highlight repair and 20 omission notes retained |
 
 The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 43 regular files. The current package manifest identifies the other 42 files; the archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
 
@@ -22,15 +22,17 @@ The [official atlas README](https://download.alleninstitute.org/informatics-arch
 
 The derivative selects native RAS R≤0, extracts surfaces from 0.5 mm annotation voxels, constructs a midline cap and applies bounded display approximation and normal treatment. Structural unions, thirty added source-label masks, teaching colours, cameras and interaction are authored changes. R6 bakes the proper source-to-world frame and corrects normal direction; R8 adds icons with that geometry unchanged. R2 corrected the description of **Restore this view**. R3 changed documentation and source support while preserving its 34 functional base files. R4 corrected the notes for the 20 omitted labels and added their index. R5 clarified which source comparison is historical and which manifest identifies current files. Package R6 repairs stale highlight inputs when a view or model-variant change turns isolation off. Geometry, source labels, identity files, the colour palette, dependencies and launchers retain their R5 bytes. Thirty-nine of the 43 package files remain unchanged from R5. Of the original 34 R3 base files, 32 remain exact; the registry’s 20 omission notes and the viewer code differ.
 
+Package R7 moves renderer setup into the existing error handler and adds a plain startup failure message with the error identity. Its successful scene/control code is unchanged. Thirty-nine of the 43 files retain their R6 bytes, modes and modification times, including geometry, source labels, identity files, palette, dependencies and launchers. The other changes are the matching release notes, change notice and manifest.
+
 The overview is the generated medial render of that derivative. No underlying MNI MRI or internal comparison photographs are included. Source identity does not establish complete anatomical accuracy, and the licence supplies no accuracy or fitness warranty.
 
 ### The exact labels and hierarchy
 
-The [official version1 CSV](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv) is a listed member of the same atlas collection. R6 retains its complete, unchanged 479,643 bytes, SHA256 `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f`. It was retrieved on 15 November 2026 Melbourne; the observed Last-Modified header is 19 February 2025. A version1 directory name and that header do not prove frozen-2020 bytes.
+The [official version1 CSV](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv) is a listed member of the same atlas collection. R7 retains its complete, unchanged 479,643 bytes, SHA256 `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f`. It was retrieved on 15 November 2026 Melbourne; the observed Last-Modified header is 19 February 2025. A version1 directory name and that header do not prove frozen-2020 bytes.
 
-The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields; only the 20 omission notes changed. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was not rewritten or rerun for R5 or R6. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
+The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields; only the 20 omission notes changed. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was not rewritten or rerun for R5, R6 or R7. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
 
-The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 259,848 bytes, SHA256 `8c2c83b1cba48df2434c5ae149f346254cefbce261d205292a40f987db4278f4`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; it does not identify the current package R6 files.
+The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 259,848 bytes, SHA256 `8c2c83b1cba48df2434c5ae149f346254cefbce261d205292a40f987db4278f4`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; it does not identify the current package R7 files.
 
 The collection README explicitly includes ontology/hierarchy examples in its materials. Its CC BY grant therefore supplies a parallel, identified permission basis for these precise matching fields and checked adaptations. That source application was independently accepted; it does not redate the production query. Preserve the direct upstream CC BY offer, attribution and changes. Do not relicense this material as project-owned CC0 or add a noncommercial restriction to it. No blanket licence for the whole API response, every future Improvement, AI use or the complete model is created here.
 
@@ -38,7 +40,7 @@ The collection README explicitly includes ontology/hierarchy examples in its mat
 
 The model used a current Allen Brain Map graph16 response retrieved on 4 November 2026 through the [official query](https://api.brain-map.org/api/v2/data/query.json?criteria=model%3A%3AStructure%2Crma%3A%3Acriteria%2C%5Bgraph_id%24eq16%5D%2Crma%3A%3Aoptions%5Border%24eq%27structures.graph_order%27%5D%5Bnum_rows%24eqall%5D). Its SHA256 remains `70281f17ee7b23bd4076606c25038d31b3f4fca69973356138a05bceb9896341`. The full response is not shipped. Its query, date, hash and model-generation history remain in the manifest and original payload records.
 
-The [Allen general terms](https://alleninstitute.org/legal/terms-of-use/), updated 23 October 2026, separately record research/noncommercial permissions, citation, retained ownership, commercial redistribution limits and nonassertion against Allen’s independently developed improvements. They also restrict posting on sites requiring acknowledgement of ownership of the posted Content. R6 preserves this acquisition record; it does not waive those obligations or establish unrestricted rights for unexamined response fields or unrelated Improvements. Lack of a whole-response grant does not impose an extra NC restriction on the separately identified CC BY-covered metadata above.
+The [Allen general terms](https://alleninstitute.org/legal/terms-of-use/), updated 23 October 2026, separately record research/noncommercial permissions, citation, retained ownership, commercial redistribution limits and nonassertion against Allen’s independently developed improvements. They also restrict posting on sites requiring acknowledgement of ownership of the posted Content. R7 preserves this acquisition record; it does not waive those obligations or establish unrestricted rights for unexamined response fields or unrelated Improvements. Lack of a whole-response grant does not impose an extra NC restriction on the separately identified CC BY-covered metadata above.
 
 ### Browser software and original contributions
 
@@ -54,6 +56,10 @@ Local surface-direction countercases, deep-view differences, occlusion and stock
 
 ### The highlight repair and its limits
 
-Five constructed exact-handler software checks pass for the R6 viewer; the old viewer failed the two isolation-exit checks. The fixture used one selected and one contrast vertex, with substitutes for the renderer, scene, DOM and camera. Its result concerns stored CPU colour inputs. Full browser controls, GPU rendering, displayed colour and performance remain unverified.
+Five constructed exact-handler software checks passed for the earlier R6 viewer; the old viewer failed the two isolation-exit checks. The fixture used one selected and one contrast vertex, with substitutes for the renderer, scene, DOM and camera. Its historical result concerns stored CPU colour inputs; it was not rerun on R7 and does not test startup-error handling. Full browser controls, GPU rendering, displayed colour and performance remain unverified.
 
-The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target: a 1800 × 1200 window and 1470 × 1200 model viewport. Earlier images and pixel checks describe earlier builds. Reference-series, donor/scale/function, held-out, rights/privacy, native visual/export and OS requirements remain; the new documentation’s rendered layout and actual font fallback are unverified. The software result supplies no new anatomical or biological validation.
+The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target: a 1800 × 1200 window and 1470 × 1200 model viewport. The retained SwiftShader/wrong-window run stopped before any control actions. Earlier images and pixel checks describe earlier builds. Reference-series, donor/scale/function, held-out, rights/privacy, native visual/export and OS requirements remain; the new documentation’s rendered layout and actual font fallback are unverified. The software result supplies no new anatomical or biological validation.
+
+### If the 3D view cannot start
+
+R7’s renderer setup sits inside the existing error handler. Its code supplies the plain message “The 3D view could not start.” with the error name and message, keeps the diagnostic stack and rethrows the error. Twenty static source checks passed. JavaScript execution, actual error visibility, successful WebGL/model startup and operating-system behaviour were not checked. Module import errors and later interaction failures remain outside this repair. These source checks supply no new GPU, C01, anatomical, biological or scientific-readiness result.
