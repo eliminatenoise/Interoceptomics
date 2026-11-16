@@ -30,25 +30,62 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R5",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R5.zip",
-    "bytes": 38628788,
-    "sha256": "991dd2b8ba677cd0868e6a97669c8c316ecb924f0bbb5df671a87f9851eb1858",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r5",
+    "edition": "Brain R8 experimental preview, package R6",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R6.zip",
+    "bytes": 38628511,
+    "sha256": "8dae55e8ee34caaac7d1384549b9e7aa2c09a7752e36323d9ecae21027259fa2",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r6",
     "regular_files": 43,
-    "uncompressed_bytes": 74487330,
+    "uncompressed_bytes": 74492464,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 42382,
-      "sha256": "84fde6c089a7209ab1502b3ad5d90c4f3a5e1d15595486f4efd8707951bf8f95",
-      "scope": "Current file identities; the manifest excludes itself from its 42 entries."
+      "bytes": 45803,
+      "sha256": "2f2612a5779913ab7c7c0829cf92fc6d5e08baef099b1a92a653db06cd252476",
+      "scope": "Current file identities; the manifest excludes itself from its 42 entries.",
+      "historical_inner_record": "The geometry-era payload MANIFEST.json retains older registry and viewer hashes; use the current package manifest for R6 file identity."
     },
-    "change": "Corrected 20 omission notes, added their index, and distinguished the historical R3 source-field comparison from current file identity. Geometry, viewer code, controls and launchers are unchanged.",
+    "change": "R6 repairs stale highlight inputs when view or model-variant changes clear isolation. Geometry, registry, identity files, palette, dependencies and launchers retain their R5 bytes; 39 of 43 package files are unchanged. Earlier omission notes and the historical R3 source-field comparison remain unchanged; no comparison was rerun.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 259848,
       "current_registry_sha256": "8c2c83b1cba48df2434c5ae149f346254cefbce261d205292a40f987db4278f4"
     },
-    "limitations": "40 meshes cover 121 of 141 occupied source labels; 20 labels lack surfaces. No neural weights, individual fit, demonstrated biological function or complete scientific, native-platform, visual or export acceptance."
+    "limitations": "40 meshes cover 121 of 141 occupied source labels; 20 labels lack surfaces. No neural weights, individual fit, demonstrated biological function or complete scientific, native-platform, visual or export acceptance.",
+    "viewer": {
+      "file": "payload/brain-outward-r6/viewer.js",
+      "bytes": 16543,
+      "sha256": "a19f812edc41388e70a74da03f40f7c3cce3dabf4201183718934b7a8e1fce51",
+      "code_change": "Refresh colours for view or model-variant commands that clear isolation; no source colour retuning or geometry change."
+    },
+    "software_checks": {
+      "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
+      "original_viewer": {
+        "tests": 5,
+        "targeted_failures": 2,
+        "passes": 3
+      },
+      "R6_viewer": {
+        "tests": 5,
+        "passes": 5,
+        "failures": 0
+      },
+      "full_browser_GPU_visual_or_performance_validation": false
+    },
+    "verification_limits": {
+      "C01": "Original isolate/lateral/deep visual check remains open; no confirmation or falsification from the constructed software checks.",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "window": [
+        1800,
+        1200
+      ],
+      "model_viewport": [
+        1470,
+        1200
+      ],
+      "pending": "Full browser controls, GPU/colour appearance, performance, real-reference SERIES, anatomy, donor/scale/function, rights/privacy, held-out, native visual/export, OS and actual documentation layout/font fallback.",
+      "earlier_images_and_pixel_results": "Historical build scope only, not fresh R6 visual acceptance."
+    },
+    "complete_scientific_or_production_acceptance": false,
+    "launchers": "Dedicated Windows, macOS and Linux launchers retained byte-exact; Python3.10+ and WebGL browser required. No new native OS execution."
   }
 }
