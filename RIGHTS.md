@@ -1,15 +1,15 @@
 # The map and its sources
 
-## Brain R8 package R12
+## Brain R8 package R13
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R12.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R13.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R12.zip` |
-| Size | 38,665,401 bytes |
-| SHA256 | `dbccae1e20fe10f0a6b4040e87b0555839e276eecfd8558fc57e052412ef9d53` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R12.zip.sha256) |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R13.zip` |
+| Size | 38,666,225 bytes |
+| SHA256 | `bc26f441091aa10cc039145d0e525bf2ddfe108d039b33c35ccdeed0b24107f1` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R13.zip.sha256) |
 | Model and controls | Source-left geometry, inspection by available meshes or surface samples |
 
 The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 46 regular files. The package manifest identifies the other 45 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
@@ -32,9 +32,9 @@ The overview is the generated medial render of that derivative. No underlying MN
 
 The [official version1 CSV](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv) is a listed member of the same atlas collection. R10 retains its complete, unchanged 479,643 bytes, SHA256 `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f`. It was retrieved on 15 November 2026 Melbourne; the observed Last-Modified header is 19 February 2025. A version1 directory name and that header do not prove frozen-2020 bytes.
 
-The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields. R10 adds display and availability fields to one label, on top of the 20 revised omission notes. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was last run for R3. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
+The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields. R10 adds display and availability fields to one label, on top of the 20 revised omission notes. R13 corrects the availability descriptions for VPL, VPM and their combined thalamic surface. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was last run for R3. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
 
-The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 260,621 bytes, SHA256 `46be782cd036a73cb77943ede609b7869350d66cbaa1301a2004c6fff47bd973`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R12 files.
+The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 260,978 bytes, SHA256 `7466a3d9ba81eb1f72c4a784f2d15f575c964c14d3f1b8a6975702d13e8ab9ee`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R13 files.
 
 The collection README explicitly includes ontology/hierarchy examples in its materials. Its CC BY grant therefore supplies a parallel, identified permission basis for these precise matching fields and checked adaptations. That source application was independently accepted; it does not redate the production query. Preserve the direct upstream CC BY offer, attribution and changes. Do not relicense this material as project-owned CC0 or add a noncommercial restriction to it. No blanket licence for the whole API response, every future Improvement, AI use or the complete model is created here.
 
