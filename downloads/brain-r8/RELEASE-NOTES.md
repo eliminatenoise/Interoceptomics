@@ -1,31 +1,25 @@
-# Brain R8 · package R9
+# Brain R8 · package R10
 
-What you can inspect depends on which surfaces this model supplies. The territory selector now names that distinction. **Separate meshes** can be focused or isolated. **Surface samples** turn dark grey where they’re exposed. **Atlas labels only** have source notes and evidence, with no assigned surface samples in this model.
+Experimental preview · 19 November 2026
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R9.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R9.zip.sha256) · [Sources, changes and reuse terms](../../RIGHTS.md#brain-r8-package-r9)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R10.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R10.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r10)
 
-The archive is **38,634,065 bytes**, with 44 regular files and 74,510,354 uncompressed bytes. Its SHA256 is `ccde23c90f2f4ef130232c442bb5eb997f8edfa702582ec005dd0f278706fc3f`.
+The archive is **38,661,870 bytes**, with 46 files and 74,605,989 uncompressed bytes. Its SHA256 is `05903a61253910d12ec1e72b0beec6d9ea1360c2b4c7f0914285711247cebd30`.
 
-## What the viewer shows
+## Turn the left red nucleus
 
-The package accounts for 121 of the 141 occupied source labels across 40 meshes and their source records. Thirty labels have their own meshes. Of the 91 labels associated with existing surfaces, 83 have assigned samples. Seven thalamic labels and the red nucleus have none. These eight remain searchable alongside their atlas evidence. The further 20 labels without included surfaces have a separate index at `payload/brain-outward-r6/omissions.html`.
+Choose **Red nucleus · left atlas surface**, then **Isolate in place**. The surrounding midbrain hides it in the full view. Drag to turn the nucleus. **Restore context** brings back the complete view of the left hemisphere.
 
-Choose a sampled label on the cerebral surface while Deep or Insula exposed hides that surface. The viewer opens the Lateral view and highlights exposed samples. You can use the view menu to choose another angle. **Restore this view** restores the selected view’s default framing and turns off isolation.
+The red nucleus was already in the atlas. This edition adds a surface for its original left annotation, Allen label 12247 on the 0.5 mm grid. It shares the brain’s original display coordinates. The viewer accounts for 121 of the 141 occupied atlas labels. Thirty-one have their own meshes. Another 83 have points on combined surfaces, seven appear as atlas entries only, and 20 remain outside the included set.
 
-## What opened
+## Open the preview
 
-On Linux, Chromium 155 with software rendering produced a first 555 × 517 3D canvas that matched R8 byte for byte. Using the keyboard, we checked the red nucleus’s atlas-only state, brought the precentral gyrus into view from Deep, focused and isolated the five insula meshes, restored context and isolated the single amygdaloid residual-territory mesh. Filtering kept the current selection.
+Extract the whole ZIP and open its README. The Windows, macOS and Linux launchers need Python 3.10 or newer and a browser with WebGL.
 
-The controls stayed locked while the geometry request waited and when geometry, the registry, the viewer module or the renderer page returned HTTP 404. A fresh archive extraction opened all 40 meshes through the packaged Linux launcher. See the archive’s `VIEWER-CHECKS.json` for the browser checks.
+In Linux Chromium 155.0.8059.84 with software rendering, the first full view matched R9 at 555 × 517. Keyboard isolation revealed only the red nucleus. Dragging moved the camera, **Focus** centred the close-up again, and **Restore context** returned to the same full view. The adjacent overview slightly overlaps the close-up at that window size. The five Insula meshes still isolated together. Blocking the separate file left the rest of the brain usable and returned the red nucleus to atlas-only selection. `VIEWER-CHECKS.json` records the checked route.
 
-C01 remains open at the original AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Hardware rendering, full browser controls, colour appearance, performance and native Windows/macOS execution remain open. R8’s earlier startup checks and R6’s separate highlight checks retain their original scope.
+## What the atlas shows
 
-## Sources and limits
+The extracted surface passed independent checks against its own source. Comparison to separate MRI and histology is qualitative. This is the original left atlas, with no right mesh, precise subdivision surfaces, measured activity or individual fit. The AMD/RADV C01 path, native Windows/macOS launch, held-out anatomy, full appearance and export acceptance remain open.
 
-R9 changes the viewer and its controls, the opening README, the change notice, the package manifest and the check record. The other 36 files match R8 byte for byte, including geometry, coordinates, colours, source identities, dependencies and the three launchers. `PACKAGE-MANIFEST.json` lists 43 members excluding itself and has SHA256 `442a1dfb5b6c7d477c8db1054f8274758f7f49e4e38301596566daea4c59200e`. The geometry-era manifest records older registry and viewer bytes.
-
-The complete official version1 metadata CSV and historical R3 source-field comparison remain. The comparison used all 141 registry rows and six checked columns from the 3,317-row production API snapshot. The current registry retains the checked fields and differs from R3 in its omission notes. The table’s count and volume columns remain unverified. The scoped CC BY offer, November 4, 2026 acquisition record and Three.js MIT notice travel with the archive.
-
-Extract the whole archive and open `README.html`. Use a Python 3.10+ environment and a WebGL browser. Keep the launcher terminal open and press Ctrl+C there to stop the server.
-
-The package contains no trained neural weights. Source labels and selected associations describe the teaching view. Fine anatomy, donor and scale limits, individual fit, biological function, real-reference comparisons, held-out evidence, rights and privacy, native visuals and export remain open.
+The original whole-brain geometry, vertex identities, coordinate frame, licence files and launchers retain their R9 bytes, among 35 unchanged package files. The root `PACKAGE-MANIFEST.json` identifies the current files and has SHA256 `9dea20140f17ef00cf5f7251e813f4604740044f8ba7e04d615b929a81e27fae`. The manifest inside the model folder records the earlier geometry edition. The new mesh carries the same atlas attribution and CC BY licence.

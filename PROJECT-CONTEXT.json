@@ -30,32 +30,32 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R9",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R9.zip",
-    "bytes": 38634065,
-    "sha256": "ccde23c90f2f4ef130232c442bb5eb997f8edfa702582ec005dd0f278706fc3f",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r9",
-    "regular_files": 44,
-    "uncompressed_bytes": 74510354,
+    "edition": "Brain R8 experimental preview, package R10",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R10.zip",
+    "bytes": 38661870,
+    "sha256": "05903a61253910d12ec1e72b0beec6d9ea1360c2b4c7f0914285711247cebd30",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r10",
+    "regular_files": 46,
+    "uncompressed_bytes": 74605989,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 53397,
-      "sha256": "442a1dfb5b6c7d477c8db1054f8274758f7f49e4e38301596566daea4c59200e",
-      "scope": "Current file identities, with 43 entries excluding the package manifest itself.",
+      "bytes": 58502,
+      "sha256": "9dea20140f17ef00cf5f7251e813f4604740044f8ba7e04d615b929a81e27fae",
+      "scope": "Current file identities, with 45 entries excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Loading and startup-failure states gate controls. The selector distinguishes separate meshes, labels with assigned surface samples and source-only atlas records. Selecting a cerebral label with samples brings the existing cerebral surface into view when hidden.",
+    "change": "The viewer adds a left red nucleus surface from the same atlas. Explicit isolation reveals it; Restore context brings back the full scene.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
-      "current_registry_bytes": 259848,
-      "current_registry_sha256": "8c2c83b1cba48df2434c5ae149f346254cefbce261d205292a40f987db4278f4"
+      "current_registry_bytes": 260621,
+      "current_registry_sha256": "46be782cd036a73cb77943ede609b7869350d66cbaa1301a2004c6fff47bd973"
     },
-    "limitations": "The package accounts for 121 of 141 occupied source labels across 40 meshes and their source records. Thirty labels have separate meshes, 83 have assigned samples on existing surfaces and eight have source records alone in the selector. A further 20 labels lack included surfaces. No neural weights, individual fit or complete biological, scientific, visual, native-platform or export acceptance.",
+    "limitations": "121 of 141 occupied atlas labels, 41 meshes, 31 individually isolatable labels, 83 labels with combined surface samples, seven with atlas entries only and 20 without included surfaces. Original source-left only. Quantitative anatomy, functional claims, native visuals and full export acceptance remain open.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 18313,
-      "sha256": "e3585fbb1a7f8bfc6d9bb00868ac96f7ff0308c3e55aabda80942123719739f6",
-      "code_change": "Viewer reports actual mesh and surface-label availability after first successful scene. Startup errors keep controls disabled."
+      "bytes": 19325,
+      "sha256": "ceaab54bea21954df62c2e45a3e740cf952803b874764c81fc36c0e524ce94c1",
+      "code_change": "Optional local GLB with validated source ID and original frame. The detail is drawn only in explicit isolation."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -71,10 +71,10 @@
       },
       "full_browser_GPU_visual_or_performance_validation": false,
       "R6_viewer_sha256": "a19f812edc41388e70a74da03f40f7c3cce3dabf4201183718934b7a8e1fce51",
-      "historical_scope": "Earlier R6 constructed control-fixture evidence. R9 Chromium observations are separate."
+      "historical_scope": "Earlier R6 constructed control-fixture evidence. R9 and R10 Chromium observations are separate."
     },
     "verification_limits": {
-      "C01": "The original AMD/RADV isolate/lateral/deep visual check remains open. R9 used software rendering.",
+      "C01": "The original AMD/RADV isolate/lateral/deep visual check remains open. R10 used software rendering.",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "window": [
         1800,
@@ -87,10 +87,10 @@
       "pending": "Full browser controls, GPU/colour appearance, performance, real-reference SERIES, anatomy, donor/scale/function, rights/privacy, held-out, native visual/export, OS and actual documentation layout/font fallback.",
       "earlier_images_and_pixel_results": "Earlier images and pixel results describe their original builds and test conditions.",
       "retained_C01_stop": "SwiftShader/wrong-window readiness STOP before control actions; original AMD/RADV target and thresholds retained.",
-      "startup": "Local Linux Chromium covered loading, successful model startup and four HTTP 404 cases. Other startup causes and rendering-context loss remain open."
+      "startup": "R9 retained four HTTP 404 tests. R10 checked normal startup and a blocked optional red nucleus asset. Other faults and rendering-context loss remain open."
     },
     "complete_scientific_or_production_acceptance": false,
-    "launchers": "Windows, macOS and Linux launchers require Python 3.10+ and a WebGL browser. The extracted Linux launcher opened the model in headless Chromium using software rendering. Default-browser opening and native Windows/macOS execution remain unverified.",
+    "launchers": "Windows, macOS and Linux launchers require Python 3.10+ and a WebGL browser. The R10 Linux launcher opened the tested model through its loopback address. Default-browser opening and native Windows/macOS execution remain unverified.",
     "startup_error_source_checks": {
       "kind": "Static renderer-startup source checks only",
       "passed": 20,
@@ -110,6 +110,20 @@
       "prior_public_commit": "6fa8cd8829b522b688ee0cac58f8b01be618a636"
     },
     "viewer_runtime_check": {
+      "file_in_archive": "VIEWER-CHECKS.json",
+      "bytes": 3122,
+      "sha256": "4c9fd7f5d435c01c5f75edf8b26cb44fbbe9163b526ddc54451e54794b1fabda",
+      "scope": "Linux Chromium/SwiftShader on the packaged Linux launcher. Exact R9 default and restored canvas, keyboard-selected left atlas isolation, focus, rotation, ordinary Insula and missing optional GLB readback.",
+      "prior_public_commit": "bbdc92dbc4559282fda029116f1e9588106922b3"
+    },
+    "red_nucleus": {
+      "asset": "payload/brain-outward-r6/assets/red-nucleus-source-left.glb",
+      "sha256": "3e67055edca4fe9d1c402aa8e1ad1acb8358c62aa7d203715b501e2a1d89248c",
+      "allen_label": 12247,
+      "side": "original source-left",
+      "evidence": "Exact atlas-derived geometry independently checked. Comparison to separate MRI and histology remains qualitative."
+    },
+    "historical_package_R9_viewer_check": {
       "file_in_archive": "VIEWER-CHECKS.json",
       "bytes": 2434,
       "sha256": "b643391441d7a021daecb50f40a24165476bbaf61ff4f92108023b96a55ab6c0",
