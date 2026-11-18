@@ -30,27 +30,27 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R14",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R14.zip",
-    "bytes": 38709900,
-    "sha256": "70cb783da9dd737d19eaa8d5604d127f7b16ee20968a23b66274a939409d78d0",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r14",
-    "regular_files": 48,
-    "uncompressed_bytes": 74784210,
+    "edition": "Brain R8 experimental preview, package R15",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R15.zip",
+    "bytes": 38728380,
+    "sha256": "b4862fe177225e21ef236f0c9707b9f83744b6a43d4dd4bebfea3cab8bf39d91",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r15",
+    "regular_files": 50,
+    "uncompressed_bytes": 74845714,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 64261,
-      "sha256": "e27bd670917a05020efbf8ea9a2996cd0ee41f7bf0af47e99220075d4caf8876",
-      "scope": "Current file identities, with 47 entries excluding the manifest.",
+      "bytes": 67017,
+      "sha256": "60264dbfd12f4acda7390072d821bdbf567e54b40b4590a190028a88c7c6dc4d",
+      "scope": "Current file identities, with 49 entries excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Separate source-left VPL isolation. The two optional surfaces load and fail independently. VPM remains an atlas label.",
+    "change": "Source-left VPM isolation. VPM, VPL and the red nucleus each load through a separate checksum-verified mesh.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
-      "current_registry_bytes": 261851,
-      "current_registry_sha256": "a01a5b2189811da6d1b1e929bb51724ec589d54cb66c08997f653535956d733f"
+      "current_registry_bytes": 263737,
+      "current_registry_sha256": "6e4fd6e57e22e656e8f12acf55bb9eecb5552066c80536d1d8474538e1512d53"
     },
-    "limitations": "The preview accounts for 121 of 141 occupied source labels across 42 meshes and their source records. Thirty-two labels have separate meshes, 83 have samples on combined surfaces and six appear as atlas labels only. A further 20 lack included surfaces. Original source-left only. Quantitative anatomy, functional claims, native visuals and full export acceptance remain open.",
+    "limitations": "The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The atlas places the structure in an adult population-reference frame. Quantitative independent anatomy, individual fit, neural function, original C01 visual checks, held-out evidence and full export acceptance remain open.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
       "bytes": 21505,
@@ -177,12 +177,35 @@
       "scope": "VPL and VPM open under Atlas labels only with isolation and focus disabled. The linked sources stay available. The left red nucleus can still be turned, resized while isolated and restored.",
       "prior_public_commit": "62b1190504546dc168c23c7eb4262401a22181d4"
     },
-    "package_R14_viewer_check": {
+    "historical_package_R14_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "path": "Extracted ZIP, unchanged Linux launcher, browser keyboard and mouse controls",
       "scope": "VPL isolates, rotates, focuses, resizes in the same tab and returns to context. The viewer switches between VPL and the red nucleus, and retains atlas entries when the optional files fail independently. VPM stays atlas-only. The initial scene and the checked red nucleus frames match R13 pixel for pixel.",
       "prior_public_commit": "fb82021e680171fc8527c89f8b9923d0b493f6eb"
+    },
+    "package_R15_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. VPM isolates, turns, keeps its camera pose when resized, focuses and returns to context. The five checked startup, selection and isolation frames for the first view, VPL and the red nucleus match R14 pixel for pixel. In missing and damaged asset tests, a failed surface stays searchable as an atlas label and the other surfaces remain usable.",
+      "compared_to_public_commit": "6aaa899497860456d5ed68a7f4b7f823ff230162"
+    },
+    "vpm": {
+      "asset": "payload/brain-outward-r6/assets/vpm-source-left.glb",
+      "bytes": 53548,
+      "sha256": "dfd1850d5ec93e8dc87dd75744ffc722d717e2205161bd87599dacdc74b12b92",
+      "allen_label": 10425,
+      "side": "original source-left",
+      "source_edition": "Allen Human Reference Atlas — 3D, 2020 v1.0.0",
+      "source_grid_mm": 0.5,
+      "source_voxel_centres": 1016,
+      "source_voxel_volume_mm3": 127,
+      "triangles": 2128,
+      "separately_unlabelled_children": [
+        146034766
+      ],
+      "change_notice": "sources/allen-version1/VPM-NOTICE.txt",
+      "evidence": "The surface gives one atlas boundary. Individual anatomy and neural function require separate evidence."
     }
   }
 }
