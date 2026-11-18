@@ -64,6 +64,6 @@ The original isolate → lateral → deep visual check, C01, remains open at its
 
 ### If the 3D view cannot start
 
-R9 keeps the controls locked until the model is ready. In Linux Chromium with software rendering, the controls stayed locked when geometry, the registry, the viewer module or the renderer page returned HTTP 404. The packaged Linux launcher opened all 40 meshes, with the same initial canvas as R8. The archive’s `VIEWER-CHECKS.json` records these tests. Other startup causes and later rendering faults remain open.
+R9 kept the controls locked until the model was ready. In Linux Chromium with software rendering, the controls stayed locked when geometry, the registry, the viewer module or the renderer page returned HTTP 404. The packaged Linux launcher opened all 40 meshes, with the same initial canvas as R8. The R9 archive’s `VIEWER-CHECKS.json` records those tests. Other startup causes and later rendering faults remain open.
 
 R10 kept the same full-view canvas in a bounded Linux Chromium check. Selecting the red nucleus and isolating it revealed the left surface. Restoring context brought back the R9 scene. If the separate asset fails to load, the rest of the model can still open and the red nucleus remains searchable as an atlas label.
