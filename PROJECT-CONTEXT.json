@@ -30,32 +30,32 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R16",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R16.zip",
-    "bytes": 38732484,
-    "sha256": "36748f249342aaf7ea2980b488e184bf10b853521424ff0e288d609df900cc53",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r16",
-    "regular_files": 50,
-    "uncompressed_bytes": 74859821,
+    "edition": "Brain R8 experimental preview, package R17",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R17.zip",
+    "bytes": 38739282,
+    "sha256": "5ec9a947b5655677df66b1535cad9b5a2a722beab37fae21dd20568c2949a9b3",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r17",
+    "regular_files": 53,
+    "uncompressed_bytes": 74879939,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 68679,
-      "sha256": "a1c82a99a2e0e45f1c82b8c5ce47dd2c9c81e6c3101c8d9a491f35ac685d288d",
+      "bytes": 70676,
+      "sha256": "e7d214edd7ca4077303107bfa126f3417682aecd9f4d7b84ad362a45a4da58de",
       "scope": "Current file identities, with 49 entries excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Compare the unchanged source-left VPL and VPM surfaces in the same view. Both retain individually checksum-verified meshes and can still be isolated separately.",
+    "change": "Show and hide the native voxel-grid boundary between left VPL and VPM. The original surfaces stay available in comparison and isolation.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
-      "current_registry_bytes": 264220,
-      "current_registry_sha256": "d08a3ce871fa876fd12025a8906fe7b6c4528967f57909cf42bf1d47b8c23a77"
+      "current_registry_bytes": 264481,
+      "current_registry_sha256": "396605529e76213e984a6938efcd3e4d24f0cd5053969973ebe451db1063e1da"
     },
     "limitations": "The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The atlas places the structure in an adult population-reference frame. Quantitative independent anatomy, individual fit, neural function, original C01 visual checks, held-out evidence and full export acceptance remain open.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 24123,
-      "sha256": "0c994932b957031bcf75fb0715f2c205058fd3cc1cbe7d2cbc372bacf668db28",
-      "code_change": "Joint camera framing, blue and copper display materials, individual picks and restoration of the previous camera and view."
+      "bytes": 25805,
+      "sha256": "1057a03649a156d11e69ade8681ae53b0a1ee4a0dab60372207afc06ecf2a15a",
+      "code_change": "Optional checksum-verified face mesh in the source frame, transparent context, and exact pose restoration."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -127,8 +127,8 @@
     "viewer_layout": {
       "page": "payload/brain-outward-r6/index.html",
       "controller": "payload/brain-outward-r6/ui.js",
-      "page_sha256": "57719e83d6c2ee3268569b6622ff57afa0e30f38bec0d4371b25140e104e5d72",
-      "controller_sha256": "26bcfad66aa39ab9a2c497d5c8166639e1050cc2d1cb3c76ff00a31460219903",
+      "page_sha256": "82fe1df3754a22d6a59b0dcf36928a9bb58d3fe9ac2a3f65f5141137ed130a01",
+      "controller_sha256": "b76a52b713ad0b6b8f48bc5a10973baabac7344b39cda18c392184197e479e1e",
       "renderer_page": "payload/brain-outward-r6/render.html",
       "renderer_page_sha256": "55e7ecc02adf4bd239667e2bb82afe8516aa283923307e4be1005087b9493eb3"
     },
@@ -223,7 +223,47 @@
       ],
       "prior_R15_source_and_browser_independent_review_sha256": "e98c40bcfa17d1c93697768e44f58075574eaec95a14c39f00a89c22114dc80b",
       "evidence_scope": "Atlas-label face adjacency in that source version. External tissue and MRI comparison is qualitative.",
-      "geometry": "VPL and VPM GLB bytes, matrices and original derivation notices remain identical to R15."
+      "geometry": "VPL and VPM GLB bytes, matrices and original derivation notices remain identical to R15.",
+      "overlay": {
+        "file": "assets/vpl-vpm-shared-faces.json",
+        "sha256": "f2881deac04ad32a5ac00bb4f83f22ea3075a0715ffc2989d1f20eb3f09351b3",
+        "color": "#a65e00",
+        "faces_by_RAS_normal": [
+          218,
+          111,
+          152
+        ]
+      },
+      "shared_face_grid": {
+        "path": "payload/brain-outward-r6/assets/vpl-vpm-shared-faces.json",
+        "bytes": 7915,
+        "sha256": "f2881deac04ad32a5ac00bb4f83f22ea3075a0715ffc2989d1f20eb3f09351b3",
+        "change_notice": "sources/allen-version1/VPL-VPM-SHARED-FACES-NOTICE.txt",
+        "native_coordinate_frame": "Allen v1.0.0 original left, RAS mm. World metres (−R, S, A)/1000.",
+        "min_corner_RAS_mm": [
+          -14.75,
+          -23.25,
+          -3.25
+        ],
+        "max_corner_RAS_mm": [
+          -9.75,
+          -16.25,
+          6.25
+        ],
+        "face_counts_R_A_S": [
+          218,
+          111,
+          152
+        ],
+        "grid_face_area_by_normal_mm2_R_A_S": [
+          54.5,
+          27.75,
+          38.0
+        ],
+        "total_grid_face_area_mm2": 120.25,
+        "scope": "Face-adjacency on the original 0.5 mm Allen v1.0.0 left annotation. Grid faces approximate an atlas boundary. No mesh intersection, individual anatomy, or neural connectivity is measured.",
+        "licence": "CC BY 4.0 atlas derivative."
+      }
     },
     "historical_package_R15_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
@@ -231,11 +271,18 @@
       "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. VPM isolates, turns, keeps its camera pose when resized, focuses and returns to context. The five checked startup, selection and isolation frames for the first view, VPL and the red nucleus match R14 pixel for pixel. In missing and damaged asset tests, a failed surface stays searchable as an atlas label and the other surfaces remain usable.",
       "compared_to_public_commit": "6aaa899497860456d5ed68a7f4b7f823ff230162"
     },
-    "package_R16_viewer_check": {
+    "historical_package_R16_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The two surfaces draw and can be picked in the comparison. Its camera survives rotation and live resize. Returning restores the earlier selection and pose, including single isolation. The checked ordinary startup, deep-context and single-nucleus frames match R15 pixel for pixel. If one mesh fails, the source label remains searchable and the other mesh can still be isolated.",
       "compared_to_commit": "518edcb7440fcdafb8b3dcd7582b4d73183c4dc0",
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R17_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The boundary follows the two labels as you turn or resize the model. Mouse, keyboard and emulated touch passed. If the shared-face file cannot load, both surfaces remain available. A missing surface keeps its searchable atlas label. R16 and R17 drew identical frames for the checked startup, deep context, individual nuclei and comparison with the overlay off.",
+      "compared_to_commit": "27dbff508e1e04c3b0acd87758b4c95294100913",
       "full_scientific_or_native_acceptance": false
     }
   }

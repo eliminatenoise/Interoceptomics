@@ -1,18 +1,18 @@
 # The map and its sources
 
-## Brain R8 package R16
+## Brain R8 package R17
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R16.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R17.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R16.zip` |
-| Size | 38,732,484 bytes |
-| SHA256 | `36748f249342aaf7ea2980b488e184bf10b853521424ff0e288d609df900cc53` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R16.zip.sha256) |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R17.zip` |
+| Size | 38,739,282 bytes |
+| SHA256 | `5ec9a947b5655677df66b1535cad9b5a2a722beab37fae21dd20568c2949a9b3` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R17.zip.sha256) |
 | Model and controls | Source-left geometry, inspection by available meshes or surface samples |
 
-The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 50 regular files. The package manifest identifies the other 49 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
+The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 53 regular files. The package manifest identifies the other 52 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
 
 ### Atlas-derived anatomy and overview
 
@@ -32,15 +32,17 @@ R15 adds the left ventral posterior medial nucleus at `payload/brain-outward-r6/
 
 R16 puts the same two surfaces in one viewer. Their GLB files, spatial positions and change notices retain the R15 bytes. The viewer applies blue and copper to identify the two labels in comparison mode only. The face count follows the original left atlas annotation and uses the same CC BY 4.0 source.
 
+R17 includes `payload/brain-outward-r6/assets/vpl-vpm-shared-faces.json`. Each entry identifies one face between Allen v1.0.0 labels 10424 and 10425 in the original left annotation, using the perpendicular grid axis and the lower of its two voxel indices along that axis. Its change notice is `sources/allen-version1/VPL-VPM-SHARED-FACES-NOTICE.txt`. Keep the Allen attribution and CC BY 4.0 terms with the face indices. The colours and ghosted surfaces help you see this grid boundary as you turn it.
+
 The overview is the generated medial render of that derivative. No underlying MNI MRI or internal comparison photographs are included. Source identity does not establish complete anatomical accuracy, and the licence supplies no accuracy or fitness warranty.
 
 ### The exact labels and hierarchy
 
 The [official version1 CSV](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv) is a listed member of the same atlas collection. R10 retains its complete, unchanged 479,643 bytes, SHA256 `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f`. It was retrieved on 15 November 2026 Melbourne; the observed Last-Modified header is 19 February 2025. A version1 directory name and that header do not prove frozen-2020 bytes.
 
-The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields. R10 adds display and availability fields to one label, on top of the 20 revised omission notes. R13 corrected the availability descriptions for VPL, VPM and their combined thalamic surface. R14 adds the separate VPL surface entry. R15 added the separate VPM surface entry and its anatomical citations. R16 records how both territories appear in the comparison and the shared-face count in the source annotation. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was last run for R3. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
+The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields. R10 adds display and availability fields to one label, on top of the 20 revised omission notes. R13 corrected the availability descriptions for VPL, VPM and their combined thalamic surface. R14 adds the separate VPL surface entry. R15 added the separate VPM surface entry and its anatomical citations. R16 records how both territories appear in the comparison and the shared-face count in the source annotation. R17 adds the native coordinates of those faces. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was last run for R3. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
 
-The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 264,220 bytes, SHA256 `d08a3ce871fa876fd12025a8906fe7b6c4528967f57909cf42bf1d47b8c23a77`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R16 files.
+The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 264,481 bytes, SHA256 `396605529e76213e984a6938efcd3e4d24f0cd5053969973ebe451db1063e1da`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R17 files.
 
 The collection README explicitly includes ontology/hierarchy examples in its materials. Its CC BY grant therefore supplies a parallel, identified permission basis for these precise matching fields and checked adaptations. That source application was independently accepted; it does not redate the production query. Preserve the direct upstream CC BY offer, attribution and changes. Do not relicense this material as project-owned CC0 or add a noncommercial restriction to it. No blanket licence for the whole API response, every future Improvement, AI use or the complete model is created here.
 
