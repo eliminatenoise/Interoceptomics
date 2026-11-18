@@ -1,15 +1,15 @@
 # The map and its sources
 
-## Brain R8 package R11
+## Brain R8 package R12
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R11.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R12.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R11.zip` |
-| Size | 38,662,895 bytes |
-| SHA256 | `74c04e24e8f7202351a47c869d158500ed243b3bc0a5d94633859e31e7bd31c7` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R11.zip.sha256) |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R12.zip` |
+| Size | 38,665,401 bytes |
+| SHA256 | `dbccae1e20fe10f0a6b4040e87b0555839e276eecfd8558fc57e052412ef9d53` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R12.zip.sha256) |
 | Model and controls | Source-left geometry, inspection by available meshes or surface samples |
 
 The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 46 regular files. The package manifest identifies the other 45 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
@@ -24,7 +24,7 @@ The derivative selects native RAS R≤0, extracts surfaces from 0.5 mm annotatio
 
 Package R7 moves renderer setup into the existing error handler and adds a plain startup failure message with the error identity. Its successful scene/control code is unchanged. Thirty-nine of the 43 files retain their R6 bytes, modes and modification times, including geometry, source labels, identity files, palette, dependencies and launchers. The other changes are the matching release notes, change notice and manifest. Package R8 adds a loading message, recovery steps and a record of the browser checks. Thirty-eight files retain their R7 bytes, modes and modification times, including the geometry, source labels, identity files, palette, dependencies and launchers. Package R9 classifies selector entries using the delivered mesh and label assignments, displays the existing cerebral surface when needed and waits for the viewer before enabling its controls. The model’s coordinates, sources and 20 omission notes retain their R8 bytes.
 
-Package R10 adds one left red nucleus surface. It selects Allen label 12247 in the original left annotation, extracts an unsmoothed 0.5 isosurface on the 0.5 mm source grid and applies the same proper coordinate basis. Display normals and material were added. The exact asset is `payload/brain-outward-r6/assets/red-nucleus-source-left.glb`, SHA256 `3e67055edca4fe9d1c402aa8e1ad1acb8358c62aa7d203715b501e2a1d89248c`. The atlas terms and change notices above travel with it. R11 moves the overview outside the model view during isolation. The external MRI and histology comparison figures are outside the download.
+Package R10 adds one left red nucleus surface. It selects Allen label 12247 in the original left annotation, extracts an unsmoothed 0.5 isosurface on the 0.5 mm source grid and applies the same proper coordinate basis. Display normals and material were added. The exact asset is `payload/brain-outward-r6/assets/red-nucleus-source-left.glb`, SHA256 `3e67055edca4fe9d1c402aa8e1ad1acb8358c62aa7d203715b501e2a1d89248c`. The atlas terms and change notices above travel with it. R11 moved the overview outside the model view during isolation. R12 fits the canvas to the window and adjusts the camera projection during live resizing. The external MRI and histology comparison figures are outside the download.
 
 The overview is the generated medial render of that derivative. No underlying MNI MRI or internal comparison photographs are included. Source identity does not establish complete anatomical accuracy, and the licence supplies no accuracy or fitness warranty.
 
@@ -34,7 +34,7 @@ The [official version1 CSV](https://download.alleninstitute.org/informatics-arch
 
 The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields. R10 adds display and availability fields to one label, on top of the 20 revised omission notes. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was last run for R3. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
 
-The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 260,621 bytes, SHA256 `46be782cd036a73cb77943ede609b7869350d66cbaa1301a2004c6fff47bd973`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R11 files.
+The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 260,621 bytes, SHA256 `46be782cd036a73cb77943ede609b7869350d66cbaa1301a2004c6fff47bd973`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R12 files.
 
 The collection README explicitly includes ontology/hierarchy examples in its materials. Its CC BY grant therefore supplies a parallel, identified permission basis for these precise matching fields and checked adaptations. That source application was independently accepted; it does not redate the production query. Preserve the direct upstream CC BY offer, attribution and changes. Do not relicense this material as project-owned CC0 or add a noncommercial restriction to it. No blanket licence for the whole API response, every future Improvement, AI use or the complete model is created here.
 
@@ -58,12 +58,12 @@ Local surface-direction countercases, deep-view differences, occlusion and stock
 
 ### The highlight repair and its limits
 
-Five constructed exact-handler software checks passed for the earlier R6 viewer; the old viewer failed the two isolation-exit checks. The fixture used one selected and one contrast vertex, with substitutes for the renderer, scene, DOM and camera. Its historical result covers stored CPU colour inputs. Full browser controls, hardware GPU rendering, displayed colour and performance remain unverified.
+Five constructed exact-handler software checks passed for the earlier R6 viewer; the old viewer failed the two isolation-exit checks. The fixture used one selected and one contrast vertex, with substitutes for the renderer, scene, DOM and camera. Its historical result covers stored CPU colour inputs. The later Linux resize tests include AMD/RADV. Broader browser controls, displayed colour and performance remain open.
 
-The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target: an 1800 × 1200 window and a 1470 × 1200 model viewport. The retained SwiftShader/wrong-window run stopped before any control actions. Earlier images and pixel checks describe earlier builds. Reference-series, donor/scale/function, held-out, rights/privacy, native visual/export and OS requirements remain; the new documentation’s rendered layout and actual font fallback are unverified. The software result supplies no new anatomical or biological validation.
+The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target: an 1800 × 1200 window and a 1470 × 1200 model viewport. The retained SwiftShader/wrong-window run stopped before any control actions. Earlier images and pixel checks describe earlier builds. Reference-series, donor/scale/function, held-out, rights/privacy, native visual/export and OS requirements remain. The software result supplies no new anatomical or biological validation.
 
 ### If the 3D view cannot start
 
 R9 kept the controls locked until the model was ready. In Linux Chromium with software rendering, the controls stayed locked when geometry, the registry, the viewer module or the renderer page returned HTTP 404. The packaged Linux launcher opened all 40 meshes, with the same initial canvas as R8. The R9 archive’s `VIEWER-CHECKS.json` records those tests. Other startup causes and later rendering faults remain open.
 
-R11 kept the same R10 canvas at the three checked window sizes in Linux Chromium with software rendering. During isolation, the overview sits below the model in a narrow window and beside it in a wide window. If the separate asset fails to load, the rest of the model can still open and the red nucleus remains searchable as an atlas label.
+R12 kept the same R11 framebuffer at five checked startup sizes in Linux Chromium on AMD/RADV and SwiftShader. The canvas follows a live resize while the selected view and camera pose stay in place. During isolation, the overview sits below the model in a narrow window and beside it in a wide window. If the separate asset fails to load, the rest of the model can still open and the red nucleus remains searchable as an atlas label.
