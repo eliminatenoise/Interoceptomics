@@ -55,20 +55,24 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R18](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R18.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R18.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r18) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R19](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R19.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R19.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r19) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
+
+Search for **PaO**, **parietal operculum** or **13230**. Select the label and choose **Isolate in place** when the separate surface is ready. Drag to turn it and choose **Focus** to centre it. Pick the surface or open **Evidence and limits** for the anatomy and studies of touch. **Restore context** brings the surrounding tissue back.
+
+The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
 
 Search for **VPL** or **VPM**, select a result, then choose **Compare VPL and VPM**. Choose **Show atlas sections** and pick a plane and atlas level. Each tile comes from the original Allen grid. The violet frame places the selected section in 3D. Copper dots identify VPM. A dark line follows the edges shared with VPL. **Show shared voxel faces** still draws their gold 3D boundary. **Return to prior view** or Escape restores the selection and camera.
 
 Search for **VPM**, **VPL** or **Red nucleus**, then choose **Isolate in place** to lift away the surrounding tissue. Drag to turn the surface. **Focus** centres it again. The medial overview moves below the model in a narrow window and beside it in a wide window. Choose **Restore context** to bring the hemisphere back. Exposed points under **Surface samples** turn dark grey. **Atlas labels only** gives you the notes for territories with no surface samples to highlight.
 
-The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The model shows the original left atlas and has no individual fit or trained neural weights.
+The preview accounts for 121 of 141 occupied source labels across 44 meshes and their source records. Thirty-four labels have separate meshes. Eighty-three have samples on combined surfaces, including the parietal operculum. Five appear only as atlas labels. A further 20 lack included surfaces. The model shows the original left atlas and has no individual fit or trained neural weights.
 
 The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The rendered tiles, shared edges and 3D frame matched the source grid at all 85 selectable levels. Keyboard and emulated touch passed. If the section file cannot load, the paired surfaces and shared faces stay available. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. Keyboard and emulated touch exercised isolation and focus. The combined cortical view stays available if the separate mesh fails. All 85 VPL/VPM source sections and camera restoration passed the browser checks. Native Windows, macOS and physical mobile execution remain open.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 
-The original brain asset and its coordinates, source identities, colours, dependencies and launchers retain their R9 bytes. VPM, VPL and the red nucleus use that same atlas frame. The original source terms and Three.js MIT notice travel with the model. See the package manifest for the file identities.
+The original brain asset and its coordinates, source identities, colours, dependencies and launchers retain their R9 bytes. The parietal operculum, VPM, VPL and the red nucleus use that same atlas frame. The original source terms and Three.js MIT notice travel with the model. See the package manifest for the file identities.

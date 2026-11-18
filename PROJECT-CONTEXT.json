@@ -30,32 +30,32 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R18",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R18.zip",
-    "bytes": 38747807,
-    "sha256": "e676632646ee2ea9f6415daf5de3a1d52c7738a2793a2414a58c13ea9ac0adab",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r18",
-    "regular_files": 56,
-    "uncompressed_bytes": 74928200,
+    "edition": "Brain R8 experimental preview, package R19",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R19.zip",
+    "bytes": 38963574,
+    "sha256": "9b564fe4708e017f985259d74e8c469c88744f71037c4e32a56040bc8bf4f0e5",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r19",
+    "regular_files": 58,
+    "uncompressed_bytes": 75753771,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 73084,
-      "sha256": "0e9d36373c906071927640b6e0893854704327ac628d1c3420a15ec5fcbd97c3",
-      "scope": "Current identities for 55 files excluding the manifest.",
+      "bytes": 76142,
+      "sha256": "d43632a058c49ce8b815ed254236bf2e8a19705f4b0b92edf89070c48bd50efb",
+      "scope": "Current identities for 57 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "View original paired atlas sections at 85 native levels with a registered frame in the paired 3D view.",
+    "change": "Separate registered left parietal operculum (Allen 13230) loads when selected.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
-      "current_registry_bytes": 264877,
-      "current_registry_sha256": "510b39c4a74591e82e9e1c6e79ea3ec7f59232d4409538c80c6e00f5d72ae331"
+      "current_registry_bytes": 268676,
+      "current_registry_sha256": "fa7ccc228349a7c718aeb05c933d76146dbf292b22f84fd18789edafc260e52b"
     },
     "limitations": "The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The atlas places the structure in an adult population-reference frame. Quantitative independent anatomy, individual fit, neural function, original C01 visual checks, held-out evidence and full export acceptance remain open.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 27440,
-      "sha256": "ad689c1123a559a5235c0e39a5279a7e29069894b3ef0a5d0646129acef0928e",
-      "code_change": "Optional source section frame in the native atlas coordinate system. Comparison returns to the prior camera, selection and context."
+      "bytes": 28601,
+      "sha256": "912bd0cccb354757d20003e9f6df2cde4a5431dd5d2adab41b9fe8473d2f2c96",
+      "code_change": "Checksum-verified PaO surface loads on selection. Isolate, focus, pick and restore contextual cortex."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -343,11 +343,68 @@
       "compared_to_commit": "27dbff508e1e04c3b0acd87758b4c95294100913",
       "full_scientific_or_native_acceptance": false
     },
-    "package_R18_viewer_check": {
+    "parietal_operculum": {
+      "file": "payload/brain-outward-r6/assets/parietal-operculum-source-left.glb",
+      "changes": "sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt",
+      "license": "CC BY 4.0 atlas derivative",
+      "source_annotation_sha256": "be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378",
+      "ontology": {
+        "id": "13230",
+        "name": "parietal operculum",
+        "acronym": "PaO",
+        "structure_id_path": "/10153/10154/10155/10156/10609/12112/12131/13230/",
+        "voxel_count": "43319",
+        "volume_mm3": "5414.875"
+      },
+      "source_frame": "Original v1.0.0 in ICBM 2009b Nonlinear Symmetric, native RAS millimetres",
+      "world_frame": "World metres (−R, S, A)/1000",
+      "voxel_count": 43319,
+      "voxel_size_mm": 0.5,
+      "voxel_volume_mm3": 5414.875,
+      "surface_area_mm2": 3102.799782773176,
+      "surface_enclosed_volume_mm3": 5404.760235616547,
+      "RAS_bounds_mm": [
+        [
+          -62.24999949336052,
+          -35.25000065565109,
+          0.750000006519258
+        ],
+        [
+          -29.249999672174454,
+          1.2499999720603228,
+          27.249999344348907
+        ]
+      ],
+      "world_bounds_m": [
+        [
+          0.029249999672174454,
+          0.000750000006519258,
+          -0.03525000065565109
+        ],
+        [
+          0.06224999949336052,
+          0.027249999344348907,
+          0.0012499999720603228
+        ]
+      ],
+      "vertices": 16862,
+      "triangles": 33716,
+      "bytes": 811540,
+      "sha256": "367f7990b2a3968b4e89d95a38d0fcf51e15776d77065fd25dfed1a204b391c3",
+      "scope": "Gross source label. Anatomy only. Histology and touch research are separately cited."
+    },
+    "historical_package_R18_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The rendered tiles, shared edges and 3D frame matched the source grid at all 85 selectable levels. Keyboard and emulated touch passed. If the section file cannot load, the paired surfaces and shared faces stay available.",
       "compared_to_commit": "13d23892afd10127142e52539a8c2498fc370be5",
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R19_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. Keyboard and emulated touch exercised isolation and focus. The combined cortical view stays available if the separate mesh fails. All 85 VPL/VPM source sections and camera restoration passed the browser checks.",
+      "compared_to_commit": "67fc95e7dac559b700c323f6770c17b84d1e7311",
       "full_scientific_or_native_acceptance": false
     }
   }
