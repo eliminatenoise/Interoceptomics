@@ -1,29 +1,23 @@
-# Brain R8 · package R13
+# Brain R8 · package R14
 
 Experimental preview · 19 November 2026
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R13.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R13.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r13)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R14.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R14.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r14)
 
-The archive is **38,666,225 bytes**, with 46 files and 74,625,687 uncompressed bytes. Its SHA256 is `bc26f441091aa10cc039145d0e525bf2ddfe108d039b33c35ccdeed0b24107f1`.
+The archive is **38,709,900 bytes**, with 48 files and 74,784,210 uncompressed bytes. Its SHA256 is `70cb783da9dd737d19eaa8d5604d127f7b16ee20968a23b66274a939409d78d0`.
 
-## VPL and VPM in the selector
+## Turn the left VPL
 
-Search for VPL or VPM under Atlas labels only. The Allen annotation contains both labels. The combined thalamic surface has no vertices assigned to either label, and neither has a separate mesh in this preview. The Allen hierarchy lists the rostral (VPLr) and caudal (VPLc) subdivisions under VPL, with no voxels separately annotated to either in the version 1 source table.
+Find **VPL** under **Separate meshes** and choose **Isolate in place**. Drag to turn the ventral posterior lateral nucleus. Choose **Focus** to centre it or **Restore context** to bring the hemisphere back. Select **Red nucleus** to inspect the midbrain surface the same way. The canvas follows your window and keeps your view while you resize it.
 
-In Linux Chromium on AMD/RADV, both entries showed the source notes with focus and isolation disabled. The left red nucleus still isolated, turned, resized in the same tab and returned to context. The 3D canvas matched R12 pixel for pixel at the corresponding checked stages.
+The separate surface follows Allen Human Reference Atlas — 3D, 2020 v1.0.0 label 10424 in the original left half. The surrounding thalamus hides it in the ordinary views. The Allen hierarchy lists the rostral (VPLr) and caudal (VPLc) subdivisions under VPL. In version 1 neither has separately labelled voxels. VPM stays under **Atlas labels only**, with its source notes.
 
-## Turn the left red nucleus
+## What was checked
 
-Choose **Red nucleus · left atlas surface**, then **Isolate in place**. Drag to turn the nucleus and narrow the window. The canvas follows the window while the turn, pan and zoom stay in place. The medial overview moves below the canvas in a narrow window and beside it in a wide one. Choose **Restore context** to bring back the surrounding brain.
+In Linux Chromium on AMD/RADV, the normal Linux launcher opened the extracted ZIP. The left VPL stayed isolated while it was turned and the window was resized. A click on the isolated surface reported 10424. The first view and four checked red nucleus frames matched R13 pixel for pixel. A missing VPL file left the red nucleus usable, a missing red nucleus file left VPL usable, and the rest of the atlas stayed available when both files were missing. A damaged VPL file produced the same fallback for that label.
 
-In R12, at five checked startup sizes, the first view, isolation and restored view matched R11 pixel for pixel, separately on AMD/RADV and SwiftShader in Linux Chromium. Live tests changed width, orientation and emulated display density in the same tab. They kept the nucleus and Insula group selected, checked keyboard focus and restore, and picked a rendered source label at the new dimensions. Blocking the optional nucleus file left the atlas label and the rest of the model usable. `VIEWER-CHECKS.json` in the archive records these checks.
+Extract the complete ZIP and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Native Windows and macOS launch remain unverified.
 
-## Open the preview
+The preview accounts for 121 of 141 occupied source labels across 42 meshes and their source records. Thirty-two labels have separate meshes, 83 have samples on combined surfaces and six appear as atlas labels only. A further 20 lack included surfaces. The mesh shows one population-reference atlas boundary. Individual anatomy and neural function require separate evidence. The comparison with other MRI and histology sources is qualitative. Quantitative anatomy, the original C01 visual checks, held-out evidence and full export acceptance remain open.
 
-Extract the whole ZIP and open its README. The Windows, macOS and Linux launchers need Python 3.10 or newer and a browser with WebGL. The Linux launcher served the tested model on loopback. Native Windows and macOS launch remain unverified.
-
-## What the atlas shows
-
-R10 added the unsmoothed left red nucleus from Allen Human Reference Atlas — 3D, 2020 v1.0.0, label 12247 on a 0.5 mm grid. The separate MRI and histology comparison is qualitative. Quantitative anatomy, held-out evidence and measured neural function require separate tests. The original C01 visual domain, broader appearance and export acceptance remain open.
-
-The geometry, coordinates, source identities, licences, overview image and launchers are among 42 exact R12 files. The root `PACKAGE-MANIFEST.json` lists the current files and has SHA256 `a6bfc6da17547626d58f6aedf8ea2a391a98145783830945f5ad7e5596558c6a`. The manifest inside the model folder records the earlier geometry edition.
+The root `PACKAGE-MANIFEST.json` lists the current files and has SHA256 `e27bd670917a05020efbf8ea9a2996cd0ee41f7bf0af47e99220075d4caf8876`. The manifest inside the model folder records the earlier geometry edition.
