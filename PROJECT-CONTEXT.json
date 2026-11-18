@@ -30,32 +30,32 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R8",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R8.zip",
-    "bytes": 38631702,
-    "sha256": "1c3cf4824612a33552f0e55cc7e5ce334fe34a5a091cb08d667fc4494103922f",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r8",
+    "edition": "Brain R8 experimental preview, package R9",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R9.zip",
+    "bytes": 38634065,
+    "sha256": "ccde23c90f2f4ef130232c442bb5eb997f8edfa702582ec005dd0f278706fc3f",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r9",
     "regular_files": 44,
-    "uncompressed_bytes": 74503032,
+    "uncompressed_bytes": 74510354,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 51722,
-      "sha256": "a72a159fd138b8ec8e6017b9b3971c61d89759153147629c7cc7e8e03b216955",
+      "bytes": 53397,
+      "sha256": "442a1dfb5b6c7d477c8db1054f8274758f7f49e4e38301596566daea4c59200e",
       "scope": "Current file identities, with 43 entries excluding the package manifest itself.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "R8 adds a loading message and recovery guidance. Geometry, registry, identity files, palette, dependencies and launchers match R7. The historical R3 source-field comparison and 20 omission notes are retained.",
+    "change": "Loading and startup-failure states gate controls. The selector distinguishes separate meshes, labels with assigned surface samples and source-only atlas records. Selecting a cerebral label with samples brings the existing cerebral surface into view when hidden.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 259848,
       "current_registry_sha256": "8c2c83b1cba48df2434c5ae149f346254cefbce261d205292a40f987db4278f4"
     },
-    "limitations": "40 meshes cover 121 of 141 occupied source labels; 20 labels lack surfaces. No neural weights, individual fit, demonstrated biological function or complete scientific, native-platform, visual or export acceptance.",
+    "limitations": "The package accounts for 121 of 141 occupied source labels across 40 meshes and their source records. Thirty labels have separate meshes, 83 have assigned samples on existing surfaces and eight have source records alone in the selector. A further 20 labels lack included surfaces. No neural weights, individual fit or complete biological, scientific, visual, native-platform or export acceptance.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 17905,
-      "sha256": "25bd3360e01c70ff2df00e6e43256f8e7094e03440025b449db02d29403bda57",
-      "code_change": "Visible loading status, staged startup error guidance and HTTP status diagnostics. The original error remains available in Technical details."
+      "bytes": 18313,
+      "sha256": "e3585fbb1a7f8bfc6d9bb00868ac96f7ff0308c3e55aabda80942123719739f6",
+      "code_change": "Viewer reports actual mesh and surface-label availability after first successful scene. Startup errors keep controls disabled."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -71,10 +71,10 @@
       },
       "full_browser_GPU_visual_or_performance_validation": false,
       "R6_viewer_sha256": "a19f812edc41388e70a74da03f40f7c3cce3dabf4201183718934b7a8e1fce51",
-      "historical_scope": "Earlier R6 constructed control-fixture evidence. R8 browser observations are recorded separately."
+      "historical_scope": "Earlier R6 constructed control-fixture evidence. R9 Chromium observations are separate."
     },
     "verification_limits": {
-      "C01": "The original AMD/RADV isolate/lateral/deep visual check remains open. The R8 startup check used software rendering.",
+      "C01": "The original AMD/RADV isolate/lateral/deep visual check remains open. R9 used software rendering.",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "window": [
         1800,
@@ -87,7 +87,7 @@
       "pending": "Full browser controls, GPU/colour appearance, performance, real-reference SERIES, anatomy, donor/scale/function, rights/privacy, held-out, native visual/export, OS and actual documentation layout/font fallback.",
       "earlier_images_and_pixel_results": "Earlier images and pixel results describe their original builds and test conditions.",
       "retained_C01_stop": "SwiftShader/wrong-window readiness STOP before control actions; original AMD/RADV target and thresholds retained.",
-      "startup": "Software-rendered Linux geometry load, missing-file guidance and manual reload checked. Module import, other startup causes and later interaction faults remain open."
+      "startup": "Local Linux Chromium covered loading, successful model startup and four HTTP 404 cases. Other startup causes and rendering-context loss remain open."
     },
     "complete_scientific_or_production_acceptance": false,
     "launchers": "Windows, macOS and Linux launchers require Python 3.10+ and a WebGL browser. The extracted Linux launcher opened the model in headless Chromium using software rendering. Default-browser opening and native Windows/macOS execution remain unverified.",
@@ -101,13 +101,21 @@
       "limits": "Module import/parse errors, pre-try constants and later asynchronous interaction failures remain outside the repair; exotic thrown-value coercions remain unqualified.",
       "edition": "Historical package R7"
     },
-    "viewer_runtime_check": {
+    "historical_package_R8_viewer_check": {
       "file_in_archive": "VIEWER-CHECKS.json",
       "bytes": 1941,
       "sha256": "92f19a90b325b955b571840d5f86b97137cb07cf836da384e9270501bc0436d6",
       "scope": "Headless Linux Chromium 155, ANGLE SwiftShader. Initial view matched R7 byte for byte at 900 × 517. Lateral, insula group and isolation state matched. A missing geometry file returned HTTP 404, displayed recovery guidance and left viewer readiness unset. A manual reload after restoring the file opened all 40 meshes.",
       "extracted_linux_launcher": true,
       "prior_public_commit": "6fa8cd8829b522b688ee0cac58f8b01be618a636"
+    },
+    "viewer_runtime_check": {
+      "file_in_archive": "VIEWER-CHECKS.json",
+      "bytes": 2434,
+      "sha256": "b643391441d7a021daecb50f40a24165476bbaf61ff4f92108023b96a55ab6c0",
+      "scope": "Headless Linux Chromium 155 with ANGLE SwiftShader. Exact R8 initial 555 × 517 3D canvas match. Keyboard evidence covers source-only, shared samples and separate mesh choices, focus, isolation, reset and filtering. Four HTTP 404 cases kept controls locked.",
+      "extracted_linux_launcher": true,
+      "prior_public_commit": "c73bef4533c7fa2610fdc9154e82a2c85d1d81be"
     }
   }
 }
