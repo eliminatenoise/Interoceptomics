@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R19",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R19.zip",
-    "bytes": 38963574,
-    "sha256": "9b564fe4708e017f985259d74e8c469c88744f71037c4e32a56040bc8bf4f0e5",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r19",
+    "edition": "Brain R8 experimental preview, package R20",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R20.zip",
+    "bytes": 38964574,
+    "sha256": "8d6145647bde89c971641af9473b348b7f71d36689cc62524dffb2d6779f7a88",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r20",
     "regular_files": 58,
-    "uncompressed_bytes": 75753771,
+    "uncompressed_bytes": 75757536,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 76142,
-      "sha256": "d43632a058c49ce8b815ed254236bf2e8a19705f4b0b92edf89070c48bd50efb",
+      "bytes": 76536,
+      "sha256": "585d2823ab5c082513a8cfeefeef0ac2c337d2ba45c81c5b7ae1d2a2fc4dd3d4",
       "scope": "Current identities for 57 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Separate registered left parietal operculum (Allen 13230) loads when selected.",
+    "change": "Atlas controls identify the named camera preset. Status announces completed isolation, focus, restoration and reset.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 268676,
@@ -53,9 +53,9 @@
     "limitations": "The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The atlas places the structure in an adult population-reference frame. Quantitative independent anatomy, individual fit, neural function, original C01 visual checks, held-out evidence and full export acceptance remain open.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 28601,
-      "sha256": "912bd0cccb354757d20003e9f6df2cde4a5431dd5d2adab41b9fe8473d2f2c96",
-      "code_change": "Checksum-verified PaO surface loads on selection. Isolate, focus, pick and restore contextual cortex."
+      "bytes": 28652,
+      "sha256": "677551b762d513da7079786e472f560bbcddf10b53c9a018afdf3fa82a248bf9",
+      "code_change": "Send and announce only current camera completions. Clear prior status when the view or context changes."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -400,11 +400,18 @@
       "compared_to_commit": "13d23892afd10127142e52539a8c2498fc370be5",
       "full_scientific_or_native_acceptance": false
     },
-    "package_R19_viewer_check": {
+    "historical_package_R19_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. Keyboard and emulated touch exercised isolation and focus. The combined cortical view stays available if the separate mesh fails. All 85 VPL/VPM source sections and camera restoration passed the browser checks.",
       "compared_to_commit": "67fc95e7dac559b700c323f6770c17b84d1e7311",
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R20_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV checked keyboard, emulated touch and the accessibility tree. Restore context and Reset view returned to the named preset in all four atlas views. Focus returned to the selection. Earlier action status cleared on context changes. The model pixels matched R19. All 85 VPL/VPM sections and return to the prior comparison view passed.",
+      "compared_to_commit": "75547a5d81d49606933c114a0ff311522690b0bd",
       "full_scientific_or_native_acceptance": false
     }
   }

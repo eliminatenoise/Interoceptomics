@@ -1,15 +1,15 @@
-# Brain R8 · package R19
+# Brain R8 · package R20
 
 Experimental research preview · 19 November 2026
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R19.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R19.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r19)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R20.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R20.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r20)
 
-The archive is **38,963,574 bytes**, with 58 files and 75,753,771 uncompressed bytes. Its SHA256 is `9b564fe4708e017f985259d74e8c469c88744f71037c4e32a56040bc8bf4f0e5`.
+The archive is **38,964,574 bytes**, with 58 files and 75,757,536 uncompressed bytes. Its SHA256 is `8d6145647bde89c971641af9473b348b7f71d36689cc62524dffb2d6779f7a88`.
 
-Search for **PaO**, **parietal operculum** or **13230**. Select the label and choose **Isolate in place** when the separate surface is ready. Drag to turn it and choose **Focus** to centre it. Pick the surface or open **Evidence and limits** for the anatomy and studies of touch. **Restore context** brings the surrounding tissue back.
+**Restore context** brings back the selected preset at its starting angle and zoom. Medial returns to the constructed dissection. **Focus** centres and zooms to the selection from the preset’s starting angle. **Reset view** ends isolation, keeps the selection and returns to the preset’s starting angle and zoom.
 
-The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
+In the VPL/VPM comparison, **Return to prior view** or Escape restores the camera, selection and context from before you opened the comparison.
 
-Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. Keyboard and emulated touch exercised isolation and focus. The combined cortical view stays available if the separate mesh fails. All 85 VPL/VPM source sections and camera restoration passed the browser checks.
+Linux Chromium 155.0.8059.84 on AMD/RADV checked keyboard, emulated touch and the accessibility tree. Restore context and Reset view returned to the named preset in all four atlas views. Focus returned to the selection. Earlier action status cleared on context changes. The model pixels matched R19. All 85 VPL/VPM sections and return to the prior comparison view passed.
 
-Native Windows, macOS and physical mobile execution, the original C01 check, individual fit, and broader browser performance and export checks remain open.
+Native Windows, macOS and physical mobile execution, the original C01 check, individual fit and broader browser performance and export acceptance remain open.
