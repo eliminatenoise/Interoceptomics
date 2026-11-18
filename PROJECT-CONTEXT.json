@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R7",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R7.zip",
-    "bytes": 38629348,
-    "sha256": "fec89d48abf9c71054f082aa1f1c35c049afc39f244c6f7009dd572c4808d9f8",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r7",
-    "regular_files": 43,
-    "uncompressed_bytes": 74497946,
+    "edition": "Brain R8 experimental preview, package R8",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R8.zip",
+    "bytes": 38631702,
+    "sha256": "1c3cf4824612a33552f0e55cc7e5ce334fe34a5a091cb08d667fc4494103922f",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r8",
+    "regular_files": 44,
+    "uncompressed_bytes": 74503032,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 49850,
-      "sha256": "3ba2dc183dc03eec7512510433f0591e0d0594ea50b5797b23984609d894cbde",
-      "scope": "Current file identities; the manifest excludes itself from its 42 entries.",
-      "historical_inner_record": "The geometry-era payload MANIFEST.json retains older registry and viewer hashes; use the current package manifest for R7 file identity."
+      "bytes": 51722,
+      "sha256": "a72a159fd138b8ec8e6017b9b3971c61d89759153147629c7cc7e8e03b216955",
+      "scope": "Current file identities, with 43 entries excluding the package manifest itself.",
+      "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "R7 moves renderer setup inside the existing error handler and adds a plain startup message with ordinary error identity, retaining stack/fallback and rethrow. The successful scene/control code and R6 highlight repair remain unchanged. Geometry, registry, identity files, palette, dependencies and launchers retain their R6 bytes; 39 of 43 files are unchanged. Earlier omission notes and the historical R3 source-field comparison remain unchanged; no comparison was rerun.",
+    "change": "R8 adds a loading message and recovery guidance. Geometry, registry, identity files, palette, dependencies and launchers match R7. The historical R3 source-field comparison and 20 omission notes are retained.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 259848,
@@ -53,9 +53,9 @@
     "limitations": "40 meshes cover 121 of 141 occupied source labels; 20 labels lack surfaces. No neural weights, individual fit, demonstrated biological function or complete scientific, native-platform, visual or export acceptance.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 16703,
-      "sha256": "34b337134952369b26f0b6982ed65cdfe99933124210f033eb09ec0af4a92b1d",
-      "code_change": "Renderer-startup error boundary and plain textContent diagnostic message only; successful scene/control body and renderer settings unchanged."
+      "bytes": 17905,
+      "sha256": "25bd3360e01c70ff2df00e6e43256f8e7094e03440025b449db02d29403bda57",
+      "code_change": "Visible loading status, staged startup error guidance and HTTP status diagnostics. The original error remains available in Technical details."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -71,10 +71,10 @@
       },
       "full_browser_GPU_visual_or_performance_validation": false,
       "R6_viewer_sha256": "a19f812edc41388e70a74da03f40f7c3cce3dabf4201183718934b7a8e1fce51",
-      "historical_scope": "Accepted earlier R6 constructed control-fixture evidence, not rerun on R7; no startup-runtime result."
+      "historical_scope": "Earlier R6 constructed control-fixture evidence. R8 browser observations are recorded separately."
     },
     "verification_limits": {
-      "C01": "Original isolate/lateral/deep visual check remains open; no confirmation or falsification from the constructed software checks.",
+      "C01": "The original AMD/RADV isolate/lateral/deep visual check remains open. The R8 startup check used software rendering.",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "window": [
         1800,
@@ -85,12 +85,12 @@
         1200
       ],
       "pending": "Full browser controls, GPU/colour appearance, performance, real-reference SERIES, anatomy, donor/scale/function, rights/privacy, held-out, native visual/export, OS and actual documentation layout/font fallback.",
-      "earlier_images_and_pixel_results": "Historical build scope only, not fresh R7 visual acceptance.",
+      "earlier_images_and_pixel_results": "Earlier images and pixel results describe their original builds and test conditions.",
       "retained_C01_stop": "SwiftShader/wrong-window readiness STOP before control actions; original AMD/RADV target and thresholds retained.",
-      "startup_error_visibility_and_successful_R7_startup": "Unexecuted; twenty static checks are source evidence only."
+      "startup": "Software-rendered Linux geometry load, missing-file guidance and manual reload checked. Module import, other startup causes and later interaction faults remain open."
     },
     "complete_scientific_or_production_acceptance": false,
-    "launchers": "Dedicated Windows, macOS and Linux launchers retained byte-exact; Python3.10+ and WebGL browser required. No new native OS execution.",
+    "launchers": "Windows, macOS and Linux launchers require Python 3.10+ and a WebGL browser. The extracted Linux launcher opened the model in headless Chromium using software rendering. Default-browser opening and native Windows/macOS execution remain unverified.",
     "startup_error_source_checks": {
       "kind": "Static renderer-startup source checks only",
       "passed": 20,
@@ -98,7 +98,16 @@
       "actual_JavaScript_or_visible_error": false,
       "actual_successful_WebGL_model_startup": false,
       "actual_OS_C01_GPU_or_scientific_readiness": false,
-      "limits": "Module import/parse errors, pre-try constants and later asynchronous interaction failures remain outside the repair; exotic thrown-value coercions remain unqualified."
+      "limits": "Module import/parse errors, pre-try constants and later asynchronous interaction failures remain outside the repair; exotic thrown-value coercions remain unqualified.",
+      "edition": "Historical package R7"
+    },
+    "viewer_runtime_check": {
+      "file_in_archive": "VIEWER-CHECKS.json",
+      "bytes": 1941,
+      "sha256": "92f19a90b325b955b571840d5f86b97137cb07cf836da384e9270501bc0436d6",
+      "scope": "Headless Linux Chromium 155, ANGLE SwiftShader. Initial view matched R7 byte for byte at 900 × 517. Lateral, insula group and isolation state matched. A missing geometry file returned HTTP 404, displayed recovery guidance and left viewer readiness unset. A manual reload after restoring the file opened all 40 meshes.",
+      "extracted_linux_launcher": true,
+      "prior_public_commit": "6fa8cd8829b522b688ee0cac58f8b01be618a636"
     }
   }
 }
