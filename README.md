@@ -55,15 +55,19 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R15](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R15.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R15.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r15) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R16](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R16.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R16.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r16) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
+
+To see where two thalamic territories meet, search for **VPL** or **VPM**, select the result and choose **Compare VPL and VPM**. Blue and copper identify the two original left surfaces. Turn them together, pick either one or use the labelled buttons. **Return to prior view** or Escape restores your selection, camera and context.
 
 Search for **VPM**, **VPL** or **Red nucleus**, then choose **Isolate in place** to lift away the surrounding tissue. Drag to turn the surface. **Focus** centres it again. The medial overview moves below the model in a narrow window and beside it in a wide window. Choose **Restore context** to bring the hemisphere back. Exposed points under **Surface samples** turn dark grey. **Atlas labels only** gives you the notes for territories with no surface samples to highlight.
 
 The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The model shows the original left atlas and has no individual fit or trained neural weights.
 
-The new surface follows the inner edge of VPL. Its 1,016 Allen atlas voxels occupy 127 mm³. In the checked Linux view, VPM stayed selected and kept its camera pose during resize. The first view and the tested VPL and red nucleus frames matched R14 pixel for pixel. A damaged or missing surface leaves its atlas entry searchable. Native Windows and macOS launcher execution remains unverified.
+VPM follows the inner edge of VPL. Their labels share 481 faces on the 0.5 mm grid of the original left Allen atlas. That is a count of face-sharing voxel neighbours, with edges and corners excluded. It describes this annotation. Individual anatomy, registered cross-atlas error and function require separate evidence.
+
+Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The two surfaces draw and can be picked in the comparison. Its camera survives rotation and live resize. Returning restores the earlier selection and pose, including single isolation. The checked ordinary startup, deep-context and single-nucleus frames match R15 pixel for pixel. If one mesh fails, the source label remains searchable and the other mesh can still be isolated. Native Windows and macOS launcher execution remains unverified.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 
