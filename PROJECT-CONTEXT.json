@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R10",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R10.zip",
-    "bytes": 38661870,
-    "sha256": "05903a61253910d12ec1e72b0beec6d9ea1360c2b4c7f0914285711247cebd30",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r10",
+    "edition": "Brain R8 experimental preview, package R11",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R11.zip",
+    "bytes": 38662895,
+    "sha256": "74c04e24e8f7202351a47c869d158500ed243b3bc0a5d94633859e31e7bd31c7",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r11",
     "regular_files": 46,
-    "uncompressed_bytes": 74605989,
+    "uncompressed_bytes": 74609733,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 58502,
-      "sha256": "9dea20140f17ef00cf5f7251e813f4604740044f8ba7e04d615b929a81e27fae",
+      "bytes": 59618,
+      "sha256": "d8ede3990a2cea5986000aaa1a45d3884ca1bb2ebc352b54509174c5a981af55",
       "scope": "Current file identities, with 45 entries excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "The viewer adds a left red nucleus surface from the same atlas. Explicit isolation reveals it; Restore context brings back the full scene.",
+    "change": "Isolation places the medial overview below the canvas at narrow widths and beside it at wide widths.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 260621,
@@ -87,10 +87,10 @@
       "pending": "Full browser controls, GPU/colour appearance, performance, real-reference SERIES, anatomy, donor/scale/function, rights/privacy, held-out, native visual/export, OS and actual documentation layout/font fallback.",
       "earlier_images_and_pixel_results": "Earlier images and pixel results describe their original builds and test conditions.",
       "retained_C01_stop": "SwiftShader/wrong-window readiness STOP before control actions; original AMD/RADV target and thresholds retained.",
-      "startup": "R9 retained four HTTP 404 tests. R10 checked normal startup and a blocked optional red nucleus asset. Other faults and rendering-context loss remain open."
+      "startup": "R9 retained four HTTP 404 tests. R11 checked normal startup and a blocked optional red nucleus asset. Other faults and rendering-context loss remain open."
     },
     "complete_scientific_or_production_acceptance": false,
-    "launchers": "Windows, macOS and Linux launchers require Python 3.10+ and a WebGL browser. The R10 Linux launcher opened the tested model through its loopback address. Default-browser opening and native Windows/macOS execution remain unverified.",
+    "launchers": "Windows, macOS and Linux launchers require Python 3.10+ and a WebGL browser. The R11 Linux launcher opened the tested model through its loopback address. Default-browser opening and native Windows/macOS execution remain unverified.",
     "startup_error_source_checks": {
       "kind": "Static renderer-startup source checks only",
       "passed": 20,
@@ -111,10 +111,10 @@
     },
     "viewer_runtime_check": {
       "file_in_archive": "VIEWER-CHECKS.json",
-      "bytes": 3122,
-      "sha256": "4c9fd7f5d435c01c5f75edf8b26cb44fbbe9163b526ddc54451e54794b1fabda",
-      "scope": "Linux Chromium/SwiftShader on the packaged Linux launcher. Exact R9 default and restored canvas, keyboard-selected left atlas isolation, focus, rotation, ordinary Insula and missing optional GLB readback.",
-      "prior_public_commit": "bbdc92dbc4559282fda029116f1e9588106922b3"
+      "bytes": 4675,
+      "sha256": "5db0e4600edde930a13060996d8392c5d46641279ee4f942b5d0d21a8eef7358",
+      "scope": "Extracted Linux launcher in Chromium/SwiftShader. Measured overview overlap at three matched sizes, exact scene/camera pixels, keyboard focus/restore/reset, rotation and blocked optional detail.",
+      "prior_public_commit": "4d798183f4a881106075a8aa183b755bc0e35831"
     },
     "red_nucleus": {
       "asset": "payload/brain-outward-r6/assets/red-nucleus-source-left.glb",
@@ -130,6 +130,19 @@
       "scope": "Headless Linux Chromium 155 with ANGLE SwiftShader. Exact R8 initial 555 × 517 3D canvas match. Keyboard evidence covers source-only, shared samples and separate mesh choices, focus, isolation, reset and filtering. Four HTTP 404 cases kept controls locked.",
       "extracted_linux_launcher": true,
       "prior_public_commit": "c73bef4533c7fa2610fdc9154e82a2c85d1d81be"
+    },
+    "viewer_layout": {
+      "page": "payload/brain-outward-r6/index.html",
+      "controller": "payload/brain-outward-r6/ui.js",
+      "page_sha256": "6d769c8e00a5b32d4ab7462afd6dde5d26740abcbeefb20234732b7acd0f1f0c",
+      "controller_sha256": "c094b9db9a2594c014eebc3f90926313c89e5dc3174eeea8935a41315469749d"
+    },
+    "historical_package_R10_viewer_check": {
+      "file_in_archive": "VIEWER-CHECKS.json",
+      "bytes": 3122,
+      "sha256": "4c9fd7f5d435c01c5f75edf8b26cb44fbbe9163b526ddc54451e54794b1fabda",
+      "scope": "Linux Chromium/SwiftShader on the packaged Linux launcher. Exact R9 default and restored canvas, keyboard-selected left atlas isolation, focus, rotation, ordinary Insula and missing optional GLB readback.",
+      "prior_public_commit": "bbdc92dbc4559282fda029116f1e9588106922b3"
     }
   }
 }

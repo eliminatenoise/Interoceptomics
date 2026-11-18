@@ -55,15 +55,15 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R10](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R10.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R10.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r10) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R11](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R11.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R11.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r11) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
-Search for **Red nucleus · left atlas surface**, then choose **Isolate in place**. The midbrain hides the nucleus in the full view. Drag to turn the surface and choose **Restore context** to bring the brain back. Other separate meshes can still be focused or isolated. Exposed points under **Surface samples** turn dark grey. **Atlas labels only** keep their source notes.
+Search for **Red nucleus · left atlas surface**, then choose **Isolate in place**. The midbrain hides the nucleus in the full view. Drag to turn the surface. The medial overview moves below the model in a narrow window and beside it in a wide window. Choose **Restore context** to bring the surrounding brain back. Other separate meshes can still be focused or isolated. Exposed points under **Surface samples** turn dark grey. **Atlas labels only** keep their source notes.
 
-The package accounts for 121 of 141 occupied source labels across 41 meshes and their source records. Thirty-one labels have their own meshes. Eighty-three have points on combined surfaces, seven remain atlas entries only, and 20 lack included surfaces. The red nucleus was already in the count. This edition adds the surface that isolation reveals. The model represents the original left atlas. It supplies no individual fit or trained neural weights.
+The package accounts for 121 of 141 occupied source labels across 41 meshes and their source records. Thirty-one labels have their own meshes. Eighty-three have points on combined surfaces, seven remain atlas entries only, and 20 lack included surfaces. The red nucleus was already in the count. Package R10 added the surface that isolation reveals. The model represents the original left atlas. It supplies no individual fit or trained neural weights.
 
-The Linux launcher opened the model in Chromium with software rendering. The first full view matched R9. The keyboard check selected the red nucleus, isolated it and restored the same full view. Dragging changed the isolated view. Native Windows and macOS launcher execution remains unverified.
+In Linux Chromium with software rendering, the full view and isolated model matched R10 pixel for pixel at the same three window sizes. The medial overview covered zero model pixels during the checked isolation and rotation. Native Windows and macOS launcher execution remains unverified.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Hardware rendering, full browser controls, colour appearance and performance remain open.
 
