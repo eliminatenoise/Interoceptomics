@@ -55,19 +55,19 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R17](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R17.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R17.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r17) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R18](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R18.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R18.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r18) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
-Search for **VPL** or **VPM**, choose **Compare VPL and VPM**, then **Show shared voxel faces**. Gold marks the boundary between the two labels. The blue VPL and copper VPM turn transparent so you can see the faces through them. Turn the pair to see the steps in the grid. Press again to bring the opaque surfaces back at the same angle. **Return to prior view** or Escape restores your selection, camera and context.
+Search for **VPL** or **VPM**, select a result, then choose **Compare VPL and VPM**. Choose **Show atlas sections** and pick a plane and atlas level. Each tile comes from the original Allen grid. The violet frame places the selected section in 3D. Copper dots identify VPM. A dark line follows the edges shared with VPL. **Show shared voxel faces** still draws their gold 3D boundary. **Return to prior view** or Escape restores the selection and camera.
 
 Search for **VPM**, **VPL** or **Red nucleus**, then choose **Isolate in place** to lift away the surrounding tissue. Drag to turn the surface. **Focus** centres it again. The medial overview moves below the model in a narrow window and beside it in a wide window. Choose **Restore context** to bring the hemisphere back. Exposed points under **Surface samples** turn dark grey. **Atlas labels only** gives you the notes for territories with no surface samples to highlight.
 
 The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The model shows the original left atlas and has no individual fit or trained neural weights.
 
-The two left atlas labels touch across 481 square faces. Added together, those faces cover 120.25 mm² on the Allen atlas’s 0.5 mm grid. Edge and corner contacts contribute no area. Individual anatomy, registered contours and neural connections require separate evidence.
+The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The boundary follows the two labels as you turn or resize the model. Mouse, keyboard and emulated touch passed. If the shared-face file cannot load, both surfaces remain available. A missing surface keeps its searchable atlas label. R16 and R17 drew identical frames for the checked startup, deep context, individual nuclei and comparison with the overlay off. Native Windows and macOS launcher execution remains unverified.
+Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The rendered tiles, shared edges and 3D frame matched the source grid at all 85 selectable levels. Keyboard and emulated touch passed. If the section file cannot load, the paired surfaces and shared faces stay available. Native Windows, macOS and physical mobile execution remain open.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 

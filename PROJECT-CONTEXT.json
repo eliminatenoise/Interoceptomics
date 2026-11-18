@@ -30,32 +30,32 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R17",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R17.zip",
-    "bytes": 38739282,
-    "sha256": "5ec9a947b5655677df66b1535cad9b5a2a722beab37fae21dd20568c2949a9b3",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r17",
-    "regular_files": 53,
-    "uncompressed_bytes": 74879939,
+    "edition": "Brain R8 experimental preview, package R18",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R18.zip",
+    "bytes": 38747807,
+    "sha256": "e676632646ee2ea9f6415daf5de3a1d52c7738a2793a2414a58c13ea9ac0adab",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r18",
+    "regular_files": 56,
+    "uncompressed_bytes": 74928200,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 70676,
-      "sha256": "e7d214edd7ca4077303107bfa126f3417682aecd9f4d7b84ad362a45a4da58de",
-      "scope": "Current file identities, with 49 entries excluding the manifest.",
+      "bytes": 73084,
+      "sha256": "0e9d36373c906071927640b6e0893854704327ac628d1c3420a15ec5fcbd97c3",
+      "scope": "Current identities for 55 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Show and hide the native voxel-grid boundary between left VPL and VPM. The original surfaces stay available in comparison and isolation.",
+    "change": "View original paired atlas sections at 85 native levels with a registered frame in the paired 3D view.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
-      "current_registry_bytes": 264481,
-      "current_registry_sha256": "396605529e76213e984a6938efcd3e4d24f0cd5053969973ebe451db1063e1da"
+      "current_registry_bytes": 264877,
+      "current_registry_sha256": "510b39c4a74591e82e9e1c6e79ea3ec7f59232d4409538c80c6e00f5d72ae331"
     },
     "limitations": "The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The atlas places the structure in an adult population-reference frame. Quantitative independent anatomy, individual fit, neural function, original C01 visual checks, held-out evidence and full export acceptance remain open.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 25805,
-      "sha256": "1057a03649a156d11e69ade8681ae53b0a1ee4a0dab60372207afc06ecf2a15a",
-      "code_change": "Optional checksum-verified face mesh in the source frame, transparent context, and exact pose restoration."
+      "bytes": 27440,
+      "sha256": "ad689c1123a559a5235c0e39a5279a7e29069894b3ef0a5d0646129acef0928e",
+      "code_change": "Optional source section frame in the native atlas coordinate system. Comparison returns to the prior camera, selection and context."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -263,6 +263,64 @@
         "total_grid_face_area_mm2": 120.25,
         "scope": "Face-adjacency on the original 0.5 mm Allen v1.0.0 left annotation. Grid faces approximate an atlas boundary. No mesh intersection, individual anatomy, or neural connectivity is measured.",
         "licence": "CC BY 4.0 atlas derivative."
+      },
+      "source_sections": {
+        "file": "assets/vpl-vpm-source-grid.json",
+        "sha256": "2281dacde82cb6f55c6bde78646a95d02652ba276c949c4a4f5f0086afe3ae30",
+        "ras_origin_mm": [
+          -98,
+          -134,
+          -72
+        ],
+        "start_index": [
+          149,
+          212,
+          136
+        ],
+        "shape": [
+          34,
+          27,
+          30
+        ],
+        "frame_color": "#604591",
+        "bytes": 27775,
+        "change_notice": "sources/allen-version1/VPL-VPM-SOURCE-GRID-NOTICE.txt",
+        "licence": "CC BY 4.0 atlas derivative",
+        "native_coordinate_frame": "Source-left Allen v1.0.0 RAS mm, world metres (−R, S, A)/1000",
+        "crop_edge_min_ras_mm": [
+          -23.75,
+          -28.25,
+          -4.25
+        ],
+        "crop_edge_max_ras_mm": [
+          -6.75,
+          -14.75,
+          10.75
+        ],
+        "section_scope": "Exact labels 10424 and 10425 at original voxel centres. Other cells masked.",
+        "selectable_planes": {
+          "sagittal": 32,
+          "coronal": 25,
+          "axial": 28
+        },
+        "label_voxels": {
+          "10424": 5280,
+          "10425": 1016
+        },
+        "opening_levels": {
+          "coronal": {
+            "a_mm": -20.5,
+            "shared_edges": 32
+          },
+          "sagittal": {
+            "r_mm": -12.5,
+            "shared_edges": 32
+          },
+          "axial": {
+            "s_mm": -2,
+            "shared_edges": 20
+          }
+        }
       }
     },
     "historical_package_R15_viewer_check": {
@@ -278,11 +336,18 @@
       "compared_to_commit": "518edcb7440fcdafb8b3dcd7582b4d73183c4dc0",
       "full_scientific_or_native_acceptance": false
     },
-    "package_R17_viewer_check": {
+    "historical_package_R17_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The boundary follows the two labels as you turn or resize the model. Mouse, keyboard and emulated touch passed. If the shared-face file cannot load, both surfaces remain available. A missing surface keeps its searchable atlas label. R16 and R17 drew identical frames for the checked startup, deep context, individual nuclei and comparison with the overlay off.",
       "compared_to_commit": "27dbff508e1e04c3b0acd87758b4c95294100913",
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R18_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The rendered tiles, shared edges and 3D frame matched the source grid at all 85 selectable levels. Keyboard and emulated touch passed. If the section file cannot load, the paired surfaces and shared faces stay available.",
+      "compared_to_commit": "13d23892afd10127142e52539a8c2498fc370be5",
       "full_scientific_or_native_acceptance": false
     }
   }
