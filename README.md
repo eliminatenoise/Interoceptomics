@@ -55,7 +55,7 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R31](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R31.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R31.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r31) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R32](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R32.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R32.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r32) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
@@ -73,6 +73,8 @@ To keep both points, choose **Copy measurement**. Paste the fragment into **Open
 
 Choose **Explore full atlas labels** for coronal, sagittal and axial cuts through the same 0.5 mm voxel. Pick a tile, use the arrow keys or enter its RAS centre in millimetres. Read its source name and ID. A selected left voxel can mark the 3D coordinate frame. Source-right labels stay available in the cuts. The supplied sections have **Open full atlas at this voxel** when a point is selected. **Copy saved view** lets you return to the same source voxel in another launch.
 
+Turn on **Highlight the selected label** to pick out the exact ID under the crosshair in gold. Each cut gives its own matching voxel count. **Volume of the selected label** counts that ID across the entire grid, split by voxel centres left of, on and right of the midline. Each 0.5 mm cube contributes 0.125 mm³. Child labels have separate IDs. The atlas labels mainly the left side. The volume describes the source at this resolution.
+
 Open **Follow the ruler through sections** with A and B set. Each row gives the start and end of a contiguous atlas-label segment from A, plus its length in millimetres. Choose a row to move to its first voxel. The full source annotation can still give the label when the open reader lacks that section. The amber cross marks the voxel centre in the 3D window where it fits.
 
 The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
@@ -85,7 +87,7 @@ The preview accounts for 121 of 141 occupied source labels across 44 meshes and 
 
 The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The categorical cuts were checked against original NIfTI voxel IDs and raster pixels. All 469 supplied browse rasters match R30. The ruler and saved fragments reopened across launcher ports. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium on AMD/RADV reproduced counts for all 141 occupied IDs directly from the original NIfTI data. The checks covered highlighted pixels, keyboard and pointer selection, emulated touch, the linked 3D marker, saved views and the ruler. All 469 supplied section rasters match R31. Native Windows, macOS and physical mobile checks remain open.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 

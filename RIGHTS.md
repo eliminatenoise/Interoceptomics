@@ -1,18 +1,18 @@
 # The map and its sources
 
-## Brain R8 package R31
+## Brain R8 package R32
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R31.zip) pairs the source-left 3D atlas with native categorical label planes. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R32.zip) pairs the source-left 3D atlas with native categorical label planes. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R31.zip` |
-| Size | 40,585,884 bytes |
-| SHA256 | `7b2de63fe3fa840541c9839e8b68e348ebd053fd30d9825b20f2e261c219f569` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R31.zip.sha256) |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R32.zip` |
+| Size | 40,589,431 bytes |
+| SHA256 | `bdc04b8ed0695aa7f8d0d723e34c193449f3fa248669607e909ab94c528a013b` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R32.zip.sha256) |
 | Model and controls | Source-left geometry, inspection by available meshes or surface samples |
 
-The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The R31 archive contains 74 regular files. The package manifest lists the other 73 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
+The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The R32 archive contains 74 regular files. The package manifest lists the other 73 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
 
 ### Atlas-derived anatomy and overview
 
@@ -43,6 +43,8 @@ R20 updates the on-screen camera instructions and completion messages. The sourc
 R21 adds the original label IDs for the full source planes that intersect PaO. Those planes, their 0.5 mm axes and the 3D frame derive from the same CC BY 4.0 Allen annotation. See `sources/allen-version1/PAO-SECTIONS-NOTICE.txt` in the archive for the changes and source identity. R24 carries a selected voxel across the supplied PaO section planes. The reference photographs stay with their publishers.
 
 R30 losslessly packs the original Allen version-1 `annotation.nii.gz` for the ruler. Its SHA256 is `be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378`. The packing keeps all original IDs in native x-fast order and preserves the qform. The ruler calculates where the line crosses voxel faces and combines adjacent pieces with the same ID. The original collection's CC BY 4.0 terms apply to this derivative. Names and acronyms come from the included official metadata table. The source credit, file link, change description and licence accompany the ZIP at `sources/allen-version1/RULER-ANNOTATION-NOTICE.txt`.
+
+R32 highlights the original ID under the crosshair. The table derives counts from the complete annotation and classifies voxel centres by signed RAS coordinate. The absolute qform voxel volume sets the conversion to mm³. The original annotation and its CC BY 4.0 terms accompany this adaptation.
 
 R31 shows sagittal, coronal and axial label planes from the same lossless packed annotation. Label IDs are unchanged. The viewer colours the categories and displays them in native RAS using the original NIfTI qform. These cuts carry neither the MRI intensities nor tissue imagery. The annotation terms and author credits above apply to those planes. See `sources/allen-version1/RULER-ANNOTATION-NOTICE.txt` in the archive.
 

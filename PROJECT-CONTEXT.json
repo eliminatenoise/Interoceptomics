@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R31",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R31.zip",
-    "bytes": 40585884,
-    "sha256": "7b2de63fe3fa840541c9839e8b68e348ebd053fd30d9825b20f2e261c219f569",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r31",
+    "edition": "Brain R8 experimental preview, package R32",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R32.zip",
+    "bytes": 40589431,
+    "sha256": "bdc04b8ed0695aa7f8d0d723e34c193449f3fa248669607e909ab94c528a013b",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r32",
     "regular_files": 74,
-    "uncompressed_bytes": 84147287,
+    "uncompressed_bytes": 84158338,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 92272,
-      "sha256": "89b285854ea0ccf36272b08b11c96cc24575d46a89ab7a411f62c861d478e224",
+      "bytes": 93746,
+      "sha256": "8f5871d97ef4ea2354627a0740fc94911d4e584fb716c91129f71e89355fc148",
       "scope": "Current identities for 73 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Explore all three native annotation planes at the same voxel.",
+    "change": "Highlight the selected exact native ID on three cuts and count its full-grid volume by side.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 269503,
@@ -127,7 +127,7 @@
     "viewer_layout": {
       "page": "payload/brain-outward-r6/index.html",
       "controller": "payload/brain-outward-r6/ui.js",
-      "page_sha256": "8bfa550f9f511d757ced94a551788c9d9603ba21f615cc247024024c5ddb75a5",
+      "page_sha256": "0d6799c5e99d2ada5aaf23f5cbb11554c7d91c8423359d1381c02d59b6a5a3e6",
       "controller_sha256": "ac5c63d66a39ce1ed3118901070455dc7558648b7f952760c6dc6b0b7da8d11e",
       "renderer_page": "payload/brain-outward-r6/render.html",
       "renderer_page_sha256": "55e7ecc02adf4bd239667e2bb82afe8516aa283923307e4be1005087b9493eb3",
@@ -140,11 +140,11 @@
       "renderer": "payload/brain-outward-r6/viewer.js",
       "renderer_sha256": "195ad459d55661e5433e30cca97a843d0ba55495ef8fcfb8741fa4c6d9f318ae",
       "atlas_label_runs": "payload/brain-outward-r6/atlas-label-runs.js",
-      "atlas_label_runs_sha256": "07d239855a60a2427c5abe8c7dffdb4b7016740d81094c9148101281f6e4f356",
+      "atlas_label_runs_sha256": "6eab4265b83c621c516d8285746550ab6a2a2446fdbe4b3d4a488871d7733951",
       "annotation_planes_js": "payload/brain-outward-r6/annotation-planes.js",
-      "annotation_planes_js_sha256": "9b70967018ba377be5b474dd521761828229f269c090cbc601b6c44a001ad3e9",
+      "annotation_planes_js_sha256": "a669c031f9267a08728df2fcc1c205f722a63be9d05d535030a05a8725b41941",
       "annotation_planes_css": "payload/brain-outward-r6/annotation-planes.css",
-      "annotation_planes_css_sha256": "733603103533e9c117e87e22ed202905d38635ccf822b2c6f346977d4e88d5c2"
+      "annotation_planes_css_sha256": "a2de05e8c10fb0eb5187fc6c76b432dd2f207b284cbf2643222d9c6adf7fe148"
     },
     "historical_package_R10_viewer_check": {
       "file_in_archive": "VIEWER-CHECKS.json",
@@ -556,15 +556,6 @@
       "native_annotation_voxels_compared": 69402312,
       "full_scientific_or_native_acceptance": false
     },
-    "package_R31_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The categorical cuts were checked against original NIfTI voxel IDs and raster pixels. All 469 supplied browse rasters match R30. The ruler and saved fragments reopened across launcher ports. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "1ea7601ad723ff31b788b59c34be677b95bebd55",
-      "section_rasters_compared": 469,
-      "native_annotation_pixels_compared": 8138944,
-      "full_scientific_or_native_acceptance": false
-    },
     "annotation_planes": {
       "software": [
         "payload/brain-outward-r6/annotation-planes.js",
@@ -581,8 +572,32 @@
         "axial": "R increases rightward and A increases upward"
       },
       "coordinate_units": "NIfTI qform RAS millimetres, at voxel centre",
-      "saved_view_version": "atlas-labels-v1",
-      "mesh_window": "Source-left 3D frame. The coordinate cross requires a labelled left voxel."
+      "saved_view_version": "atlas-labels-v1 for standard colour, atlas-labels-v2 for a highlighted selection",
+      "mesh_window": "Source-left 3D frame. The coordinate cross requires a labelled left voxel.",
+      "selected_label": {
+        "count": "Exact native ID across the full registered annotation. Side is classified by RAS voxel centre. Zero is unlabelled. Child IDs are separate.",
+        "volume": "Count multiplied by the absolute determinant of the verified axis-aligned 0.5 mm native qform (0.125 mm³).",
+        "highlight": "Every matching pixel on the three displayed planes, with separate counts per cut."
+      }
+    },
+    "historical_package_R31_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The categorical cuts were checked against original NIfTI voxel IDs and raster pixels. All 469 supplied browse rasters match R30. The ruler and saved fragments reopened across launcher ports. Native Windows, macOS and physical mobile execution remain open.",
+      "compared_to_commit": "1ea7601ad723ff31b788b59c34be677b95bebd55",
+      "section_rasters_compared": 469,
+      "native_annotation_pixels_compared": 8138944,
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R32_viewer_check": {
+      "browser": "155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium on AMD/RADV reproduced counts for all 141 occupied IDs directly from the original NIfTI data. The checks covered highlighted pixels, keyboard and pointer selection, emulated touch, the linked 3D marker, saved views and the ruler. All 469 supplied section rasters match R31. Native Windows, macOS and physical mobile checks remain open.",
+      "compared_to_commit": "22875cb18c65ae8205d59a42ddd852e64b2ce5f9",
+      "section_rasters_compared": 469,
+      "highlighted_native_pixels_compared": 5595524,
+      "original_label_ids_compared": 141,
+      "full_scientific_or_native_acceptance": false
     }
   }
 }

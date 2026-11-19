@@ -1,15 +1,13 @@
-# Brain R8 · package R31
+# Brain R8 · package R32
 
 Experimental research preview · 2026-11-19
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R31.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R31.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r31)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R32.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R32.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r32)
 
-The archive contains **40,585,884 bytes**, with 74 files and 84,147,287 uncompressed bytes. Its SHA256 is `7b2de63fe3fa840541c9839e8b68e348ebd053fd30d9825b20f2e261c219f569`.
+Turn on **Highlight the selected label** to pick out the exact ID under the crosshair in gold. Each cut gives its own matching voxel count. **Volume of the selected label** counts that ID across the entire grid, split by voxel centres left of, on and right of the midline. Each 0.5 mm cube contributes 0.125 mm³. Child labels have separate IDs. The atlas labels mainly the left side. The volume describes the source at this resolution.
 
-Choose **Explore full atlas labels** for coronal, sagittal and axial cuts through the same 0.5 mm voxel. Pick a tile, use the arrow keys or enter its RAS centre in millimetres. Read its source name and ID. A selected left voxel can mark the 3D coordinate frame. Source-right labels stay available in the cuts. The supplied sections have **Open full atlas at this voxel** when a point is selected. **Copy saved view** lets you return to the same source voxel in another launch.
+For example, select R −18.5, A −22, S +4 mm in **Explore full atlas labels**. The crosshair lands in the ventral posterior lateral nucleus (VPL, 10424). The annotation assigns this ID to 5,280 voxels on the left and zero on the midline and right, giving 660 mm³ across the full grid. The gold voxel counts beside each cut describe only that plane. A saved view can reopen the same voxel with its highlight.
 
-Each cut draws one original Allen classification per pixel on the full grid. The display honours the 0.5 mm NIfTI qform with anatomical left at screen left in the coronal and axial cuts. The right side contains sparse annotations. Read a voxel’s name and ID when a colour repeats. Individual anatomy and clinical use are outside this preview.
+Linux Chromium on AMD/RADV reproduced counts for all 141 occupied IDs directly from the original NIfTI data. The checks covered highlighted pixels, keyboard and pointer selection, emulated touch, the linked 3D marker, saved views and the ruler. All 469 supplied section rasters match R31. Native Windows, macOS and physical mobile checks remain open.
 
-The supplied section readers and the A–B ruler still use their existing controls. Follow the ruler through sections to measure the length in each native label along a line.
-
-Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The categorical cuts were checked against original NIfTI voxel IDs and raster pixels. All 469 supplied browse rasters match R30. The ruler and saved fragments reopened across launcher ports. Native Windows, macOS and physical mobile execution remain open.
+The archive contains 74 files and 40,589,431 bytes (84,158,338 uncompressed). SHA256 `bdc04b8ed0695aa7f8d0d723e34c193449f3fa248669607e909ab94c528a013b`.
