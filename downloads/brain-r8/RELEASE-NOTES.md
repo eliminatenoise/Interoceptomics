@@ -1,13 +1,13 @@
-# Brain R8 · package R24
+# Brain R8 · package R25
 
-Experimental research preview · 19 November 2026
+Experimental research preview · 2026-11-19
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R24.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R24.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r24)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R25.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R25.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r25)
 
-The archive contains **39,747,360 bytes**, with 65 files and 80,289,200 uncompressed bytes. Its SHA256 is `e9bc43b62a173e5f729ea88f603b48ffd032f50c4652dfddee4dd877a5c14c9d`.
+The archive contains **39,749,669 bytes**, with 65 files and 80,298,073 uncompressed bytes. Its SHA256 is `60ac8f7066fda0e3c3035de53b304e2272616f815efd6c28e720c5b4627a271f`.
 
-Select **PaO** (13230), then **Show parietal operculum sections**. Select a tile or use the arrow keys on the image. Change the section plane to see the same voxel from another direction. If its level falls outside the list, the reader gives the coordinate and hides the marker. If the point lies outside the neighbourhood window, choose **Full atlas plane** to see it. The violet frame shows the displayed window in 3D.
+Enter signed Right, Anterior and Superior values in millimetres in either section reader and choose **Go to voxel**. Values must land on 0.5 mm grid centres. The reader can open another available plane and widen the PaO window to show the point. The square marks the voxel and the violet frame shows where that section sits in 3D.
 
-All 192 PaO levels and 85 VPL/VPM levels still use the same Allen atlas grid. This is a population atlas. Individual anatomy, microscopic subdivisions and neural function need separate evidence.
+All 192 PaO and 85 VPL/VPM levels use the same Allen atlas grid. The atlas marks population anatomy. Individual anatomy, microscopic subdivisions and neural function require separate evidence.
 
-Linux Chromium 155.0.8059.84 on AMD/RADV checked all 192 PaO and 85 VPL/VPM levels. Mouse, keyboard and emulated touch checks followed source voxels across the three planes and covered missing levels and crop edges. The original four camera presets matched R23 in the checked views. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium on AMD/RADV checked keyboard and emulated touch coordinate entry, section markers, the registered 3D frame and camera pose. The 469 section rasters matched R24. The four camera presets passed isolation and restoration checks. Native Windows, macOS and physical mobile execution remain open.
