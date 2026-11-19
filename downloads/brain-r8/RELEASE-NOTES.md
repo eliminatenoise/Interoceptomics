@@ -1,15 +1,15 @@
-# Brain R8 · package R30
+# Brain R8 · package R31
 
 Experimental research preview · 2026-11-19
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R30.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R30.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r30)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R31.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R31.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r31)
 
-The archive contains **40,574,513 bytes**, with 71 files and 84,113,591 uncompressed bytes. Its SHA256 is `96f9bb6c3258a88c7ad264abc1ed7d3189d9dcc5224c27a6f59a1426d56bcce4`.
+The archive contains **40,585,884 bytes**, with 74 files and 84,147,287 uncompressed bytes. Its SHA256 is `7b2de63fe3fa840541c9839e8b68e348ebd053fd30d9825b20f2e261c219f569`.
 
-Mark a voxel and choose **Set A**. Mark another and choose **Set B**. The ruler measures the straight line between their centres in millimetres.
+Choose **Explore full atlas labels** for coronal, sagittal and axial cuts through the same 0.5 mm voxel. Pick a tile, use the arrow keys or enter its RAS centre in millimetres. Read its source name and ID. A selected left voxel can mark the 3D coordinate frame. Source-right labels stay available in the cuts. The supplied sections have **Open full atlas at this voxel** when a point is selected. **Copy saved view** lets you return to the same source voxel in another launch.
 
-Open **Follow the ruler through sections** with A and B set. Each row gives the start and end of a contiguous atlas-label segment from A, plus its length in millimetres. Choose a row to move to its first voxel. The full source annotation can still give the label when the open reader lacks that section. The amber cross marks the voxel centre in the 3D window where it fits.
+Each cut draws one original Allen classification per pixel on the full grid. The display honours the 0.5 mm NIfTI qform with anatomical left at screen left in the coronal and axial cuts. The right side contains sparse annotations. Read a voxel’s name and ID when a colour repeats. Individual anatomy and clinical use are outside this preview.
 
-Each boundary comes from an original 0.5 mm voxel face. Consecutive pieces with the same source ID form a segment. If the line leaves a label and comes back, it gets a new row. Zero indicates an unlabelled voxel. A and B on the same voxel give zero length and no segments. Individual anatomy, fibre routes and clinical guidance require separate evidence.
+The supplied section readers and the A–B ruler still use their existing controls. Follow the ruler through sections to measure the length in each native label along a line.
 
-Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The packed labels reproduce all 69,402,312 source voxels. All 469 browse-section rasters match R29. Saved voxel and measurement fragments reopen across launcher ports. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The categorical cuts were checked against original NIfTI voxel IDs and raster pixels. All 469 supplied browse rasters match R30. The ruler and saved fragments reopened across launcher ports. Native Windows, macOS and physical mobile execution remain open.

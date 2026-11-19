@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R30",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R30.zip",
-    "bytes": 40574513,
-    "sha256": "96f9bb6c3258a88c7ad264abc1ed7d3189d9dcc5224c27a6f59a1426d56bcce4",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r30",
-    "regular_files": 71,
-    "uncompressed_bytes": 84113591,
+    "edition": "Brain R8 experimental preview, package R31",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R31.zip",
+    "bytes": 40585884,
+    "sha256": "7b2de63fe3fa840541c9839e8b68e348ebd053fd30d9825b20f2e261c219f569",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r31",
+    "regular_files": 74,
+    "uncompressed_bytes": 84147287,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 89181,
-      "sha256": "433062a521188b3c5b9daedb025ed4cea1fa830970c9a0a9fd0a5edf1c79f852",
-      "scope": "Current identities for 70 files excluding the manifest.",
+      "bytes": 92272,
+      "sha256": "89b285854ea0ccf36272b08b11c96cc24575d46a89ab7a411f62c861d478e224",
+      "scope": "Current identities for 73 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Measure the length of the A–B line in each contiguous native Allen atlas-label segment.",
+    "change": "Explore all three native annotation planes at the same voxel.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 269503,
@@ -127,20 +127,24 @@
     "viewer_layout": {
       "page": "payload/brain-outward-r6/index.html",
       "controller": "payload/brain-outward-r6/ui.js",
-      "page_sha256": "af771229439bfebfcccee0c49e9b3688762a45f1c4ba91a0817b141a9ca79777",
-      "controller_sha256": "b950bc5c36a624fd6ad0420666ac2cfb86450e5db4c730cff8c72f973bf9393f",
+      "page_sha256": "8bfa550f9f511d757ced94a551788c9d9603ba21f615cc247024024c5ddb75a5",
+      "controller_sha256": "ac5c63d66a39ce1ed3118901070455dc7558648b7f952760c6dc6b0b7da8d11e",
       "renderer_page": "payload/brain-outward-r6/render.html",
       "renderer_page_sha256": "55e7ecc02adf4bd239667e2bb82afe8516aa283923307e4be1005087b9493eb3",
       "location_comparison": "payload/brain-outward-r6/location-comparison.js",
-      "location_comparison_sha256": "eab71227e564e91094bdde99cc92782fbf6507d7fccdfc2dd3d78eb8d58eb88e",
+      "location_comparison_sha256": "b3983db9a77647dc790cac6e169699e22c45473dfdac35504e7ac7696d2528d1",
       "section_coordinates": "payload/brain-outward-r6/section-coordinates.js",
       "section_coordinates_sha256": "e7e5b8052719412caee3d9477e936da313a73f179f7ee4defd39ff3e911548cd",
       "ruler_walk": "payload/brain-outward-r6/ruler-walk.js",
       "ruler_walk_sha256": "904ea97e7da6dc44425da9bf7f04329121d394d54deeac6ba23d31ba5eb5ff22",
       "renderer": "payload/brain-outward-r6/viewer.js",
-      "renderer_sha256": "762ed02736d9e2c520929b964fef54c9541b5ff1667c7330da24e8d12188b7b9",
+      "renderer_sha256": "195ad459d55661e5433e30cca97a843d0ba55495ef8fcfb8741fa4c6d9f318ae",
       "atlas_label_runs": "payload/brain-outward-r6/atlas-label-runs.js",
-      "atlas_label_runs_sha256": "b65a2daa1cccc360ea6ef870548d98750564b67dba7de396de58abfa9c0ec83b"
+      "atlas_label_runs_sha256": "07d239855a60a2427c5abe8c7dffdb4b7016740d81094c9148101281f6e4f356",
+      "annotation_planes_js": "payload/brain-outward-r6/annotation-planes.js",
+      "annotation_planes_js_sha256": "9b70967018ba377be5b474dd521761828229f269c090cbc601b6c44a001ad3e9",
+      "annotation_planes_css": "payload/brain-outward-r6/annotation-planes.css",
+      "annotation_planes_css_sha256": "733603103533e9c117e87e22ed202905d38635ccf822b2c6f346977d4e88d5c2"
     },
     "historical_package_R10_viewer_check": {
       "file_in_archive": "VIEWER-CHECKS.json",
@@ -509,15 +513,6 @@
       "section_rasters_compared": 469,
       "full_scientific_or_native_acceptance": false
     },
-    "package_R30_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The packed labels reproduce all 69,402,312 source voxels. All 469 browse-section rasters match R29. Saved voxel and measurement fragments reopen across launcher ports. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "71960e8edf2414e002e5deba167dadc74193d7ad",
-      "section_rasters_compared": 469,
-      "native_annotation_voxels_compared": 69402312,
-      "full_scientific_or_native_acceptance": false
-    },
     "ruler_annotation": {
       "original": "Allen Human Reference Atlas — 3D, 2020 v1.0.0 (RRID:SCR_017764)",
       "source": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz",
@@ -551,6 +546,43 @@
         ],
         "qfac": 1.0
       }
+    },
+    "historical_package_R30_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The packed labels reproduce all 69,402,312 source voxels. All 469 browse-section rasters match R29. Saved voxel and measurement fragments reopen across launcher ports. Native Windows, macOS and physical mobile execution remain open.",
+      "compared_to_commit": "71960e8edf2414e002e5deba167dadc74193d7ad",
+      "section_rasters_compared": 469,
+      "native_annotation_voxels_compared": 69402312,
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R31_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The categorical cuts were checked against original NIfTI voxel IDs and raster pixels. All 469 supplied browse rasters match R30. The ruler and saved fragments reopened across launcher ports. Native Windows, macOS and physical mobile execution remain open.",
+      "compared_to_commit": "1ea7601ad723ff31b788b59c34be677b95bebd55",
+      "section_rasters_compared": 469,
+      "native_annotation_pixels_compared": 8138944,
+      "full_scientific_or_native_acceptance": false
+    },
+    "annotation_planes": {
+      "software": [
+        "payload/brain-outward-r6/annotation-planes.js",
+        "payload/brain-outward-r6/annotation-planes.css"
+      ],
+      "data": "payload/brain-outward-r6/assets/atlas-label-runs.bin",
+      "metadata": "payload/brain-outward-r6/assets/atlas-label-runs.json",
+      "source_notice": "sources/allen-version1/RULER-ANNOTATION-NOTICE.txt",
+      "browser_notice": "payload/brain-outward-r6/assets/atlas-annotation-notice.txt",
+      "sampling": "No interpolation. The x-fast native label array supplies one exact categorical ID per pixel.",
+      "axes": {
+        "coronal": "R increases rightward and S increases upward",
+        "sagittal": "A increases rightward and S increases upward",
+        "axial": "R increases rightward and A increases upward"
+      },
+      "coordinate_units": "NIfTI qform RAS millimetres, at voxel centre",
+      "saved_view_version": "atlas-labels-v1",
+      "mesh_window": "Source-left 3D frame. The coordinate cross requires a labelled left voxel."
     }
   }
 }
