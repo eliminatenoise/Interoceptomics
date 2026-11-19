@@ -1,18 +1,18 @@
 # The map and its sources
 
-## Brain R8 package R23
+## Brain R8 package R24
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R23.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R24.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R23.zip` |
-| Size | 39,745,935 bytes |
-| SHA256 | `aba67006ad4a2d01d6fa9928b2888350bdb4ff781ccad36464ab1860ec6a767f` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R23.zip.sha256) |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R24.zip` |
+| Size | 39,747,360 bytes |
+| SHA256 | `e9bc43b62a173e5f729ea88f603b48ffd032f50c4652dfddee4dd877a5c14c9d` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R24.zip.sha256) |
 | Model and controls | Source-left geometry, inspection by available meshes or surface samples |
 
-The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 64 regular files. The package manifest identifies the other 63 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
+The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 65 regular files. The package manifest identifies the other 64 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
 
 ### Atlas-derived anatomy and overview
 
@@ -40,7 +40,7 @@ R19 adds the unsmoothed left parietal operculum surface at `payload/brain-outwar
 
 R20 updates the on-screen camera instructions and completion messages. The source and delivered atlas asset identities are recorded in the package manifest.
 
-R21 adds the original label IDs for the full source planes that intersect PaO. Those planes, their 0.5 mm axes and the 3D frame derive from the same CC BY 4.0 Allen annotation. See `sources/allen-version1/PAO-SECTIONS-NOTICE.txt` in the archive for the changes and source identity. The reference photographs stay with their publishers.
+R21 adds the original label IDs for the full source planes that intersect PaO. Those planes, their 0.5 mm axes and the 3D frame derive from the same CC BY 4.0 Allen annotation. See `sources/allen-version1/PAO-SECTIONS-NOTICE.txt` in the archive for the changes and source identity. R24 carries a selected voxel across the supplied PaO section planes. The reference photographs stay with their publishers.
 
 R23 carries the selected VPL/VPM voxel across section planes. R22 added the label and coordinate readout. The original Allen attribution, CC BY 4.0 licence and crop notice continue to apply.
 
@@ -52,7 +52,7 @@ The [official version1 CSV](https://download.alleninstitute.org/informatics-arch
 
 The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields. R10 adds display and availability fields to one label, on top of the 20 revised omission notes. R13 corrected the availability descriptions for VPL, VPM and their combined thalamic surface. R14 adds the separate VPL surface entry. R15 added the separate VPM surface entry and its anatomical citations. R16 records how both territories appear in the comparison and the shared-face count in the source annotation. R17 adds the native coordinates of those faces. R18 adds the cropped source grid. R19 records the separate PaO surface and its citations. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was last run for R3. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
 
-The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 269,503 bytes, SHA256 `9d27a9eb3d4c6b938bd95e323af845baf04bddb16ed5e94b7fc5081dca8bc0ea`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R23 files.
+The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 269,503 bytes, SHA256 `9d27a9eb3d4c6b938bd95e323af845baf04bddb16ed5e94b7fc5081dca8bc0ea`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R24 files.
 
 The collection README explicitly includes ontology/hierarchy examples in its materials. Its CC BY grant therefore supplies a parallel, identified permission basis for these precise matching fields and checked adaptations. That source application was independently accepted; it does not redate the production query. Preserve the direct upstream CC BY offer, attribution and changes. Do not relicense this material as project-owned CC0 or add a noncommercial restriction to it. No blanket licence for the whole API response, every future Improvement, AI use or the complete model is created here.
 

@@ -1,13 +1,13 @@
-# Brain R8 · package R23
+# Brain R8 · package R24
 
 Experimental research preview · 19 November 2026
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R23.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R23.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r23)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R24.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R24.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r24)
 
-The archive contains **39,745,935 bytes**, with 64 files and 80,284,849 uncompressed bytes. Its SHA256 is `aba67006ad4a2d01d6fa9928b2888350bdb4ff781ccad36464ab1860ec6a767f`.
+The archive contains **39,747,360 bytes**, with 65 files and 80,289,200 uncompressed bytes. Its SHA256 is `e9bc43b62a173e5f729ea88f603b48ffd032f50c4652dfddee4dd877a5c14c9d`.
 
-Pick **VPL** or **VPM**, choose **Compare VPL and VPM**, then **Show atlas sections**. Select a tile or use the arrow keys on the image to read its label and voxel-centre coordinates. Change the section plane to see the same voxel from another direction. At the edge of the crop, some levels fall outside the list. The readout gives that coordinate and the marker disappears until you return to a plane that contains the voxel. Grey tiles may lie in other atlas territories.
+Select **PaO** (13230), then **Show parietal operculum sections**. Select a tile or use the arrow keys on the image. Change the section plane to see the same voxel from another direction. If its level falls outside the list, the reader gives the coordinate and hides the marker. If the point lies outside the neighbourhood window, choose **Full atlas plane** to see it. The violet frame shows the displayed window in 3D.
 
-Blue marks VPL (10424) and copper dots mark VPM (10425). The violet frame places the plane in the left atlas. Within that crop, the readout reports right, anterior and superior coordinates in millimetres. One atlas gives you a reference for where the labels meet. Individual anatomy and function need separate evidence.
+All 192 PaO levels and 85 VPL/VPM levels still use the same Allen atlas grid. This is a population atlas. Individual anatomy, microscopic subdivisions and neural function need separate evidence.
 
-Linux Chromium 155.0.8059.84 on AMD/RADV checked the point readout in all 85 VPL/VPM atlas levels. Mouse, keyboard and emulated touch checks covered linked planes and crop-edge levels. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium 155.0.8059.84 on AMD/RADV checked all 192 PaO and 85 VPL/VPM levels. Mouse, keyboard and emulated touch checks followed source voxels across the three planes and covered missing levels and crop edges. The original four camera presets matched R23 in the checked views. Native Windows, macOS and physical mobile execution remain open.

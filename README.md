@@ -55,13 +55,13 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R23](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R23.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R23.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r23) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R24](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R24.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R24.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r24) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
 Search for **PaO**, **parietal operculum** or **13230**. Select the label and choose **Isolate in place** when the separate surface is ready. Drag to turn it. Pick the surface or open **Evidence and limits** for the anatomy and studies of touch. **Restore context** brings back the selected preset at its starting angle and zoom. Medial returns to the constructed dissection. **Focus** centres and zooms to the selection from the preset’s starting angle. **Reset view** ends isolation, keeps the selection and returns to the preset’s starting angle and zoom.
 
-Select **PaO** and choose **Show parietal operculum sections**. Step through sagittal, coronal and axial levels in 0.5 mm increments. Choose **Full atlas plane** to see the whole source rectangle. Select a point or use the arrow keys on the image to read its atlas label and voxel-centre coordinates. **Frame section in 3D** centres the same window in the model.
+Select **PaO** and choose **Show parietal operculum sections**. Step through sagittal, coronal and axial levels in 0.5 mm increments. Choose **Full atlas plane** to see the whole source rectangle. Select a point or use the arrow keys on the image to read its atlas label and voxel-centre coordinates. Change the section plane to see the same voxel from another direction. If its level falls outside the list, the reader gives the coordinate and hides the marker. If the point lies outside the neighbourhood window, choose **Full atlas plane** to see it. **Frame section in 3D** centres the same window in the model.
 
 The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
 
@@ -73,7 +73,7 @@ The preview accounts for 121 of 141 occupied source labels across 44 meshes and 
 
 The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium 155.0.8059.84 on AMD/RADV checked the point readout in all 85 VPL/VPM atlas levels. Mouse, keyboard and emulated touch checks covered linked planes and crop-edge levels. Native Windows, macOS and physical mobile execution remain open. The 192 PaO planes and four matched camera presets also passed their existing checks.
+Linux Chromium 155.0.8059.84 on AMD/RADV checked all 192 PaO and 85 VPL/VPM levels. Mouse, keyboard and emulated touch checks followed source voxels across the three planes and covered missing levels and crop edges. The original four camera presets matched R23 in the checked views. Native Windows, macOS and physical mobile execution remain open.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 

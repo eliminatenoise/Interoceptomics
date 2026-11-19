@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R23",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R23.zip",
-    "bytes": 39745935,
-    "sha256": "aba67006ad4a2d01d6fa9928b2888350bdb4ff781ccad36464ab1860ec6a767f",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r23",
-    "regular_files": 64,
-    "uncompressed_bytes": 80284849,
+    "edition": "Brain R8 experimental preview, package R24",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R24.zip",
+    "bytes": 39747360,
+    "sha256": "e9bc43b62a173e5f729ea88f603b48ffd032f50c4652dfddee4dd877a5c14c9d",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r24",
+    "regular_files": 65,
+    "uncompressed_bytes": 80289200,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 80123,
-      "sha256": "cbf6688e8a70aeabfc88f5cf2094b5d2e1c3a5f5a0b28ed5cc5fa61326d521da",
-      "scope": "Current identities for 63 files excluding the manifest.",
+      "bytes": 81171,
+      "sha256": "108a9a5e8d4203cbe25ec15910dc2d17bf4caf739ff8873141bf46331a2b73e6",
+      "scope": "Current identities for 64 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Follow a selected voxel across VPL/VPM section planes with matching levels and marker. Report unavailable levels at the crop edge. The atlas data and geometry retain their R22 bytes.",
+    "change": "Keep the selected native voxel across PaO orientations when the level is supplied. Identify voxels outside the visible window or listed levels. Atlas data and 3D geometry retain their R23 bytes.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 269503,
@@ -442,12 +442,21 @@
       "compared_to_commit": "c4b5cd6bddfc44581b370dddab1d205ee7f69e5e",
       "full_scientific_or_native_acceptance": false
     },
-    "package_R23_viewer_check": {
+    "historical_package_R23_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium with AMD/RADV checked the same VPL/VPM voxel across three views, the section marker, registered 3D frame, all 85 levels, unavailable levels at the crop edge, keyboard and emulated touch. All 192 PaO planes and four camera presets passed their existing checks. Native macOS, Windows and physical mobile execution remain open.",
       "point_samples": 214,
       "compared_to_commit": "e1fab2e575ef225e4811188b92f8bad3c061f7e8",
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R24_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium with AMD/RADV checked selection in PaO and VPL/VPM across three views, the section marker, registered 3D frame, levels outside the lists, PaO points outside the crop, keyboard and emulated touch. All 192 PaO planes, 85 VPL/VPM levels and four camera presets passed their existing checks. Native macOS, Windows and physical mobile execution remain open.",
+      "parietal_point_samples": 32,
+      "thalamic_point_samples": 214,
+      "compared_to_commit": "b6eb261a35645a0bf3b9e483d98cc0800dafc996",
       "full_scientific_or_native_acceptance": false
     }
   }
