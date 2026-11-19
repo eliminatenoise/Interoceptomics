@@ -1,13 +1,15 @@
-# Brain R8 · package R32
+# Brain R8 · package R33
 
 Experimental research preview · 2026-11-19
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R32.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R32.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r32)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r33)
 
-Turn on **Highlight the selected label** to pick out the exact ID under the crosshair in gold. Each cut gives its own matching voxel count. **Volume of the selected label** counts that ID across the entire grid, split by voxel centres left of, on and right of the midline. Each 0.5 mm cube contributes 0.125 mm³. Child labels have separate IDs. The atlas labels mainly the left side. The volume describes the source at this resolution.
+Open **Explore full atlas labels** and choose **Find a structure**. Type a name, abbreviation or complete Allen ID. Choose a side and press **Show voxel in all three cuts**. The crosshair lands inside that label and gold marks its other voxels. Only sides with a direct assignment appear.
 
-For example, select R −18.5, A −22, S +4 mm in **Explore full atlas labels**. The crosshair lands in the ventral posterior lateral nucleus (VPL, 10424). The annotation assigns this ID to 5,280 voxels on the left and zero on the midline and right, giving 660 mm³ across the full grid. The gold voxel counts beside each cut describe only that plane. A saved view can reopen the same voxel with its highlight.
+A single source label can bend around its own average position. For the midline voxels tagged **white matter of forebrain (10557)**, rounding the average would land in another label. The finder instead selects the nearest midline voxel that actually carries ID 10557, at R 0, A −4.5, S +2 mm. The midline contains 2,139 voxels with that ID in this annotation.
 
-Linux Chromium on AMD/RADV reproduced counts for all 141 occupied IDs directly from the original NIfTI data. The checks covered highlighted pixels, keyboard and pointer selection, emulated touch, the linked 3D marker, saved views and the ruler. All 469 supplied section rasters match R31. Native Windows, macOS and physical mobile checks remain open.
+Parent and child IDs are counted separately. The finder uses the exact native ID assigned to a voxel. It leaves historical aliases unresolved. Zero marks an unlabelled voxel. A missing entry describes this annotation’s coverage.
 
-The archive contains 74 files and 40,589,431 bytes (84,158,338 uncompressed). SHA256 `bdc04b8ed0695aa7f8d0d723e34c193449f3fa248669607e909ab94c528a013b`.
+The original Allen annotation and metadata were checked against all 170 occupied label-and-side combinations across 141 distinct IDs. The 3D preview covers the source left. Sparse source-right labels can be read in the cuts. Linux Chromium checks included the hardware and software renderers, keyboard input, emulated touch, saved views and the ruler. Native Windows, macOS and physical mobile checks remain open.
+
+The archive contains 76 files and 40,595,864 bytes (84,176,440 uncompressed). SHA256 `44047e76e8850cbd67b1119c478cbee14fafddec72c8400ddf512c41858870af`.

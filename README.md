@@ -55,7 +55,7 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R32](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R32.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R32.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r32) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R33](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r33) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
@@ -70,6 +70,8 @@ Choose **Copy saved view** when a voxel is marked. On the next launch, paste the
 Want to see how far apart two voxels are? Mark one and choose **Set A**. Mark another and choose **Set B**. Read the signed change from A to B along the atlas’s Right, Anterior and Superior axes and the straight-line distance between their centres in millimetres. The section shows points on its own plane. The 3D model shows registered points inside its current left atlas window. Use **Clear A and B** to start again. The line measures a distance through atlas space. Fibre routes and clinical guidance require separate evidence.
 
 To keep both points, choose **Copy measurement**. Paste the fragment into **Open saved view** after any local launch. The atlas restores both source locations and the open section, then reads the labels and recalculates the displacement and distance. If the clipboard is blocked, copy the text under the button. **Copy saved view** still opens one marked voxel.
+
+Open **Explore full atlas labels** and choose **Find a structure**. Type a name, abbreviation or complete Allen ID. Choose a side and press **Show voxel in all three cuts**. The crosshair lands inside that label and gold marks its other voxels. Only sides with a direct assignment appear.
 
 Choose **Explore full atlas labels** for coronal, sagittal and axial cuts through the same 0.5 mm voxel. Pick a tile, use the arrow keys or enter its RAS centre in millimetres. Read its source name and ID. A selected left voxel can mark the 3D coordinate frame. Source-right labels stay available in the cuts. The supplied sections have **Open full atlas at this voxel** when a point is selected. **Copy saved view** lets you return to the same source voxel in another launch.
 
@@ -87,7 +89,7 @@ The preview accounts for 121 of 141 occupied source labels across 44 meshes and 
 
 The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium on AMD/RADV reproduced counts for all 141 occupied IDs directly from the original NIfTI data. The checks covered highlighted pixels, keyboard and pointer selection, emulated touch, the linked 3D marker, saved views and the ruler. All 469 supplied section rasters match R31. Native Windows, macOS and physical mobile checks remain open.
+The original Allen annotation and metadata were checked against all 170 occupied label-and-side combinations across 141 distinct IDs. The 3D preview covers the source left. Sparse source-right labels can be read in the cuts. Linux Chromium checks included the hardware and software renderers, keyboard input, emulated touch, saved views and the ruler. Native Windows, macOS and physical mobile checks remain open.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 
