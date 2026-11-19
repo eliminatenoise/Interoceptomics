@@ -12,7 +12,7 @@ The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8
 | Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R21.zip.sha256) |
 | Model and controls | Source-left geometry, inspection by available meshes or surface samples |
 
-The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 58 regular files. The package manifest identifies the other 57 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
+The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 64 regular files. The package manifest identifies the other 63 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
 
 ### Atlas-derived anatomy and overview
 
