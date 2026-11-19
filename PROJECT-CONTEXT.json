@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R22",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R22.zip",
-    "bytes": 39745213,
-    "sha256": "0de779b9200e94a4d588f3225e72113665eaf9567fad7d48148772d50bfc96eb",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r22",
+    "edition": "Brain R8 experimental preview, package R23",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R23.zip",
+    "bytes": 39745935,
+    "sha256": "aba67006ad4a2d01d6fa9928b2888350bdb4ff781ccad36464ab1860ec6a767f",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r23",
     "regular_files": 64,
-    "uncompressed_bytes": 80282119,
+    "uncompressed_bytes": 80284849,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 79612,
-      "sha256": "a624c1d0251463552c3ac7a1cd84a2c6687d9c258bf5096e93d284146c2a61e3",
+      "bytes": 80123,
+      "sha256": "cbf6688e8a70aeabfc88f5cf2094b5d2e1c3a5f5a0b28ed5cc5fa61326d521da",
       "scope": "Current identities for 63 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Point inspection in all 85 VPL/VPM sections, reporting source label and RAS voxel-centre coordinates. The two-label crop and 3D geometry retain their R21 bytes.",
+    "change": "Follow a selected voxel across VPL/VPM section planes with matching levels and marker. Report unavailable levels at the crop edge. The atlas data and geometry retain their R22 bytes.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 269503,
@@ -434,12 +434,20 @@
       "compared_to_commit": "c799fc29c5208e6661c30f2a3fc8485d076a38ca",
       "full_scientific_or_native_acceptance": false
     },
-    "package_R22_viewer_check": {
+    "historical_package_R22_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "A source-volume comparison matched every voxel in the distributed two-label crop. All 85 levels and registered 3D frames passed in Linux Chromium. Point inspection and clearing the readout and marker on close were checked by keyboard, mouse and emulated touch. Native Windows, macOS, physical mobile and broader export checks remain open.",
       "point_samples": 214,
       "compared_to_commit": "c4b5cd6bddfc44581b370dddab1d205ee7f69e5e",
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R23_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium with AMD/RADV checked the same VPL/VPM voxel across three views, the section marker, registered 3D frame, all 85 levels, unavailable levels at the crop edge, keyboard and emulated touch. All 192 PaO planes and four camera presets passed their existing checks. Native macOS, Windows and physical mobile execution remain open.",
+      "point_samples": 214,
+      "compared_to_commit": "e1fab2e575ef225e4811188b92f8bad3c061f7e8",
       "full_scientific_or_native_acceptance": false
     }
   }
