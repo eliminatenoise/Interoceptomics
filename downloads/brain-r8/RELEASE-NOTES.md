@@ -1,13 +1,15 @@
-# Brain R8 · package R25
+# Brain R8 · package R26
 
 Experimental research preview · 2026-11-19
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R25.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R25.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r25)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R26.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R26.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r26)
 
-The archive contains **39,749,669 bytes**, with 65 files and 80,298,073 uncompressed bytes. Its SHA256 is `60ac8f7066fda0e3c3035de53b304e2272616f815efd6c28e720c5b4627a271f`.
+The archive contains **39,752,921 bytes**, with 65 files and 80,310,511 uncompressed bytes. Its SHA256 is `a0ca0e7ed62f562bade42406d6dd1b5cb1a7bcb85ec92332c4a0526eb4796ec8`.
 
-Enter signed Right, Anterior and Superior values in millimetres in either section reader and choose **Go to voxel**. Values must land on 0.5 mm grid centres. The reader can open another available plane and widen the PaO window to show the point. The square marks the voxel and the violet frame shows where that section sits in 3D.
+Choose **Copy saved view** when a voxel is marked. On the next launch, paste the fragment into **Open saved view** or append it to the launcher’s address. The atlas reopens the territory, plane, window and exact RAS voxel, with its section frame in 3D. The camera uses the territory’s starting view.
 
-All 192 PaO and 85 VPL/VPM levels use the same Allen atlas grid. The atlas marks population anatomy. Individual anatomy, microscopic subdivisions and neural function require separate evidence.
+For example, `#atlas-v1/pao/coronal/near/-37,-18,9` reopens the PaO neighbourhood and marks the voxel at R −37, A −18, S +9 mm. The fragment needs an atlas launch, with or without internet access.
 
-Linux Chromium on AMD/RADV checked keyboard and emulated touch coordinate entry, section markers, the registered 3D frame and camera pose. The 469 section rasters matched R24. The four camera presets passed isolation and restoration checks. Native Windows, macOS and physical mobile execution remain open.
+These are population-reference atlas coordinates. Individual anatomy, microscopic subdivisions and neural function require separate evidence.
+
+Linux Chromium on AMD/RADV checked keyboard copy and paste, cross-port reopening, a denied clipboard, an emulated touch viewport and unavailable saved locations. The 469 browse-section rasters matched R25. Native Windows, macOS and physical mobile execution remain open.

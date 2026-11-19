@@ -55,7 +55,7 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R25](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R25.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R25.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r25) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R26](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R26.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R26.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r26) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
@@ -64,6 +64,8 @@ Search for **PaO**, **parietal operculum** or **13230**. Select the label and ch
 Select **PaO** and choose **Show parietal operculum sections**. Step through sagittal, coronal and axial levels in 0.5 mm increments. Choose **Full atlas plane** to see the whole source rectangle. Select a point or use the arrow keys on the image to read its atlas label and voxel-centre coordinates. Change the section plane to see the same voxel from another direction. If its level falls outside the list, the reader gives the coordinate and hides the marker. If the point lies outside the neighbourhood window, choose **Full atlas plane** to see it. **Frame section in 3D** centres the same window in the model.
 
 Know the voxel’s coordinates? In either section reader, enter the signed Right, Anterior and Superior values in millimetres and choose **Go to voxel**. Each value must land on a 0.5 mm grid centre. The reader can open another available plane and widen the PaO window to show the point.
+
+Choose **Copy saved view** when a voxel is marked. On the next launch, paste the fragment into **Open saved view** or append it to the launcher’s address. The atlas reopens the territory, plane, window and exact RAS voxel, with its section frame in 3D. The camera uses the territory’s starting view.
 
 The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
 
@@ -75,7 +77,7 @@ The preview accounts for 121 of 141 occupied source labels across 44 meshes and 
 
 The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium on AMD/RADV checked keyboard and emulated touch coordinate entry, section markers, the registered 3D frame and camera pose. The 469 section rasters matched R24. The four camera presets passed isolation and restoration checks. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium on AMD/RADV checked keyboard copy and paste, cross-port reopening, a denied clipboard, an emulated touch viewport and unavailable saved locations. The 469 browse-section rasters matched R25. Native Windows, macOS and physical mobile execution remain open.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 

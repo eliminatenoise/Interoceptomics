@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R25",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R25.zip",
-    "bytes": 39749669,
-    "sha256": "60ac8f7066fda0e3c3035de53b304e2272616f815efd6c28e720c5b4627a271f",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r25",
+    "edition": "Brain R8 experimental preview, package R26",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R26.zip",
+    "bytes": 39752921,
+    "sha256": "a0ca0e7ed62f562bade42406d6dd1b5cb1a7bcb85ec92332c4a0526eb4796ec8",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r26",
     "regular_files": 65,
-    "uncompressed_bytes": 80298073,
+    "uncompressed_bytes": 80310511,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 81966,
-      "sha256": "08040d51bf6c2f88c5d96b735c16275033c3af6e601d199a78948b841c41f1c3",
+      "bytes": 82778,
+      "sha256": "8528d16cc388d8cae0e4a1bfeb11bd5d107eec0032ff45e7b8d3bc7d181623cb",
       "scope": "Current identities for 64 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Enter an exact native RAS coordinate in either section reader. Source annotation, grids and geometry retain their R24 bytes.",
+    "change": "Save and reopen the source territory, plane, window and native RAS voxel in either section reader.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 269503,
@@ -459,11 +459,19 @@
       "compared_to_commit": "b6eb261a35645a0bf3b9e483d98cc0800dafc996",
       "full_scientific_or_native_acceptance": false
     },
-    "package_R25_viewer_check": {
+    "historical_package_R25_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium on AMD/RADV checked keyboard and emulated touch coordinate entry, section markers, the registered 3D frame and camera pose. The 469 section rasters matched R24. The four camera presets passed isolation and restoration checks. Native Windows, macOS and physical mobile execution remain open.",
       "compared_to_commit": "0da36ce533e0de44761ca8c1da4fa07095f9df8a",
+      "section_rasters_compared": 469,
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R26_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium on AMD/RADV checked keyboard copy and paste, cross-port reopening, a denied clipboard, an emulated touch viewport and unavailable saved locations. The 469 browse-section rasters matched R25. Native Windows, macOS and physical mobile execution remain open.",
+      "compared_to_commit": "ffd45fffb08e5452f4f9abc477db883d4c87642e",
       "section_rasters_compared": 469,
       "full_scientific_or_native_acceptance": false
     }
