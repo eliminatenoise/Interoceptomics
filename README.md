@@ -55,7 +55,7 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R21](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R21.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R21.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r21) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R22](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R22.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R22.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r22) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
@@ -65,7 +65,7 @@ Select **PaO** and choose **Show parietal operculum sections**. Step through sag
 
 The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
 
-Search for **VPL** or **VPM**, select a result, then choose **Compare VPL and VPM**. Choose **Show atlas sections** and pick a plane and atlas level. Each tile comes from the original Allen grid. The violet frame places the selected section in 3D. Copper dots identify VPM. A dark line follows the edges shared with VPL. **Show shared voxel faces** still draws their gold 3D boundary. **Return to prior view** or Escape restores the selection and camera.
+Search for **VPL** or **VPM**, select a result, then choose **Compare VPL and VPM**. Choose **Show atlas sections** and pick a plane and atlas level. Each tile comes from the original Allen grid. The violet frame places the selected section in 3D. Copper dots identify VPM. A dark line follows the edges shared with VPL. Select a tile or use the arrow keys on the image to read its label and voxel-centre coordinates. The marker follows the same in-plane point as you step through levels. **Show shared voxel faces** still draws their gold 3D boundary. **Return to prior view** or Escape restores the selection and camera.
 
 Search for **VPM**, **VPL** or **Red nucleus**, then choose **Isolate in place** to lift away the surrounding tissue. Drag to turn the surface. The medial overview moves below the model in a narrow window and beside it in a wide window. Exposed points under **Surface samples** turn dark grey. **Atlas labels only** gives you the notes for territories with no surface samples to highlight.
 
@@ -73,7 +73,7 @@ The preview accounts for 121 of 141 occupied source labels across 44 meshes and 
 
 The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium 155.0.8059.84 on AMD/RADV checked all 192 PaO planes, point readout, the 3D frame, keyboard and emulated touch. All 85 VPL/VPM sections passed. The startup, restored and isolated views matched R20 at the checked camera presets. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium 155.0.8059.84 on AMD/RADV checked the point readout in all 85 VPL/VPM atlas levels, with keyboard navigation and an emulated touch viewport. Native Windows, macOS and physical mobile execution remain open. The 192 PaO planes and four matched camera presets also passed their existing checks.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 
