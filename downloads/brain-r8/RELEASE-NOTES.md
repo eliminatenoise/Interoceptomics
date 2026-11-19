@@ -1,15 +1,15 @@
-# Brain R8 · package R26
+# Brain R8 · package R27
 
 Experimental research preview · 2026-11-19
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R26.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R26.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r26)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R27.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R27.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r27)
 
-The archive contains **39,752,921 bytes**, with 65 files and 80,310,511 uncompressed bytes. Its SHA256 is `a0ca0e7ed62f562bade42406d6dd1b5cb1a7bcb85ec92332c4a0526eb4796ec8`.
+The archive contains **39,758,320 bytes**, with 66 files and 80,327,680 uncompressed bytes. Its SHA256 is `1c662d2f9527889fbffc37c2ac85ec023b8522e9f2c3aa3060d68243cf535543`.
 
-Choose **Copy saved view** when a voxel is marked. On the next launch, paste the fragment into **Open saved view** or append it to the launcher’s address. The atlas reopens the territory, plane, window and exact RAS voxel, with its section frame in 3D. The camera uses the territory’s starting view.
+Want to see how far apart two voxels are? Mark one and choose **Set A**. Mark another and choose **Set B**. Read the signed change from A to B along the atlas’s Right, Anterior and Superior axes and the straight-line distance between their centres in millimetres. The section shows points on its own plane. The 3D model shows registered points inside its current left atlas window. Use **Clear A and B** to start again. The line measures a distance through atlas space. Fibre routes and clinical guidance require separate evidence.
 
-For example, `#atlas-v1/pao/coronal/near/-37,-18,9` reopens the PaO neighbourhood and marks the voxel at R −37, A −18, S +9 mm. The fragment needs an atlas launch, with or without internet access.
+A PaO plane can identify an unlabelled voxel. Grey in the VPL/VPM crop means the voxel lies outside those two labels. The crop cannot tell you its original label. All distances use voxel centres on the 0.5 mm grid.
 
-These are population-reference atlas coordinates. Individual anatomy, microscopic subdivisions and neural function require separate evidence.
+**Copy saved view** still saves the territory, plane, window and one marked voxel for a later launch. The A/B comparison stays in the open page.
 
-Linux Chromium on AMD/RADV checked keyboard copy and paste, cross-port reopening, a denied clipboard, an emulated touch viewport and unavailable saved locations. The 469 browse-section rasters matched R25. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium on AMD/RADV checked keyboard and touch-emulated comparisons, exact voxel-centre registration, and saved-view reopening across ports. All 469 browse-section rasters matched R26. Native Windows, macOS and physical mobile execution remain open.

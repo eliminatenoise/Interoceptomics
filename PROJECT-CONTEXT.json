@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R26",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R26.zip",
-    "bytes": 39752921,
-    "sha256": "a0ca0e7ed62f562bade42406d6dd1b5cb1a7bcb85ec92332c4a0526eb4796ec8",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r26",
-    "regular_files": 65,
-    "uncompressed_bytes": 80310511,
+    "edition": "Brain R8 experimental preview, package R27",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R27.zip",
+    "bytes": 39758320,
+    "sha256": "1c662d2f9527889fbffc37c2ac85ec023b8522e9f2c3aa3060d68243cf535543",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r27",
+    "regular_files": 66,
+    "uncompressed_bytes": 80327680,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 82778,
-      "sha256": "8528d16cc388d8cae0e4a1bfeb11bd5d107eec0032ff45e7b8d3bc7d181623cb",
-      "scope": "Current identities for 64 files excluding the manifest.",
+      "bytes": 83965,
+      "sha256": "45dad5dc6cbc809ed3f8cd5cd5ed478d3b95ecd69d60ff3d7ddc2bbaa0f59176",
+      "scope": "Current identities for 65 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Save and reopen the source territory, plane, window and native RAS voxel in either section reader.",
+    "change": "Compare two native RAS voxel centres in the same atlas grid. Show signed B-minus-A displacement and straight-line distance.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 269503,
@@ -53,9 +53,9 @@
     "limitations": "The preview accounts for 121 of 141 occupied source labels across 44 meshes and their source records. Thirty-four labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The source is one population atlas. Independent cross-specimen contour error, individual fit, neural function, the original C01 check, native Windows/macOS/physical mobile execution and broader export acceptance remain open.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 30462,
-      "sha256": "4a87d94e905798cee3e6eb0907dec3b4f56c6d2cdf3883b2bfa6ce422871f921",
-      "code_change": "Place the source-bound PaO section frame in the existing 3D atlas coordinates."
+      "bytes": 33527,
+      "sha256": "6307a63d1080d3755fdedba303142a490f5e278505441b83638094db4933e865",
+      "code_change": "Draw registered endpoints and straight segments beside the existing atlas section frame."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -127,10 +127,12 @@
     "viewer_layout": {
       "page": "payload/brain-outward-r6/index.html",
       "controller": "payload/brain-outward-r6/ui.js",
-      "page_sha256": "82fe1df3754a22d6a59b0dcf36928a9bb58d3fe9ac2a3f65f5141137ed130a01",
-      "controller_sha256": "b76a52b713ad0b6b8f48bc5a10973baabac7344b39cda18c392184197e479e1e",
+      "page_sha256": "3de6fd04ef5c63cafeeb5dd1196d4c7cf197b495eb3eda55129eac1635b72c19",
+      "controller_sha256": "9c646c9aa4e6416b119175436e47d8c1a7eeab64f999a1b9279789d6344d6991",
       "renderer_page": "payload/brain-outward-r6/render.html",
-      "renderer_page_sha256": "55e7ecc02adf4bd239667e2bb82afe8516aa283923307e4be1005087b9493eb3"
+      "renderer_page_sha256": "55e7ecc02adf4bd239667e2bb82afe8516aa283923307e4be1005087b9493eb3",
+      "location_comparison": "payload/brain-outward-r6/location-comparison.js",
+      "location_comparison_sha256": "8c2cfa5fa81afa9f06356831a1d1930e01ef967d162bf1f69f146775f4b10a1c"
     },
     "historical_package_R10_viewer_check": {
       "file_in_archive": "VIEWER-CHECKS.json",
@@ -467,11 +469,19 @@
       "section_rasters_compared": 469,
       "full_scientific_or_native_acceptance": false
     },
-    "package_R26_viewer_check": {
+    "historical_package_R26_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium on AMD/RADV checked keyboard copy and paste, cross-port reopening, a denied clipboard, an emulated touch viewport and unavailable saved locations. The 469 browse-section rasters matched R25. Native Windows, macOS and physical mobile execution remain open.",
       "compared_to_commit": "ffd45fffb08e5452f4f9abc477db883d4c87642e",
+      "section_rasters_compared": 469,
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R27_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium on AMD/RADV checked keyboard and touch-emulated comparisons, exact voxel-centre registration, and saved-view reopening across ports. All 469 browse-section rasters matched R26. Native Windows, macOS and physical mobile execution remain open.",
+      "compared_to_commit": "7d5ad0a6537aa0f3d063e5708a382eb3ac01cc96",
       "section_rasters_compared": 469,
       "full_scientific_or_native_acceptance": false
     }
