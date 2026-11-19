@@ -30,21 +30,21 @@
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
-    "edition": "Brain R8 experimental preview, package R27",
-    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R27.zip",
-    "bytes": 39758320,
-    "sha256": "1c662d2f9527889fbffc37c2ac85ec023b8522e9f2c3aa3060d68243cf535543",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r27",
+    "edition": "Brain R8 experimental preview, package R28",
+    "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R28.zip",
+    "bytes": 39760258,
+    "sha256": "fb56e65544f9f10841c253f2dc895bd66edab4185f9d450df8f56f833ea4d91d",
+    "source_and_rights": "RIGHTS.md#brain-r8-package-r28",
     "regular_files": 66,
-    "uncompressed_bytes": 80327680,
+    "uncompressed_bytes": 80334944,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
-      "bytes": 83965,
-      "sha256": "45dad5dc6cbc809ed3f8cd5cd5ed478d3b95ecd69d60ff3d7ddc2bbaa0f59176",
+      "bytes": 84821,
+      "sha256": "5acf6e311fafd357621d7213e962d49b1f0a2aa4021bf78cc520f92cdc81b507",
       "scope": "Current identities for 65 files excluding the manifest.",
       "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
     },
-    "change": "Compare two native RAS voxel centres in the same atlas grid. Show signed B-minus-A displacement and straight-line distance.",
+    "change": "Reopen both registered voxel centres and the source section using a portable measurement fragment.",
     "source_comparison": {
       "status": "historical R3 comparison retained unchanged; not rerun",
       "current_registry_bytes": 269503,
@@ -127,12 +127,14 @@
     "viewer_layout": {
       "page": "payload/brain-outward-r6/index.html",
       "controller": "payload/brain-outward-r6/ui.js",
-      "page_sha256": "3de6fd04ef5c63cafeeb5dd1196d4c7cf197b495eb3eda55129eac1635b72c19",
-      "controller_sha256": "9c646c9aa4e6416b119175436e47d8c1a7eeab64f999a1b9279789d6344d6991",
+      "page_sha256": "dcb7f38001e8d979b3d176899f97c380ff21e2b3e586a40dfef51058d0ad1920",
+      "controller_sha256": "ed24336fce4910a5f7c8d5fd93060e0e30c3b30b993a72dccb1d8555bb7974cf",
       "renderer_page": "payload/brain-outward-r6/render.html",
       "renderer_page_sha256": "55e7ecc02adf4bd239667e2bb82afe8516aa283923307e4be1005087b9493eb3",
       "location_comparison": "payload/brain-outward-r6/location-comparison.js",
-      "location_comparison_sha256": "8c2cfa5fa81afa9f06356831a1d1930e01ef967d162bf1f69f146775f4b10a1c"
+      "location_comparison_sha256": "1c205d2a08c5ad865ac997a9d6224504424fb33ab42fea525ea3d17826c23d56",
+      "section_coordinates": "payload/brain-outward-r6/section-coordinates.js",
+      "section_coordinates_sha256": "e7e5b8052719412caee3d9477e936da313a73f179f7ee4defd39ff3e911548cd"
     },
     "historical_package_R10_viewer_check": {
       "file_in_archive": "VIEWER-CHECKS.json",
@@ -477,11 +479,19 @@
       "section_rasters_compared": 469,
       "full_scientific_or_native_acceptance": false
     },
-    "package_R27_viewer_check": {
+    "historical_package_R27_viewer_check": {
       "browser": "Linux Chromium 155.0.8059.84",
       "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
       "scope": "Linux Chromium on AMD/RADV checked keyboard and touch-emulated comparisons, exact voxel-centre registration, and saved-view reopening across ports. All 469 browse-section rasters matched R26. Native Windows, macOS and physical mobile execution remain open.",
       "compared_to_commit": "7d5ad0a6537aa0f3d063e5708a382eb3ac01cc96",
+      "section_rasters_compared": 469,
+      "full_scientific_or_native_acceptance": false
+    },
+    "package_R28_viewer_check": {
+      "browser": "Linux Chromium 155.0.8059.84",
+      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
+      "scope": "Linux Chromium on AMD/RADV checked measurement reopening across launcher ports, keyboard and emulated touch, clipboard fallback and rejected text that leaves the open section and pair intact. All 469 browse-section rasters matched R27. Native Windows, macOS and physical mobile execution remain open.",
+      "compared_to_commit": "33965c4f3a2755b1cbf729910b957333b5a7c16a",
       "section_rasters_compared": 469,
       "full_scientific_or_native_acceptance": false
     }

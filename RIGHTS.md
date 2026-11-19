@@ -1,15 +1,15 @@
 # The map and its sources
 
-## Brain R8 package R27
+## Brain R8 package R28
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R27.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R28.zip) is one labelled left-half atlas with browser controls. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
 
 | Edition | Exact identity |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R27.zip` |
-| Size | 39,758,320 bytes |
-| SHA256 | `1c662d2f9527889fbffc37c2ac85ec023b8522e9f2c3aa3060d68243cf535543` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R27.zip.sha256) |
+| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R28.zip` |
+| Size | 39,760,258 bytes |
+| SHA256 | `fb56e65544f9f10841c253f2dc895bd66edab4185f9d450df8f56f833ea4d91d` |
+| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R28.zip.sha256) |
 | Model and controls | Source-left geometry, inspection by available meshes or surface samples |
 
 The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The archive has 66 regular files. The package manifest identifies the other 65 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
@@ -41,6 +41,8 @@ R19 adds the unsmoothed left parietal operculum surface at `payload/brain-outwar
 R20 updates the on-screen camera instructions and completion messages. The source and delivered atlas asset identities are recorded in the package manifest.
 
 R21 adds the original label IDs for the full source planes that intersect PaO. Those planes, their 0.5 mm axes and the 3D frame derive from the same CC BY 4.0 Allen annotation. See `sources/allen-version1/PAO-SECTIONS-NOTICE.txt` in the archive for the changes and source identity. R24 carries a selected voxel across the supplied PaO section planes. The reference photographs stay with their publishers.
+
+R28 saves two voxel locations and the open section in text. The annotation, derived grids, geometry, launchers and licences retain their R27 bytes.
 
 R27 compares two voxel centres in the same Allen atlas. The annotation, derived grids, source geometry and licences retain their R26 bytes. The marks and line are viewer graphics in the atlas coordinate space.
 

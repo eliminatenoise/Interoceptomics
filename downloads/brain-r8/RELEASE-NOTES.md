@@ -1,15 +1,15 @@
-# Brain R8 · package R27
+# Brain R8 · package R28
 
 Experimental research preview · 2026-11-19
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R27.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R27.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r27)
+[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R28.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R28.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r28)
 
-The archive contains **39,758,320 bytes**, with 66 files and 80,327,680 uncompressed bytes. Its SHA256 is `1c662d2f9527889fbffc37c2ac85ec023b8522e9f2c3aa3060d68243cf535543`.
+The archive contains **39,760,258 bytes**, with 66 files and 80,334,944 uncompressed bytes. Its SHA256 is `fb56e65544f9f10841c253f2dc895bd66edab4185f9d450df8f56f833ea4d91d`.
 
-Want to see how far apart two voxels are? Mark one and choose **Set A**. Mark another and choose **Set B**. Read the signed change from A to B along the atlas’s Right, Anterior and Superior axes and the straight-line distance between their centres in millimetres. The section shows points on its own plane. The 3D model shows registered points inside its current left atlas window. Use **Clear A and B** to start again. The line measures a distance through atlas space. Fibre routes and clinical guidance require separate evidence.
+Mark a voxel and choose **Set A**. Mark another and choose **Set B**. The ruler gives the signed changes along Right, Anterior and Superior, and the straight-line distance between their centres in millimetres.
 
-A PaO plane can identify an unlabelled voxel. Grey in the VPL/VPM crop means the voxel lies outside those two labels. The crop cannot tell you its original label. All distances use voxel centres on the 0.5 mm grid.
+To keep both points, choose **Copy measurement**. Paste the fragment into **Open saved view** after any local launch. The atlas restores both source locations and the open section, then reads the labels and recalculates the displacement and distance. If the clipboard is blocked, copy the text under the button. **Copy saved view** still opens one marked voxel.
 
-**Copy saved view** still saves the territory, plane, window and one marked voxel for a later launch. The A/B comparison stays in the open page.
+The two positions come from the 0.5 mm Allen grid. The fragment carries the source grid and coordinates through the local browser. Individual anatomy, fibre paths and clinical guidance require separate evidence.
 
-Linux Chromium on AMD/RADV checked keyboard and touch-emulated comparisons, exact voxel-centre registration, and saved-view reopening across ports. All 469 browse-section rasters matched R26. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium on AMD/RADV checked measurement reopening across launcher ports, keyboard and emulated touch, clipboard fallback and rejected text that leaves the open section and pair intact. All 469 browse-section rasters matched R27. Native Windows, macOS and physical mobile execution remain open.
