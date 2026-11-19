@@ -55,7 +55,7 @@ The project’s original contributions are dedicated to the public domain under 
 
 Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
 
-[Brain R8 ZIP — package R28](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R28.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R28.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r28) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+[Brain R8 ZIP — package R29](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R29.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R29.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r29) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
 
 Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
 
@@ -71,6 +71,8 @@ Want to see how far apart two voxels are? Mark one and choose **Set A**. Mark an
 
 To keep both points, choose **Copy measurement**. Paste the fragment into **Open saved view** after any local launch. The atlas restores both source locations and the open section, then reads the labels and recalculates the displacement and distance. If the clipboard is blocked, copy the text under the button. **Copy saved view** still opens one marked voxel.
 
+Open **Follow the ruler through sections** with A and B set. The slider and voxel buttons step through the 0.5 mm cells the line crosses. They open a supplied section, read its atlas label and mark the voxel centre in the 3D window where it fits. If this reader has no section at that voxel, the last section stays open. The VPL/VPM crop names two labels. The parietal operculum reader shows all atlas labels at its supplied levels.
+
 The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
 
 Search for **VPL** or **VPM**, select a result, then choose **Compare VPL and VPM**. Choose **Show atlas sections** and pick a plane and atlas level. Each tile comes from the original Allen grid. The violet frame places the selected section in 3D. Copper dots identify VPM. A dark line follows the edges shared with VPL. Select a tile or use the arrow keys on the image to read its label and voxel-centre coordinates. Change the section plane to see the same voxel from another direction. At the edge of the crop, some levels fall outside the list. The readout gives that coordinate and the marker disappears until you return to a plane that contains the voxel. **Show shared voxel faces** still draws their gold 3D boundary. **Return to prior view** or Escape restores the selection and camera.
@@ -81,7 +83,7 @@ The preview accounts for 121 of 141 occupied source labels across 44 meshes and 
 
 The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
 
-Linux Chromium on AMD/RADV checked measurement reopening across launcher ports, keyboard and emulated touch, clipboard fallback and rejected text that leaves the open section and pair intact. All 469 browse-section rasters matched R27. Native Windows, macOS and physical mobile execution remain open.
+Linux Chromium on AMD/RADV checked native source labels, 3D registration, missing planes, keyboard and emulated touch. All 469 browse-section rasters matched R28. Saved single voxels and paired measurements reopened in a fresh launch. Native Windows, macOS and physical mobile execution remain open.
 
 The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
 
