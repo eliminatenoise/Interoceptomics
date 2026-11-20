@@ -630,3 +630,24 @@ footer {
   font-variant-numeric: tabular-nums;
   overflow-wrap: anywhere;
 }
+.map-choice {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+.map-choice legend { font-weight: 650; margin-bottom: 3px; }
+.map-choice label { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; min-height: 32px; }
+.map-choice input { accent-color: var(--green); }
+.agreement-key { background: #eef1e7; border-radius: 5px; padding: .65rem .7rem; margin: .3rem 0; }
+.agreement-key p { min-height: 0; margin: 0 0 .5rem; }
+.agreement-sensors th:first-child { width: 24%; }
+.agreement-sensors td { text-align: center; }
+.agreement-sensors thead th:not(:first-child) { text-align: center; }
+.agreement-sensors table { table-layout: fixed; }
+@media (max-width: 380px) {
+  .agreement-sensors > div { padding: .5rem; }
+  .agreement-sensors table { font-size: .72rem; }
+}

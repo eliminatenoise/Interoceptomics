@@ -18,6 +18,8 @@ INVENTORY = (
     "cue-fields.js", "measurements.js", "measurements/cue-fields.json",
     "measurements/README.md", "measurements/build_fields.py", "measurements/ofner_source.py",
     "measurements/protocol.json", "measurements/LICENSE-CODE", "measurements/SHA256SUMS",
+    "agreement/README.md", "agreement/protocol.json", "agreement/source-files.json",
+    "agreement/build_agreement.py", "agreement/counts.json", "agreement/counts.js", "agreement/view.js",
     "licenses/CC0-1.0.txt", "licenses/CC-BY-4.0.txt", "licenses/Colin27.txt",
     "licenses/FieldTrip-GPL-3.txt",
 )
@@ -26,6 +28,9 @@ INVENTORY = (
 def pack(destination):
     destination.parent.mkdir(parents=True, exist_ok=True)
     entries = {name: (SOURCE / name).read_bytes() for name in INVENTORY}
+    counts = entries["agreement/counts.json"]
+    if entries["agreement/counts.js"] != b"const AGREEMENT = " + counts.rstrip(b"\n") + b";\n":
+        raise ValueError("Group counts and their browser copy differ")
     sums = [f"{sha256(data).hexdigest()}  {name}\n" for name, data in sorted(entries.items())]
     entries["SHA256SUMS"] = "".join(sums).encode()
     with tempfile.NamedTemporaryFile(dir=destination.parent, delete=False) as f:

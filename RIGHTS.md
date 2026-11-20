@@ -151,4 +151,4 @@ The five-person cortical coverage reader counts the anatomical codes in the Stan
 
 ## Scalp and arm
 
-Ofner et al.’s codebook, figure copies, dataset-derived channel descriptions and repeated-trial summaries carry CC BY 4.0. FieldTrip’s standard 10–5 electrode coordinates and triangulated scalp retain the GNU GPL v3. The Colin27 attribution and original template files accompany both the site and the ZIP. The project's own viewer, limb illustration and prose carry CC0. [Sources, modifications and full licences](docs/scalp-and-arm/NOTICE.txt)
+Ofner et al.’s codebook, figure copies, dataset-derived channel descriptions, repeated-trial summaries and seven-person agreement counts carry CC BY 4.0. FieldTrip’s standard 10–5 electrode coordinates and triangulated scalp retain the GNU GPL v3. The Colin27 attribution and original template files accompany both the site and the ZIP. The project's own viewer, limb illustration and prose carry CC0. [Sources, modifications and full licences](docs/scalp-and-arm/NOTICE.txt)

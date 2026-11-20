@@ -12,13 +12,17 @@ Choose a right-arm instruction, then move the trial clock and compare how many
 EEG and mechanical sample intervals have elapsed. The arrow keys move the
 time control in EEG samples. A separate button advances one EEG sample.
 
-Enable “Show measured changes after the cue” to place recorded scalp changes
+Choose “Change in one person” to place recorded scalp changes
 from one participant's 18 trials per cue on the standard head. Choose a
 quarter-second interval, then select an electrode for its signed change and
 actual number of contributing trials. The six eye, glove and exoskeleton
 summaries sit below the drawings. Gaps between bins have no measured overlay.
 The files give stored units. The physical units, anatomical signs and hardware
 timing offset remain unverified.
+Choose “Agreement across seven people” to count who rose, fell or stayed level
+at each site. Missing observations are counted separately. The colour compares
+signs among the people with usable readings. The counts for the eye and arm
+sensors appear below the drawings. See agreement/README.md for the calculation.
 The time slider also moves the illustrative arm independently of the measurements.
 The methods and source code are included in the measurements folder.
 
