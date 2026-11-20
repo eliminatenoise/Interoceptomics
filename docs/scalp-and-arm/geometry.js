@@ -141,7 +141,14 @@ function scalpMarkers(index, field) {
       axes = basis(normal),
       selected = i === index;
     const center = V.add(p, V.scale(normal, 2.4));
-    if (field.mode && i < 61) {
+    if (field.members) {
+      const included = field.members.includes(i);
+      if (included) ellipsoid(m, center, axes, [6.4, 6.4, 2.8], palette.dark, 6, 16);
+      const position = included ? V.add(center, V.scale(normal, 1.8)) : center;
+      const radius = included ? 4.9 : 2.6;
+      const shade = included ? palette.selected : i === 61 ? palette.ground : zeroField;
+      ellipsoid(m, position, axes, [radius, radius, 2.5], shade, 6, 14);
+    } else if (field.mode && i < 61) {
       const value = field.values?.[i];
       let shade = palette.ground;
       if (Number.isFinite(value)) {

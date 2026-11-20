@@ -20,6 +20,7 @@ INVENTORY = (
     "measurements/protocol.json", "measurements/LICENSE-CODE", "measurements/SHA256SUMS",
     "agreement/README.md", "agreement/protocol.json", "agreement/source-files.json",
     "agreement/build_agreement.py", "agreement/counts.json", "agreement/counts.js", "agreement/view.js",
+    "eyes/README.md", "eyes/protocol.json", "eyes/build.py", "eyes/cohort.json", "eyes/cohort.js", "eyes/view.js",
     "licenses/CC0-1.0.txt", "licenses/CC-BY-4.0.txt", "licenses/Colin27.txt",
     "licenses/FieldTrip-GPL-3.txt",
 )
@@ -31,6 +32,8 @@ def pack(destination):
     counts = entries["agreement/counts.json"]
     if entries["agreement/counts.js"] != b"const AGREEMENT = " + counts.rstrip(b"\n") + b";\n":
         raise ValueError("Group counts and their browser copy differ")
+    if entries["eyes/cohort.js"] != b"const SCALP_EYES = " + entries["eyes/cohort.json"].rstrip(b"\n") + b";\n":
+        raise ValueError("Scalp and eye summaries differ from their browser copy")
     sums = [f"{sha256(data).hexdigest()}  {name}\n" for name, data in sorted(entries.items())]
     entries["SHA256SUMS"] = "".join(sums).encode()
     with tempfile.NamedTemporaryFile(dir=destination.parent, delete=False) as f:

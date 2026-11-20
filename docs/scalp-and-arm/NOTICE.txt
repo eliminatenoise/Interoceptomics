@@ -41,6 +41,14 @@ groups eye channels by original index; lateral labels vary across headers.
 The aggregate contains no individual classifications or traces. The original
 builder and interface are dedicated under CC0. See agreement/README.md.
 
+SCALP AND EYE COMPARISONS
+The eyes folder adds comparisons of six scalp sites, four scalp combinations
+and three eye-electrode columns in the same 21 execution recordings. The
+derived cohort.json, cohort.js and source-derived channel and study details
+carry the recordings’ CC BY 4.0 attribution above. Interoceptomics dedicates
+its original comparison code, interface and explanatory text under CC0 1.0.
+See eyes/README.md for the method, attribution and reproduction.
+
 STANDARD ANATOMY AND COORDINATES
 Robert Oostenveld and Peter Praamstra (2001). The five percent electrode system
 for high-resolution EEG and ERP measurements. Clinical Neurophysiology 112,

@@ -23,6 +23,10 @@ Choose “Agreement across seven people” to count who rose, fell or stayed lev
 at each site. Missing observations are counted separately. The colour compares
 signs among the people with usable readings. The counts for the eye and arm
 sensors appear below the drawings. See agreement/README.md for the calculation.
+Choose “Scalp and eye signals” to compare a quarter second of scalp and eye
+readings before and after the cue. Pick one of six sites or a pair. Compare the
+same trial with the next repetition of that cue. Select a bar to see the spread
+across seven people and the number of matched trials. See eyes/README.md.
 The time slider also moves the illustrative arm independently of the measurements.
 The methods and source code are included in the measurements folder.
 

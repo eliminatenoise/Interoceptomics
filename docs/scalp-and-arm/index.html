@@ -12,6 +12,8 @@
     <script src="cue-fields.js" defer></script>
     <script src="agreement/counts.js" defer></script>
     <script src="agreement/view.js" defer></script>
+    <script src="eyes/cohort.js" defer></script>
+    <script src="eyes/view.js" defer></script>
     <script src="measurements.js" defer></script>
     <script src="reader.js" defer></script>
   </head>
@@ -33,6 +35,7 @@
           <label><input type="radio" name="map" id="setup-only" checked /> Electrode positions</label>
           <label><input type="radio" name="map" id="use-measured" /> Change in one person</label>
           <label><input type="radio" name="map" id="use-agreement" /> Agreement across seven people</label>
+          <label><input type="radio" name="map" id="use-eyes" /> Scalp and eye signals</label>
         </fieldset>
         <label id="window-control" hidden
           >Measurement window
@@ -40,6 +43,30 @@
             <option value="gap" disabled>Between measured windows</option>
           </select></label
         >
+      </section>
+      <section id="eye-controls" class="eye-controls" hidden aria-labelledby="eye-title">
+        <h2 id="eye-title">How much does the scalp signal follow the eye electrode?</h2>
+        <p>Take 128 readings at the scalp and beside the eyes. Keep the scalp readings fixed. Swap in the eye
+          readings from the next time the same person saw the same cue. How much of the match survives?</p>
+        <div class="eye-selects">
+          <label>Scalp signal <select id="eye-signal">
+            <optgroup label="Two electrodes together">
+              <option value="C3_C4_mean">C3 and C4 · central mean</option>
+              <option value="C3_minus_C4">C3 minus C4 · central difference</option>
+              <option value="FC3_FC4_mean">FC3 and FC4 · frontocentral mean</option>
+              <option value="CP3_CP4_mean">CP3 and CP4 · centroparietal mean</option>
+            </optgroup>
+            <optgroup label="One electrode">
+              <option>FC3</option><option>FC4</option><option>C3</option><option>C4</option><option>CP3</option><option>CP4</option>
+            </optgroup>
+          </select></label>
+          <label>Eye electrode <select id="eye-channel"><option value="62">62 · outer</option>
+            <option value="63" selected>63 · middle</option><option value="64">64 · outer</option></select></label>
+          <label>Statistic <select id="eye-metric"><option value="mean_r2">Mean shared variation (r²)</option>
+            <option value="median_abs_r">Median correlation magnitude (|r|)</option></select></label>
+          <label>Usable trials <select id="eye-scope"><option value="finite_pairs">All finite, varying pairs</option>
+            <option value="baseline_screened_pairs">After pre-cue variability check</option></select></label>
+        </div>
       </section>
       <section class="twins" aria-label="Scalp and right-arm instruments">
         <article class="instrument head">
@@ -61,9 +88,15 @@
             </div>
           </div>
           <div class="panel">
-            <label for="site">Recording site</label
+            <label for="site" id="site-label">Recording site</label
             ><select id="site"></select>
             <p id="site-info" aria-live="polite"></p>
+            <div id="eye-head-key" hidden>
+              <strong id="eye-map-label"></strong>
+              <p>Gold marks the electrodes used together for this comparison. Pale dots show the other
+                cap positions. Select a signal above, or click one of the six studied scalp sites.</p>
+              <a href="#eye-results">Compare both windows ↓</a>
+            </div>
             <div id="scalp-key" hidden>
               <p id="measured-site" aria-live="polite"></p>
               <details id="full-site">
@@ -126,6 +159,42 @@
       <p class="gestures">
         Drag either model to turn it. You can also focus a model and use the arrow keys.
       </p>
+      <section id="eye-results" class="measured-panel" hidden aria-labelledby="eye-result-heading">
+        <h2 id="eye-result-heading">Around the movement cue</h2>
+        <p id="eye-reading"></p>
+        <div id="eye-chart" class="eye-chart" role="group" aria-label="Choose a window and trial pairing to inspect"></div>
+        <div id="eye-detail" class="eye-detail" aria-live="polite">
+          <h3 id="eye-detail-title"></h3><p id="eye-spread"></p><p id="eye-support"></p>
+        </div>
+        <p>Both windows span a quarter of a second at 512 Hz and leave out the cue sample.
+          All seven instructions contribute, including rest. The arm drawing and trial clock
+          illustrate a single instruction and do not change this comparison. A match between these
+          voltages cannot locate a signal in the cortex or tell us how much came from the eyes.</p>
+        <details><summary>What could account for a match?</summary>
+          <p>The two recordings may pick up eye movement, muscle activity, electrical activity from
+            the brain or noise from the shared recording reference. The shifted comparison keeps the
+            person, run, cue and time relative to the cue while breaking the original trial pairing.
+            It can show how much the match changes. It cannot locate activity in the cortex or tell
+            us what fraction came from the eyes.</p>
+          <p>Channel 63 is labelled middle in all 21 runs. The outside eye labels at columns 62 and 64
+            reverse between recordings, so each outside channel is identified by number. Eye position
+            on the face is not plotted. The scalp sites use standard cap coordinates.</p>
+          <p>For two scalp sites, first average the two voltages at each tick, or subtract C4 from C3
+            if you select their difference. Fit each set of 128 samples separately. For mean r²,
+            square the correlation in each trial, then average within run, across three runs in
+            each person and across seven people. For median |r|, take the absolute correlation and
+            use medians at all three steps. Both statistics discard the sign. The seven person
+            summaries supply the displayed middle half. This spread does not estimate uncertainty
+            in the wider population.</p>
+          <p>A constant trace has no defined correlation. The primary comparison requires a finite,
+            varying scalp trace and both corresponding eye traces. A second, retrospective check drops a pair
+            if either trial has an incomplete input or an unusually flat or variable pre-cue signal at
+            any of the nine electrodes. This leaves 846 of the 882 pairs.</p>
+          <p class="source-links"><a href="eyes/cohort.json">Download the cohort results</a>
+            <a href="eyes/README.md">Reproduce the comparison</a>
+            <a href="https://doi.org/10.5281/zenodo.834976">Original recordings</a></p>
+        </details>
+      </section>
       <section id="measurements" class="measured-panel" hidden aria-labelledby="measured-title">
         <h2 id="measured-title">What did the instruments record?</h2>
         <p>

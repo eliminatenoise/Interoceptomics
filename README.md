@@ -23,7 +23,7 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 ## Scalp and arm
 
-Rotate the scalp to find any of 61 electrode sites from the Ofner upper-limb study. Choose a right-arm cue to see how the scalp, eye electrodes and movement sensors changed in one person across 18 repeats. Switch to seven people to count whose readings rose, fell or stayed level in each of four windows after the cue. The head uses standard coordinates. The arm pose illustrates the instruction. The authors’ published equipment photograph, cue diagram and channel table are included offline. [Open the companion](https://eliminatenoise.github.io/Interoceptomics/scalp-and-arm/) · [Download the ZIP](downloads/scalp-and-arm.zip)
+Rotate the scalp to find any of 61 electrode sites from the Ofner upper-limb study. Choose a right-arm cue to see how the scalp, eye electrodes and movement sensors changed in one person across 18 repeats. Switch to seven people to count whose readings rose, fell or stayed level in each of four windows after the cue. Compare six scalp electrodes with the eye channels just before and after the cue, then swap in the eye trace from the next repetition. The head uses standard coordinates. The arm pose illustrates the instruction. The authors’ published equipment photograph, cue diagram and channel table are included offline. [Open the companion](https://eliminatenoise.github.io/Interoceptomics/scalp-and-arm/) · [Download the ZIP](downloads/scalp-and-arm.zip)
 
 ## Backslash of the Brain
 

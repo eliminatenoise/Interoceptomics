@@ -35,13 +35,15 @@ const scalp = camera(headCanvas, {
   tilt: 23,
   drawn: (project, eye) => {
     visibleSites = [];
+    const eyeMode = byId('use-eyes').checked;
+    if (eyeMode) tag.hidden = true;
     ATLAS.sites.forEach(([name, ...p], index) => {
       const n = siteNormal(p),
         cos = V.dot(eye, n);
       if (cos > 0.14) {
         const q = project(V.add(p, V.scale(n, 4)));
         visibleSites.push([q[0], q[1], index]);
-        if (index === current) {
+        if (index === current && !eyeMode) {
           tag.hidden = false;
           tag.textContent = name;
           tag.style.transform =
@@ -58,7 +60,10 @@ const scalp = camera(headCanvas, {
     const near = visibleSites
       .map((p) => [Math.hypot(x - p[0], y - p[1]), p[2]])
       .sort((a, b) => a[0] - b[0])[0];
-    if (near && near[0] < 13) selectSite(near[1], false);
+    if (near && near[0] < 13) {
+      if (byId('use-eyes').checked) eyeReader.pick(near[1]);
+      else selectSite(near[1], false);
+    }
   },
 });
 const arm = camera(armCanvas, {
@@ -69,12 +74,15 @@ const arm = camera(armCanvas, {
   fitPose: true,
 });
 const headMesh = scalpBase();
+const eyeReader = scalpEyeReader();
 const measures = measuredReader(CUE_FIELDS, (sec) => {
   time.value = String(sec);
   showTime();
 });
 function showField() {
-  const field = measures.update(current, 0x600 + task.selectedIndex, Number(time.value));
+  const standard = measures.update(current, 0x600 + task.selectedIndex, Number(time.value));
+  const eyes = eyeReader.update();
+  const field = byId('use-eyes').checked ? eyes : standard;
   if (field) scalp.setParts([headMesh, scalpMarkers(current, field)]);
 }
 ATLAS.sites.forEach((r, i) => site.add(new Option(r[0] + ' · channel ' + (i + 1), i)));

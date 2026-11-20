@@ -62,6 +62,7 @@ function measuredReader(source, setTrialTime) {
         return;
       }
     }
+    if (byId('use-eyes').checked) scalp.setAngle(180, 89);
     showTime();
   }
   for (const radio of document.querySelectorAll('input[name=map]')) radio.onchange = changeMap;
@@ -107,18 +108,19 @@ function measuredReader(source, setTrialTime) {
   function update(index, cueCode, seconds) {
     const enabled = checkbox.checked;
     const grouped = cohort.checked;
+    const eyes = byId('use-eyes').checked;
     byId('window-control').hidden = !enabled && !grouped;
     byId('agreement-panel').hidden = !grouped;
     byId('agreement-key').hidden = !grouped;
     byId('measurements').hidden = !enabled;
     byId('scalp-key').hidden = !enabled;
     byId('measured-site').hidden = !enabled;
-    byId('setup-key').hidden = enabled || grouped;
+    byId('setup-key').hidden = enabled || grouped || eyes;
     const taskData = source.tasks.find((t) => t.code === cueCode);
     const relative = seconds - 2;
     const windowIndex = source.windows.findIndex((w) => w.start_s <= relative && relative < w.stop_s);
     const window = enabled && windowIndex >= 0 ? taskData.windows[windowIndex] : null;
-    const key = [enabled, grouped, index, cueCode, windowIndex].join(':');
+    const key = [enabled, grouped, eyes, index, cueCode, windowIndex].join(':');
     if (key === lastKey) return null;
     lastKey = key;
     if (grouped) {
