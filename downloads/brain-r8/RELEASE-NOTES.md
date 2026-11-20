@@ -1,15 +1,15 @@
-# Brain R8 · package R33
+# The atlas viewer: latest edition
 
-Experimental research preview · 2026-11-19
+**19 November 2026. Find any region by name and land inside it.**
 
-[ZIP archive](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) · [SHA256 checksum](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [Sources and reuse terms](../../RIGHTS.md#brain-r8-package-r33)
+[Download](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) (ZIP, 40.6 MB) · [Checksum](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [How to open it](../../README.md#open-it-in-three-steps) · [Licences and credits](../../RIGHTS.md)
 
-Open **Explore full atlas labels** and choose **Find a structure**. Type a name, abbreviation or complete Allen ID. Choose a side and press **Show voxel in all three cuts**. The crosshair lands inside that label and gold marks its other voxels. Only sides with a direct assignment appear.
+In **Explore full atlas labels**, choose **Find a structure**. Type a name, an abbreviation or the complete atlas number, choose a side, and press **Show voxel in all three cuts**. The crosshair lands on a voxel of that region (a voxel is one half-millimetre cube of the atlas grid), and gold marks the region's other voxels in each cut.
 
-A single source label can bend around its own average position. For the midline voxels tagged **white matter of forebrain (10557)**, rounding the average would land in another label. The finder instead selects the nearest midline voxel that actually carries ID 10557, at R 0, A −4.5, S +2 mm. The midline contains 2,139 voxels with that ID in this annotation.
+The landing point is the voxel of the region nearest the average position of all its voxels on that side. That matters for a region that bends around its own middle. The white matter of the forebrain (region 10557) has 2,139 voxels on the midline, and their average position falls inside another region. The finder lands on the nearest voxel that really carries the number 10557, at R 0, A −4.5, S +2 mm.
 
-Parent and child IDs are counted separately. The finder uses the exact native ID assigned to a voxel. It leaves historical aliases unresolved. Zero marks an unlabelled voxel. A missing entry describes this annotation’s coverage.
+A side is offered only where the atlas gives that region voxels. All 141 regions have voxels on the left, 22 have some on the midline and 7 have some on the right: 170 places in all. A region and its sub-regions have separate numbers and are found separately.
 
-The original Allen annotation and metadata were checked against all 170 occupied label-and-side combinations across 141 distinct IDs. The 3D preview covers the source left. Sparse source-right labels can be read in the cuts. Linux Chromium checks included the hardware and software renderers, keyboard input, emulated touch, saved views and the ruler. Native Windows, macOS and physical mobile checks remain open.
+All 170 places were checked against the atlas's original file, in Chromium on Linux with hardware and with software rendering, by keyboard and by emulated touch. The viewer has not yet been run on Windows, macOS or a phone.
 
-The archive contains 76 files and 40,595,864 bytes (84,176,440 uncompressed). SHA256 `44047e76e8850cbd67b1119c478cbee14fafddec72c8400ddf512c41858870af`.
+The archive contains 76 files in 40,595,864 bytes (84,176,440 bytes unpacked). SHA256 `44047e76e8850cbd67b1119c478cbee14fafddec72c8400ddf512c41858870af`.

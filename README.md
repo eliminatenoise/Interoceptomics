@@ -1,96 +1,82 @@
 # Interoceptomics
 
-Development continues on NeuroTranslation, NeuroSurge and Interoceptomics, in that order of priority. Interoceptomics model work is active; the presentation and its matched scripts are paused.
+**A map of the wiring is not a map of what the body senses.** Interoceptomics is a proposed field of science: *interoception*, the body sensing its own interior (a heartbeat, a breath, a muscle at work), joined to *connectomics*, the mapping of nerve connections. Function first, and from function, structure: measure what the body senses and does, then ask which connections carry it.
 
-What lets you feel a heartbeat or a breath, and how are the neural connections involved arranged? Interoceptomics brings those questions together. It is our proposed field combining **interoception**, the sensing of internal bodily conditions, with **connectomics**, the study of neural connectivity.
+What you can use today is one piece of it: **a 3D atlas of the human brain that you turn, cut and measure.** It shows the left half of the Allen Institute's human reference atlas, 141 named regions on a half-millimetre grid, and colours the regions linked to moving and feeling the body, to running its organs, and to both at once.
 
-The starting point is familiar: a body has an internal condition, signals are recorded or reported, and a nervous system carries and processes information related to that condition. The research problem is to connect these observations without assuming that a wiring diagram already tells us what the system does.
+**[Download the atlas viewer](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip)** (ZIP, 40.6 MB) · [Open it in three steps](#open-it-in-three-steps) · [What it is not](#an-illustration-not-a-measurement) · [Licences and credits](RIGHTS.md)
 
-## What the project is for
+The proposal is argued in a talk, *I Know Kung Fu*: 111 slides on what it would take to read a movement out of one nervous system and teach it to another. The field gets its name near the end. **The talk is paused.** Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published). The experiments in them are proposals; none has been run.
 
-Interoceptomics develops a clear scientific account of internal-body sensing and its relationship to neural connections across scales. The presentation makes the programme legible through concrete examples, anatomical views and testable proposals. Its companion scripts provide the explanation that does not belong as a wall of text on a slide.
+## Open it in three steps
 
-A structural map can constrain an explanation. Function still depends on timing, physiological state, task, context and the measurement itself. Likewise, a convincing body or brain animation can explain a proposed relationship without demonstrating that the relationship has been reproduced biologically. Those distinctions run through the project.
+1. [Download the ZIP](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) and extract all of it into a folder.
+2. In that folder, start the viewer with the file for your system:
 
-The longer programme connects this work to body–brain interfacing and models of neural, muscular and mechanical activity. Interoceptomics does not claim a completed comprehensive map of internal experience, a universal neural language or an already validated clinical interface.
+   | Your computer | Start file |
+   | --- | --- |
+   | Windows | open `Windows.cmd` |
+   | macOS | open `macOS.command` |
+   | Linux | run `sh Linux.sh` in a terminal |
 
-## What is available here
+3. Your browser opens the atlas at an address on your own computer. If it stays closed, copy the address the start file prints into the browser. Leave that window open while you explore, and press Ctrl+C in it when you are done.
 
-[Download a Windows, macOS or Linux launcher](https://eliminatenoise.github.io/Interoceptomics/START.html) to open the current script hub.
+You need Python 3.10 or newer and a current browser. Nothing is installed. The start file serves the viewer's files on your own computer only; nothing but the links to cited papers needs the internet.
 
-[Open the current experimental script preview](https://eliminatenoise.github.io/Interoceptomics/). It contains four newer, unchanged provisional script files: technical and simple scripts in DOCX and PDF. The newer presentation is excluded while exact image permissions are resolved. [Preview notes, licences and hashes](docs/current/README.md) describe that partial selection. Presentation and matched-script work remain paused. The model preview below is a separate active stream.
+The viewer has been run on Linux, in Chromium. The Windows and macOS start files have not yet been tried on those systems. If one fails for you, [say so here](https://github.com/eliminatenoise/Interoceptomics/issues).
 
-The [older R42 presentation and scripts](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft) remain a historical complete edition with six core files. They do not match the newer scripts:
+## Turn it, cut it, measure it
 
-- The presentation as PowerPoint and PDF.
-- A technical script as DOCX and PDF, developing the explanations in depth.
-- A simple script as DOCX and PDF, keeping the essential explanations and dialogue.
+Run, and your legs, your balance, your breathing and your heart have to change together. The parts of the brain that move the body and the parts that run its organs are not separate machines: they overlap. The viewer puts that overlap on a real atlas. One colour marks regions linked to movement and touch (*somatic*), one marks regions linked to the automatic running of the organs (*autonomic*), and one marks regions where the two meet (*integration*).
 
-The release also contains a 3D companion archive, a start guide, provenance and notice files. The companions are separate from the presentation, so useful model controls do not turn the slides into an application dashboard. Follow the release’s instructions and stated dependency limits; the separate source delta requires an earlier baseline that is not included in that release.
+| You want to | In the viewer |
+| --- | --- |
+| Look around | Drag to turn, scroll to zoom. Four starting views: **Medial** (the flat inner face where the two halves of the brain meet), **Lateral** (the outside), **Insula exposed** and **Deep structures**. |
+| See what goes with what | **Association overlay** shows the somatic, autonomic or integration colours, or all three. |
+| Find a region | Type a name, an abbreviation or an atlas number into the search box: `insula`, `VPL`, `13230`. |
+| Lift a region out | **Isolate in place** hides everything else. 34 regions have a surface of their own. **Restore context** brings the brain back. |
+| See the atlas under the surface | **Explore full atlas labels** opens three flat cuts through one *voxel*, a half-millimetre cube of the atlas grid, and steps from voxel to voxel. **Find a structure** jumps to any of the 141 regions. |
+| Measure | Mark two points with **Set A** and **Set B** to read the straight-line distance in millimetres and how much of that line lies in each region. **Volume of the selected label** counts a region's volume. |
+| Come back to the same place | **Copy saved view** gives you a short piece of text. Paste it into **Open saved view** next time. |
 
-The current public edition is a **working draft**. Its illustrations describe proposed concepts. Scientific, rights, native playback and cross-machine reviews remain incomplete. A downloadable file or running animation does not establish biological or clinical function.
+A good first five minutes: choose **Insula exposed**, and the outer surface of the brain steps aside to show the insula, cortex that the outer folds normally cover. Search for `PaO`, the fold that covers it from above, and isolate it. Then search for `VPL`, choose **Compare VPL and VPM**, and **Show shared voxel faces**: two sensory nuclei deep in the thalamus, and in gold the 481 grid faces (120.25 mm²) where the atlas has them touch.
 
-## How to use the material
+The download carries its own guide, `README.html`, with every control.
 
-Start with the presentation for the visual argument. Choose the simple script for the essential spoken explanation, or the technical script for the fuller reasoning. Read the provenance and notices when examining or reusing a figure. Use the separate companions when an interaction helps explain the concept, while retaining their stated limits.
+## An illustration, not a measurement
 
-For a scientific claim, ask what was independently measured, under which conditions, and how the proposed model was compared with it. Anatomy, signal dynamics and functional outcomes need their respective evidence. Where a measurement or validation is missing, the gap stays visible.
+The viewer shows where a published atlas draws each region. It does not show what any region does.
 
-## How the projects fit together
+- **One reference brain, left half only.** The atlas was drawn on an averaged reference brain (the ICBM 2009b nonlinear symmetric MNI152 average), not on a person. It is nobody's brain, and the right half is not modelled.
+- **The colours are teaching associations.** This project chose them from 54 cited sources. They overlap, uncoloured regions take part too, and 61 of the 121 regions in the 3D model carry no colour. No activity was recorded.
+- **The grid is half a millimetre.** Borders follow the atlas's cubes, so small regions look blocky. The small brainstem and hypothalamic nuclei that regulate the organs are not drawn separately. 20 of the 141 regions (the ventricles, white-matter tracts, olfactory structures and the claustrum) have no surface at all, though every one can be read in the flat cuts.
+- **Nothing here has been validated**, scientifically or clinically. Distances and volumes describe this atlas, not a patient. The download holds no recordings and no trained model.
 
-- **Interoceptomics** explains the internal-sensing and connectivity questions through the presentation and companion material.
-- [NeuroTranslation](https://github.com/eliminatenoise/NeuroTranslation) develops the model, data-mapping methods and the NeuroTranslation and Brain2Body papers.
-- [NeuroSurge](https://github.com/eliminatenoise/NeuroSurge) is the first-person game demo under development, focused on a visible anatomical left arm and a virtual motor-cortex control display.
+## The anatomy is the Allen Institute's
 
-The projects share terminology and evidence standards. Their purposes and demonstrated capabilities remain distinct.
+The regions, their names and their numbers come from the *Allen Human Reference Atlas — 3D, 2020* (version 1.0.0) by Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein, © 2019 Allen Institute for Brain Science, used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This project cut the atlas to its left half, built the surfaces, and added the colours and the controls. The Allen Institute has not endorsed any of it.
 
-## Reuse
+The 3D drawing is done by [Three.js](https://github.com/mrdoob/three.js) (MIT licence). Everything this project wrote itself is in the public domain under [CC0 1.0](LICENSE).
 
-The project’s original contributions are dedicated to the public domain under [CC0 1.0](LICENSE), to the extent the project holds the rights. The presentation and companions may incorporate third-party material with separate rights. CC0 does not change those rights; see the release’s provenance and notice files.
+[Licences and credits](RIGHTS.md) has the full credit, the list of changes, and what you must keep when you reuse any part.
 
-[Terminology and project scope](PROJECT-CONTEXT.json).
+## The talk is paused; its scripts are published
 
+*I Know Kung Fu* is the long form of the argument. A film character has a skill loaded into his brain through a cable; the talk asks what a real version would have to measure, step by step, starting with whether recorded signals can predict a movement that was measured separately. Slides 87 and 88 of 111 propose Interoceptomics as a field.
 
-## Brain R8 model preview
+- **Technical script**, 114 pages: [PDF](docs/current/Interoceptomics-Script-Technical.pdf) · [DOCX](docs/current/Interoceptomics-Script-Technical.docx). Every step argued in full, with references.
+- **Simple script**, 36 pages: [PDF](docs/current/Interoceptomics-Script-Simple.pdf) · [DOCX](docs/current/Interoceptomics-Script-Simple.docx). The essential spoken lines for the same slides.
 
-Turn the brain to see how its labelled territories sit together. This experimental companion shows the same source-left atlas from several angles. Colours mark selected teaching associations. Activity and functional boundaries require separate evidence.
+[About the two scripts](docs/current/README.md). The slides for them are not published: 22 of their 88 pictures have not been cleared for redistribution. An older slide deck, with earlier scripts and a 238 MB set of 3D models of the proposed experiments, is still available as a [pre-release from 4 November 2026](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft); the rights to some of its pictures and models have not been established.
 
-[Brain R8 ZIP — package R33](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) · [SHA256 checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [Sources, changes and reuse terms](RIGHTS.md#brain-r8-package-r33) · [Edition notes](downloads/brain-r8/RELEASE-NOTES.md)
+## One programme, three projects
 
-Extract the whole archive and open its README. The Windows, macOS and Linux launchers use Python 3.10 or newer and a WebGL browser. Keep the terminal open while you explore. If the browser stays closed, copy the address from the terminal. Press Ctrl+C there to stop the server.
+Interoceptomics belongs to Brain2Body, a programme about connecting brain and body function (the 2 means *to*).
 
-Search for **PaO**, **parietal operculum** or **13230**. Select the label and choose **Isolate in place** when the separate surface is ready. Drag to turn it. Pick the surface or open **Evidence and limits** for the anatomy and studies of touch. **Restore context** brings back the selected preset at its starting angle and zoom. Medial returns to the constructed dissection. **Focus** centres and zooms to the selection from the preset’s starting angle. **Reset view** ends isolation, keeps the selection and returns to the preset’s starting angle and zoom.
+- **[NeuroTranslation](https://github.com/eliminatenoise/NeuroTranslation)** asks how well one recording of the body predicts another: brain or muscle activity against measured movement, tested on open human recordings.
+- **[NeuroSurge](https://eliminatenoise.github.io/NeuroSurge/)** is a browser game for learning which motor areas of the brain move which parts of the body. Its activity is simulated.
+- **Interoceptomics** is the widest of the three and the least built: the proposal that body sense and nerve wiring be studied together, and so far one brain atlas you can turn.
 
-Select **PaO** and choose **Show parietal operculum sections**. Step through sagittal, coronal and axial levels in 0.5 mm increments. Choose **Full atlas plane** to see the whole source rectangle. Select a point or use the arrow keys on the image to read its atlas label and voxel-centre coordinates. Change the section plane to see the same voxel from another direction. If its level falls outside the list, the reader gives the coordinate and hides the marker. If the point lies outside the neighbourhood window, choose **Full atlas plane** to see it. **Frame section in 3D** centres the same window in the model.
+---
 
-Know the voxel’s coordinates? In either section reader, enter the signed Right, Anterior and Superior values in millimetres and choose **Go to voxel**. Each value must land on a 0.5 mm grid centre. The reader can open another available plane and widen the PaO window to show the point.
-
-Choose **Copy saved view** when a voxel is marked. On the next launch, paste the fragment into **Open saved view** or append it to the launcher’s address. The atlas reopens the territory, plane, window and exact RAS voxel, with its section frame in 3D. The camera uses the territory’s starting view.
-
-Want to see how far apart two voxels are? Mark one and choose **Set A**. Mark another and choose **Set B**. Read the signed change from A to B along the atlas’s Right, Anterior and Superior axes and the straight-line distance between their centres in millimetres. The section shows points on its own plane. The 3D model shows registered points inside its current left atlas window. Use **Clear A and B** to start again. The line measures a distance through atlas space. Fibre routes and clinical guidance require separate evidence.
-
-To keep both points, choose **Copy measurement**. Paste the fragment into **Open saved view** after any local launch. The atlas restores both source locations and the open section, then reads the labels and recalculates the displacement and distance. If the clipboard is blocked, copy the text under the button. **Copy saved view** still opens one marked voxel.
-
-Open **Explore full atlas labels** and choose **Find a structure**. Type a name, abbreviation or complete Allen ID. Choose a side and press **Show voxel in all three cuts**. The crosshair lands inside that label and gold marks its other voxels. Only sides with a direct assignment appear.
-
-Choose **Explore full atlas labels** for coronal, sagittal and axial cuts through the same 0.5 mm voxel. Pick a tile, use the arrow keys or enter its RAS centre in millimetres. Read its source name and ID. A selected left voxel can mark the 3D coordinate frame. Source-right labels stay available in the cuts. The supplied sections have **Open full atlas at this voxel** when a point is selected. **Copy saved view** lets you return to the same source voxel in another launch.
-
-Turn on **Highlight the selected label** to pick out the exact ID under the crosshair in gold. Each cut gives its own matching voxel count. **Volume of the selected label** counts that ID across the entire grid, split by voxel centres left of, on and right of the midline. Each 0.5 mm cube contributes 0.125 mm³. Child labels have separate IDs. The atlas labels mainly the left side. The volume describes the source at this resolution.
-
-Open **Follow the ruler through sections** with A and B set. Each row gives the start and end of a contiguous atlas-label segment from A, plus its length in millimetres. Choose a row to move to its first voxel. The full source annotation can still give the label when the open reader lacks that section. The amber cross marks the voxel centre in the 3D window where it fits.
-
-The left parietal operculum folds over the insula. Its 43,319 labelled voxels occupy 5,414.875 mm³ on the Allen 0.5 mm grid. The export shows the gross anatomical parcel in the existing atlas coordinates. Histological subdivisions OP1–OP4, functional responses and individual anatomy require separate evidence. [Anatomy and histology](https://doi.org/10.1093/cercor/bhi106) · [Touch study](https://pubmed.ncbi.nlm.nih.gov/17032710/)
-
-Search for **VPL** or **VPM**, select a result, then choose **Compare VPL and VPM**. Choose **Show atlas sections** and pick a plane and atlas level. Each tile comes from the original Allen grid. The violet frame places the selected section in 3D. Copper dots identify VPM. A dark line follows the edges shared with VPL. Select a tile or use the arrow keys on the image to read its label and voxel-centre coordinates. Change the section plane to see the same voxel from another direction. At the edge of the crop, some levels fall outside the list. The readout gives that coordinate and the marker disappears until you return to a plane that contains the voxel. **Show shared voxel faces** still draws their gold 3D boundary. **Return to prior view** or Escape restores the selection and camera.
-
-Search for **VPM**, **VPL** or **Red nucleus**, then choose **Isolate in place** to lift away the surrounding tissue. Drag to turn the surface. The medial overview moves below the model in a narrow window and beside it in a wide window. Exposed points under **Surface samples** turn dark grey. **Atlas labels only** gives you the notes for territories with no surface samples to highlight.
-
-The preview accounts for 121 of 141 occupied source labels across 44 meshes and their source records. Thirty-four labels have separate meshes. Eighty-three have samples on combined surfaces, including the parietal operculum. Five appear only as atlas labels. A further 20 lack included surfaces. The model shows the original left atlas and has no individual fit or trained neural weights.
-
-The original left atlas labels share 481 grid faces, totalling 120.25 mm². Each tile is a 0.5 mm voxel in a population reference atlas. The 2D trace follows adjacent edges within a single plane. Individual anatomy, cross-atlas contour error and neural connections require separate evidence.
-
-The original Allen annotation and metadata were checked against all 170 occupied label-and-side combinations across 141 distinct IDs. The 3D preview covers the source left. Sparse source-right labels can be read in the cuts. Linux Chromium checks included the hardware and software renderers, keyboard input, emulated touch, saved views and the ruler. Native Windows, macOS and physical mobile checks remain open.
-
-The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target of an 1800 × 1200 window and a 1470 × 1200 model viewport. Broader browser controls, colour appearance and performance remain open.
-
-The original brain asset and its coordinates, source identities, colours, dependencies and launchers retain their R9 bytes. The parietal operculum, VPM, VPL and the red nucleus use that same atlas frame. The original source terms and Three.js MIT notice travel with the model. See the package manifest for the file identities.
+[Project page](https://eliminatenoise.github.io/Interoceptomics/) · [What changed in the latest viewer](downloads/brain-r8/RELEASE-NOTES.md) · [Checksum of the download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [Desktop shortcuts](LAUNCHERS.md) · [Facts about this repository for scripts](PROJECT-CONTEXT.json)
