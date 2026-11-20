@@ -14,9 +14,9 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 [Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Small vision** for the human movement tasks and their available game, camera and recording evidence. Choose **Big vision** for the six proposed animal stages. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.
 
-In Small vision, **Inspect the TRAIN example** opens one real walking segment. Choose either arm, either leg or the torso and compare the saved forecast with the sensor’s later reading. This clip was used during fitting. The readout and original source have their own [data credit](docs/stages/recording/NOTICE.md).
+In Small vision, a participant steers a cursor towards a target with their right wrist. Scrub the scalp and forearm recordings, choose the last instant a model can see, then check its forecast against the two measured wrist angles a quarter-second later. [Wrist recording and model credits](docs/stages/recording/WRIST-NOTICE.md)
 
-The sketches and walking example run in the browser. People who already have the separate 3D companion can also open its local models from the guide.
+Select **Open the walking recording** farther down the guide to try a different measurement. Choose either arm, either leg or the torso and compare a saved forecast with the sensor’s later acceleration. This walking clip was part of model training. Both examples run in the browser. If you have the separate 3D companion, its models also open from the guide. [Walking recording and model credits](docs/stages/recording/NOTICE.md)
 
 ## Open it in three steps
 

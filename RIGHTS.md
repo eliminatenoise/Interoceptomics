@@ -1,15 +1,17 @@
 # Licences and credits
 
-The project's own work in this repository is dedicated to the public domain. Three things in it belong to other people, and each comes with conditions. No single licence covers everything.
+The project's own work in this repository is dedicated to the public domain. The atlas, drawing library, embedded fonts and human movement recordings carry their own conditions. No single licence covers everything.
 
 | What | Whose | Terms | To reuse it you must |
 | --- | --- | --- | --- |
 | The brain anatomy in the atlas viewer: surfaces, region grid, region names and numbers | Allen Institute for Brain Science, adapted by this project | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give the credit below, link the licence, keep the notices, say what you changed |
 | Three.js, the 3D drawing library inside the viewer | Three.js authors | [MIT](https://opensource.org/license/mit) | Keep its copyright and permission notice |
 | Fonts embedded in the script PDFs | Liberation Sans: Red Hat and Google. Comic Sans MS: Microsoft | SIL Open Font License 1.1; Microsoft's core fonts end-user licence | Keep the two licence files with the PDFs |
+| The right-wrist recording and derived forecast results in the experiment guide | Jorge German Perez Blanco and Javier Mauricio Anteliz Ortiz, *EEG-EMG-WristMotion Dataset*, version 3 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give credit and link the licence and source. Keep the [trial, model and change notices](docs/stages/recording/WRIST-NOTICE.md) and identify further changes. |
+| The walking sensor excerpt and saved forecasts in the experiment guide | Billur Barshan and Kerem Altun, *Daily and Sports Activities* | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give credit and link the licence and source. Keep the [walking excerpt and forecast notices](docs/stages/recording/NOTICE.md) and identify further changes. |
 | Everything this project made itself: the viewer's code, the colour choices, these pages, the scripts' prose, the desktop shortcuts | This project | [CC0 1.0](LICENSE), to the extent the project holds the rights | Nothing |
 
-CC0 does not reach the first three rows. Where the project's work is fused with the atlas, as in every surface file, the atlas's terms still apply to the result.
+Each third-party item retains the terms listed in its row. Where the project's work is fused with the atlas, as in every surface file, the atlas's terms still apply to the result.
 
 ## The Allen atlas: the credit to give
 

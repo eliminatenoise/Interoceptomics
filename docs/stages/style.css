@@ -24,3 +24,29 @@ dl{margin:0}dl div{display:grid;grid-template-columns:minmax(106px,21%) 1fr;gap:
 #sample-panel td,#sample-panel th{border-bottom:1px solid var(--line);padding:6px 4px;text-align:right}
 #sample-panel th:first-child{text-align:left}#sample-panel caption{text-align:left;font-weight:650;padding:8px 0;color:var(--ink)}
 #sample-panel p{font-size:.86rem;margin-top:8px}.data-credit{color:var(--muted)}#sample-status{font-size:.86rem}
+
+#wrist {border-top:2px solid var(--ink);margin:1rem 0 1.5rem}
+#wrist-status:empty {display:none}
+#wrist-status button {margin-left:.5em}
+#wrist .data-credit,#wrist-data>p {font-size:.86rem;margin-top:12px}
+.wrist-columns {display:flex;flex-wrap:wrap;gap:16px 24px;margin:16px 0}
+.wrist-columns>div {flex:1 1 275px;min-width:0}
+.wrist-columns h4 {margin:0 0 8px;font-size:1rem;line-height:1.25;color:var(--ink)}
+.wrist-columns label {margin:8px 0 3px}
+.wrist-columns p {font-size:.86rem;line-height:1.45}
+.wrist-columns select {width:100%;font-size:.87rem;padding:6px 8px}
+.wrist-record {align-self:flex-start;background:#edf2eb;border-radius:8px;padding:14px}
+#wrist-time {display:block;font-size:.91rem;font-variant-numeric:tabular-nums}
+#wrist-frame {width:100%;accent-color:var(--green);margin:8px 0;display:block}
+.wrist-columns .wrist-key {font-size:.77rem;color:var(--muted)}
+.wrist-trace {padding:8px 0 3px}
+.wrist-trace div {display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.wrist-trace strong,.wrist-trace output {font-size:.83rem;font-variant-numeric:tabular-nums}
+.wrist-trace small {color:var(--muted);font-size:.72rem}
+.wrist-trace canvas {height:32px;width:100%;display:block;background:#f9fbf8}
+.wrist-table {width:100%;border-collapse:collapse;font-size:.86rem;font-variant-numeric:tabular-nums}
+.wrist-table caption {padding:12px 0 4px;text-align:left;font-weight:650;color:var(--ink)}
+.wrist-table th,.wrist-table td {padding:6px 3px;text-align:right;border-bottom:1px solid var(--line)}
+.wrist-table th:first-child {text-align:left}
+.wrist-compare button {font-size:.82rem;margin-top:10px}
+.wrist-methods {margin-top:9px}.wrist-methods summary {font-size:.9rem}

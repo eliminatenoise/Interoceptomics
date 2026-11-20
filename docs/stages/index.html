@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Move a limb in a 3D drawing, compare a forecast with a real walking sensor, or explore proposed animal learning experiments.">
+<meta name="description" content="Follow a real wrist-pointing trial, compare forecasts with measured movement, or explore proposed animal learning experiments.">
 <title>Experiment guide · Interoceptomics</title>
 <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,7 @@
 <header><a href="../" class="wordmark">Interoceptomics</a><span class="location">Experiment guide</span><a class="source" href="https://github.com/eliminatenoise/Interoceptomics">Source ↗</a></header>
 <main>
 <h1>How do we study movement?</h1>
-<p class="intro">Move an arm or a leg in the drawing. Then try a real walking recording. Can a computer predict what a sensor on the walker will read next? The animal experiments ask a different question. After guidance stops, what has an animal learned?</p>
+<p class="intro">A target appears. A person turns their wrist. Can a computer use what just happened to predict where the wrist will be a quarter-second later? The animal experiments ask a different question. After guidance stops, what has an animal learned?</p>
 <nav class="visions" aria-label="Choose an experiment"><a id="small-link" href="#map-brain2body">Human movement <span>Small vision · NeuroTranslation × NeuroSurge</span></a><a id="big-link" href="#0.1">Animal learning <span>Big vision · Interoceptomics</span></a></nav>
 <noscript>This guide needs JavaScript for its controls. Read the <a href="../current/Interoceptomics-Script-Technical.pdf">technical script</a> or <a href="../current/Interoceptomics-Script-Simple.pdf">simple script</a>.</noscript>
 <div class="workspace">
@@ -23,6 +23,39 @@
 <article id="experiment" tabindex="-1">
 <div class="step-head"><div><p class="section-label" id="group-name"></p><h2 id="title"></h2></div><div class="arrows"><button type="button" id="previous" aria-label="Previous step">←</button><button type="button" id="next" aria-label="Next step">→</button></div></div>
 <p id="question"></p>
+<section id="wrist" aria-labelledby="wrist-title" hidden>
+<h3 id="wrist-title">Follow one right wrist</h3>
+<p>A participant used their right wrist to steer a cursor towards a target. Electrodes picked up tiny voltage changes at the scalp and forearm. Two sensors on the wrist device measured the bend of the hand and its tilt from side to side.</p>
+<p id="wrist-status" role="status"></p>
+<div id="wrist-data" hidden>
+<div class="wrist-columns">
+<div class="wrist-record">
+<h4>The recording</h4>
+<label for="wrist-frame">Time from the visual cue</label>
+<output id="wrist-time" for="wrist-frame"></output>
+<input type="range" id="wrist-frame" aria-describedby="wrist-marker">
+<p class="wrist-key" id="wrist-marker">Each trace runs from half a second before the cue to 2.5 seconds after. The dashed line marks the cue. The solid line marks your reading.</p>
+<div id="wrist-traces"></div>
+<p class="wrist-key">Both wrist traces use the same scale. Positive angles mean the wrist bends back or tilts towards the thumb. Each voltage trace has its own scale.</p>
+</div>
+<div class="wrist-compare">
+<h4>What happened a quarter-second later?</h4>
+<p>Choose the last instant the model could see. It used the preceding half-second and the time since the cue to forecast both angles.</p>
+<label for="wrist-cutoff">Last input, after the cue</label><select id="wrist-cutoff"></select>
+<label for="wrist-inputs">Measurements the model used</label>
+<select id="wrist-inputs"><option value="motion">Wrist angles</option><option value="emg">Wrist angles + forearm</option><option value="full" selected>Wrist angles + forearm + scalp</option></select>
+<table class="wrist-table"><caption id="wrist-target"></caption><thead><tr><th scope="col">Wrist angle</th><th scope="col">Bend</th><th scope="col">Side tilt</th></tr></thead><tbody id="wrist-values"></tbody></table>
+<button type="button" id="wrist-jump">Show this outcome on the traces</button>
+</div>
+</div>
+<p>These forecasts were calculated in advance with the three trained NeuroTranslation models. This public example was excluded from the 959-trial comparison. Across those trials from three people, adding the forearm signals increased the model’s error from 5.432° to 5.866°.</p>
+<details class="wrist-methods"><summary>What did the instruments record?</summary>
+<p>The displayed scalp voltage comes from electrode C3. The forearm trace subtracts the reading at M3R from the reading at M3L. Both use microvolts (µV). Every 16 stored rows, the full model calculates an average for each of eight scalp channels and a voltage amplitude for each of four forearm pairs.</p>
+<p>The file stores 512 rows per second. The angle sensors update at 100 readings per second, so neighbouring rows can repeat the same angle. Hardware delays are unknown. The target marker records when the screen cued the movement. Spinal activity, muscle force and sensory nerve feedback would each require a separate measurement.</p>
+</details>
+</div>
+<p class="data-credit">Jorge German Perez Blanco and Javier Mauricio Anteliz Ortiz, <i>EEG-EMG-WristMotion Dataset</i>, version 3. <a href="https://doi.org/10.6084/m9.figshare.29666735.v3">Dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="recording/WRIST-NOTICE.md">Trial and forecast sources</a> · <a href="https://github.com/eliminatenoise/NeuroTranslation/tree/117ffa001fb10086854ae4ec4d365c7c2121786f/benchmarks/paired-wrist-forecast">Run the predictor ↗</a></p>
+</section>
 <div class="scene">
 <div class="scene-line"><strong id="scene-title"></strong><span>3D schematic</span></div>
 <canvas aria-label="Interactive schematic. Read the scene description and current state below."></canvas>

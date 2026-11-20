@@ -1,6 +1,7 @@
 import {allSteps,groups,visions,technicalPage} from './roadmap.js';
 import {sceneInfo,showScene} from './scene.js';
 import {selectWalkingLimb} from './recording/view.js';
+import {showWristRecording} from './recording/wrist.js';
 
 const $=id=>document.getElementById(id);
 const external={
@@ -14,7 +15,7 @@ const external={
 const limbs={
   'left-arm':['Left arm','1'],'left-leg':['Left leg','2'],'right-leg':['Right leg','3'],'right-arm':['Right arm','4']
 };
-const canvas=document.querySelector('canvas');
+const canvas=document.querySelector('.scene canvas');
 let current,localOrigin;
 const last={small:'map-brain2body',big:'0.1'};
 function link(text,href){
@@ -95,6 +96,7 @@ function render(directionFocus=false){
   $('group-name').textContent=g.title;$('question').textContent=current.question;$('evidence').textContent=current.evidence;
   $('script-link').href='../current/Interoceptomics-Script-Technical.pdf#page='+technicalPage(current.slide);
   $('script-link').textContent='Technical script · slide '+current.slide+' ↗';
+  showWristRecording(current.id === 'map-brain2body');
   $('coverage').hidden=!small;$('recording').hidden=!small;
   $('limb-wrap').hidden=!small && current.scene!=='body';
   $('mode-wrap').hidden=!(current.scene.includes('replay')||current.scene==='guide');

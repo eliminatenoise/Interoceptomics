@@ -1,3 +1,5 @@
+import {readPacket} from './read-packet.js';
+
 // Only an exact, reviewed packet may supply values. The accelerometer and forecast never drive the illustrated avatar.
 const packetHash = '48c0ed4e6f6db73a6646680d0682bb635dcff5195578666e3766b1400a6418e2';
 const $ = id => document.getElementById(id);
@@ -52,13 +54,7 @@ $('open-recording').addEventListener('click', async () => {
   button.disabled = true;
   try {
     if (!packet) {
-      const response = await fetch(new URL('./walking.json', import.meta.url));
-      if (!response.ok) throw Error('Unavailable packet');
-      const bytes = await response.arrayBuffer();
-      const digest = await crypto.subtle.digest('SHA-256', bytes);
-      const hex = Array.from(new Uint8Array(digest), v => v.toString(16).padStart(2,'0')).join('');
-      if (hex !== packetHash) throw Error('Unrecognised packet');
-      packet = JSON.parse(new TextDecoder().decode(bytes));
+      packet = await readPacket('walking.json', packetHash);
     }
     draw();
     panel.hidden = false;

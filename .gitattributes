@@ -1,3 +1,5 @@
 # Keep downloaded launcher bytes/checksums stable across operating systems.
 docs/launchers/** -text
 docs/START.html -text
+# The experiment guide checks the SHA-256 of the original recording and forecast packets.
+docs/stages/recording/*.json -text
