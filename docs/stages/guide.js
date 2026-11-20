@@ -113,6 +113,8 @@ function render(directionFocus=false){
   $('resources').replaceChildren();
   if(small || ['0.1','movement-model','composite','5.3'].includes(current.id))
     resource('Inspect recordings in NeuroTranslate 0.0 ↗',external.model);
+  if(current.id==='handler')
+    resource('Search and replay 26 tracked hand joints ↗','https://eliminatenoise.github.io/NeuroTranslation/hand-search/');
   if(['map-body2body','movement-model'].includes(current.id))
     resource('Follow 41 markers in three recorded movements ↗','https://eliminatenoise.github.io/NeuroTranslation/whole-body/');
   if(small){
