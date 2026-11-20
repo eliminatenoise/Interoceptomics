@@ -184,3 +184,7 @@ Steven M. Peterson and Daniel P. Ferris released the Perturbed beam-walking task
 ## Muscle and motion during visual rotation
 
 Steven M. Peterson and Daniel P. Ferris recorded the two short excerpts in the muscle-and-motion atlas. Their *Perturbed beam-walking task*, OpenNeuro ds003739 v1.0.3, carries a CC0 dedication. The excerpts, two derived sacrum-path GLBs, offline ZIP and reader credit the original work. [Recording](https://doi.org/10.18112/openneuro.ds003739.v1.0.3) · [Data paper](https://doi.org/10.1016/j.dib.2021.107635) · [Experiment](https://doi.org/10.1523/ENEURO.0207-18.2018) · [Rights and citation request](https://github.com/OpenNeuroDatasets/ds003739/blob/f15449b6aecb83044b49a1798955e8a212a68fc1/dataset_description.json)
+
+## Grasping and balancing
+
+The wrist trajectory and five arm-muscle amplitude summaries derive from the CC0 WAY-EEG-GAL recordings by Matthew D. Luciw, Ewa Jarocka and Benoni B. Edin. The sacrum trajectory and eight leg-muscle summaries derive from the CC0 recordings by Steven M. Peterson and Daniel P. Ferris. Both excerpts cover a single movement in one participant per study. Their acquisition papers and apparatus figures are linked at source. The viewer, GLBs and code carry the repository’s CC0 dedication. [WAY-EEG-GAL](https://doi.org/10.6084/m9.figshare.c.988376.v2) · [Beam-walking data](https://doi.org/10.18112/openneuro.ds003739.v1.0.3) · [Acquisition and conversions](docs/cross-limb-movement/METHODS.md)

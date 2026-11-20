@@ -15,6 +15,8 @@ The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
+**[Grasping and balancing](https://eliminatenoise.github.io/Interoceptomics/cross-limb-movement/).** Trace one person’s wrist after a go light and another person’s sacrum as the view turns during a walk. Turn each path in its own recording frame, step through the next 125 ms and read the muscle amplitudes in their original units. [Offline reader and both measured paths](downloads/cross-limb-movement.zip)
+
 **[When the view turns](https://eliminatenoise.github.io/Interoceptomics/muscle-and-motion/).** Follow the same person’s lower-back marker through a visual rotation while standing and walking. Compare eight lower-leg voltage recordings before the cutoff with their amplitude over the next 125 ms. [Download the offline atlas and both measured paths](downloads/muscle-and-motion.zip).
 
 **[When the room tilts](https://eliminatenoise.github.io/Interoceptomics/visual-balance/).** A walker sees the room turn. Read the scalp, eye and muscle voltages and follow the head and sacrum through the same recorded moment. [Download the offline reader and both measured models](downloads/visual-balance.zip).

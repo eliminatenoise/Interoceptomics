@@ -68,3 +68,7 @@ Extract [the offline reader](downloads/walking-instructions.zip), then run the l
 ## When the room tilts
 
 Extract the entire ZIP and choose the Windows, macOS or Linux launcher inside. Opening index.html directly also works. The reader includes the measured electrode positions, scalp and eye voltages, muscle traces, both marker paths and two standalone 3D files. [Browser reader](https://eliminatenoise.github.io/Interoceptomics/visual-balance/) · [Offline ZIP](downloads/visual-balance.zip)
+
+## Grasping and balancing
+
+Extract the [offline reader and both measured trajectories](downloads/cross-limb-movement.zip). Open **Open on Windows.cmd** or **Open on macOS.command**, or run `sh "Open on Linux.sh"`. You can also open `index.html` directly. The reader runs offline in a browser.
