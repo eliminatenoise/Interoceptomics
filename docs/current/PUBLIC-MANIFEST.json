@@ -17,23 +17,23 @@
     },
     {
       "name": "Interoceptomics-Script-Simple.docx",
-      "bytes": 26125,
-      "sha256": "a6da93e48e1bbd6cea2f85350600cd2eb3444a3c8840dede3d79dcbc0a3ba937"
+      "bytes": 26126,
+      "sha256": "105e253c08a63304a9d97b2bf055951dafa71202bbb109ede1117d7be298e24f"
     },
     {
       "name": "Interoceptomics-Script-Simple.pdf",
-      "bytes": 351943,
-      "sha256": "84d864225b00db11ac7cadbd397d034e5879033c29503d191622dc838357dcbb"
+      "bytes": 351920,
+      "sha256": "cce180133187d6a4796546a49b9beaeba3900e5e9a9566b919b43f41d01b78b9"
     },
     {
       "name": "Interoceptomics-Script-Technical.docx",
       "bytes": 59910,
-      "sha256": "c948d24f4c06a007a0938fe2cf00389121e52ec1333b2e3c8dea132a96e7e6de"
+      "sha256": "3badee98735ff6204021ff1258727374878e263d2d1bdb53d2f55b78a9119857"
     },
     {
       "name": "Interoceptomics-Script-Technical.pdf",
-      "bytes": 573659,
-      "sha256": "591f3e136f7a0ceb9f44d04b47a0bbc1a35657018d275f70a386725f59226a49"
+      "bytes": 573660,
+      "sha256": "ae07b1d7784ad28945b7ece9da528da585037032292f347e7dafec3c01b24e7d"
     },
     {
       "name": "LICENSE-CC0-1.0.txt",
@@ -47,13 +47,13 @@
     },
     {
       "name": "README.md",
-      "bytes": 4326,
-      "sha256": "21fb001585baaa972f33ec5800e77e13b7efc42cc89482c919c3af1329296f13"
+      "bytes": 4324,
+      "sha256": "707f32464e61c1dc45b9156c3b6be84909256a266d86ab22e8fe507ac4e7335e"
     },
     {
       "name": "RELEASE-NOTES.md",
-      "bytes": 1310,
-      "sha256": "d8b9f4f35fda0af5faafb02d646ba346564e090c022d1be46dd9fd4ff04c0710"
+      "bytes": 1413,
+      "sha256": "de94b0576b908d7597e90ee6c333c82e00b8ffded8d0b48ecacd4a53e741d20d"
     }
   ]
 }

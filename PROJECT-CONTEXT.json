@@ -21,12 +21,12 @@
   "programme_focus": "Three projects share the Brain2Body programme: NeuroTranslation, NeuroSurge and Interoceptomics. All three are active.",
   "experimental_preview": {
     "status": "partial: the two current scripts, without their slides",
-    "source": "script files produced on 4 November 2026 (UTC), published unchanged",
+    "source": "Scripts of 4 November 2026 (UTC), with the step name NeuroReplay corrected on 20 November 2026.",
     "core_files": 4,
     "presentation_included": false,
     "reason": "22 of the slide deck's 88 pictures are known not to be cleared for redistribution; the rights to the other 66 have not been confirmed",
     "site": "https://eliminatenoise.github.io/Interoceptomics/#scripts",
-    "development": "Presentation and its scripts paused; the published script files stay available unchanged.",
+    "development": "The presentation and its scripts are paused apart from this naming correction.",
     "complete_scientific_or_production_acceptance": false
   },
   "atlas_viewer": {

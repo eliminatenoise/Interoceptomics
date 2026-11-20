@@ -2,7 +2,7 @@
 
 In *The Matrix*, Neo has kung fu loaded into his brain through a cable. Four words, and years of practice disappear. *I Know Kung Fu* is a talk of 111 slides that asks what a real version would have to measure, and it begins small: can recorded signals predict a movement that was measured separately? Interoceptomics is proposed near its end, on slides 87 and 88.
 
-The talk is paused. These are its two scripts, as they stood on 4 November 2026 (UTC).
+The talk is paused. In this edition, steps 0.3 and 0.5 use the name **NeuroReplay**.
 
 | Script | Pages | Read | Edit |
 | --- | --- | --- | --- |
