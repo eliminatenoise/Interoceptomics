@@ -4,7 +4,7 @@ Billur Barshan and Kerem Altun. *Daily and Sports Activities* (2010), UCI Machin
 
 The selected clip is the first segment of participant p1 walking in a parking lot, archive member `data/a09/p1/s01.txt`. The guide shows rows 0–15 of that member as 16 observations and row 18 as the later target, using zero-based indices. Relative times come from the nominal 25 Hz sampling rate. The three axes remain in each instrument’s local frame and original stored units. Five placements are shown in the same clip. Choosing a placement selects its own history, forecast and target.
 
-The local file retains the complete recorded example packet exported by the NeuroTranslate 0.0 five-placement walking study, including the saved Transformer, ridge and persistence forecasts. The viewer reads those saved numbers and rounds them for display. The fitted checkpoint used the walking clip during training. The target is a separate later observation in that clip. Its presence gives no evidence about performance on an unseen participant.
+The local file retains the complete [recorded example packet exported by the NeuroTranslate 0.0 five-placement walking study](https://github.com/eliminatenoise/NeuroTranslation/blob/b69df06a43db1ec36d816ac638c78fd3ba55a05e/benchmarks/daily-sports-limbs/recorded-examples.json), including the saved Transformer, ridge and persistence forecasts. The viewer reads those saved numbers and rounds them for display. The fitted checkpoint used the walking clip during training. The target is a separate later observation in that clip. Its presence gives no evidence about performance on an unseen participant.
 
 | File or object | SHA-256 |
 | --- | --- |

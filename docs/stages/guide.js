@@ -109,7 +109,10 @@ function render(directionFocus=false){
   $('resources').replaceChildren();
   if(small || ['0.1','movement-model','composite','5.3'].includes(current.id))
     resource('Inspect recordings in NeuroTranslate 0.0 ↗',external.model);
-  if(small)resource('Open the NeuroSurge game ↗',external.game);
+  if(small){
+    resource('Run the five-sensor forecast model ↗','https://github.com/eliminatenoise/NeuroTranslation/tree/main/benchmarks/daily-sports-limbs#open-the-local-demo');
+    resource('Open the NeuroSurge game ↗',external.game);
+  }
   if(!small){
     resource('Download the reference brain atlas (ZIP) ↗',external.atlas);
     resource('Atlas instructions and attribution ↗',external.atlasGuide);
