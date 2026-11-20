@@ -1,6 +1,6 @@
 # Licences and credits
 
-Most of this repository is the project's own work and is in the public domain. Three things in it belong to other people, and each comes with conditions. No single licence covers everything.
+The project's own work in this repository is dedicated to the public domain. Three things in it belong to other people, and each comes with conditions. No single licence covers everything.
 
 | What | Whose | Terms | To reuse it you must |
 | --- | --- | --- | --- |
@@ -30,16 +30,18 @@ Do not relabel this material as CC0, and do not add a non-commercial restriction
 
 The atlas is a grid of half-millimetre cubes, each carrying the number of a region. From that grid this project made the following. All of it is atlas-derived, and the credit above applies to all of it.
 
-- **The left half only.** Cubes on the atlas's left side (R ≤ 0 in its own right-anterior-superior coordinates) were kept.
-- **Surfaces.** Surfaces were drawn around the regions on the 0.5 mm grid. The cut face at the midline was closed with a constructed cap of at most 0.25 mm. An earlier display approximation moved surfaces by at most 0.125 mm. Surface directions (normals) were set and later corrected, and a plain single-sided material was applied.
-- **Grouping.** Some regions were merged into combined surfaces, and thirty regions were given surfaces of their own.
-- **Coordinates.** Positions were converted from the atlas's millimetres to the viewer's metres: (R, A, S) becomes (−R, S, A) ÷ 1000.
-- **Four separate surfaces**, unsmoothed, each following one region on the same grid in the same coordinates, with display normals and a material added: the red nucleus (region 12247), the ventral posterior lateral nucleus, VPL (10424), the ventral posterior medial nucleus, VPM (10425), and the parietal operculum (13230).
-- **Where VPL and VPM touch.** A list of the 481 grid faces between regions 10424 and 10425.
-- **Two crops of the grid.** One keeps only VPL and VPM. One keeps every full plane that contains the parietal operculum.
-- **The whole grid, repacked without loss** for the flat cuts, the ruler and the volume counts. Every original region number is kept, in the original order, and the atlas's own coordinate frame is recorded with it. The source file is `annotation.nii.gz` from the collection.
-- **A lookup of starting points.** For each region and side, the one cube of that region closest to the average position of its cubes. Ties go to the lowest index in the original order.
-- **Additions that are not anatomy.** The somatic, autonomic and integration colours, the cameras and lights, the controls, and a generated overview picture.
+| Change | What was done |
+| --- | --- |
+| The left half | The atlas labels almost only its left side. The 3D model keeps the cubes at R ≤ 0 in the atlas's own right-anterior-superior coordinates: the left side and the midline. |
+| Surfaces | Surfaces were drawn around the regions on the 0.5 mm grid. The cut face at the midline was closed with a constructed cap of at most 0.25 mm. An earlier display approximation moved surfaces by at most 0.125 mm. Surface directions (normals) were set, and a plain single-sided material was applied. |
+| Grouping | Some regions were merged into combined surfaces, and thirty were given surfaces of their own in the main model file. With the four separate surfaces below, that makes the 34 regions the viewer can lift out. |
+| Coordinates | Positions were converted from the atlas's millimetres to the viewer's metres: (R, A, S) becomes (−R, S, A) ÷ 1000. |
+| Four separate surfaces | Unsmoothed, each following one region on the same grid in the same coordinates, with display normals and a material added: the red nucleus (region 12247), the ventral posterior lateral nucleus, VPL (10424), the ventral posterior medial nucleus, VPM (10425), and the parietal operculum (13230). |
+| Where VPL and VPM touch | A list of the 481 grid faces between regions 10424 and 10425. |
+| Two crops of the grid | One keeps only VPL and VPM. One keeps every full plane that contains the parietal operculum. |
+| The whole grid, repacked without loss | For the flat cuts, the ruler and the volume counts. Every original region number is kept, in the original order, and the atlas's own coordinate frame is recorded with it. The source file is `annotation.nii.gz` from the collection. |
+| A lookup of starting points | For each region and side, the one cube of that region closest to the average position of its cubes. Ties go to the lowest index in the original order. |
+| Additions that are not anatomy | The somatic, autonomic and integration colours, the cameras and lights, the controls, and a generated overview picture. |
 
 Two things are deliberately absent. The MRI brain template that the atlas was drawn on has separate terms and is not in the download. Nor are the photographs and figures from the papers the viewer cites; those stay with their publishers.
 
@@ -61,19 +63,19 @@ Two things are deliberately absent. The MRI brain template that the atlas was dr
 
 The full text of CC BY 4.0 is in the download at `licenses/CC-BY-4.0.txt`.
 
-## Region names and the hierarchy
+## The region names are the Allen Institute's too
 
-The names, abbreviations, numbers and parent-and-child order of the regions are the Allen Institute's too. They are covered by the same CC BY 4.0 credit, on this basis: the atlas collection publishes its own table of them, [`voxel_count.csv`](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv), and the collection's README counts such tables among its materials. The download includes that table unchanged at `sources/allen-version1/voxel_count.csv`.
+So are the regions' abbreviations, their numbers and their parent-and-child order. All are covered by the same CC BY 4.0 credit, on this basis: the atlas collection publishes its own table of them, [`voxel_count.csv`](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv), and the collection's README counts such tables among its materials. The download includes that table unchanged at `sources/allen-version1/voxel_count.csv`.
 
 What was checked, and what was not:
 
 - For all 141 regions, the number, name, abbreviation and full ancestry in the viewer matched the table exactly. No near-match was accepted.
 - The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour.
-- These comparisons were made once, on an early edition of the viewer. Display fields have been added since. The four matched fields have not changed, and the comparisons have not been repeated. Their record is in the download at `sources/allen-version1/source-binding.json`.
+- These comparisons were made once, on an early edition of the viewer. Fields that only affect display have been added since. The four matched fields have not changed, and the comparisons have not been repeated. Their record is in the download at `sources/allen-version1/source-binding.json`.
 - The table was downloaded on 15 November 2026. The server reports it as last modified on 19 February 2025, so it cannot be shown to be byte-for-byte the 2020 original.
 - The table's own count and volume columns were not checked by this project.
 
-### The route the names actually took
+### The names first came through the Allen web API, whose terms are narrower
 
 The viewer's names and hierarchy were first fetched from the Allen Brain Map web API on 4 November 2026: structure graph 16, 3,317 rows, through [this query](https://api.brain-map.org/api/v2/data/query.json?criteria=model%3A%3AStructure%2Crma%3A%3Acriteria%2C%5Bgraph_id%24eq16%5D%2Crma%3A%3Aoptions%5Border%24eq%27structures.graph_order%27%5D%5Bnum_rows%24eqall%5D). It is the 2026 state of that graph, not a frozen copy from 2020. The response itself is not in the download.
 
@@ -84,7 +86,12 @@ The API falls under the Allen Institute's general [Terms of Use](https://allenin
 - limits on commercial redistribution;
 - the Institute's Freedom to Innovate conditions, which include not asserting rights against improvements the Institute develops independently, and a restriction on posting to sites that require acknowledgement of ownership of the posted content.
 
-This project keeps the record of that acquisition and does not waive those terms. They do not narrow the CC BY permission for the fields that match the table, for the atlas-derived files, or the MIT licence of Three.js. Fields of the API response that were never examined, and later improvements by the Institute, are outside what this page concludes. Nothing here creates a licence for the whole API response, for AI use, or for the viewer as a whole. If you fetch from the API yourself, its terms apply to what you fetch.
+What that means for you:
+
+- The names, abbreviations, numbers and ancestry of the 141 regions match the published table, so the CC BY 4.0 credit above covers them.
+- The rest of the API response was not examined and is not in the download. This page gives no permission for it, and no blanket permission for AI use or for improvements the Institute develops later.
+- That the whole response carries no licence here does not narrow CC BY 4.0 for the matching fields or for the atlas-derived files, nor the MIT licence of Three.js.
+- If you fetch from the API yourself, the Terms of Use apply to what you fetch, as they do to this project's own fetch.
 
 ## Three.js
 
@@ -100,7 +107,7 @@ The PDFs embed subsets of two typefaces: Liberation Sans (SIL Open Font License 
 
 ## The older pre-release
 
-The [pre-release of 4 November 2026](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft) holds an older slide deck, earlier scripts and a set of 3D models of the proposed experiments. It is a different case from everything above. Its slides and models include material made by others, among it film images of Neo and Professor X and separately licensed software and model files. The rights to that material, and how far it may be reused, have not all been established, and the project's CC0 dedication does not cover it. Before reusing anything from that release, read the `NOTICE.txt` and `ASSET-PROVENANCE.json` published with it.
+The [pre-release of 4 November 2026](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft) holds an older slide deck, the two scripts one revision earlier and a set of 3D models of the proposed experiments. It is a different case from everything above. Its slides and models include material made by others, among it images of Neo and Professor X and separately licensed software and model files. The rights to that material, and how far it may be reused, have not all been established, and the project's CC0 dedication does not cover it. Before reusing anything from that release, read the `NOTICE.txt` and `ASSET-PROVENANCE.json` published with it.
 
 ## The atlas viewer download
 
@@ -123,6 +130,6 @@ Identities of the upstream files, for anyone who wants to start from the same so
 
 A licence says who may copy. It says nothing about whether the anatomy is right, and this project does not claim that it is.
 
-The atlas names 141 regions. The viewer's 3D model holds 121 of them in 44 surfaces: 34 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 34 and also appears on a combined surface. The other 20 regions have no surface; the download lists them in `payload/brain-outward-r6/omissions.html`. All 141 can be read in the flat cuts.
+The atlas grid carries 141 regions. The viewer's 3D model holds 121 of them in 44 surfaces (40 in the main model file, 4 in files of their own): 34 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 34 and also appears on a combined surface. The other 20 regions have no surface; the download lists them in `payload/brain-outward-r6/omissions.html`. All 141 can be read in the flat cuts.
 
-The half-millimetre grid, the midline cap and the display approximation describe how the surfaces were made, not how accurate they are. There is no right half and no fit to any person. The model demonstrates no reading or writing of neural activity, no transfer of a learned skill, no clinical safety and no biological function. [What the viewer is not](README.md#an-illustration-not-a-measurement).
+The half-millimetre grid, the midline cap and the display approximation describe how the surfaces were made, not how accurate they are. There is no right half and no fit to any person. The model shows anatomy and nothing else: it demonstrates nothing about what a region does, and nothing clinical. [What the viewer is not](README.md#an-illustration-not-a-measurement).
