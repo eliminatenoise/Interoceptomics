@@ -1,0 +1,10 @@
+One push, two recording days
+Interoceptomics
+
+Extract the complete folder. Open index.html, or use the Windows, macOS or Linux launcher. The reader, both recorded examples, the contact forecasts, reference figures and both 3D models work offline. External study and source links require a connection.
+
+Choose a date and an electrode. Choose a forecast start to compare the recorded and expected event totals over the following 100 ms. Move the trial-time slider to see the arm and the count in one 10-ms bin. Choose a landmark, then drag the arm or focus it and use the arrow keys to rotate. The other-day landmark trail aligns the two recordings at the push. Read both numerical tables without the graphics by opening their headings.
+
+Open either arm-2017-09-*.glb in a glTF 2 viewer that supports animation. The dot positions come from the deposited camera coordinates in metres. The two GLBs omit physiological values. Read NOTICE.md for the coordinate transform, source data, licences and limits.
+
+For file integrity run sha256sum -c SHA256SUMS from this folder where available.

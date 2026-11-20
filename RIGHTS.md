@@ -192,3 +192,7 @@ Matthew D. Luciw, Ewa Jarocka and Benoni B. Edin recorded WAY-EEG-GAL. Its Figsh
 Steven M. Peterson and Daniel P. Ferris released the beam-walking data under CC0. Their recording supplies the second excerpt’s sacrum trajectory and signals from eight leg muscles and three scalp contacts. The cap drawing uses the manufacturer's published socket-to-site correspondences. [OpenNeuro release 1.0.3](https://doi.org/10.18112/openneuro.ds003739.v1.0.3) · [Data and processing](https://doi.org/10.1016/j.dib.2021.107635) · [BioSemi cap coordinates](https://www.biosemi.com/download/Cap_coords_all.xls)
 
 Interoceptomics dedicates its original reader, code, schematic cap, forecast overlays and 3D trajectory files to the public domain under CC0 to the extent of its rights. The source papers and apparatus figures are linked at their publishers. [Measurements, attributions and changes](docs/cross-limb-movement/METHODS.md) · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+## One push, two recording days
+
+The [contact forecast atlas](docs/contact-forecast/NOTICE.md) uses the 12 and 13 September 2017 recordings of macaque C from Chowdhury, Glaser and Miller (2020) under CC0. Resized copies of their eLife Figures 1, 2 and 8 retain CC BY 4.0 attribution. The standalone 3D models animate the deposited shoulder-relative camera markers in metres.

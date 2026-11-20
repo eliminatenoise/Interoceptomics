@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>One push, two recording days · Interoceptomics</title>
+    <meta
+      name="description"
+      content="Compare a macaque’s tracked arm and counts at 26 sensory-cortex recording contacts on consecutive days."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="records.js"></script>
+    <script defer src="scene.js"></script>
+    <script defer src="reader.js"></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a>
+      <nav aria-label="Page sections">
+        <a href="#recording">Recording</a><a href="#references">Sources</a><a href="#download">Download</a>
+      </nav>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">Area 2 of the sensory cortex · Macaque C</p>
+        <h1>One push, two recording days</h1>
+        <p>
+          A robot pushed the handle in a macaque’s hand. On two days, electrodes in the sensory cortex recorded the
+          response. Could the preceding handle motion help predict how many events a contact would register in the
+          next 100 ms?
+        </p>
+      </div>
+      <section id="recording" aria-label="Motion and cortical activity">
+        <div class="session">
+          <label
+            >Recording
+            <select id="day"></select
+          ></label>
+          <label
+            >Shared electrode
+            <select id="contact"></select
+          ></label>
+          <label
+            >Forecast starts
+            <select id="anchor"></select
+          ></label>
+        </div>
+        <p id="case" class="case"></p>
+        <div class="timeline">
+          <div class="time-head">
+            <label for="frame">Trial time</label><output id="clock" for="frame"></output>
+          </div>
+          <input id="frame" type="range" min="0" step="1" />
+          <div class="timeline-buttons">
+            <button id="back" type="button" aria-label="Previous 10 milliseconds">−10 ms</button
+            ><button id="play" type="button">Play</button
+            ><button id="next" type="button" aria-label="Next 10 milliseconds">+10 ms</button
+            ><button id="bump" type="button">Jump to push</button
+            ><button id="target" type="button">Jump to target</button
+            ><button id="go" type="button">Jump to go cue</button>
+          </div>
+          <p id="eventRead" class="caption"></p>
+        </div>
+        <div class="pair">
+          <article class="motion">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Camera tracking</p>
+                <h2>The arm in motion</h2>
+              </div>
+              <span>metres</span>
+            </div>
+            <canvas
+              id="arm"
+              tabindex="0"
+              aria-label="Rotatable shoulder-relative arm landmarks. Drag or use the arrow keys to rotate. Numeric positions appear below."
+            ></canvas>
+            <div class="motion-controls">
+              <label
+                >View
+                <select id="view">
+                  <option value="oblique">Oblique</option>
+                  <option value="xy">XY plane</option>
+                  <option value="xz">XZ plane</option>
+                  <option value="yz">YZ plane</option>
+                  <option value="custom" disabled>Rotated view</option>
+                </select></label
+              >
+              <label
+                >Landmark
+                <select id="site"></select
+              ></label>
+            </div>
+            <div class="checks">
+              <label><input type="checkbox" id="outline" checked /> Illustrative arm surface</label>
+              <label><input type="checkbox" id="overlay" /> Show other day’s marker trail</label>
+            </div>
+            <p id="alignedRead" class="caption" hidden></p>
+            <p id="markerRead" class="readout"></p>
+            <p class="caption">
+              Dots follow ten shoulder-relative landmarks. The green trail covers the last 100 ms. The optional
+              skin surface has illustrative widths. A dashed amber trail aligns the other day’s selected landmark
+              to the same time from the push.
+            </p>
+          </article>
+          <article class="counts">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow" id="electrodeHeading">Area 2 electrode</p>
+                <h2>Count the next 100 ms</h2>
+              </div>
+            </div>
+            <div class="metrics">
+              <div><span>Recorded events</span><strong id="actual"></strong></div>
+              <div><span>Expected events</span><strong id="predicted"></strong></div>
+            </div>
+            <p id="forecastDetail"></p>
+            <canvas
+              id="trace"
+              aria-label="Recorded event counts in 10-ms bins around the push. The shaded window spans the ten bins being forecast. The vertical cursor follows the current time."
+            ></canvas>
+            <p class="legend">
+              <span class="block"></span> Recorded per 10 ms <span class="shade"></span> Forecast window
+              <span class="cursor"></span> Current time
+            </p>
+            <p id="binRead" class="readout"></p>
+            <p class="caption">
+              The forecast uses the preceding 200 ms of handle motion, cortical counts and available cues. It gives
+              the expected total for the shaded window. The bars show the individual recorded bins.
+            </p>
+          </article>
+        </div>
+        <details>
+          <summary>Read all 26 electrodes for this forecast</summary>
+          <p>
+            Each row is one source electrode, in numeric order. The deposited arrays give the sort-zero category on
+            each contact. The table’s order conveys no anatomical position.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Contact</th>
+                <th>Current 10 ms<br />events</th>
+                <th>Recorded 100 ms<br />events</th>
+                <th>Expected 100 ms<br />events</th>
+              </tr>
+            </thead>
+            <tbody id="allCounts"></tbody>
+          </table>
+        </details>
+        <details>
+          <summary>Read the ten landmark positions</summary>
+          <p>
+            Shoulder-relative XYZ in metres on the released 10-ms grid. Missing components are marked unavailable.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Site</th>
+                <th>X (m)</th>
+                <th>Y (m)</th>
+                <th>Z (m)</th>
+              </tr>
+            </thead>
+            <tbody id="sites"></tbody>
+          </table>
+        </details>
+      </section>
+      <section class="study">
+        <h2>What carries over to the second day?</h2>
+        <p>
+          The first original shown here contributed to fitting. The second is the earliest eligible pre-target push
+          from the following day’s test. The previously inspected first original of that day was excluded. Both
+          examples show estimates from the full Transformer with seed 17. The study evaluates three fitted seeds
+          separately across original trials.
+        </p>
+        <p>
+          A shared electrode number identifies a recording contact. Each count is the number of exported unsorted
+          events. The recordings leave individual neuron continuity, electrode coordinates for these contacts and
+          the cause of each event unresolved. One animal and two dates set the scope.
+        </p>
+        <p id="result">
+          Across 2,436 matched push windows from 609 September 13 originals, the model using the actual handle
+          motion had lower Poisson deviance than the same model given an earlier trial’s motion. The paired
+          difference was −0.00318 (95% block-bootstrap interval −0.00610 to −0.00071). Against a model using only
+          earlier counts and cues, the difference was −0.00261 (−0.00697 to +0.00132). This interval includes zero.
+          The study required an improvement in both comparisons. The displayed test original had no eligible
+          earlier donor and contributes only to the all-eligible results.
+        </p>
+        <div class="links">
+          <a href="https://eliminatenoise.github.io/NeuroTranslation/contact-forecast/"
+            >Compare the forecast models</a
+          ><a id="paperLink" href="https://eliminatenoise.github.io/NeuroTranslation/papers/contact-forecast/"
+            >Read the forecast study</a
+          >
+        </div>
+      </section>
+      <section id="references">
+        <h2>The experiment behind the traces</h2>
+        <p>
+          Chowdhury, Glaser and Miller recorded the arm and cortex together. These three figures from their 2020
+          paper locate the measurements and show how the push differed from the cued reach.
+        </p>
+        <div class="figures">
+          <figure>
+            <a href="reference/figure-2.webp"
+              ><img
+                src="reference/figure-2.webp"
+                alt="Figure 2 shows the macaque, manipulandum, camera and coloured arm markers."
+                loading="lazy"
+            /></a>
+            <figcaption>
+              <b>The tracked arm.</b> Camera sites and handle geometry establish the task. The camera coordinates
+              were filtered and resampled before release. Original pixels and per-frame confidence are unavailable.
+              <a href="https://elifesciences.org/articles/48198/figures#fig2">Figure 2</a>
+            </figcaption>
+          </figure>
+          <figure>
+            <a href="reference/figure-8.webp"
+              ><img
+                src="reference/figure-8.webp"
+                alt="Figure 8 compares imposed and voluntary arm movements, speed and neural activity."
+                loading="lazy"
+            /></a>
+            <figcaption>
+              <b>Push and reach.</b> The lab compared imposed and voluntary movements. Our displayed windows end
+              before the target and go cue.
+              <a href="https://elifesciences.org/articles/48198/figures#fig8">Figure 8</a>
+            </figcaption>
+          </figure>
+          <figure>
+            <a href="reference/figure-1.webp"
+              ><img
+                src="reference/figure-1.webp"
+                alt="Figure 1 shows implant and receptive-field mapping in three macaques."
+                loading="lazy"
+            /></a>
+            <figcaption>
+              <b>The recording site.</b> The published maps place the arrays in area 2. Here each contact keeps its
+              identifier from the deposited unit guide.
+              <a href="https://elifesciences.org/articles/48198/figures#fig1">Figure 1</a>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="caption">
+          Chowdhury RH, Glaser JI and Miller LE (2020). Figures resized and converted to WebP under CC BY 4.0. The
+          two recordings are available under CC0. Robot handle XY uses centimetres in the encoder frame. Camera XYZ
+          uses metres in the shoulder frame. Offline signal processing may use later samples.
+        </p>
+        <div class="links">
+          <a href="https://doi.org/10.5061/dryad.nk98sf7q7">Dryad source data</a
+          ><a href="https://doi.org/10.7554/eLife.48198">Original eLife paper</a
+          ><a href="NOTICE.md">Methods, attribution and reuse</a>
+        </div>
+      </section>
+      <section id="download">
+        <h2>Take both recordings offline</h2>
+        <p>
+          The ZIP includes the reader, recorded counts and forecasts, three reference figures and both animated arm
+          models. Extract it, then open <b>index.html</b> or use the launcher for your operating system. Each GLB
+          can also be animated in a standard glTF viewer.
+        </p>
+        <div class="links">
+          <a
+            class="button"
+            href="https://github.com/eliminatenoise/Interoceptomics/raw/refs/heads/main/downloads/contact-forecast/Interoceptomics-Contact-Forecast.zip"
+            >Download the offline atlas</a
+          ><a download href="arm-2017-09-12.glb">September 12 GLB</a
+          ><a download href="arm-2017-09-13.glb">September 13 GLB</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
