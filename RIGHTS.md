@@ -1,6 +1,6 @@
 # Licences and credits
 
-The project's own work in this repository is dedicated to the public domain. The atlas, drawing library, embedded fonts and recordings from people and animals carry their own conditions. No single licence covers everything.
+The project's own work in this repository is dedicated to the public domain. The brain atlas (the Allen Institute's published map of the brain's regions), the 3D drawing library, the fonts embedded in the PDFs and the recordings from people and animals carry their own conditions. No single licence covers everything.
 
 | What | Whose | Terms | To reuse it you must |
 | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ The atlas's [official README](https://download.alleninstitute.org/informatics-ar
 When you copy or adapt any atlas-derived file from the viewer:
 
 1. Keep the creators' names, the copyright line, and the links to the source and to the licence.
-2. Keep the disclaimers and the change notices that travel with the files. In the download they are `THIRD-PARTY-NOTICES.html`, the `licenses/` folder and the notices in `sources/allen-version1/`.
+2. Keep the disclaimers and the change notices that travel with the files. In the download they are `THIRD-PARTY-NOTICES.html`, the `licenses/` folder and the notices in `sources/allen-version1/`. On the website the same files sit beside the viewer, in `docs/viewer/`.
 3. Say what you changed in turn.
 4. Do not suggest that the creators or the Allen Institute endorse you or your use. They have not endorsed this project.
 
@@ -73,7 +73,7 @@ So are the regions' abbreviations, their numbers and their parent-and-child orde
 
 What was checked, and what was not:
 
-- For all 141 regions, the number, name, abbreviation and full ancestry in the viewer match the table exactly. No near-match was accepted. This was first checked on an early edition of the viewer and was checked again for the current version, on 20 November 2026.
+- For all 141 regions, the number, name, abbreviation and full ancestry in the viewer match the table exactly. No near-match was accepted. This was first checked on an early edition of the viewer and was checked again for the current version, on 21 November 2026.
 - For all 141 regions, the table's count of cubes equals a recount of the atlas grid in the download. The table's other count and volume columns, which add in each region's sub-regions, were not checked.
 - The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour. That comparison was made once, on an early edition, and cannot be repeated from the download, because the response is not in it. Its record is in the download at `sources/allen-version1/source-binding.json`; it keeps the name and the folder the viewer had then.
 - The table was downloaded on 15 November 2026. The server reports it as last modified on 19 February 2025, so it cannot be shown to be byte-for-byte the 2020 original.
@@ -117,10 +117,12 @@ The withdrawn prerelease contained an older deck, earlier scripts and 3D models 
 | | |
 | --- | --- |
 | File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
-| Version | 20 November 2026. The file name never carries the version: each new one replaces the last at the same address |
-| Size | 40,479,519 bytes (84,055,924 bytes unpacked) |
+| Version | 21 November 2026. The file name never carries the version: each new one replaces the last at the same address |
+| Size | 40,481,417 bytes (84,061,653 bytes unpacked) |
 | Contents | 74 files. `MANIFEST.json` lists the other 73 with their sizes and checksums |
-| SHA256 | `36900fe8df2462f54d6c66f96be577affd3ad794fcd1b1d9e49b7ea142289009` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+| SHA256 | `8e951a33cb80f0f3b0983f961d1577dec24253214e984cd3bdc369fcf3d01f0a` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+
+The website serves the same files, without the four start files, at [eliminatenoise.github.io/Interoceptomics/viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/): the folder `docs/viewer/` of this repository, built from the download's own files. The credit and the conditions on this page apply to that copy exactly as they do to the download.
 
 Identities of the upstream files, for anyone who wants to start from the same sources:
 

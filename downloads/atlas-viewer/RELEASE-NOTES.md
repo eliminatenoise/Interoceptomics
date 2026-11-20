@@ -1,17 +1,17 @@
-# One name, and a guide that starts with how to open it
+# The viewer opens on the website, and says what it is in plain words
 
-The Interoceptomics Atlas Viewer, version of 20 November 2026.
+The Interoceptomics Atlas Viewer, version of 21 November 2026.
 
-[Download](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (ZIP, 40.5 MB) · [Checksum](Interoceptomics-Atlas-Viewer.zip.sha256) · [How to open it](../../README.md#open-it-in-three-steps) · [Licences and credits](../../RIGHTS.md)
+[Open it on the website](https://eliminatenoise.github.io/Interoceptomics/viewer/) · [Download it](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (ZIP, 40.5 MB) · [Checksum](Interoceptomics-Atlas-Viewer.zip.sha256) · [How to open the download](../../README.md#use-it-offline-download-it) · [Licences and credits](../../RIGHTS.md)
 
-This is the viewer published on 19 November 2026, with the same anatomy and the same controls. What changed is its name and its words.
+The anatomy and the controls are those of the previous version. What changed:
 
-- **One name, one address.** The download, its folder, the viewer's title and every page now say Interoceptomics Atlas Viewer. The address no longer carries an edition number: each new version replaces the file at the same place, and a link to it keeps working. Links to the earlier file name stop working with this version.
-- **A guide that starts with how to open the viewer.** `README.html` in the download gives the three steps first, then every control, grouped by what you want to do.
-- **Corrected counts.** The page about regions without a surface said 40 surfaces; there are 44. It now gives the size of each of the 20 regions: together they hold 2,255,724 of the atlas's 6,999,201 labelled voxels (a voxel is one half-millimetre cube of the atlas grid).
-- **Licences and credits in plain words.** Every credit, link, disclaimer and change notice is kept. Nothing was dropped, and nothing was relicensed.
-- **Tidier inside.** The viewer's own files are in a folder named `viewer`. Two records that described earlier editions' files are gone. No surface, no grid file and no licence text changed by a single byte.
+- **On the website.** The viewer opens at [eliminatenoise.github.io/Interoceptomics/viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/), with nothing to install. It is the same files as the download, made by the same build, without the four start files; its guide and licence pages are served beside it. The download stays, for using the viewer offline.
+- **One word for one thing on the screen.** A region was also a territory, a label, a structure or a parcel; it is now always a region. Its number is always its atlas number, and a flat slice through the grid is always a cut. The controls say what they do: **Show it alone** and **Show the whole brain**, **Open three flat cuts**, **Colour groups**. The line under a region's name names its colour groups.
+- **Links from the viewer** to its guide and to the licence pages. In the download, the start file now serves the whole folder and opens the viewer at `/viewer/index.html`, so those links work there too.
+- **A plain message instead of an endless wait.** Opened straight from the folder, the viewer page used to wait for ever. It now says why it cannot start, and what to do.
+- No surface, no grid file and no licence text changed by a single byte.
 
-Run for this version, in Chromium 155 on Linux with software rendering: the start file, the first view, a colour overlay, lifting out one region, the VPL and VPM comparison, the flat cuts, the finder and the ruler. In the four views that were compared, the 3D model is the same picture, pixel for pixel, as in the version of 19 November; the only pixels that differ beside it are the new words under the small overview picture. The viewer has not yet been run on Windows, macOS or a phone.
+Run for this version, on Linux in Chromium 155 with software rendering, from the download's start file and from a copy of the website served on this computer: the first view, a colour overlay, one region shown alone, the three flat cuts, and the page opened straight from the folder. The 3D model is the same picture, pixel for pixel, on the website copy and in the download. The viewer has not yet been run on Windows, macOS or a phone.
 
-The download contains 74 files in 40,479,519 bytes (84,055,924 bytes unpacked).
+The download contains 74 files in 40,481,417 bytes (84,061,653 bytes unpacked).

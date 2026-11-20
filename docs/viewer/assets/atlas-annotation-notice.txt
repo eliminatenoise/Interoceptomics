@@ -1,0 +1,56 @@
+Allen Human Reference Atlas - 3D, 2020, version 1.0.0 (RRID:SCR_017764)
+Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer,
+Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020).
+Copyright 2019 Allen Institute for Brain Science.
+
+The version 1 collection README states CC BY 4.0, effective September 1, 2022.
+https://creativecommons.org/licenses/by/4.0/
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf
+README SHA256 f9b3de60ecfcb87f262e35efc6d52a90ed43a3bf5ccf9d20bbe83195abf67628
+The complete licence is in the archive's licenses folder.
+
+The ruler uses the entire original annotation.nii.gz file in the version 1
+collection, including its zeroes. Its source is the annotation file below.
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz
+SHA256 be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378
+
+The viewer records the qform, starts and ends label runs on original half-voxel
+faces, and gives each run's share of the straight A-B line in millimetres.
+The original dimensions, IDs, voxel count, index order and qform are preserved.
+The adaptation under viewer/assets contains no NIfTI header,
+MRI, mirrored annotation or interpolation. In atlas-label-runs.bin, little-endian
+uint32 words give the offsets of each x row's runs in y-then-z order, followed
+by the runs themselves. Each run word stores a 16-bit exclusive x boundary
+and a 16-bit index into the original uint32 label ID table. The JSON records
+the ID table, the native qform and the binary SHA256. Reconstruction in native
+x-fast order recovers all 69,402,312 voxels. Names and acronyms come from the
+included official example voxel_count.csv under the same identified CC BY 4.0
+terms. Counts and volumes in that CSV are outside the ruler calculation.
+
+Keep credits, source and changes with reuse. No endorsement is implied. This
+dataset supplies population atlas geometry. A zero identifies an unlabelled
+voxel in this file. Tissue class, individual anatomy, fibre routes and clinical
+guidance require separate evidence.
+
+Use in the full atlas label views
+The full atlas label views read the same packed annotation at one sagittal,
+coronal and axial level. Display hues identify categories. The image rows
+increase down the screen while their corresponding native vertical axis
+decreases. No source voxel IDs or qform fields have changed. No MRI
+intensity or tissue images are included in these views. Existing source,
+authors, DOI/RRID and CC BY 4.0 terms above apply.
+
+Use in the highlight and the volume table
+The selection highlights exact original IDs on the three categorical cuts.
+The volume table counts native voxels with that ID, separates them by the
+sign of the RAS R coordinate of the centre, and multiplies by the absolute
+qform voxel volume (0.125 cubic millimetres). Child IDs are counted separately.
+No mirroring or interpolation is applied. Source authors and CC BY 4.0 terms
+above cover the annotation used in these displays.
+
+Use in the finder
+The finder derives one point per occupied native ID and side from the same
+version 1 annotation. Each point is a voxel of that ID nearest the mean of
+the matching voxel centres on that side. Exact ties use the lowest native
+flat index, with x increasing first. No tissue image or mesh is added.
+The original attribution and CC BY 4.0 terms above apply.

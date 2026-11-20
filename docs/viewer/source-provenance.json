@@ -1,0 +1,44 @@
+{
+  "candidate": "native-outward-r6",
+  "status": "Finite outward/export correction candidate; independent acceptance and fresh new-mask centre checks still required",
+  "GLB_sha256": "9eff87dc4b6b501a001dee8b335ba13440a475aacb896deb0af8d42763ede2d9",
+  "source_R5_sha256": "8601cd9bbbdcad8fa572580d324653a8ef5d0b152f07069b60339779c5627ff7",
+  "original_annotation_sha256": "be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378",
+  "current_graph16_sha256": "70281f17ee7b23bd4076606c25038d31b3f4fca69973356138a05bceb9896341",
+  "proper_C_mm_to_m": [
+    [
+      -0.001,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0.001
+    ],
+    [
+      0,
+      0.001,
+      0
+    ]
+  ],
+  "native_left_domain": "Original source R<=0 via proper C inverse; identity nodes",
+  "R5_world_positions_indices_colours_source_IDs_exact": true,
+  "normal_change": "Coherent -M orientation after proper-world bake; source/raw/cavity/cap direction evidence and all countercases accompany full source.",
+  "colour_transfer": "Stored values unchanged. Authored companion retains its sRGB identification palette; standard glTF linear vertex-colour interpretation can look lighter. No stock/companion pixel identity claim.",
+  "source_grid_mm": 0.5,
+  "constructed_cap_max_mm": 0.25,
+  "prior_display_max_mm": 0.125,
+  "glossary": {
+    "revision": 33,
+    "sha256": "cb1efa326433ea46de79902a88127332eef971984e63524063774ed1f00ed3c5"
+  },
+  "source_counts": {
+    "included": 121,
+    "occupied": 141,
+    "omitted": 20
+  },
+  "right_variant": "Omitted under frozen R5 official-equality exception; no retry",
+  "rights": "Allen2020 CC BY4.0 notice and changes in README.md/source.html; Three.js MIT retained. No internal reference photographs.",
+  "biological_scope": "Anatomical source labels and selected nonexclusive associations, not measured activity or complete anatomy/function."
+}

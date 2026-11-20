@@ -8,3 +8,6 @@ docs/stages/recording/*.json -text
 docs/atlas/** -text
 docs/atlas/backslash/atlas.pdf binary
 downloads/backslash/*.zip binary
+
+# The atlas viewer on the website is the download's files, checked byte for byte against the ZIP.
+docs/viewer/** -text

@@ -1,0 +1,24 @@
+Allen Human Reference Atlas — 3D, 2020, version 1.0.0 (RRID:SCR_017764)
+Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer,
+Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020).
+Copyright © 2019 Allen Institute for Brain Science.
+CC BY 4.0, effective 1 September 2022 per the official version 1 README.
+https://creativecommons.org/licenses/by/4.0/
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf
+
+Source annotation
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz
+SHA256 be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378
+Official names and acronyms come from voxel_count.csv in this archive.
+
+Changes
+Every full sagittal, coronal and axial plane containing label 13230 is encoded
+in assets/parietal-operculum-*.bin within the viewer folder. The annotation IDs
+keep their original values, including zero for an unlabelled voxel.
+The section index describes the packing, native affine and hashes.
+The browser adds an optional 6 mm-padded neighbourhood view, a label palette,
+point readout and a registered 3D frame. Source orientation and 0.5 mm voxel
+spacing determine the frame. The accompanying population-atlas mesh is the
+surface described in PARIETAL-OPERCULUM-NOTICE.txt. Photographer images and MRI are excluded.
+The Allen terms and complete credit accompany redistribution. No endorsement
+is implied. Retain notices and identify further changes on reuse.

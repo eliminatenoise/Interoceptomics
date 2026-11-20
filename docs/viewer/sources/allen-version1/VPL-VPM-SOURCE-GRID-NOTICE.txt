@@ -1,0 +1,31 @@
+Left VPL and VPM source atlas sections
+
+Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar,
+Amy Bernard, Lydia Ng and Ed S. Lein (2020), Allen Human Reference Atlas — 3D, 2020,
+v1.0.0, RRID:SCR_017764. Copyright © 2019 Allen Institute for Brain Science. The
+source README applies CC BY 4.0 from September 1, 2022. Retain attribution and
+identify changes on reuse. No endorsement is implied.
+
+Original annotation
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz
+SHA256 be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378
+Source terms
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf
+Licence
+https://creativecommons.org/licenses/by/4.0/
+
+Change
+The JSON crop retains exact left annotation IDs 10424 (VPL) and 10425 (VPM) as
+values 1 and 2. It encodes all other voxels within the crop as 0. Source indices
+are zero-based and stored in R, A, S order, with S changing fastest. Crop size is
+34 × 27 × 30 with first voxel centre at index [149, 212, 136]. The source qform
+adds 0.5 mm per index step to a whole-volume origin at [−98, −134, −72] mm in
+right–anterior–superior (RAS) coordinates. The 3D frame uses (−R, S, A)/1000 in
+metres. Each slice is at an original voxel centre. Only adjacent VPL and VPM
+labels in that plane produce a shared edge. There is no interpolation. The
+underlying MRI, independent publication figures and the original full volume
+are outside this download.
+
+Geometry provenance
+viewer/assets/vpl-vpm-source-grid.json
+SHA256 2281dacde82cb6f55c6bde78646a95d02652ba276c949c4a4f5f0086afe3ae30

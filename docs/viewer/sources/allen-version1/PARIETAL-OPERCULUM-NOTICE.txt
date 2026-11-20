@@ -1,0 +1,13 @@
+Parietal operculum · left atlas surface
+
+Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020). Allen Human Reference Atlas — 3D, 2020, v1.0.0, RRID:SCR_017764. Copyright © 2019 Allen Institute for Brain Science.
+
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf
+https://creativecommons.org/licenses/by/4.0/
+
+Direct source label 13230 (PaO), left hemisphere. All 43,319 labelled centres have R < 0. The 0.5 mm isotropic source grid gives 5,414.875 mm³. The unsmoothed Lorensen 0.5 isosurface uses display metres (−R, S, A)/1000 and has added normals and material. It encloses about 5,404.76 mm³ and its area is about 3,102.80 mm². These mesh measures describe the chosen isosurface. The mesh retains a small enclosed hole at one unlabelled voxel.
+
+Original annotation SHA256 be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378
+Delivered GLB SHA256 367f7990b2a3968b4e89d95a38d0fcf51e15776d77065fd25dfed1a204b391c3
+The complete licence is in licenses/CC-BY-4.0.txt. No endorsement is implied. Keep the creators, copyright, source, licence and this change notice with the asset. The cited third-party images and experimental data stay outside this archive.

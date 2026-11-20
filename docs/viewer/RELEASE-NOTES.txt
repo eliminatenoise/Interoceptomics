@@ -1,0 +1,57 @@
+Interoceptomics Atlas Viewer
+Version of 21 November 2026
+
+
+WHAT THIS VERSION IS
+
+The viewer now opens on the project's website, with nothing to install:
+https://eliminatenoise.github.io/Interoceptomics/viewer/
+The website and this download hold the same files, apart from the start
+files. The anatomy and the controls are the same as in the previous
+version. What changed:
+
+  On the website. The viewer, its guide and its licence pages are served
+  at the address above. The download stays, for using the viewer offline.
+
+  Words on the screen. One word for one thing: a region (it was also a
+  territory, a label, a structure or a parcel), its atlas number (it was
+  also an ID, a source ID or a native ID), a cut (it was also a section or
+  a plane). Controls say what they do: "Show it alone" and "Show the whole
+  brain" in place of "Isolate in place" and "Restore context", "Open three
+  flat cuts" in place of "Explore full atlas labels". The line under a
+  region's name now names its colour groups.
+
+  Links from the viewer. The panel links to this guide and to the licence
+  pages. To make that work, the start file now serves this whole folder
+  and opens the viewer at /viewer/index.html.
+
+  A message instead of an endless wait. Opened straight from the folder,
+  the viewer page used to sit at "3D controls unlock when the model is
+  ready." for ever. It now says why it cannot start and what to do.
+
+  No surface, no grid file, no licence text and nothing the viewer draws
+  changed by a single byte.
+
+
+WHAT IT HAS BEEN RUN ON
+
+Linux, in Chromium 155 with software rendering, both from the start file
+and from a copy of the website served on this computer: the first view, a
+colour overlay, showing one region alone, the three flat cuts, and the
+page opened straight from the folder. The Windows and macOS start files
+have not yet been tried on those systems, and the viewer has not been run
+on a phone.
+
+
+WHERE THINGS ARE
+
+  README.html                 the guide: open it, use it, what it is not
+  THIRD-PARTY-NOTICES.html    whose work this is, and what you must keep
+  licenses/                   the licence texts
+  MANIFEST.json               every file with its size and checksum
+  viewer/                     the viewer itself
+  sources/allen-version1/     the Allen Institute's table of region names,
+                              and the change notices for the atlas files
+
+Problems and questions:
+https://github.com/eliminatenoise/Interoceptomics/issues

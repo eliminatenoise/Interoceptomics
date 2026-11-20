@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Interoceptomics: a human brain atlas you can turn in 3D, and the proposal behind it</title>
-<meta name="description" content="Interoceptomics is a proposed field of science joining the body's sense of its own interior to the mapping of nerve connections. Download a viewer that turns the Allen Institute's human brain atlas into a 3D model, and read the two scripts of the paused talk.">
+<title>Interoceptomics: the proposed experiments, a 3D human brain atlas, and the talk behind them</title>
+<meta name="description" content="Interoceptomics is a proposed field of science joining the body's sense of its own interior to the mapping of nerve connections. Walk through its proposed experiments, open a viewer that turns the Allen Institute's human brain atlas into a 3D model, and read the two scripts of the paused talk.">
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color-scheme:light dark}
 body{max-width:46rem;margin:4rem auto;padding:0 24px;line-height:1.7}
@@ -40,19 +40,15 @@ a{text-underline-offset:.2em}
 
 <h2>The Allen Institute's human brain atlas, as a 3D model you turn, cut and measure</h2>
 
-<p>The viewer is a download, and it is still a map, not a measurement. It shows the 141 named regions the atlas draws on the left half of the brain, on a half-millimetre grid, and colours the ones this project links to moving and feeling the body, to running its organs, or to both.</p>
+<p>A brain atlas is a published map that divides the brain into named regions. The viewer turns this one into a 3D model of the left half of the brain: 121 of the 141 regions the atlas draws there are in the model, and all 141 can be read in flat cuts through its grid of half-millimetre cubes. It colours the ones this project links to moving and feeling the body, to running its organs, or to both. It is still a map, not a measurement.</p>
 
-<p><a class="open" href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip">Download the Interoceptomics Atlas Viewer</a> ZIP, 40.5 MB</p>
+<p><a class="open" href="viewer/">Open the Interoceptomics Atlas Viewer</a></p>
 
-<p>You need Python 3.10 or newer and a current browser.</p>
+<p>It runs in your browser, with nothing to install: any current browser that can show 3D graphics (WebGL). The model is a 66 MB file, so the first view takes a moment. <a href="viewer/README.html">The viewer’s guide</a> explains every control.</p>
 
-<ol>
-<li>Extract the whole ZIP into a folder.</li>
-<li>Start the viewer with the file for your system: open <code>Windows.cmd</code> on Windows or <code>macOS.command</code> on macOS, or run <code>sh Linux.sh</code> in a terminal on Linux.</li>
-<li>The start file runs in a terminal window and opens your browser on the viewer, at an address on your own computer. If the browser stays closed, copy the address the terminal shows into it. Keep the terminal open while you explore. To stop, press Ctrl+C in the terminal.</li>
-</ol>
+<p>To use it offline, <a href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip">download it</a> (ZIP, 40.5 MB) and extract the whole ZIP into a folder. Then open <code>Windows.cmd</code> on Windows or <code>macOS.command</code> on macOS, or run <code>sh Linux.sh</code> in a terminal on Linux; you need Python 3.10 or newer. The start file opens your browser on the viewer, at an address on your own computer; if the browser stays closed, copy the address the terminal shows into it. Keep its terminal window open while you explore, and press Ctrl+C in it to stop. The download installs nothing.</p>
 
-<p>The viewer installs nothing. So far it has been run on Linux, in Chromium; the Windows and macOS start files have not yet been tried on those systems.</p>
+<p>So far the viewer has been run on Linux, in Chromium. The Windows and macOS start files have not yet been tried on those systems, and the viewer has not been tried on a phone.</p>
 
 <p>The viewer is an illustration built on a published atlas. It shows one averaged reference brain, left half. Its colours are this project's reading of published sources, not recorded activity: the viewer lists 54, and 49 of them are cited for at least one region. Nothing in it has been validated, scientifically or clinically.</p>
 
@@ -71,7 +67,7 @@ a{text-underline-offset:.2em}
 
 <h2>The widest of three projects, and the least built</h2>
 
-<p>Interoceptomics belongs to Brain2Body, a programme about connecting brain and body function. <a href="https://github.com/eliminatenoise/NeuroTranslation">NeuroTranslation</a> asks how well one recording of the body predicts another, on open human recordings. <a href="https://eliminatenoise.github.io/NeuroSurge/">NeuroSurge</a> is a browser game for learning which motor areas of the brain move which parts of the body; its activity is simulated. Interoceptomics is the proposal that body sense and nerve wiring be studied together, and so far one brain atlas you can turn.</p>
+<p>Interoceptomics belongs to Brain2Body, a programme about connecting brain and body function. <a href="https://github.com/eliminatenoise/NeuroTranslation">NeuroTranslation</a> asks how well one recording of the body predicts another, on open human recordings. <a href="https://eliminatenoise.github.io/NeuroSurge/">NeuroSurge</a> is a browser game for learning which motor areas of the brain move which parts of the body; its activity is simulated. Interoceptomics is the proposal that body sense and nerve wiring be studied together. So far it has a guide to its proposed experiments and two atlases to explore in the browser.</p>
 
 <p class="small"><a href="https://github.com/eliminatenoise/Interoceptomics">Repository</a> · <a href="START.html">Desktop shortcuts to this page</a> · The project's own work is dedicated to the public domain (CC0 1.0), to the extent the project holds the rights. The atlas anatomy is the Allen Institute's, under CC BY 4.0; Three.js and the fonts embedded in the PDFs keep their own licences. <a href="current/NOTICE.txt">Notice for the scripts</a>.</p>
 

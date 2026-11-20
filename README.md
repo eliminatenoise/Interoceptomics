@@ -4,9 +4,14 @@
 
 Interoceptomics is a proposed field of science that starts from the other end. *Interoception* is the body sensing its own interior: a heartbeat, a breath. *Connectomics* is the mapping of nerve connections. Put the two together and go function first: measure what the body senses and does, then ask which connections carry it. None of its experiments has been run yet.
 
-What exists so far is still a map, not a measurement: the Allen Institute's human reference atlas as a 3D model you can turn, cut and measure. It shows the 141 named regions the atlas draws on the left half of the brain, on a half-millimetre grid, and colours the ones this project links to moving and feeling the body, to running its organs, or to both.
+## Open these first
 
-**[Download the Interoceptomics Atlas Viewer](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip)** (ZIP, 40.5 MB) · [Open it in three steps](#open-it-in-three-steps) · [What it is not](#an-illustration-not-a-measurement) · [Licences and credits](RIGHTS.md)
+The first three run in your browser, with nothing to install.
+
+1. **[Backslash of the Brain](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/)** follows signals from muscles and organs through 3D models and slices of the human brain, spinal cord and organs (an anatomy atlas). [More below](#backslash-of-the-brain).
+2. **[The experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/)** walks through the proposed experiments one step at a time, each beside a 3D sketch you can turn, with recorded examples from open datasets: a wrist movement, a walk, a rat on a W-shaped track. [More below](#follow-the-experiments).
+3. **[The Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/)** is a 3D model of the left half of a human brain, built from a published map of the brain's regions: the Allen Institute's human reference atlas. [More below](#the-atlas-viewer-a-brain-map-you-can-turn-cut-and-measure).
+4. **[The two scripts](#the-talk-is-paused-its-scripts-are-published)** of the talk that proposes the field, as PDF and Word (DOCX) files.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
@@ -21,15 +26,23 @@ To open the download, extract the entire ZIP and run **Windows.cmd**, **macOS.co
 
 ## Follow the experiments
 
-[Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** (Small vision) for the movement tasks in people and their available game, camera and recording evidence. Choose **Animal learning** (Big vision) for the six proposed animal stages. In [Stage 0.2 · Navigation](https://eliminatenoise.github.io/Interoceptomics/stages/#0.2), predict a rat’s next position on a W-shaped track, first from its past positions and then with brain-cell spikes added. Reveal what the camera recorded. An earlier trip from the same published study has a separate frame-by-frame replay. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.
+[Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** (Small vision) for the movement tasks in people and their available game, camera and recording evidence. Choose **Animal learning** (Big vision) for the six proposed animal stages. In [Stage 0.2 · Navigation](https://eliminatenoise.github.io/Interoceptomics/stages/#0.2), predict a rat’s next position on a W-shaped track, first from its past positions and then with the electrical pulses of its brain cells (spikes) added. Reveal what the camera recorded. An earlier trip from the same published study has a separate frame-by-frame replay. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.
 
-In Small vision, a participant steers a cursor towards a target with their right wrist. Scrub the scalp and forearm recordings, choose the last instant a model can see, then check its forecast against the two measured wrist angles a quarter-second later. [Wrist recording and model credits](docs/stages/recording/WRIST-NOTICE.md)
+In Small vision, a participant steers a cursor towards a target with their right wrist. Scrub the recordings of electrical activity at the scalp and in the forearm muscles, choose the last instant a model can see, then check its forecast against the two measured wrist angles a quarter-second later. [Wrist recording and model credits](docs/stages/recording/WRIST-NOTICE.md)
 
-Select **Open the walking recording** farther down the guide to try a different measurement. Choose either arm, either leg or the torso and compare a saved forecast with the sensor’s later acceleration. This walking clip was part of model training. Both examples run in the browser. If you have the separate 3D companion, its models also open from the guide. [Walking recording and model credits](docs/stages/recording/NOTICE.md)
+Select **Open the walking recording** farther down the guide to try a different measurement. Choose either arm, either leg or the torso and compare a saved forecast with the sensor’s later acceleration. This walking clip was part of model training. Both examples run in the browser. If you downloaded the separate set of 3D models of the proposed experiments from the [4 November prerelease](RIGHTS.md#the-withdrawn-4-november-prerelease), since withdrawn, they also open from the guide. [Walking recording and model credits](docs/stages/recording/NOTICE.md)
 
-Three short human recordings let you follow a heartbeat alongside chest vibration and breathing. Pick a time to see what each sensor measured. Only the first recording has beat labels that match its waveform. [Open the heart and breathing recordings](https://eliminatenoise.github.io/Interoceptomics/inside/)
+Three short human recordings let you follow a heartbeat alongside chest vibration and breathing. Pick a time to see what each sensor measured. Only the first recording has heartbeat marks that match its waveform. [Open the heart and breathing recordings](https://eliminatenoise.github.io/Interoceptomics/inside/)
 
-## Open it in three steps
+## The atlas viewer: a brain map you can turn, cut and measure
+
+A brain atlas is a published map that divides the brain into named regions. The viewer turns the Allen Institute's human reference atlas into a 3D model of the left half of the brain: 121 of the 141 regions the atlas draws there are in the model, and all 141 can be read in flat cuts through its grid of half-millimetre cubes. It colours the regions this project links to moving and feeling the body, to running its organs, or to both. It is still a map, not a measurement.
+
+**[Open the Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/)** · [Download it for offline use](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (ZIP, 40.5 MB) · [What it is not](#an-illustration-not-a-measurement) · [Licences and credits](RIGHTS.md)
+
+It opens in any current browser that can show 3D graphics (WebGL). The model is a 66 MB file, so the first view takes a moment. The viewer's own guide, linked from its panel, explains every control.
+
+### Use it offline: download it
 
 You need Python 3.10 or newer and a current browser.
 
@@ -44,9 +57,9 @@ You need Python 3.10 or newer and a current browser.
 
 3. The start file runs in a terminal window and opens your browser on the viewer, at an address on your own computer. If the browser stays closed, copy the address the terminal shows into it. Keep the terminal open while you explore. To stop, press Ctrl+C in the terminal.
 
-The viewer installs nothing and runs on your own computer. Only the links to cited papers need the internet.
+The download installs nothing and runs on your own computer. Only the links to cited papers need the internet. It holds the same viewer as the website, file for file, plus the start files.
 
-So far it has been run on Linux, in Chromium. The Windows and macOS start files have not yet been tried on those systems. If one fails for you, [say so here](https://github.com/eliminatenoise/Interoceptomics/issues).
+So far the viewer has been run on Linux, in Chromium. The Windows and macOS start files have not yet been tried on those systems, and the viewer has not been tried on a phone. If something fails for you, [say so here](https://github.com/eliminatenoise/Interoceptomics/issues).
 
 ## The parts that move you and the parts that run your organs overlap
 
@@ -56,18 +69,18 @@ The viewer marks that overlap on the atlas: one colour for regions linked to mov
 
 | You want to | In the viewer |
 | --- | --- |
-| Look around | Drag to turn, scroll to zoom. Four starting views: **Medial** (the flat inner face where the two halves of the brain meet), **Lateral** (the outside), **Insula exposed** and **Deep structures**. |
-| See what goes with what | **Association overlay** shows the somatic, autonomic or integration colours, or all three. |
+| Look around | Drag to turn, scroll to zoom. **Starting view** offers four: **Inner face (medial)**, where the two halves of the brain meet; **Outer face (lateral)**; **Insula exposed**, which shows the insula, a stretch of the brain's outer layer (the cortex) folded deep inside the side of the brain; and **Deep regions**. |
+| See what goes with what | **Colour groups** shows the somatic, autonomic or integration colours, or all three. |
 | Ask why a region is coloured | Select it and open **Evidence and limits**: why it is coloured or left plain, what its outline leaves out, and links to the sources. |
-| Find a region | Type a name, an abbreviation or an atlas number into the search box: `insula`, `VPL`, `13230`. |
-| Lift a region out | **Isolate in place** hides everything else. It works for the 34 regions drawn with a surface of their own. Of the other 87 in the model, 82 are merged into larger surfaces and 5 are listed by name only; none of those can be lifted out alone. **Restore context** brings the brain back. |
-| See the atlas under the surface | **Explore full atlas labels** opens three flat cuts that cross at one point. Step with the arrow keys, one half-millimetre cube (a *voxel*) at a time, or type a position in millimetres. **Find a structure** jumps to any of the 141 regions. |
-| Measure | The ruler lives in two closer views: search for `PaO` and choose **Show parietal operculum sections**, or compare VPL with VPM and choose **Show atlas sections**. Mark two points there with **Set A** and **Set B** to read the straight-line distance in millimetres; **Follow the ruler through sections** then lists how much of that line lies in each region. In the flat cuts, **Volume of the selected label** gives a region's volume in cubic millimetres. |
+| Find a region | Type a name, an abbreviation or an atlas number into **Find a region**: `insula`, `VPL`, `13230`. |
+| Lift a region out | **Show it alone** hides everything else. It works for the 34 regions drawn with a surface of their own. Of the other 87 in the model, 82 are merged into larger surfaces and 5 are listed by name only; none of those can be lifted out alone. **Show the whole brain** brings the rest back. |
+| See the atlas under the surface | **Open three flat cuts** shows three flat slices through the atlas grid that cross at one point. Step with the arrow keys, one half-millimetre cube (a *voxel*) at a time, or type a position in millimetres. **Find a region** there jumps to any of the 141 regions. |
+| Measure | The ruler lives in two places: search for `PaO` (the parietal operculum, the fold that covers the insula from above) and choose **Show cuts through the parietal operculum**, or compare VPL with VPM and choose **Show cuts through VPL and VPM**. Mark two points there with **Set A** and **Set B** to read the straight-line distance in millimetres; **Follow the ruler through the cuts** then lists how much of that line lies in each region. In the flat cuts, **Volume of the selected region** gives a region's volume in cubic millimetres. |
 | Come back to the same place | **Copy saved view** gives you a short piece of text. Paste it into **Open saved view** next time. |
 
-A good first five minutes: choose **Insula exposed**, and the outer surface of the brain steps aside to show the insula, cortex that the outer folds normally cover. Search for `PaO`, the fold that covers it from above, and isolate it. Then search for `VPL`, choose **Compare VPL and VPM**, and **Show shared voxel faces**: two clusters of sensory nerve cells (nuclei) deep in the thalamus, and in gold the 481 grid faces (120.25 mm²) where the atlas has them touch.
+A good first five minutes: choose **Insula exposed**, and the outer surface of the brain steps aside to show the insula. Search for `PaO` and choose **Show it alone**: the fold over the insula, on its own. Then search for `VPL`, choose **Compare VPL and VPM**, and **Show the faces they share**: two clusters of sensory nerve cells (nuclei) in the thalamus, deep in the middle of the brain, and in gold the 481 grid faces (120.25 mm²) where the atlas has them touch.
 
-The download carries its own guide, `README.html`, with every control.
+The viewer's guide has every control: [on the website](https://eliminatenoise.github.io/Interoceptomics/viewer/README.html), or `README.html` in the download.
 
 ## An illustration, not a measurement
 
@@ -76,7 +89,7 @@ The viewer shows where a published atlas draws each region. It does not show wha
 - **One reference brain, left half.** The atlas was drawn on an averaged reference brain (the ICBM 2009b nonlinear symmetric MNI152 average), not on a person. It is nobody's brain. And it labels almost only the left side: all 141 regions have cubes on the left, 22 have some on the midline, 7 have some on the right. The 3D model draws the left. The little there is on the right can be read in the flat cuts.
 - **The colours are a reading, not a recording.** A region can belong to more than one group, and a region with no colour is not idle: 61 of the 121 regions in the 3D model carry none.
 - **The grid is half a millimetre.** Borders follow the atlas's cubes, so small regions look blocky. The small brainstem and hypothalamic nuclei that regulate the organs are not drawn separately. 20 of the 141 regions (nine ventricles and canals, six white-matter structures, four olfactory structures and the claustrum) have no surface at all, though every one can be read in the flat cuts.
-- **Nothing here has been validated**, scientifically or clinically. Distances and volumes describe the atlas's reference brain, not a patient. The download holds anatomy and code, and no recordings.
+- **Nothing here has been validated**, scientifically or clinically. Distances and volumes describe the atlas's reference brain, not a patient. The viewer holds anatomy and code, and no recordings.
 
 ## The anatomy is the Allen Institute's
 
@@ -103,8 +116,8 @@ Interoceptomics belongs to Brain2Body, a programme about connecting brain and bo
 
 - **[NeuroTranslation](https://github.com/eliminatenoise/NeuroTranslation)** asks how well one recording of the body predicts another: brain or muscle activity against measured movement, tested on open human recordings.
 - **[NeuroSurge](https://eliminatenoise.github.io/NeuroSurge/)** is a browser game for learning which motor areas of the brain move which parts of the body. Its activity is simulated.
-- **Interoceptomics** is the proposal that body sense and nerve wiring be studied together, and so far one brain atlas you can turn.
+- **Interoceptomics** is the proposal that body sense and nerve wiring be studied together. So far it has a guide to its proposed experiments and two atlases to explore in the browser.
 
 ---
 
-[Project page](https://eliminatenoise.github.io/Interoceptomics/) · [What changed in the latest viewer](downloads/atlas-viewer/RELEASE-NOTES.md) · [Checksum of the download](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256) · [Desktop shortcuts](LAUNCHERS.md) · [Repository facts in machine-readable form](PROJECT-CONTEXT.json)
+[Project page](https://eliminatenoise.github.io/Interoceptomics/) · [Atlas viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/) · [What changed in the latest viewer](downloads/atlas-viewer/RELEASE-NOTES.md) · [Checksum of the download](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256) · [Desktop shortcuts](LAUNCHERS.md) · [Repository facts in machine-readable form](PROJECT-CONTEXT.json)

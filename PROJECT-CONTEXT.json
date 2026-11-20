@@ -32,31 +32,31 @@
     "complete_scientific_or_production_acceptance": false
   },
   "atlas_viewer": {
-    "edition": "Interoceptomics Atlas Viewer, version of 20 November 2026",
+    "edition": "Interoceptomics Atlas Viewer, version of 21 November 2026",
     "archive": "downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip",
-    "bytes": 40479519,
-    "sha256": "36900fe8df2462f54d6c66f96be577affd3ad794fcd1b1d9e49b7ea142289009",
+    "bytes": 40481417,
+    "sha256": "8e951a33cb80f0f3b0983f961d1577dec24253214e984cd3bdc369fcf3d01f0a",
     "source_and_rights": "RIGHTS.md#the-atlas-viewer-download",
     "regular_files": 74,
-    "uncompressed_bytes": 84055924,
+    "uncompressed_bytes": 84061653,
     "package_manifest": {
       "file": "MANIFEST.json",
       "bytes": 17746,
-      "sha256": "73609ea27f6abd336632a886f8d9d2bc14c27051cb8a1354281b38f99f7f2b3f",
+      "sha256": "9b96f82cec11b5c027f97eec8879d11568a61d58669738a32311bcf767fa8497",
       "scope": "Sizes and checksums of the 73 other files in the archive, the counts recomputed from its data, and the identities of the upstream files."
     },
-    "change": "One name, the Interoceptomics Atlas Viewer, on the download, its folder, its title and its pages; a guide that starts with how to open it; corrected counts. The anatomy and the controls are those of the version of 19 November 2026.",
+    "change": "The viewer is also served on the project website, from the same files. On the screen, one word for one thing (region, atlas number, cut) and controls that say what they do; links from the viewer to its guide and licence pages; a plain message when the page is opened straight from a folder. The start file serves the whole download folder. The anatomy and the controls are those of the previous version.",
     "source_comparison": {
-      "status": "The region names were compared with the atlas table on an early edition and again on this version (20 November 2026): all 141 match on number, name, abbreviation and ancestry. The comparison with the API response was made once and cannot be repeated from the download.",
+      "status": "The region names were compared with the atlas table on an early edition and again on this version (21 November 2026): all 141 match on number, name, abbreviation and ancestry. The comparison with the API response was made once and cannot be repeated from the download.",
       "current_registry_bytes": 268970,
       "current_registry_sha256": "f7eba3c845fad8f8b793b23784366cbad5f264ff0d3044db16b910a24cb93440"
     },
     "limitations": "The 3D model holds 121 of the atlas's 141 regions in 44 surfaces: 34 regions have a surface of their own, 82 more are parts of combined surfaces, and 5 are listed by name only. 20 regions have no surface. The source is one population atlas, left half only. Not checked or not claimed: agreement with other specimens, fit to any person, neural function, one planned visual check, and running on Windows, macOS or a phone.",
     "viewer": {
       "file": "viewer/viewer.js",
-      "bytes": 36682,
-      "sha256": "3d92b87de4d8b6e835f05321b3ebe7395a7af25828eeae8d196f45d1fa7261bc",
-      "code_change": "Its behaviour last changed when the three flat cuts through one point were added. In the version of 20 November 2026 only the name of the main model file and the wording of one error message changed."
+      "bytes": 36798,
+      "sha256": "faf1b218780b88980f656b0485009c93ec3ee13ba34a4f3366a6a973ed958caa",
+      "code_change": "Its drawing has not changed since the three flat cuts through one point were added. In this version only words changed: the loading message, the four view descriptions and one error message."
     },
     "complete_scientific_or_production_acceptance": false,
     "launchers": "The Windows, macOS and Linux start files need Python 3.10 or newer and a browser with WebGL. The Linux start file served the tested viewer on the local machine. Opening the default browser, and running on Windows or macOS, have not been tried.",
@@ -70,22 +70,22 @@
     "viewer_layout": {
       "page": "viewer/index.html",
       "controller": "viewer/ui.js",
-      "page_sha256": "428fb6ba21b044b3c60fc2ac95b6d3626aa427c37bff68556db792f30c99ab87",
-      "controller_sha256": "dc4bbf4b0f084e8099de29a1d73df7b0b3fad0c18e51d00d278f6b96b3f41ed4",
+      "page_sha256": "e6237a90990443612dba57d071181d9243197b7ec85cafd44a0ecf75501cc9a3",
+      "controller_sha256": "ee181e9bd17b80e3ef8fec00a748a79a8a0b9e4ceb0300fe3dfed5ed2a49439a",
       "renderer_page": "viewer/render.html",
-      "renderer_page_sha256": "1911a764d5dfb7e91a6138907fc88bdd29b72f5b2584ef79049307047431629f",
+      "renderer_page_sha256": "a21f20ebd5fa287b3312e25832e5d8e7bff755d075f2393a4567cd119089518e",
       "location_comparison": "viewer/location-comparison.js",
-      "location_comparison_sha256": "b3983db9a77647dc790cac6e169699e22c45473dfdac35504e7ac7696d2528d1",
+      "location_comparison_sha256": "062d3e7729fb56b32f1defdde19c0e6c35c025dbaebc2937cedfb6791ad5a896",
       "section_coordinates": "viewer/section-coordinates.js",
-      "section_coordinates_sha256": "e7e5b8052719412caee3d9477e936da313a73f179f7ee4defd39ff3e911548cd",
+      "section_coordinates_sha256": "161499e7b6c49d342428c2034d8c542b30feaec0ededf30019f88e6f221e8103",
       "ruler_walk": "viewer/ruler-walk.js",
-      "ruler_walk_sha256": "904ea97e7da6dc44425da9bf7f04329121d394d54deeac6ba23d31ba5eb5ff22",
+      "ruler_walk_sha256": "f337471c954452d7a7338413da90b2efc8996cbf1e55e819d230d4162934a46c",
       "renderer": "viewer/viewer.js",
-      "renderer_sha256": "3d92b87de4d8b6e835f05321b3ebe7395a7af25828eeae8d196f45d1fa7261bc",
+      "renderer_sha256": "faf1b218780b88980f656b0485009c93ec3ee13ba34a4f3366a6a973ed958caa",
       "atlas_label_runs": "viewer/atlas-label-runs.js",
-      "atlas_label_runs_sha256": "00e2083252ce6581686a0fa3718cfe3fb93a9a8d66ac517b6f160ddf884f9513",
+      "atlas_label_runs_sha256": "e5f7796200fd1589d110fd25f666f6350543aa4fb867d5ac9c64f2d18eecd305",
       "annotation_planes_js": "viewer/annotation-planes.js",
-      "annotation_planes_js_sha256": "ecc97880a3c431020109f57b66e32d6fb629e018f37690cdb15ab454711c9291",
+      "annotation_planes_js_sha256": "d88f9d11984fcde8804dc5e24575efadc28e95d3cd8ad4ea4d16871b5b310672",
       "annotation_planes_css": "viewer/annotation-planes.css",
       "annotation_planes_css_sha256": "8d923f517d7b9f5a594971c17b5159731c3b63f60b41102ee511495bffe5165c"
     },
@@ -374,10 +374,10 @@
       }
     },
     "viewer_check": {
-      "version": "2026-11-20",
+      "version": "2026-11-21",
       "chromium": "155.0.8059.84",
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
-      "scope": "Run for this version on Linux in headless Chromium with software rendering: the start file, the first view, a colour overlay, isolating the parietal operculum, the VPL and VPM comparison with its shared faces and sections, the parietal operculum sections with the two-point ruler, and the flat cuts with the finder, the highlight and the volume table. In the four views compared with the version of 19 November 2026 the 3D model is the same picture, pixel for pixel; the only pixels that differ beside it are the new words under the small overview picture. Not run: hardware rendering, keyboard and touch input, saved views, Windows, macOS, a phone.",
+      "scope": "Run for this version on Linux in headless Chromium with software rendering, from the download's start file and from a copy of docs/ served on this computer: the first view, a colour overlay, the parietal operculum shown alone, the three flat cuts, and the viewer page opened straight from the folder. The 3D model is the same picture, pixel for pixel, in both. Not run: hardware rendering, real keyboard, mouse and touch input, saved views, the published website itself, Windows, macOS, a phone.",
       "version_of_19_november_2026": {
         "what": "The edition this version carries its anatomy and code over from.",
         "compared_to_commit": "d6197935c2d78329f527d25205aa0c7ccfecf642",
@@ -392,6 +392,18 @@
         "scope": "The original Allen annotation and metadata were checked against all 170 occupied label-and-side combinations across 141 distinct IDs. The 3D preview covers the source left. Sparse source-right labels can be read in the cuts. Linux Chromium checks included the hardware and software renderers, keyboard input, emulated touch, saved views and the ruler. Native Windows, macOS and physical mobile checks remain open."
       },
       "full_scientific_or_native_acceptance": false
+    },
+    "website_copy": {
+      "address": "https://eliminatenoise.github.io/Interoceptomics/viewer/",
+      "folder": "docs/viewer",
+      "files": 70,
+      "bytes": 84057958,
+      "largest_file": {
+        "path": "assets/brain-left.glb",
+        "bytes": 66100772,
+        "note": "Over 50 MB, where GitHub warns; under 100 MB, where it refuses."
+      },
+      "made_from": "The archive's own members, by the same build. The viewer's folder is merged with the top level of the download, relative links in the pages are rewritten to match, and the four start files are left out. Every other byte is the archive's."
     }
   }
 }

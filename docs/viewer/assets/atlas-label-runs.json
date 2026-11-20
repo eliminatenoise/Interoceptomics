@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "annotation_sha256": "be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378",
+  "native_voxel_bytes_sha256": "461676b73401ee50880c673a3759b582a110073741d88bf8f1e441759ac06dd1",
+  "names_csv_sha256": "7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f",
+  "shape": [
+    394,
+    466,
+    378
+  ],
+  "qform": {
+    "code": 1,
+    "origin_mm": [
+      -98.0,
+      -134.0,
+      -72.0
+    ],
+    "spacing_mm": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "quaternion": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "qfac": 1.0
+  },
+  "binary_bytes": 3737128,
+  "binary_sha256": "972ba6298c3e99183b2aff022f5424b00e92fd8fbc2c980052b9b042c5d297b3",
+  "names": {
+    "10329": [
+      "FI",
+      "frontal agranular insular cortex (area FI)"
+    ],
+    "10330": [
+      "TI",
+      "temporal agranular insular cortex (area TI)"
+    ],
+    "10307": [
+      "OB",
+      "olfactory bulb"
+    ],
+    "10308": [
+      "AON",
+      "anterior olfactory nucleus"
+    ],
+    "10311": [
+      "Pir",
+      "piriform cortex"
+    ],
+    "10361": [
+      "AMY",
+      "amygdaloid complex"
+    ],
+    "10362": [
+      "AAA",
+      "anterior amygdaloid area"
+    ],
+    "10363": [
+      "CEN",
+      "central nuclear group"
+    ],
+    "10374": [
+      "CoA",
+      "anterior cortical nucleus"
+    ],
+    "10375": [
+      "CoP",
+      "posterior cortical nucleus"
+    ],
+    "10376": [
+      "Me",
+      "medial nucleus"
+    ],
+    "10377": [
+      "AHA",
+      "amygdalohippocampal area"
+    ],
+    "10367": [
+      "La",
+      "lateral nucleus"
+    ],
+    "10368": [
+      "BL",
+      "basolateral nucleus (basal nucleus)"
+    ],
+    "10369": [
+      "BM",
+      "basomedial nucleus (accessory basal nucleus)"
+    ],
+    "10384": [
+      "BNST",
+      "bed nucleus of stria terminalis"
+    ],
+    "10335": [
+      "CaH",
+      "head of caudate"
+    ],
+    "10336": [
+      "CaB",
+      "body of caudate"
+    ],
+    "10337": [
+      "CaT",
+      "tail of caudate"
+    ],
+    "10338": [
+      "Pu",
+      "putamen"
+    ],
+    "146034754": [
+      "PuPV",
+      "posteroventral putamen"
+    ],
+    "10339": [
+      "NAC",
+      "nucleus accumbens"
+    ],
+    "10343": [
+      "GPe",
+      "external segment of globus pallidus"
+    ],
+    "10344": [
+      "GPi",
+      "internal segment of globus pallidus"
+    ],
+    "10346": [
+      "Cla",
+      "claustrum"
+    ],
+    "10349": [
+      "BF",
+      "basal forebrain"
+    ],
+    "10350": [
+      "SEP",
+      "septal nuclei"
+    ],
+    "10390": [
+      "THM",
+      "thalamus"
+    ],
+    "10392": [
+      "ANC",
+      "anterior nuclear complex of thalamus"
+    ],
+    "10396": [
+      "LD",
+      "lateral dorsal nucleus of thalamus"
+    ],
+    "10398": [
+      "MD",
+      "mediodorsal nucleus of thalamus"
+    ],
+    "10403": [
+      "Re",
+      "reuniens nucleus (medioventral nucleus) of thalamus"
+    ],
+    "10408": [
+      "LP",
+      "lateral posterior nucleus of thalamus"
+    ],
+    "10409": [
+      "Pul",
+      "pulvinar of thalamus"
+    ],
+    "10417": [
+      "VA",
+      "ventral anterior nucleus of thalamus"
+    ],
+    "10420": [
+      "VL",
+      "ventral lateral nucleus of thalamus"
+    ],
+    "10424": [
+      "VPL",
+      "ventral posterior lateral nucleus"
+    ],
+    "10425": [
+      "VPM",
+      "ventral posterior medial nucleus"
+    ],
+    "10430": [
+      "DLG",
+      "dorsal lateral geniculate nucleus"
+    ],
+    "10434": [
+      "MG",
+      "medial geniculate nuclei"
+    ],
+    "10449": [
+      "CM",
+      "centromedian nucleus of thalamus"
+    ],
+    "10450": [
+      "Pf",
+      "parafascicular nucleus of thalamus"
+    ],
+    "13045": [
+      "MiN",
+      "midline nuclear complex"
+    ],
+    "10452": [
+      "HN",
+      "habenular nuclei"
+    ],
+    "10460": [
+      "Pin",
+      "pineal body"
+    ],
+    "10463": [
+      "ZI",
+      "zona incerta"
+    ],
+    "10466": [
+      "STH",
+      "subthalamic nucleus"
+    ],
+    "10467": [
+      "HTH",
+      "hypothalamus"
+    ],
+    "10468": [
+      "HTHpo",
+      "preoptic region of HTH"
+    ],
+    "10473": [
+      "HTHso",
+      "supraoptic region of HTH"
+    ],
+    "10483": [
+      "HTHtub",
+      "tuberal region of HTH"
+    ],
+    "10495": [
+      "HTHma",
+      "mammillary region of HTH"
+    ],
+    "10557": [
+      "FWM",
+      "white matter of forebrain"
+    ],
+    "10559": [
+      "ac",
+      "anterior commissure"
+    ],
+    "10561": [
+      "cc",
+      "corpus callosum"
+    ],
+    "10576": [
+      "fx",
+      "fornix"
+    ],
+    "10586": [
+      "mtt",
+      "mammillothalamic tract"
+    ],
+    "12073": [
+      "olt",
+      "olfactory tract"
+    ],
+    "266441621": [
+      "or",
+      "optic radiation"
+    ],
+    "10589": [
+      "ot",
+      "optic tract"
+    ],
+    "10597": [
+      "aLV",
+      "anterior horn of lateral ventricle"
+    ],
+    "10598": [
+      "bLV",
+      "body of lateral ventricle"
+    ],
+    "266441657": [
+      "xLV",
+      "atrium of lateral ventricle"
+    ],
+    "10599": [
+      "pLV",
+      "posterior horn of lateral ventricle"
+    ],
+    "10600": [
+      "iLV",
+      "inferior horn of lateral ventricle"
+    ],
+    "10602": [
+      "3V",
+      "third ventricle"
+    ],
+    "12114": [
+      "PrCG",
+      "precentral gyrus"
+    ],
+    "12115": [
+      "SFG",
+      "superior frontal gyrus"
+    ],
+    "12116": [
+      "MFG",
+      "middle frontal gyrus"
+    ],
+    "12118": [
+      "IFGtr",
+      "inferior frontal gyrus, triangular part"
+    ],
+    "12119": [
+      "IFGop",
+      "inferior frontal gyrus, opercular part"
+    ],
+    "12121": [
+      "ReG",
+      "gyrus rectus (straight gyrus)"
+    ],
+    "12122": [
+      "MOrG",
+      "medial orbital gyrus"
+    ],
+    "12123": [
+      "AOrG",
+      "anterior intermediate orbital gyrus"
+    ],
+    "12124": [
+      "POrG",
+      "posterior intermediate orbital gyrus"
+    ],
+    "12125": [
+      "LOrG",
+      "lateral orbital gyrus"
+    ],
+    "12126": [
+      "PCLr",
+      "paracentral lobule, rostral part"
+    ],
+    "146034872": [
+      "PaCG",
+      "paracingulate gyrus"
+    ],
+    "12127": [
+      "FrO",
+      "frontal operculum"
+    ],
+    "146034876": [
+      "RoG",
+      "rostral gyrus"
+    ],
+    "13229": [
+      "LOG",
+      "lateral olfactory gyrus"
+    ],
+    "146034884": [
+      "FMG",
+      "frontomarginal gyrus"
+    ],
+    "146034888": [
+      "FP",
+      "frontal pole"
+    ],
+    "12132": [
+      "PoCG",
+      "postcentral gyrus"
+    ],
+    "12133": [
+      "SPL",
+      "supraparietal lobule"
+    ],
+    "12135": [
+      "SMG",
+      "supramarginal gyrus"
+    ],
+    "12136": [
+      "AnG",
+      "angular gyrus"
+    ],
+    "12137": [
+      "PrCun",
+      "precuneus"
+    ],
+    "12138": [
+      "PCLc",
+      "paracentral lobule, caudal part"
+    ],
+    "13230": [
+      "PaO",
+      "parietal operculum"
+    ],
+    "12140": [
+      "STG",
+      "superior temporal gyrus"
+    ],
+    "12141": [
+      "MTG",
+      "middle temporal gyrus"
+    ],
+    "12142": [
+      "ITG",
+      "inferior temporal gyrus"
+    ],
+    "12143": [
+      "FuGt",
+      "occipitotemporal (fusiform) gyrus, temporal part"
+    ],
+    "146034892": [
+      "PRG",
+      "perirhinal gyrus ( rostral part of FuGt)"
+    ],
+    "12144": [
+      "TTG",
+      "transverse temporal gyrus (Heschl's gyrus)"
+    ],
+    "12145": [
+      "PLT",
+      "planum temporale"
+    ],
+    "12146": [
+      "TP",
+      "temporal pole"
+    ],
+    "12147": [
+      "PLP",
+      "planum polare"
+    ],
+    "12149": [
+      "OP",
+      "occipital pole"
+    ],
+    "12150": [
+      "Cun",
+      "cuneus"
+    ],
+    "12151": [
+      "LiG",
+      "lingual gyrus"
+    ],
+    "12152": [
+      "FuGo",
+      "occipitotemporal (fusiform) gyrus, occipital part"
+    ],
+    "12153": [
+      "IOG",
+      "inferior occipital gyrus"
+    ],
+    "12154": [
+      "SOG",
+      "superior occipital gyrus"
+    ],
+    "12177": [
+      "LIG",
+      "long insular gyri"
+    ],
+    "12178": [
+      "SIG",
+      "short insular gyri"
+    ],
+    "12157": [
+      "CgGr",
+      "cingulate gyrus, rostral (anterior) part"
+    ],
+    "12158": [
+      "CgGc",
+      "cingulate gyrus, caudal (posterior) part"
+    ],
+    "12159": [
+      "IsCPH",
+      "cingulo-parahippocampal isthmus"
+    ],
+    "12160": [
+      "SCG",
+      "subcallosal gyrus (parolfactory gyrus)"
+    ],
+    "12163": [
+      "APH",
+      "anterior parahippocampal gyrus"
+    ],
+    "12164": [
+      "PPH",
+      "posterior parahippocampal gyrus"
+    ],
+    "12166": [
+      "AG",
+      "ambiens gyrus"
+    ],
+    "12171": [
+      "HiH",
+      "head of hippocampus"
+    ],
+    "12173": [
+      "HiB",
+      "body of hippocampus"
+    ],
+    "12174": [
+      "HiT",
+      "tail of hippocampus"
+    ],
+    "12179": [
+      "LI",
+      "limen insula"
+    ],
+    "12181": [
+      "PTR",
+      "pretectal region"
+    ],
+    "12195": [
+      "MTg",
+      "midbrain tegmentum"
+    ],
+    "12247": [
+      "RN",
+      "red nucleus"
+    ],
+    "12251": [
+      "SN",
+      "substantia nigra"
+    ],
+    "12292": [
+      "SC",
+      "superior colliculus"
+    ],
+    "12305": [
+      "IC",
+      "inferior colliculus"
+    ],
+    "12330": [
+      "cpd",
+      "cerebral peduncle (crus cerebri)"
+    ],
+    "12354": [
+      "scp",
+      "superior cerebellar peduncle (brachium conjunctivum)"
+    ],
+    "12369": [
+      "Aq",
+      "cerebral aqueduct"
+    ],
+    "10658": [
+      "CBV",
+      "cerebellar vermis"
+    ],
+    "12384": [
+      "CBPV",
+      "paravermis of cerebellum"
+    ],
+    "12390": [
+      "CBL",
+      "lateral hemisphere of cerebellum"
+    ],
+    "10660": [
+      "CbDN",
+      "cerebellar deep nuclei"
+    ],
+    "12405": [
+      "PnBa",
+      "basilar part of pons"
+    ],
+    "12416": [
+      "PnTg",
+      "pontine tegmentum"
+    ],
+    "12535": [
+      "MoPy",
+      "pyramidal part of medulla oblongata"
+    ],
+    "12538": [
+      "MoTg",
+      "tegmentum of medulla oblongata"
+    ],
+    "12600": [
+      "IO",
+      "inferior olive"
+    ],
+    "10668": [
+      "HWM",
+      "white matter of hindbrain"
+    ],
+    "12741": [
+      "icp",
+      "inferior cerebellar peduncle"
+    ],
+    "12768": [
+      "mcp",
+      "middle cerebellar peduncle"
+    ],
+    "12805": [
+      "4V",
+      "fourth ventricle"
+    ],
+    "12826": [
+      "cec",
+      "central canal of medulla oblongata"
+    ]
+  },
+  "ids": [
+    0,
+    10467,
+    12826,
+    12538,
+    12535,
+    12384,
+    12390,
+    12600,
+    10668,
+    12805,
+    10557,
+    146034892,
+    12142,
+    10658,
+    12741,
+    12405,
+    12141,
+    12146,
+    12416,
+    12768,
+    12163,
+    10660,
+    12140,
+    10307,
+    12073,
+    12354,
+    10311,
+    10330,
+    12121,
+    12164,
+    10600,
+    12143,
+    10367,
+    12122,
+    12171,
+    146034888,
+    146034884,
+    10361,
+    12124,
+    12166,
+    10368,
+    12147,
+    10483,
+    12123,
+    10346,
+    13229,
+    12330,
+    12173,
+    10374,
+    10308,
+    12178,
+    12125,
+    10377,
+    12369,
+    12195,
+    12179,
+    146034876,
+    12153,
+    12152,
+    10369,
+    10362,
+    10589,
+    10375,
+    10602,
+    10468,
+    12177,
+    10329,
+    12151,
+    10473,
+    12251,
+    12149,
+    10495,
+    12160,
+    10337,
+    266441621,
+    146034754,
+    10363,
+    10349,
+    12305,
+    12247,
+    10376,
+    10339,
+    12157,
+    12174,
+    10559,
+    10576,
+    10338,
+    10466,
+    146034872,
+    10586,
+    10335,
+    10430,
+    12181,
+    12118,
+    12292,
+    10384,
+    12159,
+    10434,
+    10390,
+    10561,
+    10344,
+    10463,
+    10343,
+    266441657,
+    10409,
+    12116,
+    12114,
+    12127,
+    12119,
+    10597,
+    12158,
+    10424,
+    10350,
+    12135,
+    10425,
+    10450,
+    13045,
+    10403,
+    10417,
+    12154,
+    10420,
+    12144,
+    12150,
+    10449,
+    10460,
+    10452,
+    12115,
+    12145,
+    10398,
+    13230,
+    10599,
+    12137,
+    10392,
+    12132,
+    10408,
+    10598,
+    12136,
+    10336,
+    10396,
+    12133,
+    12126,
+    12138
+  ]
+}

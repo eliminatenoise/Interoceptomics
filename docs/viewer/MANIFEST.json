@@ -1,0 +1,511 @@
+{
+  "name": "Interoceptomics Atlas Viewer",
+  "version": "2026-11-21",
+  "about": "The left half of the Allen Human Reference Atlas — 3D, 2020, as a 3D model in the browser. A picture of published anatomy: no brain activity was recorded for it, and nothing in it has been validated.",
+  "guide": "README.html",
+  "licences_and_credits": "THIRD-PARTY-NOTICES.html",
+  "start_files": {
+    "windows": "Windows.cmd",
+    "macos": "macOS.command",
+    "linux": "Linux.sh",
+    "needs": "Python 3.10 or newer and a browser with WebGL"
+  },
+  "files_total_including_manifest": 74,
+  "manifest_self_excluded_from_entries": true,
+  "entry_count": 73,
+  "entries": [
+    {
+      "path": "Linux.sh",
+      "bytes": 618,
+      "sha256": "972a66d777db46767b72993b4808f499b68e4391cb090946555cc00feea44db4",
+      "mode_octal": "0755"
+    },
+    {
+      "path": "README.html",
+      "bytes": 18248,
+      "sha256": "53507b2d51c2286993d790f747eb53b79897ec7cdebc5594a271440c2b79118f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "RELEASE-NOTES.txt",
+      "bytes": 2478,
+      "sha256": "7014f2f0c79525fab411d9bb5c382a9020ce4ee47e84d28ab04aeab6215f9c41",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.html",
+      "bytes": 16584,
+      "sha256": "c249fcb1c4f932771943d5694f505872e65303f11100ba22885b2eb8f6609b8b",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "Windows.cmd",
+      "bytes": 764,
+      "sha256": "4a5e7c588dabef59f2b7d803ae354ee822e163956a7d76de6afd8000d0ad4d6e",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "launch.py",
+      "bytes": 1620,
+      "sha256": "afdc2c6c281a3e32ae3b7311eb7b6d9207c76381d8e54532ab5964cac7164d1f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "licenses/CC-BY-4.0.txt",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "licenses/THREE-MIT.txt",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "licenses/index.html",
+      "bytes": 20909,
+      "sha256": "8b61d5cb81f1edd2933efd084a7a326dc129d638bf2620aaf39f00a9ea72d912",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "macOS.command",
+      "bytes": 618,
+      "sha256": "972a66d777db46767b72993b4808f499b68e4391cb090946555cc00feea44db4",
+      "mode_octal": "0755"
+    },
+    {
+      "path": "sources/allen-version1/PAO-SECTIONS-NOTICE.txt",
+      "bytes": 1540,
+      "sha256": "429a29be76627236eb746dbc1da8a680a4edbf5c344be3a49d764dfd7972e34e",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt",
+      "bytes": 1435,
+      "sha256": "e2809c28700bc0ae69654a92e58a95c50af7440774ae634b663f43bb4a5f1bef",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/RULER-ANNOTATION-NOTICE.txt",
+      "bytes": 3454,
+      "sha256": "7d7acd63f9e14a22d479fed2f69e4978c34b0ba640c4e5989429ae2d7cc9fb32",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/VPL-NOTICE.txt",
+      "bytes": 1122,
+      "sha256": "f1d74a6515d5bb37e1b78fd218b7ec63e3c896afade9c50dbd893168e32fa899",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/VPL-VPM-SHARED-FACES-NOTICE.txt",
+      "bytes": 1579,
+      "sha256": "d174a927bb8e1698bb5c1785ec387ff13698614a2031bca5f63b52dc829eaf37",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/VPL-VPM-SOURCE-GRID-NOTICE.txt",
+      "bytes": 1709,
+      "sha256": "426755459a2bb3ff30b1eda6545d416ebf86bbf27c83b670f0b78b8fbb2340ae",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/VPM-NOTICE.txt",
+      "bytes": 1081,
+      "sha256": "4b61a1dfb34f42382c79612d66b592633cbb39d20f8c7d534dfc306ca4d9d3fc",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/source-binding.json",
+      "bytes": 8028,
+      "sha256": "208fc44daf04c190e86b32c0c20e6412747d879fa500f18fb6506d3629c4bf8a",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "sources/allen-version1/voxel_count.csv",
+      "bytes": 479643,
+      "sha256": "7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/README.md",
+      "bytes": 3360,
+      "sha256": "4c03c7c25314031e6bf56b3b038bdf8b3115079de86ab405bf26a67d90f00950",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/annotation-planes.css",
+      "bytes": 5078,
+      "sha256": "8d923f517d7b9f5a594971c17b5159731c3b63f60b41102ee511495bffe5165c",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/annotation-planes.js",
+      "bytes": 13642,
+      "sha256": "d88f9d11984fcde8804dc5e24575efadc28e95d3cd8ad4ea4d16871b5b310672",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/atlas-annotation-notice.txt",
+      "bytes": 3454,
+      "sha256": "7d7acd63f9e14a22d479fed2f69e4978c34b0ba640c4e5989429ae2d7cc9fb32",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/atlas-label-runs.bin",
+      "bytes": 3737128,
+      "sha256": "972ba6298c3e99183b2aff022f5424b00e92fd8fbc2c980052b9b042c5d297b3",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/atlas-label-runs.json",
+      "bytes": 11894,
+      "sha256": "904bdadfdf5db64803869a9379b5ba8c1cf6e431bd9e72b27066c0968ada4e94",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/atlas-region-locations.json",
+      "bytes": 5155,
+      "sha256": "e2400d38ca0db31d6133a6ccc7323708a3fa5513a5c44869ba799cd7487eb97a",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/brain-left.glb",
+      "bytes": 66100772,
+      "sha256": "9eff87dc4b6b501a001dee8b335ba13440a475aacb896deb0af8d42763ede2d9",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/cerebral_surface_parcels.u32",
+      "bytes": 3858580,
+      "sha256": "af046db316c3eb896d5710fd78833d269762d46c8452f14fcdbb32fb122cf680",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/corpus_callosum.u32",
+      "bytes": 114596,
+      "sha256": "47ccdd75d47a9be37ca89a45c127dd5ea7b2e707bfd0550027bc1c1dbb603b98",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/hindbrain_tissue_union.u32",
+      "bytes": 454924,
+      "sha256": "83b5e8efbff7dce087ba354c83ba1c8b54a7a29f5ab066fdb3e5342765379ae8",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_0.u32",
+      "bytes": 20932,
+      "sha256": "5ab531b08104b4f27b63650b7543cc375850b3fab77c1818d55486009ad47e1c",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_1.u32",
+      "bytes": 920,
+      "sha256": "7a22e13335534010287a98bd6def3420005ef1f1a49f1eb22665905b3b9de79a",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_2.u32",
+      "bytes": 12,
+      "sha256": "92166a6a91e40b98ba4802cbfa54332d1dcac32be82fc08df0f35a9bfc93d3ce",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_3.u32",
+      "bytes": 12,
+      "sha256": "92166a6a91e40b98ba4802cbfa54332d1dcac32be82fc08df0f35a9bfc93d3ce",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_4__QC_REMOTE_HTH.u32",
+      "bytes": 40,
+      "sha256": "e0881f9813f2276b0d000d3289440330513ea6c055ebf0a31130048e8528e3aa",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/midbrain_tissue_union.u32",
+      "bytes": 55128,
+      "sha256": "964b187538e199fc5d65a046744a3cfad60784457a20a1f01e530a80c62a57ed",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/identity/thalamic_structural_union.u32",
+      "bytes": 71868,
+      "sha256": "142b4b6255d7ba417a62b49e3a068055660b0f7771ac9e9175729d6da140068a",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/overview.png",
+      "bytes": 577511,
+      "sha256": "b342f79178dffa1dec33032b60a3fd35c23293cee49ba20f8d4133b68cda2f49",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/parietal-operculum-axial.bin",
+      "bytes": 1276776,
+      "sha256": "b026368ff4d4b89f099887bea66d445f0170e32e7ab2e11b6fff3437d1a109cb",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/parietal-operculum-coronal.bin",
+      "bytes": 1413072,
+      "sha256": "8ecb27a438b70176e2e2955a0c504ec85052f54ff79415c1e605ca9bb2a3bbd1",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/parietal-operculum-sagittal.bin",
+      "bytes": 1792944,
+      "sha256": "ae140b7b780b3fece0194aac3bfec27e18822a747c9dd96cdfb7dbc9239622d6",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/parietal-operculum-sections.json",
+      "bytes": 9538,
+      "sha256": "fee79e49d07e02fe69a588cbc1a4a8b6633e2616195cd59ddce9a23d7b852b0f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/parietal-operculum-source-left.glb",
+      "bytes": 811540,
+      "sha256": "367f7990b2a3968b4e89d95a38d0fcf51e15776d77065fd25dfed1a204b391c3",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/red-nucleus-source-left.glb",
+      "bytes": 83552,
+      "sha256": "3e67055edca4fe9d1c402aa8e1ad1acb8358c62aa7d203715b501e2a1d89248c",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/vpl-source-left.glb",
+      "bytes": 151960,
+      "sha256": "38ff571b7849d9d98dd59a6a5ba76a68e2d98c8e542309983d5fe9fdec8f465f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/vpl-vpm-shared-faces.json",
+      "bytes": 7915,
+      "sha256": "f2881deac04ad32a5ac00bb4f83f22ea3075a0715ffc2989d1f20eb3f09351b3",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/vpl-vpm-source-grid.json",
+      "bytes": 27775,
+      "sha256": "2281dacde82cb6f55c6bde78646a95d02652ba276c949c4a4f5f0086afe3ae30",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/vpm-source-left.glb",
+      "bytes": 53548,
+      "sha256": "dfd1850d5ec93e8dc87dd75744ffc722d717e2205161bd87599dacdc74b12b92",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/atlas-label-runs.js",
+      "bytes": 6514,
+      "sha256": "e5f7796200fd1589d110fd25f666f6350543aa4fb867d5ac9c64f2d18eecd305",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/camera-r4-bounds.json",
+      "bytes": 314,
+      "sha256": "833f67d9e113027d5e071c9c65a677a286ec7444a7ce269687d17c7b256cb28f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/index.html",
+      "bytes": 34296,
+      "sha256": "e6237a90990443612dba57d071181d9243197b7ec85cafd44a0ecf75501cc9a3",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/location-comparison.js",
+      "bytes": 7059,
+      "sha256": "062d3e7729fb56b32f1defdde19c0e6c35c025dbaebc2937cedfb6791ad5a896",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/omissions.html",
+      "bytes": 6016,
+      "sha256": "7786727309f0c99891fc834099da034ec745cbf010c85ba46010b2fe3b28737f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/parietal-sections.js",
+      "bytes": 16884,
+      "sha256": "1d4318801f744e4404e413daccfc29bd89ce2cacd246bd96e5f75cca2fee0ec1",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/region-finder.js",
+      "bytes": 5238,
+      "sha256": "056b2a91ca2de37d2e5b884b14fae71c1ad39a4bc9ad78f5ff7d201514f38e77",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/registry.json",
+      "bytes": 268970,
+      "sha256": "f7eba3c845fad8f8b793b23784366cbad5f264ff0d3044db16b910a24cb93440",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/render.html",
+      "bytes": 2036,
+      "sha256": "a21f20ebd5fa287b3312e25832e5d8e7bff755d075f2393a4567cd119089518e",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/ruler-walk.js",
+      "bytes": 10287,
+      "sha256": "f337471c954452d7a7338413da90b2efc8996cbf1e55e819d230d4162934a46c",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/section-coordinates.js",
+      "bytes": 7224,
+      "sha256": "161499e7b6c49d342428c2034d8c542b30feaec0ededf30019f88e6f221e8103",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/shared-faces.js",
+      "bytes": 2954,
+      "sha256": "39123015428864f5542bb1df60d0a80a36ba5f77649270e1bd864a9ba9762919",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/source-provenance.json",
+      "bytes": 1882,
+      "sha256": "91fb7d392563833672eb8c188ad2e48ac8cfadd04562f0f030d5f05527c721fd",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/source-sections.js",
+      "bytes": 13238,
+      "sha256": "a84823c71afe40a545e5bd787220ed7032c1edc191f1ad827c8c8c7fde5f04d7",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/source.html",
+      "bytes": 14423,
+      "sha256": "0b8c17fdb29bd1578eef25dcbac95bd1cdac5204fa3771742f9685346201c8cd",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/ui.js",
+      "bytes": 32699,
+      "sha256": "ee181e9bd17b80e3ef8fec00a748a79a8a0b9e4ceb0300fe3dfed5ed2a49439a",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/variants.json",
+      "bytes": 2743,
+      "sha256": "cc2e872635ce69683dcf18f4ed426ee3770b76a6b4a5883ad8dbbc5498a8b301",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/vendor/three/LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/vendor/three/build/three.core.js",
+      "bytes": 1458113,
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/vendor/three/build/three.module.js",
+      "bytes": 662772,
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/vendor/three/examples/jsm/controls-OrbitControls.js",
+      "bytes": 40755,
+      "sha256": "3d79d07ecb686b4e5d93232eedab255331c1beef711e13164eaa1f68655a5f2b",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 117570,
+      "sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/vendor/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 37712,
+      "sha256": "9fb63427ce6641fa14fd0baff9cc4d1b5f9c3d85fd084bf2e90e803c44ec1797",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/vendor/three/examples/jsm/utils/SkeletonUtils.js",
+      "bytes": 11535,
+      "sha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/viewer.js",
+      "bytes": 36798,
+      "sha256": "faf1b218780b88980f656b0485009c93ec3ee13ba34a4f3366a6a973ed958caa",
+      "mode_octal": "0644"
+    }
+  ],
+  "counts": {
+    "note": "Recomputed from registry.json, the identity files, the model files and the packed grid when this download was built.",
+    "regions_in_the_atlas_grid": 141,
+    "regions_in_the_3d_model": 121,
+    "surfaces": 44,
+    "regions_with_a_surface_of_their_own": 34,
+    "regions_only_on_combined_surfaces": 82,
+    "regions_by_name_only": 5,
+    "regions_without_a_surface": 20,
+    "labelled_voxels_left_midline_right": [
+      6974625,
+      14152,
+      10424
+    ],
+    "cited_sources": 54,
+    "sources_cited_for_a_region": 49
+  },
+  "upstream": {
+    "atlas": {
+      "title": "Allen Human Reference Atlas — 3D, 2020",
+      "version": "1.0.0",
+      "RRID": "SCR_017764",
+      "copyright": "Copyright © 2019 Allen Institute for Brain Science",
+      "licence": "CC BY 4.0",
+      "collection": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/",
+      "readme": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf",
+      "region_grid": {
+        "file": "annotation.nii.gz",
+        "url": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz",
+        "sha256": "be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378",
+        "in_this_download": "repacked without loss as viewer/assets/atlas-label-runs.bin"
+      }
+    },
+    "table_of_region_names": {
+      "file": "sources/allen-version1/voxel_count.csv",
+      "url": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv",
+      "bytes": 479643,
+      "sha256": "7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f",
+      "downloaded": "2026-11-15",
+      "server_last_modified": "Wed, 19 Feb 2025 00:18:42 GMT",
+      "note": "The copy the server offered on that day. It cannot be shown to be byte for byte the 2020 original."
+    },
+    "api_response": {
+      "query": "https://api.brain-map.org/api/v2/data/query.json?criteria=model%3A%3AStructure%2Crma%3A%3Acriteria%2C%5Bgraph_id%24eq16%5D%2Crma%3A%3Aoptions%5Border%24eq%27structures.graph_order%27%5D%5Bnum_rows%24eqall%5D",
+      "retrieved": "2026-11-04",
+      "rows": 3317,
+      "sha256": "70281f17ee7b23bd4076606c25038d31b3f4fca69973356138a05bceb9896341",
+      "in_this_download": false
+    },
+    "three_js": {
+      "revision": "186",
+      "licence": "MIT",
+      "notice": "viewer/vendor/three/LICENSE"
+    }
+  }
+}

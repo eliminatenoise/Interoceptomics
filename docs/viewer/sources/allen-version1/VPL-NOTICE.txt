@@ -1,0 +1,19 @@
+Ventral posterior lateral nucleus · left atlas surface
+
+Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer,
+Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020).
+Allen Human Reference Atlas — 3D, 2020, version 1.0.0, RRID:SCR_017764.
+Copyright © 2019 Allen Institute for Brain Science.
+
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf
+https://creativecommons.org/licenses/by/4.0/
+
+The GLB selects label 10424 from the original left annotation, extracts
+an unsmoothed 0.5 isosurface with Lorensen Marching Cubes and applies the
+same coordinates as the main model: (−R, S, A)/1000, in metres. Display normals and material were added.
+The source materials are provided as-is. No endorsement is implied.
+Keep the licence, attribution, source and change notice with the asset.
+
+The complete CC BY 4.0 licence travels with this download in
+licenses/CC-BY-4.0.txt. External MRI and histology figures are excluded.

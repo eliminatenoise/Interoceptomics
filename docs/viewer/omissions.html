@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interoceptomics Atlas Viewer · Regions without a surface</title>
+<style>body{max-width:790px;margin:45px auto;padding:0 24px;color:#27323a;background:#fff;font:16px/1.6 Arial,Helvetica,sans-serif}h1{font-size:30px;line-height:1.15}h2{font-size:21px;line-height:1.25;margin-top:36px}a{color:#315f79}table{border-collapse:collapse;width:100%;margin:20px 0}th,td{text-align:left;vertical-align:top;padding:7px 9px;border-bottom:1px solid #d4dadd}td.n,th.n{text-align:right;white-space:nowrap}tr.group th{border-top:2px solid #27323a;padding-top:14px}code{font:inherit;overflow-wrap:anywhere;background:#eef1f2;padding:0 3px}</style>
+<link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23376c8c%22%2F%3E%3Cpath%20d%3D%22M15%208c-4-3-9%201-7%205-3%203-1%208%203%208%200%204%204%205%204%202V8Zm2%200c4-3%209%201%207%205%203%203%201%208-3%208%200%204-4%205-4%202V8Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
+</head>
+<body>
+<p><a href="index.html">Back to the viewer</a> · <a href="source.html">Where the anatomy comes from</a> · <a href="README.html">Guide</a></p>
+<h1>20 regions have no surface, and together they are a third of the atlas</h1>
+
+<p>The 3D model holds 121 of the atlas’s 141 regions, in 44 surfaces. The other 20 are in the atlas grid and not in the 3D model: you cannot select them there, and none of them carries a colour.</p>
+
+<p>They are not small. Together they hold 2,255,724 of the atlas’s 6,999,201 labelled voxels (a voxel is one half-millimetre cube of the grid), and the white matter of the forebrain alone holds 2,089,673.</p>
+
+<p>Every one of them can still be read in the flat cuts. In the viewer choose <strong>Open three flat cuts</strong>, then <strong>Find a region</strong>, and type a name or a number from this table.</p>
+
+<table>
+<thead><tr><th scope="col">Atlas number</th><th scope="col">Abbreviation</th><th scope="col">Name</th><th scope="col" class="n">Voxels</th><th scope="col" class="n">Volume (mm³)</th></tr></thead>
+<tbody>
+<tr class="group"><th colspan="5" scope="colgroup">Ventricles and canals: fluid spaces, not tissue</th></tr>
+<tr><td>10597</td><td>aLV</td><td>anterior horn of lateral ventricle</td><td class="n">42,045</td><td class="n">5,255.625</td></tr>
+<tr><td>10598</td><td>bLV</td><td>body of lateral ventricle</td><td class="n">32,071</td><td class="n">4,008.875</td></tr>
+<tr><td>266441657</td><td>xLV</td><td>atrium of lateral ventricle</td><td class="n">16,968</td><td class="n">2,121</td></tr>
+<tr><td>12805</td><td>4V</td><td>fourth ventricle</td><td class="n">11,454</td><td class="n">1,431.75</td></tr>
+<tr><td>10600</td><td>iLV</td><td>inferior horn of lateral ventricle</td><td class="n">8,975</td><td class="n">1,121.875</td></tr>
+<tr><td>10602</td><td>3V</td><td>third ventricle</td><td class="n">5,673</td><td class="n">709.125</td></tr>
+<tr><td>10599</td><td>pLV</td><td>posterior horn of lateral ventricle</td><td class="n">2,398</td><td class="n">299.75</td></tr>
+<tr><td>12369</td><td>Aq</td><td>cerebral aqueduct</td><td class="n">974</td><td class="n">121.75</td></tr>
+<tr><td>12826</td><td>cec</td><td>central canal of medulla oblongata</td><td class="n">175</td><td class="n">21.875</td></tr>
+<tr class="group"><th colspan="5" scope="colgroup">White matter and tracts of the forebrain</th></tr>
+<tr><td>10557</td><td>FWM</td><td>white matter of forebrain</td><td class="n">2,089,673</td><td class="n">261,209.125</td></tr>
+<tr><td>266441621</td><td>or</td><td>optic radiation</td><td class="n">19,778</td><td class="n">2,472.25</td></tr>
+<tr><td>10576</td><td>fx</td><td>fornix</td><td class="n">4,410</td><td class="n">551.25</td></tr>
+<tr><td>10559</td><td>ac</td><td>anterior commissure</td><td class="n">1,908</td><td class="n">238.5</td></tr>
+<tr><td>10589</td><td>ot</td><td>optic tract</td><td class="n">1,807</td><td class="n">225.875</td></tr>
+<tr><td>10586</td><td>mtt</td><td>mammillothalamic tract</td><td class="n">504</td><td class="n">63</td></tr>
+<tr class="group"><th colspan="5" scope="colgroup">Olfactory structures</th></tr>
+<tr><td>10311</td><td>Pir</td><td>piriform cortex</td><td class="n">1,588</td><td class="n">198.5</td></tr>
+<tr><td>10308</td><td>AON</td><td>anterior olfactory nucleus</td><td class="n">1,223</td><td class="n">152.875</td></tr>
+<tr><td>10307</td><td>OB</td><td>olfactory bulb</td><td class="n">844</td><td class="n">105.5</td></tr>
+<tr><td>12073</td><td>olt</td><td>olfactory tract</td><td class="n">560</td><td class="n">70</td></tr>
+<tr class="group"><th colspan="5" scope="colgroup">Other grey matter of the forebrain</th></tr>
+<tr><td>10346</td><td>Cla</td><td>claustrum</td><td class="n">12,696</td><td class="n">1,587</td></tr>
+</tbody>
+</table>
+
+<h2>Why they are missing</h2>
+
+<p>The white matter of the forebrain was left out on purpose: drawn as a solid surface, it would wrap everything inside it. The other 19 were not among the regions chosen for a surface when the model was built. No record says that a surface could not be made for any of them.</p>
+
+<p>The viewer’s list of regions keeps a proposed colour group for three of the 20 (the olfactory bulb, the anterior olfactory nucleus and the piriform cortex). It is a proposal, and nothing is drawn for it.</p>
+
+<p>The four groups in the table are this project’s. The names, abbreviations and numbers are the Allen Institute’s, from its table of regions. A copy of that table travels with the viewer: <a href="sources/allen-version1/voxel_count.csv"><code>sources/allen-version1/voxel_count.csv</code></a>. The voxel counts were recounted from the atlas grid for this page, and they equal the counts in that table.</p>
+</body>
+</html>

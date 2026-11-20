@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interoceptomics Atlas Viewer · Licences and credits</title>
+<style>body{max-width:820px;margin:36px auto;padding:0 22px;color:#20282c;background:#fff;font:16px/1.6 Arial,Helvetica,sans-serif}h1{font-size:30px;line-height:1.15}h2{font-size:22px;line-height:1.25;margin-top:38px}h3{font-size:18px;margin-top:26px}a{color:#22566d}code{font:inherit;overflow-wrap:anywhere;background:#eef1f2;padding:0 3px}table{border-collapse:collapse;width:100%;margin:16px 0}th,td{text-align:left;vertical-align:top;padding:8px 9px;border-bottom:1px solid #d4dadd}li{margin:7px 0}blockquote{margin:16px 0;padding:2px 18px;border-left:4px solid #b9c4c9}</style>
+</head>
+<body>
+<p><a href="README.html">Back to the guide</a> · <a href="index.html">The viewer</a></p>
+<h1>Licences and credits</h1>
+
+<p>No single licence covers this download. Two things in it belong to other people, and each comes with conditions.</p>
+
+<p>The project’s website serves the same files at <a href="https://eliminatenoise.github.io/Interoceptomics/viewer/">eliminatenoise.github.io/Interoceptomics/viewer</a>, without the start files. Everything on this page applies to that copy as well.</p>
+
+<table>
+<tr><th>What</th><th>Whose</th><th>Terms</th><th>To reuse it you must</th></tr>
+<tr><td>The brain anatomy: surfaces, region grid, region names and numbers</td><td>Allen Institute for Brain Science, adapted by this project</td><td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td><td>Give the credit below, link the licence, keep the notices, say what you changed</td></tr>
+<tr><td>Three.js, the 3D drawing library</td><td>Three.js authors</td><td><a href="https://opensource.org/license/mit">MIT</a></td><td>Keep its copyright and permission notice</td></tr>
+</table>
+
+<p>What this project made itself (the viewer’s code, the colour choices, these pages) is dedicated to the public domain in <a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/LICENSE">the project’s repository</a> under CC0 1.0, to the extent the project holds the rights. That dedication does not reach the two rows above. Where the project’s work is fused with the atlas, as in every surface file, the atlas’s terms still apply to the result. No CC0 label, here or on the repository, replaces a notice on this page.</p>
+
+<h2 id="credit">The Allen atlas: the credit to give</h2>
+
+<blockquote><p>Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020), <em>Allen Human Reference Atlas — 3D, 2020</em>, version 1.0.0, RRID:SCR_017764. Copyright © 2019 Allen Institute for Brain Science. Licensed under CC BY 4.0. Adapted by the Interoceptomics project.</p></blockquote>
+
+<p>The atlas’s <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf">official README</a> states CC BY 4.0, effective 1 September 2022. The files are in the <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/">original atlas collection</a>. The licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, with <a href="licenses/index.html#cc-by">its complete text in this download</a>.</p>
+
+<p>When you copy or adapt any atlas-derived file from this download:</p>
+
+<ol>
+<li>Keep the creators’ names, the copyright line, and the links to the source and to the licence.</li>
+<li>Keep the disclaimers and the change notices that travel with the files: this page, the <code>licenses</code> folder and the notices in <code>sources/allen-version1</code>.</li>
+<li>Say what you changed in turn.</li>
+<li>Do not suggest that the creators or the Allen Institute endorse you or your use. They have not endorsed this project.</li>
+</ol>
+
+<p>Do not relabel this material as CC0, and do not add a non-commercial restriction to it. The licence gives no warranty that the anatomy is accurate or fit for any purpose.</p>
+
+<h2 id="changes">What this project changed in the atlas</h2>
+
+<p>The atlas is a grid of half-millimetre cubes, each carrying the number of a region. Its file is <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz"><code>annotation.nii.gz</code></a>. From that grid this project made the following. All of it is atlas-derived, and the credit above applies to all of it.</p>
+
+<table>
+<tr><th>Change</th><th>What was done</th></tr>
+<tr><td>The left half</td><td>The atlas labels almost only its left side. The 3D model keeps the cubes at R ≤ 0 in the atlas’s own right-anterior-superior coordinates: the left side and the midline.</td></tr>
+<tr><td>Surfaces</td><td>Surfaces were drawn around the regions on the 0.5 mm grid. The cut face at the midline was closed with a constructed cap of at most 0.25 mm. An earlier display approximation moved surfaces by at most 0.125 mm. Surface directions (normals) were set, and a plain single-sided material was applied.</td></tr>
+<tr><td>Grouping</td><td>Some regions were merged into combined surfaces, and thirty were given surfaces of their own in the main model file. With the four separate surfaces below, that makes the 34 regions the viewer can lift out.</td></tr>
+<tr><td>Coordinates</td><td>Positions were converted from the atlas’s millimetres to the viewer’s metres: (R, A, S) becomes (−R, S, A) ÷ 1000.</td></tr>
+<tr><td>Four separate surfaces</td><td>Unsmoothed, each following one region on the same grid in the same coordinates, with display normals and a material added: the red nucleus (region 12247), the ventral posterior lateral nucleus, VPL (10424), the ventral posterior medial nucleus, VPM (10425), and the parietal operculum (13230).</td></tr>
+<tr><td>Where VPL and VPM touch</td><td>A list of the 481 grid faces between regions 10424 and 10425.</td></tr>
+<tr><td>Two crops of the grid</td><td>One keeps only VPL and VPM. One keeps every full plane that contains the parietal operculum.</td></tr>
+<tr><td>The whole grid, repacked without loss</td><td>For the flat cuts, the ruler and the volume counts. Every original region number is kept, in the original order, and the atlas’s own coordinate frame is recorded with it.</td></tr>
+<tr><td>A lookup of starting points</td><td>For each region and side, the one cube of that region closest to the average position of its cubes. Ties go to the lowest index in the original order.</td></tr>
+<tr><td>Additions that are not anatomy</td><td>The somatic, autonomic and integration colours, the cameras and lights, the controls, a generated overview picture, and what the viewer draws over the grid on screen: the colours of the flat cuts, highlights, marks, frames and the ruler’s line.</td></tr>
+</table>
+
+<p>Two things are deliberately absent. The MRI brain template that the atlas was drawn on, the ICBM 2009b nonlinear symmetric MNI152 average, is not in the download. The atlas’s README sends you to <a href="http://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009">the McConnell Brain Imaging Centre</a> for the template and its terms of use, and gives its copyright as © 1993–2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University. Nothing here is a licence for it. The photographs and figures from the papers the viewer cites are not in the download either; those stay with their publishers.</p>
+
+<table>
+<tr><th>Part</th><th>File (in the download, under <code>viewer/</code>; on the website, beside this page)</th><th>Its notice</th></tr>
+<tr><td>Left half of the brain, 40 surfaces</td><td><code>assets/brain-left.glb</code></td><td>this page</td></tr>
+<tr><td>Which region each surface point belongs to</td><td><code>assets/identity/*.u32</code></td><td>this page</td></tr>
+<tr><td>Overview picture</td><td><code>assets/overview.png</code></td><td>this page</td></tr>
+<tr><td>Red nucleus</td><td><code>assets/red-nucleus-source-left.glb</code></td><td>this page</td></tr>
+<tr><td>VPL</td><td><code>assets/vpl-source-left.glb</code></td><td><a href="sources/allen-version1/VPL-NOTICE.txt"><code>sources/allen-version1/VPL-NOTICE.txt</code></a></td></tr>
+<tr><td>VPM</td><td><code>assets/vpm-source-left.glb</code></td><td><a href="sources/allen-version1/VPM-NOTICE.txt"><code>sources/allen-version1/VPM-NOTICE.txt</code></a></td></tr>
+<tr><td>Parietal operculum</td><td><code>assets/parietal-operculum-source-left.glb</code></td><td><a href="sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt"><code>sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt</code></a></td></tr>
+<tr><td>Faces shared by VPL and VPM</td><td><code>assets/vpl-vpm-shared-faces.json</code></td><td><a href="sources/allen-version1/VPL-VPM-SHARED-FACES-NOTICE.txt"><code>sources/allen-version1/VPL-VPM-SHARED-FACES-NOTICE.txt</code></a></td></tr>
+<tr><td>Grid crop with VPL and VPM</td><td><code>assets/vpl-vpm-source-grid.json</code></td><td><a href="sources/allen-version1/VPL-VPM-SOURCE-GRID-NOTICE.txt"><code>sources/allen-version1/VPL-VPM-SOURCE-GRID-NOTICE.txt</code></a></td></tr>
+<tr><td>Planes containing the parietal operculum</td><td><code>assets/parietal-operculum-*.bin</code>, <code>assets/parietal-operculum-sections.json</code></td><td><a href="sources/allen-version1/PAO-SECTIONS-NOTICE.txt"><code>sources/allen-version1/PAO-SECTIONS-NOTICE.txt</code></a></td></tr>
+<tr><td>Whole grid, repacked</td><td><code>assets/atlas-label-runs.bin</code>, <code>assets/atlas-label-runs.json</code></td><td><a href="sources/allen-version1/RULER-ANNOTATION-NOTICE.txt"><code>sources/allen-version1/RULER-ANNOTATION-NOTICE.txt</code></a>, and a copy beside the files at <code>assets/atlas-annotation-notice.txt</code></td></tr>
+<tr><td>Starting point for each region and side</td><td><code>assets/atlas-region-locations.json</code></td><td>the same notice</td></tr>
+<tr><td>Region names, abbreviations and hierarchy</td><td><code>registry.json</code></td><td>this page</td></tr>
+</table>
+
+<h2 id="names">The region names are the Allen Institute’s too</h2>
+
+<p>So are the regions’ abbreviations, their numbers and their parent-and-child order. All are covered by the same CC BY 4.0 credit, on this basis: the atlas collection publishes its own table of them, <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv"><code>voxel_count.csv</code></a>, and the collection’s README counts such tables among its materials. This download includes that table unchanged at <a href="sources/allen-version1/voxel_count.csv"><code>sources/allen-version1/voxel_count.csv</code></a>.</p>
+
+<p>What was checked, and what was not:</p>
+
+<ul>
+<li>For all 141 regions, the number, name, abbreviation and full ancestry in the viewer match the table exactly. No near-match was accepted. This was first checked on an early edition of the viewer and was checked again for this version, on 21 November 2026.</li>
+<li>For all 141 regions, the table’s count of voxels equals a recount of the atlas grid in this download, made for this version. The table’s other count and volume columns, which add in each region’s sub-regions, were not checked.</li>
+<li>The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour, over 3,317 rows. That comparison was made once, on an early edition, and cannot be repeated from this download, because the response is not in it. Its record is at <a href="sources/allen-version1/source-binding.json"><code>sources/allen-version1/source-binding.json</code></a>. The record keeps the name and the folder the viewer had then. It names the viewer’s list of regions as it stood then, at 260,028 bytes; the list has since gained notes and display settings and is 268,970 bytes.</li>
+<li>The table was downloaded on 15 November 2026. The server reports it as last modified on 19 February 2025, so it cannot be shown to be byte for byte the 2020 original.</li>
+</ul>
+
+<p>The viewer uses the four matched fields to look a region up, to group it with its sub-regions and to name what you select. The notes, colour groups and display settings in the list of regions are this project’s additions.</p>
+
+<h3 id="api">The names first came through the Allen web API, whose terms are narrower</h3>
+
+<p>The viewer’s names and hierarchy were first fetched from the Allen Brain Map web API on 4 November 2026: structure graph 16, 3,317 rows, through <a href="https://api.brain-map.org/api/v2/data/query.json?criteria=model%3A%3AStructure%2Crma%3A%3Acriteria%2C%5Bgraph_id%24eq16%5D%2Crma%3A%3Aoptions%5Border%24eq%27structures.graph_order%27%5D%5Bnum_rows%24eqall%5D">this query</a>, following the atlas’s own conversion example. It is the 2026 state of that graph, not a frozen copy from 2020. The response itself is not in the download.</p>
+
+<p>The API falls under the Allen Institute’s general <a href="https://alleninstitute.org/legal/terms-of-use/">Terms of Use</a> (as updated 23 October 2026), which are narrower than CC BY. They record:</p>
+
+<ul>
+<li>permission for research and non-commercial use, with citation;</li>
+<li>ownership staying with the Institute;</li>
+<li>limits on commercial redistribution;</li>
+<li>the Institute’s Freedom to Innovate conditions, which include not asserting rights against improvements the Institute develops independently, and a restriction on posting to sites that require acknowledgement of ownership of the posted content.</li>
+</ul>
+
+<p>What that means for you:</p>
+
+<ul>
+<li>The names, abbreviations, numbers and ancestry of the 141 regions match the published table, so the CC BY 4.0 credit above covers them.</li>
+<li>The rest of the API response was not examined and is not in the download. This page gives no permission for it, and no blanket permission for AI use, for future improvements (the Terms’ own word is “Improvements”), or for the model as a whole.</li>
+<li>That the whole response carries no licence here does not narrow CC BY 4.0 for the matching fields or for the atlas-derived files, nor the MIT licence of Three.js.</li>
+<li>If you fetch from the API yourself, the Terms of Use apply to what you fetch, as they do to this project’s own fetch. Nothing here waives them.</li>
+</ul>
+
+<h2 id="three">Three.js</h2>
+
+<p>Three.js revision 186. Copyright © 2010–2026 Three.js authors. <a href="https://opensource.org/license/mit">MIT licence</a>. The complete notice is at <a href="vendor/three/LICENSE"><code>vendor/three/LICENSE</code></a> in the viewer’s folder, and again at <a href="licenses/THREE-MIT.txt"><code>licenses/THREE-MIT.txt</code></a> and on the <a href="licenses/index.html#three">page of licence texts</a>. Keep it with any copy. <a href="https://github.com/mrdoob/three.js">Three.js source</a>.</p>
+
+<h2 id="identities">The upstream files, for anyone who wants to start from the same sources</h2>
+
+<table>
+<tr><th>Upstream file</th><th>SHA256</th></tr>
+<tr><td><a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz"><code>annotation.nii.gz</code></a>, the region grid</td><td><code>be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378</code></td></tr>
+<tr><td><code>voxel_count.csv</code>, the table of names (479,643 bytes)</td><td><code>7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f</code></td></tr>
+<tr><td>The API response of 4 November 2026 (not distributed)</td><td><code>70281f17ee7b23bd4076606c25038d31b3f4fca69973356138a05bceb9896341</code></td></tr>
+</table>
+
+<p><a href="MANIFEST.json"><code>MANIFEST.json</code></a> lists every file in this download with its size and checksum, and records the same identities with the query and its date.</p>
+
+<h2 id="scope">What a licence does not tell you</h2>
+
+<p>The licence texts in the <a href="licenses/index.html"><code>licenses</code> folder</a> are copied without alteration. Keeping them here says which licence applies to which files. It does not apply either licence to every other file.</p>
+
+<p>A credit and a licence say who may copy. They are not a guarantee, legal, anatomical or clinical, that the anatomy is right, and this project does not claim that it is. <a href="README.html#limits">What the viewer is not</a>.</p>
+</body>
+</html>
