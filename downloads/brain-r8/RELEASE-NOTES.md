@@ -1,8 +1,8 @@
-# The atlas viewer: latest edition
+# Find any region by name and land inside it
 
-**19 November 2026. Find any region by name and land inside it.**
+The atlas viewer's latest edition, 19 November 2026.
 
-[Download](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) (ZIP, 40.6 MB) · [Checksum](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [How to open it](../../README.md#open-it-in-three-steps) · [Licences and credits](../../RIGHTS.md)
+[Download](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) (ZIP, 40.6 MB) · [Checksum](Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [How to open it](../../README.md#open-it-in-three-steps) · [Licences and credits](../../RIGHTS.md)
 
 In **Explore full atlas labels**, choose **Find a structure**. Type a name, an abbreviation or the complete atlas number, choose a side, and press **Show voxel in all three cuts**. The crosshair lands on a voxel of that region (a voxel is one half-millimetre cube of the atlas grid), and gold marks the region's other voxels in each cut.
 

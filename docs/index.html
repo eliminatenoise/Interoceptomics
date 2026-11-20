@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Interoceptomics: a 3D human brain atlas you can turn, and the proposal behind it</title>
-<meta name="description" content="Interoceptomics is a proposed field of science joining the body's sense of its own interior to the mapping of nerve connections. Download a 3D atlas of the human brain to turn, cut and measure, and read the two scripts of the paused talk.">
+<title>Interoceptomics: a human brain atlas you can turn in 3D, and the proposal behind it</title>
+<meta name="description" content="Interoceptomics is a proposed field of science joining the body's sense of its own interior to the mapping of nerve connections. Download a viewer that turns the Allen Institute's human brain atlas into a 3D model, and read the two scripts of the paused talk.">
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color-scheme:light dark}
 body{max-width:46rem;margin:4rem auto;padding:0 24px;line-height:1.7}
@@ -21,44 +21,48 @@ a{text-underline-offset:.2em}
 <main>
 
 <p class="kicker">Interoceptomics</p>
-<h1>A map of the wiring is not a map of what the body senses.</h1>
+<h1>A wiring diagram shows what is connected, not what the body feels.</h1>
 
-<p>Interoceptomics is a proposed field of science: <em>interoception</em>, the body sensing its own interior (a heartbeat, a breath, a muscle at work), joined to <em>connectomics</em>, the mapping of nerve connections. Function first, and from function, structure: measure what the body senses and does, then ask which connections carry it.</p>
+<p>The human genome was sequenced, and most rare diseases still have no approved treatment: a list of the parts is not an account of what they do. A wiring diagram of the nervous system has the same limit.</p>
 
-<h2>A 3D atlas of the human brain that you turn, cut and measure</h2>
+<p>Interoceptomics is a proposed field of science that starts from the other end. <em>Interoception</em> is the body sensing its own interior: a heartbeat, a breath. <em>Connectomics</em> is the mapping of nerve connections. Put the two together and go function first: measure what the body senses and does, then ask which connections carry it. None of its experiments has been run yet.</p>
 
-<p>This is the piece you can use today. It shows the left half of the Allen Institute's human reference atlas, 141 named regions on a half-millimetre grid, and colours the regions linked to moving and feeling the body, to running its organs, and to both at once. Lift a region out, cut through any point, measure between two points.</p>
+<h2>The Allen Institute's human brain atlas, as a 3D model you turn, cut and measure</h2>
+
+<p>This is what exists so far, and it is still a map, not a measurement. It shows the 141 named regions the atlas draws on the left half of the brain, on a half-millimetre grid, and colours the ones this project links to moving and feeling the body, to running its organs, or to both.</p>
 
 <p><a class="open" href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip">Download the atlas viewer</a> ZIP, 40.6 MB</p>
+
+<p>You need Python 3.10 or newer and a current browser.</p>
 
 <ol>
 <li>Extract the whole ZIP into a folder.</li>
 <li>Start the viewer with the file for your system: open <code>Windows.cmd</code> on Windows or <code>macOS.command</code> on macOS, or run <code>sh Linux.sh</code> in a terminal on Linux.</li>
-<li>Your browser opens the atlas at an address on your own computer. If it stays closed, copy the address the start file prints into the browser. Press Ctrl+C in that window when you are done.</li>
+<li>The start file runs in a terminal window and opens your browser on the viewer, at an address on your own computer. If the browser stays closed, copy the address the terminal shows into it. Keep the terminal open while you explore. To stop, press Ctrl+C in the terminal.</li>
 </ol>
 
-<p>You need Python 3.10 or newer and a current browser. Nothing is installed. The viewer has been run on Linux, in Chromium; the Windows and macOS start files have not yet been tried on those systems.</p>
+<p>The viewer installs nothing. So far it has been run on Linux, in Chromium; the Windows and macOS start files have not yet been tried on those systems.</p>
 
-<p>The viewer is an illustration built on a published atlas. It shows one averaged reference brain, left half only. Its colours are teaching associations chosen from cited sources, not recorded activity. Nothing in it has been validated, scientifically or clinically.</p>
+<p>The viewer is an illustration built on a published atlas. It shows one averaged reference brain, left half. Its colours are this project's reading of 54 cited sources, not recorded activity. Nothing in it has been validated, scientifically or clinically.</p>
 
-<p><a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/README.md#turn-it-cut-it-measure-it">What you can do in it</a> · <a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/README.md#an-illustration-not-a-measurement">What it is not</a> · <a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/RIGHTS.md">Licences and credits</a></p>
+<p><a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/README.md#the-parts-that-move-you-and-the-parts-that-run-your-organs-overlap">What you can do in it</a> · <a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/README.md#an-illustration-not-a-measurement">What it is not</a> · <a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/RIGHTS.md">Licences and credits</a></p>
 
 <h2 id="scripts">The talk is paused; its scripts are published</h2>
 
-<p>The proposal is argued in a talk, <em>I Know Kung Fu</em>: 111 slides on what it would take to read a movement out of one nervous system and teach it to another. Slides 87 and 88 propose Interoceptomics as a field. The talk is paused. Its two scripts follow the same slides.</p>
+<p>In <em>The Matrix</em>, Neo has kung fu loaded into his brain through a cable. <em>I Know Kung Fu</em> is a talk of 111 slides that asks what a real version would have to measure, beginning with one movement. Slides 87 and 88 propose Interoceptomics as a field. The talk is paused. Its two scripts follow the same slides.</p>
 
 <ul>
 <li>Technical script, 114 pages, every step argued in full with references: <a href="current/Interoceptomics-Script-Technical.pdf">PDF</a> · <a href="current/Interoceptomics-Script-Technical.docx">DOCX</a></li>
 <li>Simple script, 36 pages, the essential spoken lines: <a href="current/Interoceptomics-Script-Simple.pdf">PDF</a> · <a href="current/Interoceptomics-Script-Simple.docx">DOCX</a></li>
 </ul>
 
-<p>The slides are not published, because 22 of their 88 pictures have not been cleared for redistribution; the scripts still describe those pictures. The experiments in the talk are proposals, and none has been run. <a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/docs/current/README.md">About the two scripts</a></p>
+<p>The slides are not published: 22 of their 88 pictures are known not to be cleared for redistribution, and the rights to the other 66 have not been confirmed. The scripts still describe those pictures. <a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/docs/current/README.md">About the two scripts</a></p>
 
-<h2>One programme, three projects</h2>
+<h2>The widest of three projects, and the least built</h2>
 
-<p>Interoceptomics belongs to Brain2Body, a programme about connecting brain and body function. <a href="https://github.com/eliminatenoise/NeuroTranslation">NeuroTranslation</a> asks how well one recording of the body predicts another, on open human recordings. <a href="https://eliminatenoise.github.io/NeuroSurge/">NeuroSurge</a> is a browser game for learning which motor areas of the brain move which parts of the body; its activity is simulated.</p>
+<p>Interoceptomics belongs to Brain2Body, a programme about connecting brain and body function. <a href="https://github.com/eliminatenoise/NeuroTranslation">NeuroTranslation</a> asks how well one recording of the body predicts another, on open human recordings. <a href="https://eliminatenoise.github.io/NeuroSurge/">NeuroSurge</a> is a browser game for learning which motor areas of the brain move which parts of the body; its activity is simulated. Interoceptomics is the proposal that body sense and nerve wiring be studied together, and so far one brain atlas you can turn.</p>
 
-<p class="small"><a href="https://github.com/eliminatenoise/Interoceptomics">Repository</a> · <a href="START.html">Desktop shortcuts to this page</a> · The project's own work is in the public domain (CC0 1.0). The atlas anatomy is the Allen Institute's, under CC BY 4.0; Three.js and the fonts embedded in the PDFs keep their own licences. <a href="current/NOTICE.txt">Notice for the scripts</a>.</p>
+<p class="small"><a href="https://github.com/eliminatenoise/Interoceptomics">Repository</a> · <a href="START.html">Desktop shortcuts to this page</a> · The project's own work is dedicated to the public domain (CC0 1.0), to the extent the project holds the rights. The atlas anatomy is the Allen Institute's, under CC BY 4.0; Three.js and the fonts embedded in the PDFs keep their own licences. <a href="current/NOTICE.txt">Notice for the scripts</a>.</p>
 
 </main>
 </body>
