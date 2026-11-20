@@ -2,6 +2,31 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  graspBalanceRecording: {
+    title: 'Replay the wrist and pelvis recordings',
+    url: '../cross-limb-movement/',
+    reading: 'One person reaches for an object. Another balances on a beam as the view turns. Follow the right wrist in the first study and a marker on the back of the pelvis in the second. Each path has its own scale and clock. Choose Last frame to read how far each marker moved from its own starting point in 125 milliseconds.'
+  },
+  graspBalanceForecast: {
+    title: 'Check the wrist and pelvis forecasts',
+    url: neuro + 'cross-limb-movement/#evidence',
+    reading: 'How closely did earlier movement and muscle activity predict the next 125 milliseconds? Compare the errors for each task. The editable forecast starts from invented readings. Choose “Replay the wrist and pelvis recordings” to inspect two measured examples from model development.'
+  },
+  walkingInstructions: {
+    title: 'Compare a usual walk with a fast walk',
+    url: '../walking-instructions/',
+    reading: 'One person walked at their usual pace and at a fast pace. Match the walks at the same time after foot strike or at the same fraction of a stride. How far did the pelvis travel in each?'
+  },
+  visualBalance: {
+    title: 'Replay a turn of the visual scene',
+    url: '../visual-balance/',
+    reading: 'A person walks a beam while the view in their headset turns. Pick a sample and compare scalp voltage with the positions of the head and pelvis. The recordings show how the body moved. What the person felt is a separate question.'
+  },
+  muscleBalance: {
+    title: 'Compare standing and walking balance',
+    url: '../muscle-and-motion/',
+    reading: 'When the view turns, where does a marker at the base of the spine go? Compare the paths from one person standing and walking on a beam. Move through each recording to see what eight electrodes on the lower legs picked up at the same time.'
+  },
   pedal: {
     title: 'Compare shin activity and pedal load',
     url: '../pedal-load/',
@@ -92,22 +117,23 @@ const models = {
 
 const choicesByStep = {
   'map-brain2body': ['wrist', 'muscle', 'cortex', 'coverage', 'scalp'],
-  'map-body2body': ['stride', 'words', 'pedal'],
+  'map-body2body': ['walkingInstructions', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
-  'motorsensation': ['exercise', 'vibration'],
+  'motorsensation': ['visualBalance', 'exercise', 'vibration'],
+  'handler': ['graspBalanceRecording', 'graspBalanceForecast'],
   'read-function': ['vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['stride', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['stride', 'words', 'trip', 'knee', 'overground'],
-  'myoception': ['muscle', 'reflex', 'wrist', 'rhythm', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'myoception': ['muscle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
   'humans': ['wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };
 
-const walkingReader = { mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };
+const stepShortcut = { handler: 'graspBalanceRecording', mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };
 
 export function bindCompanions(section, shortcut) {
   const select=section.querySelector('select');
@@ -152,7 +178,7 @@ export function bindCompanions(section, shortcut) {
     else close();
   });
   shortcut.addEventListener('click',()=>{
-    const reader=walkingReader[previousStep];
+    const reader=stepShortcut[previousStep];
     if(select.value!==reader){
       select.value=reader;
       choose();
@@ -166,7 +192,7 @@ export function bindCompanions(section, shortcut) {
     if(stepId===previousStep)return;
     previousStep=stepId;
     close();
-    const reader=walkingReader[stepId];
+    const reader=stepShortcut[stepId];
     shortcut.hidden=!reader;
     if(reader)shortcut.textContent=models[reader].title;
     const choices=choicesByStep[stepId] || [];
