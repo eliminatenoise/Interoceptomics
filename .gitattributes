@@ -21,3 +21,9 @@ docs/stride-signals/** -text
 models/stride-signals/** -text
 docs/stride-signals/*.cmd whitespace=cr-at-eol
 models/stride-signals/LICENCE whitespace=cr-at-eol
+docs/scalp-and-arm/** -text
+docs/scalp-and-arm/*.cmd whitespace=cr-at-eol
+# Preserve whitespace in the original published licence and ASA files.
+docs/scalp-and-arm/licenses/CC-BY-4.0.txt whitespace=-blank-at-eof
+docs/scalp-and-arm/references/*.bnd whitespace=-trailing-space
+docs/scalp-and-arm/references/*.vol whitespace=-trailing-space

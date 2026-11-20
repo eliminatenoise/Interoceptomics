@@ -148,3 +148,7 @@ The half-millimetre grid, the midline cap and the smoothing describe how the sur
 The Stanford FingerFlex data from Kai Joshua Miller and colleagues and the derived cue/blank comparisons carry CC BY-SA 4.0. The public software reads the original anatomy on demand. No participant surface or raw signal records are part of the public package. Original project code carries the repository’s CC0 dedication. [Original source](https://purl.stanford.edu/zk881ps0522) · [Analysis changes, full credit and required ethics statement](models/recorded-cortex/METHODS.md)
 
 The five-person cortical coverage reader counts the anatomical codes in the Stanford FingerFlex deposit. The counts and adaptations of the study data retain CC BY-SA 4.0. [Attribution, Methods and required ethics statement](docs/cortex-coverage/README.md)
+
+## Scalp and arm
+
+Ofner et al.’s codebook, figure copies, dataset-derived channel descriptions and repeated-trial summaries carry CC BY 4.0. FieldTrip’s standard 10–5 electrode coordinates and triangulated scalp retain the GNU GPL v3. The Colin27 attribution and original template files accompany both the site and the ZIP. The project's own viewer, limb illustration and prose carry CC0. [Sources, modifications and full licences](docs/scalp-and-arm/NOTICE.txt)

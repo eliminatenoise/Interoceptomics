@@ -1,0 +1,64 @@
+Scalp & arm
+Interoceptomics experimental companion · Ofner upper-limb movement study
+
+STUDY AND FIGURES
+Patrick Ofner, Andreas Schwarz, Joana Pereira and Gernot R. Müller-Putz (2017).
+Upper limb movements can be decoded from the time-domain of low-frequency EEG.
+PLOS ONE 12(8), e0182578. https://doi.org/10.1371/journal.pone.0182578
+Study and download: https://doi.org/10.5281/zenodo.834976
+Article figures and dataset documentation are distributed under Creative Commons
+Attribution 4.0 International. See licenses/CC-BY-4.0.txt.
+The original codebook (V1.0) is reproduced in references/ofner-codebook.pdf.
+Figure 1 (setup photograph and movement drawings) and Figure 2 (trial clock)
+are resized WebP copies of the published figures, with surrounding image metadata
+removed. The face was already obscured in the publication. The authors describe
+written consent for publication in Methods. The apparatus and task illustrations
+are visual references. Published measurements are summaries across repeated trials in three runs.
+No original EEG traces, individual trial movements or personal cap digitizations
+are included.
+https://doi.org/10.1371/journal.pone.0182578.g001
+https://doi.org/10.1371/journal.pone.0182578.g002
+
+The channel map combines numbers and names from Table 2, with unchanged native
+channel labels and per-channel sample rates from the headers of motor execution
+subject 1 runs 1–3. The dataset gives the cue codes in Table 1. Codebook and
+header differ for lateral eye channels 62 and 64. A dash at 80–83 or 96 is the
+published table entry. The header gives names at those indices. The spelling
+“litte” in two header labels is preserved. Hz is samples per second. The GDF
+unit strings are blank, dimension codes are zero and digital/physical extrema
+match. Hardware timing offsets and physical calibration have not been established.
+Clock ticks and poses in this reader are computed from the nominal trial schedule.
+The optional measured layer summarizes real EEG, EOG and mechanical recordings
+from one person, motor execution runs 1–3. Each cue has 18 trials. Values are
+summarized within each run before averaging the three results. The aggregates
+and their cue-fields.js browser serialization retain CC BY 4.0; the licence
+applies to both. See measurements/README.md for methods and reproducibility.
+
+STANDARD ANATOMY AND COORDINATES
+Robert Oostenveld and Peter Praamstra (2001). The five percent electrode system
+for high-resolution EEG and ERP measurements. Clinical Neurophysiology 112,
+713–719. https://doi.org/10.1016/S1388-2457(00)00527-7
+Standard montage source: https://www.fieldtriptoolbox.org/template/electrode/
+Scalp model source: https://www.fieldtriptoolbox.org/template/headmodel/
+Oostenveld R, Stegeman DF, Praamstra P, van Oosterom A (2003).
+Brain symmetry and topographic analysis of lateralized event-related potentials.
+Clinical Neurophysiology 114, 1194–1202. https://doi.org/10.1016/S1388-2457(03)00059-2
+
+Coordinate and triangular surface files are from FieldTrip, commit
+77ff5f572c58c4b0138c09bee66f8a97e3845763, distributed under the GNU General
+Public License v3. The original editable ASA files and licence travel with the
+reader. atlas-data.js contains an extract of the standard positions and a
+re-encoding of the mesh for offline browser use. Run python3 build.py to
+regenerate it. Its FieldTrip-derived data retain the FieldTrip licence.
+https://github.com/fieldtrip/fieldtrip/tree/77ff5f572c58c4b0138c09bee66f8a97e3845763/template
+https://www.fieldtriptoolbox.org/copyrights/
+See licenses/FieldTrip-GPL-3.txt and licenses/Colin27.txt. Colin27 template:
+Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute,
+McGill University. The template is in MNI millimetres. Axes increase towards
+the right, front and top. Individual cap placement differs from this standard.
+
+ORIGINAL WORK
+Interoceptomics dedicates its original interface, geometry of the illustrated
+right limb and support, and its additional explanatory text to the public domain
+under CC0 1.0. See licenses/CC0-1.0.txt. This dedication applies only to the
+project's own contribution. Equipment geometry is a study-informed illustration.
