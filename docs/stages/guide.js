@@ -18,7 +18,7 @@ const external={
 const limbs={
   'left-arm':['Left arm','1'],'left-leg':['Left leg','2'],'right-leg':['Right leg','3'],'right-arm':['Right arm','4']
 };
-const showCompanions=bindCompanions(document.getElementById('companions'));
+const showCompanions=bindCompanions($('companions'), $('walk-reader'));
 const canvas=document.querySelector('.scene canvas');
 let current,localOrigin,wtrackMounted = false;
 const last={small:'map-brain2body',big:'0.1'};

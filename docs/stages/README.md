@@ -24,6 +24,8 @@ If you already have the separate 3D companion, start it using its own launcher. 
 
 At **Myoception**, choose a muscle sensory pathway or a stretch reflex. At **Visceroception**, follow arterial or bladder sensory pathways or check the chest sensor’s next reading. Choose **Open here** to use the atlas or recording inside the guide. **Open in a separate tab** gives it the full browser window. Changing steps closes the embedded model.
 
+In **Myoception**, choose **Compare muscle and knee rhythms**. Select a walker to see how often the leg muscles and knees repeated their patterns, then compare the muscle rate from another person. Each instrument supplied its own 40-second window. The recording gives no account of what the walker felt. In **Physics Engine** (slide 53) and **Large Movement Models**, **Compare knee-angle forecasts** starts with an invented step. The same reader shows the errors across 12 held-out walkers and can open an original angle file. Both walking studies used the same treadmill speed, 0.5 m/s. The full readers need an internet connection. [Walking dataset](https://doi.org/10.13026/r0ea-7161) · [Studies and clock limits](https://eliminatenoise.github.io/NeuroTranslation/papers/walking-rhythm/)
+
 In **Navigation (0.2)**, the W-track example in the guide shows one rat. The additional trip viewer compares movement and earlier firing in three other test animals. **Large Movement Models** includes a measured stride forecast and a separate sequence generated from the word *walk* or *run*. These examples come from different studies. Their results do not establish skill transfer or the proposed experimental feedback loop.
 
 ## Edition and reuse

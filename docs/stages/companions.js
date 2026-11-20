@@ -42,6 +42,17 @@ const models = {
     url: neuro + 'stride/',
     reading: 'Give the model half a second of recorded walking or running. Rotate its 3D forecast and check where the 18 marker-derived body sites went during the next 0.60 seconds.'
   },
+  knee: {
+    title: 'Compare knee-angle forecasts',
+    url: neuro + 'knee-motion/',
+    reading: 'Five readings from the hips, knees and ankles go in. How far will each knee bend 15 frames later? Try the invented step, check the errors for 12 people whose walks were kept out of training, or open an original angle file to see what followed.'
+  },
+  rhythm: {
+    title: 'Compare muscle and knee rhythms',
+    url: neuro + 'gait-rhythm/',
+    start: '#case-title',
+    reading: 'Try walker S41, then S42. How often do the leg muscles and knees repeat their patterns? Compare each walker’s knee rate with their own muscle rate and with another person’s. Each instrument supplies its own 40-second window.'
+  },
   words: {
     title: 'Generate a walk or run from its name',
     url: neuro + 'word-motion/',
@@ -64,14 +75,16 @@ const choicesByStep = {
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
-  'mechanics': ['stride', 'reflex'],
-  'movement-model': ['stride', 'words', 'trip'],
-  'myoception': ['muscle', 'reflex', 'wrist'],
+  'mechanics': ['stride', 'reflex', 'knee'],
+  'movement-model': ['stride', 'words', 'trip', 'knee'],
+  'myoception': ['muscle', 'reflex', 'wrist', 'rhythm'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
   'humans': ['wrist', 'stride']
 };
 
-export function bindCompanions(section) {
+const walkingReader = { mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };
+
+export function bindCompanions(section, shortcut) {
   const select=section.querySelector('select');
   const button=section.querySelector('button');
   const external=section.querySelector('a');
@@ -96,24 +109,41 @@ export function bindCompanions(section) {
     external.setAttribute('aria-label',model.title+' in a separate tab');
   }
 
-  button.addEventListener('click',()=>{
-    if(!mount.hidden){close();return;}
+  function open() {
     const model=models[select.value];
     const frame=document.createElement('iframe');
     frame.title=model.title;
     frame.setAttribute('allow',"camera 'none'; microphone 'none'; geolocation 'none'");
     frame.referrerPolicy='no-referrer';
-    frame.src=model.url;
+    frame.src=model.url+(model.start || '');
     mount.replaceChildren(frame);
     mount.hidden=false;
     button.setAttribute('aria-expanded','true');
     button.textContent='Close model';
+  }
+
+  button.addEventListener('click',()=>{
+    if(mount.hidden)open();
+    else close();
+  });
+  shortcut.addEventListener('click',()=>{
+    const reader=walkingReader[previousStep];
+    if(select.value!==reader){
+      select.value=reader;
+      choose();
+    }
+    if(mount.hidden)open();
+    button.focus();
+    section.scrollIntoView({block:'start'});
   });
   select.addEventListener('change',choose);
   return function showFor(stepId) {
     if(stepId===previousStep)return;
     previousStep=stepId;
     close();
+    const reader=walkingReader[stepId];
+    shortcut.hidden=!reader;
+    if(reader)shortcut.textContent=models[reader].title;
     const choices=choicesByStep[stepId] || [];
     section.hidden=!choices.length;
     if(!choices.length){select.replaceChildren();external.removeAttribute('href');return;}
