@@ -291,13 +291,18 @@ function play() {
     stop();
     return;
   }
-  if (point === clip().angles.length - 1) point = 0;
-  const start = performance.now() - 10 * point;
+  if (point === clip().angles.length - 1) {
+    point = 0;
+    displayPoint();
+  }
+  const firstPoint = point;
+  let firstFrame;
   $('play').textContent = 'Pause';
   function tick(now) {
+    if (firstFrame === undefined) firstFrame = now;
     const next = Math.min(
       clip().angles.length - 1,
-      Math.floor((now - start) / 10),
+      firstPoint + Math.floor(Math.max(0, now - firstFrame) / 10),
     );
     if (next !== point) {
       point = next;
