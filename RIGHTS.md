@@ -1,105 +1,128 @@
-# The map and its sources
+# Licences and credits
 
-## Brain R8 package R33
+Most of this repository is the project's own work and is in the public domain. Three things in it belong to other people, and each comes with conditions. No single licence covers everything.
 
-The [experimental Brain R8 download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) pairs the source-left 3D atlas with native categorical label planes. Keep the sources with the map: the anatomy, source names and browser software each have a traceable route into this edition.
+| What | Whose | Terms | To reuse it you must |
+| --- | --- | --- | --- |
+| The brain anatomy in the atlas viewer: surfaces, region grid, region names and numbers | Allen Institute for Brain Science, adapted by this project | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give the credit below, link the licence, keep the notices, say what you changed |
+| Three.js, the 3D drawing library inside the viewer | Three.js authors | [MIT](https://opensource.org/license/mit) | Keep its copyright and permission notice |
+| Fonts embedded in the script PDFs | Liberation Sans: Red Hat and Google. Comic Sans MS: Microsoft | SIL Open Font License 1.1; Microsoft's core fonts end-user licence | Keep the two licence files with the PDFs |
+| Everything this project made itself: the viewer's code, the colour choices, these pages, the scripts' prose, the desktop shortcuts | This project | [CC0 1.0](LICENSE), to the extent the project holds the rights | Nothing |
 
-| Edition | Exact identity |
+CC0 does not reach the first three rows. Where the project's work is fused with the atlas, as in every surface file, the atlas's terms still apply to the result.
+
+## The Allen atlas: the credit to give
+
+> Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020), *Allen Human Reference Atlas — 3D, 2020*, version 1.0.0, RRID:SCR_017764. Copyright © 2019 Allen Institute for Brain Science. Licensed under CC BY 4.0. Adapted by the Interoceptomics project.
+
+The atlas's [official README](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf) states CC BY 4.0, effective 1 September 2022. The files are in the [original atlas collection](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/).
+
+When you copy or adapt any atlas-derived file from the viewer:
+
+1. Keep the creators' names, the copyright line, and the links to the source and to the licence.
+2. Keep the disclaimers and the change notices that travel with the files. In the download they are `THIRD-PARTY-NOTICES.html`, the `licenses/` folder and the notices in `sources/allen-version1/`.
+3. Say what you changed in turn.
+4. Do not suggest that the creators or the Allen Institute endorse you or your use. They have not endorsed this project.
+
+Do not relabel this material as CC0, and do not add a non-commercial restriction to it. The licence gives no warranty that the anatomy is accurate or fit for any purpose.
+
+## What this project changed in the atlas
+
+The atlas is a grid of half-millimetre cubes, each carrying the number of a region. From that grid this project made the following. All of it is atlas-derived, and the credit above applies to all of it.
+
+- **The left half only.** Cubes on the atlas's left side (R ≤ 0 in its own right-anterior-superior coordinates) were kept.
+- **Surfaces.** Surfaces were drawn around the regions on the 0.5 mm grid. The cut face at the midline was closed with a constructed cap of at most 0.25 mm. An earlier display approximation moved surfaces by at most 0.125 mm. Surface directions (normals) were set and later corrected, and a plain single-sided material was applied.
+- **Grouping.** Some regions were merged into combined surfaces, and thirty regions were given surfaces of their own.
+- **Coordinates.** Positions were converted from the atlas's millimetres to the viewer's metres: (R, A, S) becomes (−R, S, A) ÷ 1000.
+- **Four separate surfaces**, unsmoothed, each following one region on the same grid in the same coordinates, with display normals and a material added: the red nucleus (region 12247), the ventral posterior lateral nucleus, VPL (10424), the ventral posterior medial nucleus, VPM (10425), and the parietal operculum (13230).
+- **Where VPL and VPM touch.** A list of the 481 grid faces between regions 10424 and 10425.
+- **Two crops of the grid.** One keeps only VPL and VPM. One keeps every full plane that contains the parietal operculum.
+- **The whole grid, repacked without loss** for the flat cuts, the ruler and the volume counts. Every original region number is kept, in the original order, and the atlas's own coordinate frame is recorded with it. The source file is `annotation.nii.gz` from the collection.
+- **A lookup of starting points.** For each region and side, the one cube of that region closest to the average position of its cubes. Ties go to the lowest index in the original order.
+- **Additions that are not anatomy.** The somatic, autonomic and integration colours, the cameras and lights, the controls, and a generated overview picture.
+
+Two things are deliberately absent. The MRI brain template that the atlas was drawn on has separate terms and is not in the download. Nor are the photographs and figures from the papers the viewer cites; those stay with their publishers.
+
+| Part | File in the download, under `payload/brain-outward-r6/` | Its notice in the download |
+| --- | --- | --- |
+| Left half of the brain, 40 surfaces | `assets/brain-source-left-r6.glb` | `THIRD-PARTY-NOTICES.html` |
+| Which region each surface point belongs to | `assets/identity/*.u32` | `THIRD-PARTY-NOTICES.html` |
+| Overview picture | `assets/overview.png` | `THIRD-PARTY-NOTICES.html` |
+| Red nucleus | `assets/red-nucleus-source-left.glb` | `THIRD-PARTY-NOTICES.html` |
+| VPL | `assets/vpl-source-left.glb` | `sources/allen-version1/VPL-NOTICE.txt` |
+| VPM | `assets/vpm-source-left.glb` | `sources/allen-version1/VPM-NOTICE.txt` |
+| Parietal operculum | `assets/parietal-operculum-source-left.glb` | `sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt` |
+| Faces shared by VPL and VPM | `assets/vpl-vpm-shared-faces.json` | `sources/allen-version1/VPL-VPM-SHARED-FACES-NOTICE.txt` |
+| Grid crop with VPL and VPM | `assets/vpl-vpm-source-grid.json` | `sources/allen-version1/VPL-VPM-SOURCE-GRID-NOTICE.txt` |
+| Planes containing the parietal operculum | `assets/parietal-operculum-*.bin`, `assets/parietal-operculum-sections.json` | `sources/allen-version1/PAO-SECTIONS-NOTICE.txt` |
+| Whole grid, repacked | `assets/atlas-label-runs.bin`, `assets/atlas-label-runs.json` | `sources/allen-version1/RULER-ANNOTATION-NOTICE.txt` |
+| Starting point for each region and side | `assets/atlas-region-locations.json` | `sources/allen-version1/RULER-ANNOTATION-NOTICE.txt` |
+| Region names, abbreviations and hierarchy | `registry.json` | `THIRD-PARTY-NOTICES.html` |
+
+The full text of CC BY 4.0 is in the download at `licenses/CC-BY-4.0.txt`.
+
+## Region names and the hierarchy
+
+The names, abbreviations, numbers and parent-and-child order of the regions are the Allen Institute's too. They are covered by the same CC BY 4.0 credit, on this basis: the atlas collection publishes its own table of them, [`voxel_count.csv`](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv), and the collection's README counts such tables among its materials. The download includes that table unchanged at `sources/allen-version1/voxel_count.csv`.
+
+What was checked, and what was not:
+
+- For all 141 regions, the number, name, abbreviation and full ancestry in the viewer matched the table exactly. No near-match was accepted.
+- The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour.
+- These comparisons were made once, on an early edition of the viewer. Display fields have been added since. The four matched fields have not changed, and the comparisons have not been repeated. Their record is in the download at `sources/allen-version1/source-binding.json`.
+- The table was downloaded on 15 November 2026. The server reports it as last modified on 19 February 2025, so it cannot be shown to be byte-for-byte the 2020 original.
+- The table's own count and volume columns were not checked by this project.
+
+### The route the names actually took
+
+The viewer's names and hierarchy were first fetched from the Allen Brain Map web API on 4 November 2026: structure graph 16, 3,317 rows, through [this query](https://api.brain-map.org/api/v2/data/query.json?criteria=model%3A%3AStructure%2Crma%3A%3Acriteria%2C%5Bgraph_id%24eq16%5D%2Crma%3A%3Aoptions%5Border%24eq%27structures.graph_order%27%5D%5Bnum_rows%24eqall%5D). It is the 2026 state of that graph, not a frozen copy from 2020. The response itself is not in the download.
+
+The API falls under the Allen Institute's general [Terms of Use](https://alleninstitute.org/legal/terms-of-use/) (as updated 23 October 2026), which are narrower than CC BY. They record:
+
+- permission for research and non-commercial use, with citation;
+- ownership staying with the Institute;
+- limits on commercial redistribution;
+- the Institute's Freedom to Innovate conditions, which include not asserting rights against improvements the Institute develops independently, and a restriction on posting to sites that require acknowledgement of ownership of the posted content.
+
+This project keeps the record of that acquisition and does not waive those terms. They do not narrow the CC BY permission for the fields that match the table, for the atlas-derived files, or the MIT licence of Three.js. Fields of the API response that were never examined, and later improvements by the Institute, are outside what this page concludes. Nothing here creates a licence for the whole API response, for AI use, or for the viewer as a whole. If you fetch from the API yourself, its terms apply to what you fetch.
+
+## Three.js
+
+Three.js revision 186. Copyright © 2010–2026 Three.js authors. [MIT licence](https://opensource.org/license/mit). The complete notice is in the download at `payload/brain-outward-r6/vendor/three/LICENSE` and again at `licenses/THREE-MIT.txt`. Keep it with any copy. [Three.js source](https://github.com/mrdoob/three.js).
+
+## The scripts
+
+The prose of the two scripts is the project's own and is dedicated to the public domain under [CC0 1.0](docs/current/LICENSE-CC0-1.0.txt), to the extent the project holds the rights.
+
+The works the scripts cite, the passages they quote, and the film, character and brand names they mention belong to their owners. Mentioning them implies no endorsement, and CC0 does not apply to them.
+
+The PDFs embed subsets of two typefaces: Liberation Sans (SIL Open Font License 1.1) and Comic Sans MS Bold (Microsoft's core fonts end-user licence). Both licence texts sit beside the PDFs: [Liberation](docs/current/FONT-LICENSE-Liberation.txt), [Microsoft core fonts](docs/current/FONT-LICENSE-Microsoft-CoreFonts.txt). No font file is distributed on its own, and the DOCX files embed no fonts. The [notice](docs/current/NOTICE.txt) that travels with the scripts says the same.
+
+## The older pre-release
+
+The [pre-release of 4 November 2026](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft) holds an older slide deck, earlier scripts and a set of 3D models of the proposed experiments. It is a different case from everything above. Its slides and models include material made by others, among it film images of Neo and Professor X and separately licensed software and model files. The rights to that material, and how far it may be reused, have not all been established, and the project's CC0 dedication does not cover it. Before reusing anything from that release, read the `NOTICE.txt` and `ASSET-PROVENANCE.json` published with it.
+
+## The atlas viewer download
+
+| | |
 | --- | --- |
-| Archive | `Interoceptomics-Brain-R8-Experimental-Preview-R33.zip` |
-| Size | 40,595,864 bytes |
-| SHA256 | `44047e76e8850cbd67b1119c478cbee14fafddec72c8400ddf512c41858870af` |
-| Checksum | [Detached checksum](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) |
-| Model and controls | Source-left geometry, inspection by available meshes or surface samples |
+| File | [`Interoceptomics-Brain-R8-Experimental-Preview-R33.zip`](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) |
+| Size | 40,595,864 bytes (84,176,440 bytes unpacked) |
+| Contents | 76 files. `PACKAGE-MANIFEST.json` lists the other 75 with their sizes and checksums |
+| SHA256 | `44047e76e8850cbd67b1119c478cbee14fafddec72c8400ddf512c41858870af` ([checksum file](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256)) |
 
-The archive contains `THIRD-PARTY-NOTICES.html`, full licence copies under `licenses/`, `PACKAGE-MANIFEST.json`, and the official CSV with `source-binding.json` under `sources/allen-version1/`. The R33 archive contains 76 regular files. The package manifest lists the other 75 files. The archive checksum identifies the whole edition. [Edition notes](downloads/brain-r8/RELEASE-NOTES.md) describe what changed.
+Identities of the upstream files, for anyone who wants to start from the same sources:
 
-### Atlas-derived anatomy and overview
+| Upstream file | SHA256 |
+| --- | --- |
+| [`annotation.nii.gz`](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz), the region grid | `be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378` |
+| `voxel_count.csv`, the table of names (479,643 bytes) | `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f` |
+| The API response of 4 November 2026 (not distributed) | `70281f17ee7b23bd4076606c25038d31b3f4fca69973356138a05bceb9896341` |
 
-Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020), *Allen Human Reference Atlas — 3D, 2020*, version 1.0.0, RRID:SCR_017764. Copyright © 2019 Allen Institute for Brain Science.
+## What a licence does not tell you
 
-The [official atlas README](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf) states [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) effective 1 September 2022. This source applies to the atlas-derived model, the separate red nucleus, VPL, VPM and parietal operculum surfaces, vertex identities and generated overview. Keep the creators, copyright, source and licence links, disclaimers and previous change notices; identify further changes. No endorsement is implied. The full legal text travels in `licenses/CC-BY-4.0.txt` and its readable HTML page. [Original atlas collection](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/).
+A licence says who may copy. It says nothing about whether the anatomy is right, and this project does not claim that it is.
 
-The derivative selects native RAS R≤0, extracts surfaces from 0.5 mm annotation voxels, constructs a midline cap and applies bounded display approximation and normal treatment. Structural unions, thirty added source-label masks, teaching colours, cameras and interaction are authored changes. Geometry R6 bakes the proper source-to-world frame and corrects normal direction. The original R8 viewer added icons with that geometry unchanged. R2 corrected the description of **Restore this view**. R3 changed documentation and source support while preserving its 34 functional base files. R4 corrected the notes for the 20 omitted labels and added their index. R5 clarified which source comparison is historical and which manifest identifies current files. Package R6 repairs stale highlight inputs when a view or model-variant change turns isolation off. Geometry, source labels, identity files, the colour palette, dependencies and launchers retain their R5 bytes. Thirty-nine of the 43 package files remain unchanged from R5. Of the original 34 R3 base files, 32 remain exact; the registry’s 20 omission notes and the viewer code differ.
+The atlas names 141 regions. The viewer's 3D model holds 121 of them in 44 surfaces: 34 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 34 and also appears on a combined surface. The other 20 regions have no surface; the download lists them in `payload/brain-outward-r6/omissions.html`. All 141 can be read in the flat cuts.
 
-Package R7 moves renderer setup into the existing error handler and adds a plain startup failure message with the error identity. Its successful scene/control code is unchanged. Thirty-nine of the 43 files retain their R6 bytes, modes and modification times, including geometry, source labels, identity files, palette, dependencies and launchers. The other changes are the matching release notes, change notice and manifest. Package R8 adds a loading message, recovery steps and a record of the browser checks. Thirty-eight files retain their R7 bytes, modes and modification times, including the geometry, source labels, identity files, palette, dependencies and launchers. Package R9 classifies selector entries using the delivered mesh and label assignments, displays the existing cerebral surface when needed and waits for the viewer before enabling its controls. The model’s coordinates, sources and 20 omission notes retain their R8 bytes.
-
-Package R10 adds one left red nucleus surface. It selects Allen label 12247 in the original left annotation, extracts an unsmoothed 0.5 isosurface on the 0.5 mm source grid and applies the same proper coordinate basis. Display normals and material were added. The exact asset is `payload/brain-outward-r6/assets/red-nucleus-source-left.glb`, SHA256 `3e67055edca4fe9d1c402aa8e1ad1acb8358c62aa7d203715b501e2a1d89248c`. The atlas terms and change notices above travel with it. R11 moved the overview outside the model view during isolation. R12 fits the canvas to the window and adjusts the camera projection during live resizing. The external MRI and histology comparison figures are outside the download.
-
-R14 adds the left ventral posterior lateral nucleus at `payload/brain-outward-r6/assets/vpl-source-left.glb`, SHA256 `38ff571b7849d9d98dd59a6a5ba76a68e2d98c8e542309983d5fe9fdec8f465f`. The unsmoothed 0.5 isosurface follows Allen v1.0.0 direct label 10424 in native RAS R≤0 on the 0.5 mm grid. It uses the same source-to-world basis, with display normals and material. The atlas attribution, CC BY 4.0 and `sources/allen-version1/VPL-NOTICE.txt` travel with it. The comparison figures stay outside the archive. [Original annotation](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz).
-
-R15 adds the left ventral posterior medial nucleus at `payload/brain-outward-r6/assets/vpm-source-left.glb`, SHA256 `dfd1850d5ec93e8dc87dd75744ffc722d717e2205161bd87599dacdc74b12b92`. Its closed surface is an unsmoothed 0.5 isosurface of original left atlas label 10425 on the 0.5 mm grid. Keep the Allen attribution, CC BY 4.0 and `sources/allen-version1/VPM-NOTICE.txt` with it. Comparison figures stay outside the archive. [Original annotation](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz).
-
-R16 puts the same two surfaces in one viewer. Their GLB files, spatial positions and change notices retain the R15 bytes. The viewer applies blue and copper to identify the two labels in comparison mode only. The face count follows the original left atlas annotation and uses the same CC BY 4.0 source.
-
-R17 includes `payload/brain-outward-r6/assets/vpl-vpm-shared-faces.json`. Each entry identifies one face between Allen v1.0.0 labels 10424 and 10425 in the original left annotation, using the perpendicular grid axis and the lower of its two voxel indices along that axis. Its change notice is `sources/allen-version1/VPL-VPM-SHARED-FACES-NOTICE.txt`. Keep the Allen attribution and CC BY 4.0 terms with the face indices. The colours and ghosted surfaces help you see this grid boundary as you turn it.
-
-R18 includes `assets/vpl-vpm-source-grid.json` within the model folder, SHA256 `2281dacde82cb6f55c6bde78646a95d02652ba276c949c4a4f5f0086afe3ae30`. The crop keeps exact source-left VPL and VPM labels from the original 0.5 mm annotation grid. The 3D frame marks the selected section in the atlas. The change notice is `sources/allen-version1/VPL-VPM-SOURCE-GRID-NOTICE.txt`. Keep the Allen attribution and CC BY 4.0 terms with the crop.
-
-R19 adds the unsmoothed left parietal operculum surface at `payload/brain-outward-r6/assets/parietal-operculum-source-left.glb`, SHA256 `367f7990b2a3968b4e89d95a38d0fcf51e15776d77065fd25dfed1a204b391c3`. It follows original label 13230 at the same 0.5 mm source grid with the same coordinate conversion. Keep the Allen attribution, CC BY 4.0 and `sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt` with it. Third-party reference figures stay outside the archive.
-
-R20 updates the on-screen camera instructions and completion messages. The source and delivered atlas asset identities are recorded in the package manifest.
-
-R21 adds the original label IDs for the full source planes that intersect PaO. Those planes, their 0.5 mm axes and the 3D frame derive from the same CC BY 4.0 Allen annotation. See `sources/allen-version1/PAO-SECTIONS-NOTICE.txt` in the archive for the changes and source identity. R24 carries a selected voxel across the supplied PaO section planes. The reference photographs stay with their publishers.
-
-R30 losslessly packs the original Allen version-1 `annotation.nii.gz` for the ruler. Its SHA256 is `be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378`. The packing keeps all original IDs in native x-fast order and preserves the qform. The ruler calculates where the line crosses voxel faces and combines adjacent pieces with the same ID. The original collection's CC BY 4.0 terms apply to this derivative. Names and acronyms come from the included official metadata table. The source credit, file link, change description and licence accompany the ZIP at `sources/allen-version1/RULER-ANNOTATION-NOTICE.txt`.
-
-R33 derives a navigation index from the Allen annotation. Each occupied ID and side has one voxel closest to the mean position of its assigned voxel centres. Equal distances are resolved in native flat-index order. The finder uses the original name and ID. The source credits and CC BY 4.0 terms apply.
-
-R32 highlights the original ID under the crosshair. The table derives counts from the complete annotation and classifies voxel centres by signed RAS coordinate. The absolute qform voxel volume sets the conversion to mm³. The original annotation and its CC BY 4.0 terms accompany this adaptation.
-
-R31 shows sagittal, coronal and axial label planes from the same lossless packed annotation. Label IDs are unchanged. The viewer colours the categories and displays them in native RAS using the original NIfTI qform. These cuts carry neither the MRI intensities nor tissue imagery. The annotation terms and author credits above apply to those planes. See `sources/allen-version1/RULER-ANNOTATION-NOTICE.txt` in the archive.
-
-R29 steps through the cells crossed by the atlas ruler and reads their labels from the supplied sections. Annotation, derived grids, geometry, launchers and licences retain their R28 bytes.
-
-R28 saves two voxel locations and the open section in text. The annotation, derived grids, geometry, launchers and licences retain their R27 bytes.
-
-R27 compares two voxel centres in the same Allen atlas. The annotation, derived grids, source geometry and licences retain their R26 bytes. The marks and line are viewer graphics in the atlas coordinate space.
-
-R26 records the territory, plane, window and RAS voxel in a local saved-view fragment. The annotation, derived grids and rendered geometry retain their R25 bytes.
-
-R25 adds exact RAS coordinate entry to both section readers. Allen annotation, derived grids and rendered geometry retain their R24 bytes.
-
-R23 carries the selected VPL/VPM voxel across section planes. R22 added the label and coordinate readout. The original Allen attribution, CC BY 4.0 licence and crop notice continue to apply.
-
-The overview is the generated medial render of that derivative. No underlying MNI MRI or internal comparison photographs are included. Source identity does not establish complete anatomical accuracy, and the licence supplies no accuracy or fitness warranty.
-
-### The exact labels and hierarchy
-
-The [official version1 CSV](https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/examples/voxel_count/voxel_count.csv) is a listed member of the same atlas collection. R10 retains its complete, unchanged 479,643 bytes, SHA256 `7348be087e6c2b6cb1fde1d604761cdd2d70e0e33ded6e1f322db334959d162f`. It was retrieved on 15 November 2026 Melbourne; the observed Last-Modified header is 19 February 2025. A version1 directory name and that header do not prove frozen-2020 bytes.
-
-The retained R3 source comparison found exact IDs, names, acronyms and full ordered ancestry paths for all 141 R3 registry rows. It also found identical ID sets and exact matches for name, acronym, ancestry path, parent ID, graph order and colour across the retained 3,317-row production API snapshot and CSV. The current registry preserves those fields. R10 adds display and availability fields to one label, on top of the 20 revised omission notes. R13 corrected the availability descriptions for VPL, VPM and their combined thalamic surface. R14 adds the separate VPL surface entry. R15 added the separate VPM surface entry and its anatomical citations. R16 records how both territories appear in the comparison and the shared-face count in the source annotation. R17 adds the native coordinates of those faces. R18 adds the cropped source grid. R19 records the separate PaO surface and its citations. The checked by-ID/acronym lookups, descendant groups, authored association selections and interface controls use those fields. No approximate name match or dropped ancestor was accepted. `source-binding.json` records that historical comparison and the checked source-use witnesses; it was last run for R3. The CSV’s count and volume columns are included for source completeness; they were not validated and supply no new anatomical measurement claim.
-
-The comparison’s `delivered_registry` hash identifies the R3 registry: 260,028 bytes, SHA256 `ab8cbbf3123e153ef77a419116933c98ed8eff30fbdb45be74b2cb93f68097bd`. Its relative path now reaches a changed file. The current registry is 269,503 bytes, SHA256 `9d27a9eb3d4c6b938bd95e323af845baf04bddb16ed5e94b7fc5081dca8bc0ea`; `PACKAGE-MANIFEST.json` identifies that file and the other current package members. The retained geometry-era R6 model manifest describes its older registry and viewer bytes; the package manifest identifies the current R24 files.
-
-The collection README explicitly includes ontology/hierarchy examples in its materials. Its CC BY grant therefore supplies a parallel, identified permission basis for these precise matching fields and checked adaptations. That source application was independently accepted; it does not redate the production query. Preserve the direct upstream CC BY offer, attribution and changes. Do not relicense this material as project-owned CC0 or add a noncommercial restriction to it. No blanket licence for the whole API response, every future Improvement, AI use or the complete model is created here.
-
-### The actual November 4 production route
-
-The model used a current Allen Brain Map graph16 response retrieved on 4 November 2026 through the [official query](https://api.brain-map.org/api/v2/data/query.json?criteria=model%3A%3AStructure%2Crma%3A%3Acriteria%2C%5Bgraph_id%24eq16%5D%2Crma%3A%3Aoptions%5Border%24eq%27structures.graph_order%27%5D%5Bnum_rows%24eqall%5D). Its SHA256 remains `70281f17ee7b23bd4076606c25038d31b3f4fca69973356138a05bceb9896341`. The full response is not shipped. Its query, date, hash and model-generation history remain in the manifest and original payload records.
-
-The [Allen general terms](https://alleninstitute.org/legal/terms-of-use/), updated 23 October 2026, separately record research/noncommercial permissions, citation, retained ownership, commercial redistribution limits and nonassertion against Allen’s independently developed improvements. They also restrict posting on sites requiring acknowledgement of ownership of the posted Content. R10 preserves this acquisition record and those obligations. Unexamined response fields and unrelated Improvements remain outside the scoped rights conclusions. Lack of a whole-response grant does not impose an extra NC restriction on the separately identified CC BY-covered metadata above.
-
-### Browser software and original contributions
-
-Three.js revision 186 retains its complete MIT notice at `payload/brain-outward-r6/vendor/three/LICENSE` and `licenses/THREE-MIT.txt`. Copyright © 2010–2026 Three.js authors. [Three.js source](https://github.com/mrdoob/three.js) · [MIT terms](https://opensource.org/license/mit).
-
-The repository’s [CC0 statement](LICENSE) concerns original contributions only to the extent the project holds those rights. It does not dedicate third-party material or erase source conditions. The upstream CC BY offer and MIT notice remain attached to their respective components. This page applies no blanket licence to the archive.
-
-### Read the biological limits with the colours
-
-The preview accounts for 121 of 141 occupied source labels across 43 meshes and their source records. Thirty-three labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. Isolation uncovers the left red nucleus, VPL or VPM. Each surface follows one atlas label. Comparisons with other MRI and histology sources are qualitative. The omitted labels remain in the registry and are listed in the archive’s `payload/brain-outward-r6/omissions.html`. Combined surfaces do not isolate every nucleus. The 0.5 mm source grid, constructed cap of at most 0.25 mm and prior display approximation of at most 0.125 mm describe derivation, not biological accuracy. Fine autonomic nuclei, cortical functional fields and independent basal-forebrain, septal and bed-nucleus shape confirmation remain open.
-
-Local surface-direction countercases, deep-view differences, occlusion and stock-export colour differences remain. There is no right-half option or fit to an individual person. No neural activity, neural writing, learned skill transfer, clinical safety or complete biological function has been demonstrated by the model. Native Windows/macOS execution, every control and angle, and other-machine behaviour remain unverified. The archive README retains the detailed qualifications; original scientific, real-reference SERIES, held-out, rights, privacy, visual, native and export gates remain.
-
-### The highlight repair and its limits
-
-Five constructed exact-handler software checks passed for the earlier R6 viewer; the old viewer failed the two isolation-exit checks. The fixture used one selected and one contrast vertex, with substitutes for the renderer, scene, DOM and camera. Its historical result covers stored CPU colour inputs. The later Linux resize tests include AMD/RADV. Broader browser controls, displayed colour and performance remain open.
-
-The original isolate → lateral → deep visual check, C01, remains open at its AMD/RADV target: an 1800 × 1200 window and a 1470 × 1200 model viewport. The retained SwiftShader/wrong-window run stopped before any control actions. Earlier images and pixel checks describe earlier builds. Reference-series, donor/scale/function, held-out, rights/privacy, native visual/export and OS requirements remain. The software result supplies no new anatomical or biological validation.
-
-### If the 3D view cannot start
-
-R9 kept the controls locked until the model was ready. In Linux Chromium with software rendering, the controls stayed locked when geometry, the registry, the viewer module or the renderer page returned HTTP 404. The packaged Linux launcher opened all 40 meshes, with the same initial canvas as R8. The R9 archive’s `VIEWER-CHECKS.json` records those tests. Other startup causes and later rendering faults remain open.
-
-R12 kept the same R11 framebuffer at five checked startup sizes in Linux Chromium on AMD/RADV and SwiftShader. The canvas follows a live resize while the selected view and camera pose stay in place. During isolation, the overview sits below the model in a narrow window and beside it in a wide window. If the separate asset fails to load, the rest of the model can still open and the red nucleus remains searchable as an atlas label.
+The half-millimetre grid, the midline cap and the display approximation describe how the surfaces were made, not how accurate they are. There is no right half and no fit to any person. The model demonstrates no reading or writing of neural activity, no transfer of a learned skill, no clinical safety and no biological function. [What the viewer is not](README.md#an-illustration-not-a-measurement).
