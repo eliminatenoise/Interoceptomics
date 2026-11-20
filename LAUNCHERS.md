@@ -48,3 +48,7 @@ Extract [the offline reader](downloads/cervical-signals.zip) and open `Open on W
 ## Back rotation during walking and standing
 
 Extract [the offline reader](downloads/back-rotation.zip), then open its Windows, macOS or Linux launcher or its extracted index.html. The sensor replay, voltage traces and 3D vertebrae run directly in your browser. [Open the hosted reader](https://eliminatenoise.github.io/Interoceptomics/back-rotation/)
+
+## Inside a lifting foot
+
+Extract the [offline muscle reader](downloads/muscle-tracking.zip) and open the launcher for Windows, macOS or Linux, or open its index.html directly. All three-dimensional anatomy and tracking steps are bundled. [Hosted reader](https://eliminatenoise.github.io/Interoceptomics/muscle-tracking/)
