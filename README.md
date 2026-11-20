@@ -2,7 +2,7 @@
 
 **The Human Genome Project failed.** Not at sequencing: it delivered the human reference sequence in 2003. It failed at what was promised next, and most rare diseases still have no approved treatment. A list of the parts is not an account of what they do. A wiring diagram of the nervous system has the same limit: it shows what is connected, not what the body feels.
 
-Interoceptomics (Interotomics for short) is a proposed field of science that starts from the other end. *Interoception* is the body sensing its own interior: a heartbeat, a breath. *Connectomics* is the mapping of nerve connections. Put the two together and go function first: measure what the body senses and does, then ask which connections carry it. None of its experiments has been run yet.
+Interoceptomics is a proposed field of science that starts from the other end. *Interoception* is the body sensing its own interior: a heartbeat, a breath. *Connectomics* is the mapping of nerve connections. Put the two together and go function first: measure what the body senses and does, then ask which connections carry it. None of its experiments has been run yet.
 
 What exists so far is still a map, not a measurement: the Allen Institute's human reference atlas as a 3D model you can turn, cut and measure. It shows the 141 named regions the atlas draws on the left half of the brain, on a half-millimetre grid, and colours the ones this project links to moving and feeling the body, to running its organs, or to both.
 

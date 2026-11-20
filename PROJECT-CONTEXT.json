@@ -11,7 +11,8 @@
         "id": "interoceptomics",
         "preferred_label": "Interoceptomics",
         "status": "user_defined_project_term",
-        "accepted_shorthand": "Interotomics"
+        "accepted_shorthand": "Interotomics",
+        "usage": "Interoceptomics is the standard name in prose and on GitHub."
       }
     ]
   },
