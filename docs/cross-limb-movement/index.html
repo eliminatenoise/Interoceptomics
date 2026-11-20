@@ -6,10 +6,11 @@
     <title>Grasping and balancing · Interoceptomics</title>
     <meta
       name="description"
-      content="Turn two measured 3D paths and inspect the original muscle recordings from a grasp-and-lift study and a beam-walking study."
+      content="Compare movement forecasts with two measured 3D paths and explore the muscle recordings from a grasp-and-lift study and a beam-walking study."
     />
     <link rel="stylesheet" href="style.css" />
     <script defer src="recordings.js"></script>
+    <script defer src="forecasts.js"></script>
     <script defer src="viewer.js"></script>
   </head>
   <body>
@@ -27,7 +28,7 @@
         <p class="deck">
           One person reaches for an object after a light comes on. Another walks a narrow beam as the
           view through a headset turns. Follow the wrist and the base of the spine through the next
-          eighth of a second.
+          eighth of a second. How close can a forecast made at cutoff come to the measured path?
         </p>
       </header>
       <section class="transport" aria-label="Explore the recordings">
@@ -68,6 +69,23 @@
             >Wrist frames include the +126 ms sample that brackets the endpoint.</span
           >
         </p>
+      </section>
+      <section class="forecast-control" aria-labelledby="forecast-heading">
+        <div>
+          <label for="forecast" id="forecast-heading">Compare with a forecast</label>
+          <select id="forecast" aria-describedby="forecast-detail">
+            <option value="separate">Two maps, one per study</option>
+            <option value="matched">Two maps, blended over time</option>
+            <option value="original">One shared map</option>
+            <option value="velocity">Continue the last velocity</option>
+            <option value="none">Measured path only</option>
+          </select>
+        </div>
+        <div class="forecast-notes">
+          <p id="forecast-detail"></p>
+          <p>Each learned forecast comes from a model trained on other people.
+            <a href="https://eliminatenoise.github.io/NeuroTranslation/papers/cross-limb-movement/decoder-study/">See results across participants</a>.</p>
+        </div>
       </section>
       <div id="panels" class="panels"></div>
       <noscript
@@ -114,9 +132,9 @@
         </div>
         <p>
           The studies supplied instructions before recording. The cues shown here are a light and a
-          visual rotation. Neither excerpt contains trial speech. Only the measured marker path is drawn.
-          One observation from each study cannot show coordination across people or establish that
-          learning transfers between limbs.
+          visual rotation. Neither excerpt contains trial speech. The same two recordings appeared
+          in the atlas before fitting. The displayed run uses a fixed starting seed (1641).
+          The decoder study compares three starting seeds across all the development participants.
         </p>
         <p>
           <a href="METHODS.md">Measurements, sources and offline instructions</a> ·

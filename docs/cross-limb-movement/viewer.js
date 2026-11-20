@@ -20,6 +20,16 @@ const captions = {
 const keys = Object.keys(captions);
 const cameras = Object.fromEntries(keys.map((key) => [key, { yaw: -0.93, pitch: 0.58 }]));
 const positions = {};
+const traces = {};
+const gaps = {};
+const stepMs = 1000 / 256;
+const forecastCopy = {
+  separate: "After reading 625 ms of marker motion and muscle activity, the model uses one learned map for the wrist and another for the sacrum. Each forecast covers the next 125 ms.",
+  matched: "Both studies use the same two learned maps. The forecast shifts from the first map to the second as time passes. This model has as many adjustable weights as the model with one map per study.",
+  original: "One learned map turns the model’s reading of the movement and muscle history into positions for both studies and all forecast times.",
+  velocity: "What if the marker kept moving at its last speed and direction? The straight line extends the velocity between the last two positions given to the models, 32 ms apart for the wrist and 31.25 ms for the sacrum.",
+  none: "Follow the recorded positions alone. The scale in each panel stays fixed when you switch forecasts.",
+};
 let playing = false;
 let animation;
 const signed = (v, n = 2) => (v < 0 ? "−" : v > 0 ? "+" : "") + Math.abs(v).toFixed(n);
@@ -43,12 +53,23 @@ function introduction(key) {
   ];
   const viewOptions = views.map((v, i) => '<option value="' + i + '">' + v + "</option>").join("");
   section.innerHTML = `
-  <div class="card-head"><div><h2 id="${key}-title">${cap.title}</h2><p class="sub">${cap.task}</p></div><a href="${key}.glb" download>3D path ↓</a></div>
-  <canvas class="plot" id="${key}-plot" tabindex="0" role="img" aria-label="${cap.title} path in three dimensions. Drag or use arrow keys to rotate."></canvas>
-  <div class="legend"><span>Before cutoff</span><span class="after">After cutoff</span><span class="current">Selected time</span></div>
+  <div class="card-head"><div><h2 id="${key}-title">${cap.title}</h2><p class="sub">${cap.task}</p></div><a href="${key}.glb" download>Measured 3D path ↓</a></div>
+  <canvas class="plot" id="${key}-plot" tabindex="0" role="img" aria-label="${cap.title} measured path and optional forecast overlay. Drag or use arrow keys to rotate."></canvas>
+  <div class="legend"><span>Measured before cutoff</span><span class="after">Measured after</span><span class="current">Selected time</span><span class="forecast-key" id="${key}-forecast-key">Forecast</span></div>
   <div class="inside">
   <div class="orient"><span>Drag or use arrow keys to rotate.</span><select aria-label="${cap.title} view" id="${key}-view">${viewOptions}</select></div>
-  <div class="readout">${d.axes.map((axis, i) => "<div><small>" + axis + ' · mm</small><b id="' + key + "-axis" + i + '">—</b></div>').join("")}<div><small>Distance from cutoff</small><b id="${key}-dist">—</b></div></div>
+  <section class="error-panel" id="${key}-error-panel" aria-labelledby="${key}-gap-heading">
+    <h3 id="${key}-gap-heading">How far apart are the paths?</h3>
+    <p>At the selected time <strong id="${key}-gap"></strong><br>Mean across 32 forecast times <strong id="${key}-mean"></strong></p>
+    <canvas class="error-curve" id="${key}-error-curve" role="img" aria-label="${cap.title} 3D distance between forecast and measurement across 125 milliseconds"></canvas>
+    <details><summary>Compare coordinates at this time</summary>
+      <p>Signed displacement from the cutoff in millimetres. Both columns use the recording’s own axes.</p>
+      <table class="samples"><thead><tr><th scope="col">Axis</th><th scope="col">Measured (mm)</th><th scope="col">Forecast (mm)</th></tr></thead>
+        <tbody>${d.axes.map((axis, i) => `<tr><th scope="row">${axis}</th><td id="${key}-measured-${i}"></td><td id="${key}-predicted-${i}"></td></tr>`).join("")}</tbody>
+      </table>
+    </details>
+  </section>
+  <div class="readout" aria-label="Measured displacement">${d.axes.map((axis, i) => "<div><small>" + axis + ' · mm</small><b id="' + key + "-axis" + i + '">—</b></div>').join("")}<div><small>Measured distance from cutoff</small><b id="${key}-dist">—</b></div></div>
   <div class="frame"><p id="${key}-status"></p><p class="phase">${cap.cue}</p></div>
   <details><summary>Stored position frames</summary><p>${cap.axes} The table gives the source coordinates in ${d.sourceUnit}, rounded to four decimals. Displacements above use this recording’s own cutoff as the origin.</p><table class="samples"><thead><tr><th>From cutoff</th>${d.axes.map((a) => "<th>" + a + " (" + d.sourceUnit + ")</th>").join("")}</tr></thead><tbody id="${key}-frames"></tbody></table></details>
   <hr class="divider"><div class="chart-title"><h3>Muscle amplitude</h3><select id="${key}-channel" aria-label="${cap.title} muscle">${options}</select></div>
@@ -59,6 +80,12 @@ function introduction(key) {
   $("panels").appendChild(section);
   const origin = d.xyz[-d.first];
   positions[key] = d.xyz.map((row) => row.map((v, j) => (v - origin[j]) * d.factorMm));
+  traces[key] = {};
+  gaps[key] = {};
+  for (const [model, path] of Object.entries(forecastPaths[key])) {
+    traces[key][model] = [[0, 0, 0], ...path];
+    gaps[key][model] = path.map((point, j) => distance(point, at(key, (j + 1) * stepMs).p));
+  }
 }
 
 function formatRMS(key, v) {
@@ -78,6 +105,15 @@ function at(key, millis) {
   return { lo, hi, p };
 }
 
+function distance(a, b) {
+  return Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
+}
+function pointOnForecast(path, ms) {
+  if (!path || ms < 0 || ms > 125) return null;
+  const index = ms / stepMs;
+  const lo = Math.floor(index), hi = Math.ceil(index);
+  return path[lo].map((v, axis) => v + (path[hi][axis] - v) * (index - lo));
+}
 function canvasSize(canvas) {
   const w = canvas.clientWidth,
     h = canvas.clientHeight,
@@ -118,8 +154,10 @@ function drawPath(key, selection) {
     key === "wrist" && !all && $("grid").value !== "wrist" ? d.xyz.length - 2 : d.xyz.length - 1;
   const visible = points.slice(first, last + 1).map(project);
   if (key === "wrist" && last < d.xyz.length - 1) visible.push(project(at(key, 125).p));
-  const xs = visible.map((p) => p[0]),
-    ys = visible.map((p) => p[1]);
+  // Fit this view to the same set of paths for every overlay choice.
+  const bounds = visible.concat(Object.values(traces[key]).flat().map(project));
+  const xs = bounds.map((p) => p[0]),
+    ys = bounds.map((p) => p[1]);
   const xmin = Math.min(...xs),
     xmax = Math.max(...xs),
     ymin = Math.min(...ys),
@@ -155,6 +193,20 @@ function drawPath(key, selection) {
       if (knot) dot(screen(project(knot.p)), 1.7, "#ffe1b4");
     }
   }
+  const forecast = traces[key][$("forecast").value];
+  if (forecast) {
+    ctx.strokeStyle = "#72e4e1";
+    ctx.lineWidth = 2.4;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    forecast.forEach((point, i) => {
+      const [x, y] = screen(project(point));
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
   const zero = screen(project([0, 0, 0]));
   line([zero[0] - 5, zero[1]], [zero[0] + 5, zero[1]], "#d2e0db");
   line([zero[0], zero[1] - 5], [zero[0], zero[1] + 5], "#d2e0db");
@@ -162,6 +214,16 @@ function drawPath(key, selection) {
     const p = screen(project(selection.p));
     dot(p, 6, "#0a2023");
     dot(p, 4, "#fff8e6");
+    const estimate = pointOnForecast(forecast, now());
+    if (estimate) {
+      const [x, y] = screen(project(estimate));
+      ctx.strokeStyle = "#72e4e1";
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.moveTo(x, y - 6); ctx.lineTo(x + 6, y); ctx.lineTo(x, y + 6); ctx.lineTo(x - 6, y);
+      ctx.closePath();
+      ctx.stroke();
+    }
   }
   ctx.font = "11px system-ui, sans-serif";
   ctx.fillStyle = "#d8e8e2";
@@ -189,6 +251,57 @@ function drawPath(key, selection) {
   });
 }
 
+function drawError(key, ms, selected) {
+  const model = $("forecast").value;
+  const show = model !== "none";
+  element(key, "forecast-key").hidden = !show;
+  element(key, "error-panel").hidden = !show;
+  if (!show) return;
+  const values = gaps[key][model];
+  const estimate = pointOnForecast(traces[key][model], ms);
+  const gap = estimate && selected ? distance(estimate, selected.p) : null;
+  for (let i = 0; i < 3; i++) {
+    element(key, "measured-" + i).textContent = selected ? signed(selected.p[i]) : "Outside excerpt";
+    element(key, "predicted-" + i).textContent = estimate ? signed(estimate[i]) : "Outside forecast";
+  }
+  element(key, "gap").textContent = gap === null ? "Outside forecast" : gap.toFixed(2) + " mm";
+  const mean = values.reduce((sum, v) => sum + v, 0) / values.length;
+  element(key, "mean").textContent = mean.toFixed(2) + " mm";
+
+  const {ctx, w, h} = canvasSize(element(key, "error-curve"));
+  // Native frame differences can briefly exceed the errors at the 32 model knots.
+  const ceiling = errorCeiling[key];
+  const left = 46, right = w - 8, top = 9, bottom = h - 19;
+  const x = (t) => left + (right - left) * t / 125;
+  const y = (v) => bottom - (bottom - top) * v / ceiling;
+  ctx.strokeStyle = "#a9bdb5";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(left, top); ctx.lineTo(left, bottom); ctx.lineTo(right, bottom);
+  ctx.stroke();
+  ctx.fillStyle = "#365448";
+  ctx.font = "11px system-ui, sans-serif";
+  ctx.textAlign = "right";
+  ctx.fillText(ceiling + " mm", left - 5, top + 6);
+  ctx.fillText("0", left - 5, bottom);
+  ctx.fillText("125 ms", right, h - 3);
+  ctx.textAlign = "left";
+  ctx.fillText("0", left, h - 3);
+  ctx.strokeStyle = "#16746c";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(left, bottom);
+  values.forEach((v, i) => ctx.lineTo(x((i + 1) * stepMs), y(v)));
+  ctx.stroke();
+  if (gap !== null) {
+    const cursor = x(ms);
+    ctx.strokeStyle = "#869a92";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(cursor, top); ctx.lineTo(cursor, bottom); ctx.stroke();
+    ctx.fillStyle = "#10272d";
+    ctx.beginPath(); ctx.arc(cursor, y(gap), 3.5, 0, 2 * Math.PI); ctx.fill();
+  }
+}
 function drawMuscle(key, ms) {
   const d = recordings[key],
     i = Number(element(key, "channel").value),
@@ -271,6 +384,7 @@ function panel(key, ms) {
       .join("");
   }
   drawPath(key, selected);
+  drawError(key, ms, selected);
   drawMuscle(key, ms);
 }
 
@@ -372,6 +486,26 @@ for (const key of keys) {
   element(key, "view").addEventListener("change", () => drawPath(key, at(key, now())));
   element(key, "channel").addEventListener("change", () => drawMuscle(key, now()));
 }
+// A shared error axis per recording includes all forecast and native wrist display times.
+const errorCeiling = {};
+for (const key of keys) {
+  const offsets = [...Array.from({ length: 33 }, (_, i) => i * stepMs),
+                   ...Array.from({ length: 63 }, (_, i) => i * 2)];
+  let max = 0;
+  for (const path of Object.values(traces[key])) {
+    for (const t of offsets) {
+      const estimate = pointOnForecast(path, t);
+      max = Math.max(max, distance(estimate, at(key, t).p));
+    }
+  }
+  errorCeiling[key] = Math.max(1, Math.ceil(max));
+}
+function selectForecast() {
+  $("forecast-detail").textContent = forecastCopy[$("forecast").value];
+  update();
+}
+$("forecast").addEventListener("change", selectForecast);
+$("forecast-detail").textContent = forecastCopy[$("forecast").value];
 let previousHz = clockHz();
 $("grid").addEventListener("change", () => {
   const ms = (Number($("clock").value) * 1000) / previousHz;
