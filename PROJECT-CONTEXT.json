@@ -405,5 +405,11 @@
       },
       "made_from": "The archive's own members, by the same build. The viewer's folder is merged with the top level of the download, relative links in the pages are rewritten to match, and the four start files are left out. Every other byte is the archive's."
     }
+  },
+  "recorded_cortex": {
+    "viewer": "docs/recorded-cortex/index.html",
+    "data_and_method": "models/recorded-cortex/README.md",
+    "offline": "downloads/recorded-cortex.zip",
+    "scope": "Electrical band-power changes during finger cues versus following blank periods in one participant. The public reader loads the original anatomical surface and positions on request from Stanford or an exact local file."
   }
 }

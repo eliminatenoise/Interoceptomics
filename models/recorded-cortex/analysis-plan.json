@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "data": "One Seattle FingerFlex development participant, Stanford Digital Repository v11, fingerflex/data/bp/bp_fingerflex.mat",
+  "input_sha256": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a",
+  "prefix_rows_half_open": [
+    0,
+    362000
+  ],
+  "sample_hz": 1000,
+  "microvolts_per_amplifier_count": 0.0298,
+  "trial_rule": "Take only complete displayed finger cue followed by blank and bounded on both ends by observed transitions. Use the middle 1000 rows of each phase, rounding the starting row down. Require both windows inside the paired phase and fixed prefix.",
+  "channel_rule": "Use all 46 released channels, from which the contributor already removed bad channels. Subtract the instantaneous common average of all 46. Fail explicitly if a selected window is nonfinite, flat in any source channel, or yields nonpositive or nonfinite spectral power. Include channels with an undefined anatomical label in the common voltage reference, but exclude them from all regional estimates. A local participant-coordinate view may associate channel summaries with their true source row without labelling their region.",
+  "power_rule": "Use a one-sided, detrended periodic Hann periodogram over the 1000 samples. Sum power density for inclusive 1-Hz bin centers with a 1-Hz bin width. Use 12-20 Hz and 70-110 Hz, excluding the 60-Hz fundamental and 120-Hz harmonic by choice of band. The higher band is a fixed band, distinct from the source paper's broadband component. The bands and windows are fixed before comparing their values.",
+  "contrast": "For each contact and trial calculate 10 times log10 of cue band power divided by that trial's following blank band power. Average the contact ratios in dB equally within each source region. Within the selected digit, or all trials pooled at their observed frequency, weight trials equally. Quantiles are linear 25th and 75th percentiles of those trial summaries.",
+  "uncertainty": "Show empirical between-trial spread within this one development recording. No confidence interval, null test, multiplicity claim, held-out estimate, population estimate, source localization or causal conclusion.",
+  "missing": "Code 2 is absent from the task README but the depositor’s accompanying processing script defines it as rolandic. Keep it distinct without dorsal, ventral, motor or sensory subdivision. Code 0 has no meaning supplied by either dictionary. Preserve declared codes 8 and 9 as empty when absent. Do not assign meanings to other codes without original matching evidence.",
+  "privacy": "The regional output contains area and cue aggregates. A separate per-contact public table contains only source channel number, area code and means across complete trials, rounded to 0.01 dB. It contains no coordinates, individual trial contrasts, time series, times, glove records, donor morphometry or demographics. The regional method, trials and computed values are unchanged by the additional display."
+}

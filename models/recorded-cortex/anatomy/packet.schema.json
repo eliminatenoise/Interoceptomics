@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Original FingerFlex cortical surface and recording contact packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "source",
+    "frame",
+    "mesh",
+    "contacts"
+  ],
+  "properties": {
+    "schema": {
+      "const": "fingerflex-native-cortex-v1"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_url",
+        "archive_version",
+        "member",
+        "member_sha256",
+        "license",
+        "credit",
+        "changes"
+      ],
+      "properties": {
+        "record_url": {
+          "const": "https://purl.stanford.edu/zk881ps0522"
+        },
+        "archive_version": {
+          "const": 11
+        },
+        "member": {
+          "const": "fingerflex/data/bp/bp_fingerflex.mat"
+        },
+        "member_sha256": {
+          "const": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a"
+        },
+        "license": {
+          "const": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "credit": {
+          "const": "Kai Joshua Miller, Stanford Digital Repository. Miller et al. (2012), DOI 10.1371/journal.pcbi.1002655."
+        },
+        "changes": {
+          "const": "Original vertices and contact coordinates. Triangle indices changed from one-based to zero-based. No time series."
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hemisphere",
+        "hemisphere_applies_to",
+        "axes",
+        "units",
+        "axis_basis",
+        "camera_matlab_azimuth_elevation_deg"
+      ],
+      "properties": {
+        "hemisphere": {
+          "const": "left"
+        },
+        "hemisphere_applies_to": {
+          "const": "contact array (left frontoparietal)"
+        },
+        "axes": {
+          "const": [
+            "right",
+            "anterior",
+            "superior"
+          ]
+        },
+        "units": {
+          "const": null
+        },
+        "axis_basis": {
+          "const": "Positive display-axis directions from the depositor's CTMR loc_view.m; the source MAT supplies no affine or unit metadata."
+        },
+        "camera_matlab_azimuth_elevation_deg": {
+          "const": [
+            250,
+            15
+          ]
+        }
+      }
+    },
+    "mesh": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vertices",
+        "faces"
+      ],
+      "properties": {
+        "vertices": {
+          "type": "array",
+          "minItems": 45180,
+          "maxItems": 45180,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "faces": {
+          "type": "array",
+          "minItems": 90368,
+          "maxItems": 90368,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 45179
+            }
+          }
+        }
+      }
+    },
+    "contacts": {
+      "type": "array",
+      "minItems": 46,
+      "maxItems": 46,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "column0",
+          "column1",
+          "region_code",
+          "xyz"
+        ],
+        "properties": {
+          "column0": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 45
+          },
+          "column1": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 46
+          },
+          "region_code": {
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              7
+            ]
+          },
+          "xyz": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}

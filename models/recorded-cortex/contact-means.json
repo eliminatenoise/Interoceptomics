@@ -1,0 +1,1410 @@
+{
+  "schema_version": 1,
+  "source_member_sha256": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a",
+  "unit": "dB (mean of paired cue / following blank power ratios in decibels)",
+  "trial_counts": {
+    "all": 88,
+    "thumb": 18,
+    "index": 19,
+    "middle": 22,
+    "ring": 16,
+    "little": 13
+  },
+  "bands": [
+    {
+      "id": "beta",
+      "min_hz": 12,
+      "max_hz": 20
+    },
+    {
+      "id": "high",
+      "min_hz": 70,
+      "max_hz": 110
+    }
+  ],
+  "contacts": [
+    {
+      "index1": 1,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.43,
+          "high": -0.72
+        },
+        "thumb": {
+          "beta": -0.53,
+          "high": -1.23
+        },
+        "index": {
+          "beta": 0.37,
+          "high": -1.19
+        },
+        "middle": {
+          "beta": -1.08,
+          "high": -1.01
+        },
+        "ring": {
+          "beta": -1.52,
+          "high": 0.26
+        },
+        "little": {
+          "beta": 0.95,
+          "high": -0.04
+        }
+      }
+    },
+    {
+      "index1": 2,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.43,
+          "high": 0.27
+        },
+        "thumb": {
+          "beta": -0.43,
+          "high": 0.17
+        },
+        "index": {
+          "beta": -0.69,
+          "high": -0.46
+        },
+        "middle": {
+          "beta": -0.32,
+          "high": 0.71
+        },
+        "ring": {
+          "beta": -1.12,
+          "high": 0.03
+        },
+        "little": {
+          "beta": 0.66,
+          "high": 1.03
+        }
+      }
+    },
+    {
+      "index1": 3,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -1.05,
+          "high": 0.05
+        },
+        "thumb": {
+          "beta": -1.2,
+          "high": -0.02
+        },
+        "index": {
+          "beta": -0.21,
+          "high": 0.32
+        },
+        "middle": {
+          "beta": -2.46,
+          "high": 0.22
+        },
+        "ring": {
+          "beta": -0.94,
+          "high": -0.04
+        },
+        "little": {
+          "beta": 0.19,
+          "high": -0.44
+        }
+      }
+    },
+    {
+      "index1": 4,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -1.79,
+          "high": -0.05
+        },
+        "thumb": {
+          "beta": -1.51,
+          "high": -0.01
+        },
+        "index": {
+          "beta": -0.62,
+          "high": -0.05
+        },
+        "middle": {
+          "beta": -3.82,
+          "high": -0.02
+        },
+        "ring": {
+          "beta": -2.11,
+          "high": 0.2
+        },
+        "little": {
+          "beta": -0.06,
+          "high": -0.44
+        }
+      }
+    },
+    {
+      "index1": 5,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -3.61,
+          "high": 2.02
+        },
+        "thumb": {
+          "beta": -2.32,
+          "high": 2.03
+        },
+        "index": {
+          "beta": -3.65,
+          "high": 1.93
+        },
+        "middle": {
+          "beta": -5.12,
+          "high": 2.83
+        },
+        "ring": {
+          "beta": -3.95,
+          "high": 1.79
+        },
+        "little": {
+          "beta": -2.34,
+          "high": 1.04
+        }
+      }
+    },
+    {
+      "index1": 6,
+      "region_code": 0,
+      "by_cue": {
+        "all": {
+          "beta": -3.0,
+          "high": 3.2
+        },
+        "thumb": {
+          "beta": -3.12,
+          "high": 1.77
+        },
+        "index": {
+          "beta": -5.0,
+          "high": 2.91
+        },
+        "middle": {
+          "beta": -1.71,
+          "high": 4.3
+        },
+        "ring": {
+          "beta": -3.06,
+          "high": 3.82
+        },
+        "little": {
+          "beta": -2.04,
+          "high": 2.99
+        }
+      }
+    },
+    {
+      "index1": 7,
+      "region_code": 1,
+      "by_cue": {
+        "all": {
+          "beta": -5.26,
+          "high": 3.12
+        },
+        "thumb": {
+          "beta": -3.45,
+          "high": 3.24
+        },
+        "index": {
+          "beta": -7.96,
+          "high": 3.21
+        },
+        "middle": {
+          "beta": -3.86,
+          "high": 2.0
+        },
+        "ring": {
+          "beta": -6.19,
+          "high": 3.66
+        },
+        "little": {
+          "beta": -5.02,
+          "high": 4.06
+        }
+      }
+    },
+    {
+      "index1": 8,
+      "region_code": 3,
+      "by_cue": {
+        "all": {
+          "beta": -2.28,
+          "high": 0.78
+        },
+        "thumb": {
+          "beta": -1.34,
+          "high": 1.02
+        },
+        "index": {
+          "beta": -3.56,
+          "high": 0.89
+        },
+        "middle": {
+          "beta": -2.23,
+          "high": 0.33
+        },
+        "ring": {
+          "beta": -1.82,
+          "high": 0.89
+        },
+        "little": {
+          "beta": -2.36,
+          "high": 0.93
+        }
+      }
+    },
+    {
+      "index1": 9,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.65,
+          "high": -0.2
+        },
+        "thumb": {
+          "beta": -0.58,
+          "high": -0.47
+        },
+        "index": {
+          "beta": -0.24,
+          "high": -0.63
+        },
+        "middle": {
+          "beta": -1.6,
+          "high": -0.14
+        },
+        "ring": {
+          "beta": -0.58,
+          "high": 0.13
+        },
+        "little": {
+          "beta": 0.17,
+          "high": 0.26
+        }
+      }
+    },
+    {
+      "index1": 10,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": 1.32,
+          "high": -0.56
+        },
+        "thumb": {
+          "beta": 2.57,
+          "high": -0.68
+        },
+        "index": {
+          "beta": 1.55,
+          "high": -0.88
+        },
+        "middle": {
+          "beta": 0.43,
+          "high": -0.49
+        },
+        "ring": {
+          "beta": -0.16,
+          "high": -0.06
+        },
+        "little": {
+          "beta": 2.56,
+          "high": -0.66
+        }
+      }
+    },
+    {
+      "index1": 11,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -1.03,
+          "high": 0.12
+        },
+        "thumb": {
+          "beta": -0.58,
+          "high": -0.05
+        },
+        "index": {
+          "beta": -0.04,
+          "high": -0.1
+        },
+        "middle": {
+          "beta": -2.79,
+          "high": 0.38
+        },
+        "ring": {
+          "beta": -0.73,
+          "high": 0.13
+        },
+        "little": {
+          "beta": -0.54,
+          "high": 0.23
+        }
+      }
+    },
+    {
+      "index1": 12,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -2.54,
+          "high": 0.23
+        },
+        "thumb": {
+          "beta": -3.3,
+          "high": 0.45
+        },
+        "index": {
+          "beta": -2.01,
+          "high": 0.29
+        },
+        "middle": {
+          "beta": -3.18,
+          "high": 0.55
+        },
+        "ring": {
+          "beta": -3.0,
+          "high": -0.14
+        },
+        "little": {
+          "beta": -0.58,
+          "high": -0.24
+        }
+      }
+    },
+    {
+      "index1": 13,
+      "region_code": 1,
+      "by_cue": {
+        "all": {
+          "beta": -6.09,
+          "high": 2.69
+        },
+        "thumb": {
+          "beta": -6.12,
+          "high": 2.77
+        },
+        "index": {
+          "beta": -6.5,
+          "high": 3.47
+        },
+        "middle": {
+          "beta": -5.13,
+          "high": 1.65
+        },
+        "ring": {
+          "beta": -7.61,
+          "high": 2.73
+        },
+        "little": {
+          "beta": -5.18,
+          "high": 3.12
+        }
+      }
+    },
+    {
+      "index1": 14,
+      "region_code": 3,
+      "by_cue": {
+        "all": {
+          "beta": -7.81,
+          "high": 3.2
+        },
+        "thumb": {
+          "beta": -6.77,
+          "high": 3.23
+        },
+        "index": {
+          "beta": -8.25,
+          "high": 3.73
+        },
+        "middle": {
+          "beta": -6.32,
+          "high": 1.9
+        },
+        "ring": {
+          "beta": -9.36,
+          "high": 3.67
+        },
+        "little": {
+          "beta": -9.23,
+          "high": 4.0
+        }
+      }
+    },
+    {
+      "index1": 15,
+      "region_code": 3,
+      "by_cue": {
+        "all": {
+          "beta": -3.89,
+          "high": 2.38
+        },
+        "thumb": {
+          "beta": -3.79,
+          "high": 2.66
+        },
+        "index": {
+          "beta": -3.89,
+          "high": 3.84
+        },
+        "middle": {
+          "beta": -2.8,
+          "high": 1.98
+        },
+        "ring": {
+          "beta": -5.16,
+          "high": 1.39
+        },
+        "little": {
+          "beta": -4.27,
+          "high": 1.77
+        }
+      }
+    },
+    {
+      "index1": 16,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": 0.15,
+          "high": -0.14
+        },
+        "thumb": {
+          "beta": 1.4,
+          "high": -0.6
+        },
+        "index": {
+          "beta": 0.11,
+          "high": -0.5
+        },
+        "middle": {
+          "beta": -0.16,
+          "high": -0.0
+        },
+        "ring": {
+          "beta": -0.21,
+          "high": -0.33
+        },
+        "little": {
+          "beta": -0.55,
+          "high": 1.06
+        }
+      }
+    },
+    {
+      "index1": 17,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": 0.09,
+          "high": 0.43
+        },
+        "thumb": {
+          "beta": 0.61,
+          "high": -0.19
+        },
+        "index": {
+          "beta": 0.53,
+          "high": -0.11
+        },
+        "middle": {
+          "beta": -1.34,
+          "high": 0.72
+        },
+        "ring": {
+          "beta": 0.18,
+          "high": 1.33
+        },
+        "little": {
+          "beta": 1.01,
+          "high": 0.5
+        }
+      }
+    },
+    {
+      "index1": 18,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.58,
+          "high": 0.54
+        },
+        "thumb": {
+          "beta": 0.52,
+          "high": 0.46
+        },
+        "index": {
+          "beta": 0.25,
+          "high": 0.43
+        },
+        "middle": {
+          "beta": -1.07,
+          "high": 1.07
+        },
+        "ring": {
+          "beta": -1.89,
+          "high": 0.75
+        },
+        "little": {
+          "beta": -0.91,
+          "high": -0.35
+        }
+      }
+    },
+    {
+      "index1": 19,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.68,
+          "high": -0.3
+        },
+        "thumb": {
+          "beta": 0.41,
+          "high": -0.52
+        },
+        "index": {
+          "beta": -0.9,
+          "high": -0.37
+        },
+        "middle": {
+          "beta": -0.54,
+          "high": -0.03
+        },
+        "ring": {
+          "beta": -1.1,
+          "high": -0.59
+        },
+        "little": {
+          "beta": -1.62,
+          "high": 0.03
+        }
+      }
+    },
+    {
+      "index1": 20,
+      "region_code": 0,
+      "by_cue": {
+        "all": {
+          "beta": -0.54,
+          "high": 0.18
+        },
+        "thumb": {
+          "beta": -1.41,
+          "high": 0.71
+        },
+        "index": {
+          "beta": -0.5,
+          "high": 0.05
+        },
+        "middle": {
+          "beta": 0.27,
+          "high": -0.11
+        },
+        "ring": {
+          "beta": 0.02,
+          "high": -0.35
+        },
+        "little": {
+          "beta": -1.45,
+          "high": 0.8
+        }
+      }
+    },
+    {
+      "index1": 21,
+      "region_code": 2,
+      "by_cue": {
+        "all": {
+          "beta": -3.63,
+          "high": 1.94
+        },
+        "thumb": {
+          "beta": -3.74,
+          "high": 4.4
+        },
+        "index": {
+          "beta": -5.17,
+          "high": 2.01
+        },
+        "middle": {
+          "beta": -2.89,
+          "high": 0.73
+        },
+        "ring": {
+          "beta": -2.43,
+          "high": 0.96
+        },
+        "little": {
+          "beta": -3.94,
+          "high": 1.65
+        }
+      }
+    },
+    {
+      "index1": 22,
+      "region_code": 3,
+      "by_cue": {
+        "all": {
+          "beta": -3.85,
+          "high": 2.9
+        },
+        "thumb": {
+          "beta": -3.75,
+          "high": 3.2
+        },
+        "index": {
+          "beta": -5.34,
+          "high": 2.44
+        },
+        "middle": {
+          "beta": -2.72,
+          "high": 0.69
+        },
+        "ring": {
+          "beta": -4.44,
+          "high": 4.18
+        },
+        "little": {
+          "beta": -2.97,
+          "high": 5.3
+        }
+      }
+    },
+    {
+      "index1": 23,
+      "region_code": 7,
+      "by_cue": {
+        "all": {
+          "beta": -2.0,
+          "high": 0.26
+        },
+        "thumb": {
+          "beta": -0.77,
+          "high": 0.02
+        },
+        "index": {
+          "beta": -1.69,
+          "high": 0.15
+        },
+        "middle": {
+          "beta": -2.37,
+          "high": 1.13
+        },
+        "ring": {
+          "beta": -2.92,
+          "high": 0.4
+        },
+        "little": {
+          "beta": -2.39,
+          "high": -0.92
+        }
+      }
+    },
+    {
+      "index1": 24,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.78,
+          "high": 0.51
+        },
+        "thumb": {
+          "beta": -0.61,
+          "high": -0.22
+        },
+        "index": {
+          "beta": -1.39,
+          "high": 0.22
+        },
+        "middle": {
+          "beta": -1.92,
+          "high": 0.72
+        },
+        "ring": {
+          "beta": -0.1,
+          "high": 1.4
+        },
+        "little": {
+          "beta": 0.98,
+          "high": 0.5
+        }
+      }
+    },
+    {
+      "index1": 25,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.17,
+          "high": 1.36
+        },
+        "thumb": {
+          "beta": -0.82,
+          "high": 2.03
+        },
+        "index": {
+          "beta": 0.7,
+          "high": 0.99
+        },
+        "middle": {
+          "beta": -1.24,
+          "high": 1.52
+        },
+        "ring": {
+          "beta": 0.37,
+          "high": 0.9
+        },
+        "little": {
+          "beta": 0.58,
+          "high": 1.31
+        }
+      }
+    },
+    {
+      "index1": 26,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.77,
+          "high": 0.44
+        },
+        "thumb": {
+          "beta": -1.45,
+          "high": 0.79
+        },
+        "index": {
+          "beta": -0.21,
+          "high": 0.84
+        },
+        "middle": {
+          "beta": -1.41,
+          "high": 0.12
+        },
+        "ring": {
+          "beta": -0.9,
+          "high": 0.08
+        },
+        "little": {
+          "beta": 0.57,
+          "high": 0.36
+        }
+      }
+    },
+    {
+      "index1": 27,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -1.42,
+          "high": 0.21
+        },
+        "thumb": {
+          "beta": -2.54,
+          "high": 0.56
+        },
+        "index": {
+          "beta": -1.74,
+          "high": 0.19
+        },
+        "middle": {
+          "beta": -0.58,
+          "high": 0.06
+        },
+        "ring": {
+          "beta": -1.42,
+          "high": -0.63
+        },
+        "little": {
+          "beta": -0.86,
+          "high": 1.02
+        }
+      }
+    },
+    {
+      "index1": 28,
+      "region_code": 0,
+      "by_cue": {
+        "all": {
+          "beta": -0.99,
+          "high": 1.68
+        },
+        "thumb": {
+          "beta": -0.28,
+          "high": 1.78
+        },
+        "index": {
+          "beta": -1.2,
+          "high": 2.0
+        },
+        "middle": {
+          "beta": -0.71,
+          "high": 1.54
+        },
+        "ring": {
+          "beta": -2.56,
+          "high": 1.67
+        },
+        "little": {
+          "beta": -0.22,
+          "high": 1.35
+        }
+      }
+    },
+    {
+      "index1": 29,
+      "region_code": 4,
+      "by_cue": {
+        "all": {
+          "beta": -1.67,
+          "high": -0.52
+        },
+        "thumb": {
+          "beta": -1.92,
+          "high": 0.03
+        },
+        "index": {
+          "beta": -0.47,
+          "high": -0.58
+        },
+        "middle": {
+          "beta": -0.78,
+          "high": -0.7
+        },
+        "ring": {
+          "beta": -3.18,
+          "high": -0.37
+        },
+        "little": {
+          "beta": -2.74,
+          "high": -1.09
+        }
+      }
+    },
+    {
+      "index1": 30,
+      "region_code": 0,
+      "by_cue": {
+        "all": {
+          "beta": -2.24,
+          "high": 0.56
+        },
+        "thumb": {
+          "beta": -1.82,
+          "high": 0.94
+        },
+        "index": {
+          "beta": -2.65,
+          "high": 0.86
+        },
+        "middle": {
+          "beta": -2.1,
+          "high": 0.61
+        },
+        "ring": {
+          "beta": -2.93,
+          "high": 0.45
+        },
+        "little": {
+          "beta": -1.6,
+          "high": -0.3
+        }
+      }
+    },
+    {
+      "index1": 31,
+      "region_code": 7,
+      "by_cue": {
+        "all": {
+          "beta": -0.76,
+          "high": 0.21
+        },
+        "thumb": {
+          "beta": -0.0,
+          "high": 0.98
+        },
+        "index": {
+          "beta": -0.48,
+          "high": 0.03
+        },
+        "middle": {
+          "beta": -0.93,
+          "high": 0.48
+        },
+        "ring": {
+          "beta": -1.67,
+          "high": 0.02
+        },
+        "little": {
+          "beta": -0.79,
+          "high": -0.8
+        }
+      }
+    },
+    {
+      "index1": 32,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.53,
+          "high": 0.27
+        },
+        "thumb": {
+          "beta": -1.71,
+          "high": 0.24
+        },
+        "index": {
+          "beta": -0.14,
+          "high": 1.0
+        },
+        "middle": {
+          "beta": -1.26,
+          "high": 0.31
+        },
+        "ring": {
+          "beta": 0.74,
+          "high": 0.83
+        },
+        "little": {
+          "beta": 0.19,
+          "high": -1.51
+        }
+      }
+    },
+    {
+      "index1": 33,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.18,
+          "high": 0.76
+        },
+        "thumb": {
+          "beta": -0.64,
+          "high": 0.94
+        },
+        "index": {
+          "beta": -1.99,
+          "high": 1.01
+        },
+        "middle": {
+          "beta": 0.55,
+          "high": 0.06
+        },
+        "ring": {
+          "beta": 0.13,
+          "high": 1.18
+        },
+        "little": {
+          "beta": 1.52,
+          "high": 0.81
+        }
+      }
+    },
+    {
+      "index1": 34,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.69,
+          "high": 0.36
+        },
+        "thumb": {
+          "beta": -1.17,
+          "high": 0.87
+        },
+        "index": {
+          "beta": -0.84,
+          "high": -0.08
+        },
+        "middle": {
+          "beta": -0.48,
+          "high": 0.6
+        },
+        "ring": {
+          "beta": -0.83,
+          "high": 0.02
+        },
+        "little": {
+          "beta": 0.02,
+          "high": 0.32
+        }
+      }
+    },
+    {
+      "index1": 35,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -1.15,
+          "high": 0.18
+        },
+        "thumb": {
+          "beta": -1.2,
+          "high": 0.23
+        },
+        "index": {
+          "beta": -0.18,
+          "high": 0.11
+        },
+        "middle": {
+          "beta": -1.07,
+          "high": 0.71
+        },
+        "ring": {
+          "beta": -2.72,
+          "high": -0.31
+        },
+        "little": {
+          "beta": -0.7,
+          "high": -0.07
+        }
+      }
+    },
+    {
+      "index1": 36,
+      "region_code": 4,
+      "by_cue": {
+        "all": {
+          "beta": -1.11,
+          "high": 0.16
+        },
+        "thumb": {
+          "beta": -0.54,
+          "high": 0.3
+        },
+        "index": {
+          "beta": -2.16,
+          "high": 0.31
+        },
+        "middle": {
+          "beta": -0.66,
+          "high": -0.06
+        },
+        "ring": {
+          "beta": -1.22,
+          "high": -0.14
+        },
+        "little": {
+          "beta": -0.96,
+          "high": 0.49
+        }
+      }
+    },
+    {
+      "index1": 37,
+      "region_code": 4,
+      "by_cue": {
+        "all": {
+          "beta": -1.5,
+          "high": 0.53
+        },
+        "thumb": {
+          "beta": -2.44,
+          "high": -0.1
+        },
+        "index": {
+          "beta": -1.22,
+          "high": 0.51
+        },
+        "middle": {
+          "beta": -0.78,
+          "high": 0.87
+        },
+        "ring": {
+          "beta": -2.34,
+          "high": 1.18
+        },
+        "little": {
+          "beta": -0.75,
+          "high": 0.04
+        }
+      }
+    },
+    {
+      "index1": 38,
+      "region_code": 7,
+      "by_cue": {
+        "all": {
+          "beta": -1.49,
+          "high": 0.62
+        },
+        "thumb": {
+          "beta": -0.64,
+          "high": 1.11
+        },
+        "index": {
+          "beta": -2.33,
+          "high": 0.2
+        },
+        "middle": {
+          "beta": -1.28,
+          "high": 1.25
+        },
+        "ring": {
+          "beta": -1.63,
+          "high": 0.29
+        },
+        "little": {
+          "beta": -1.64,
+          "high": -0.1
+        }
+      }
+    },
+    {
+      "index1": 39,
+      "region_code": 7,
+      "by_cue": {
+        "all": {
+          "beta": -1.1,
+          "high": 0.03
+        },
+        "thumb": {
+          "beta": -0.08,
+          "high": -0.27
+        },
+        "index": {
+          "beta": -1.79,
+          "high": 0.14
+        },
+        "middle": {
+          "beta": -0.7,
+          "high": 0.2
+        },
+        "ring": {
+          "beta": -2.16,
+          "high": 0.06
+        },
+        "little": {
+          "beta": -0.85,
+          "high": -0.05
+        }
+      }
+    },
+    {
+      "index1": 40,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": 0.03,
+          "high": 0.13
+        },
+        "thumb": {
+          "beta": 0.65,
+          "high": 0.13
+        },
+        "index": {
+          "beta": 0.45,
+          "high": 0.02
+        },
+        "middle": {
+          "beta": -0.23,
+          "high": 0.1
+        },
+        "ring": {
+          "beta": -1.61,
+          "high": 0.45
+        },
+        "little": {
+          "beta": 1.02,
+          "high": -0.02
+        }
+      }
+    },
+    {
+      "index1": 41,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -0.42,
+          "high": -0.07
+        },
+        "thumb": {
+          "beta": -1.17,
+          "high": 0.46
+        },
+        "index": {
+          "beta": -0.07,
+          "high": 0.01
+        },
+        "middle": {
+          "beta": -0.15,
+          "high": -0.02
+        },
+        "ring": {
+          "beta": -0.92,
+          "high": -0.5
+        },
+        "little": {
+          "beta": 0.26,
+          "high": -0.5
+        }
+      }
+    },
+    {
+      "index1": 42,
+      "region_code": 6,
+      "by_cue": {
+        "all": {
+          "beta": -1.12,
+          "high": -0.12
+        },
+        "thumb": {
+          "beta": -2.08,
+          "high": 0.35
+        },
+        "index": {
+          "beta": -0.91,
+          "high": -0.08
+        },
+        "middle": {
+          "beta": -1.32,
+          "high": -0.03
+        },
+        "ring": {
+          "beta": 0.06,
+          "high": -0.41
+        },
+        "little": {
+          "beta": -1.2,
+          "high": -0.61
+        }
+      }
+    },
+    {
+      "index1": 43,
+      "region_code": 4,
+      "by_cue": {
+        "all": {
+          "beta": -0.21,
+          "high": -0.02
+        },
+        "thumb": {
+          "beta": -1.09,
+          "high": 0.06
+        },
+        "index": {
+          "beta": -0.35,
+          "high": -0.15
+        },
+        "middle": {
+          "beta": 0.66,
+          "high": -0.45
+        },
+        "ring": {
+          "beta": -0.12,
+          "high": 0.38
+        },
+        "little": {
+          "beta": -0.34,
+          "high": 0.32
+        }
+      }
+    },
+    {
+      "index1": 44,
+      "region_code": 4,
+      "by_cue": {
+        "all": {
+          "beta": -0.98,
+          "high": 0.05
+        },
+        "thumb": {
+          "beta": -0.62,
+          "high": 0.49
+        },
+        "index": {
+          "beta": -1.31,
+          "high": -0.21
+        },
+        "middle": {
+          "beta": -0.01,
+          "high": 0.3
+        },
+        "ring": {
+          "beta": -2.09,
+          "high": -0.62
+        },
+        "little": {
+          "beta": -1.3,
+          "high": 0.21
+        }
+      }
+    },
+    {
+      "index1": 45,
+      "region_code": 7,
+      "by_cue": {
+        "all": {
+          "beta": -1.73,
+          "high": 0.06
+        },
+        "thumb": {
+          "beta": -1.53,
+          "high": 0.23
+        },
+        "index": {
+          "beta": -1.61,
+          "high": 0.6
+        },
+        "middle": {
+          "beta": -0.65,
+          "high": -0.06
+        },
+        "ring": {
+          "beta": -3.3,
+          "high": -0.09
+        },
+        "little": {
+          "beta": -2.09,
+          "high": -0.56
+        }
+      }
+    },
+    {
+      "index1": 46,
+      "region_code": 7,
+      "by_cue": {
+        "all": {
+          "beta": -0.2,
+          "high": 0.63
+        },
+        "thumb": {
+          "beta": 0.56,
+          "high": 0.74
+        },
+        "index": {
+          "beta": 0.19,
+          "high": 0.52
+        },
+        "middle": {
+          "beta": -0.35,
+          "high": 1.06
+        },
+        "ring": {
+          "beta": -1.45,
+          "high": 0.68
+        },
+        "little": {
+          "beta": -0.05,
+          "high": -0.15
+        }
+      }
+    }
+  ],
+  "source": "https://purl.stanford.edu/zk881ps0522",
+  "license": "CC BY-SA 4.0",
+  "methods": "METHODS.md"
+}

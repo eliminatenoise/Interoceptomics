@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "title": "A library of human electrocorticographic data and analyses",
+    "creator": "Kai Joshua Miller",
+    "publisher": "Stanford Digital Repository",
+    "version": 11,
+    "record": "https://purl.stanford.edu/zk881ps0522",
+    "catalog": "https://purl.stanford.edu/zk881ps0522.json",
+    "catalog_response_sha256": "ff5e2227325e0f8615dfc7ea386b7785fc8b30e2fb49023d37ee1a924aceb799",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+    "privacy_terms": "User agrees that, where applicable, content will not be used to identify or to otherwise infringe the privacy or confidentiality rights of individuals. Content distributed via the Stanford Digital Repository may be subject to additional license and use restrictions applied by the depositor."
+  },
+  "archive": {
+    "name": "fingerflex.zip",
+    "download": "https://stacks.stanford.edu/file/druid:zk881ps0522/fingerflex.zip",
+    "bytes": 580522436,
+    "repository_declared_digests": [
+      {
+        "type": "md5",
+        "digest": "8e44fef2a12ef42868b01a031f5b6350"
+      },
+      {
+        "type": "sha1",
+        "digest": "83acfe25c27da197db0feaf742d9c5f3f9ee99bf"
+      }
+    ],
+    "central_directory_sha256": "5f7fd76160dacfa4e52790a667fb5ab35afabe62e38cb01b796c9b628c6421cf",
+    "zip_entry_count": 113,
+    "integrity_scope": "SHA-256 verified for the central directory and listed individual members. Whole-archive MD5 and SHA-1 are repository declarations."
+  },
+  "task_readme": {
+    "name": "fingerflex/README_fingerflex_dataset_notes.docx",
+    "compressed_range_inclusive": [
+      561827574,
+      561848248
+    ],
+    "compressed_sha256": "4a1c8c86e784c67409aff764a159fd9f133df34880725f934c9ece6fbc8ebc69",
+    "uncompressed_bytes": 23434,
+    "sha256": "4426827c5181bd994a30b5230c046fba196e78ac03bad8210946ca05094929f4",
+    "zip_crc32": "e3940956"
+  },
+  "processing_script": {
+    "member": "fingerflex/call_subs_processing.m",
+    "sha256": "d726eeecbdcf75807b1b898ca32f3972aff5e2f2192b2ae914f2ac2e66e3258d",
+    "zip_crc32": "587e1c66",
+    "compressed_bytes_inclusive": [
+      2748,
+      4522
+    ],
+    "uncompressed_bytes": 4469,
+    "evidence_lines_1_based": [
+      38,
+      49
+    ],
+    "detail": "The contributor links recording columns to locs rows and elec_regions, says bad channels were already removed and identifies code 2 as rolandic. Line 55 applies a common-average reference."
+  },
+  "plotting_script": {
+    "member": "fingerflex/call_subs_figs.m",
+    "sha256": "3de96e445df6cd51f0f6eb6c3887865963f0017b57fe9a00ee92ef1823cbb310",
+    "zip_crc32": "09338fb6",
+    "compressed_bytes_inclusive": [
+      963,
+      2468
+    ],
+    "uncompressed_bytes": 3839,
+    "evidence_lines_1_based": [
+      61,
+      65
+    ],
+    "detail": "Draws the individual brain surface and the recording contact positions in their shared rendering frame. An extra zero tuple in one plotting call is a plotting argument, outside the 46 source positions."
+  },
+  "selected_matlab_member": {
+    "name": "fingerflex/data/bp/bp_fingerflex.mat",
+    "compressed_range_inclusive": [
+      6413,
+      58845098
+    ],
+    "compressed_sha256": "b2905446cc76f2e28410160a239ba6a68aabe4151efe62f2f8f0e23bfef2e0b5",
+    "uncompressed_bytes": 58929343,
+    "sha256": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a",
+    "zip_crc32": "ee515565"
+  },
+  "relevant_source_fields": {
+    "data": [
+      610040,
+      46
+    ],
+    "elec_regions": [
+      46,
+      1
+    ],
+    "locs": [
+      46,
+      3
+    ],
+    "brain": [
+      1,
+      1
+    ],
+    "cue": [
+      610040,
+      1
+    ]
+  },
+  "input": {
+    "source_matlab_variable_order": "Recording data column k = position row k = anatomical label row k. Source MATLAB indices begin at 1.",
+    "prefix_rows_zero_based_half_open": [
+      0,
+      362000
+    ],
+    "npz_training_prefix_sha256": "57ea209841127b6cc04f2c03f8f6146f01b3e0235d169365d009cf3f9c643e9c",
+    "participants_analyzed": 1
+  },
+  "space": {
+    "native": "Original left frontoparietal grid and cortical mesh in the same individual rendering space. The task codebook and processing/plotting pair support channel-index registration. Source MATLAB fields have coordinate triples per contact; codebook does not explicitly label units, axes, origin, named template or a transform into another atlas.",
+    "figures": "Miller et al. 2012 Figure 1A–C depicts this participant. Figure 12A shows a separate coherence analysis on this participant’s grid. Study Methods report approximately 4 mm accuracy for the localisation technique. This is method-level, not a measured error bar on these contacts.",
+    "hemisphere": "left"
+  },
+  "references": [
+    {
+      "authors": "Miller KJ et al.",
+      "year": 2012,
+      "title": "Human Motor Cortical Activity Is Selectively Phase-Entrained on Underlying Rhythms",
+      "url": "https://doi.org/10.1371/journal.pcbi.1002655",
+      "supports": "Original measured subdural ECoG, task, acquisition, timing and individual contact localization. Figure 1A–C shows subject 1 in situ and reconstructed."
+    },
+    {
+      "authors": "Miller KJ",
+      "year": 2019,
+      "title": "A library of human electrocorticographic data and analyses",
+      "url": "https://doi.org/10.1038/s41562-019-0678-3",
+      "supports": "Depositor describes the source data library and anatomical registration."
+    },
+    {
+      "authors": "Hermes D et al.",
+      "year": 2010,
+      "title": "Automated electrocorticographic electrode localization on individually rendered brain surfaces",
+      "url": "https://doi.org/10.1016/j.jneumeth.2009.10.005",
+      "supports": "Validates the original method against photographs, median 2.6 mm across six studied subjects; not independent per-contact error estimates for the current specimen."
+    }
+  ],
+  "outputs": {
+    "METHODS.md": {
+      "bytes": 8974,
+      "sha256": "63725784005d9694b5419708308d9ed46b48de6cda91479a8c0a8c4dc15f5c1d"
+    },
+    "analysis-plan.json": {
+      "bytes": 2998,
+      "sha256": "41327a5cb349d84d20f84856a6476a42e8930612862e05b998be6ded6c4fbb2c"
+    },
+    "contact-means.json": {
+      "bytes": 25832,
+      "sha256": "8e1ad90b1fc3a16318f917e88d7424c9c2f1b0b0d3556892b83b69f4539de93c"
+    },
+    "derive.py": {
+      "bytes": 8172,
+      "sha256": "0502d5d434413f405fb76b048c0dbeef0848ab4e7cda0946aff7ee8568adcf88"
+    },
+    "regional-activity.json": {
+      "bytes": 12720,
+      "sha256": "2753aba01381ecdc7617d4fc1654c9b3c2956242ee9c9165f54182a174e4df72"
+    }
+  },
+  "reproducibility": {
+    "python": "3.13.15",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "method": "One-second periodic Hann periodogram of common-average referenced source counts converted to microvolts, within-pair ratios in dB. See analysis-plan.json and METHODS.md.",
+    "numerical_check": "Direct real FFT using counts and an analytically constructed Hann window reproduces 216 regional fields within 0.0000005 dB and all 552 contact means under the published rounding."
+  },
+  "attribution": "Kai Joshua Miller, Stanford Digital Repository v11. The derived summaries use one cropped recording, common-average referencing, spectral power estimates and paired aggregation. Adapted materials under CC BY-SA 4.0. Use the verbatim ethics statement in METHODS.md in publications."
+}

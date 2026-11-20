@@ -1,0 +1,107 @@
+{
+  "dataset": {
+    "title": "A library of human electrocorticographic data and analyses",
+    "creator": "Kai Joshua Miller",
+    "publisher": "Stanford Digital Repository",
+    "version": 11,
+    "record": "https://purl.stanford.edu/zk881ps0522",
+    "catalog": "https://purl.stanford.edu/zk881ps0522.json",
+    "catalog_response_sha256": "ff5e2227325e0f8615dfc7ea386b7785fc8b30e2fb49023d37ee1a924aceb799",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+    "privacy_terms": "User agrees that, where applicable, content will not be used to identify or to otherwise infringe the privacy or confidentiality rights of individuals. Content distributed via the Stanford Digital Repository may be subject to additional license and use restrictions applied by the depositor."
+  },
+  "archive": {
+    "name": "fingerflex.zip",
+    "download": "https://stacks.stanford.edu/file/druid:zk881ps0522/fingerflex.zip",
+    "bytes": 580522436,
+    "repository_declared_digests": [
+      {
+        "type": "md5",
+        "digest": "8e44fef2a12ef42868b01a031f5b6350"
+      },
+      {
+        "type": "sha1",
+        "digest": "83acfe25c27da197db0feaf742d9c5f3f9ee99bf"
+      }
+    ],
+    "central_directory_sha256": "5f7fd76160dacfa4e52790a667fb5ab35afabe62e38cb01b796c9b628c6421cf",
+    "zip_entry_count": 113,
+    "integrity_scope": "SHA-256 verified for the central directory and listed individual members. Whole-archive MD5 and SHA-1 are repository declarations."
+  },
+  "task_readme": {
+    "name": "fingerflex/README_fingerflex_dataset_notes.docx",
+    "compressed_range_inclusive": [
+      561827574,
+      561848248
+    ],
+    "compressed_sha256": "4a1c8c86e784c67409aff764a159fd9f133df34880725f934c9ece6fbc8ebc69",
+    "uncompressed_bytes": 23434,
+    "sha256": "4426827c5181bd994a30b5230c046fba196e78ac03bad8210946ca05094929f4",
+    "zip_crc32": "e3940956"
+  },
+  "processing_script": {
+    "member": "fingerflex/call_subs_processing.m",
+    "sha256": "d726eeecbdcf75807b1b898ca32f3972aff5e2f2192b2ae914f2ac2e66e3258d",
+    "zip_crc32": "587e1c66",
+    "compressed_bytes_inclusive": [
+      2748,
+      4522
+    ],
+    "uncompressed_bytes": 4469,
+    "evidence_lines_1_based": [
+      38,
+      49
+    ],
+    "detail": "The contributor links recording columns to locs rows and elec_regions, says bad channels were already removed and identifies code 2 as rolandic. Line 55 applies a common-average reference."
+  },
+  "selected_matlab_member": {
+    "name": "fingerflex/data/bp/bp_fingerflex.mat",
+    "compressed_range_inclusive": [
+      6413,
+      58845098
+    ],
+    "compressed_sha256": "b2905446cc76f2e28410160a239ba6a68aabe4151efe62f2f8f0e23bfef2e0b5",
+    "uncompressed_bytes": 58929343,
+    "sha256": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a",
+    "zip_crc32": "ee515565"
+  },
+  "analysis_input": {
+    "rows_half_open": [
+      0,
+      362000
+    ],
+    "participants": 1,
+    "original_fields": [
+      "data",
+      "cue",
+      "flex",
+      "elec_regions"
+    ],
+    "prefix_sha256": "57ea209841127b6cc04f2c03f8f6146f01b3e0235d169365d009cf3f9c643e9c",
+    "cortex": "1000 Hz, 0.0298 μV / amplifier count",
+    "glove": "Five columns of raw sensor counts in thumb to little order, 40-row blocks; first row of every block on nominal 25 Hz grid.",
+    "participant_clock": "37 ms lag; standard error 3 ms, from the original study. No per-record sensor-clock correction."
+  },
+  "references": [
+    {
+      "work": "Original experiment and clock estimate",
+      "url": "https://doi.org/10.1371/journal.pcbi.1002655"
+    },
+    {
+      "work": "Library descriptor",
+      "url": "https://doi.org/10.1038/s41562-019-0678-3"
+    },
+    {
+      "work": "Competition organizers, acquisition and nominal glove rate",
+      "url": "https://www.bbci.de/competition/iv/desc_4.pdf"
+    }
+  ],
+  "reproduction": {
+    "python": "3.13.15",
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "plan_sha256": "f46145c1c1f7af09f14ee4dad11cd4b72dee7f790bf40f4bbf730b44183ec6af",
+    "output_sha256": "99d254e0a3f93dc18f6161fa5df7d76fae5995cb7593b3c3326c2011a3d29227",
+    "code_dedication": "CC0 1.0; derived summary data CC BY-SA 4.0"
+  }
+}

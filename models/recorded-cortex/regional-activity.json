@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "participant_count": 1,
+  "n_contacts_total": 46,
+  "n_contacts_assigned": 42,
+  "trial_counts": {
+    "all": 88,
+    "thumb": 18,
+    "index": 19,
+    "middle": 22,
+    "ring": 16,
+    "little": 13
+  },
+  "bands": [
+    {
+      "id": "beta",
+      "min_hz": 12,
+      "max_hz": 20
+    },
+    {
+      "id": "high",
+      "min_hz": 70,
+      "max_hz": 110
+    }
+  ],
+  "regions": [
+    {
+      "code": 0,
+      "label": "Unassigned (source code 0)",
+      "n_contacts": 4,
+      "status": "undefined_code",
+      "by_cue": null
+    },
+    {
+      "code": 1,
+      "label": "Dorsal primary motor cortex",
+      "n_contacts": 2,
+      "status": "measured",
+      "by_cue": {
+        "all": {
+          "beta": {
+            "mean_db": -5.671491,
+            "q25_db": -9.637042,
+            "q75_db": -2.109634
+          },
+          "high": {
+            "mean_db": 2.903525,
+            "q25_db": 1.528853,
+            "q75_db": 4.45759
+          }
+        },
+        "thumb": {
+          "beta": {
+            "mean_db": -4.783808,
+            "q25_db": -6.39339,
+            "q75_db": -3.083091
+          },
+          "high": {
+            "mean_db": 3.002711,
+            "q25_db": 1.472897,
+            "q75_db": 3.522019
+          }
+        },
+        "index": {
+          "beta": {
+            "mean_db": -7.234637,
+            "q25_db": -11.409539,
+            "q75_db": -1.613282
+          },
+          "high": {
+            "mean_db": 3.341762,
+            "q25_db": 1.968537,
+            "q75_db": 5.173921
+          }
+        },
+        "middle": {
+          "beta": {
+            "mean_db": -4.492051,
+            "q25_db": -8.665285,
+            "q75_db": -1.057194
+          },
+          "high": {
+            "mean_db": 1.824212,
+            "q25_db": 0.860079,
+            "q75_db": 2.925383
+          }
+        },
+        "ring": {
+          "beta": {
+            "mean_db": -6.899304,
+            "q25_db": -10.746041,
+            "q75_db": -2.413555
+          },
+          "high": {
+            "mean_db": 3.195491,
+            "q25_db": 2.483768,
+            "q75_db": 4.367876
+          }
+        },
+        "little": {
+          "beta": {
+            "mean_db": -5.100816,
+            "q25_db": -6.363318,
+            "q75_db": -3.105099
+          },
+          "high": {
+            "mean_db": 3.592873,
+            "q25_db": 2.688886,
+            "q75_db": 5.254673
+          }
+        }
+      }
+    },
+    {
+      "code": 2,
+      "label": "Rolandic (unspecified subdivision)",
+      "n_contacts": 1,
+      "status": "measured",
+      "by_cue": {
+        "all": {
+          "beta": {
+            "mean_db": -3.628528,
+            "q25_db": -6.159483,
+            "q75_db": -0.734833
+          },
+          "high": {
+            "mean_db": 1.93623,
+            "q25_db": 0.139741,
+            "q75_db": 3.685732
+          }
+        },
+        "thumb": {
+          "beta": {
+            "mean_db": -3.73521,
+            "q25_db": -5.748695,
+            "q75_db": -1.785377
+          },
+          "high": {
+            "mean_db": 4.399245,
+            "q25_db": 2.809297,
+            "q75_db": 5.163779
+          }
+        },
+        "index": {
+          "beta": {
+            "mean_db": -5.172958,
+            "q25_db": -7.929905,
+            "q75_db": -1.971889
+          },
+          "high": {
+            "mean_db": 2.014292,
+            "q25_db": 0.366646,
+            "q75_db": 3.871907
+          }
+        },
+        "middle": {
+          "beta": {
+            "mean_db": -2.89124,
+            "q25_db": -6.088471,
+            "q75_db": 0.905499
+          },
+          "high": {
+            "mean_db": 0.734586,
+            "q25_db": -0.913832,
+            "q75_db": 2.087802
+          }
+        },
+        "ring": {
+          "beta": {
+            "mean_db": -2.432254,
+            "q25_db": -4.348983,
+            "q75_db": 0.840836
+          },
+          "high": {
+            "mean_db": 0.956984,
+            "q25_db": 0.06943,
+            "q75_db": 1.810792
+          }
+        },
+        "little": {
+          "beta": {
+            "mean_db": -3.943631,
+            "q25_db": -4.888411,
+            "q75_db": -1.966921
+          },
+          "high": {
+            "mean_db": 1.650588,
+            "q25_db": -0.188886,
+            "q75_db": 3.042928
+          }
+        }
+      }
+    },
+    {
+      "code": 3,
+      "label": "Dorsal primary somatosensory cortex",
+      "n_contacts": 4,
+      "status": "measured",
+      "by_cue": {
+        "all": {
+          "beta": {
+            "mean_db": -4.455938,
+            "q25_db": -7.240641,
+            "q75_db": -1.832456
+          },
+          "high": {
+            "mean_db": 2.315341,
+            "q25_db": 1.182108,
+            "q75_db": 3.658643
+          }
+        },
+        "thumb": {
+          "beta": {
+            "mean_db": -3.913636,
+            "q25_db": -5.796253,
+            "q75_db": -1.740808
+          },
+          "high": {
+            "mean_db": 2.527002,
+            "q25_db": 1.380722,
+            "q75_db": 3.108858
+          }
+        },
+        "index": {
+          "beta": {
+            "mean_db": -5.260589,
+            "q25_db": -8.281285,
+            "q75_db": -2.886574
+          },
+          "high": {
+            "mean_db": 2.72359,
+            "q25_db": 1.810628,
+            "q75_db": 4.323129
+          }
+        },
+        "middle": {
+          "beta": {
+            "mean_db": -3.517758,
+            "q25_db": -5.95104,
+            "q75_db": -0.971564
+          },
+          "high": {
+            "mean_db": 1.226199,
+            "q25_db": 0.491568,
+            "q75_db": 2.557852
+          }
+        },
+        "ring": {
+          "beta": {
+            "mean_db": -5.196035,
+            "q25_db": -7.294589,
+            "q75_db": -3.600912
+          },
+          "high": {
+            "mean_db": 2.533698,
+            "q25_db": 1.832302,
+            "q75_db": 3.464053
+          }
+        },
+        "little": {
+          "beta": {
+            "mean_db": -4.707591,
+            "q25_db": -5.28358,
+            "q75_db": -2.45323
+          },
+          "high": {
+            "mean_db": 3.000017,
+            "q25_db": 1.711503,
+            "q75_db": 4.242253
+          }
+        }
+      }
+    },
+    {
+      "code": 4,
+      "label": "Ventral sensorimotor cortex",
+      "n_contacts": 5,
+      "status": "measured",
+      "by_cue": {
+        "all": {
+          "beta": {
+            "mean_db": -1.093238,
+            "q25_db": -2.498237,
+            "q75_db": -0.008897
+          },
+          "high": {
+            "mean_db": 0.038896,
+            "q25_db": -0.712746,
+            "q75_db": 0.722182
+          }
+        },
+        "thumb": {
+          "beta": {
+            "mean_db": -1.320911,
+            "q25_db": -2.087668,
+            "q75_db": -0.683463
+          },
+          "high": {
+            "mean_db": 0.155319,
+            "q25_db": -0.640283,
+            "q75_db": 0.781163
+          }
+        },
+        "index": {
+          "beta": {
+            "mean_db": -1.103433,
+            "q25_db": -2.935337,
+            "q75_db": 0.365548
+          },
+          "high": {
+            "mean_db": -0.02649,
+            "q25_db": -0.634975,
+            "q75_db": 0.503541
+          }
+        },
+        "middle": {
+          "beta": {
+            "mean_db": -0.316712,
+            "q25_db": -1.508514,
+            "q75_db": 0.997824
+          },
+          "high": {
+            "mean_db": -0.007573,
+            "q25_db": -0.769199,
+            "q75_db": 0.743776
+          }
+        },
+        "ring": {
+          "beta": {
+            "mean_db": -1.791964,
+            "q25_db": -2.959213,
+            "q75_db": -0.865361
+          },
+          "high": {
+            "mean_db": 0.085447,
+            "q25_db": -0.650014,
+            "q75_db": 0.671082
+          }
+        },
+        "little": {
+          "beta": {
+            "mean_db": -1.217249,
+            "q25_db": -2.524435,
+            "q75_db": -0.020055
+          },
+          "high": {
+            "mean_db": -0.005395,
+            "q25_db": -1.020999,
+            "q75_db": 0.813115
+          }
+        }
+      }
+    },
+    {
+      "code": 6,
+      "label": "Frontal (non-rolandic)",
+      "n_contacts": 24,
+      "status": "measured",
+      "by_cue": {
+        "all": {
+          "beta": {
+            "mean_db": -0.768725,
+            "q25_db": -1.658995,
+            "q75_db": 0.405629
+          },
+          "high": {
+            "mean_db": 0.238977,
+            "q25_db": -0.184435,
+            "q75_db": 0.61051
+          }
+        },
+        "thumb": {
+          "beta": {
+            "mean_db": -0.736512,
+            "q25_db": -0.804015,
+            "q75_db": 0.262072
+          },
+          "high": {
+            "mean_db": 0.238091,
+            "q25_db": -0.098494,
+            "q75_db": 0.787646
+          }
+        },
+        "index": {
+          "beta": {
+            "mean_db": -0.4956,
+            "q25_db": -1.333354,
+            "q75_db": 0.907117
+          },
+          "high": {
+            "mean_db": 0.120108,
+            "q25_db": -0.276605,
+            "q75_db": 0.471197
+          }
+        },
+        "middle": {
+          "beta": {
+            "mean_db": -1.339521,
+            "q25_db": -2.88551,
+            "q75_db": -0.481294
+          },
+          "high": {
+            "mean_db": 0.372313,
+            "q25_db": 0.027273,
+            "q75_db": 0.731861
+          }
+        },
+        "ring": {
+          "beta": {
+            "mean_db": -1.013942,
+            "q25_db": -2.021159,
+            "q75_db": -0.182543
+          },
+          "high": {
+            "mean_db": 0.269483,
+            "q25_db": -0.248376,
+            "q75_db": 0.470189
+          }
+        },
+        "little": {
+          "beta": {
+            "mean_db": 0.055256,
+            "q25_db": -0.895178,
+            "q75_db": 1.306657
+          },
+          "high": {
+            "mean_db": 0.150744,
+            "q25_db": -0.525427,
+            "q75_db": 0.639394
+          }
+        }
+      }
+    },
+    {
+      "code": 7,
+      "label": "Parietal (non-rolandic)",
+      "n_contacts": 6,
+      "status": "measured",
+      "by_cue": {
+        "all": {
+          "beta": {
+            "mean_db": -1.213886,
+            "q25_db": -2.276728,
+            "q75_db": 0.06772
+          },
+          "high": {
+            "mean_db": 0.301947,
+            "q25_db": -0.641044,
+            "q75_db": 1.114135
+          }
+        },
+        "thumb": {
+          "beta": {
+            "mean_db": -0.413059,
+            "q25_db": -1.129847,
+            "q75_db": 0.696583
+          },
+          "high": {
+            "mean_db": 0.470449,
+            "q25_db": -0.66041,
+            "q75_db": 1.387844
+          }
+        },
+        "index": {
+          "beta": {
+            "mean_db": -1.28654,
+            "q25_db": -1.986978,
+            "q75_db": -0.264554
+          },
+          "high": {
+            "mean_db": 0.271813,
+            "q25_db": -0.583533,
+            "q75_db": 1.133335
+          }
+        },
+        "middle": {
+          "beta": {
+            "mean_db": -1.046162,
+            "q25_db": -2.217225,
+            "q75_db": -0.000597
+          },
+          "high": {
+            "mean_db": 0.678234,
+            "q25_db": -0.066458,
+            "q75_db": 1.596411
+          }
+        },
+        "ring": {
+          "beta": {
+            "mean_db": -2.188032,
+            "q25_db": -2.981552,
+            "q75_db": -0.420863
+          },
+          "high": {
+            "mean_db": 0.226703,
+            "q25_db": -0.652243,
+            "q75_db": 0.953252
+          }
+        },
+        "little": {
+          "beta": {
+            "mean_db": -1.301431,
+            "q25_db": -1.529536,
+            "q75_db": -0.460039
+          },
+          "high": {
+            "mean_db": -0.431505,
+            "q25_db": -0.684331,
+            "q75_db": 0.166019
+          }
+        }
+      }
+    },
+    {
+      "code": 8,
+      "label": "Temporal",
+      "n_contacts": 0,
+      "status": "no_contacts",
+      "by_cue": null
+    },
+    {
+      "code": 9,
+      "label": "Occipital",
+      "n_contacts": 0,
+      "status": "no_contacts",
+      "by_cue": null
+    }
+  ],
+  "modality": "Subdural electrocorticography (ECoG), left frontoparietal recording",
+  "measure": "Within-trial cue / following blank band-power ratio in dB; + = greater cue power",
+  "quartiles": "25th and 75th percentiles of paired trial changes. One recording, descriptive spread.",
+  "prefix_rows_half_open": [
+    0,
+    362000
+  ],
+  "recording_hz": 1000,
+  "hemisphere": "left",
+  "license": "CC BY-SA 4.0",
+  "source": "https://purl.stanford.edu/zk881ps0522",
+  "methods": "METHODS.md",
+  "source_manifest": "source-manifest.json"
+}

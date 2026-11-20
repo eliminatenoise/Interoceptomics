@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": {
+    "record": "https://purl.stanford.edu/zk881ps0522",
+    "archive_member": "fingerflex/data/bp/bp_fingerflex.mat",
+    "member_sha256": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a",
+    "prefix_npz_sha256": "57ea209841127b6cc04f2c03f8f6146f01b3e0235d169365d009cf3f9c643e9c",
+    "rows_zero_based_half_open": [0, 362000],
+    "nominal_ecog_hz": 1000,
+    "nominal_glove_hz": 25
+  },
+  "question": "How do paired cortical band power and recorded finger movement differ across display-locked half-second windows in the same development recording?",
+  "eligibility": "Use complete runs of a displayed digit followed by the immediately following blank. Require transitions observed at the start of each phase and at the end of the blank. Keep a fixed cohort across all windows. Both phases must fit all seven windows, including the final one ending at sample 1700. Require 12 or 13 nominal glove readings in every window and both endpoints of every 40-row difference strictly inside the half-open window. A signal QC failure stops the analysis. Report complete pairs, excluded pairs, retained counts by cue and number of glove differences.",
+  "phase_duration_only_check": "All 88 fully bounded cue/blank pairs have 2000 rows in each phase. No new band or glove outcome was calculated to choose the offsets.",
+  "window_start_ms": [0, 200, 400, 600, 800, 1000, 1200],
+  "window_width_ms": 500,
+  "reference": "From each half-second slice convert all 46 source amplifier channels to microvolts (0.0298 microvolts/count), reject nonfinite or flat channels, and subtract the instantaneous mean over all 46. Remove each contact's time mean, use a periodic Hann taper over all 500 samples and a 500-sample one-sided periodogram. Sum the inclusive 2-Hz bin centres times 2 Hz for 12–20 and 70–110 Hz. Reject nonpositive/nonfinite powers. Take 10 log10 of each cue power divided by the matched blank power within the trial, window and contact.",
+  "cortex_aggregation": "For each contact and window, average paired dB values over observed trials within the displayed-digit condition or all 88 observed trials. For each named sampled region average these unrounded contact means with equal contact weights. Preserve code 2 (rolandic, subdivision unspecified), code 0 (unassigned), and codes 8/9 (unsampled). Code 0 contacts keep their own measurements. Return null for undefined/unsampled regional estimates. Round public contact/region means to 0.01 dB.",
+  "glove_aggregation": "Within the same absolute nominal 1 kHz window, use only the zero-based multiples of 40 corresponding to first rows of released glove blocks. Verify the five stored readings stay fixed inside each block. Cast to signed precision before subtracting. Average absolute successive differences separately for the five fingers within trial, window and phase, including unchanged readings. Average the trial means with equal weight per trial, separately for cue and blank. Glove units are sensor counts per nominal 40 ms step. Public glove numbers have 3 decimal places. No offset correction, joining windows, interpolation or physical-angle conversion.",
+  "interpretation": "One recording, overlapping condition averages (300 ms overlap). Positive dB means higher cue power than in the same elapsed window of its following blank. A blank interval may include movement. Glove and ECoG are compared on the nominal release grid. Original study reports 37 ms lag with 3 ms standard error. No per-record correction or independent packet clock; no movement onset, neural latency, trajectory, inference test, physiology of dynamics, population effect or causal result.",
+  "output": "Only condition-level means, counts, nominal analysis window boundaries, index/region codes and summary metadata. Do not export per-trial dates or times, voltage, glove samples, coordinates, mesh, demographics or fitting artifacts.",
+  "verification": "Recompute every mean with an independent implementation using direct real FFT and a separately indexed glove method. Require agreement within tabulation rounding, and verify inclusion, indexing, units, empty regional cells and all expected counts."
+}

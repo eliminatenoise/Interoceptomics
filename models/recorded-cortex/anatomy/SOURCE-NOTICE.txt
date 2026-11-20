@@ -1,0 +1,11 @@
+Kai Joshua Miller. A library of human electrocorticographic data and analyses.
+Stanford Digital Repository, version 11. https://purl.stanford.edu/zk881ps0522
+Library paper https://doi.org/10.1038/s41562-019-0678-3
+Data licence: Creative Commons Attribution-ShareAlike 4.0 International. https://creativecommons.org/licenses/by-sa/4.0/
+Miller KJ, Hermes D, Honey CJ, Hebb AO, Ramsey NF, Knight RT, Ojemann JG, Fetz EE (2012). Human motor cortical activity is selectively phase-entrained on underlying rhythms. PLoS Comput Biol 8(9), e1002655. https://doi.org/10.1371/journal.pcbi.1002655
+
+Changes to the source data for the private adaptation: the extractor selects the original brain surface, electrode positions and anatomical codes, represents the 46 recording columns with zero-based and one-based identifiers and subtracts one from each triangle index. The private geometry packet retains CC BY-SA 4.0. No observed time series is included. Stanford requires respect for participants’ privacy and confidentiality, including refraining from identification.
+
+The depositor requires the following exact statement in the Methods of publications involving these data. The 2012 study cited above is the required reference.
+
+Ethics statement: All patients participated in a purely voluntary manner, after providing informed written consent, under experimental protocols approved by the Institutional Review Board of the University of Washington (#12193). All patient data was anonymized according to IRB protocol, in accordance with HIPAA mandate. These data originally appeared in the manuscript “Human Motor Cortical Activity Is Selectively Phase- Entrained on Underlying Rhythms” published in PLoS Computational Biology in 2012 [Reference].

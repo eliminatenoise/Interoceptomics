@@ -26,3 +26,7 @@ The atlas viewer opens on the project's website, and it can also be downloaded a
 The Linux installer adds one menu entry for your user and nothing else. If a different file already has that entry's name, it leaves it alone.
 
 The shortcuts need a browser and an internet connection. The Windows and macOS shortcuts have been checked for their file format only, and have not yet been opened on those systems. The Linux installer has been run in a test folder.
+
+## The recorded cortex
+
+[Open the browser viewer](https://eliminatenoise.github.io/Interoceptomics/recorded-cortex/) or extract the [recorded cortex ZIP](downloads/recorded-cortex.zip). Open the launcher named for your computer, or open `docs/recorded-cortex/index.html` directly. The measurements work offline. The brain opens from Stanford on demand or from a verified local anatomy file.

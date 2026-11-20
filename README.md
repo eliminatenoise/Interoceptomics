@@ -6,7 +6,7 @@ Interoceptomics is a proposed field of science that starts from the other end. *
 
 ## Open these first
 
-The first three run in your browser, with nothing to install.
+The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 1. **[Backslash of the Brain](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/)** follows signals from muscles and organs through 3D models and slices of the human brain, spinal cord and organs (an anatomy atlas). [More below](#backslash-of-the-brain).
 2. **[The experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/)** walks through the proposed experiments one step at a time, each beside a 3D sketch you can turn, with recorded examples from open datasets: a wrist movement, a walk, a rat on a W-shaped track. [More below](#follow-the-experiments).
@@ -14,6 +14,8 @@ The first three run in your browser, with nothing to install.
 4. **[The two scripts](#the-talk-is-paused-its-scripts-are-published)** of the talk that proposes the field, as PDF and Word (DOCX) files.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
+
+**[Explore the recorded cortex](https://eliminatenoise.github.io/Interoceptomics/recorded-cortex/).** See how electrical power changed at 46 recording sites when a person was cued to move a finger. The 3D viewer joins the contacts to the original participant’s own brain surface. [Offline reader](downloads/recorded-cortex.zip)
 
 ## Backslash of the Brain
 

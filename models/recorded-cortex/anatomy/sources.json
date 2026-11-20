@@ -1,0 +1,90 @@
+{
+  "record": "https://purl.stanford.edu/zk881ps0522",
+  "catalogue": "https://purl.stanford.edu/zk881ps0522.json",
+  "catalogue_version": 11,
+  "data_license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "data_author": "Kai Joshua Miller",
+  "primary_study": "https://doi.org/10.1371/journal.pcbi.1002655",
+  "subject_1_figure_1_ABC": "https://doi.org/10.1371/journal.pcbi.1002655.g001",
+  "coregistration_method": "https://doi.org/10.1016/j.jneumeth.2009.10.005",
+  "archives": {
+    "fingerflex.zip": {
+      "url": "https://stacks.stanford.edu/file/druid:zk881ps0522/fingerflex.zip",
+      "bytes": 580522436,
+      "declared_sha1": "83acfe25c27da197db0feaf742d9c5f3f9ee99bf",
+      "central_directory_sha256": "5f7fd76160dacfa4e52790a667fb5ab35afabe62e38cb01b796c9b628c6421cf",
+      "members": {
+        "fingerflex/data/bp/bp_fingerflex.mat": {
+          "compressed_range_inclusive": [
+            6413,
+            58845098
+          ],
+          "compressed_sha256": "b2905446cc76f2e28410160a239ba6a68aabe4151efe62f2f8f0e23bfef2e0b5",
+          "uncompressed_bytes": 58929343,
+          "sha256": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a",
+          "zip_crc32": "ee515565",
+          "purpose": "Only brain.vert, brain.tri, locs and elec_regions read."
+        },
+        "fingerflex/README_fingerflex_dataset_notes.docx": {
+          "compressed_range_inclusive": [
+            561827574,
+            561848248
+          ],
+          "compressed_sha256": "4a1c8c86e784c67409aff764a159fd9f133df34880725f934c9ece6fbc8ebc69",
+          "uncompressed_bytes": 23434,
+          "sha256": "4426827c5181bd994a30b5230c046fba196e78ac03bad8210946ca05094929f4",
+          "zip_crc32": "e3940956",
+          "purpose": "Task dictionary, bp = subject 1, left frontoparietal grid and mandatory ethics paragraph."
+        },
+        "fingerflex/call_subs_figs.m": {
+          "sha256": "3de96e445df6cd51f0f6eb6c3887865963f0017b57fe9a00ee92ef1823cbb310",
+          "zip_crc32": "09338fb6",
+          "compressed_bytes_inclusive": [
+            963,
+            2468
+          ],
+          "uncompressed_bytes": 3839,
+          "purpose": "Per-subject camera and source joint plotting of brain and recording coordinates."
+        },
+        "fingerflex/call_subs_processing.m": {
+          "sha256": "d726eeecbdcf75807b1b898ca32f3972aff5e2f2192b2ae914f2ac2e66e3258d",
+          "zip_crc32": "587e1c66",
+          "compressed_bytes_inclusive": [
+            2748,
+            4522
+          ],
+          "uncompressed_bytes": 4469,
+          "purpose": "Contact-row relation and region code 2 (Rolandic); source already removed bad channels."
+        }
+      }
+    },
+    "ctmr.zip": {
+      "url": "https://stacks.stanford.edu/file/druid:zk881ps0522/ctmr.zip",
+      "bytes": 101834135,
+      "declared_sha1": "0806c1414ad95248d8f879ed1324cd1192b9823d",
+      "members": {
+        "ctmr/README_ctmr_tool.docx": {
+          "sha256": "d440409bc0491b008a7564324368541396501f27fee6f7fee1cef404a4f82875",
+          "purpose": "Toolbox authorship and original method."
+        },
+        "ctmr/loc_view.m": {
+          "sha256": "d090af747b468d7e6f8411321201ad831515a9e57d5120896892289d90b64a54",
+          "purpose": "Camera, lighting, world-axis directions and trigonometric convention."
+        },
+        "ctmr/ctmr_gauss_plot.m": {
+          "sha256": "6df95bb2c7571801ba9c4a19a0208d0a1cd734288e66f7f4f5083b1b6211422b",
+          "purpose": "Reads brain.vert directly and uses original mesh; plots canonical left view."
+        },
+        "ctmr/rb_dot_surf_view.m": {
+          "sha256": "a06c2d26cecf18b7d8f88b8b7fc06d7d97b78ebfa051691428fb2ea9d0143340",
+          "purpose": "The published marker plot offsets glyphs toward camera. The packet preserves original contact coordinates."
+        }
+      }
+    }
+  },
+  "geometry_changes": [
+    "All brain.vert rows retained as source float64, original order.",
+    "All brain.tri rows retained, subtract one from each MATLAB face index.",
+    "All locs and elec_regions rows retained in recording column order; no transform or camera offset."
+  ]
+}

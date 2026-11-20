@@ -2,6 +2,11 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  cortex: {
+    title: 'See electrical activity on the recorded cortex',
+    url: '../recorded-cortex/',
+    reading: 'Explore electrical power from 46 contacts in one person who was shown finger cues. Load their own cortical surface to locate the recording contacts.'
+  },
   muscle: {
     title: 'Trace a signal from a muscle',
     url: atlas + '#route=muscle&step=0',
@@ -66,11 +71,11 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['wrist', 'muscle'],
+  'map-brain2body': ['wrist', 'muscle', 'cortex'],
   'map-body2body': ['stride', 'words'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['exercise', 'vibration'],
-  'read-function': ['vibration', 'trip'],
+  'read-function': ['vibration', 'trip', 'cortex'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
@@ -79,7 +84,7 @@ const choicesByStep = {
   'movement-model': ['stride', 'words', 'trip', 'knee'],
   'myoception': ['muscle', 'reflex', 'wrist', 'rhythm'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
-  'humans': ['wrist', 'stride']
+  'humans': ['wrist', 'stride', 'cortex']
 };
 
 const walkingReader = { mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };

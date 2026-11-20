@@ -139,3 +139,7 @@ A licence says who may copy. It says nothing about whether the anatomy is right,
 The atlas grid carries 141 regions. The viewer's 3D model holds 121 of them in 44 surfaces (40 in the main model file, 4 in files of their own): 34 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 34 and also appears on a combined surface. The other 20 regions have no surface; the download lists them in `viewer/omissions.html`. All 141 can be read in the flat cuts.
 
 The half-millimetre grid, the midline cap and the display approximation describe how the surfaces were made, not how accurate they are. There is no right half and no fit to any person. The model shows anatomy and nothing else: it demonstrates nothing about what a region does, and nothing clinical. [What the viewer is not](README.md#an-illustration-not-a-measurement).
+
+## The recorded cortex
+
+The Stanford FingerFlex data from Kai Joshua Miller and colleagues and the derived cue/blank comparisons carry CC BY-SA 4.0. The public software reads the original anatomy on demand. No participant surface or raw signal records are part of the public package. Original project code carries the repository’s CC0 dedication. [Original source](https://purl.stanford.edu/zk881ps0522) · [Analysis changes, full credit and required ethics statement](models/recorded-cortex/METHODS.md)

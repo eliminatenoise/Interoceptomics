@@ -1,0 +1,30 @@
+{
+  "schema": "fingerflex-native-cortex-v1",
+  "packet_sha256": "cc06b1e49ab755aecef3317699e1c457f3d0141e2111816503fbf8b5b9498f57",
+  "packet_bytes": 3284079,
+  "mat_sha256": "b8222d13c15c97ec8590ed4b9ea180c639cac0b7c3e04bce178bb349f92be03a",
+  "vertices": 45180,
+  "triangles": 90368,
+  "edges": 135552,
+  "every_edge_has_two_oppositely_oriented_incident_triangles": true,
+  "exact_vertex_face_and_contact_roundtrip": true,
+  "source_degenerate_or_duplicate_triangles": 0,
+  "contacts": 46,
+  "all_contact_positions_on_documented_left_side_and_in_mesh_bounds": true,
+  "contacts_by_original_region_code": {
+    "0": 4,
+    "1": 2,
+    "2": 1,
+    "3": 4,
+    "4": 5,
+    "6": 24,
+    "7": 6
+  },
+  "matrix_hash_convention": "Unpadded row-major, little-endian; coordinates float64, zero-based indices uint32, region codes uint8.",
+  "matrix_sha256": {
+    "vertices_f64le": "6d9498c0fd850883be2d34745cfca2e7cb065ea4d2b7835eb07f4d5841f4153c",
+    "faces_zero_u32le": "89abadaa34f2d9ab875727be4d195fed87b7dc0287d6c38f263f1d4984ebc3ae",
+    "contacts_xyz_f64le": "d97074cd80c1de10b559e5400b29141deb17ab185e732c9bb487ab89f54f9aa6",
+    "region_code_u8": "01f791f3168c8d0799feb6a59e373d1311f30fc2e5e3ea84f97a9420a727fd7a"
+  }
+}

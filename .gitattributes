@@ -11,3 +11,6 @@ downloads/backslash/*.zip binary
 
 # The atlas viewer on the website is the download's files, checked byte for byte against the ZIP.
 docs/viewer/** -text
+docs/recorded-cortex/** -text
+models/recorded-cortex/** -text
+docs/recorded-cortex/*.cmd whitespace=cr-at-eol
