@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore the Small and Big Vision experiments in 3D, from a movement prediction to a test of retained learning.">
+<title>Experiment guide · Interoceptomics</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#experiment">Skip to the experiment</a>
+<header><a href="../" class="wordmark">Interoceptomics</a><span class="location">Experiment guide</span><a class="source" href="https://github.com/eliminatenoise/Interoceptomics">Source ↗</a></header>
+<main>
+<h1>The experiments</h1>
+<p class="intro">Follow one movement from a command to an outcome. Start with a human movement task, or explore the proposed animal experiments.</p>
+<nav class="visions" aria-label="Choose a vision"><a id="small-link" href="#map-brain2body">Small vision <span>NeuroTranslation × NeuroSurge</span></a><a id="big-link" href="#0.1">Big vision <span>Interoceptomics</span></a></nav>
+<noscript>This guide needs JavaScript for its controls. Read the <a href="../current/Interoceptomics-Script-Technical.pdf">technical script</a> or <a href="../current/Interoceptomics-Script-Simple.pdf">simple script</a>.</noscript>
+<div class="workspace">
+<aside aria-label="Roadmap">
+<label for="group-select">Stage or task</label><select id="group-select"></select>
+<nav id="step-list" aria-label="Steps in this stage"></nav>
+<div class="progress"><span id="ordinal"></span><div class="meter"><i id="progress"></i></div></div>
+</aside>
+<article id="experiment" tabindex="-1">
+<div class="step-head"><div><p class="section-label" id="group-name"></p><h2 id="title"></h2></div><div class="arrows"><button type="button" id="previous" aria-label="Previous step">←</button><button type="button" id="next" aria-label="Next step">→</button></div></div>
+<p id="question"></p>
+<div class="scene">
+<div class="scene-line"><strong id="scene-title"></strong><span>3D schematic</span></div>
+<canvas aria-label="Interactive schematic. Read the scene description and current state below."></canvas>
+<div class="legend" id="legend"></div>
+</div>
+<div class="controls">
+<div class="control"><label for="moment">Task time <output id="moment-out" for="moment"></output></label><input id="moment" type="range" min="0" max="100" value="35"></div>
+<div class="control"><label for="angle">View angle <output id="angle-out" for="angle"></output></label><input id="angle" type="range" min="-160" max="160" value="0"></div>
+<div class="control" id="mode-wrap"><label for="mode">Reference</label><select id="mode"><option value="matched">Matched</option><option value="delayed">Delayed</option><option value="off">Off</option></select></div>
+<div class="control" id="limb-wrap"><label for="limb">Limb</label><select id="limb"><option value="left-arm">Left arm</option><option value="left-leg">Left leg</option><option value="right-leg">Right leg</option><option value="right-arm" selected>Right arm</option></select></div>
+</div>
+<p class="readout" id="scene-caption"></p>
+<section class="evidence"><h3>What would count as evidence?</h3><p id="evidence"></p><a id="script-link">Read this step in the technical script ↗</a></section>
+<section id="coverage"><h3 id="coverage-title">Movement coverage</h3><dl id="coverage-data"></dl></section>
+<section class="resources"><h3>Open the models</h3><div id="resources"></div>
+<details><summary>Use my local 3D companion</summary>
+<p>Start the extracted Interoceptomics 3D companion with its launcher. Paste the <strong>localhost</strong> or <strong>127.0.0.1</strong> address that it opens. The guide uses it only when you open a model.</p>
+<form id="local-form"><label for="address">Local companion address</label><div><input id="address" type="url" placeholder="http://127.0.0.1:…/START-HERE.html" autocomplete="off" required><button>Set address</button></div></form>
+<p id="local-status" role="status"></p><a id="local-link" hidden>Open this companion view ↗</a><p id="local-help"></p>
+</details></section>
+</article>
+</div>
+<footer><a href="../">Project home</a><a href="../current/Interoceptomics-Script-Simple.pdf">Simple script</a><a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/RIGHTS.md">Rights and credits</a></footer>
+</main><script type="module" src="guide.js"></script>
+</body>
+</html>

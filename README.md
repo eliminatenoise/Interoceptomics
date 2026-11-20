@@ -10,6 +10,12 @@ What exists so far is still a map, not a measurement: the Allen Institute's huma
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
+## Follow the experiments
+
+[Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Small vision** for the human movement tasks and their available game, camera and recording evidence. Choose **Big vision** for the six proposed animal stages. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.
+
+The sketches run in the browser. People who already have the separate 3D companion can also open its local models from the guide.
+
 ## Open it in three steps
 
 You need Python 3.10 or newer and a current browser.
