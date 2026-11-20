@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grasping and balancing · Interoceptomics</title>
+    <meta
+      name="description"
+      content="Turn two measured 3D paths and inspect the original muscle recordings from a grasp-and-lift study and a beam-walking study."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="recordings.js"></script>
+    <script defer src="viewer.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mast">
+          <span>Interoceptomics</span
+          ><a
+            id="bundle"
+            href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/cross-limb-movement.zip"
+            >Download offline atlas ↓</a
+          >
+        </div>
+        <h1>Grasping and balancing</h1>
+        <p class="deck">
+          One person reaches for an object after a light comes on. Another walks a narrow beam as the
+          view through a headset turns. Follow the wrist and the base of the spine through the next
+          eighth of a second.
+        </p>
+      </header>
+      <section class="transport" aria-label="Explore the recordings">
+        <div class="timehead">
+          <div>
+            <h2>Time from cutoff</h2>
+            <output id="time" for="clock">+125 ms</output>
+          </div>
+          <div class="choices">
+            <label
+              >Time steps<select id="grid">
+                <option value="comparison">Comparison · 1/256 s</option>
+                <option value="wrist">Wrist frames · 2 ms</option>
+                <option value="sacrum">Sacrum frames · 1/256 s</option>
+              </select></label
+            >
+            <label
+              >Show<select id="extent">
+                <option value="future">Next 125 ms</option>
+                <option value="all">Whole excerpt</option>
+              </select></label
+            >
+          </div>
+        </div>
+        <label class="sr" for="clock">Time step from cutoff</label
+        ><input type="range" id="clock" min="0" max="32" step="1" value="32" />
+        <div class="ticks"><span id="low">0 ms</span><span id="high">+125 ms</span></div>
+        <div class="buttons">
+          <button id="play" class="primary">Replay</button
+          ><button id="prev" aria-label="Previous time step">← Step</button
+          ><button id="next" aria-label="Next time step">Step →</button><button id="zero">Cutoff</button
+          ><button id="end">Last frame</button><span class="speed">Playback at ¼ speed</span>
+        </div>
+        <p>
+          Zero marks each recording’s own cutoff. Matching elapsed time lets you compare durations across
+          two separate experiments.
+          <span id="bracket" hidden
+            >Wrist frames include the +126 ms sample that brackets the endpoint.</span
+          >
+        </p>
+      </section>
+      <div id="panels" class="panels"></div>
+      <noscript
+        >This interactive reader uses JavaScript. The two 3D files and the measurement notes are
+        available below.</noscript
+      >
+      <details open class="sources">
+        <summary>Where the measurements came from</summary>
+        <div class="references">
+          <div>
+            <h3>Right wrist and five right muscles</h3>
+            <p>
+              Luciw, Jarocka &amp; Edin measured the wrist with a Polhemus sensor during right-hand
+              grasp-and-lift trials. The stored P4 coordinates are in centimetres. The authors’
+              wrist-speed calculation and Figure 2 establish the unit. The viewer converts displacement
+              to millimetres. The conversion from the released muscle amplitudes to volts is unknown.
+            </p>
+            <p>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4365902/#f1">Apparatus and sensors</a> ·
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4365902/#f2">Wrist velocity</a> ·
+              <a
+                href="https://github.com/luciw/way-eeg-gal-utilities/blob/c81320ab5da20de83b09ec62167200abdcf8c88c/Utilities/WEEG_FindEvents.m#L440-L450"
+                >Author analysis</a
+              >
+              · <a href="https://doi.org/10.6084/m9.figshare.c.988376.v2">WAY-EEG-GAL recordings</a>
+            </p>
+          </div>
+          <div>
+            <h3>Sacrum and eight leg muscles</h3>
+            <p>
+              Peterson &amp; Ferris measured a reflective marker over the sacrum while a person walked
+              heel to toe. The cameras recorded at 100 Hz and the leg electrodes at 1,000 Hz. The
+              released streams share a 256 Hz clock after the authors’ processing. The leg amplitudes are
+              in microvolts (µV).
+            </p>
+            <p>
+              <a href="https://doi.org/10.1523/ENEURO.0207-18.2018">Apparatus and visual rotation</a> ·
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8711048/">Acquisition and alignment</a> ·
+              <a href="https://doi.org/10.18112/openneuro.ds003739.v1.0.3"
+                >OpenNeuro recordings, version 1.0.3</a
+              >
+            </p>
+          </div>
+        </div>
+        <p>
+          The studies supplied instructions before recording. The cues shown here are a light and a
+          visual rotation. Neither excerpt contains trial speech. Only the measured marker path is drawn.
+          One observation from each study cannot show coordination across people or establish that
+          learning transfers between limbs.
+        </p>
+        <p>
+          <a href="METHODS.md">Measurements, sources and offline instructions</a> ·
+          <a href="wrist.glb" download>Wrist trajectory (GLB)</a> ·
+          <a href="sacrum.glb" download>Sacrum trajectory (GLB)</a>
+        </p>
+      </details>
+    </main>
+  </body>
+</html>

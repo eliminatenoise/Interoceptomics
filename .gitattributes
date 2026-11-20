@@ -54,3 +54,8 @@ docs/muscle-and-motion/** -text
 models/muscle-and-motion/** -text
 docs/muscle-and-motion/*.cmd whitespace=cr-at-eol
 downloads/muscle-and-motion.zip binary
+
+docs/cross-limb-movement/** -text
+docs/cross-limb-movement/*.cmd whitespace=cr-at-eol
+models/cross-limb-movement/** -text
+downloads/cross-limb-movement.zip binary
