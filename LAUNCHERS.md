@@ -74,3 +74,7 @@ Extract the entire ZIP and choose the Windows, macOS or Linux launcher inside. O
 Extract the [offline reader and both measured trajectories](downloads/cross-limb-movement.zip). Open **Open on Windows.cmd** or **Open on macOS.command**, or run `sh "Open on Linux.sh"`. You can also open `index.html` directly. The reader runs offline in a browser.
 
 [Download the contact forecast atlas](downloads/contact-forecast/Interoceptomics-Contact-Forecast.zip), extract the entire folder and open its Windows, macOS or Linux launcher. The same folder contains both animated arm models and a directly openable index.html.
+
+## Carry the cylinder
+
+Extract [the complete reader](downloads/target-reach.zip), then open `index.html` or use the Windows, macOS or Linux launcher in the extracted folder. The 18 animated `.glb` files also open independently. [Browser reader](https://eliminatenoise.github.io/Interoceptomics/target-reach/)

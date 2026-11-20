@@ -61,3 +61,9 @@ models/cross-limb-movement/** -text
 downloads/cross-limb-movement.zip binary
 docs/contact-forecast/** -text
 docs/contact-forecast/*.cmd whitespace=cr-at-eol
+
+# Keep the measured reach reader byte-identical to its offline archive.
+docs/target-reach/** -text
+docs/target-reach/*.cmd whitespace=cr-at-eol
+docs/target-reach/CC-BY-4.0.txt whitespace=-blank-at-eof
+downloads/target-reach.zip binary

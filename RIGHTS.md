@@ -196,3 +196,7 @@ Interoceptomics dedicates its original reader, code, schematic cap, forecast ove
 ## One push, two recording days
 
 The [contact forecast atlas](docs/contact-forecast/NOTICE.md) uses the 12 and 13 September 2017 recordings of macaque C from Chowdhury, Glaser and Miller (2020) under CC0. Resized copies of their eLife Figures 1, 2 and 8 retain CC BY 4.0 attribution. The standalone 3D models animate the deposited shoulder-relative camera markers in metres.
+
+## Carry the cylinder
+
+The Ruhr Hand Motion Catalog by Tim Sziburis, Susanne Blex, Tobias Glasmachers and Ioannis Iossifidis supplies 18 selected optical-marker trajectories and original Figures 2, 4 and 6. The numerical data, figures and measured content of the derived 3D exports retain CC BY 4.0 attribution. The reader centres each optical position on its recording start and derives the display clock from frame number. [Dataset](https://doi.org/10.17605/OSF.IO/J3QC8) · [Article](https://doi.org/10.1038/s41597-025-05576-7) · [Changes and licences](docs/target-reach/METHODS.md)

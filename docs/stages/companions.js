@@ -2,6 +2,11 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  targetReach: {
+    title: 'Carry a cylinder to a visual target',
+    url: '../target-reach/',
+    reading: 'Follow one cylinder through the air as a person carries it to one of nine cued locations. Compare the paths from separate left- and right-hand trials.'
+  },
   graspBalanceRecording: {
     title: 'Replay the wrist and pelvis recordings',
     url: '../cross-limb-movement/',
@@ -132,17 +137,17 @@ const models = {
 
 const choicesByStep = {
   'map-brain2body': ['contactForecast', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
-  'map-body2body': ['walkingInstructions', 'stride', 'words', 'pedal'],
+  'map-body2body': ['walkingInstructions','targetReach', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
-  'handler': ['graspBalanceRecording', 'graspBalanceForecast'],
+  'handler': ['graspBalanceRecording','targetReach', 'graspBalanceForecast'],
   'read-function': ['vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['contactForecast', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast','targetReach', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
   'humans': ['wrist', 'stride', 'cortex', 'coverage', 'scalp']

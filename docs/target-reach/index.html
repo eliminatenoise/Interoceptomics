@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f4f2ec" />
+    <title>Carry the cylinder · Interoceptomics</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mast">
+          <span class="wordmark">Interoceptomics</span
+          ><a href="#experiment">The experiment ↓</a>
+        </div>
+        <h1>Carry the cylinder</h1>
+        <p class="intro">
+          A screen shows a target. A person lifts a cylinder and sets it down on
+          that spot. Follow the object through the air, then try the same target
+          with the other hand.
+        </p>
+      </header>
+      <section class="lab" aria-label="Explore recorded object transport">
+        <div class="instrument">
+          <div class="viewbar">
+            <strong>Object path</strong>
+            <div class="cameras" role="group" aria-label="Camera view">
+              <button data-view="orbit" aria-pressed="true">3D</button
+              ><button data-view="top" aria-pressed="false">Top</button
+              ><button data-view="side" aria-pressed="false">Side</button>
+            </div>
+          </div>
+          <div class="viewport">
+            <canvas
+              id="scene"
+              tabindex="0"
+              aria-label="Three-dimensional optical trajectory. Drag or use the arrow keys to rotate. Use plus and minus to zoom."
+              >The timeline below gives the same recorded positions in
+              millimetres.</canvas
+            >
+          </div>
+          <div class="viewfoot">
+            <span>Drag to turn · scroll to zoom</span
+            ><button type="button" id="reset">Reset view</button>
+          </div>
+          <div class="timeline">
+            <div class="timehead">
+              <strong>Recording time</strong
+              ><output id="clock" for="sample"></output>
+            </div>
+            <label class="hidden" for="sample">Recorded sample</label
+            ><input id="sample" type="range" min="0" value="0" step="1" />
+            <div class="playback">
+              <button id="play" type="button">▶ Play</button
+              ><button type="button" id="restart">Start</button
+              ><button
+                type="button"
+                id="motion"
+                title="First confirmed 15 mm of displacement in three dimensions"
+              >
+                First 15 mm</button
+              ><button type="button" id="prev" aria-label="Previous sample">
+                −1 sample</button
+              ><button type="button" id="next" aria-label="Next sample">
+                +1 sample</button
+              ><label class="speed"
+                >Speed
+                <select id="speed">
+                  <option value="0.25">¼×</option>
+                  <option value="0.5">½×</option>
+                  <option value="1" selected>1×</option>
+                  <option value="2">2×</option>
+                </select></label
+              >
+            </div>
+          </div>
+        </div>
+        <aside class="settings">
+          <h2>Choose a reach</h2>
+          <fieldset>
+            <legend>Hand</legend>
+            <div class="hands" id="hands">
+              <button data-hand="L">Left</button
+              ><button data-hand="R">Right</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Visual target</legend>
+            <div
+              id="targets"
+              class="targets"
+              role="group"
+              aria-label="Visual target number"
+            ></div>
+            <div class="ends"><span>Far left</span><span>Far right</span></div>
+          </fieldset>
+          <label for="compare">Overlay another path</label
+          ><select id="compare"></select>
+          <div class="legend">
+            <div><i></i><span id="primaryLabel"></span></div>
+            <div id="comparisonKey" hidden>
+              <i></i><span id="comparisonLabel"></span>
+            </div>
+          </div>
+          <p class="note">
+            Each path starts at its own origin. The open circle marks its last
+            measured position. An overlay shows the second complete path. Both
+            hand sessions use the camera axes. Thin lines connect consecutive
+            observations.
+          </p>
+        </aside>
+      </section>
+      <section
+        class="readings"
+        aria-label="Displacement from the recording start"
+      >
+        <div><span>Time from start</span><strong id="timeValue">—</strong></div>
+        <div><span>Lab X</span><strong id="xValue">—</strong></div>
+        <div><span>Lab Y</span><strong id="yValue">—</strong></div>
+        <div>
+          <span>Lab Z · height change</span><strong id="zValue">—</strong>
+        </div>
+      </section>
+      <p id="readout" class="sampleinfo"></p>
+      <section id="experiment" class="details">
+        <div>
+          <h2>What the cameras saw</h2>
+          <p>
+            These 18 trials come from one person, once per target with each
+            hand, in separate recording sessions. Two reflective markers rode on
+            a 50&nbsp;mm-wide cylinder. Infrared cameras followed them in three
+            dimensions. The line tracks the object. Your hand could change its
+            grip without leaving a record of which fingers moved.
+          </p>
+          <p>
+            The cylinder drawing stays upright to show the object’s size. Its
+            rotation and the fingers around it are outside this replay.
+            Coordinates give displacement from the initial marker position, in
+            millimetres. The grid passes through that origin at 50 mm intervals.
+            Zero seconds marks the first usable optical sample. “First 15 mm”
+            skips to the third consecutive sample at least 15 mm from that point
+            in three dimensions. The cue and the go signal have no measured
+            timestamp on this clock.
+          </p>
+          <p>
+            The numbered circles stood 250&nbsp;mm from the starting station. A
+            screen showed the assigned location, then a sound signalled when to
+            go. The target diagram below uses the participant’s left and right.
+            The motion viewer keeps the camera system’s own X and Y axes.
+            Choosing a number retrieves a recording. The experiment supplied
+            spatial cues. Open-ended spoken instructions and gestures elicited
+            by a concept and a picture belong to different tasks.
+          </p>
+        </div>
+        <div class="downloads">
+          <h2>Take the recording with you</h2>
+          <p>
+            Open a measured path in a 3D editor. Each file includes the full
+            sample clock and an animated cylinder.
+          </p>
+          <a id="model" download>Download this animated GLB</a
+          ><a href="records.js" download>Download the recordings</a
+          ><a href="METHODS.md">Methods and attribution</a>
+          <p id="offlineDownload">
+            <a
+              href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/target-reach.zip"
+              >Download the complete offline reader</a
+            >
+          </p>
+          <p class="related">
+            <a
+              href="https://eliminatenoise.github.io/NeuroTranslation/target-reach/"
+              >Open the movement study ↗</a
+            ><br /><a
+              href="https://eliminatenoise.github.io/NeuroTranslation/papers/target-reach/"
+              >Read the study paper ↗</a
+            >
+          </p>
+        </div>
+      </section>
+      <section class="references">
+        <h2>Inside the original experiment</h2>
+        <div class="figures">
+          <figure>
+            <a href="references/figure-2.png"
+              ><img
+                src="references/figure-2.png"
+                alt="The physical cylinder with its sensor and two optical markers."
+            /></a>
+            <figcaption>What the person carried. Figure 2.</figcaption>
+          </figure>
+          <figure>
+            <a href="references/figure-4.png"
+              ><img
+                src="references/figure-4.png"
+                alt="Nine numbered target positions arranged in a semicircle around the central start position."
+            /></a>
+            <figcaption>Where the object could go. Figure 4.</figcaption>
+          </figure>
+          <figure>
+            <a href="references/figure-6.png"
+              ><img
+                src="references/figure-6.png"
+                alt="The sequence of signals and measurement intervals for a transport trial."
+            /></a>
+            <figcaption>When the person moved. Figure 6.</figcaption>
+          </figure>
+        </div>
+        <p>
+          Recordings and figures by Tim Sziburis, Susanne Blex, Tobias
+          Glasmachers and Ioannis Iossifidis.
+          <a href="https://doi.org/10.17605/OSF.IO/J3QC8"
+            >Ruhr Hand Motion Catalog</a
+          >
+          ·
+          <a href="https://doi.org/10.1038/s41597-025-05576-7"
+            >Scientific Data, 2025</a
+          >
+          · <a href="CC-BY-4.0.txt">CC BY 4.0</a>.
+        </p>
+      </section>
+    </main>
+    <script src="records.js"></script>
+    <script src="scene.js"></script>
+    <script src="reader.js"></script>
+  </body>
+</html>
