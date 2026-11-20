@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Interoceptomics Script Preview
-Comment=Open the current experimental technical and simple scripts
+Name=Interoceptomics
+Comment=Open the Interoceptomics project page: the 3D brain atlas and the scripts
 Exec=xdg-open https://eliminatenoise.github.io/Interoceptomics/
 TryExec=xdg-open
 Icon=web-browser

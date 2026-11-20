@@ -1,37 +1,48 @@
-INTEROCEPTOMICS: OPEN THE CURRENT PREVIEW
+INTEROCEPTOMICS: SHORTCUTS TO THE PROJECT PAGE
 
-Open the current script hub, then choose the technical or simple script as PDF or editable DOCX. Your normal document viewer opens the downloaded file.
+Each file here is a bookmark. It opens the Interoceptomics project page in
+your browser:
 
-Windows: download Interoceptomics-Windows.url and double-click it.
-macOS: download Interoceptomics-macOS.webloc and double-click it.
-Linux: open Interoceptomics-Linux.desktop with your desktop's normal launcher handling.
-Keep each filename's extension. If the browser displays the file as text,
-download the ZIP, extract it, and open the launcher for your system.
-Follow normal OS opening/trust prompts. Native Windows/macOS operation has
-not been tested by this package's Linux-only format checks.
+  https://eliminatenoise.github.io/Interoceptomics/
 
-For a Linux application-menu entry, extract the ZIP, open a terminal in that
-folder and run:
+That page has the download of the 3D brain atlas and the two scripts. The
+shortcuts are not the atlas viewer. The viewer has its own start files
+inside its download.
+
+Windows: double-click Interoceptomics-Windows.url.
+macOS:   double-click Interoceptomics-macOS.webloc.
+Linux:   open Interoceptomics-Linux.desktop from your file manager.
+
+Keep each filename's extension. Your system may ask whether you trust the
+file before it opens it.
+
+LINUX APPLICATION MENU
+
+Open a terminal in this folder and run:
+
   sh Install-Interoceptomics-Linux.sh
-The installer opens no browser. It writes one per-user application entry in
-${XDG_DATA_HOME:-$HOME/.local/share}/applications. It prefers the installed
-Omarchy web-app opener, otherwise xdg-open. It needs normal Linux shell/core
-utilities and a configured browser; it installs no software or background job.
-An identical managed entry is left intact. Any different file or symlink
-using the destination name is preserved. The URL stays current when the
-published preview changes, so a new build does not require reinstallation.
-To remove the menu entry later, delete brain2body-interoceptomics.desktop from the
-location printed by the installer. Downloaded bookmarks can be deleted normally.
 
-Direct preview: https://eliminatenoise.github.io/Interoceptomics/
-Project and source: https://github.com/eliminatenoise/Interoceptomics
-Source ZIP: https://github.com/eliminatenoise/Interoceptomics/archive/refs/heads/main.zip
+The installer writes one entry, brain2body-interoceptomics.desktop, into
+${XDG_DATA_HOME:-$HOME/.local/share}/applications, for your user only. It
+installs no software, starts no background job and opens no browser while
+it works. It uses your desktop's web-app opener when it finds one, and
+xdg-open otherwise.
 
-This is a partial script preview. The newer slide deck is excluded while exact image permissions remain unresolved. Older deck and model downloads are historical and do not form a matching package with these scripts.
+If the same entry is already there, it leaves it. If a different file has
+that name, it leaves that too and tells you. An entry installed from an
+earlier version of these shortcuts counts as different: delete it first.
 
-These are online URL launchers, not offline model/app bundles. Opening the
-public preview needs a network connection and browser. No Node/Python install
-is needed to open it. Document viewing may use your normal PDF/DOCX application.
-The launchers contain no weights, recordings, credentials or private paths.
-SHA256SUMS identifies the five launcher/instruction files in this package;
-it does not establish OS trust, scientific validation or source authentication.
+To remove the entry, delete brain2body-interoceptomics.desktop from the
+folder the installer printed. A downloaded shortcut can simply be deleted.
+
+WHAT HAS BEEN CHECKED
+
+The file formats of all three shortcuts, and the Linux installer in a test
+folder. The Windows and macOS shortcuts have not yet been opened on those
+systems.
+
+SHA256SUMS lists the checksums of the five files in this package. A
+matching checksum shows that a file arrived unchanged. It says nothing
+else about it.
+
+Repository: https://github.com/eliminatenoise/Interoceptomics

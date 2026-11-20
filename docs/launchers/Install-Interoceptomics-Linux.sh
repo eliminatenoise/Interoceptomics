@@ -31,8 +31,8 @@ cat > "$temporary" <<_BRAIN2BODY_DESKTOP_
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Interoceptomics Script Preview
-Comment=Open the current experimental technical and simple scripts
+Name=Interoceptomics
+Comment=Open the Interoceptomics project page: the 3D brain atlas and the scripts
 Exec=$launcher_exec https://eliminatenoise.github.io/Interoceptomics/
 TryExec=$launcher_tryexec
 Icon=web-browser
@@ -57,4 +57,4 @@ if ! ln -T -- "$temporary" "$destination"; then
   exit 1
 fi
 printf 'Installed: %s\n' "$destination"
-printf '%s\n' 'Open your application menu and search for Interoceptomics Script Preview.'
+printf '%s\n' 'Open your application menu and search for Interoceptomics.'
