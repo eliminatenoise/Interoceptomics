@@ -1,0 +1,124 @@
+{
+  "sourceFile": "2014001_C2_01.c3d",
+  "sourceSHA256": "064e566ac09b0b5ab28695f5d214c89987e01b6169c465d6d9d9d482d8fe6148",
+  "sourceBytes": 570016,
+  "sourceCRC32": "8385860d",
+  "dataset": {
+    "doi": "https://doi.org/10.6084/m9.figshare.7734767.v8",
+    "authors": [
+      "Florent Moissenet",
+      "Céline Schreiber"
+    ],
+    "version": 8,
+    "license": "CC BY 4.0"
+  },
+  "methods": {
+    "doi": "https://doi.org/10.1038/s41597-019-0124-4",
+    "authors": [
+      "Céline Schreiber",
+      "Florent Moissenet"
+    ],
+    "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6610108/",
+    "authorProcessing": "https://github.com/fmoissenet/CGA_Rehazenter_Toolbox/tree/e35dc90c1acd24da134897fd1b4241152cff6005"
+  },
+  "acquisition": "Human barefoot C2 overground gait, 0.4–0.8 m/s target, Rehazenter in Luxembourg. One previously inspected training recording.",
+  "references": [
+    {
+      "view": "C2 trial 01, cropped index 29 to 39",
+      "source": "https://doi.org/10.6084/m9.figshare.7734767.v8",
+      "file": "2014001_C2_01.c3d",
+      "sha256": "064e566ac09b0b5ab28695f5d214c89987e01b6169c465d6d9d9d482d8fe6148",
+      "role": "Same-time marker and force measurements, one overlapping interval of the same stance. No cross-person assessment.",
+      "times_s": [
+        0.29,
+        0.39
+      ],
+      "deltaHeelLabXYZmm": [
+        0.1568145751953125,
+        -0.4300079345703125,
+        0.6030006408691406
+      ],
+      "meanUpwardN": 661.0647449890772,
+      "forceAnalogIndices": [
+        585,
+        599
+      ]
+    },
+    {
+      "view": "C2 trial 01, cropped index 39 to 49",
+      "source": "https://doi.org/10.6084/m9.figshare.7734767.v8",
+      "file": "2014001_C2_01.c3d",
+      "sha256": "064e566ac09b0b5ab28695f5d214c89987e01b6169c465d6d9d9d482d8fe6148",
+      "role": "Same-time marker and force measurements, one overlapping interval of the same stance. No cross-person assessment.",
+      "times_s": [
+        0.39,
+        0.49
+      ],
+      "deltaHeelLabXYZmm": [
+        0.388641357421875,
+        0.6109161376953125,
+        0.4644508361816406
+      ],
+      "meanUpwardN": 623.8063822189966,
+      "forceAnalogIndices": [
+        735,
+        749
+      ]
+    },
+    {
+      "view": "C2 trial 01, cropped index 49 to 59",
+      "source": "https://doi.org/10.6084/m9.figshare.7734767.v8",
+      "file": "2014001_C2_01.c3d",
+      "sha256": "064e566ac09b0b5ab28695f5d214c89987e01b6169c465d6d9d9d482d8fe6148",
+      "role": "Same-time marker and force measurements, one overlapping interval of the same stance. No cross-person assessment.",
+      "times_s": [
+        0.49,
+        0.59
+      ],
+      "deltaHeelLabXYZmm": [
+        -0.605926513671875,
+        0.62982177734375,
+        1.7355003356933594
+      ],
+      "meanUpwardN": 645.6579546133677,
+      "forceAnalogIndices": [
+        885,
+        899
+      ]
+    },
+    {
+      "view": "Marker layout and Table 1",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6610108/#Fig1",
+      "role": "Anatomical placement of the source’s 52 optical markers, including the heel and second metatarsal."
+    },
+    {
+      "view": "Supplementary Figure 1 and Table 2",
+      "source": "https://doi.org/10.1038/s41597-019-0124-4",
+      "archiveMember": "word/media/image1.png",
+      "figureSHA256": "43c73200e23c053f1b79ee4ed78f4d8c4a79fc655f0fc5d3506483123a9abf44",
+      "supplementSHA256": "37281bfdef06280d63019cb3008ea081f360f40d7a0cceb83293cc9aeae027d8",
+      "role": "Laboratory and plate axes, layout and contact assignment. Diagram is schematic; physical corner coordinates are read from this trial."
+    }
+  ],
+  "variables": {
+    "labels": "52 source skin-marker labels. Table 1 and Figure 1 of the paper describe placements. Index order is preserved.",
+    "positions": "Laboratory XYZ millimetres at 100 Hz. Source-processed trajectories, gap-filled and filtered. A missing point would serialize as null.",
+    "plate": "Original two sets of FORCE_PLATFORM corners in lab mm. Supplementary Table 2 code 12 assigns right plate 1 and left plate 2. Source local Fz1 down, lab +Z up.",
+    "force": "Scaled N at 1500 Hz. Fifteen consecutive samples centered on nominal camera time; chart uses the arithmetic mean of calibrated lab +Z.",
+    "axes": "Lab +X along the consecutive plates, Y across, +Z up. Right and left are from source side labels, not screen orientation.",
+    "precision": "No trial-specific uncertainty for these heel changes. Two-way filtering and reconstructed marker gaps preclude a live latency test."
+  },
+  "buildRuntime": {
+    "ezc3d": "1.7.2",
+    "numpy": "2.5.5"
+  },
+  "productDataHashes": {
+    "measurements.js": "1c539c7d2b74242481ddb80b38a83243ce8c63f3ed59b5e6b92b7857678441c6",
+    "frames.csv": "01c8d31d18bc915dd88f2c039ae56d05683c8b7ccce2c8d1c1d7c1135baf7262",
+    "pose-39.glb": "258ff347defc6c6a87e92e1135c4436a8b1bf81482fd1bbc0d31dbcd77c83f40",
+    "pose-49.glb": "43b3c7c23f341712c768105f95e9109b16e7011cccbc4693e0cbdfc363932a0b",
+    "pose-59.glb": "c10b2ca14e94292ea58b1836c25b3ab87b081a2d8ee3b9e3e4eb95b51e585e3b",
+    "plate-axes.png": "43c73200e23c053f1b79ee4ed78f4d8c4a79fc655f0fc5d3506483123a9abf44"
+  },
+  "rights": "https://creativecommons.org/licenses/by/4.0/"
+}

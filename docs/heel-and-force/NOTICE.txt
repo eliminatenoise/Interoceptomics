@@ -1,0 +1,7 @@
+Heel and force · Sources and licences
+
+Gait recordings. Florent Moissenet and Céline Schreiber, A multimodal dataset of human gait at different walking speeds, Figshare, version 8. https://doi.org/10.6084/m9.figshare.7734767.v8 . CC BY 4.0, https://creativecommons.org/licenses/by/4.0/ . The reader selects camera frames and force samples from one archived trial, negates scaled local Fz1 to express upward laboratory force, and derives frame means, trajectories, displacement, table and static target poses. Attribution applies to measurements.js, frames.csv, plate geometry and the measured content of all three GLBs.
+
+Laboratory diagram. Céline Schreiber and Florent Moissenet, A multimodal dataset of human gait at different walking speeds established on injury-free adult participants, Scientific Data 6, 111 (2019), Supplementary Figure 1. https://doi.org/10.1038/s41597-019-0124-4 . CC BY 4.0. The supplied plate-axes.png reproduces the diagram from the authors’ supplement without altering it. The supplement’s Table 2 provides the plate assignment. The paper’s Table 1 and Figure 1 identify the marker locations. The two authors and their institution do not endorse this adaptation.
+
+Project code, text, display glyphs and guide links use the repository's CC0-1.0 dedication. The attributed dataset and source illustration retain CC BY 4.0. Copies of both legal texts are included.

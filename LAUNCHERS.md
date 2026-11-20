@@ -56,3 +56,7 @@ Extract the [offline muscle reader](downloads/muscle-tracking.zip) and open the 
 ## When the pedal holds still
 
 Extract the [offline atlas](downloads/pedal-load.zip) and open the launcher for Windows, macOS or Linux. The reference leg, pedal and eight Task 1 recordings are included. Opening index.html also works. [Hosted atlas](https://eliminatenoise.github.io/Interoceptomics/pedal-load/) · [Standalone 3D scene](docs/pedal-load/neutral-pedal.glb)
+
+## Heel and force
+
+[Open the measured walking trial](https://eliminatenoise.github.io/Interoceptomics/heel-and-force/) or [download the complete offline atlas](downloads/heel-and-force.zip). Extract the ZIP, then open `index.html`, `Open on Windows.cmd`, `Open on macOS.command` or `Open on Linux.sh`. The 3D replay, numbers, plate diagram and three target poses work without a server.

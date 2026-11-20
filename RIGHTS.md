@@ -168,3 +168,7 @@ Zhang and colleagues’ AnkleImage tracking estimates retain CC BY 4.0. The righ
 ## Seated ankle and fixed pedal
 
 Zhang, Hakam, Akinniyi, Iyer, Bao and Sharma’s numerical AnkleImage Task 1 recordings are licensed under CC BY 4.0. Z-Anatomy and BodyParts3D reference surfaces and the combined standalone scene carry CC BY-SA 4.0. The separate original schematic platform and reader code carry CC0. Full attributions, changes, upstream source links and licences appear in the [pedal atlas notice](docs/pedal-load/NOTICE.txt). The atlas links to the separately licensed article for its apparatus description.
+
+## Heel and force
+
+The walking trial comes from Moissenet and Schreiber (dataset v8). The plate diagram comes from Supplementary Figure 1 of Schreiber and Moissenet (2019). The recordings, derived positions and loads, and attributed figure use CC BY 4.0. [Sources, transformations and licences](docs/heel-and-force/NOTICE.txt) · [Recording and reference hashes](docs/heel-and-force/sources.json)
