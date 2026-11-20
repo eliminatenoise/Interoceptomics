@@ -121,9 +121,9 @@ The withdrawn prerelease contained an older deck, earlier scripts and 3D models 
 | --- | --- |
 | File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
 | Version | 21 November 2026. The file name never carries the version: each new one replaces the last at the same address |
-| Size | 64,340,698 bytes (121,345,686 bytes unpacked) |
+| Size | 64,344,309 bytes (121,370,189 bytes unpacked) |
 | Contents | 94 files. `MANIFEST.json` lists the other 93 with their sizes and checksums |
-| SHA256 | `1012914a8bede78cc2dae7e7475a03042be9e828b7d384d1d5bef884716d1bea` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+| SHA256 | `a6f230bf54312d2fde9996a4b53a6f6775b17905c3e9c7e306d9967f03b2f0a3` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
 
 The website serves the same files, without the four start files, at [eliminatenoise.github.io/Interoceptomics/viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/): the folder `docs/viewer/` of this repository, built from the download's own files. The credit and the conditions on this page apply to that copy exactly as they do to the download.
 

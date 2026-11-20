@@ -28,14 +28,14 @@
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "bytes": 2577,
-      "sha256": "69d75f372d7d82e56c1b0f1731020356a9dc7f4668ebbbe8c247bdd86b80d2fd",
+      "bytes": 3024,
+      "sha256": "17c7b394aeec8885b83bd7ed576f8ca2a113703e8b8f3b43c3aa917a759229fa",
       "mode_octal": "0644"
     },
     {
       "path": "THIRD-PARTY-NOTICES.html",
       "bytes": 17490,
-      "sha256": "6db82f6e4858233b66e2db342d6c7ece29166a990b311a8ed9c85276b6935c3c",
+      "sha256": "fd44e8733c089c8c6f0ecbbf19a4a5daf4716a2950497650faf82381b70a63fb",
       "mode_octal": "0644"
     },
     {
@@ -466,8 +466,8 @@
     },
     {
       "path": "viewer/registry.json",
-      "bytes": 284784,
-      "sha256": "58c3f0ad5cd0f9f2cf6f9ba7871c957886b708bb8c0fe846fbec34338df9e803",
+      "bytes": 308840,
+      "sha256": "df110c4dda5a9c0abd6fc5e56e38691f6ab8a9fb441e6703cb54ca69389d646f",
       "mode_octal": "0644"
     },
     {

@@ -11,6 +11,8 @@ Twenty of the atlas's 141 regions had no surface. They were the white matter of 
 - Until you ask, the 3D model looks exactly as before, pixel for pixel; the panel has one new button.
 - The download is larger, 64.3 MB, because it carries the new surfaces. On the website nothing more is loaded until you ask.
 
+The notes under **Evidence and limits**, shown when you select a region, now say in plain words what the earlier ones said in working shorthand. A cited source is named by its authors and year instead of a code, each structure is explained before its abbreviation is given, and the sentence about how the sources were chosen comes once per region instead of in front of every note. Each note says what it said before and links to the same sources.
+
 Run for this version, on Linux in Chromium 155 with software rendering, from the download's start file and from a copy of the website served on this computer: the first view, a colour overlay, the parietal operculum shown alone, the three flat cuts, the white matter and the fluid spaces in each of the four views, flat cuts through a ventricle and through the white matter, three of the new regions shown alone, and the page opened straight from the folder. The viewer has not yet been run on Windows, macOS or a phone.
 
-The download contains 94 files in 64,340,698 bytes (121,345,686 bytes unpacked).
+The download contains 94 files in 64,344,309 bytes (121,370,189 bytes unpacked).

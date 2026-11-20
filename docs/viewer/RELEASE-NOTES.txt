@@ -32,6 +32,14 @@ had one, the two stay within a quarter of a millimetre of each other.
 viewer/omissions.html lists the twenty; THIRD-PARTY-NOTICES.html says who
 made them and what you must keep.
 
+The notes under "Evidence and limits", shown when you select a region,
+now say in plain words what the earlier ones said in working shorthand.
+A cited source is named by its authors and year instead of a code, each
+structure is explained before its abbreviation is given, and the sentence
+about how the sources were chosen comes once per region instead of in
+front of every note. Each note says what it said before and links to the
+same sources.
+
 
 WHAT IT HAS BEEN RUN ON
 
