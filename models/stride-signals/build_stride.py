@@ -136,7 +136,7 @@ def lerp(frames, at):
     return out
 
 
-def positions(c, times):
+def position_frame(c, times):
     labels = [s.strip() for s in c["parameters"]["POINT"]["LABELS"]["value"]]
     source = c["data"]["points"][:3].transpose(2, 1, 0).copy()
     if c["parameters"]["POINT"]["UNITS"]["value"] != ["mm"] or len(set(labels)) != len(labels):
@@ -171,6 +171,11 @@ def positions(c, times):
     flat = flat and abs(np.mean(heights[0]) - np.mean(heights[1])) < 0.01
     floor = float(np.mean(heights)) if flat else 0.
     origin = np.array([pelvis[0, 0], pelvis[0, 1], floor])
+    return sampled, points, axes, flat, origin
+
+
+def positions(c, times):
+    sampled, points, axes, flat, origin = position_frame(c, times)
     return (sampled - origin) @ axes.T, points, axes, flat
 
 
@@ -214,7 +219,7 @@ def right_bouts(vertical, points, corners, first, off):
     return found
 
 
-def stride(c, assignment):
+def stride_clock(c):
     rates = (c["header"]["points"]["frame_rate"], c["header"]["analogs"]["frame_rate"])
     analog = c["data"]["analogs"][0]
     nframes = c["data"]["points"].shape[-1]
@@ -224,6 +229,12 @@ def stride(c, assignment):
     if start < -0.001 or end > (nframes - 1) / 100 + 0.001:
         raise OmitTrial("stride_outside_record")
     times = np.clip(start + PHASE * (end - start), 0., (nframes - 1) / 100)
+    return start, end, off, times
+
+
+def stride(c, assignment):
+    start, end, off, times = stride_clock(c)
+    analog = c["data"]["analogs"][0]
     markers, points, axes, flat = positions(c, times)
     centers = np.rint(times * 1500. + 7).astype(int)
     emg = np.full((len(PHASE), len(MUSCLES)), np.nan)

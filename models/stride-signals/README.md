@@ -2,13 +2,15 @@
 
 Follow one slow stride in a 3D figure drawn from skin markers. Move the cursor from one right footfall to the next to see how electrical activity in eight right-leg muscles and the force under the feet change. The figure averages 89 strides from 30 barefoot adults. A separate foot-specific force trace has enough observations to show only 2–58% of the stride, from three people. [Open the reader](https://eliminatenoise.github.io/Interoceptomics/stride-signals/) · [Measurements and methods](OVERGROUND-STRIDE.md)
 
+Pick a wrist, knee, ankle or any other marker to see where it moved over exactly 200 ms. The green arrow connects the paired mean start and end. The readout gives the signed change in three directions and the mean straight-line distance across those walks. Fewer people can contribute near the next footfall. Each result shows how many remained. [Fixed-time methods and worked example](OVERGROUND-STRIDE.md#where-does-the-marker-go-in-200-ms)
+
 ## Open offline
 
 Extract the complete ZIP and open the launcher for your operating system at the top of the extracted folder. You can also open `docs/stride-signals/index.html` directly. A current browser is all you need to play the stride, turn the figure and read the measurements. Links to the paper and companion forecast open online. [Download the ZIP](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/stride-signals.zip)
 
 ## Rebuild
 
-The archive and repository use the same directories for the reader and its numerical input. From their root, run these commands with Python 3.12 to rebuild the HTML and the ZIP from the included aggregate. The HTML builder checks the input SHA-256. No network access or extra Python packages are required for this step.
+The archive and repository use the same directories for the reader and its numerical input. From their root, run these commands with Python 3.12 to rebuild the HTML and the ZIP from the included aggregate. The HTML builder checks the SHA-256 of both input tables. No network access or extra Python packages are required for this step.
 
 ```sh
 python docs/stride-signals/build.py

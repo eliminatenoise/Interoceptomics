@@ -35,4 +35,4 @@ The same ZIP includes the [five-participant coverage reader](https://eliminateno
 
 ## The stride reader
 
-Open the 3D stride in a browser or extract the complete standalone ZIP. Inside the extracted folder, use `Open on Windows.cmd`, `Open on macOS.command` or `Open on Linux.sh`. You can also open `docs/stride-signals/index.html` directly. The animation, muscle traces and plate measurements work offline. [Open the reader](https://eliminatenoise.github.io/Interoceptomics/stride-signals/) · [Download the ZIP](downloads/stride-signals.zip)
+Open the 3D stride in a browser or extract the complete standalone ZIP. Inside the extracted folder, use `Open on Windows.cmd`, `Open on macOS.command` or `Open on Linux.sh`. You can also open `docs/stride-signals/index.html` directly. The animation, 200 ms marker arrows, muscle traces and plate measurements work offline. [Open the reader](https://eliminatenoise.github.io/Interoceptomics/stride-signals/) · [Download the ZIP](downloads/stride-signals.zip)

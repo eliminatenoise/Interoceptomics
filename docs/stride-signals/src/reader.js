@@ -2,7 +2,22 @@
   const d=JSON.parse(document.getElementById('reference').textContent),$=id=>document.getElementById(id);
   const markers=new Map(d.markers.map(m=>[m.id,m])),emg=new Map(d.emg.map(m=>[m.id,m])),forces=new Map(d.forces.map(f=>[f.id,f]));
   function populate(sel,rows){for(const r of rows)$(sel).add(new Option(r.label,r.id));}
-  populate('marker',d.markers);populate('emg',d.emg);populate('force',d.forces);
+  const movement=JSON.parse($('marker-travel-data').textContent);
+  const pairs=new Map(movement.markers.map(m=>[m.id,m]));
+  const highlighted=new Map();
+  for(const [site,label] of [['RSP','wrist (thumb side)'],['FLE','knee (outside)'],['FAL','ankle (outside)']]){
+    for(const [side,name] of [['L','Left'],['R','Right']])highlighted.set(side+'_'+site,name+' '+label);
+  }
+  for(const [groupName,items] of [
+    ['Wrists, knees and ankles',Array.from(highlighted,([id,label])=>({id,label}))],
+    ['Other measured landmarks',d.markers.filter(m=>!highlighted.has(m.id))]
+  ]){
+    const group=document.createElement('optgroup');
+    group.label=groupName;
+    for(const item of items)group.append(new Option(item.label,item.id));
+    $('marker').append(group);
+  }
+  populate('emg',d.emg);populate('force',d.forces);
   $('marker').value=markers.has('R_FCC')?'R_FCC':d.markers[0].id;$('emg').value=emg.has('R_soleus')?'R_soleus':d.emg[0].id;
   $('count').textContent=d.summary.eligible_strides+' strides · '+d.summary.eligible_people+' walkers';
   $('cohort-scope').textContent='Of '+d.summary.planned_strides+' prespecified walks, '+d.summary.eligible_strides+' supplied a matched right stride from '+d.summary.eligible_people+' people. Mean stride duration was '+d.summary.stride_duration_s.mean.toFixed(2)+' s. The right foot left the ground at '+d.summary.right_foot_off_pct.mean.toFixed(1)+'% of the stride on average. Each displayed value has its own count of contributing people.';
@@ -43,7 +58,20 @@
     const signal=tint?{area,strength:Math.min(1,m.mean[t]/Math.max(1,...m.mean.filter(Number.isFinite)))}:null;
     $('tint').disabled=!$('guides').checked;
     $('tint-key').textContent=tint?'Gold on the right '+area+' follows this muscle’s mean electrical amplitude relative to its own peak. It locates the muscle approximately.':'';
-    body.update(t,marker.id,$('guides').checked,$('follow').checked,$('trail').checked,signal);
+    const pair=pairs.get(marker.id),start=pair.start_mm[t],delta=pair.delta_mm[t];
+    const walkers=pair.n_walkers[t],strides=pair.n_strides[t];
+    const arrow=start&&$('travel-arrow').checked?{start,delta}:null;
+    body.update(t,marker.id,$('guides').checked,$('follow').checked,$('trail').checked,signal,arrow);
+    $('travel-marker').textContent=(highlighted.get(marker.id)||marker.label)+' · '+t+'% of stride';
+    $('travel-support').textContent=walkers+' '+(walkers===1?'walker':'walkers')+' · '+strides+' '+(strides===1?'stride':'strides');
+    if(delta){
+      const signed=v=>(v>0?'+':'')+v.toFixed(1).replace('-','−');
+      $('travel-vector').textContent=delta.map((v,i)=>signed(v)+' '+movement.axes[i]).join(' · ')+' (mm)';
+      $('travel-distance').textContent=pair.mean_endpoint_distance_mm[t].toFixed(1)+' mm';
+    }else{
+      $('travel-vector').textContent=walkers?'Below three-walker minimum':'No complete frame pair';
+      $('travel-distance').textContent='Unavailable';
+    }
     $('point-name').textContent=marker.label;const pos=marker.mean[t];
     $('point-values').textContent=pos?pos[0].toFixed(2)+' m forward · '+pos[1].toFixed(2)+' m left · '+pos[2].toFixed(2)+' m up':'No observed position at this phase.';
     $('point-support').textContent='Marker '+marker.id+' · '+marker.n[t]+' contributing walkers.';
@@ -63,7 +91,7 @@
   }
   $('play').onclick=()=>{if(playing){stop();return;}if(t===100){t=0;render();}playing=true;t0=performance.now();at0=t;$('play').textContent='Pause stride';$('play').setAttribute('aria-pressed','true');tick=requestAnimationFrame(animate);};
   $('phase').addEventListener('input',()=>{stop();t=Number($('phase').value);render();});
-  for(const id of ['marker','emg','force','spread','follow','trail','guides','tint'])$(id).addEventListener('change',render);
+  for(const id of ['marker','emg','force','spread','follow','trail','guides','tint','travel-arrow'])$(id).addEventListener('change',render);
   $('side').onclick=()=>body.pose(-90,3);$('front').onclick=()=>body.pose(0,4);$('reset').onclick=body.reset;
   $('table').closest('details').addEventListener('toggle',render);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});window.addEventListener('pagehide',stop);

@@ -8,7 +8,7 @@ function makeStrideBody(canvas, data, onPick) {
   const unit=v=>{const l=Math.hypot(...v);return l?v.map(x=>x/l):[0,0,1];};
   const rgb=c=>'rgb('+c.map(x=>Math.round(x)).join(',')+')';
   const right=[240,159,86],left=[91,185,194],mid=[224,225,207];
-  let angle=-53,elevation=10,zoom=1,phase=0,selected='R_FCC',follow=false,guides=true,showTrail=true,drag=null,hit=[],raf=0,emgRegion=null;
+  let angle=-53,elevation=10,zoom=1,phase=0,selected='R_FCC',follow=false,guides=true,showTrail=true,drag=null,hit=[],raf=0,emgRegion=null,travel=null;
   const all=data.markers.flatMap(m=>m.mean.filter(p=>p && p.length===3 && p.every(Number.isFinite)));
   if(!all.length)throw Error('No supported marker positions.');
   const mins=[0,1,2].map(k=>all.reduce((m,p)=>Math.min(m,p[k]),Infinity)),maxs=[0,1,2].map(k=>all.reduce((m,p)=>Math.max(m,p[k]),-Infinity));
@@ -108,6 +108,24 @@ function makeStrideBody(canvas, data, onPick) {
     // The selected point stays labelled when the far side is partly hidden by the segment guide.
     const target=hit.find(([,m])=>m===selected);
     if(target){const p=target[0];ctx.beginPath();ctx.arc(p[0],p[1],7.3,0,2*Math.PI);ctx.strokeStyle='#fff1ad';ctx.lineWidth=1.25;ctx.stroke();}
+    if(travel){
+      // Paired-start mean can differ from the full-cohort marker under the cursor.
+      const p=project(travel.start.map(v=>v/1000));
+      const q=project(vadd(travel.start,travel.delta).map(v=>v/1000));
+      const dx=q[0]-p[0],dy=q[1]-p[1],length=Math.hypot(dx,dy);
+      const green='#8ef6ad';
+      ctx.beginPath();ctx.arc(p[0],p[1],4,0,2*Math.PI);
+      ctx.strokeStyle=green;ctx.lineWidth=2;ctx.stroke();
+      if(length>1){
+        const u=dx/length,v=dy/length,head=Math.min(9,length*.45);
+        line(p,q,'#10362d',5);line(p,q,green,2.6);
+        ctx.beginPath();ctx.moveTo(q[0],q[1]);
+        ctx.lineTo(q[0]-head*u+head*.5*v,q[1]-head*v-head*.5*u);
+        ctx.lineTo(q[0]-head*u-head*.5*v,q[1]-head*v+head*.5*u);
+        ctx.closePath();ctx.fillStyle=green;ctx.fill();
+      }
+      ctx.beginPath();ctx.arc(q[0],q[1],2.2,0,2*Math.PI);ctx.fillStyle=green;ctx.fill();
+    }
     ctx.fillStyle='#bbcfca';ctx.font='12px system-ui,sans-serif';ctx.fillText('Floor grid · 25 cm',12,h-12);
   }
   function schedule(){if(!raf)raf=requestAnimationFrame(draw);}
@@ -121,5 +139,5 @@ function makeStrideBody(canvas, data, onPick) {
   }drag=null;});canvas.addEventListener('pointercancel',()=>{drag=null;});
   canvas.addEventListener('keydown',e=>{const d={ArrowLeft:[-12,0],ArrowRight:[12,0],ArrowUp:[0,8],ArrowDown:[0,-8]}[e.key];if(d){e.preventDefault();rotation(...d);}else if(e.key==='Home'){e.preventDefault();reset();}else if(e.key==='+'||e.key==='='){e.preventDefault();magnify(1.16);}else if(e.key==='-'){e.preventDefault();magnify(1/1.16);}});
   const resize=new ResizeObserver(schedule);resize.observe(canvas);schedule();
-  return {rotation,magnify,reset,pose(az,el){angle=az;elevation=el;schedule();},update(i,id,style,lock,trail,region){phase=i;selected=id;guides=style;follow=lock;showTrail=trail;emgRegion=region;schedule();}};
+  return {rotation,magnify,reset,pose(az,el){angle=az;elevation=el;schedule();},update(i,id,style,lock,trail,region,arrow){phase=i;selected=id;guides=style;follow=lock;showTrail=trail;emgRegion=region;travel=arrow;schedule();}};
 }

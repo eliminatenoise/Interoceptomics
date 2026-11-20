@@ -10,9 +10,9 @@ PAGE = Path("docs/stride-signals")
 MODEL = Path("models/stride-signals")
 FILES = (
     Path("LICENSE"), PAGE / "index.html", PAGE / "build.py",
-    *(PAGE / "src" / name for name in ("body.js", "input.sha256", "page.html", "reader.js", "style.css")),
+    *(PAGE / "src" / name for name in ("body.js", "input.sha256", "page.html", "reader.js", "style.css", "travel.sha256")),
     *(MODEL / name for name in ("README.md", "LICENCE", "OVERGROUND-STRIDE.md", "build_stride.py",
-                                "stride-reference.json", "package.py")),
+                                "stride-reference.json", "build_travel.py", "marker-travel.json", "verify_travel.py", "package.py")),
 )
 LAUNCHERS = ("Open on Linux.sh", "Open on macOS.command", "Open on Windows.cmd")
 START = """Interoceptomics — A stride in three measurements

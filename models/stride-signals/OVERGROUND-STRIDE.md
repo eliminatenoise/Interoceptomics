@@ -15,6 +15,18 @@ Start when the right foot lands. Stop the next time it lands. In this sample of 
 
 **Reading the electrodes.** Each trace measures the amplitude of voltage recorded at the skin. The electrodes sampled one leg, so they offer no measurement of the left muscles. Electrode placement, tissue and individual anatomy affect voltage. Muscle force, joint torque, nerve traffic and sensation would each require separate measurements. The source had already filtered the signals. A centered amplitude window uses samples on both sides of the plot cursor.
 
+## Where does the marker go in 200 ms?
+
+At the halfway point of the stride, the marker on the outside of the right ankle moved forward **56.9 mm**, right **9.7 mm** and up **65.4 mm** over the next fifth of a second. Those are three components of one mean movement. The straight-line distance between the two ankle positions averaged **88.2 mm** across the same walks. An ankle can turn on its way between them. Measuring its full path would require adding the distances along that curve. Here we connect only the two ends.
+
+The input is the version 8 optical record, which the original authors gap-filled and smoothed. We took two positions from the stored 100 Hz frames for each of 52 markers. A pair starts at the nearest frame inside the stride to the selected percentage, breaking ties toward the later frame. We treat a timestamp within 0.0001 of an integer or half-integer frame as exact to allow for binary event-time rounding. The second measurement lies exactly 20 frames later. It must fall at or before the second right strike. We never wrap around to the next stride. Strides that are longer than others have more time left near the same percentage. The last few arrows therefore represent a progressively smaller group.
+
+Both endpoint samples must pass the missing-marker rules below. An absent endpoint removes the whole pair at that phase. A gap between two valid ends does not change their separation. The normalized display supplies the phase cursor. All 200 ms endpoint values come from the stored frames. The same two right-strike events, pelvis origin, floor height and per-trial forward, left and up directions used for the figure also align each pair. These are fixed walkway axes, so forward movement of the whole body counts.
+
+For each trial we retain the aligned start position, the signed displacement on each axis and the Euclidean distance between the two ends. Within each walker we average each quantity over their available trials. We then give each contributing walker equal weight. Taking the distance before averaging counts movements that would otherwise cancel in the mean arrow. Its green ring starts at the mean of the paired starts, which can differ from the yellow position on the full-stride trace. The tip is that paired mean end. The arrow rotates with the body. A movement that points toward the camera appears shorter on the screen.
+
+We planned 90 strides across 30 walkers. One stride failed the anatomical axis check, leaving 89. We retain the actual trial and walker counts at every phase for every marker. The group readouts require at least three walkers. At the right ankle, phase 89% has four, phase 90% has two, and by 93% there are none. Values are descriptive of these slow, barefoot walks. The measurements support neither a forecast nor a force or nerve reading.
+
 ## Where the positions come from
 
 Schreiber and Moissenet placed 52 reflective markers on landmarks of the feet, legs, pelvis, trunk, shoulders, arms and hands. Their cameras sampled at 100 Hz. They reconstructed missing marker paths and smoothed them at 6 Hz before releasing the files. The distributed trajectories do not identify every upstream reconstruction. We retained the recorded landmarks and joined selected pairs with lines that help the eye follow each limb. A marker lies on the skin. Locating a bone axis or joint centre would require an additional anatomical model. C7 is a neck marker. The head has no measured position in this set. The two sternal markers and the scapular SIA markers retain neutral site labels because the source names and their relative heights do not support a more specific anatomical assignment consistently. [Marker table, figure and processing](https://doi.org/10.1038/s41597-019-0124-4)
@@ -47,3 +59,15 @@ python build_stride.py "A multimodal dataset of human gait at different walking 
 At 50% of the stride, the group mean tibialis anterior amplitude is 12.7499 µV (SD 17.2587 µV, 30 people). The two plate means at that phase are 381.9093 N (SD 252.7079 N, 29 people) and 321.2284 N (SD 257.0334 N, 28 people). These values were checked against a second calculation directly from the selected source files.
 
 Céline Schreiber and Florent Moissenet published the study and the underlying measurements. This derivative selects C2 trials, aligns their strides, rotates their coordinates and aggregates their markers, electrode amplitudes and platform forces. The underlying data and this derived reference are licensed under Creative Commons Attribution 4.0. [Original data release](https://doi.org/10.6084/m9.figshare.7734767.v8) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+### Rebuild the fixed-time measurements
+
+From the repository or extracted package root, run the following with the same Python environment used for the stride reference. The walking ZIP is the publisher's original version 8 archive. The program checks its SHA-256 and decodes only the three selected C2 walks for each of the first 30 participants. An existing directory containing exactly these 90 source files can be passed with `--train-dir` instead. The program verifies the combined hash of the selected records in both cases.
+
+```sh
+python models/stride-signals/build_travel.py --archive /path/to/walking.zip
+python models/stride-signals/verify_travel.py
+python docs/stride-signals/build.py
+```
+
+The published table retains no individual rows. It stores the paired start, signed movement and mean endpoint distance in millimetres, rounded to 0.001 mm for numerical reproduction. That precision describes the export, not the optical instrument. A second implementation decoded the original C3D records separately and matched every component and distance within 0.000500 mm, every support count and every withheld value. The local checker verifies the published file, its numerical constraints and a worked ankle result. [Authors’ study](https://doi.org/10.1038/s41597-019-0124-4) · [Version 8 data](https://doi.org/10.6084/m9.figshare.7734767.v8) · [Original licence](LICENCE)
