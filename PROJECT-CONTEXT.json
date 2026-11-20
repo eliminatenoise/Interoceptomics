@@ -29,7 +29,7 @@
     "development": "Presentation and its scripts paused; the published script files stay available unchanged.",
     "complete_scientific_or_production_acceptance": false
   },
-  "experimental_model_preview": {
+  "atlas_viewer": {
     "edition": "Interoceptomics Atlas Viewer, version of 20 November 2026",
     "archive": "downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip",
     "bytes": 40478734,
@@ -56,50 +56,8 @@
       "sha256": "3d92b87de4d8b6e835f05321b3ebe7395a7af25828eeae8d196f45d1fa7261bc",
       "code_change": "Its behaviour last changed when the three flat cuts through one point were added. In the version of 20 November 2026 only the name of the main model file and the wording of one error message changed."
     },
-    "software_checks": {
-      "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
-      "original_viewer": {
-        "tests": 5,
-        "targeted_failures": 2,
-        "passes": 3
-      },
-      "R6_viewer": {
-        "tests": 5,
-        "passes": 5,
-        "failures": 0
-      },
-      "full_browser_GPU_visual_or_performance_validation": false,
-      "R6_viewer_sha256": "a19f812edc41388e70a74da03f40f7c3cce3dabf4201183718934b7a8e1fce51",
-      "historical_scope": "Earlier R6 constructed control-fixture evidence. R9 and R10 Chromium observations are separate."
-    },
-    "verification_limits": {
-      "C01": "The original AMD/RADV isolate/lateral/deep visual check remains open. R12 checked the resize paths on AMD/RADV under different conditions.",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "window": [
-        1800,
-        1200
-      ],
-      "model_viewport": [
-        1470,
-        1200
-      ],
-      "pending": "Broader browser controls, GPU/colour appearance, performance, real-reference SERIES, anatomy, donor/scale/function, rights/privacy, held-out, native visual/export and other OS/browser checks.",
-      "earlier_images_and_pixel_results": "Earlier images and pixel results describe their original builds and test conditions.",
-      "retained_C01_stop": "SwiftShader/wrong-window readiness STOP before control actions; original AMD/RADV target and thresholds retained.",
-      "startup": "R9 test results cover four retained HTTP 404 cases. R12 checked normal startup and a blocked optional red nucleus asset on AMD/RADV and SwiftShader. Other faults and context loss remain open. R14 additionally checked either and both optional files returning HTTP 404 and a VPL checksum mismatch."
-    },
     "complete_scientific_or_production_acceptance": false,
     "launchers": "The Windows, macOS and Linux start files need Python 3.10 or newer and a browser with WebGL. The Linux start file served the tested viewer on the local machine. Opening the default browser, and running on Windows or macOS, have not been tried.",
-    "startup_error_source_checks": {
-      "kind": "Static renderer-startup source checks only",
-      "passed": 20,
-      "total": 20,
-      "actual_JavaScript_or_visible_error": false,
-      "actual_successful_WebGL_model_startup": false,
-      "actual_OS_C01_GPU_or_scientific_readiness": false,
-      "limits": "Module import/parse errors, pre-try constants and later asynchronous interaction failures remain outside the repair; exotic thrown-value coercions remain unqualified.",
-      "edition": "Historical package R7"
-    },
     "red_nucleus": {
       "asset": "viewer/assets/red-nucleus-source-left.glb",
       "sha256": "3e67055edca4fe9d1c402aa8e1ad1acb8358c62aa7d203715b501e2a1d89248c",
@@ -183,9 +141,8 @@
         111,
         152
       ],
-      "prior_R15_source_and_browser_independent_review_sha256": "e98c40bcfa17d1c93697768e44f58075574eaec95a14c39f00a89c22114dc80b",
       "evidence_scope": "Atlas-label face adjacency in that source version. External tissue and MRI comparison is qualitative.",
-      "geometry": "VPL and VPM GLB bytes, matrices and original derivation notices remain identical to R15.",
+      "geometry": "The VPL and VPM surface files and their matrices are unchanged since the edition that added the VPM surface.",
       "overlay": {
         "file": "assets/vpl-vpm-shared-faces.json",
         "sha256": "f2881deac04ad32a5ac00bb4f83f22ea3075a0715ffc2989d1f20eb3f09351b3",
