@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Explore the Small and Big Vision experiments in 3D, from a movement prediction to a test of retained learning.">
+<meta name="description" content="Move a limb in a 3D drawing, compare a forecast with a real walking sensor, or explore proposed animal learning experiments.">
 <title>Experiment guide · Interoceptomics</title>
 <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
 </head>
@@ -10,9 +10,9 @@
 <a class="skip" href="#experiment">Skip to the experiment</a>
 <header><a href="../" class="wordmark">Interoceptomics</a><span class="location">Experiment guide</span><a class="source" href="https://github.com/eliminatenoise/Interoceptomics">Source ↗</a></header>
 <main>
-<h1>The experiments</h1>
-<p class="intro">Follow one movement from a command to an outcome. Start with a human movement task, or explore the proposed animal experiments.</p>
-<nav class="visions" aria-label="Choose a vision"><a id="small-link" href="#map-brain2body">Small vision <span>NeuroTranslation × NeuroSurge</span></a><a id="big-link" href="#0.1">Big vision <span>Interoceptomics</span></a></nav>
+<h1>How do we study movement?</h1>
+<p class="intro">Move an arm or a leg in the drawing. Then try a real walking recording. Can a computer predict what a sensor on the walker will read next? The animal experiments ask a different question. After guidance stops, what has an animal learned?</p>
+<nav class="visions" aria-label="Choose an experiment"><a id="small-link" href="#map-brain2body">Human movement <span>Small vision · NeuroTranslation × NeuroSurge</span></a><a id="big-link" href="#0.1">Animal learning <span>Big vision · Interoceptomics</span></a></nav>
 <noscript>This guide needs JavaScript for its controls. Read the <a href="../current/Interoceptomics-Script-Technical.pdf">technical script</a> or <a href="../current/Interoceptomics-Script-Simple.pdf">simple script</a>.</noscript>
 <div class="workspace">
 <aside aria-label="Roadmap">
@@ -37,14 +37,14 @@
 <p class="readout" id="scene-caption"></p>
 <section class="evidence"><h3>What would count as evidence?</h3><p id="evidence"></p><a id="script-link">Read this step in the technical script ↗</a></section>
 <section id="recording">
-<h3>Read a real walking sensor</h3><p>Select a body region and compare a saved forecast with the accelerometer reading 120 ms later. This parking-lot walk was used for training.</p>
-<button type="button" id="open-recording" aria-controls="sample-panel" aria-expanded="false">Inspect the TRAIN example</button><p id="sample-status" role="status"></p>
+<h3>Read a real walking sensor</h3><p>A walker wore sensors on both arms, both legs and the torso. As a leg speeds up, slows down or tilts relative to gravity, its sensor reading changes. This is the acceleration the model tries to predict. Pick one and see how close the computer came to its reading 120 milliseconds later. The computer learned from this parking-lot walk.</p>
+<button type="button" id="open-recording" aria-controls="sample-panel" aria-expanded="false">Open the walking recording</button><p id="sample-status" role="status"></p>
 <div id="sample-panel" hidden>
 <div class="controls"><div class="control"><label for="sensor">Wearable sensor</label><select id="sensor"><option value="right_arm">Right arm</option><option value="left_arm">Left arm</option><option value="right_leg">Right leg</option><option value="left_leg">Left leg</option><option value="torso">Torso</option></select></div>
-<div class="control"><label for="forecast">Forecast to compare</label><select id="forecast"><option value="shared_forecast">Shared Transformer</option><option value="ridge">Ridge regression</option><option value="persistence">Repeat last reading</option></select></div>
+<div class="control"><label for="forecast">Forecast to compare</label><select id="forecast"><option value="shared_forecast">Model trained on five body parts</option><option value="ridge">Weighted past readings (ridge regression)</option><option value="persistence">Repeat last reading</option></select></div>
 <div class="control"><label for="sample">Measured input <output id="sample-ms" for="sample"></output></label><input id="sample" type="range" min="0" max="15" value="15"></div></div>
 <table><caption id="sensor-caption"></caption><thead><tr><th scope="col">Acceleration</th><th scope="col">X</th><th scope="col">Y</th><th scope="col">Z</th></tr></thead><tbody id="sensor-values"></tbody></table>
-<p>All 16 inputs span 0 to 600 ms. The later observation and forecast share the same 720 ms target. Each sensor uses its own axes and stored units. This recording contains no joint angles or neural signals.</p>
+<p>The first 16 readings span 0 to 600 milliseconds (ms). Compare the prediction with the reading at 720 ms. X, Y and Z are directions on the sensor, and the numbers use its original units. The recording measures acceleration. Joint angles and nerve activity would each need a different measurement.</p>
 <p class="data-credit">Billur Barshan and Kerem Altun, <i>Daily and Sports Activities</i> (2010). <a href="https://archive.ics.uci.edu/dataset/256/daily">UCI dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="recording/NOTICE.md">Clip, checkpoint and source hashes</a></p>
 </div>
 </section>

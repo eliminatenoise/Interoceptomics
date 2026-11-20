@@ -18,13 +18,13 @@ function draw() {
   const actual = record.measured_target;
 
   $('sample-ms').textContent = time + ' ms';
-  $('sensor-caption').textContent = sensor.selectedOptions[0].textContent + ' · local sensor axes';
+  $('sensor-caption').textContent = sensor.selectedOptions[0].textContent + ' · acceleration in the sensor’s original units';
   $('sensor-values').replaceChildren();
   for (const [label, values] of [
     ['Input at ' + time + ' ms', record.input.samples[index]],
     ['Forecast at ' + target + ' ms', forecast],
     ['Measured at ' + target + ' ms', actual],
-    ['Absolute error', actual.map((v, i) => Math.abs(forecast[i] - v))]
+    ['Size of the miss', actual.map((v, i) => Math.abs(forecast[i] - v))]
   ]) {
     const tr = document.createElement('tr');
     const heading = document.createElement('th');
@@ -45,7 +45,7 @@ $('open-recording').addEventListener('click', async () => {
   const panel = $('sample-panel');
   if (!panel.hidden) {
     panel.hidden = true;
-    button.textContent = 'Inspect the TRAIN example';
+    button.textContent = 'Open the walking recording';
     button.setAttribute('aria-expanded', 'false');
     return;
   }
@@ -62,7 +62,7 @@ $('open-recording').addEventListener('click', async () => {
     }
     draw();
     panel.hidden = false;
-    button.textContent = 'Close the TRAIN example';
+    button.textContent = 'Close the walking recording';
     button.setAttribute('aria-expanded','true');
     $('sample-status').textContent = '';
   } catch {
