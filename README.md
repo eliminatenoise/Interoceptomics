@@ -125,13 +125,18 @@ The 3D drawing is done by [Three.js](https://github.com/mrdoob/three.js) (MIT li
 
 The slides are not published: 22 of their 88 pictures are known not to be cleared for redistribution, and the rights to the other 66 have not been confirmed.
 
-## The widest of three projects, and the least built
+## Three projects, one question
 
-Interoceptomics belongs to Brain2Body, a programme about connecting brain and body function.
+Interoceptomics is one of three projects that ask the same question: what passes between the brain and the body? The brain sends orders out to the muscles, and the body reports back what it is doing and feeling. Each project comes at that traffic from a different side.
 
-- **[NeuroTranslation](https://github.com/eliminatenoise/NeuroTranslation)** asks how well one recording of the body predicts another: brain or muscle activity against measured movement, tested on open human recordings.
-- **[NeuroSurge](https://eliminatenoise.github.io/NeuroSurge/)** is a browser game for learning which motor areas of the brain move which parts of the body. Its activity is simulated.
-- **Interoceptomics** is the proposal that body sense and nerve wiring be studied together. So far it has a guide to its proposed experiments and two atlases to explore in the browser.
+- **[NeuroTranslation](https://github.com/eliminatenoise/NeuroTranslation)** predicts one recording of the body from another, most of them of a movement: brain, nerve, muscle, force or motion, recorded by scientists who share their data openly. Every prediction is checked against what was actually recorded, and so far a signal's own recent past, above all a hand's own recent movement, has been the forecast to beat. [Open its pages in your browser](https://eliminatenoise.github.io/NeuroTranslation/START.html)
+- **[NeuroSurge](https://github.com/eliminatenoise/NeuroSurge)** is a game for learning which part of the brain moves which part of the body. You look out from inside a body without skin. Turn your view to a coloured area of the brain in front of you, and the body part it controls moves; click a muscle and its area lights up. What the game's brain does is made up by the game's rules, not read from anyone's brain. [Play NeuroSurge in your browser](https://eliminatenoise.github.io/NeuroSurge/)
+- **Interoceptomics**, this project, is a proposed field of science that would measure what the body senses of its own interior, a heartbeat or a breath, and then ask which nerve connections carry it. None of its experiments has been run yet. [The experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/) walks through the proposed experiments one step at a time, each beside a 3D sketch you can turn. [The atlas viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/) is a 3D model of the left half of a human brain that you can turn, cut and measure. It is built from the Allen Institute's published map of the brain's regions: a map, not a measurement.
+
+They are joined by a plan and a guide.
+
+- The game is meant to become the place where NeuroTranslation's model is used. The plan: type or say an action, or move in front of your camera, and the body on screen does it, driven by NeuroTranslate 0.0, the one model NeuroTranslation is building to learn from many kinds of body signal at once. None of this is in the published game. A first draft is [a proposed change to the game](https://github.com/eliminatenoise/NeuroSurge/pull/2), not yet merged: commands you type or speak choose from a set of the game's own movements, an arm or knee on screen follows yours as your camera sees it, and a map inside the game opens the recordings NeuroTranslation studies and its fitted models.
+- The experiment guide lays out the proposed experiments step by step, in two halves. Human movement (the "Small vision") holds the movement tasks in people, where NeuroTranslation and the game meet; Animal learning (the "Big vision") is Interoceptomics' road map: six proposed stages of experiments in animals, in 22 numbered steps. Several of NeuroTranslation's examples already sit inside the guide, among them two forecasts a quarter of a second ahead: the two angles of a person's right wrist as they steer a cursor to a target, from three of its models, and where a rat on a W-shaped track will be.
 
 ---
 
