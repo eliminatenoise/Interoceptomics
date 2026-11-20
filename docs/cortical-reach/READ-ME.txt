@@ -1,0 +1,7 @@
+The bump and the reach · Interoceptomics
+
+Extract the complete folder. Open the launcher for Windows, macOS or Linux, or open index.html directly in a modern browser with JavaScript enabled. All data, weights, reference images and interactive views are local. Internet access is needed only to visit linked papers, study pages and source repositories.
+
+Start at the bump or jump to the go cue. Drag the 3D canvas or focus it and use the arrow keys to rotate. Choose another projection or arm site from the menus. Scrub the clock in 10-ms steps. Expand the coordinate table for all ten arm landmarks. Each neural tile gives an electrode channel, a sort number and the current spike count. Choose a forecast time and model fit to compare the next 100 ms of measured handle movement with the browser's prediction.
+
+The arm uses shoulder-relative metres. The handle uses encoder centimetres. The GLB opens independently in glTF 2 viewers and includes the 250-step marker animation from the selected trial. See NOTICE.md for the source files, figure licenses, model inputs, dynamic view and limits. SHA256SUMS lists hashes for each distributed file.

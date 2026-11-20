@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The bump and the reach · Interoceptomics</title>
+    <meta
+      name="description"
+      content="Replay ten tracked arm landmarks, the movement of a robot handle and sensory-cortex spikes from a macaque reaching experiment."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="trial.js"></script>
+    <script defer src="forecasts.js"></script>
+    <script defer src="weights.js"></script>
+    <script defer src="predict.js"></script>
+    <script defer src="evaluate.js"></script>
+    <script defer src="scene.js"></script>
+    <script defer src="reader.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a>
+      <nav aria-label="Page sections">
+        <a href="#recording">Recording</a><a href="#forecast">Forecast</a><a href="#sources">Sources</a>
+      </nav>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <p class="overline">Sensory cortex &nbsp;/&nbsp; Macaque C</p>
+          <h1>The bump and the reach</h1>
+          <p>
+            A robot briefly pushed the handle in a macaque’s hand. A visual cue then asked the animal to
+            reach. Turn the arm to see where its markers moved, and follow the spikes recorded from sensory
+            cortex on the same clock.
+          </p>
+        </div>
+        <div class="session">
+          <span>Recording</span><strong>12 Sep 2017</strong><span id="trialInfo"></span>
+        </div>
+      </div>
+
+      <section id="recording" aria-label="Synchronized arm and handle recording">
+        <div class="record-grid">
+          <div class="spatial">
+            <div class="panel-head">
+              <div>
+                <p class="tag">Optical tracking</p>
+                <h2>Arm in 3D</h2>
+              </div>
+              <span class="unit">metres</span>
+            </div>
+            <canvas
+              id="arm"
+              tabindex="0"
+              aria-label="Rotatable ten-landmark arm recording. Drag or use arrow keys to rotate. Exact coordinates are available in the marker table."
+            ></canvas>
+            <div class="camera">
+              <label
+                >View
+                <select id="view">
+                  <option value="oblique">Oblique</option>
+                  <option value="xy">From above · XY</option>
+                  <option value="yz">From the side · YZ</option>
+                  <option value="xz">From the front · XZ</option>
+                  <option value="custom" disabled>Rotated</option>
+                </select></label
+              ><label
+                >Landmark
+                <select id="site"></select></label
+              ><label><input type="checkbox" id="outline" checked /> Illustrative outline</label>
+            </div>
+            <p class="dark-caption">
+              The dots are tracked sites. The optional outline suggests the shape of the limb between them.
+              Its width is illustrative. The green trail follows the selected site over the preceding 100 ms.
+            </p>
+          </div>
+          <div class="handle-panel">
+            <div class="panel-head">
+              <div>
+                <p class="tag">Robot encoders</p>
+                <h2>Handle from above</h2>
+              </div>
+              <span class="unit">cm</span>
+            </div>
+            <canvas
+              id="handle"
+              aria-label="Handle trajectory in the robot's two-dimensional encoder frame. Current and forecast values appear below."
+            ></canvas>
+            <p class="legend">
+              <span class="current">● Current handle</span><span class="actual">○ Measured endpoint</span
+              ><span class="model">◆ Forecast endpoint</span>
+            </p>
+            <p id="handleRead" class="read"></p>
+            <p class="small">
+              The grey line traces the whole trial. The two encoders have their own origin. The arm view uses
+              the shoulder as its origin.
+            </p>
+          </div>
+        </div>
+        <div class="transport">
+          <div class="time-title">
+            <div>
+              <span id="eventTag"></span>
+              <h3 id="eventName"></h3>
+            </div>
+            <output id="clock" for="timeline"></output>
+          </div>
+          <label class="visually-hidden" for="timeline">Trial time in 10-millisecond rows</label
+          ><input type="range" id="timeline" min="0" step="1" value="0" />
+          <div class="buttons">
+            <button id="play" type="button">Play</button
+            ><button id="prev" title="Previous 10 ms" aria-label="Previous 10 milliseconds">−10 ms</button
+            ><button id="next" title="Next 10 ms" aria-label="Next 10 milliseconds">+10 ms</button
+            ><label
+              >Speed
+              <select id="speed">
+                <option value="0.25">¼×</option>
+                <option value="0.5">½×</option>
+                <option value="1" selected>1×</option>
+              </select></label
+            ><span class="spacer"></span><button id="bump">Jump to bump</button
+            ><button id="go">Jump to go cue</button>
+          </div>
+          <p id="eventTimes" class="small"></p>
+        </div>
+        <details id="coordinates">
+          <summary>Coordinates for all ten markers</summary>
+          <p>
+            XYZ follows the processed archive. Each row gives the marker name, its location on the authors’
+            arm model and its current shoulder-relative position in metres.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Site</th>
+                <th>Arm region</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>Z</th>
+              </tr>
+            </thead>
+            <tbody id="markerRows"></tbody>
+          </table>
+        </details>
+      </section>
+
+      <section id="units">
+        <div class="section-title">
+          <div>
+            <p class="overline">Electrical recording</p>
+            <h2>What fired in those 10 milliseconds?</h2>
+          </div>
+          <output id="spikeSum"></output>
+        </div>
+        <p>
+          The researchers sorted electrical events from area 2 of the sensory cortex into 30 putative neurons.
+          Each tile gives one unit’s count in the current 10-ms bin. Its label pairs an electrode channel with
+          that session’s sorting number. Tile order follows the data columns. The file gives no coordinates
+          for individual units.
+        </p>
+        <div id="raster" aria-label="30 session-local sorted unit counts"></div>
+        <p class="small">
+          Each tile shows <strong>electrode / sort</strong> above the spike count. Brighter green means more
+          spikes. The 52 unsorted columns are excluded.
+        </p>
+      </section>
+
+      <section id="forecast">
+        <div class="section-title">
+          <div>
+            <p class="overline">100 ms ahead</p>
+            <h2>Where did the handle go next?</h2>
+          </div>
+        </div>
+        <p>
+          The forecast starts at an event or shortly afterward. It uses the preceding 200 ms of handle
+          movement, cortical spike counts and cues already available. The open circle on the handle plot marks
+          the encoder position 100 ms later. The diamond marks the position your browser computes from the
+          selected set of frozen Transformer weights. Each seed starts the same training method from a
+          different random initialization.
+        </p>
+        <div class="forecast-controls">
+          <label
+            >Forecast time
+            <select id="anchor"></select></label
+          ><label
+            >Model fit
+            <select id="seed"></select
+          ></label>
+        </div>
+        <div id="compare"></div>
+        <p id="held"></p>
+        <p>
+          <a href="https://eliminatenoise.github.io/NeuroTranslation/cortical-reach/"
+            >Inspect the forecasts</a
+          >
+          &nbsp;·&nbsp;
+          <a href="https://eliminatenoise.github.io/NeuroTranslation/papers/cortical-reach/"
+            >Read the study</a
+          >
+        </p>
+      </section>
+
+      <section id="sources">
+        <p class="overline">Task and recording references</p>
+        <h2>From the original experiment</h2>
+        <div class="references">
+          <figure>
+            <a href="reference/figure-2.webp"
+              ><img
+                src="reference/figure-2.webp"
+                width="850"
+                height="726"
+                loading="lazy"
+                alt="Original task diagram. A macaque grips a two-link planar handle with coloured markers spaced along its arm."
+            /></a>
+            <figcaption>
+              <b>Where the markers went.</b> A Kinect camera tracked markers while the animal moved a two-link
+              handle. This setup diagram gives the arm and apparatus context.
+              <a href="https://elifesciences.org/articles/48198/figures#fig2">Figure 2</a>
+            </figcaption>
+          </figure>
+          <figure>
+            <a href="reference/figure-8.webp"
+              ><img
+                src="reference/figure-8.webp"
+                width="850"
+                height="817"
+                loading="lazy"
+                alt="The source study's active and passive diagrams, measured speed curves, neuronal rasters and firing rates."
+            /></a>
+            <figcaption>
+              <b>Two kinds of movement.</b> The authors compared voluntary reaches and robot-imposed
+              displacements. Their pooled speed curves and example rasters describe their experiment. The
+              clock above belongs to one selected original trial.
+              <a href="https://elifesciences.org/articles/48198/figures#fig8">Figure 8</a>
+            </figcaption>
+          </figure>
+          <figure>
+            <a href="reference/figure-1.webp"
+              ><img
+                src="reference/figure-1.webp"
+                width="850"
+                height="812"
+                loading="lazy"
+                alt="Electrode arrays and receptive-field maps shown by the original authors for three animals."
+            /></a>
+            <figcaption>
+              <b>Where signals came from.</b> The authors mapped the array and receptive fields for each
+              animal. A mapping day’s layout cannot identify the precise position or receptive field of every
+              sorted unit on this recording day.
+              <a href="https://elifesciences.org/articles/48198/figures#fig1">Figure 1</a>
+            </figcaption>
+          </figure>
+        </div>
+        <p>
+          Chowdhury, Glaser and Miller (2020),
+          <i>Area 2 of primary somatosensory cortex encodes kinematics of the whole arm</i>. Figures resized
+          from the originals under CC BY 4.0. The Dryad data are CC0. The experiment includes no spoken
+          instruction, peripheral nerve measurement or direct muscle recording. The archive has processed
+          positions on a 10-ms grid. The original camera frames, tracking confidence and per-frame errors are
+          unavailable.
+        </p>
+        <p>
+          <a href="https://doi.org/10.5061/dryad.nk98sf7q7">Dryad recording</a> &nbsp;·&nbsp;
+          <a href="https://doi.org/10.7554/eLife.48198">Original paper</a> &nbsp;·&nbsp;
+          <a href="NOTICE.md">Source software, coordinates and reuse</a>
+        </p>
+      </section>
+      <footer>
+        <div>
+          <strong>Take the recording offline</strong>
+          <p>
+            Extract the archive, then use your operating system’s launcher. The GLB contains the animated
+            marker sites in metres.
+          </p>
+        </div>
+        <div>
+          <a download href="cortical-reach.glb">3D model (.glb)</a
+          ><a
+            href="https://github.com/eliminatenoise/Interoceptomics/raw/refs/heads/main/downloads/cortical-reach/Interoceptomics-Cortical-Reach.zip"
+            >Complete offline atlas (.zip)</a
+          >
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

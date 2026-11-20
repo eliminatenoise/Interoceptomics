@@ -47,6 +47,11 @@ const models = {
     url: '../recorded-cortex/',
     reading: 'Explore electrical power from 46 contacts in one person who was shown finger cues. Load their own cortical surface to locate the recording contacts.'
   },
+  corticalReach: {
+    title: 'The bump and the reach',
+    url: '../cortical-reach/',
+    reading: 'A robot pushed a macaque’s handle before a visual cue prompted a reach. Replay ten tracked arm sites and 30 cortical units, then compare the next 100 ms of handle travel with the forecast.'
+  },
   spindle: {
     title: 'Count the spikes from a muscle spindle',
     url: '../muscle-spindle/',
@@ -121,17 +126,17 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
+  'map-brain2body': ['corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
-  'motorsensation': ['visualBalance', 'spindle', 'exercise', 'vibration'],
+  'motorsensation': ['corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
   'handler': ['graspBalanceRecording', 'graspBalanceForecast'],
   'read-function': ['vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
-  'mechanics': ['stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
+  'mechanics': ['corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['graspBalanceForecast', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
