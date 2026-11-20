@@ -18,6 +18,8 @@ In Small vision, a participant steers a cursor towards a target with their right
 
 Select **Open the walking recording** farther down the guide to try a different measurement. Choose either arm, either leg or the torso and compare a saved forecast with the sensor’s later acceleration. This walking clip was part of model training. Both examples run in the browser. If you have the separate 3D companion, its models also open from the guide. [Walking recording and model credits](docs/stages/recording/NOTICE.md)
 
+Three short human recordings let you follow a heartbeat alongside chest vibration and breathing. Pick a time to see what each sensor measured. Only the first recording has beat labels that match its waveform. [Open the heart and breathing recordings](https://eliminatenoise.github.io/Interoceptomics/inside/)
+
 ## Open it in three steps
 
 You need Python 3.10 or newer and a current browser.

@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What changes around a heartbeat? · Interoceptomics</title><style>/* STYLES */</style></head>
+<body><main>
+<header><a href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a><a href="https://eliminatenoise.github.io/Interoceptomics/stages/">Experiment guide</a></header>
+<h1>What changes around a heartbeat?</h1>
+<p class="intro">Skin electrodes pick up the heart’s electrical activity. A second sensor records tiny chest vibrations, and a band follows breathing. All three instruments recorded at the same time while a person lay still.</p>
+<div class="choices"><label>Recording <select id="record" aria-label="Recording"></select></label>
+<label>Electrical view <select id="lead" aria-label="Electrical view"><option value="1">ECG lead II</option><option value="0">ECG lead I</option></select></label>
+<label>Time window <select id="window" aria-label="Time window"><option value="full">12 seconds</option><option value="zoom">0.8 seconds</option></select></label></div>
+<p id="status" role="status">Opening the archived recording…</p>
+<section id="viewer" aria-label="Simultaneous physiology recordings" hidden>
+<div class="clock"><button id="play">Play</button><label>Time in the recording <output id="time"></output><input id="seek" aria-label="Time in recording" type="range" min="0" max="59999" step="1"></label></div>
+<div id="plots"></div>
+<p class="note">Each trace has its own vertical scale in millivolts (mV), the voltage reported by that sensor. Tap a trace or move the time slider to compare the same sample across all three.</p>
+<div class="beat-buttons" id="beat-controls"><button id="prev">Previous ECG mark</button><button id="next">Next ECG mark</button></div>
+<p id="beat-note"></p>
+<div class="ruler"><button id="anchor">Measure from this sample</button><output id="difference"></output></div>
+<p class="scope">Interoception is sensing what is happening inside your body. These recordings give an outside measurement of three changes the body undergoes. There is no sensory-nerve recording or participant report of a felt heartbeat here.</p>
+<details><summary>What and when did the instruments measure?</summary>
+<p>Two ECG leads record the heart’s electrical activity from different directions. The breathing band and chest accelerometer each report an electrical output related to motion. The stored voltages do not provide lung volume, muscle force, blood pressure or a calibrated acceleration in this viewer.</p>
+<p>Each excerpt runs from 60.0000 through 71.9998 seconds on a 5,000-sample-per-second clock. The step between samples is 0.2 ms. A visible ECG mark is the archive’s beat label for that lead. The archive does not identify a particular valve movement or a time when the person felt a beat.</p>
+<p id="source-info"></p><p>At screen widths narrower than the recording, each drawn column includes the lowest and highest samples within it. The numeric readout always uses the original row.</p>
+</details></section>
+<footer><p>Recorded by Miguel Ángel García González and Ariadna Argelagós Palou at the Universitat Politècnica de Catalunya, and shared through PhysioNet. The CEBS database v1.0.0 is available under the Open Data Commons Attribution License v1.0. The recordings were excerpted and the sensor voltages reconstructed from the source integers and verified channel calibrations.</p>
+<a href="https://doi.org/10.13026/C2KW23">Original recordings</a> · <a href="https://physionet.org/content/cebsdb/view-license/1.0.0/">Data licence</a> · <a href="https://www.cinc.org/archives/2013/pdf/0461.pdf">Original study</a> · <a href="https://doi.org/10.1038/s44360-026-00096-z">About PhysioNet</a> · <a href="https://github.com/eliminatenoise/Interoceptomics/tree/main/docs/inside">Sources and reproduction</a></footer>
+<noscript>Enable JavaScript to view the recorded signals.</noscript></main><script type="application/json" id="recorded-channels">/* DATA */</script><script>/* PROGRAM */</script></body></html>

@@ -1,0 +1,174 @@
+{
+  "schema": "interotomics-cebs-1",
+  "dataset": "CEBSDB 1.0.0",
+  "datasetDOI": "10.13026/C2KW23",
+  "sourceIndexSha256": "75db8c9b809ef307aabeff2c0d1b780e1bb80d4df1044272ba0f980ed06f205e",
+  "records": [
+    {
+      "record": "b001",
+      "calibration": "b001",
+      "file": "b001.bin",
+      "sha256": "eab9494fd0d4922afbfcaf6069eeb8c6b201f6323684a785f8eba126bcea9a5e",
+      "sourceSha256": "a005044bb47b58ab6a39b53d29b6667eefe04a0ea82d725a84fccf81956e96e6",
+      "headerSha256": "d3c32b4b83712b954d34319fb25dd81e108a4fa753c20bbfffe652d167353d7f",
+      "channels": [
+        "I",
+        "II",
+        "RESP",
+        "SCG"
+      ],
+      "units": [
+        "mV",
+        "mV",
+        "mV",
+        "mV"
+      ],
+      "gain": [
+        33722.0181,
+        72230.6799,
+        40950.0021,
+        2462.6354
+      ],
+      "baseline": [
+        -14974,
+        11980,
+        -1812,
+        3908
+      ],
+      "nativeChecksums": [
+        -16060,
+        -17835,
+        15465,
+        29704
+      ],
+      "firstSample": 300000,
+      "stopSample": 360000,
+      "rateHz": 5000,
+      "beatMarks": [
+        [
+          302268,
+          306848,
+          311563,
+          316416,
+          321046,
+          325784,
+          330614,
+          335284,
+          340034,
+          344870,
+          349511,
+          354275,
+          359062
+        ],
+        [
+          302204,
+          306788,
+          311502,
+          316353,
+          320986,
+          325721,
+          330548,
+          335224,
+          339971,
+          344806,
+          349451,
+          354214,
+          359001
+        ]
+      ],
+      "annotationSha256": "d5efd6f10ac810735c2cd80311f606494b11b302bd9fd5f124b6432b1321968b"
+    },
+    {
+      "record": "b002",
+      "calibration": "p002",
+      "file": "b002.bin",
+      "sha256": "e7133235a184006757f36024bd326c5e953f6c2b3a1255bf5ae4b403791d301a",
+      "sourceSha256": "99ff01cddebe5b4ecb525ccf313f434d962edd8a2867e44891e0377a95dff05a",
+      "headerSha256": "3e17f8249e038d83310a79bc4f2b115491a5010aa009ee48d53a080896a119c3",
+      "channels": [
+        "I",
+        "II",
+        "RESP",
+        "SCG"
+      ],
+      "units": [
+        "mV",
+        "mV",
+        "mV",
+        "mV"
+      ],
+      "gain": [
+        159659.3392,
+        47237.53,
+        86729.326,
+        3387.0948
+      ],
+      "baseline": [
+        -16055,
+        -20312,
+        1720,
+        -620
+      ],
+      "nativeChecksums": [
+        -31208,
+        -23128,
+        13798,
+        8798
+      ],
+      "firstSample": 300000,
+      "stopSample": 360000,
+      "rateHz": 5000,
+      "beatMarks": [
+        [],
+        []
+      ],
+      "annotationSha256": null
+    },
+    {
+      "record": "b003",
+      "calibration": "p003",
+      "file": "b003.bin",
+      "sha256": "19d89ac77c109b3e4d8809548be0e3996bedbe92c63b33258e76a963d5ac3dd1",
+      "sourceSha256": "c84387aa069de0d6bdc38d85f5c8149982fc807bf0de661c8a5982f073509bc0",
+      "headerSha256": "43b9d1c0765fc70e96fce868d44c31c97588bf519b6d14f136c6721227f15a8f",
+      "channels": [
+        "I",
+        "II",
+        "RESP",
+        "SCG"
+      ],
+      "units": [
+        "mV",
+        "mV",
+        "mV",
+        "mV"
+      ],
+      "gain": [
+        106943.1331,
+        51657.881,
+        171519.0185,
+        4891.613
+      ],
+      "baseline": [
+        -20920,
+        -18815,
+        314,
+        2612
+      ],
+      "nativeChecksums": [
+        -28811,
+        -12390,
+        22033,
+        19244
+      ],
+      "firstSample": 300000,
+      "stopSample": 360000,
+      "rateHz": 5000,
+      "beatMarks": [
+        [],
+        []
+      ],
+      "annotationSha256": null
+    }
+  ]
+}

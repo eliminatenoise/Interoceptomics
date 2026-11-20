@@ -120,6 +120,8 @@ function render(directionFocus=false){
   $('resources').replaceChildren();
   if(small || ['0.1','movement-model','composite','5.3'].includes(current.id))
     resource('Inspect recordings in NeuroTranslate 0.0 ↗',external.model);
+  if(['motorsensation','map-brain2body'].includes(current.id))
+    resource('Compare recorded heart activity, chest vibration and breathing','../inside/');
   if(current.id==='handler')
     resource('Search and replay 26 tracked hand joints ↗','https://eliminatenoise.github.io/NeuroTranslation/hand-search/');
   if(['map-body2body','movement-model'].includes(current.id))

@@ -4,6 +4,7 @@ The project's own work in this repository is dedicated to the public domain. The
 
 | What | Whose | Terms | To reuse it you must |
 | --- | --- | --- | --- |
+| Heart electrical activity, chest vibration and breathing excerpts | Miguel Ángel García González and Ariadna Argelagós Palou, Universitat Politècnica de Catalunya, via PhysioNet CEBSDB 1.0.0 | [Open Data Commons Attribution License 1.0](https://physionet.org/content/cebsdb/view-license/1.0.0/) | Preserve the source and licence notices and identify adaptations. [Excerpt details and citations](docs/inside/README.md) |
 | The brain anatomy in the atlas viewer: surfaces, region grid, region names and numbers | Allen Institute for Brain Science, adapted by this project | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give the credit below, link the licence, keep the notices, say what you changed |
 | Three.js, the 3D drawing library inside the viewer | Three.js authors | [MIT](https://opensource.org/license/mit) | Keep its copyright and permission notice |
 | Fonts embedded in the script PDFs | Liberation Sans: Red Hat and Google. Comic Sans MS: Microsoft | SIL Open Font License 1.1; Microsoft's core fonts end-user licence | Keep the two licence files with the PDFs |
