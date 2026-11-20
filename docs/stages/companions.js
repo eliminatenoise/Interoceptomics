@@ -57,6 +57,11 @@ const models = {
     url: neuro + 'knee-motion/',
     reading: 'Five readings from the hips, knees and ankles go in. How far will each knee bend 15 frames later? Try the invented step, check the errors for 12 people whose walks were kept out of training, or open an original angle file to see what followed.'
   },
+  overground: {
+    title: 'Follow one stride from muscles to the floor',
+    url: '../stride-signals/index.html',
+    reading: 'Turn the figure and scrub through one slow stride. Compare the movement of 52 skin markers, electrical activity in eight right-leg muscles and force on two floor plates.'
+  },
   rhythm: {
     title: 'Compare muscle and knee rhythms',
     url: neuro + 'gait-rhythm/',
@@ -85,9 +90,9 @@ const choicesByStep = {
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
-  'mechanics': ['stride', 'reflex', 'knee'],
-  'movement-model': ['stride', 'words', 'trip', 'knee'],
-  'myoception': ['muscle', 'reflex', 'wrist', 'rhythm'],
+  'mechanics': ['stride', 'reflex', 'knee', 'overground'],
+  'movement-model': ['stride', 'words', 'trip', 'knee', 'overground'],
+  'myoception': ['muscle', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
   'humans': ['wrist', 'stride', 'cortex', 'coverage']
 };

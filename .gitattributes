@@ -16,3 +16,8 @@ models/recorded-cortex/** -text
 docs/recorded-cortex/*.cmd whitespace=cr-at-eol
 docs/cortex-coverage/** -text
 docs/cortex-coverage/*.cmd whitespace=cr-at-eol
+# Keep the offline reader, original licence and reproducible archive inputs byte-identical.
+docs/stride-signals/** -text
+models/stride-signals/** -text
+docs/stride-signals/*.cmd whitespace=cr-at-eol
+models/stride-signals/LICENCE whitespace=cr-at-eol

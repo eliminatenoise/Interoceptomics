@@ -417,5 +417,15 @@
     "methods": "docs/cortex-coverage/README.md",
     "offline": "downloads/recorded-cortex.zip",
     "scope": "Regional coverage for 278 retained contacts in five preselected FingerFlex participants. Their deposited cortical surfaces, positions and anatomical labels open on demand. Each display keeps the participant’s native coordinates and camera."
+  },
+  "stride_signals": {
+    "reader": "docs/stride-signals/index.html",
+    "archive": "downloads/stride-signals.zip",
+    "measurements": "models/stride-signals/stride-reference.json",
+    "methods": "models/stride-signals/OVERGROUND-STRIDE.md",
+    "source": "https://doi.org/10.6084/m9.figshare.7734767.v8",
+    "source_licence": "models/stride-signals/LICENCE",
+    "scope": "Group means from 89 barefoot C2 strides in 30 adults. The 52 marker paths and eight right-leg muscle channels share a stride clock. Physical plate means have different denominators. A separate right-foot force trace spans 2–58% of the stride from four qualified strides in three adults.",
+    "model_limits": "The body surface illustrates marker motion. Plate forces sample contact on the instrumented walkway. The display aligns published filtered recordings retrospectively."
   }
 }
