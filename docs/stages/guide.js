@@ -1,6 +1,7 @@
 import {allSteps,groups,visions,technicalPage} from './roadmap.js';
 import {sceneInfo,showScene} from './scene.js';
 import {selectWalkingLimb} from './recording/view.js';
+import {showMazeRecording} from './recording/maze.js';
 import {showWristRecording} from './recording/wrist.js';
 
 const $=id=>document.getElementById(id);
@@ -96,6 +97,7 @@ function render(directionFocus=false){
   $('group-name').textContent=g.title;$('question').textContent=current.question;$('evidence').textContent=current.evidence;
   $('script-link').href='../current/Interoceptomics-Script-Technical.pdf#page='+technicalPage(current.slide);
   $('script-link').textContent='Technical script · slide '+current.slide+' ↗';
+  showMazeRecording(current.id === '0.2');
   showWristRecording(current.id === 'map-brain2body');
   $('coverage').hidden=!small;$('recording').hidden=!small;
   $('limb-wrap').hidden=!small && current.scene!=='body';
@@ -117,6 +119,8 @@ function render(directionFocus=false){
     resource('Run the five-sensor forecast model ↗','https://github.com/eliminatenoise/NeuroTranslation/tree/main/benchmarks/daily-sports-limbs#open-the-local-demo');
     resource('Open the NeuroSurge game ↗',external.game);
   }
+  if(['0.1','0.3','0.4'].includes(current.id))
+    resource('Follow a recorded rat and two brain cells on a W-track', '#0.2');
   if(!small){
     resource('Download the reference brain atlas (ZIP) ↗',external.atlas);
     resource('Atlas instructions and attribution ↗',external.atlasGuide);

@@ -1,6 +1,6 @@
 # Licences and credits
 
-The project's own work in this repository is dedicated to the public domain. The atlas, drawing library, embedded fonts and human movement recordings carry their own conditions. No single licence covers everything.
+The project's own work in this repository is dedicated to the public domain. The atlas, drawing library, embedded fonts and recordings from people and animals carry their own conditions. No single licence covers everything.
 
 | What | Whose | Terms | To reuse it you must |
 | --- | --- | --- | --- |
@@ -9,6 +9,7 @@ The project's own work in this repository is dedicated to the public domain. The
 | Fonts embedded in the script PDFs | Liberation Sans: Red Hat and Google. Comic Sans MS: Microsoft | SIL Open Font License 1.1; Microsoft's core fonts end-user licence | Keep the two licence files with the PDFs |
 | The right-wrist recording and derived forecast results in the experiment guide | Jorge German Perez Blanco and Javier Mauricio Anteliz Ortiz, *EEG-EMG-WristMotion Dataset*, version 3 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give credit and link the licence and source. Keep the [trial, model and change notices](docs/stages/recording/WRIST-NOTICE.md) and identify further changes. |
 | The walking sensor excerpt and saved forecasts in the experiment guide | Billur Barshan and Kerem Altun, *Daily and Sports Activities* | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give credit and link the licence and source. Keep the [walking excerpt and forecast notices](docs/stages/recording/NOTICE.md) and identify further changes. |
+| The W-track position and brain-cell spike excerpt in the experiment guide | Justin Shin and Shantanu Jadhav, *Single Day W-Track Learning* (2024) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Credit the authors, link the licence and [dataset](https://doi.org/10.48324/dandi.000978/0.240511.0307), keep the [excerpt notice](docs/stages/recording/MAZE-NOTICE.md) and identify further changes. |
 | Everything this project made itself: the viewer's code, the colour choices, these pages, the scripts' prose, the desktop shortcuts | This project | [CC0 1.0](LICENSE), to the extent the project holds the rights | Nothing |
 
 Each third-party item retains the terms listed in its row. Where the project's work is fused with the atlas, as in every surface file, the atlas's terms still apply to the result.

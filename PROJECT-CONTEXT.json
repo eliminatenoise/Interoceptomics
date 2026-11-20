@@ -17,7 +17,7 @@
   },
   "scope_note": "Names and definitions identify the programme and its scope. They do not establish a validated model or any biological or clinical capability.",
   "release_policy": "Each new version replaces the one before it on the main branch; Git history keeps the earlier ones. Experimental previews are published with their known limits. Publishing a version does not mean it has been validated.",
-  "license_note": "The project's own work is CC0-1.0. The atlas anatomy (CC BY 4.0), Three.js (MIT) and the fonts embedded in the script PDFs keep their own terms. See RIGHTS.md.",
+  "license_note": "The project's own work is CC0-1.0. The atlas anatomy (CC BY 4.0), guide recordings from people and a rat (CC BY 4.0), Three.js (MIT) and the fonts embedded in the script PDFs keep their own terms. See RIGHTS.md.",
   "development_status": "Atlas viewer active; presentation and its scripts paused.",
   "programme_focus": "Three projects share the Brain2Body programme: NeuroTranslation, NeuroSurge and Interoceptomics. All three are active.",
   "experimental_preview": {

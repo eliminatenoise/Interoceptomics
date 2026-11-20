@@ -56,6 +56,32 @@
 </div>
 <p class="data-credit">Jorge German Perez Blanco and Javier Mauricio Anteliz Ortiz, <i>EEG-EMG-WristMotion Dataset</i>, version 3. <a href="https://doi.org/10.6084/m9.figshare.29666735.v3">Dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="recording/WRIST-NOTICE.md">Trial and forecast sources</a> · <a href="https://github.com/eliminatenoise/NeuroTranslation/tree/117ffa001fb10086854ae4ec4d365c7c2121786f/benchmarks/paired-wrist-forecast">Run the predictor ↗</a></p>
 </section>
+<section id="maze" aria-labelledby="maze-title" hidden>
+<h3 id="maze-title">Follow a rat across a W-shaped track</h3>
+<p>A camera tracked one male Long–Evans rat while electrodes picked up the brief electrical signals that brain cells produce when they fire. Each event is called a spike. The study marked this trip as a run from the centre well to the left well. Move the slider to compare a camera reading with the times two of the recorded cells fired.</p>
+<p id="maze-status" role="status"></p>
+<div id="maze-data" hidden>
+<label for="maze-frame">Camera frame <output id="maze-time" for="maze-frame"></output></label>
+<input type="range" id="maze-frame" min="0" step="1" value="0">
+<div class="maze-columns">
+<div><h4>Where was the rat?</h4>
+<svg id="maze-map" viewBox="0 0 265 270" aria-hidden="true"></svg>
+<output id="maze-position" for="maze-frame"></output>
+<p id="maze-clock"></p>
+<p>The pale dots are the camera readings from the whole trip. The orange ring marks your frame. Both axes use centimetres in the study’s track coordinates.</p></div>
+<div><h4>When did the cells fire?</h4>
+<p>Each short stroke marks a spike from one cell. Both rows cover the same 48.899 seconds. The orange line follows your camera frame.</p>
+<div id="maze-units"></div>
+<button type="button" id="maze-jump">Find the first hippocampal spike</button>
+<p id="maze-gap" role="status"></p>
+</div></div>
+<details><summary>How close are the two measurements in time?</summary>
+<p>The camera positions and spikes share a session clock. The file holds 1,387 tracked positions, with 20–91 milliseconds between readings. The rat’s exact position between those readings is unknown. The source names the centre well as its reference frame and gives no compass bearing.</p>
+<p>The study sorted the electrical events into groups attributed to individual cells. This excerpt takes the first listed unit in each of two brain regions. Their timing alone cannot tell us which cell made the rat turn. Testing feedback would require measuring what guidance reached an animal and how it responded.</p>
+</details>
+</div>
+<p class="data-credit">Justin Shin and Shantanu Jadhav, <i>Single Day W-Track Learning</i> (2024). <a href="https://doi.org/10.48324/dandi.000978/0.240511.0307">Dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="recording/MAZE-NOTICE.md">Trial, units and source files</a></p>
+</section>
 <div class="scene">
 <div class="scene-line"><strong id="scene-title"></strong><span>3D schematic</span></div>
 <canvas aria-label="Interactive schematic. Read the scene description and current state below."></canvas>

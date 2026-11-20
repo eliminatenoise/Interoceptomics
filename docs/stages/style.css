@@ -50,3 +50,30 @@ dl{margin:0}dl div{display:grid;grid-template-columns:minmax(106px,21%) 1fr;gap:
 .wrist-table th:first-child {text-align:left}
 .wrist-compare button {font-size:.82rem;margin-top:10px}
 .wrist-methods {margin-top:9px}.wrist-methods summary {font-size:.9rem}
+
+#maze {border-top:2px solid var(--ink);margin:1rem 0 1.5rem}
+#maze-status:empty,#maze-gap:empty {display:none}
+#maze-data>label {display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;margin-top:12px}
+#maze-frame {width:100%;accent-color:var(--green);margin:8px 0 12px}
+#maze-data output,#maze-clock {font-variant-numeric:tabular-nums}
+.maze-columns {display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.maze-columns>div {background:#edf2eb;border-radius:8px;padding:14px;min-width:0}
+.maze-columns h4,.maze-columns h5 {margin:0 0 5px;color:var(--ink)}
+.maze-columns h4 {font-size:1rem}
+.maze-columns p,.maze-columns output,#maze .data-credit {font-size:.84rem}
+.maze-columns p {margin:5px 0}
+.maze-columns svg {display:block;width:100%;overflow:visible}
+.maze-columns svg text {font:12px system-ui,sans-serif;fill:#40534b}
+#maze-map {max-height:260px;margin:6px 0}
+.maze-grid {stroke:#b6c6b9;stroke-width:1}
+.maze-points {stroke:#427b6b;stroke-width:2.2;stroke-linecap:round;fill:none;opacity:.68}
+.maze-cursor-dot {fill:white;stroke:#ac4604;stroke-width:3}
+.maze-spike {stroke:#075b49;stroke-width:1.6}
+.maze-time-line {stroke:#ac4604;stroke-width:2}
+#maze-units>div {margin:14px 0}
+#maze-units output {font-size:.8rem}
+#maze-jump {font-size:.85rem}
+#maze-position {font-weight:650}
+#maze-gap {margin-top:7px}
+#maze .data-credit {margin-top:12px}
+@media(max-width:640px){.maze-columns{grid-template-columns:1fr}}

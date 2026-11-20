@@ -12,7 +12,7 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 ## Follow the experiments
 
-[Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Small vision** for the human movement tasks and their available game, camera and recording evidence. Choose **Big vision** for the six proposed animal stages. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.
+[Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** (Small vision) for the movement tasks in people and their available game, camera and recording evidence. Choose **Animal learning** (Big vision) for the six proposed animal stages. In [Stage 0.2 · Navigation](https://eliminatenoise.github.io/Interoceptomics/stages/#0.2), track one rat and follow spikes from two brain cells in a separate published W-track study. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.
 
 In Small vision, a participant steers a cursor towards a target with their right wrist. Scrub the scalp and forearm recordings, choose the last instant a model can see, then check its forecast against the two measured wrist angles a quarter-second later. [Wrist recording and model credits](docs/stages/recording/WRIST-NOTICE.md)
 
