@@ -1,5 +1,6 @@
 import {allSteps,groups,visions,technicalPage} from './roadmap.js';
 import {sceneInfo,showScene} from './scene.js';
+import {selectWalkingLimb} from './recording/view.js';
 
 const $=id=>document.getElementById(id);
 const external={
@@ -39,7 +40,7 @@ function updateCoverage(){
   $('coverage-data').replaceChildren();
   row('Game control','Press '+key+' in NeuroSurge to select the '+name.toLowerCase()+'. W/A/S/D move the virtual limb.', ['Play NeuroSurge',external.game]);
   row('Camera preview',rightArm?'The separate camera draft maps right shoulder and elbow motion to the avatar. Its check used a virtual video device. A physical-camera test remains open.':'The separate camera draft maps the right shoulder and elbow only. This limb has no mapped camera control in that draft.',['Inspect the camera draft',external.camera]);
-  row('Trained forecast',rightArm?'A walking study predicted three future accelerometer axes from a right-arm sensor, 120 milliseconds ahead. Two people were held out. Mean absolute error in the stored sensor units was 0.855 for the Transformer, 0.781 for ridge and 1.182 for repeating the last reading. Ridge won.':'The published right-arm forecast supplies no trained estimate for this limb. Use a study naming this sensor and outcome before claiming coverage.',['Read the right-arm study',external.arm]);
+  row('Earlier held-out study',rightArm?'A walking study predicted three future accelerometer axes from a right-arm sensor, 120 milliseconds ahead. Two people were held out. Mean absolute error in the stored sensor units was 0.855 for the Transformer, 0.781 for ridge and 1.182 for repeating the last reading. Ridge won.':'The earlier held-out assessment used a right-arm sensor. The five-placement walking example above includes this limb in its training data.',['Read the right-arm study',external.arm]);
   row('Missing observations','The game pose and camera landmarks do not measure brain activity, spinal signals, muscle electrical activity, force or sensory feedback. Named tasks still need their own synchronized observations.');
 }
 function renderLocal(){
@@ -92,7 +93,7 @@ function render(directionFocus=false){
   $('group-name').textContent=g.title;$('question').textContent=current.question;$('evidence').textContent=current.evidence;
   $('script-link').href='../current/Interoceptomics-Script-Technical.pdf#page='+technicalPage(current.slide);
   $('script-link').textContent='Technical script · slide '+current.slide+' ↗';
-  $('coverage').hidden=!small;
+  $('coverage').hidden=!small;$('recording').hidden=!small;
   $('limb-wrap').hidden=!small && current.scene!=='body';
   $('mode-wrap').hidden=!(current.scene.includes('replay')||current.scene==='guide');
   $('moment').value='35';$('mode').value='matched';$('angle').value='0';
@@ -122,7 +123,7 @@ function move(delta){
 $('next').onclick=()=>move(1);$('previous').onclick=()=>move(-1);
 $('group-select').onchange=e=>location.hash=e.target.value;
 for(const id of ['angle','moment','mode'])$(id).addEventListener('input',renderScene);
-$('limb').onchange=()=>{renderScene();updateCoverage();};
+$('limb').onchange=()=>{renderScene();updateCoverage();selectWalkingLimb($('limb').value);};
 $('local-form').onsubmit=e=>{
   e.preventDefault();
   try{

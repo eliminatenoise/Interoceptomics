@@ -36,6 +36,18 @@
 </div>
 <p class="readout" id="scene-caption"></p>
 <section class="evidence"><h3>What would count as evidence?</h3><p id="evidence"></p><a id="script-link">Read this step in the technical script ↗</a></section>
+<section id="recording">
+<h3>Read a real walking sensor</h3><p>Select a body region and compare a saved forecast with the accelerometer reading 120 ms later. This parking-lot walk was used for training.</p>
+<button type="button" id="open-recording" aria-controls="sample-panel" aria-expanded="false">Inspect the TRAIN example</button><p id="sample-status" role="status"></p>
+<div id="sample-panel" hidden>
+<div class="controls"><div class="control"><label for="sensor">Wearable sensor</label><select id="sensor"><option value="right_arm">Right arm</option><option value="left_arm">Left arm</option><option value="right_leg">Right leg</option><option value="left_leg">Left leg</option><option value="torso">Torso</option></select></div>
+<div class="control"><label for="forecast">Forecast to compare</label><select id="forecast"><option value="shared_forecast">Shared Transformer</option><option value="ridge">Ridge regression</option><option value="persistence">Repeat last reading</option></select></div>
+<div class="control"><label for="sample">Measured input <output id="sample-ms" for="sample"></output></label><input id="sample" type="range" min="0" max="15" value="15"></div></div>
+<table><caption id="sensor-caption"></caption><thead><tr><th scope="col">Acceleration</th><th scope="col">X</th><th scope="col">Y</th><th scope="col">Z</th></tr></thead><tbody id="sensor-values"></tbody></table>
+<p>All 16 inputs span 0 to 600 ms. The later observation and forecast share the same 720 ms target. Each sensor uses its own axes and stored units. This recording contains no joint angles or neural signals.</p>
+<p class="data-credit">Billur Barshan and Kerem Altun, <i>Daily and Sports Activities</i> (2010). <a href="https://archive.ics.uci.edu/dataset/256/daily">UCI dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="recording/NOTICE.md">Clip, checkpoint and source hashes</a></p>
+</div>
+</section>
 <section id="coverage"><h3 id="coverage-title">Movement coverage</h3><dl id="coverage-data"></dl></section>
 <section class="resources"><h3>Open the models</h3><div id="resources"></div>
 <details><summary>Use my local 3D companion</summary>
