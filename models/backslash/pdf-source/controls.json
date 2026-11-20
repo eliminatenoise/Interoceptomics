@@ -1,0 +1,108 @@
+{
+  "landmarks": {
+    "medial": "Medial left hemisphere",
+    "motor": "Motor cortex landmark",
+    "sensory": "Sensory cortex landmark",
+    "leg": "Medial sensorimotor cortex",
+    "vpl": "Thalamic body relay · VPL",
+    "cerebellum": "Cerebellar hemisphere",
+    "insula": "Insula under the opercula",
+    "cingulate": "Anterior cingulate landmark",
+    "hypothalamus": "Hypothalamus",
+    "midbrain": "Midbrain tegmentum",
+    "medulla": "Medullary tegmentum"
+  },
+  "organs": {
+    "all": "Cord and organs",
+    "cord": "Spinal cord",
+    "heart": "Heart",
+    "bladder": "Urinary bladder",
+    "colon": "Colon"
+  },
+  "routes": {
+    "muscle": [
+      "Muscle sensation to cortex",
+      [
+        "Muscle spindle and tendon organ",
+        "Dorsal root and spinal cord",
+        "Gracile and cuneate nuclei",
+        "Ventral posterolateral thalamus",
+        "Somatosensory cortex"
+      ]
+    ],
+    "reflex": [
+      "Stretch reflex and coordination",
+      [
+        "Stretch in a muscle",
+        "Local stretch reflex",
+        "Spinocerebellar routes",
+        "Cerebellum"
+      ]
+    ],
+    "visceral": [
+      "Organ sensation to forebrain",
+      [
+        "Arterial stretch",
+        "Cranial nerves IX and X",
+        "Nucleus of the solitary tract",
+        "Parabrachial region",
+        "Insular and cingulate networks"
+      ]
+    ],
+    "skeletal": [
+      "Cortex to skeletal muscle",
+      [
+        "Primary motor cortex",
+        "Corticospinal pathway",
+        "Ventral horn and ventral root",
+        "Skeletal muscle"
+      ]
+    ],
+    "autonomic": [
+      "Central commands to organs",
+      [
+        "Hypothalamus and brainstem",
+        "Thoracolumbar spinal cord",
+        "Vagal motor nuclei",
+        "Ganglia near the target"
+      ]
+    ],
+    "exercise": [
+      "Exercise and arterial pressure",
+      [
+        "Working skeletal muscle",
+        "Spinal dorsal horn",
+        "Medullary control",
+        "Heart and vessels",
+        "Carotid and aortic feedback"
+      ]
+    ],
+    "pelvis": [
+      "Bladder filling and emptying",
+      [
+        "Bladder wall stretch",
+        "Sacral cord",
+        "PAG and pontine circuits",
+        "Bladder and external sphincter"
+      ]
+    ],
+    "gut": [
+      "A local gut reflex",
+      [
+        "Stretch in the bowel wall",
+        "Enteric plexuses",
+        "Smooth muscle and mucosa",
+        "Extrinsic modulation"
+      ]
+    ],
+    "forebrain": [
+      "Body state and selecting a response",
+      [
+        "Visceral input",
+        "Insular cortex",
+        "Cingulate cortex",
+        "Hypothalamus and descending control"
+      ]
+    ]
+  }
+}

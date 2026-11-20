@@ -1,0 +1,24 @@
+.hra-organ {
+  --hra-bg: #f5f4ed;
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  overflow: hidden; isolation: isolate; background: var(--hra-bg); color: #373b35;
+  font: 13px/1.25 Arial, Helvetica, sans-serif; text-align: left;
+}
+.hra-organ [hidden] { display: none !important; }
+.hra-field { position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; }
+.hra-field > canvas, .hra-field > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hra-field > img { object-fit: contain; }
+.hra-callouts { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.hra-line { position: absolute; height: 1px; background: currentColor; opacity: .75; transform-origin: 0 50%; }
+.hra-dot { position: absolute; width: 5px; height: 5px; margin: -2.5px; border-radius: 50%; background: currentColor; }
+.hra-label { position: absolute; font: 600 13px/1.2 Arial, Helvetica, sans-serif; white-space: nowrap; padding: 2px 4px; border-radius: 3px; background: #f5f4edeb; color: #333930; }
+.hra-orientation, .hra-scale, .hra-readout { position: absolute; z-index: 1; padding: 3px 6px; border-radius: 4px; background: #f5f4edef; pointer-events: none; color: #384137; }
+.hra-orientation { top: 7px; left: 7px; font-size: 11px; letter-spacing: .025em; }
+.hra-scale { bottom: 7px; left: 7px; font-size: 10px; text-align: center; }
+.hra-scale i { display: block; height: 4px; border: 1px solid currentColor; border-top: 0; }
+.hra-readout { bottom: 7px; right: 7px; max-width: 67%; font-size: 12px; font-weight: 600; }
+.hra-tools { display: flex; align-items: center; gap: .55em; flex: 0 0 auto; flex-wrap: wrap; padding: 6px 10px; border-top: 1px solid #d9d8ca; background: #f7f6f1; }
+.hra-tools label, .hra-tools select { margin: 0; display: inline-block; }
+.hra-tools label { color: #444a40; font: 600 12px/1.25 Arial, Helvetica, sans-serif; }
+.hra-tools select { flex: 1 1 10em; min-width: 0; max-width: 18em; height: auto; min-height: 30px; appearance: auto; background: #fff; border: 1px solid #b9bdb0; color: #30342d; border-radius: 4px; padding: 3px 5px; font: 13px/1.2 Arial, Helvetica, sans-serif; }
+.hra-note { font-size: 11px; color: #545a50; }

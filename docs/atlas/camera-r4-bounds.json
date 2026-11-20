@@ -1,0 +1,17 @@
+{
+  "bounds": {
+    "min": [
+      -0.07225000113248825,
+      -0.07225000113248825,
+      -0.1067499965429306
+    ],
+    "max": [
+      0,
+      0.08224999904632568,
+      0.0742499977350235
+    ]
+  },
+  "width": 1800,
+  "height": 1200,
+  "source": "R1 contrast GPU metrics; fixed camera framing, no R2 rescale"
+}

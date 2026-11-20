@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interoceptomics Atlas Viewer · 3D model</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:white;font-family:Arial,Helvetica,sans-serif}canvas{display:block;width:100%;height:100%}#axes{position:fixed;right:12px;bottom:12px;width:110px;height:90px;pointer-events:none}#loading,#startup-error{position:fixed;inset:0 0 auto;padding:16px 24px;background:white;color:#27323a}#loading{margin:0}#startup-error{box-sizing:border-box;max-height:100%;overflow:auto;overflow-wrap:anywhere}#error{color:#900;font-weight:bold}#startup-error pre{font:inherit;white-space:pre-wrap}</style><script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script><link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23376c8c%22%2F%3E%3Cpath%20d%3D%22M15%208c-4-3-9%201-7%205-3%203-1%208%203%208%200%204%204%205%204%202V8Zm2%200c4-3%209%201%207%205%203%203%201%208-3%208%200%204-4%205-4%202V8Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"></head><body data-brain-viewer>
+<script type="module">
+try {
+  await import('./viewer.js');
+} catch (error) {
+  if (!document.body.dataset.error) {
+    const message = document.createElement('p');
+    message.id = 'error';
+    message.setAttribute('role', 'alert');
+    message.textContent = 'The viewer files couldn’t load. Extract the whole ZIP and open it with its start file.';
+    document.body.append(message);
+    document.body.dataset.error = error?.stack || String(error);
+    parent.postMessage({type: 'brain-error'}, location.origin);
+  }
+  throw error;
+}
+</script>
+</body></html>

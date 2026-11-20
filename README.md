@@ -10,6 +10,15 @@ What exists so far is still a map, not a measurement: the Allen Institute's huma
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
+## Backslash of the Brain
+
+Trace muscle sensation, organ sensation, skeletal movement and autonomic control across the human nervous system. The atlas opens on the medial surface of the left brain. Choose a circuit to see its receptors, relays and targets, or inspect coronal slices, labelled brainstem sections and four organ surfaces in three dimensions.
+
+[Open the interactive atlas](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/) · [Read the illustrated PDF](docs/atlas/backslash/atlas.pdf) · [Download the standalone model and PDF](downloads/backslash/Backslash-Atlas.zip)
+
+To open the download, extract the entire ZIP and run **Windows.cmd**, **macOS.command** or **Linux.sh** with Python 3.10 or newer installed. The model runs on your own computer. Each anatomical source retains its own frame, species or donor information and reuse terms. The guide shows structural anatomy and explanatory routes. [Sources and licences](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/sources.html)
+
+
 ## Follow the experiments
 
 [Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** (Small vision) for the movement tasks in people and their available game, camera and recording evidence. Choose **Animal learning** (Big vision) for the six proposed animal stages. In [Stage 0.2 · Navigation](https://eliminatenoise.github.io/Interoceptomics/stages/#0.2), predict a rat’s next position on a W-shaped track, first from its past positions and then with brain-cell spikes added. Reveal what the camera recorded. An earlier trip from the same published study has a separate frame-by-frame replay. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.

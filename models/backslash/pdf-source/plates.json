@@ -1,0 +1,225 @@
+{
+  "spindle": {
+    "title": "Human muscle spindle",
+    "source": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051538#pone-0051538-g008",
+    "credit": "Xie et al. (2012), Fig. 8",
+    "license": "CC BY (publisher notice)",
+    "authors": "Peng Xie, Yanjun Jiang, Xiaoming Zhang, Shengbo Yang",
+    "license_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051538",
+    "file": "spindle.png",
+    "sha256": "80d9a8d11fb2807eec402b0340ea208e15b3b1a3f91056aac68fe7c7ab69d358"
+  },
+  "receptors": {
+    "title": "Spindles and Golgi tendon organs",
+    "source": "https://www.nature.com/articles/s41467-021-21880-3/figures/1",
+    "credit": "Oliver et al. (2021), Fig. 1",
+    "license": "CC BY 4.0",
+    "authors": "Oliver KM, Florez-Paz DM, Badea TC, Mentis GZ, Menon V, de Nooij JC.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "receptors.png",
+    "sha256": "0bd25f7f9a06d26ff49eb923d8fec0a05168e1974bffaaf3775dc4cfbedc3c86"
+  },
+  "cord": {
+    "title": "Dorsal and ventral horns",
+    "source": "https://elifesciences.org/articles/92046/figures#fig3",
+    "credit": "Zhang, Chen, Wei et al. (2024), Fig. 3",
+    "license": "CC BY 4.0",
+    "authors": "Donghang Zhang, Yali Chen, Yiyong Wei, Hongjun Chen, Yujie Wu, Lin Wu, Jin Li, Qiyang Ren, Changhong Miao, Tao Zhu, Jin Liu, Bowen Ke, Cheng Zhou",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "cord.jpg",
+    "sha256": "07baeac1f326d45d8a19878eb89e00f006d360ef9c4fe6fde94e66d8c34cea93"
+  },
+  "corticospinal": {
+    "title": "Corticospinal tract and motor neurons",
+    "source": "https://commons.wikimedia.org/wiki/File:1426_Corticospinal_Pathway.jpg",
+    "credit": "OpenStax College (2013), Fig. 14.26",
+    "license": "CC BY 3.0",
+    "authors": "OpenStax College, Rice University",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "file": "corticospinal.jpg",
+    "sha256": "a562a96882d8402f399e0430cc02954d01d584895cdcc97bd1bf5f1ad958115b"
+  },
+  "motor": {
+    "title": "Primary motor cortex",
+    "source": "https://www.nature.com/articles/s41586-023-05964-2/figures/1",
+    "credit": "Gordon et al. (2023), Fig. 1",
+    "license": "CC BY 4.0",
+    "authors": "Evan M. Gordon, Roselyne J. Chauvin, Andrew N. Van, Aishwarya Rajesh, Ashley Nielsen, Dillan J. Newbold, Charles J. Lynch, Nicole A. Seider, Samuel R. Krimmel, Kristen M. Scheidter, Julia Monk, Ryland L. Miller, Athanasia Metoki, David F. Montez, Annie Zheng, Immanuel Elbau, Thomas Madison, Tomoyuki Nishino, Michael J. Myers, Sydney Kaplan, Carolina Badke D’Andrea, Damion V. Demeter, Matthew Feigelis, Julian S. B. Ramirez, Ting Xu, Deanna M. Barch, Christopher D. Smyser, Cynthia E. Rogers, Jan Zimmermann, Kelly N. Botteron, John R. Pruett, Jon T. Willie, Peter Brunner, Joshua S. Shimony, Benjamin P. Kay, Scott Marek, Scott A. Norris, Caterina Gratton, Chad M. Sylvester, Jonathan D. Power, Conor Liston, Deanna J. Greene, Jarod L. Roland, Steven E. Petersen, Marcus E. Raichle, Timothy O. Laumann, Damien A. Fair & Nico U. F. Dosenbach",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "motor.png",
+    "sha256": "bc720cf284f1da8ef5b4717274ae05e49b5ce150782aabd1edb7ebcf48c671c6"
+  },
+  "s1": {
+    "title": "Primary somatosensory cortex",
+    "source": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2020.598482/full#F4",
+    "credit": "Willoughby, Thoenes & Bolding (2021), Fig. 4",
+    "license": "CC BY 4.0",
+    "authors": "Willoughby WR, Thoenes K, Bolding M.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "s1.webp",
+    "sha256": "07071741750f468341c7cd81d01e32489b229938daefa640294561b8c7018deb"
+  },
+  "mida": {
+    "title": "Basal ganglia and internal capsule",
+    "source": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0124126#pone.0124126.g013",
+    "credit": "Iacono et al. (2015), MIDA Fig. 13",
+    "license": "CC0",
+    "authors": "Maria Ida Iacono, Esra Neufeld, Esther Akinnagbe, Kelsey Bower, Johanna Wolf, Ioannis Vogiatzis Oikonomidis, Deepika Sharma, Bryn Lloyd, Bertram J. Wilm, Michael Wyss, Klaas P. Pruessmann, Andras Jakab, Nikos Makris, Ethan D. Cohen, Niels Kuster, Wolfgang Kainz, Leonardo M. Angelone",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "file": "mida.png",
+    "sha256": "984f99dde0e33b28ff11ce2fa1068682355c6c21ff813e1a0c7eff006b90f027"
+  },
+  "thalamus": {
+    "title": "Thalamic nuclei",
+    "source": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0124126#pone.0124126.g019",
+    "credit": "Iacono et al. (2015), MIDA Fig. 19",
+    "license": "CC0",
+    "authors": "Maria Ida Iacono, Esra Neufeld, Esther Akinnagbe, Kelsey Bower, Johanna Wolf, Ioannis Vogiatzis Oikonomidis, Deepika Sharma, Bryn Lloyd, Bertram J. Wilm, Michael Wyss, Klaas P. Pruessmann, Andras Jakab, Nikos Makris, Ethan D. Cohen, Niels Kuster, Wolfgang Kainz, Leonardo M. Angelone",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "file": "thalamus.png",
+    "sha256": "4d05aa7cf7383dd04042c0fb93035581c076fb57d60eede25cc1f3df58d0358d"
+  },
+  "cerebellum": {
+    "title": "Cerebellar lobules and surfaces",
+    "source": "https://www.nature.com/articles/s41598-024-55412-y/figures/1",
+    "credit": "Lyu et al. (2024), Fig. 1",
+    "license": "CC BY 4.0",
+    "authors": "Wenjiao Lyu, Ye Wu, Khoi Minh Huynh, Sahar Ahmad and Pew-Thian Yap",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "cerebellum.png",
+    "sha256": "d309843c0d1824b95b1140082ebab5d4dd5612653715720a83184a3d0132fdc6"
+  },
+  "insula": {
+    "title": "Insula beneath the opercula",
+    "source": "https://link.springer.com/article/10.1007/s10143-021-01602-5#Fig3",
+    "credit": "Dziedzic, Bala and Marchel (2022), Fig. 3",
+    "license": "CC BY 4.0",
+    "authors": "Dziedzic TA, Bala A, Marchel A.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "insula.jpg",
+    "sha256": "faa9a1ae7438a995ab766803e2a77674eaee1d7735fb7f95292eba0efb2a205a"
+  },
+  "cingulate": {
+    "title": "Anterior and midcingulate cortex",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6085915/#brb31070-fig-0002",
+    "credit": "Jin et al. (2018), Fig. 2",
+    "license": "CC BY 4.0",
+    "authors": "Jin F, Zheng P, Liu H, Guo H, Sun Z.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "cingulate.jpg",
+    "sha256": "2bd73df73f4d4079a9ed8c7f90c0b02c23e4e52fff343cb7e53bf7fb21ae78a6"
+  },
+  "amygdala": {
+    "title": "Amygdala and stria terminalis",
+    "source": "https://www.frontiersin.org/journals/neuroanatomy/articles/10.3389/fnana.2017.00016/full#F1",
+    "credit": "Mori et al. (2017), Fig. 1",
+    "license": "CC BY 4.0",
+    "authors": "Mori S, Kageyama Y, Hou Z, Aggarwal M, Patel J, Brown T, Miller MI, Wu D, Troncoso JC.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "amygdala.webp",
+    "sha256": "bb113c35d3857bd9151930d651fc0fd44f5d4e468d4574323e7aeb63e2e4ba61"
+  },
+  "hypothalamus3d": {
+    "title": "Hypothalamic nuclei",
+    "source": "https://www.nature.com/articles/s41597-020-00644-8/figures/5",
+    "credit": "Neudorfer et al. (2020), Fig. 5",
+    "license": "CC BY 4.0",
+    "authors": "Clemens Neudorfer, Jürgen Germann, Gavin J. B. Elias, Robert Gramer, Alexandre Boutet, Andres M. Lozano",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "hypothalamus3d.jpg",
+    "sha256": "f391fd0fb38a32308a1517e3ec8ca690971ae5cc0129f66232f3e8d929d0c016"
+  },
+  "pag": {
+    "title": "Periaqueductal gray (PAG)",
+    "source": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0006.webp",
+    "credit": "Coulombe et al. (2021), Fig. 6",
+    "license": "CC BY 4.0",
+    "authors": "Coulombe V, Saikali S, Goetz L, Takech MA, Philippe É, Parent A, Parent M.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "pag.webp",
+    "sha256": "da6edfcac867bdce601f434b27aac22bf0761aa3cf1efff1c9bf8401f7b1979f",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  },
+  "pbn": {
+    "title": "Parabrachial nuclei (PBN)",
+    "source": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0052.webp",
+    "credit": "Coulombe et al. (2021), Fig. 52",
+    "license": "CC BY 4.0",
+    "authors": "Vincent Coulombe, Stephan Saikali, Laurent Goetz, Mohamad A. Takech, Éric Philippe, André Parent and Martin Parent",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "pbn.webp",
+    "sha256": "70489674d37719fe13671f837f79acbd41c6e2a41d67bde20a52fb86d1b81be0",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  },
+  "medulla": {
+    "title": "Solitary nucleus and nucleus ambiguus",
+    "source": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0038.webp",
+    "credit": "Coulombe et al. (2021), Fig. 38",
+    "license": "CC BY 4.0",
+    "authors": "Vincent Coulombe, Stephan Saikali, Laurent Goetz, Mohamad A. Takech, Éric Philippe, André Parent and Martin Parent",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "medulla.webp",
+    "sha256": "7d799025474ae6be2e8b23f7fa48ef143da1e6178070000b30019984a85f679c",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  },
+  "emmi5": {
+    "title": "Solitary nucleus and dorsal vagal motor nucleus",
+    "source": "https://www.frontiersin.org/journals/neuroanatomy/articles/10.3389/fnana.2021.663399/full#F5",
+    "credit": "Emmi, Porzionato, Contran et al. (2021), Fig. 5",
+    "license": "CC BY 4.0",
+    "authors": "Emmi A, Porzionato A, Contran M, De Rose E, Macchi V, De Caro R.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "emmi5.webp",
+    "sha256": "036db3abceada0c1f8a0c38d3e694141eeb68c25e87a431860c268ffd1d4a90d"
+  },
+  "bridge": {
+    "title": "Working muscle to brainstem",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790130/figure/F1/",
+    "credit": "Iannetta, Laginestra, Wray & Amann (2025), Fig. 1",
+    "license": "CC BY 4.0",
+    "authors": "Iannetta D, Laginestra FG, Wray DW, Amann M.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "bridge.jpg",
+    "sha256": "520d052dd555ea204e2e023e603a21c35eeadb06ca1140e12b556be59e4f3c08"
+  },
+  "symp": {
+    "title": "Sympathetic outflow",
+    "source": "https://commons.wikimedia.org/wiki/File:1501_Connections_of_the_Sympathetic_Nervous_System.jpg",
+    "credit": "OpenStax College (2013), Fig. 15.1",
+    "license": "CC BY 3.0",
+    "authors": "OpenStax College, Rice University",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "file": "symp.jpg",
+    "sha256": "a1b113acd73e88e885bb4adae0e4bc810fe83949e78d916f6eab1c300fef7815"
+  },
+  "parasymp": {
+    "title": "Parasympathetic outflow",
+    "source": "https://commons.wikimedia.org/wiki/File:1503_Connections_of_the_Parasympathetic_Nervous_System.jpg",
+    "credit": "OpenStax College (2013), Fig. 15.3",
+    "license": "CC BY 3.0",
+    "authors": "OpenStax College, Rice University",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "file": "parasymp.jpg",
+    "sha256": "0725cdf39c7ed48d08bcb03667b234d9ff0ca7a82a00dfef70661c05eaab71b0"
+  },
+  "bladdertissue": {
+    "title": "Pelvic autonomic nerves",
+    "source": "https://www.mdpi.com/2075-4418/15/1/102#fig_body_display_diagnostics-15-00102-f002",
+    "credit": "Overton, Tamas, Day et al. (2025), Fig. 2",
+    "license": "CC BY 4.0",
+    "authors": "Rebeccah R. Overton, Istvan P. Tamas, Emily P. Day, Nagat Frara, Michel A. Pontari, Susan B. Fecho, Steven N. Popoff, Mary F. Barbe",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "bladdertissue.png",
+    "sha256": "411427818eaec5c91fa4d90d1eb3b342e174560ab0b521e0c89e340aaba563b9"
+  },
+  "enterictissue": {
+    "title": "Nerves in the colon wall",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8310542/figure/Fig1/",
+    "credit": "Sun, Wang, Wang et al. (2021), Fig. 1",
+    "license": "CC BY 4.0",
+    "authors": "Sun Y, Wang Q, Wang Y, Ren W, Cao Y, Li J, Zhou X, Fu W, Yang J.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "enterictissue.jpg",
+    "sha256": "f1e1ef40bf7bc92398ab71faaee6ec5084c079cff98b335869ae79ebcbfc1848"
+  }
+}

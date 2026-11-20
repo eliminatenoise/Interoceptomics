@@ -1,0 +1,117 @@
+{
+  "spindle": {
+    "name": "Human muscle spindle",
+    "read": "Human muscle, transverse histology. The specimen has its own scale.",
+    "modality": "Human histology",
+    "source": "Xie et al. (2012), Fig. 8",
+    "url": "https://doi.org/10.1371/journal.pone.0051538.g008",
+    "rights": "CC BY",
+    "license": "https://creativecommons.org/share-your-work/cclicenses/",
+    "file": "plates/spindle.png",
+    "sha256": "80d9a8d11fb2807eec402b0340ea208e15b3b1a3f91056aac68fe7c7ab69d358"
+  },
+  "receptors": {
+    "name": "Muscle length and tension receptors",
+    "read": "Mouse tissue and a schematic from Oliver and colleagues. This figure locates spindle and tendon organs, distinct from thin group III/IV afferents.",
+    "modality": "Mouse · microscopy and schematic",
+    "source": "Oliver et al. (2021), Fig. 1",
+    "url": "https://www.nature.com/articles/s41467-021-21880-3/figures/1",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/receptors.png",
+    "sha256": "0bd25f7f9a06d26ff49eb923d8fec0a05168e1974bffaaf3775dc4cfbedc3c86"
+  },
+  "cord": {
+    "name": "Spinal grey matter",
+    "read": "Adult human lumbar enlargement. Compare dorsal sensory and ventral motor territories in the authors’ lamina maps and stained tissue. Each panel retains the authors’ orientation.",
+    "modality": "Human · lumbar cord tissue and lamina maps",
+    "source": "Zhang, Chen, Wei et al. (2024), Fig. 3",
+    "url": "https://elifesciences.org/articles/92046/figures#fig3",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/cord.jpg",
+    "sha256": "07baeac1f326d45d8a19878eb89e00f006d360ef9c4fe6fde94e66d8c34cea93"
+  },
+  "corticospinal": {
+    "name": "Descending skeletal motor pathway",
+    "read": "An anatomical teaching diagram follows the corticospinal tract and motor neuron. The fibres are illustrated, with no registration to the human atlas.",
+    "modality": "Teaching diagram",
+    "source": "OpenStax College (2013), Fig. 14.26",
+    "url": "https://commons.wikimedia.org/wiki/File:1426_Corticospinal_Pathway.jpg",
+    "rights": "CC BY 3.0",
+    "license": "https://creativecommons.org/licenses/by/3.0/",
+    "file": "plates/corticospinal.jpg",
+    "sha256": "a562a96882d8402f399e0430cc02954d01d584895cdcc97bd1bf5f1ad958115b"
+  },
+  "pag": {
+    "name": "Midbrain · around the aqueduct",
+    "read": "Plate 5, +8.23 mm relative to the pontomesencephalic junction. Find PAG, the periaqueductal gray that surrounds the narrow fluid channel called the cerebral aqueduct.",
+    "modality": "Human · transverse brainstem",
+    "source": "Coulombe et al. (2021), Fig. 6",
+    "url": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0006.webp",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/pag.webp",
+    "sha256": "da6edfcac867bdce601f434b27aac22bf0761aa3cf1efff1c9bf8401f7b1979f",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  },
+  "pbn": {
+    "name": "Upper pons · parabrachial region",
+    "read": "Plate F, −5.91 mm relative to the same junction. Find the lateral and medial parabrachial nuclei (LPB and MPB) beside the superior cerebellar peduncle, a bundle of fibres connecting the cerebellum and brainstem. This series uses an additional histochemical stain.",
+    "modality": "Human · transverse brainstem",
+    "source": "Coulombe et al. (2021), Fig. 52",
+    "url": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0052.webp",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/pbn.webp",
+    "sha256": "70489674d37719fe13671f837f79acbd41c6e2a41d67bde20a52fb86d1b81be0",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  },
+  "medulla": {
+    "name": "Medulla · solitary and vagal motor nuclei",
+    "read": "Plate 37, −35.87 mm relative to the junction. Compare Sol (solitary nucleus), 10N (dorsal motor nucleus of the vagus) and Amb (nucleus ambiguus). Lowercase sol labels the tract.",
+    "modality": "Human · transverse brainstem",
+    "source": "Coulombe et al. (2021), Fig. 38",
+    "url": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0038.webp",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/medulla.webp",
+    "sha256": "7d799025474ae6be2e8b23f7fa48ef143da1e6178070000b30019984a85f679c",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  },
+  "enteric": {
+    "name": "Nerves in the human colon wall",
+    "read": "In panels E–F, examine the nerve networks within human colon tissue. This preparation has its own scale and orientation. The HRA colon surface is a separate reference.",
+    "modality": "Human colon · light-sheet microscopy",
+    "source": "Sun et al. (2021), Fig. 1",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8310542/figure/Fig1/",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/enteric.jpg",
+    "sha256": "f1e1ef40bf7bc92398ab71faaee6ec5084c079cff98b335869ae79ebcbfc1848"
+  },
+  "medulla36": {
+    "name": "Medulla · one section rostral",
+    "read": "Plate 36, −34.87 mm. Find Sol and 10N near the fourth ventricle, and Amb farther lateral. Gr and Cu locate dorsal-column relays.",
+    "modality": "Human · transverse brainstem",
+    "source": "Coulombe et al. (2021), Fig. 37",
+    "url": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0037.webp",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/medulla36.webp",
+    "sha256": "6adbec5d1b889d8f7cbcc6910ddebdc4e716703dd76c3dfc71dd69dc370dbb0d",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  },
+  "medulla38": {
+    "name": "Medulla · one section caudal",
+    "read": "Plate 38, −36.87 mm. Follow Sol, 10N and Amb across this section; ia identifies internal arcuate fibres.",
+    "modality": "Human · transverse brainstem",
+    "source": "Coulombe et al. (2021), Fig. 39",
+    "url": "https://www.frontiersin.org/files/Articles/627656/xml-images/fnana-15-627656-g0039.webp",
+    "rights": "CC BY 4.0",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "plates/medulla38.webp",
+    "sha256": "553d1be07e008a34e1c9ce26e3f6889d4134ffa5c810fe24f38e5972645eed8e",
+    "article": "https://doi.org/10.3389/fnana.2021.627656"
+  }
+}

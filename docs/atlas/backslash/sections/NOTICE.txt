@@ -1,0 +1,31 @@
+Coronal sections of the Allen Human Reference Atlas – 3D, 2020
+
+Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil
+Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020). Allen Human Reference
+Atlas – 3D, 2020, version 1.0.0. RRID:SCR_017764.
+© 2019 Allen Institute for Brain Science. CC BY 4.0.
+https://creativecommons.org/licenses/by/4.0/
+https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/
+
+Adapted by the Interoceptomics project. Each PNG shows one complete coronal
+plane through the adult human annotation on the ICBM 2009b nonlinear symmetric
+reference. One pixel represents one 0.5 × 0.5 mm voxel face. Source left is on
+the left and superior is up. Orange picks out the exact source-left label.
+Grey tones come from the colours of neighbouring atlas labels. A dark
+background pixel has source label zero. Source gaps remain visible. The
+sections show anatomy. Activity, microscopic nuclei and individual fibres
+require separate observations.
+
+The index gives the original voxel coordinates, plane positions, annotation
+checksum and image checksums. In each indexed PNG, the entries for context
+colours match mapping.paletteIds. Entry 255 stands for the selected source ID.
+Rows from the top correspond to decreasing native k, starting at 377. Columns
+from the left correspond to increasing native i, starting at zero. Each series
+uses three source planes through or near an occupied source-left voxel. The
+source-left criterion is a voxel centre at R < 0 mm. For the hypothalamus the
+selected ID is 10467. Its separately numbered subdivisions have their own
+labels in the surrounding image.
+
+The atlas README gives the licence and citation. The complete CC BY 4.0
+terms and additional source credits travel in the download's licenses
+directory and THIRD-PARTY-NOTICES.html. No endorsement is implied.

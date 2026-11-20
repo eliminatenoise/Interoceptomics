@@ -3,3 +3,8 @@ docs/launchers/** -text
 docs/START.html -text
 # The experiment guide checks the SHA-256 of the original recording and forecast packets.
 docs/stages/recording/*.json -text
+
+# The standalone atlas and its signed source assets have identical bytes on every OS.
+docs/atlas/** -text
+docs/atlas/backslash/atlas.pdf binary
+downloads/backslash/*.zip binary

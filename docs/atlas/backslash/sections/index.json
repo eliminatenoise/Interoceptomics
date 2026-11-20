@@ -1,0 +1,785 @@
+{
+  "schemaVersion": 1,
+  "orientation": {
+    "left": "L",
+    "right": "R",
+    "top": "S",
+    "bottom": "I"
+  },
+  "highlight": "#FF774C",
+  "width": 394,
+  "height": 378,
+  "source": {
+    "title": "Allen Human Reference Atlas – 3D, 2020",
+    "version": "1.0.0",
+    "rrid": "SCR_017764",
+    "authors": "Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein",
+    "copyright": "© 2019 Allen Institute for Brain Science",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "annotationUrl": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz",
+    "annotationSha256": "be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378",
+    "readmeUrl": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf",
+    "context": "Adult human annotation drawn on the ICBM 2009b nonlinear symmetric average reference."
+  },
+  "qform": {
+    "code": 1,
+    "shapeIJK": [
+      394,
+      466,
+      378
+    ],
+    "voxelToRASmm": [
+      [
+        0.5,
+        0.0,
+        0.0,
+        -98.0
+      ],
+      [
+        0.0,
+        0.5,
+        0.0,
+        -134.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.5,
+        -72.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "mapping": {
+    "plane": "Coronal. Lower j is posterior. Higher j is anterior.",
+    "pixel": "At column u and row v, read the native voxel (u, j, 377 − v). Pixel and voxel indices start at zero.",
+    "apMm": "A coordinate of the voxel centre in the Allen file's native qform, in millimetres. A = 0.5j − 134.",
+    "context": "Muted colours distinguish labels. Dark background means the source supplied label zero. The unlabelled opposite side remains as recorded.",
+    "selection": "Orange marks voxels bearing the exact selected ID with a centre left of the midline (R < 0 mm). Other IDs, including child labels, retain their context colours.",
+    "levels": "The centre passes through the finder's source-left anchor. The adjacent cuts are 3 mm away, or 1 mm for the small direct hypothalamus label.",
+    "paletteIds": [
+      0,
+      10467,
+      12826,
+      12538,
+      12535,
+      12384,
+      12390,
+      12600,
+      10668,
+      12805,
+      10557,
+      146034892,
+      12142,
+      10658,
+      12741,
+      12405,
+      12141,
+      12146,
+      12416,
+      12768,
+      12163,
+      10660,
+      12140,
+      10307,
+      12073,
+      12354,
+      10311,
+      10330,
+      12121,
+      12164,
+      10600,
+      12143,
+      10367,
+      12122,
+      12171,
+      146034888,
+      146034884,
+      10361,
+      12124,
+      12166,
+      10368,
+      12147,
+      10483,
+      12123,
+      10346,
+      13229,
+      12330,
+      12173,
+      10374,
+      10308,
+      12178,
+      12125,
+      10377,
+      12369,
+      12195,
+      12179,
+      146034876,
+      12153,
+      12152,
+      10369,
+      10362,
+      10589,
+      10375,
+      10602,
+      10468,
+      12177,
+      10329,
+      12151,
+      10473,
+      12251,
+      12149,
+      10495,
+      12160,
+      10337,
+      266441621,
+      146034754,
+      10363,
+      10349,
+      12305,
+      12247,
+      10376,
+      10339,
+      12157,
+      12174,
+      10559,
+      10576,
+      10338,
+      10466,
+      146034872,
+      10586,
+      10335,
+      10430,
+      12181,
+      12118,
+      12292,
+      10384,
+      12159,
+      10434,
+      10390,
+      10561,
+      10344,
+      10463,
+      10343,
+      266441657,
+      10409,
+      12116,
+      12114,
+      12127,
+      12119,
+      10597,
+      12158,
+      10424,
+      10350,
+      12135,
+      10425,
+      10450,
+      13045,
+      10403,
+      10417,
+      12154,
+      10420,
+      12144,
+      12150,
+      10449,
+      10460,
+      10452,
+      12115,
+      12145,
+      10398,
+      13230,
+      10599,
+      12137,
+      10392,
+      12132,
+      10408,
+      10598,
+      12136,
+      10336,
+      10396,
+      12133,
+      12126,
+      12138
+    ],
+    "selectedPaletteIndex": 255
+  },
+  "notice": "sections/NOTICE.txt",
+  "landmarks": {
+    "motor": {
+      "labelId": 12114,
+      "name": "precentral gyrus",
+      "acronym": "PrCG",
+      "centerIJK": [
+        113,
+        254,
+        236
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 248,
+          "apMm": -10.0,
+          "selectedVoxels": 2024,
+          "selectedBoundsPx": [
+            84,
+            87,
+            150,
+            180
+          ],
+          "image": "sections/motor-j248.png",
+          "sha256": "cf9317d403bfbb92b9ddcabad6036ba03d611cc00c48877423a76d1b6b29d4cb"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 254,
+          "apMm": -7.0,
+          "selectedVoxels": 2271,
+          "selectedBoundsPx": [
+            79,
+            98,
+            136,
+            197
+          ],
+          "image": "sections/motor-j254.png",
+          "sha256": "a216279271d3a335eb3bcf42924ac3a9f3920d89e75ddf4ec9a856fb09bc7e41"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 260,
+          "apMm": -4.0,
+          "selectedVoxels": 1956,
+          "selectedBoundsPx": [
+            71,
+            104,
+            130,
+            204
+          ],
+          "image": "sections/motor-j260.png",
+          "sha256": "865ca6e4fabeaf81975fffa8f4a67753e9d821f19e8f33fb77bf3b4ac541b089"
+        }
+      ]
+    },
+    "sensory": {
+      "labelId": 12132,
+      "name": "postcentral gyrus",
+      "acronym": "PoCG",
+      "centerIJK": [
+        110,
+        222,
+        243
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 216,
+          "apMm": -26.0,
+          "selectedVoxels": 1208,
+          "selectedBoundsPx": [
+            86,
+            96,
+            145,
+            164
+          ],
+          "image": "sections/sensory-j216.png",
+          "sha256": "6997997c54b12978faffcc26ead5e4e129ffe753e75d0d91e0d3b5e769a210ec"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 222,
+          "apMm": -23.0,
+          "selectedVoxels": 1539,
+          "selectedBoundsPx": [
+            76,
+            99,
+            127,
+            166
+          ],
+          "image": "sections/sensory-j222.png",
+          "sha256": "4220798991a5800c53d518808361dfe9c71f19ff6050ef543a026d8247c30697"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 228,
+          "apMm": -20.0,
+          "selectedVoxels": 1501,
+          "selectedBoundsPx": [
+            71,
+            103,
+            131,
+            169
+          ],
+          "image": "sections/sensory-j228.png",
+          "sha256": "bb17759e9499070576450041ea1fbc5312b4424567d821dd5864bea174a752c0"
+        }
+      ]
+    },
+    "leg": {
+      "labelId": 12126,
+      "name": "paracentral lobule, rostral part",
+      "acronym": "PCLr",
+      "centerIJK": [
+        184,
+        220,
+        264
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 214,
+          "apMm": -27.0,
+          "selectedVoxels": 986,
+          "selectedBoundsPx": [
+            160,
+            73,
+            195,
+            155
+          ],
+          "image": "sections/leg-j214.png",
+          "sha256": "9d72410f455ff50f71b50746f2caf6ebea482822b6c8a201cb9283167684027a"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 220,
+          "apMm": -24.0,
+          "selectedVoxels": 1073,
+          "selectedBoundsPx": [
+            162,
+            72,
+            195,
+            155
+          ],
+          "image": "sections/leg-j220.png",
+          "sha256": "8c300e228bb37b507b7f81965b4a1733c80a4c5004930327f3116f69568e4e5d"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 226,
+          "apMm": -21.0,
+          "selectedVoxels": 996,
+          "selectedBoundsPx": [
+            164,
+            73,
+            195,
+            154
+          ],
+          "image": "sections/leg-j226.png",
+          "sha256": "127b3e9721a9e7f4d01c957e659ec541bf59014d31e70d3d9cc136ec59e5f13d"
+        }
+      ]
+    },
+    "vpl": {
+      "labelId": 10424,
+      "name": "ventral posterior lateral nucleus",
+      "acronym": "VPL",
+      "centerIJK": [
+        161,
+        226,
+        151
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 220,
+          "apMm": -24.0,
+          "selectedVoxels": 263,
+          "selectedBoundsPx": [
+            151,
+            215,
+            170,
+            238
+          ],
+          "image": "sections/vpl-j220.png",
+          "sha256": "fa8906d82eeae27da6210995c92aa3c6da77f1eed82378220fe43c6dfded6b41"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 226,
+          "apMm": -21.0,
+          "selectedVoxels": 316,
+          "selectedBoundsPx": [
+            153,
+            213,
+            175,
+            241
+          ],
+          "image": "sections/vpl-j226.png",
+          "sha256": "0f1d0d2ee8959f7e2fa63241a869f0963fb6c94c772afad34ecafce24c4b39bd"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 232,
+          "apMm": -18.0,
+          "selectedVoxels": 239,
+          "selectedBoundsPx": [
+            156,
+            213,
+            175,
+            240
+          ],
+          "image": "sections/vpl-j232.png",
+          "sha256": "27195865c83c90285b5471bd45fb39c12d54ebe5600714c3735843ba784b9f5f"
+        }
+      ]
+    },
+    "cerebellum": {
+      "labelId": 12390,
+      "name": "lateral hemisphere of cerebellum",
+      "acronym": "CBL",
+      "centerIJK": [
+        132,
+        142,
+        64
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 136,
+          "apMm": -66.0,
+          "selectedVoxels": 4374,
+          "selectedBoundsPx": [
+            86,
+            261,
+            165,
+            359
+          ],
+          "image": "sections/cerebellum-j136.png",
+          "sha256": "0a8fd05111f5cee843e47bbba5043a36692891ccb61996576edbf569055ae407"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 142,
+          "apMm": -63.0,
+          "selectedVoxels": 4470,
+          "selectedBoundsPx": [
+            83,
+            260,
+            165,
+            360
+          ],
+          "image": "sections/cerebellum-j142.png",
+          "sha256": "fc438d811e0707e5686fe66e6fb091bd9042a132e860dad3ea516d4009ea502c"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 148,
+          "apMm": -60.0,
+          "selectedVoxels": 4335,
+          "selectedBoundsPx": [
+            82,
+            259,
+            165,
+            361
+          ],
+          "image": "sections/cerebellum-j148.png",
+          "sha256": "bbfa607804c56532179880b037d023833014fd1e247ec3937a3e9076862dbf52"
+        }
+      ]
+    },
+    "insula": {
+      "labelId": 12178,
+      "name": "short insular gyri",
+      "acronym": "SIG",
+      "centerIJK": [
+        124,
+        291,
+        139
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 285,
+          "apMm": 8.5,
+          "selectedVoxels": 972,
+          "selectedBoundsPx": [
+            105,
+            206,
+            146,
+            275
+          ],
+          "image": "sections/insula-j285.png",
+          "sha256": "a78d48f952f30c46b4e6600a3d1c81dd7d2f8d466813eeaa57abf79cda8f8559"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 291,
+          "apMm": 11.5,
+          "selectedVoxels": 1163,
+          "selectedBoundsPx": [
+            105,
+            207,
+            148,
+            278
+          ],
+          "image": "sections/insula-j291.png",
+          "sha256": "ca41a94b68051014425533a52f1f7f4c1442d4221335876d49a92cb667ed67a3"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 297,
+          "apMm": 14.5,
+          "selectedVoxels": 1098,
+          "selectedBoundsPx": [
+            107,
+            209,
+            148,
+            274
+          ],
+          "image": "sections/insula-j297.png",
+          "sha256": "0ec9cfcd711d9e1c3838e9cf2edc0d5b0737ec4cbf337667a282c48180b6b9a3"
+        }
+      ]
+    },
+    "cingulate": {
+      "labelId": 12157,
+      "name": "cingulate gyrus, rostral (anterior) part",
+      "acronym": "CgGr",
+      "centerIJK": [
+        186,
+        322,
+        178
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 316,
+          "apMm": 24.0,
+          "selectedVoxels": 688,
+          "selectedBoundsPx": [
+            169,
+            166,
+            196,
+            262
+          ],
+          "image": "sections/cingulate-j316.png",
+          "sha256": "b090bf94c38573a0bb5811b2a346a1f4ff9aa045618866c6f6bb7c80d64adda6"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 322,
+          "apMm": 27.0,
+          "selectedVoxels": 758,
+          "selectedBoundsPx": [
+            169,
+            170,
+            196,
+            262
+          ],
+          "image": "sections/cingulate-j322.png",
+          "sha256": "163b9990e4d8f29c6d4e61c864ad75c9aaa446bd959aacdf55e7d279097affc4"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 328,
+          "apMm": 30.0,
+          "selectedVoxels": 777,
+          "selectedBoundsPx": [
+            169,
+            174,
+            196,
+            262
+          ],
+          "image": "sections/cingulate-j328.png",
+          "sha256": "9d0d95aa329e31c43f83ad4cfc59836443c775647918f8f715b5dd605f5df068"
+        }
+      ]
+    },
+    "hypothalamus": {
+      "labelId": 10467,
+      "name": "hypothalamus",
+      "acronym": "HTH",
+      "centerIJK": [
+        191,
+        244,
+        125
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 242,
+          "apMm": -13.0,
+          "selectedVoxels": 41,
+          "selectedBoundsPx": [
+            187,
+            243,
+            196,
+            257
+          ],
+          "image": "sections/hypothalamus-j242.png",
+          "sha256": "b45ba45c2e745da62ef0155e619893d83b7fc6f6b7974eebfc2bb0bb80630f25"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 244,
+          "apMm": -12.0,
+          "selectedVoxels": 98,
+          "selectedBoundsPx": [
+            184,
+            242,
+            196,
+            262
+          ],
+          "image": "sections/hypothalamus-j244.png",
+          "sha256": "bebcd3d8a3a07efdfa7b7fd555132d4870dc7e51a89fdc73e4fd89587e67660b"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 246,
+          "apMm": -11.0,
+          "selectedVoxels": 103,
+          "selectedBoundsPx": [
+            184,
+            242,
+            196,
+            266
+          ],
+          "image": "sections/hypothalamus-j246.png",
+          "sha256": "5bf56dabf284f1a6870f1835dece99ca6d76b4bc0316234ec11583f02ace9f49"
+        }
+      ]
+    },
+    "midbrain": {
+      "labelId": 12195,
+      "name": "midbrain tegmentum",
+      "acronym": "MTg",
+      "centerIJK": [
+        184,
+        219,
+        121
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 213,
+          "apMm": -27.5,
+          "selectedVoxels": 597,
+          "selectedBoundsPx": [
+            171,
+            240,
+            196,
+            274
+          ],
+          "image": "sections/midbrain-j213.png",
+          "sha256": "a4010d58ef3090e9ae6908613314984df09b6915f8bd755f2eb2f83b6950068c"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 219,
+          "apMm": -24.5,
+          "selectedVoxels": 795,
+          "selectedBoundsPx": [
+            165,
+            236,
+            196,
+            276
+          ],
+          "image": "sections/midbrain-j219.png",
+          "sha256": "6347af44612295f4d46b3eebbd485115fa2b1ff2b0a5846ea532fe01c59c9c40"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 225,
+          "apMm": -21.5,
+          "selectedVoxels": 493,
+          "selectedBoundsPx": [
+            164,
+            240,
+            196,
+            275
+          ],
+          "image": "sections/midbrain-j225.png",
+          "sha256": "8e66047d9adedc952e20226aca994281cd9f2a201f8cade39a38899f676c6e56"
+        }
+      ]
+    },
+    "medulla": {
+      "labelId": 12538,
+      "name": "tegmentum of medulla oblongata",
+      "acronym": "MoTg",
+      "centerIJK": [
+        187,
+        185,
+        34
+      ],
+      "slices": [
+        {
+          "position": "Caudal",
+          "direction": "Posterior",
+          "j": 179,
+          "apMm": -44.5,
+          "selectedVoxels": 801,
+          "selectedBoundsPx": [
+            176,
+            316,
+            196,
+            372
+          ],
+          "image": "sections/medulla-j179.png",
+          "sha256": "0245fc3dfbfbd48ca039480d55fd048b0c4d2e915c7addcab1431c5c067085be"
+        },
+        {
+          "position": "Central",
+          "direction": "Centre",
+          "j": 185,
+          "apMm": -41.5,
+          "selectedVoxels": 935,
+          "selectedBoundsPx": [
+            175,
+            315,
+            196,
+            373
+          ],
+          "image": "sections/medulla-j185.png",
+          "sha256": "0c71ec925df33863f4ad5c81efac0382b6b4760997f350131f969bdfac4bd528"
+        },
+        {
+          "position": "Rostral",
+          "direction": "Anterior",
+          "j": 191,
+          "apMm": -38.5,
+          "selectedVoxels": 577,
+          "selectedBoundsPx": [
+            176,
+            319,
+            196,
+            365
+          ],
+          "image": "sections/medulla-j191.png",
+          "sha256": "9716303a2a80f94a9afa40236464893467f87975aa1891365cc2d89c602a8e31"
+        }
+      ]
+    }
+  }
+}

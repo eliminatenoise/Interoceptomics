@@ -1,0 +1,19 @@
+{
+  "source": "Female united organ set v1.10",
+  "sourceMetadata": "https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/metadata.json",
+  "citation": "https://doi.org/10.48539/HBM637.DWBM.744",
+  "sourceFileSha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "outputSha256": "dadce56c2c48bbabda915aae8d2a47bbcb0c2ae81dae6675528279590de7705e",
+  "rights": "Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))",
+  "groupNames": {
+    "cord": "VH_F_spinal_cord",
+    "heart": "VH_F_heart",
+    "bladder": "VH_F_urinary_bladder",
+    "colon": "VH_F_colon"
+  },
+  "sourceNodeCount": 1160,
+  "outputNodeCount": 72,
+  "selectedMeshes": 59,
+  "accessorCount": 209,
+  "geometry": "Original glTF node transforms, vertices, surface normals, triangle indices and anatomical names. Four branch subtrees and their ancestors. Display colours applied by viewer; HRA common coordinates, separate from Allen brain and histology."
+}

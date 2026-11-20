@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backslash of the Brain · Interoceptomics</title>
+<link rel="stylesheet" href="atlas.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/build/three.module.js"}}</script>
+</head><body>
+<header><a class="project" href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a><nav aria-label="Atlas resources"><a href="../index.html">Full brain controls</a><a href="atlas.pdf">PDF atlas</a><a href="sources.html">Sources</a></nav></header>
+<main>
+<h1>Backslash of the Brain</h1>
+<p class="intro">Where does the signal from a stretching muscle meet the signal from a filling organ? Start inside the left hemisphere, then follow a pathway down to the cord and back.</p>
+<div class="workspace">
+<section class="specimen" aria-label="Anatomical viewer">
+<div class="tabs" role="group" aria-label="Anatomical views"><button id="tab-brain" data-scene="brain">Brain</button><button id="tab-stem" data-scene="stem">Brainstem sections</button><button id="tab-body" data-scene="body">Cord &amp; organs</button><button id="tab-plate" data-scene="plate">Tissue plates</button></div>
+<div class="spec-title"><label for="landmark" id="view-label">Anatomical view</label><select id="landmark"></select></div>
+<div class="stage">
+<div id="brain-pane" class="pane"><iframe id="brain-frame" title="Rotatable source-left human brain" src="../render.html?interactive=1&amp;view=Medial&amp;variant=SourceLeft"></iframe><div id="brain-start" class="brain-start"><img src="../assets/overview.png" alt="Medial surface of the source-left Allen reference brain"><span id="loading-text">Loading the rotatable brain…</span></div></div>
+<div id="cut-pane" class="pane" hidden><div class="cut-grid"><span class="north">S · superior</span><span class="west">L</span><img id="cut-image" alt="Coronal atlas annotation with selected region in orange"><span class="east">R</span><span class="south">I · inferior</span></div></div>
+<div id="plate-pane" class="pane" hidden><a id="open-image" target="_blank" rel="noopener"><img id="plate-image" alt=""></a></div>
+<div id="body-pane" class="pane" hidden><div id="organ-canvas"></div><span id="body-status" role="status"></span></div>
+</div>
+<div class="controls"><div id="brain-modes" hidden><button id="surface" aria-pressed="true">3D surface</button><button id="section" aria-pressed="false">Coronal section</button></div><div id="cut-controls" hidden><button id="cut-back">More posterior</button><output id="cut-position"></output><button id="cut-forward">More anterior</button></div><div id="brain-controls"><button id="reset-brain">Reset view</button><button id="roll" aria-pressed="false">12° diagonal view</button></div><div id="body-controls" hidden><button id="left" aria-label="Rotate organs left">Rotate left</button><button id="right" aria-label="Rotate organs right">Rotate right</button><button id="reset-body">Reset view</button></div><div id="plate-controls" hidden><button id="plate-prev">Previous section</button><button id="plate-next">Next section</button><a id="full-image" target="_blank" rel="noopener">Full-size plate ↗</a></div></div>
+<p id="organ-gallery" hidden><a href="organ/index.html">Open the labelled organ views without 3D graphics</a></p>
+<h2 id="view-title"></h2><p id="view-caption"></p><p id="view-source" class="source"></p><p id="native-link" class="source" hidden><a id="native-point">Inspect this atlas voxel in all three planes</a></p>
+</section>
+<section class="route-panel" aria-label="Circuit guide"><label class="route-label" for="route">Follow a circuit</label><select id="route"></select><div id="route-content" hidden>
+<p id="family"></p><h2 id="step-title"></h2><p id="step-copy"></p><p id="step-source" class="source"></p>
+<div class="wayfinding"><button id="back">Previous</button><span id="progress"></span><button id="forward">Next</button></div>
+<ol id="steps" aria-label="Circuit landmarks"></ol></div>
+<div id="route-intro"><p><b>Myoception</b> is the programme’s name for sensing muscle-driven movement, including the feedback that comes with it. <b>Visceroception</b> is sensing conditions inside an organ, such as stretch in the bladder.</p><p>Choose a circuit to see which structures receive a signal, where the signal changes direction, and what responds. Each stop opens a corresponding anatomical view.</p><p class="source">The diagonal guides the eye. The nerves, relays and organ surfaces come from different preparations. Circuit steps explain connections; the viewer shows no measured neural activity.</p></div>
+</section></div>
+<details id="how"><summary>What the colours and views mean</summary><p>The original brain colours distinguish somatic, autonomic and shared roles. The darker highlight marks an atlas parcel you selected. These are explanatory colours. The functional edge of primary motor or sensory cortex cannot be read from a gross fold alone.</p><div class="key"><span class="somatic">Somatic</span><span class="autonomic">Autonomic</span><span class="integrated">Shared roles</span></div><p>The three-dimensional brain retains the left half of the Allen Human Reference Atlas. The fine brainstem sections come from the right side of a different donor. The cord and organs occupy the Human Reference Atlas female reference frame. Change view to move between preparations. The viewer does not align them to each other.</p></details>
+</main><footer><a href="sources.html">Structure index, sources and reuse</a><a href="../source.html">Allen atlas provenance</a></footer>
+<script type="module" src="atlas.js"></script></body></html>
