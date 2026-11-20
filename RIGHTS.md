@@ -39,9 +39,10 @@ The atlas is a grid of half-millimetre cubes, each carrying the number of a regi
 | --- | --- |
 | The left half | The atlas labels almost only its left side. The 3D model keeps the cubes at R ≤ 0 in the atlas's own right-anterior-superior coordinates: the left side and the midline. |
 | Surfaces | Surfaces were drawn around the regions on the 0.5 mm grid. The cut face at the midline was closed with a constructed cap of at most 0.25 mm. An earlier display approximation moved surfaces by at most 0.125 mm. Surface directions (normals) were set, and a plain single-sided material was applied. |
-| Grouping | Some regions were merged into combined surfaces, and thirty were given surfaces of their own in the main model file. With the four separate surfaces below, that makes the 34 regions the viewer can lift out. |
+| Grouping | Some regions were merged into combined surfaces, and thirty were given surfaces of their own in the main model file. With the four separate surfaces and the twenty more surfaces below, that makes the 54 regions the viewer can lift out. |
 | Coordinates | Positions were converted from the atlas's millimetres to the viewer's metres: (R, A, S) becomes (−R, S, A) ÷ 1000. |
 | Four separate surfaces | Unsmoothed, each following one region on the same grid in the same coordinates, with display normals and a material added: the red nucleus (region 12247), the ventral posterior lateral nucleus, VPL (10424), the ventral posterior medial nucleus, VPM (10425), and the parietal operculum (13230). |
+| Twenty more surfaces | Made on 21 November 2026 by the Interoceptomics contributors, one file for each of the twenty regions that had no surface until then: the white matter of the forebrain and five named fibre bundles, nine fluid spaces, the four regions of the smell pathway and the claustrum. Each follows one region on the same grid, in the same coordinates, and was made the same way as the thirty single-region surfaces of the main model file: the left half with the same midline cap, a surface drawn around the region's voxels, smoothed so that no point moved by more than 0.125 mm, with normals and a plain material added. The viewer shows them only when you ask. |
 | Where VPL and VPM touch | A list of the 481 grid faces between regions 10424 and 10425. |
 | Two crops of the grid | One keeps only VPL and VPM. One keeps every full plane that contains the parietal operculum. |
 | The whole grid, repacked without loss | For the flat cuts, the ruler and the volume counts. Every original region number is kept, in the original order, and the atlas's own coordinate frame is recorded with it. The source file is `annotation.nii.gz` from the collection. |
@@ -56,6 +57,7 @@ Two things are deliberately absent. The MRI brain template that the atlas was dr
 | Which region each surface point belongs to | `assets/identity/*.u32` | `THIRD-PARTY-NOTICES.html` |
 | Overview picture | `assets/overview.png` | `THIRD-PARTY-NOTICES.html` |
 | Red nucleus | `assets/red-nucleus-source-left.glb` | `THIRD-PARTY-NOTICES.html` |
+| Twenty more regions, one surface each | `assets/surface-N.glb`, where N is the region's atlas number | `THIRD-PARTY-NOTICES.html` |
 | VPL | `assets/vpl-source-left.glb` | `sources/allen-version1/VPL-NOTICE.txt` |
 | VPM | `assets/vpm-source-left.glb` | `sources/allen-version1/VPM-NOTICE.txt` |
 | Parietal operculum | `assets/parietal-operculum-source-left.glb` | `sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt` |
@@ -119,9 +121,9 @@ The withdrawn prerelease contained an older deck, earlier scripts and 3D models 
 | --- | --- |
 | File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
 | Version | 21 November 2026. The file name never carries the version: each new one replaces the last at the same address |
-| Size | 40,481,417 bytes (84,061,653 bytes unpacked) |
-| Contents | 74 files. `MANIFEST.json` lists the other 73 with their sizes and checksums |
-| SHA256 | `8e951a33cb80f0f3b0983f961d1577dec24253214e984cd3bdc369fcf3d01f0a` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+| Size | 64,340,698 bytes (121,345,686 bytes unpacked) |
+| Contents | 94 files. `MANIFEST.json` lists the other 93 with their sizes and checksums |
+| SHA256 | `1012914a8bede78cc2dae7e7475a03042be9e828b7d384d1d5bef884716d1bea` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
 
 The website serves the same files, without the four start files, at [eliminatenoise.github.io/Interoceptomics/viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/): the folder `docs/viewer/` of this repository, built from the download's own files. The credit and the conditions on this page apply to that copy exactly as they do to the download.
 
@@ -137,9 +139,9 @@ Identities of the upstream files, for anyone who wants to start from the same so
 
 A licence says who may copy. It says nothing about whether the anatomy is right, and this project does not claim that it is.
 
-The atlas grid carries 141 regions. The viewer's 3D model holds 121 of them in 44 surfaces (40 in the main model file, 4 in files of their own): 34 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 34 and also appears on a combined surface. The other 20 regions have no surface; the download lists them in `viewer/omissions.html`. All 141 can be read in the flat cuts.
+The atlas grid carries 141 regions. The viewer's 3D model holds all 141 in 64 surfaces (40 in the main model file, 24 in files of their own): 54 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 54 and also appears on a combined surface. Twenty of the 54 (the white matter and the fluid spaces, the smell pathway and the claustrum) are drawn only when the viewer is asked for them; the download lists them in `viewer/omissions.html`. All 141 can be read in the flat cuts.
 
-The half-millimetre grid, the midline cap and the display approximation describe how the surfaces were made, not how accurate they are. There is no right half and no fit to any person. The model shows anatomy and nothing else: it demonstrates nothing about what a region does, and nothing clinical. [What the viewer is not](README.md#an-illustration-not-a-measurement).
+The half-millimetre grid, the midline cap and the smoothing describe how the surfaces were made, not how accurate they are. There is no right half and no fit to any person. The model shows anatomy and nothing else: it demonstrates nothing about what a region does, and nothing clinical. [What the viewer is not](README.md#an-illustration-not-a-measurement).
 
 ## The recorded cortex
 

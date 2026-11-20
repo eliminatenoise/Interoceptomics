@@ -10,7 +10,10 @@ const search = document.querySelector('#search');
 const scope = document.querySelector('#scope');
 const viewAction = document.querySelector('#view-action');
 const construction = document.querySelector('#construction');
-const surfaceLoading = 'Loading this region’s own surface…';
+const surfaceLoading = () => {
+  const bytes = registry.nodes.find(node => node.native_id === Number(current) && node.bytes)?.bytes ?? 0;
+  return bytes >= 1e6 ? 'Loading this region’s own surface, a ' + (bytes / 1e6).toFixed(1) + ' MB download…' : 'Loading this region’s own surface…';
+};
 const evidence = document.querySelector('#evidence');
 const view = document.querySelector('#view');
 const isolate = document.querySelector('#isolate');
@@ -18,6 +21,8 @@ const focus = document.querySelector('#focus');
 const role = document.querySelector('#role');
 const reset = document.querySelector('#reset');
 const diagnostic = document.querySelector('#qc');
+const layersButton = document.querySelector('#layers');
+const layersStatus = document.querySelector('#layers-status');
 const comparisonEntry = document.querySelector('#comparison-entry');
 const comparisonToggle = document.querySelector('#comparison-toggle');
 const comparisonHint = document.querySelector('#comparison-hint');
@@ -115,7 +120,7 @@ const comparisonItems = new Map();
 function invalidateViewAction(keepLoading = false) {
   viewActionRevision++;
   const stillLoading = keepLoading && available?.deferred.get(Number(current)) === 'pending';
-  const text = stillLoading ? surfaceLoading : '';
+  const text = stillLoading ? surfaceLoading() : '';
   if (viewAction.textContent !== text) viewAction.textContent = text;
 }
 
@@ -198,8 +203,8 @@ function setIsolation(active) {
     if (!canIsolate) {
       const pending = available.deferred.get(isolationOnlyLabel.id) === 'pending';
       instruction = pending
-        ? surfaceLoading
-        : isolationOnlyLabel.load_on_selection
+        ? surfaceLoading()
+        : isolationOnlyLabel.load_on_selection && isolationOnlyLabel.existing_group
           ? 'This region’s own surface couldn’t load. Its part of the outer surface still shows where that surface is visible. Reload the page to try again.'
           : 'This region’s own surface couldn’t load. The rest of the brain is ready to explore.';
     } else {
@@ -669,6 +674,12 @@ reset.onclick = () => {
   setIsolation(false);
   send({reset: true, isolate: false, viewAction: 'reset'});
 };
+let layers = false;
+layersButton.onclick = () => {
+  layers = !layers;
+  layersButton.textContent = layers ? 'Hide white matter and fluid spaces' : 'Show white matter and fluid spaces';
+  send({layers});
+};
 diagnostic.onclick = event => {
   qc = !qc;
   send({qc});
@@ -720,6 +731,10 @@ addEventListener('message', event => {
       viewAction.textContent = message.ready ? 'Its own surface is ready. Choose Show it alone.' : scope.textContent;
       options();
     }
+  } else if (message?.type === 'brain-layers') {
+    const megabytes = Math.round(registry.nodes.filter(node => node.layer).reduce((sum, node) => sum + node.bytes, 0) / 1e6);
+    layersStatus.textContent = message.status === 'loading' ? 'Loading the white matter and the fluid spaces, a ' + megabytes + ' MB download…'
+      : message.status === 'partial' ? 'Some of them couldn’t load. Reload the page to try again.' : '';
   } else if (message?.type === 'brain-error') {
     failed = true;
     syncAvailability();

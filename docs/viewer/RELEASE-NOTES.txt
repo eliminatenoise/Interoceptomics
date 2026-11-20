@@ -4,43 +4,43 @@ Version of 21 November 2026
 
 WHAT THIS VERSION IS
 
-The viewer now opens on the project's website, with nothing to install:
-https://eliminatenoise.github.io/Interoceptomics/viewer/
-The website and this download hold the same files, apart from the start
-files. The anatomy and the controls are the same as in the previous
-version. What changed:
+The twenty regions that had no surface now have one: the white matter of
+the forebrain and five of its named bundles of nerve fibres, nine fluid
+spaces (the ventricles and canals), the four regions of the smell
+pathway, and the claustrum. Together they hold 2,255,724 of the atlas's
+6,999,201 labelled voxels: a third of the atlas.
 
-  On the website. The viewer, its guide and its licence pages are served
-  at the address above. The download stays, for using the viewer offline.
+  Show white matter and fluid spaces. A new button under "Reset view"
+  draws fifteen of them in place, in every view: the white matter,
+  its fibre bundles and the fluid spaces. The white matter of the forebrain
+  and the fluid spaces are drawn see-through, so that the regions inside
+  and behind them stay in sight. They are a 36 MB download, so they
+  stay off until you ask.
 
-  Words on the screen. One word for one thing: a region (it was also a
-  territory, a label, a structure or a parcel), its atlas number (it was
-  also an ID, a source ID or a native ID), a cut (it was also a section or
-  a plane). Controls say what they do: "Show it alone" and "Show the whole
-  brain" in place of "Isolate in place" and "Restore context", "Open three
-  flat cuts" in place of "Explore full atlas labels". The line under a
-  region's name now names its colour groups.
+  Show it alone. Each of the twenty can be found in the list under "Find a
+  region" and lifted out on its own, like the other regions with a surface
+  of their own. Its file loads when you pick it.
 
-  Links from the viewer. The panel links to this guide and to the licence
-  pages. To make that work, the start file now serves this whole folder
-  and opens the viewer at /viewer/index.html.
+  Until you ask, the 3D model looks exactly as before, pixel for pixel;
+  the panel has one new button.
 
-  A message instead of an endless wait. Opened straight from the folder,
-  the viewer page used to sit at "3D controls unlock when the model is
-  ready." for ever. It now says why it cannot start and what to do.
-
-  No surface, no grid file, no licence text and nothing the viewer draws
-  changed by a single byte.
+The new surfaces were made from the same atlas grid, the same way as the
+thirty single-region surfaces of the main model file: a surface around the
+region's voxels on the half-millimetre grid, smoothed so that no point
+moved more than 0.125 mm. Where a new surface meets a region that already
+had one, the two stay within a quarter of a millimetre of each other.
+viewer/omissions.html lists the twenty; THIRD-PARTY-NOTICES.html says who
+made them and what you must keep.
 
 
 WHAT IT HAS BEEN RUN ON
 
 Linux, in Chromium 155 with software rendering, both from the start file
-and from a copy of the website served on this computer: the first view, a
-colour overlay, showing one region alone, the three flat cuts, and the
-page opened straight from the folder. The Windows and macOS start files
-have not yet been tried on those systems, and the viewer has not been run
-on a phone.
+and from a copy of the website served on this computer: the first view,
+the white matter and fluid spaces in each view, regions shown alone, a
+colour overlay, the three flat cuts, and the page opened straight from the
+folder. The Windows and macOS start files have not yet been tried on those
+systems, and the viewer has not been run on a phone.
 
 
 WHERE THINGS ARE

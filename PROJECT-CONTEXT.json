@@ -34,29 +34,29 @@
   "atlas_viewer": {
     "edition": "Interoceptomics Atlas Viewer, version of 21 November 2026",
     "archive": "downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip",
-    "bytes": 40481417,
-    "sha256": "8e951a33cb80f0f3b0983f961d1577dec24253214e984cd3bdc369fcf3d01f0a",
+    "bytes": 64340698,
+    "sha256": "1012914a8bede78cc2dae7e7475a03042be9e828b7d384d1d5bef884716d1bea",
     "source_and_rights": "RIGHTS.md#the-atlas-viewer-download",
-    "regular_files": 74,
-    "uncompressed_bytes": 84061653,
+    "regular_files": 94,
+    "uncompressed_bytes": 121345686,
     "package_manifest": {
       "file": "MANIFEST.json",
-      "bytes": 17746,
-      "sha256": "9b96f82cec11b5c027f97eec8879d11568a61d58669738a32311bcf767fa8497",
-      "scope": "Sizes and checksums of the 73 other files in the archive, the counts recomputed from its data, and the identities of the upstream files."
+      "bytes": 21787,
+      "sha256": "07679c7a3484cd13561c4fde421bbfa7bff8a8b85e29d71402e4588bdf21083a",
+      "scope": "Sizes and checksums of the 93 other files in the archive, the counts recomputed from its data, and the identities of the upstream files."
     },
-    "change": "The viewer is also served on the project website, from the same files. On the screen, one word for one thing (region, atlas number, cut) and controls that say what they do; links from the viewer to its guide and licence pages; a plain message when the page is opened straight from a folder. The start file serves the whole download folder. The anatomy and the controls are those of the previous version.",
+    "change": "Surfaces for the twenty regions that had none (the white matter of the forebrain and five fibre bundles, nine fluid spaces, four regions of the smell pathway, the claustrum), made from the same atlas grid the same way as the thirty single-region surfaces of the main model file, one file each. A button draws the white matter and the fluid spaces in place; each of the twenty can be shown alone. The first view is unchanged.",
     "source_comparison": {
       "status": "The region names were compared with the atlas table on an early edition and again on this version (21 November 2026): all 141 match on number, name, abbreviation and ancestry. The comparison with the API response was made once and cannot be repeated from the download.",
-      "current_registry_bytes": 268970,
-      "current_registry_sha256": "f7eba3c845fad8f8b793b23784366cbad5f264ff0d3044db16b910a24cb93440"
+      "current_registry_bytes": 284784,
+      "current_registry_sha256": "58c3f0ad5cd0f9f2cf6f9ba7871c957886b708bb8c0fe846fbec34338df9e803"
     },
-    "limitations": "The 3D model holds 121 of the atlas's 141 regions in 44 surfaces: 34 regions have a surface of their own, 82 more are parts of combined surfaces, and 5 are listed by name only. 20 regions have no surface. The source is one population atlas, left half only. Not checked or not claimed: agreement with other specimens, fit to any person, neural function, one planned visual check, and running on Windows, macOS or a phone.",
+    "limitations": "The 3D model holds all 141 of the atlas's regions in 64 surfaces: 54 regions have a surface of their own, 82 more are parts of combined surfaces, and 5 are listed by name only. 20 of them are drawn only when asked. The source is one population atlas, left half only. Not checked or not claimed: agreement with other specimens, fit to any person, neural function, one planned visual check, and running on Windows, macOS or a phone.",
     "viewer": {
       "file": "viewer/viewer.js",
-      "bytes": 36798,
-      "sha256": "faf1b218780b88980f656b0485009c93ec3ee13ba34a4f3366a6a973ed958caa",
-      "code_change": "Its drawing has not changed since the three flat cuts through one point were added. In this version only words changed: the loading message, the four view descriptions and one error message."
+      "bytes": 37630,
+      "sha256": "af661b3395b9d0581b724e96d96a444d3fe18da27c5ba582b496a8992f953c33",
+      "code_change": "This version adds a button that draws the white matter and the fluid spaces in every view, a see-through material for the white matter of the forebrain and the fluid spaces, the size of a large surface in its loading message, and a time limit for loading a separate surface that grows with its size. Everything else is drawn as before."
     },
     "complete_scientific_or_production_acceptance": false,
     "launchers": "The Windows, macOS and Linux start files need Python 3.10 or newer and a browser with WebGL. The Linux start file served the tested viewer on the local machine. Opening the default browser, and running on Windows or macOS, have not been tried.",
@@ -70,8 +70,8 @@
     "viewer_layout": {
       "page": "viewer/index.html",
       "controller": "viewer/ui.js",
-      "page_sha256": "e6237a90990443612dba57d071181d9243197b7ec85cafd44a0ecf75501cc9a3",
-      "controller_sha256": "ee181e9bd17b80e3ef8fec00a748a79a8a0b9e4ceb0300fe3dfed5ed2a49439a",
+      "page_sha256": "093d513ea37b8cae68953028659ceb668074eb0998bc289b7e6010f046ee3860",
+      "controller_sha256": "1b72b5591d963f100b56288fec06c337da06205bfcc029024b10dd0710253f74",
       "renderer_page": "viewer/render.html",
       "renderer_page_sha256": "a21f20ebd5fa287b3312e25832e5d8e7bff755d075f2393a4567cd119089518e",
       "location_comparison": "viewer/location-comparison.js",
@@ -81,7 +81,7 @@
       "ruler_walk": "viewer/ruler-walk.js",
       "ruler_walk_sha256": "f337471c954452d7a7338413da90b2efc8996cbf1e55e819d230d4162934a46c",
       "renderer": "viewer/viewer.js",
-      "renderer_sha256": "faf1b218780b88980f656b0485009c93ec3ee13ba34a4f3366a6a973ed958caa",
+      "renderer_sha256": "af661b3395b9d0581b724e96d96a444d3fe18da27c5ba582b496a8992f953c33",
       "atlas_label_runs": "viewer/atlas-label-runs.js",
       "atlas_label_runs_sha256": "e5f7796200fd1589d110fd25f666f6350543aa4fb867d5ac9c64f2d18eecd305",
       "annotation_planes_js": "viewer/annotation-planes.js",
@@ -377,7 +377,7 @@
       "version": "2026-11-21",
       "chromium": "155.0.8059.84",
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
-      "scope": "Run for this version on Linux in headless Chromium with software rendering, from the download's start file and from a copy of docs/ served on this computer: the first view, a colour overlay, the parietal operculum shown alone, the three flat cuts, and the viewer page opened straight from the folder. The 3D model is the same picture, pixel for pixel, in both. Not run: hardware rendering, real keyboard, mouse and touch input, saved views, the published website itself, Windows, macOS, a phone.",
+      "scope": "Run for this version on Linux in headless Chromium with software rendering, from the download's start file and from a copy of docs/ served on this computer: the first view, a colour overlay, the parietal operculum shown alone, the three flat cuts, the white matter and the fluid spaces in each of the four views, flat cuts through a ventricle and the white matter, three of the new regions shown alone, and the viewer page opened straight from the folder. With the new surfaces off, the 3D model is the same picture, pixel for pixel, as in the previous version. Not run: hardware rendering, real keyboard, mouse and touch input, saved views, the published website itself, Windows, macOS, a phone.",
       "version_of_19_november_2026": {
         "what": "The edition this version carries its anatomy and code over from.",
         "compared_to_commit": "d6197935c2d78329f527d25205aa0c7ccfecf642",
@@ -396,14 +396,223 @@
     "website_copy": {
       "address": "https://eliminatenoise.github.io/Interoceptomics/viewer/",
       "folder": "docs/viewer",
-      "files": 70,
-      "bytes": 84057958,
+      "files": 90,
+      "bytes": 121341988,
       "largest_file": {
         "path": "assets/brain-left.glb",
         "bytes": 66100772,
         "note": "Over 50 MB, where GitHub warns; under 100 MB, where it refuses."
       },
       "made_from": "The archive's own members, by the same build. The viewer's folder is merged with the top level of the download, relative links in the pages are rewritten to match, and the four start files are left out. Every other byte is the archive's."
+    },
+    "surfaces_drawn_when_asked": {
+      "files": "viewer/assets/surface-N.glb, N the atlas number",
+      "regions": [
+        {
+          "id": 10307,
+          "abbreviation": "OB",
+          "file": "assets/surface-10307.glb",
+          "bytes": 39624,
+          "vertices": 776,
+          "triangles": 1548,
+          "drawn_by_the_button": false,
+          "see_through": false
+        },
+        {
+          "id": 10308,
+          "abbreviation": "AON",
+          "file": "assets/surface-10308.glb",
+          "bytes": 50104,
+          "vertices": 994,
+          "triangles": 1984,
+          "drawn_by_the_button": false,
+          "see_through": false
+        },
+        {
+          "id": 10311,
+          "abbreviation": "Pir",
+          "file": "assets/surface-10311.glb",
+          "bytes": 91028,
+          "vertices": 1842,
+          "triangles": 3700,
+          "drawn_by_the_button": false,
+          "see_through": false
+        },
+        {
+          "id": 10346,
+          "abbreviation": "Cla",
+          "file": "assets/surface-10346.glb",
+          "bytes": 703144,
+          "vertices": 14554,
+          "triangles": 29288,
+          "drawn_by_the_button": false,
+          "see_through": false
+        },
+        {
+          "id": 10557,
+          "abbreviation": "FWM",
+          "file": "assets/surface-10557.glb",
+          "bytes": 32218824,
+          "vertices": 669969,
+          "triangles": 1344770,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 10559,
+          "abbreviation": "ac",
+          "file": "assets/surface-10559.glb",
+          "bytes": 104788,
+          "vertices": 2134,
+          "triangles": 4264,
+          "drawn_by_the_button": true,
+          "see_through": false
+        },
+        {
+          "id": 10576,
+          "abbreviation": "fx",
+          "file": "assets/surface-10576.glb",
+          "bytes": 225596,
+          "vertices": 4646,
+          "triangles": 9308,
+          "drawn_by_the_button": true,
+          "see_through": false
+        },
+        {
+          "id": 10586,
+          "abbreviation": "mtt",
+          "file": "assets/surface-10586.glb",
+          "bytes": 45476,
+          "vertices": 898,
+          "triangles": 1792,
+          "drawn_by_the_button": true,
+          "see_through": false
+        },
+        {
+          "id": 10589,
+          "abbreviation": "ot",
+          "file": "assets/surface-10589.glb",
+          "bytes": 100764,
+          "vertices": 2050,
+          "triangles": 4096,
+          "drawn_by_the_button": true,
+          "see_through": false
+        },
+        {
+          "id": 10597,
+          "abbreviation": "aLV",
+          "file": "assets/surface-10597.glb",
+          "bytes": 748380,
+          "vertices": 15541,
+          "triangles": 31082,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 10598,
+          "abbreviation": "bLV",
+          "file": "assets/surface-10598.glb",
+          "bytes": 509552,
+          "vertices": 10566,
+          "triangles": 21128,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 10599,
+          "abbreviation": "pLV",
+          "file": "assets/surface-10599.glb",
+          "bytes": 109424,
+          "vertices": 2230,
+          "triangles": 4456,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 10600,
+          "abbreviation": "iLV",
+          "file": "assets/surface-10600.glb",
+          "bytes": 417060,
+          "vertices": 8634,
+          "triangles": 17284,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 10602,
+          "abbreviation": "3V",
+          "file": "assets/surface-10602.glb",
+          "bytes": 198540,
+          "vertices": 4088,
+          "triangles": 8172,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 12073,
+          "abbreviation": "olt",
+          "file": "assets/surface-12073.glb",
+          "bytes": 56408,
+          "vertices": 1126,
+          "triangles": 2248,
+          "drawn_by_the_button": false,
+          "see_through": false
+        },
+        {
+          "id": 12369,
+          "abbreviation": "Aq",
+          "file": "assets/surface-12369.glb",
+          "bytes": 50828,
+          "vertices": 1010,
+          "triangles": 2016,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 12805,
+          "abbreviation": "4V",
+          "file": "assets/surface-12805.glb",
+          "bytes": 284864,
+          "vertices": 5886,
+          "triangles": 11768,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 12826,
+          "abbreviation": "cec",
+          "file": "assets/surface-12826.glb",
+          "bytes": 18004,
+          "vertices": 325,
+          "triangles": 650,
+          "drawn_by_the_button": true,
+          "see_through": true
+        },
+        {
+          "id": 266441621,
+          "abbreviation": "or",
+          "file": "assets/surface-266441621.glb",
+          "bytes": 959520,
+          "vertices": 19932,
+          "triangles": 39892,
+          "drawn_by_the_button": true,
+          "see_through": false
+        },
+        {
+          "id": 266441657,
+          "abbreviation": "xLV",
+          "file": "assets/surface-266441657.glb",
+          "bytes": 325248,
+          "vertices": 6726,
+          "triangles": 13448,
+          "drawn_by_the_button": true,
+          "see_through": true
+        }
+      ],
+      "bytes": 37257176,
+      "made": "On 21 November 2026 by the Interoceptomics contributors, from the viewer's own copy of the atlas grid (equal, voxel for voxel, to annotation.nii.gz). Method of the thirty single-region surfaces of the main model file: marching cubes at level 0.5 on the left half, midline cap, Taubin smoothing with every move clipped to 0.1249 mm, averaged normals, the (-R, S, A)/1000 frame.",
+      "method_check": "The same code rebuilt the 36 raw surfaces of the 4 November build exactly (vertices and triangles) and the 30 finished single-region surfaces of the main model file: all 125,023 positions bit for bit, and 124,949 of the normals; the other 74 normals sit where the averaged direction cancels to zero.",
+      "alignment_check": "At every grid face where a new region touches a region that already had a surface (14 such pairs measured, 555,616 shared faces), the two finished vertices that started at the face centre are at most 0.25 mm apart (largest 0.228 mm)."
     }
   },
   "recorded_cortex": {

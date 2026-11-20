@@ -28,10 +28,10 @@ Serve it from your own computer (`127.0.0.1` or `localhost`) or from an `https` 
 | `location-comparison.js`, `ruler-walk.js`, `shared-faces.js` | The two-point ruler, the walk along it, and the faces VPL and VPM share. |
 | `registry.json` | The list of the atlas's 141 regions: names, numbers, colours, notes, cited sources. |
 | `variants.json`, `camera-r4-bounds.json`, `source-provenance.json` | Settings and records of how the main model file was made. |
-| `assets/` | The anatomy: surfaces (`.glb`), the region number of each surface point (`identity/*.u32`), the whole atlas grid repacked (`atlas-label-runs.*`), the data for those cuts, the overview picture. |
+| `assets/` | The anatomy: surfaces (`.glb`; `surface-N.glb` is the surface of the region with atlas number N), the region number of each surface point (`identity/*.u32`), the whole atlas grid repacked (`atlas-label-runs.*`), the data for those cuts, the overview picture. |
 | `vendor/three/` | Three.js, the 3D drawing library, with its licence. |
 | `source.html` | Where the anatomy comes from and how to read its coordinates. |
-| `omissions.html` | The 20 regions that have no surface. |
+| `omissions.html` | The twenty regions drawn only when you ask, and why. |
 
 ## Whose work this is
 

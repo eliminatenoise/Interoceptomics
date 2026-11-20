@@ -6,7 +6,7 @@ The atlas viewer opens on the project's website, and it can also be downloaded a
 
 [Open it on the website](https://eliminatenoise.github.io/Interoceptomics/viewer/), with nothing to install. To use it offline, download it. You need Python 3.10 or newer and a current browser.
 
-1. [Download the ZIP](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (40.5 MB) and extract all of it.
+1. [Download the ZIP](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (64.3 MB) and extract all of it.
 2. Open `Windows.cmd` on Windows or `macOS.command` on macOS, or run `sh Linux.sh` in a terminal on Linux.
 3. The start file runs in a terminal window and opens your browser on the viewer, at an address on your own computer. Keep the terminal open while you explore.
 

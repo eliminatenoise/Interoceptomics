@@ -10,9 +10,9 @@
     "linux": "Linux.sh",
     "needs": "Python 3.10 or newer and a browser with WebGL"
   },
-  "files_total_including_manifest": 74,
+  "files_total_including_manifest": 94,
   "manifest_self_excluded_from_entries": true,
-  "entry_count": 73,
+  "entry_count": 93,
   "entries": [
     {
       "path": "Linux.sh",
@@ -22,20 +22,20 @@
     },
     {
       "path": "README.html",
-      "bytes": 18248,
-      "sha256": "53507b2d51c2286993d790f747eb53b79897ec7cdebc5594a271440c2b79118f",
+      "bytes": 19213,
+      "sha256": "55cc282d34995ce38c08ec55407b702c3bdebd25b58379a05764932190c797e9",
       "mode_octal": "0644"
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "bytes": 2478,
-      "sha256": "7014f2f0c79525fab411d9bb5c382a9020ce4ee47e84d28ab04aeab6215f9c41",
+      "bytes": 2577,
+      "sha256": "69d75f372d7d82e56c1b0f1731020356a9dc7f4668ebbbe8c247bdd86b80d2fd",
       "mode_octal": "0644"
     },
     {
       "path": "THIRD-PARTY-NOTICES.html",
-      "bytes": 16584,
-      "sha256": "c249fcb1c4f932771943d5694f505872e65303f11100ba22885b2eb8f6609b8b",
+      "bytes": 17490,
+      "sha256": "6db82f6e4858233b66e2db342d6c7ece29166a990b311a8ed9c85276b6935c3c",
       "mode_octal": "0644"
     },
     {
@@ -130,8 +130,8 @@
     },
     {
       "path": "viewer/README.md",
-      "bytes": 3360,
-      "sha256": "4c03c7c25314031e6bf56b3b038bdf8b3115079de86ab405bf26a67d90f00950",
+      "bytes": 3442,
+      "sha256": "bc1bf5e47f6f07a5c8a68420f610d6f08fc7d19cd0477f5d6bd6983b16bc1fbc",
       "mode_octal": "0644"
     },
     {
@@ -279,6 +279,126 @@
       "mode_octal": "0644"
     },
     {
+      "path": "viewer/assets/surface-10307.glb",
+      "bytes": 39624,
+      "sha256": "c0ab79c3000dc768ef0d88f236d7cf84be5ee8c9f9aa56a31d1ca0208598c1c3",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10308.glb",
+      "bytes": 50104,
+      "sha256": "7ee6e8e53aafe58a63bc2337e4b9f9e8702ffbbf1012cbae0e1080b2604025dc",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10311.glb",
+      "bytes": 91028,
+      "sha256": "240756710ef7cc44167fe1beed623f2b9670fed3799b620baa39edc5aa2956e5",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10346.glb",
+      "bytes": 703144,
+      "sha256": "c9f1b42997fee9adaac8c28fc9318d740f801c915c51549949421a62d79daa72",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10557.glb",
+      "bytes": 32218824,
+      "sha256": "8ab10a95cd6a81056ebfc185a8799115b929fb89e7da04356d9b9da511ef0ae8",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10559.glb",
+      "bytes": 104788,
+      "sha256": "930c339ae718976ccf748d10f8d0ee56fd8115b62d19e237f5e005978072e873",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10576.glb",
+      "bytes": 225596,
+      "sha256": "212a4e18e7598826386f32e6403fdc8aa7ac0387e3eb5d4d4c234db54ee2d8a0",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10586.glb",
+      "bytes": 45476,
+      "sha256": "91176246900396b7310b0b0ddcf169e895f554678e5d5b0b7290b25f0b5e25a9",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10589.glb",
+      "bytes": 100764,
+      "sha256": "fad1a3cd502c880f743a009750616cbb9797da57652886f8b58364d29cf10861",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10597.glb",
+      "bytes": 748380,
+      "sha256": "e3faeca1158251cda3590cc26d0244d8c0c7693c5fe971981b8a6357f3131a29",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10598.glb",
+      "bytes": 509552,
+      "sha256": "481ccc715641da144789a6eb5da158b52f983019233baeee8a5731561b029cee",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10599.glb",
+      "bytes": 109424,
+      "sha256": "4819551a209b974ad06fa53fbdf376422aae9ab17122cfc02ad6e88bea8f029d",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10600.glb",
+      "bytes": 417060,
+      "sha256": "b3e7e152e48cf10ab3d1886dad48fce8c8ac239ecef9c06084793de6d0b88366",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-10602.glb",
+      "bytes": 198540,
+      "sha256": "eb656802f05e6dca27b263e405f2cb1be8cfafeef0deb8eb10e23c8e88cafb26",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-12073.glb",
+      "bytes": 56408,
+      "sha256": "49b491bc4e1a69729719f11b4d942b21266dd7e5efd7fc276371ea39d2e84867",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-12369.glb",
+      "bytes": 50828,
+      "sha256": "7a592ca96a4cbbc720461cc9e98badcf196c932faf698f1909d726260268b230",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-12805.glb",
+      "bytes": 284864,
+      "sha256": "3d77613558f3f7518f4a79fe496cb04087425cd436cc45b067fc6e78b0c817da",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-12826.glb",
+      "bytes": 18004,
+      "sha256": "ca382227e0142b1f3d4e87ac9617b8d48394a882097e50d7f690ee4fafbbb087",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-266441621.glb",
+      "bytes": 959520,
+      "sha256": "ad7fb1b1b7b641094c9199a50b2d6c31dd8bb7d99d7b7db6bfedd5db1908a84b",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "viewer/assets/surface-266441657.glb",
+      "bytes": 325248,
+      "sha256": "ac3da66af0fe766042afcffac85c0759fcde46a49a2940237b9efc610a983921",
+      "mode_octal": "0644"
+    },
+    {
       "path": "viewer/assets/vpl-source-left.glb",
       "bytes": 151960,
       "sha256": "38ff571b7849d9d98dd59a6a5ba76a68e2d98c8e542309983d5fe9fdec8f465f",
@@ -316,8 +436,8 @@
     },
     {
       "path": "viewer/index.html",
-      "bytes": 34296,
-      "sha256": "e6237a90990443612dba57d071181d9243197b7ec85cafd44a0ecf75501cc9a3",
+      "bytes": 34908,
+      "sha256": "093d513ea37b8cae68953028659ceb668074eb0998bc289b7e6010f046ee3860",
       "mode_octal": "0644"
     },
     {
@@ -328,8 +448,8 @@
     },
     {
       "path": "viewer/omissions.html",
-      "bytes": 6016,
-      "sha256": "7786727309f0c99891fc834099da034ec745cbf010c85ba46010b2fe3b28737f",
+      "bytes": 8335,
+      "sha256": "7b284bcdc9813ecbd8574b9f39c776882ef69ad6181af78ac192bd4bac03ccd0",
       "mode_octal": "0644"
     },
     {
@@ -346,8 +466,8 @@
     },
     {
       "path": "viewer/registry.json",
-      "bytes": 268970,
-      "sha256": "f7eba3c845fad8f8b793b23784366cbad5f264ff0d3044db16b910a24cb93440",
+      "bytes": 284784,
+      "sha256": "58c3f0ad5cd0f9f2cf6f9ba7871c957886b708bb8c0fe846fbec34338df9e803",
       "mode_octal": "0644"
     },
     {
@@ -388,14 +508,14 @@
     },
     {
       "path": "viewer/source.html",
-      "bytes": 14423,
-      "sha256": "0b8c17fdb29bd1578eef25dcbac95bd1cdac5204fa3771742f9685346201c8cd",
+      "bytes": 14582,
+      "sha256": "b60908a43c0f27f6f51cd00e49b06d8bcafe01a610f4817265403fa43ae0b51b",
       "mode_octal": "0644"
     },
     {
       "path": "viewer/ui.js",
-      "bytes": 32699,
-      "sha256": "ee181e9bd17b80e3ef8fec00a748a79a8a0b9e4ceb0300fe3dfed5ed2a49439a",
+      "bytes": 33727,
+      "sha256": "1b72b5591d963f100b56288fec06c337da06205bfcc029024b10dd0710253f74",
       "mode_octal": "0644"
     },
     {
@@ -448,20 +568,22 @@
     },
     {
       "path": "viewer/viewer.js",
-      "bytes": 36798,
-      "sha256": "faf1b218780b88980f656b0485009c93ec3ee13ba34a4f3366a6a973ed958caa",
+      "bytes": 37630,
+      "sha256": "af661b3395b9d0581b724e96d96a444d3fe18da27c5ba582b496a8992f953c33",
       "mode_octal": "0644"
     }
   ],
   "counts": {
     "note": "Recomputed from registry.json, the identity files, the model files and the packed grid when this download was built.",
     "regions_in_the_atlas_grid": 141,
-    "regions_in_the_3d_model": 121,
-    "surfaces": 44,
-    "regions_with_a_surface_of_their_own": 34,
+    "regions_in_the_3d_model": 141,
+    "surfaces": 64,
+    "regions_with_a_surface_of_their_own": 54,
     "regions_only_on_combined_surfaces": 82,
     "regions_by_name_only": 5,
-    "regions_without_a_surface": 20,
+    "regions_without_a_surface": 0,
+    "regions_drawn_only_when_asked": 20,
+    "of_them_drawn_in_place_by_the_white_matter_and_fluid_spaces_button": 15,
     "labelled_voxels_left_midline_right": [
       6974625,
       14152,
