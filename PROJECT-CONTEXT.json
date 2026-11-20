@@ -427,5 +427,14 @@
     "source_licence": "models/stride-signals/LICENCE",
     "scope": "Group means from 89 barefoot C2 strides in 30 adults. The 52 marker paths and eight right-leg muscle channels share a stride clock. Physical plate means have different denominators. A separate right-foot force trace spans 2–58% of the stride from four qualified strides in three adults.",
     "model_limits": "The body surface illustrates marker motion. Plate forces sample contact on the instrumented walkway. The display aligns published filtered recordings retrospectively."
+  },
+  "scalp_and_arm": {
+    "reader": "docs/scalp-and-arm/index.html",
+    "archive": "downloads/scalp-and-arm.zip",
+    "sources": "docs/scalp-and-arm/NOTICE.txt",
+    "channel_map": "docs/scalp-and-arm/references/channel-map.csv",
+    "study": "https://doi.org/10.1371/journal.pone.0182578",
+    "dataset": "https://doi.org/10.5281/zenodo.834976",
+    "scope": "61 scalp sites on the FieldTrip standard head. A separate right-arm illustration shows the seven study cues. The file header check covers subject 1 motor-execution runs 1–3. Nominal sample rates are 512 Hz for EEG and eye channels and 64 Hz for mechanical channels. The reader ships channel metadata, publicly licensed reference figures and the original study codebook. Individual voltages, participant cap coordinates, trajectories, calibrated arm units and hardware synchronization are outside its scope."
   }
 }

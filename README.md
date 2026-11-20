@@ -21,6 +21,10 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 **[Explore the recorded cortex](https://eliminatenoise.github.io/Interoceptomics/recorded-cortex/).** See how electrical power changed at 46 recording sites when a person was cued to move a finger. The 3D viewer joins the contacts to the original participant’s own brain surface. [Offline reader](downloads/recorded-cortex.zip)
 
+## Scalp and arm
+
+Rotate the scalp to find any of 61 electrode sites from the Ofner upper-limb study. Then try a right-arm cue and watch the nominal EEG and movement clocks advance. The head uses standard coordinates. The arm pose illustrates the instruction. The authors’ published equipment photograph, cue diagram and channel table are included offline. [Open the companion](https://eliminatenoise.github.io/Interoceptomics/scalp-and-arm/) · [Download the ZIP](downloads/scalp-and-arm.zip)
+
 ## Backslash of the Brain
 
 Trace muscle sensation, organ sensation, skeletal movement and autonomic control across the human nervous system. The atlas opens on the medial surface of the left brain. Choose a circuit to see its receptors, relays and targets, or inspect coronal slices, labelled brainstem sections and four organ surfaces in three dimensions.

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123a36" />
+    <title>Scalp &amp; arm · Interoceptomics</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="atlas-data.js" defer></script>
+    <script src="geometry.js" defer></script>
+    <script src="renderer.js" defer></script>
+    <script src="reader.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="mast">
+        <span class="wordmark">Interoceptomics</span><a href="#sources">Sources &amp; channel map ↓</a>
+      </header>
+      <section class="lead">
+        <h1>Scalp <i>&amp;</i> arm</h1>
+        <p>
+          A cue appears. The right arm bends. What could the cap pick up, and what did it take to tell
+          whether the elbow moved?
+        </p>
+      </section>
+      <section class="twins" aria-label="Scalp and right-arm instruments">
+        <article class="instrument head">
+          <div class="heading"><span>Scalp electrodes</span><span>61 EEG sites</span></div>
+          <div class="stage">
+            <canvas
+              id="scalp"
+              tabindex="0"
+              aria-label="Rotatable standard head, with 61 scalp electrodes. Use arrow keys to turn, Home to reset, or choose a site below."
+            ></canvas>
+            <div class="site-tag" id="tag" aria-hidden="true">C3</div>
+          </div>
+          <div class="orient">
+            <span id="head-view">Standard head</span>
+            <div>
+              <button type="button" id="top">From above</button
+              ><button type="button" id="front">From front</button
+              ><button type="button" id="head-reset">Reset</button>
+            </div>
+          </div>
+          <div class="panel">
+            <label for="site">Recording site</label
+            ><select id="site"></select>
+            <p id="site-info" aria-live="polite"></p>
+            <small
+              >Each green dot marks an electrode. Gold marks your selection. On the upper-head template,
+              x increases to the person’s right, y towards the nose and z upwards. A scalp voltage would
+              combine signals from multiple sources.</small
+            >
+          </div>
+        </article>
+        <article class="instrument arm">
+          <div class="heading"><span>Right arm &amp; hand</span><span>Illustrated movement</span></div>
+          <div class="stage">
+            <canvas
+              id="arm"
+              tabindex="0"
+              aria-label="Rotatable right arm, exoskeleton support and data glove. Use arrow keys to turn, or use the view buttons below."
+            ></canvas>
+          </div>
+          <div class="orient">
+            <span>Right arm</span>
+            <div>
+              <button id="arm-side" type="button">Side</button
+              ><button id="arm-front" type="button">Front</button
+              ><button id="arm-reset" type="button">Reset</button>
+            </div>
+          </div>
+          <div class="panel">
+            <label for="task">Instruction on the screen</label
+            ><select id="task"></select>
+            <p id="task-info" aria-live="polite"></p>
+            <small
+              >The blue support represents the exoskeleton. The glove tracks finger positions. The right
+              arm demonstrates the instruction on its own drawing axes. Its position relative to the
+              scalp, its timing and its joint angles are illustrative.</small
+            >
+          </div>
+        </article>
+      </section>
+      <p class="gestures">
+        Drag either model to turn it. You can also focus a model and use the arrow keys.
+      </p>
+      <section class="clock" aria-labelledby="clock-title">
+        <div class="clock-title">
+          <div>
+            <h2 id="clock-title">When does the cue arrive?</h2>
+            <p>
+              The trial starts with a cross and a beep. Two seconds later a picture tells the
+              participant what to do.
+            </p>
+          </div>
+          <output for="time" id="sec">2.50 s</output>
+        </div>
+        <label for="time">Time from trial start</label
+        ><input id="time" type="range" min="0" max="5" value="2.5" step="0.001953125" />
+        <div class="ticks"><span>0 · Fixate</span><span>2 · Cue</span><span>5 · End</span></div>
+        <div class="clock-actions">
+          <span id="phase" aria-live="polite"></span>
+          <div class="time-buttons">
+            <button type="button" id="cue">Go to cue</button
+            ><button type="button" id="fine">+1 EEG sample</button>
+          </div>
+        </div>
+        <div class="clocks">
+          <div>
+            <h3>Scalp &amp; eyes <em>512 Hz</em></h3>
+            <p>Every 1.953 ms</p>
+            <strong id="eeg-ticks"></strong>
+          </div>
+          <div>
+            <h3>Glove &amp; exoskeleton <em>64 Hz</em></h3>
+            <p>Every 15.625 ms</p>
+            <strong id="arm-ticks"></strong>
+          </div>
+        </div>
+        <p id="fine-clock" class="sample-offset"></p>
+        <p class="note">
+          These are nominal sample offsets from trial start. Eight EEG intervals fit into one mechanical
+          interval. The cue marks the instruction. Actual movement onset varies. A shared file
+          establishes the sample grids. The hardware delay between instruments and the physical units
+          and calibration of their stored readings remain unverified here.
+        </p>
+      </section>
+      <details id="sources" open>
+        <summary><span>How to check the setup</span></summary>
+        <div class="source-grid">
+          <figure>
+            <a href="references/ofner-setup.webp"
+              ><img
+                src="references/ofner-setup.webp"
+                alt="Published study photograph of the cap, supported right arm and glove, above task drawings"
+                width="1200"
+                height="1139"
+                loading="lazy"
+            /></a>
+            <figcaption>
+              Ofner and colleagues’ setup and six movement cues. The published photograph already
+              obscures the face.
+              <a href="https://doi.org/10.1371/journal.pone.0182578.g001">Figure 1</a> · CC BY 4.0
+            </figcaption>
+          </figure>
+          <div>
+            <h3>The cap</h3>
+            <p>
+              The authors recorded scalp voltage against a reference behind the right ear, on the
+              mastoid. AFz, shown in slate, was the ground. The 61 signal channels are separate from
+              these two connections. The researchers digitized each cap before the session. This reader
+              instead places the 61 published names at their matching FieldTrip 10–5 template
+              coordinates on its Colin27 scalp.
+            </p>
+            <h3>The right arm</h3>
+            <p>
+              Participants sat with the right arm supported against gravity. They began with the elbow
+              at 120°, the hand half open and the forearm in a neutral rotation. The exoskeleton and a
+              5DT data glove supplied the evidence of movement. The authors used the elbow and forearm
+              sensors to time arm movements and the finger readings to time hand opening and closing.
+            </p>
+            <h3>The trial</h3>
+            <p>
+              At five seconds the task ended. Participants returned to the starting pose. The next trial
+              followed a variable break of two to three seconds. A separate session asked them to
+              imagine the same movements.
+            </p>
+            <a class="trial-fig" href="references/ofner-trial.webp"
+              ><img
+                src="references/ofner-trial.webp"
+                alt="Published cue schedule from zero to five seconds"
+                width="640"
+                height="210"
+                loading="lazy" /></a
+            ><small
+              >Ofner et al., <a href="https://doi.org/10.1371/journal.pone.0182578.g002">Figure 2</a> ·
+              CC BY 4.0</small
+            >
+          </div>
+        </div>
+        <h3>What the files call each channel</h3>
+        <p>
+          The first 61 native labels all say <b>eeg</b>. Table 2 of the authors’ codebook gives the
+          electrode names in order. All 61 match the coordinate template exactly. The table calls eye
+          channel 62 “left” and 64 “right”. The native header calls them <b>eog-r</b> and <b>eog-l</b>,
+          respectively. Glove channels 80–83 and exoskeleton channel 96 have header names where the
+          table gives a dash. These entries retain both descriptions.
+        </p>
+        <p class="source-links">
+          <a href="references/ofner-codebook.pdf">Original codebook PDF</a
+          ><a href="references/channel-map.csv">96-channel map (CSV)</a
+          ><a href="references/standard_1005.elc">Source coordinates</a
+          ><a href="NOTICE.txt">Sources and licences</a>
+        </p>
+      </details>
+      <footer>Interoceptomics · Experimental companion to the Ofner upper-limb study (2017).</footer>
+    </main>
+  </body>
+</html>

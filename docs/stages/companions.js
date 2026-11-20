@@ -2,6 +2,11 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  scalp: {
+    title: 'Turn the scalp and right arm',
+    url: '../scalp-and-arm/',
+    reading: 'Choose one of 61 scalp electrodes on a standard head, then follow a study cue to the illustrated right arm and its movement sensors.'
+  },
   coverage: {
     title: 'Compare where electrodes sat in five people',
     url: '../cortex-coverage/',
@@ -81,11 +86,11 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['wrist', 'muscle', 'cortex', 'coverage'],
+  'map-brain2body': ['wrist', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['stride', 'words'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['exercise', 'vibration'],
-  'read-function': ['vibration', 'trip', 'cortex', 'coverage'],
+  'read-function': ['vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
@@ -94,7 +99,7 @@ const choicesByStep = {
   'movement-model': ['stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
-  'humans': ['wrist', 'stride', 'cortex', 'coverage']
+  'humans': ['wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };
 
 const walkingReader = { mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };
