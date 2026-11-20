@@ -4,13 +4,14 @@
   "programme": "Brain2Body",
   "canonical_terminology": {
     "registry": "Brain2Body shared glossary",
-    "revision": 36,
-    "sha256": "40b98695e6204bc9e305ecdea853756aec30f48a6ae67d29e92c8bb220b3e406",
+    "revision": 39,
+    "sha256": "2dfd29ae05c509025bd5c1a74a940a2a933b78c6c44fe2f94030d6fb69709741",
     "terms": [
       {
         "id": "interoceptomics",
         "preferred_label": "Interoceptomics",
-        "status": "user_defined_project_term"
+        "status": "user_defined_project_term",
+        "accepted_shorthand": "Interotomics"
       }
     ]
   },
