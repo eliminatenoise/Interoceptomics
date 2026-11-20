@@ -1,6 +1,7 @@
 import {allSteps,groups,visions,technicalPage} from './roadmap.js';
 import {sceneInfo,showScene} from './scene.js';
 import {selectWalkingLimb} from './recording/view.js';
+import {mountWTrack} from './recording/wtrack/view.js';
 import {showMazeRecording} from './recording/maze.js';
 import {showWristRecording} from './recording/wrist.js';
 
@@ -17,7 +18,7 @@ const limbs={
   'left-arm':['Left arm','1'],'left-leg':['Left leg','2'],'right-leg':['Right leg','3'],'right-arm':['Right arm','4']
 };
 const canvas=document.querySelector('.scene canvas');
-let current,localOrigin;
+let current,localOrigin,wtrackMounted = false;
 const last={small:'map-brain2body',big:'0.1'};
 function link(text,href){
   const a=document.createElement('a');a.textContent=text;a.href=href;return a;
@@ -97,7 +98,13 @@ function render(directionFocus=false){
   $('group-name').textContent=g.title;$('question').textContent=current.question;$('evidence').textContent=current.evidence;
   $('script-link').href='../current/Interoceptomics-Script-Technical.pdf#page='+technicalPage(current.slide);
   $('script-link').textContent='Technical script · slide '+current.slide+' ↗';
-  showMazeRecording(current.id === '0.2');
+  const showWTrack = current.id === '0.2';
+  $('wtrack-forecast').hidden = !showWTrack;
+  if (showWTrack && !wtrackMounted) {
+    wtrackMounted = true;
+    mountWTrack($('wtrack-forecast'));
+  }
+  showMazeRecording(showWTrack);
   showWristRecording(current.id === 'map-brain2body');
   $('coverage').hidden=!small;$('recording').hidden=!small;
   $('limb-wrap').hidden=!small && current.scene!=='body';
