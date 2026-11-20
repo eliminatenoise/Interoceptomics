@@ -83,4 +83,10 @@ python source/extract_scalp.py joint/development.npz scalp/development.npz recor
 python source/package_atlas.py /path/to/Interoceptomics cross-limb-movement.zip
 ```
 
-The study recordings are dedicated to the public domain under CC0. Please credit Matthew D. Luciw, Ewa Jarocka and Benoni B. Edin for WAY-EEG-GAL and Steven M. Peterson and Daniel P. Ferris for the perturbed beam-walking dataset. The two GLBs, display and code carry the repository’s CC0 dedication. The source papers and figures are linked at their original publications. [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+## Credits and licences
+
+Matthew D. Luciw, Ewa Jarocka and Benoni B. Edin recorded WAY-EEG-GAL. Their Figshare participant deposits list CC0 1.0. Their *Scientific Data* descriptor specifies Creative Commons Attribution 4.0 International (CC BY 4.0) for the data and scripts. This atlas converts wrist displacement to millimetres and summarizes the released scalp and muscle recordings over the intervals described above. [WAY-EEG-GAL deposits](https://doi.org/10.6084/m9.figshare.c.988376.v2) · [Authors’ data descriptor and usage notes](https://doi.org/10.1038/sdata.2014.47) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Steven M. Peterson and Daniel P. Ferris recorded the perturbed beam-walking dataset. Their OpenNeuro release carries a CC0 dedication. This excerpt uses their sacrum marker, leg-muscle recordings and three scalp contacts. The model forecasts are estimates computed from earlier observations. [OpenNeuro release 1.0.3](https://doi.org/10.18112/openneuro.ds003739.v1.0.3) · [Recording methods](https://doi.org/10.1016/j.dib.2021.107635)
+
+Interoceptomics dedicates its original reader, code, schematic cap, forecast overlays and 3D trajectory files to the public domain under CC0 to the extent of its rights. The original papers and apparatus figures are linked at their publishers. [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
