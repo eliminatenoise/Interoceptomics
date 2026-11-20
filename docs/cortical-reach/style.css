@@ -165,7 +165,9 @@ canvas {
   width: 100%;
 }
 #arm {
-  height: clamp(270px, 26vw, 360px);
+  --scene-height: clamp(270px, 26vw, 360px);
+  --key-space: 64px;
+  height: calc(var(--scene-height) + var(--key-space));
   touch-action: none;
   cursor: grab;
 }
@@ -432,7 +434,7 @@ footer a {
     display: block;
   }
   #arm {
-    height: 300px;
+    --scene-height: 300px;
   }
   #handle {
     height: 210px;
@@ -472,7 +474,7 @@ footer a {
     padding: 7px 1px;
   }
   #arm {
-    height: 232px;
+    --scene-height: 232px;
   }
   .spatial,
   .handle-panel {

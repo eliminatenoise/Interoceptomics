@@ -54,6 +54,7 @@
   const middle = bounds.map(([lo, hi]) => (lo + hi) / 2);
   const corners = bounds[0].flatMap((x) => bounds[1].flatMap((y) => bounds[2].map((z) => [x, y, z])));
   const arm = document.querySelector('#arm');
+  const keySpace = parseFloat(getComputedStyle(arm).getPropertyValue('--key-space')) || 0;
   const handle = document.querySelector('#handle');
   const dpr = () => Math.min(window.devicePixelRatio || 1, 2);
   function surface(canvas) {
@@ -82,6 +83,70 @@
   let yaw = 1.16,
     tilt = 0.24;
   const presets = { oblique: [1.16, 0.24], xy: [0, Math.PI / 2], yz: [Math.PI / 2, 0], xz: [0, 0] };
+  const clamp = (n, lo, hi) => Math.max(lo, Math.min(n, hi));
+  function overlap(a, b, padding) {
+    return a.x < b.right + padding && b.x < a.right + padding &&
+      a.y < b.bottom + padding && b.y < a.bottom + padding;
+  }
+  function drawLandmarkLabels(c, dots, sel, width, plotBottom) {
+    c.font = '600 11px Arial, sans-serif';
+    c.textBaseline = 'middle';
+    const labels = [];
+    const visibleDots = dots.filter(Boolean);
+    const distance = (point, box) => Math.hypot(
+      point[0] - clamp(point[0], box.x, box.right),
+      point[1] - clamp(point[1], box.y, box.bottom)
+    );
+    function place(point, text, color, preferAbove) {
+      if (!point) return;
+      const boxWidth = Math.ceil(c.measureText(text).width) + 8;
+      const boxHeight = 18;
+      const [px, py] = point;
+      const above = py - 10 - boxHeight, below = py + 10;
+      const rows = preferAbove ? [above, below] : [below, above];
+      rows.push(py - boxHeight / 2);
+      // These two rows always offer a way around the first label at the viewport edges.
+      for (const previous of labels) rows.push(previous.y - boxHeight - 4, previous.bottom + 4);
+      let best, bestScore = Infinity;
+      const collisionPenalty = width + plotBottom;
+      function tryRow(row) {
+        const y = clamp(row, 2, plotBottom - boxHeight);
+        for (const left of [px + 10, px - boxWidth - 10, px - boxWidth / 2]) {
+          const x = clamp(left, 3, width - boxWidth - 3);
+          const box = { x, y, right: x + boxWidth, bottom: y + boxHeight };
+          if (labels.some(b => overlap(box, b, 3))) continue;
+          const gap = distance(point, box);
+          const covered = visibleDots.filter(p => distance(p, box) < 8).length;
+          // Prefer a short leader with clear space around the measured sites.
+          const score = covered * collisionPenalty + gap;
+          if (score < bestScore - 0.5) {
+            best = box;
+            bestScore = score;
+          }
+        }
+      }
+      rows.forEach(tryRow);
+      if (bestScore >= collisionPenalty) {
+        for (const dot of visibleDots) {
+          tryRow(dot[1] - boxHeight - 9);
+          tryRow(dot[1] + 9);
+        }
+      }
+      labels.push({ ...best, point, text, color });
+    }
+    place(dots[sel], names[sel], '#d6fba4', false);
+    if (sel !== 9) place(dots[9], 'Shoulder', '#e3d6a6', true);
+    for (const b of labels) {
+      const end = [clamp(b.point[0], b.x, b.right), clamp(b.point[1], b.y, b.bottom)];
+      line(c, b.point, end, b.color, 0.9);
+    }
+    for (const b of labels) {
+      c.fillStyle = '#132d2b';
+      c.fillRect(b.x, b.y, b.right - b.x, b.bottom - b.y);
+      c.fillStyle = b.color;
+      c.fillText(b.text, b.x + 4, (b.y + b.bottom) / 2);
+    }
+  }
   function drawArm(frame, sel) {
     const [c, w, h] = surface(arm);
     c.lineJoin = 'round';
@@ -99,22 +164,28 @@
     }
     const rotated = corners.map(rotate);
     const extent = (k) => Math.max(...rotated.map((p) => Math.abs(p[k]))) * 2 || 0.1;
+    // Keep data and landmark captions above the full sweep of the direction key and scale.
+    const plotBottom = h - keySpace;
     const scale = Math.min(
       (w - 58) / Math.max(0.105, extent(0)),
-      (h - 60) / Math.max(0.105, extent(1)),
-      (h - 60) / 0.16
+      (plotBottom - 60) / Math.max(0.16, extent(1))
     );
     function project(p) {
       const [u, v, z] = rotate(p);
-      return [w / 2 + u * scale, h / 2 - v * scale, z];
+      return [w / 2 + u * scale, plotBottom / 2 - v * scale, z];
     }
     // Three source-frame coordinates at equidistant 50-mm intervals.
     const floor = bounds[2][0] - 0.015;
+    c.save();
+    c.beginPath();
+    c.rect(0, 0, w, plotBottom);
+    c.clip();
     for (let i = -3; i <= 6; i++) {
       const q = i * 0.05;
       line(c, project([-0.15, q, floor]), project([0.15, q, floor]), '#28433e', 0.7);
       if (i <= 3) line(c, project([q, -0.15, floor]), project([q, 0.3, floor]), '#28433e', 0.7);
     }
+    c.restore();
 
     const points = d.marker_xyz_m[frame];
     // A schematic envelope. Endpoint centres come from the current observed
@@ -261,21 +332,7 @@
       });
     });
     draws.sort((a, b) => b.depth - a.depth).forEach((item) => item.draw());
-    c.font = '600 11px Arial, sans-serif';
-    c.textBaseline = 'middle';
-    function label(p, text, dx, dy, color) {
-      if (!p) return;
-      const tw = c.measureText(text).width;
-      const x = Math.max(6, Math.min(w - tw - 8, p[0] + dx)),
-        y = Math.max(10, Math.min(h - 13, p[1] + dy));
-      line(c, p, [Math.max(x, Math.min(x + tw, p[0])), y], color, 0.75);
-      c.fillStyle = '#132d2b';
-      c.fillRect(x - 3, y - 8, tw + 6, 16);
-      c.fillStyle = color;
-      c.fillText(text, x, y);
-    }
-    if (sel !== 9) label(dots[9], 'Shoulder', 12, -12, '#e3d6a6');
-    label(dots[sel], names[sel], 13, 18, '#d6fba4');
+    drawLandmarkLabels(c, dots, sel, w, plotBottom);
     // A direction key in the same rotation; lengths share the scene scale.
     const base = [36, h - 31];
     const directions = [
@@ -285,12 +342,27 @@
     ];
     const axisColors = ['#f4b7a4', '#a1dcbd', '#aacaf7'];
     c.font = 'bold 10px Arial, sans-serif';
+    const axisLabels = [];
     directions.forEach(([x, y], i) => {
       const end = [base[0] + x * 18, base[1] + y * 18];
       line(c, base, end, axisColors[i], 1.7);
-      c.fillStyle = axisColors[i];
-      c.fillText('XYZ'[i], end[0] + (x < -0.1 ? -8 : 2), end[1] + (y < -0.1 ? -5 : 5));
+      const left = end[0] + (x < -0.1 ? -8 : 2);
+      const text = 'XYZ'[i], right = left + c.measureText(text).width;
+      const preferred = end[1] + (y < -0.1 ? -5 : 5);
+      // Two projected axes can coincide. Keep both letters visible at their tips.
+      const positions = [preferred, preferred - 12, preferred + 12, ...axisLabels.flatMap(b => [b.y - 8, b.bottom + 8])];
+      for (const pos of positions) {
+        const center = clamp(pos, plotBottom + 6, h - 6);
+        const box = { x: left, right, y: center - 5, bottom: center + 5 };
+        if (axisLabels.some(b => overlap(box, b, 1))) continue;
+        axisLabels.push({ ...box, color: axisColors[i], text, center });
+        break;
+      }
     });
+    for (const b of axisLabels) {
+      c.fillStyle = b.color;
+      c.fillText(b.text, b.x, b.center);
+    }
     const len = 0.05 * scale;
     line(c, [w - 12 - len, h - 14], [w - 12, h - 14], '#a9c6b7', 1.5);
     c.fillStyle = '#c2d7cc';
