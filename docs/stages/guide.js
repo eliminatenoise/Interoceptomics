@@ -1,3 +1,4 @@
+import {bindCompanions} from './companions.js';
 import {allSteps,groups,visions,technicalPage} from './roadmap.js';
 import {sceneInfo,showScene} from './scene.js';
 import {selectWalkingLimb} from './recording/view.js';
@@ -17,6 +18,7 @@ const external={
 const limbs={
   'left-arm':['Left arm','1'],'left-leg':['Left leg','2'],'right-leg':['Right leg','3'],'right-arm':['Right arm','4']
 };
+const showCompanions=bindCompanions(document.getElementById('companions'));
 const canvas=document.querySelector('.scene canvas');
 let current,localOrigin,wtrackMounted = false;
 const last={small:'map-brain2body',big:'0.1'};
@@ -44,7 +46,8 @@ function updateCoverage(){
   row('Game control','Press '+key+' in NeuroSurge to select the '+name.toLowerCase()+'. W/A/S/D move the virtual limb.', ['Play NeuroSurge',external.game]);
   const movement=id.endsWith('arm')?'bend or straighten the elbow':'bend or straighten the knee';
   row('Words to avatar','In the separate F-key game draft, type a supported action such as “'+(id.startsWith('right')?'Bend my right ':'Bend my left ')+(id.endsWith('arm')?'elbow':'knee')+'”. Its built-in map can '+movement+'. Optional on-device dictation supplies the same text. The five-sensor forecast does not take text as input.',['Inspect the movement draft',external.camera]);
-  row('Camera preview',rightArm?'The separate camera draft maps right shoulder and elbow motion to the avatar. Its check used a virtual video device. A physical-camera test remains open.':'The separate camera draft maps the right shoulder and elbow only. This limb has no mapped camera control in that draft.',['Inspect the camera draft',external.camera]);
+  const cameraAction=rightArm?'uses the image to estimate shoulder abduction and elbow bend':id==='left-arm'?'uses the imaged wrist and upper arm to steer the virtual reaching hand and estimate elbow bend':'estimates the selected knee’s bend from the imaged hip, knee and ankle';
+  row('Camera preview','In the separate game draft, pressing C opens the camera controls. With permission, the '+name.toLowerCase()+' mode '+cameraAction+'. These are image-plane estimates. The published draft was tested with simulated camera input.',['Inspect the camera draft',external.camera]);
   row('Earlier held-out study',rightArm?'A walking study predicted three future accelerometer axes from a right-arm sensor, 120 milliseconds ahead. Two people were held out. Mean absolute error in the stored sensor units was 0.855 for the Transformer, 0.781 for ridge and 1.182 for repeating the last reading. Ridge won.':'The earlier held-out assessment used a right-arm sensor. The five-placement walking example above includes this limb in its training data.',['Read the right-arm study',external.arm]);
   row('Missing observations','The game pose and camera landmarks do not measure brain activity, spinal signals, muscle electrical activity, force or sensory feedback. Named tasks still need their own synchronized observations.');
 }
@@ -117,6 +120,7 @@ function render(directionFocus=false){
     const span=document.createElement('span'),dot=document.createElement('i');
     dot.style.background=color;span.append(dot,title);$('legend').append(span);
   }
+  showCompanions(current.id);
   $('resources').replaceChildren();
   if(small || ['0.1','movement-model','composite','5.3'].includes(current.id))
     resource('Inspect recordings in NeuroTranslate 0.0 ↗',external.model);
@@ -130,7 +134,7 @@ function render(directionFocus=false){
     resource('Run the five-sensor forecast model ↗','https://github.com/eliminatenoise/NeuroTranslation/tree/main/benchmarks/daily-sports-limbs#open-the-local-demo');
     resource('Open the NeuroSurge game ↗',external.game);
   }
-  if(['0.1','0.3','0.4'].includes(current.id))
+  if(['0.1','0.3','0.4','0.5'].includes(current.id))
     resource('Follow a recorded rat and two brain cells on a W-track', '#0.2');
   if(!small){
     resource('Download the reference brain atlas (ZIP) ↗',external.atlas);
