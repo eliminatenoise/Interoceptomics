@@ -10,6 +10,10 @@ Open recording b001 and choose ECG lead II. The first dotted line lands at **60.
 
 The source recorded four channels 5,000 times a second. Each excerpt starts 60 seconds into its file. The last sample is at 71.9998 seconds. At each cursor position, the page converts the stored integer into millivolts using the scale and baseline for its channel. The breathing band and accelerometer report sensor output voltages. Recovering a lung volume, force or acceleration in physical units would require additional calibration.
 
+## Can the electrical signal improve a forecast?
+
+We used ten other people from this archive to test a prediction. Five supplied the training recordings. In the other five, adding ECG to chest vibration and breathing increased the average person-relative forecast error by 8.76% at 80 milliseconds. Change an invented ECG pulse in the browser to see how these fitted models respond, then compare the forecasts with what happened in the measured recordings. [Try the forecast](https://eliminatenoise.github.io/Interoceptomics/inside/forecast.html) · [Study and per-person results](../../models/chest-vibration/README.md)
+
 ## Which recordings and labels match?
 
 The database describes measurements from 20 people resting supine. We selected the first three b-series filenames and the same time window from each before inspecting these traces. While verifying the files we found two archive mismatches. [Database and methods](https://physionet.org/content/cebsdb/1.0.0/) · [Publisher’s archived correction](https://archive.physionet.org/pn6/cebsdb-tmp/)

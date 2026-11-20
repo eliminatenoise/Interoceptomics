@@ -1,0 +1,162 @@
+{
+  "protocol_sha256": "6e3be3dd3a3fb19a643865df1953616d88cd927fe192904de1ed2e1a095bf5f5",
+  "held_out": [
+    {
+      "record": "p009",
+      "valid_rows": 7500,
+      "rmse_mV": {
+        "base": 2.645011680436662,
+        "aligned": 3.2381052832414245,
+        "delayed": 2.645154086500855,
+        "aligned_with_delayed_input": 2.788685170661313,
+        "persistence": 3.543295238365678
+      },
+      "rmse_calibration_sd": {
+        "base": 1.1069049545126186,
+        "aligned": 1.3551073546343262,
+        "delayed": 1.106964549704267,
+        "aligned_with_delayed_input": 1.1670305484137888,
+        "persistence": 1.4828256085434168
+      }
+    },
+    {
+      "record": "p010",
+      "valid_rows": 7500,
+      "rmse_mV": {
+        "base": 1.9103877420058564,
+        "aligned": 2.0985466641019617,
+        "delayed": 1.9101813709589728,
+        "aligned_with_delayed_input": 2.0415424555338455,
+        "persistence": 2.728347164363739
+      },
+      "rmse_calibration_sd": {
+        "base": 1.0038767843502434,
+        "aligned": 1.1027511487043187,
+        "delayed": 1.003768339819129,
+        "aligned_with_delayed_input": 1.0727963911786522,
+        "persistence": 1.4337007706491969
+      }
+    },
+    {
+      "record": "p011",
+      "valid_rows": 7500,
+      "rmse_mV": {
+        "base": 2.672542654728152,
+        "aligned": 2.5818588466388652,
+        "delayed": 2.6729478551501678,
+        "aligned_with_delayed_input": 2.884391562890065,
+        "persistence": 3.735686298881003
+      },
+      "rmse_calibration_sd": {
+        "base": 0.9955758609386299,
+        "aligned": 0.9617943195469665,
+        "delayed": 0.9957268062409574,
+        "aligned_with_delayed_input": 1.0744938377047142,
+        "persistence": 1.3916182391421577
+      }
+    },
+    {
+      "record": "p012",
+      "valid_rows": 7500,
+      "rmse_mV": {
+        "base": 4.760344432889352,
+        "aligned": 4.529323323442645,
+        "delayed": 4.763080793049314,
+        "aligned_with_delayed_input": 5.016564067492836,
+        "persistence": 7.72606124276824
+      },
+      "rmse_calibration_sd": {
+        "base": 1.0265567081375395,
+        "aligned": 0.9767375673238256,
+        "delayed": 1.027146797556003,
+        "aligned_with_delayed_input": 1.0818098496626603,
+        "persistence": 1.666106330762126
+      }
+    },
+    {
+      "record": "p013",
+      "valid_rows": 7500,
+      "rmse_mV": {
+        "base": 2.1993872842838247,
+        "aligned": 2.6337836503214653,
+        "delayed": 2.2012064277036663,
+        "aligned_with_delayed_input": 2.3968925208935072,
+        "persistence": 3.3644032409575577
+      },
+      "rmse_calibration_sd": {
+        "base": 0.9247182166740101,
+        "aligned": 1.1073573706794855,
+        "delayed": 0.9254830638071597,
+        "aligned_with_delayed_input": 1.0077580212080057,
+        "persistence": 1.4145416713926273
+      }
+    }
+  ],
+  "mean_person_rmse": {
+    "rmse_mV": {
+      "base": 2.8375347588687694,
+      "aligned": 3.0163235535492725,
+      "delayed": 2.838514106672595,
+      "aligned_with_delayed_input": 3.0256151554943136,
+      "persistence": 4.219558637067243
+    },
+    "rmse_calibration_sd": {
+      "base": 1.011526504922608,
+      "aligned": 1.1007495521777844,
+      "delayed": 1.0118179114255033,
+      "aligned_with_delayed_input": 1.080777729633564,
+      "persistence": 1.477758524097905
+    }
+  },
+  "aligned_against": {
+    "base": {
+      "per_person_percent": {
+        "p009": -22.423099572356122,
+        "p010": -9.849253005494237,
+        "p011": 3.39316597730827,
+        "p012": 4.853033487463128,
+        "p013": -19.7507901014846
+      },
+      "mean": -8.755388642912711,
+      "median": -9.849253005494237,
+      "range": [
+        -22.423099572356122,
+        4.853033487463128
+      ],
+      "wins": 2
+    },
+    "delayed": {
+      "per_person_percent": {
+        "p009": -22.416508730686292,
+        "p010": -9.861120834218136,
+        "p011": 3.4078109056932986,
+        "p012": 4.907694825327913,
+        "p013": -19.651824434706494
+      },
+      "mean": -8.722789653717943,
+      "median": -9.861120834218136,
+      "range": [
+        -22.416508730686292,
+        4.907694825327913
+      ],
+      "wins": 2
+    },
+    "persistence": {
+      "per_person_percent": {
+        "p009": 8.613167534552394,
+        "p010": 23.083590991934823,
+        "p011": 30.886625908277097,
+        "p012": 41.376036493598995,
+        "p013": 21.716171882777864
+      },
+      "mean": 25.135118562228236,
+      "median": 23.083590991934823,
+      "range": [
+        8.613167534552394,
+        41.376036493598995
+      ],
+      "wins": 5
+    }
+  },
+  "meets_timing_criterion": false
+}

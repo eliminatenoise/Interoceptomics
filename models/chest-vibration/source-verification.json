@@ -1,0 +1,225 @@
+{
+  "protocol_sha256": "6e3be3dd3a3fb19a643865df1953616d88cd927fe192904de1ed2e1a095bf5f5",
+  "records": [
+    {
+      "record": "p004",
+      "source_dat_sha256": "f9283ba41232a316d7306b8311d06d4684f08ee0fec45a1ed6c5109d1e759a45",
+      "source_hea_sha256": "f4a56f553a37a83ed8450dcafda7c5ebfc6a967b4f0ade66d33d7bba24fc48da",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -21601,
+        11609,
+        -17160,
+        23082
+      ],
+      "release_waveform_aliases": [
+        "b004.dat",
+        "p004.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p005",
+      "source_dat_sha256": "559665bc5207d09786178a709da48a98f91eb7bac5539537d83436f05e568987",
+      "source_hea_sha256": "773803d8c77aaf937f3351e213f79a775260cf0e408077ec8dee395b0acf9b6d",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -14712,
+        -25368,
+        -23997,
+        -3646
+      ],
+      "release_waveform_aliases": [
+        "b005.dat",
+        "p005.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p006",
+      "source_dat_sha256": "a8ec1b2efadd74d189610e95812a227f32d1a1ab821720b6eace236401cc24c1",
+      "source_hea_sha256": "ed84e14151a962bf3ca97e8fe513ffb7b993289f85c4dcd4ca2bd67b68b05faa",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -10257,
+        -29326,
+        13896,
+        16549
+      ],
+      "release_waveform_aliases": [
+        "b006.dat",
+        "p006.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p007",
+      "source_dat_sha256": "3e0ccc9e8960427710b47cfbd2531a20fdb73c247bc9f21795e31fecf7069c8d",
+      "source_hea_sha256": "5a63942dd2431037251adb1fafe037184841c473d8836a38763b1c235571f468",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -23367,
+        28460,
+        11602,
+        27759
+      ],
+      "release_waveform_aliases": [
+        "b007.dat",
+        "p007.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p008",
+      "source_dat_sha256": "e5d75771d3d757ddaaa96177e2265370de46dc29a7d4d42aaf6171c8a4360a64",
+      "source_hea_sha256": "b6c093ca39df8daef935c7646b810225912d3fd2e74f41e94a8273d8b57d5145",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -5447,
+        12499,
+        -5738,
+        25192
+      ],
+      "release_waveform_aliases": [
+        "b008.dat",
+        "p008.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p009",
+      "source_dat_sha256": "db15f9f32e95609e954044db41a620473dc048860d888de8580f6264db77ce22",
+      "source_hea_sha256": "2146556998ce6d14f0729a019ac3738ccd1cd641b534e7ccc3704af89280770f",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -22940,
+        -12645,
+        15554,
+        -7347
+      ],
+      "release_waveform_aliases": [
+        "b009.dat",
+        "p009.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p010",
+      "source_dat_sha256": "61e2ee05374f0c0d0cbc51b3201ea63038d3ed6fb3e0e58b22600fdb8c89440c",
+      "source_hea_sha256": "66fcff889955be380cecc602678f1796736498dc9b0c32376bf71afaf408ee43",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -26802,
+        -15503,
+        1775,
+        -20315
+      ],
+      "release_waveform_aliases": [
+        "b010.dat",
+        "p010.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p011",
+      "source_dat_sha256": "93bdffc6954d6826781c9b939355c3b426ae4b72d9305a818b537cf5a9205ab0",
+      "source_hea_sha256": "ab71922ff0a36262e83cad96e3532d7a4585e7700933b5ca17d4e991c24952ad",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -5316,
+        -25054,
+        21690,
+        -6510
+      ],
+      "release_waveform_aliases": [
+        "b011.dat",
+        "p011.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p012",
+      "source_dat_sha256": "2fce348588f72290b59dad541c996e5e96eec044cf4caa91872e60de76bcd5a2",
+      "source_hea_sha256": "d58968e0951bf8b3c26c3c93e33a7891eaad8d96f1e4db7307f65c8d807825f8",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -32695,
+        -19308,
+        715,
+        -26268
+      ],
+      "release_waveform_aliases": [
+        "b012.dat",
+        "p012.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    },
+    {
+      "record": "p013",
+      "source_dat_sha256": "5450b077388f52f5ca96c6d36fa0ecc37cd66ced97b393e58bab7f3277a212fc",
+      "source_hea_sha256": "293d636865682feb101d4df87cbc661bca430f7203b5b7656c7acfb6f4a2bfa4",
+      "frames": 1500000,
+      "full_record_checksums_I_II_RESP_SCG": [
+        -19341,
+        -479,
+        22256,
+        13870
+      ],
+      "release_waveform_aliases": [
+        "b013.dat",
+        "p013.dat"
+      ],
+      "valid_rows": 7500,
+      "calibration_valid_counts": [
+        5000,
+        5000,
+        5000
+      ]
+    }
+  ]
+}
