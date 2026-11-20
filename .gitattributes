@@ -39,3 +39,8 @@ docs/back-rotation/** -text
 docs/back-rotation/*.cmd whitespace=cr-at-eol
 docs/back-rotation/reference/CC-BY-4.0.txt whitespace=-blank-at-eof
 docs/back-rotation/reference/Z-Anatomy-LICENSE.txt whitespace=-trailing-space,-blank-at-eof
+
+docs/walking-instructions/** -text
+docs/walking-instructions/*.cmd whitespace=cr-at-eol
+docs/walking-instructions/DATA-LICENCE.txt whitespace=cr-at-eol
+docs/walking-instructions/*.glb binary

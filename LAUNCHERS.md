@@ -60,3 +60,7 @@ Extract the [offline atlas](downloads/pedal-load.zip) and open the launcher for 
 ## Heel and force
 
 [Open the measured walking trial](https://eliminatenoise.github.io/Interoceptomics/heel-and-force/) or [download the complete offline atlas](downloads/heel-and-force.zip). Extract the ZIP, then open `index.html`, `Open on Windows.cmd`, `Open on macOS.command` or `Open on Linux.sh`. The 3D replay, numbers, plate diagram and three target poses work without a server.
+
+## One walker, two instructions
+
+Extract [the offline reader](downloads/walking-instructions.zip), then run the launcher labelled for Windows, macOS or Linux, or open index.html. Both animated GLBs are included. [Browser reader](https://eliminatenoise.github.io/Interoceptomics/walking-instructions/)

@@ -1,0 +1,15 @@
+One walker, two instructions
+
+Data and derived measurements
+Céline Schreiber and Florent Moissenet, Rehazenter Adult Walking Dataset, version 8, CC BY 4.0. The original attribution, requested citation and legal code accompany this reader in DATA-LICENCE.txt.
+Dataset: https://doi.org/10.6084/m9.figshare.7734767.v8
+Study: Schreiber, C. and Moissenet, F. A multimodal dataset of human gait at different walking speeds established on injury-free adult participants. Scientific Data 6, 111 (2019). https://doi.org/10.1038/s41597-019-0124-4
+Licence: https://creativecommons.org/licenses/by/4.0/
+
+Interoceptomics selected the first C4 and C5 repeats from the same walker. The original exported C3D files contain filtered optical and analog data. All 52 published skin-marker positions and both complete cropped walks are preserved in recordings.js at their original float32 precision. Only eight right-leg muscle channels were used. Each amplitude is root mean square over the block of 15 analog samples associated with a 100 Hz optical frame. Physical optical frame 1 corresponds to zero-based frame index 0 and cropped time zero. At index i the analog block starts with sample 15i and ends with 15i + 14, centred on sample 15i + 7. This source clock cannot time the words of the instruction. Muscle amplitude does not give muscle force.
+
+The pelvic centre is the average of left and right anterior and posterior iliac skin markers. Stride speed divides its horizontal straight-line displacement between right strikes by elapsed time. Travel coordinates rotate the whole recording using that direction and subtract the starting pelvis in the horizontal plane. Vertical zero is the laboratory floor. The browser also offers the measured laboratory axes. Each camera follows the pelvis at the same scale. The right heel trace joins recorded positions across the selected stride. Normalised phase selects the nearest measured optical frame. Each GLB has X forward, Y up and Z right, in metres. It carries one key per measured frame with step interpolation. The coloured sites are measured. Segment widths and surfaces connecting marker averages are illustrations.
+
+The article’s Supplementary Table 2 supplies the per-foot plate assignments. At strike and 100 ms later, the projected heel and second metatarsal had to lie within the assigned floor plate. Load is the 15-sample mean upward component in newtons. The usual walk qualified on the left only. During the fast walk the right qualified and the left heel fell outside its assigned plate. The two readings describe different feet. The right-sided muscle readings remain right-sided at either contact.
+
+The source member hashes are listed in sources.json. The C3D export came from the study authors. The reader and export scripts use newly authored code. See CODE-LICENCE.txt for the repository’s CC0 dedication for that code. The upstream data and adaptations retain CC BY 4.0.

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Replay one walker’s usual and fast strides together in 3D. Compare the time, distance and right-leg muscle recordings that went with each walking instruction.">
+<title>One walker, two instructions · Interoceptomics</title>
+<link rel="stylesheet" href="reader.css">
+<script defer src="recordings.js"></script><script defer src="scene.js"></script><script defer src="reader.js"></script>
+</head>
+<body><main>
+<header><p class="brand">Interoceptomics <span>/</span> Movement atlas</p>
+<h1>One walker, two instructions</h1>
+<p class="lead">Walk “as usual”. Now walk “fast but not running”. Watch the same person cover more ground in less time on the second walk. Each dot follows a marker on their skin.</p></header>
+<noscript>This reader needs JavaScript. Both recorded walks are also available as downloadable 3D models below.</noscript>
+<section aria-label="Two walking trials in 3D">
+<div class="cards" id="bodies"></div>
+<div class="legend"><span class="key right"></span>Right side <span class="key left"></span>Left side <span class="key middle"></span>Midline <span class="trace"></span>Right heel path</div>
+<div class="tools">
+<div class="clock"><label for="alignment">Match the walks by</label><select id="alignment"><option value="right">Time after right foot strike</option><option value="phase">Fraction of right stride</option><option value="left">Time after left foot strike</option></select></div>
+<div class="scrub"><label for="position" id="position-label">Time after foot strike</label><div class="rail"><button id="play" type="button" aria-pressed="false">Play</button><input type="range" min="0" max="76" value="50" id="position"><output id="time" for="position"></output></div></div>
+</div>
+<div class="view"><label for="axes">Coordinates <select id="axes"><option value="travel">Direction of travel</option><option value="lab">Laboratory</option></select></label>
+<label for="camera">View <select id="camera"><option value="angle">Oblique</option><option value="side">Side</option><option value="front">End on</option></select></label><span>Drag either figure to turn both.</span></div>
+<p class="note" id="clock-note"></p>
+</section>
+<section class="distance"><div><h2>How much ground?</h2><p id="distance-note">Forward travel of the pelvis since the selected foot struck the ground. The four pelvis markers supply its centre. Over one complete right stride the pelvis travelled 1.32 m in 0.99 s on the usual walk and 1.70 m in 0.76 s on the fast walk.</p></div>
+<div class="bars" id="distances"></div></section>
+<section class="signals">
+<div class="section-intro"><h2>Muscle activity on the right</h2><p>Eight recording channels followed muscles in the right leg on both walks. Choose a muscle to compare the electrical activity recorded at the skin.</p></div>
+<label for="muscle">Right-side muscle</label><select id="muscle"></select>
+<figure><canvas id="plot" aria-label="Both right-side muscle recordings on the selected clock"></canvas><figcaption id="plot-caption"></figcaption></figure>
+<div class="signal-readings" id="emg-values"></div>
+</section>
+<section>
+<h2>Which foot landed on a plate?</h2><p>The floor plates measured upward load. A foot needed a reliable plate assignment, with its heel and forefoot inside the plate at strike and 100 milliseconds later. These two walks qualify on opposite feet, so there is no same-foot force comparison.</p>
+<div class="table-wrap"><table><caption>Mean upward load in the 15-sample window centred 100 ms after each foot’s first strike</caption><thead><tr><th scope="col">Walk</th><th scope="col">Left foot</th><th scope="col">Right foot</th></tr></thead><tbody id="forces"></tbody></table></div>
+<div class="jump"><button type="button" data-foot="left">Show left-foot samples</button><button type="button" data-foot="right">Show right-foot samples</button></div><p class="note">The left-foot load during the usual walk is paired with electrical activity from the right leg. The recordings contain no left-leg muscle channel.</p>
+</section>
+<section>
+<h2>Take the walks with you</h2><p>Each 3D file holds one complete cropped walk at the recorded 100 frames per second. Open it in an animation-capable glTF viewer. The offline reader includes both models and the controls above.</p>
+<div class="downloads"><a href="C4.glb" download>Usual walk · GLB</a><a href="C5.glb" download>Fast walk · GLB</a><a id="bundle" href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/walking-instructions.zip">Offline reader · ZIP</a></div></section>
+<section class="methods"><h2>Where the measurements come from</h2>
+<p>Céline Schreiber and Florent Moissenet recorded barefoot walks on a 10 m walkway. These are the first C4 and C5 recordings from one participant in their Rehazenter Adult Walking Dataset, version 8. The words come from the study protocol. There is no audio or timestamp for a spoken cue. <a href="https://doi.org/10.1038/s41597-019-0124-4">Read the study</a>.</p>
+<p>The cameras tracked 52 skin markers on the feet, legs, pelvis, trunk, shoulders, arms and hands. The grey forms connect measured sites and give the limbs width. The head was unmarked. Earlier processing filled gaps and filtered the signals in both directions. These walks describe this person on two passes. <a href="https://doi.org/10.6084/m9.figshare.7734767.v8">Get the source recordings</a>.</p>
+<p>In the heel readout, F means forward, L means left and Z means up. Travel coordinates turn the horizontal displacement of the pelvis between successive right strikes towards positive forward. The starting pelvis supplies the horizontal origin. Laboratory coordinates retain the original axes and positions. The usual walk went towards negative laboratory X and the fast walk towards positive X. Each camera follows its walker at a common scale. Grid spacing is 25 cm. The heel trace covers the selected foot’s complete stride.</p>
+<p>The optical frame number begins at 1. Its exported time is (frame − 1) ÷ 100 seconds. Each muscle reading is the root mean square voltage of the corresponding 15 samples at 1,500 Hz, expressed in microvolts. These electrodes measure electrical activity near the muscle. They supply no direct recording from the brain or nerves.</p>
+<p><a href="NOTICE.txt">Credits and transformations</a> · <a href="sources.json">Recording identities</a> · <a href="DATA-LICENCE.txt">Data licence</a> · <a href="README.txt">Offline instructions</a></p>
+</section></main>
+<template id="walk-card"><article class="card"><div class="card-head"><div><p class="trial"></p><h2></h2></div><div class="speed"><b></b><span>m/s over stride</span></div></div><canvas class="body" role="img"></canvas><div class="card-foot"><span class="pose"></span><span class="stride"></span><span class="coordinates"></span></div></article></template>
+</body></html>

@@ -172,3 +172,7 @@ Zhang, Hakam, Akinniyi, Iyer, Bao and Sharma’s numerical AnkleImage Task 1 rec
 ## Heel and force
 
 The walking trial comes from Moissenet and Schreiber (dataset v8). The plate diagram comes from Supplementary Figure 1 of Schreiber and Moissenet (2019). The recordings, derived positions and loads, and attributed figure use CC BY 4.0. [Sources, transformations and licences](docs/heel-and-force/NOTICE.txt) · [Recording and reference hashes](docs/heel-and-force/sources.json)
+
+## One walker, two instructions
+
+The skin-marker trajectories, muscle recordings, foot events and floor-plate readings derive from the Rehazenter Adult Walking Dataset v8 by Schreiber and Moissenet, under CC BY 4.0. The reader and animated models use attribution and adapted coordinate and time displays. [Original data](https://doi.org/10.6084/m9.figshare.7734767.v8) · [Changes and credits](docs/walking-instructions/NOTICE.txt) · [Original licence](docs/walking-instructions/DATA-LICENCE.txt)
