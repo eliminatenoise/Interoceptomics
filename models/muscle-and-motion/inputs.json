@@ -1,0 +1,22 @@
+{
+  "standing": {
+    "channels.tsv": "450a4ad8cbc013b0955936db0d111eee8ef52d51ca8c24dcce9a04ca112f8155",
+    "coordsystem.json": "38cbd743cd80f8243716dcfe326138c49c124855551fbed50f935724a5ee71d3",
+    "eeg.fdt": "1b9ff6ab4c0e770d5d9f774fc4525490cb5275f840e480821b9df17eafea4623",
+    "eeg.json": "70931907ac437a543174cee9366db7ff831186a999c681d2c2fcfe44992f60e0",
+    "eeg.set": "9418e56487ea42ded77699b35c8ba9f7038004cc0820e3aed90c278e0f3f1518",
+    "electrodes.tsv": "98aca23af52f5d1547f609e5933369c683f8e3c1850bec5a4ee3e181f2ab4710",
+    "events.json": "c70c2204890a06340d41f2d3409277b5d22ce6a4a305282b46204fe93e0039e8",
+    "events.tsv": "86055a2175045d45794eaf89fb3f6c5778cceffd4c320e8a267526676cfab660"
+  },
+  "walking": {
+    "channels.tsv": "450a4ad8cbc013b0955936db0d111eee8ef52d51ca8c24dcce9a04ca112f8155",
+    "coordsystem.json": "38cbd743cd80f8243716dcfe326138c49c124855551fbed50f935724a5ee71d3",
+    "eeg.fdt": "d7c32f511fe5a83f312c7a34ac1a5c4915953d26ab50cb4b10c6adfefa7bf4d8",
+    "eeg.json": "980cac42630d3c6a75b50459ce5f75fa13d3ae4d89ee86a587d62265c1e9fbcd",
+    "eeg.set": "d7a1a16a36e76f7e659d7e6ccec7d56835bf6950a884c544b85f4b07c16da7e5",
+    "electrodes.tsv": "98aca23af52f5d1547f609e5933369c683f8e3c1850bec5a4ee3e181f2ab4710",
+    "events.json": "c70c2204890a06340d41f2d3409277b5d22ce6a4a305282b46204fe93e0039e8",
+    "events.tsv": "8edda35e4bfe9bb34447c6c7660760eac556e02ea8ef3260aa74e510d8ac6887"
+  }
+}

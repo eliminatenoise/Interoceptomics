@@ -180,3 +180,7 @@ The skin-marker trajectories, muscle recordings, foot events and floor-plate rea
 ## Visual rotation during walking
 
 Steven M. Peterson and Daniel P. Ferris released the Perturbed beam-walking task under CC0. The visual balance reader includes one short event excerpt, digitized electrode positions and two derived models from version 1.0.3. The apparatus and experiment papers are linked. [Dataset](https://doi.org/10.18112/openneuro.ds003739.v1.0.3) · [Data paper](https://doi.org/10.1016/j.dib.2021.107635) · [Reference checks and derivation](docs/visual-balance/METHODS.md)
+
+## Muscle and motion during visual rotation
+
+Steven M. Peterson and Daniel P. Ferris recorded the two short excerpts in the muscle-and-motion atlas. Their *Perturbed beam-walking task*, OpenNeuro ds003739 v1.0.3, carries a CC0 dedication. The excerpts, two derived sacrum-path GLBs, offline ZIP and reader credit the original work. [Recording](https://doi.org/10.18112/openneuro.ds003739.v1.0.3) · [Data paper](https://doi.org/10.1016/j.dib.2021.107635) · [Experiment](https://doi.org/10.1523/ENEURO.0207-18.2018) · [Rights and citation request](https://github.com/OpenNeuroDatasets/ds003739/blob/f15449b6aecb83044b49a1798955e8a212a68fc1/dataset_description.json)

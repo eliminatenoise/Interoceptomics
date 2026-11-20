@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Muscle and motion · Interoceptomics</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="recordings.js"></script>
+    <script defer src="viewer.js"></script>
+  </head>
+  <body>
+    <header class="mast">
+      <a href="https://eliminatenoise.github.io/Interoceptomics/"
+        >Interoceptomics</a
+      ><span>Measurement atlas</span>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <h1>When the view turns</h1>
+          <p>
+            The same person balances on a beam, first standing, then walking.
+            The view through their headset turns 20° counterclockwise. Where
+            does a marker on their lower back go, and what voltages do the
+            electrodes on each leg pick up?
+          </p>
+        </div>
+        <div class="downloads">
+          <a
+            class="download"
+            id="bundle"
+            href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/muscle-and-motion.zip"
+            download
+            >Download offline atlas ↓</a
+          ><a href="#sources">Recordings and methods</a>
+        </div>
+      </div>
+      <section aria-labelledby="path-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="path-heading">One marker, two paths</h2>
+            <p>
+              The sacrum sits at the base of the spine. Each line follows its
+              marker through 192 stored samples. Both views share a scale and
+              place the marker at zero at the observation cutoff.
+            </p>
+          </div>
+          <div class="tools">
+            <label
+              >Projection<select id="view">
+                <option value="orbit">Angled 3D</option>
+                <option value="mlsi">ML × SI</option>
+                <option value="mlap">ML × AP</option>
+                <option value="apsi">AP × SI</option>
+              </select></label
+            >
+            <label
+              >Show path<select id="extent">
+                <option value="all">Whole excerpt</option>
+                <option value="after">Next 125 ms</option>
+              </select></label
+            >
+          </div>
+        </div>
+        <div class="legend">
+          <span><i class="history"></i>Through cutoff</span
+          ><span><i class="target"></i>Next 125 ms</span
+          ><span><i class="cursor"></i>Selected sample</span>
+        </div>
+        <div class="paths" id="paths"></div>
+        <p class="hint">
+          Drag either plot to turn both paths, or focus a plot and use the arrow
+          keys. ML runs side to side, SI up and down, AP front to back. The
+          recording leaves the positive anatomical directions unspecified.
+        </p>
+        <div class="clock">
+          <div class="clockHead">
+            <h3>Paired sample clock</h3>
+            <strong id="phase"></strong>
+          </div>
+          <label for="clock"
+            >Time from observation cutoff <output id="rel"></output
+          ></label>
+          <input
+            id="clock"
+            type="range"
+            min="0"
+            max="191"
+            step="1"
+            value="159"
+          />
+          <div class="clockBtns">
+            <button id="play">Play at ¼ speed</button
+            ><button id="prev" aria-label="Previous sample">−1 sample</button
+            ><button id="next" aria-label="Next sample">+1 sample</button
+            ><button id="cue">First sample after cue</button
+            ><button id="cutoff">Cutoff</button
+            ><button id="end">125 ms later</button>
+          </div>
+          <p>
+            Each tick advances both recordings by 1/256 second. The cue falls
+            between samples. The two clocks meet at the first sample after each
+            cue, so their exact times since the logged rotation differ slightly.
+            The cutoff follows 32 samples later.
+          </p>
+          <details>
+            <summary>Go to an original sample</summary>
+            <form id="goForm">
+              <label
+                >Recording<select id="source">
+                  <option value="standing">Standing</option>
+                  <option value="walking">Walking</option>
+                </select></label
+              ><label
+                >Zero-based sample<input
+                  type="number"
+                  step="1"
+                  id="absolute"
+                  required /></label
+              ><button>Go</button>
+            </form>
+          </details>
+        </div>
+      </section>
+      <section aria-labelledby="signals-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="signals-heading">Eight leads on the lower legs</h2>
+            <p>
+              Skin electrodes picked up voltage over four named muscles on each
+              leg. Choose a lead to compare its signed waveform in the two
+              recordings. A microvolt (µV) is one millionth of a volt.
+            </p>
+          </div>
+          <label>Muscle lead<select id="channel"></select></label>
+        </div>
+        <p class="location" id="localization"></p>
+        <div class="traces" id="traces"></div>
+        <h3>Voltage amplitude across the cutoff</h3>
+        <p>
+          Squaring the voltages, averaging them and taking the square root gives
+          one amplitude per interval (RMS). Compare the last 32 samples through
+          the cutoff with the next 32. Both intervals span 125 ms. Voltage alone
+          cannot give muscle force.
+        </p>
+        <div class="tablewrap">
+          <table>
+            <caption>
+              Recorded muscle amplitude in microvolts
+            </caption>
+            <thead>
+              <tr>
+                <th rowspan="2" scope="col">Lead</th>
+                <th colspan="2" scope="colgroup">Standing</th>
+                <th colspan="2" scope="colgroup">Walking</th>
+              </tr>
+              <tr>
+                <th scope="col">Before</th>
+                <th scope="col">After</th>
+                <th scope="col">Before</th>
+                <th scope="col">After</th>
+              </tr>
+            </thead>
+            <tbody id="rms"></tbody>
+          </table>
+        </div>
+      </section>
+      <section id="sources" aria-labelledby="source-heading">
+        <h2 id="source-heading">What the instruments saw</h2>
+        <p>
+          Steven M. Peterson and Daniel P. Ferris recorded the leg voltages at
+          1,000 Hz and the optical marker at 100 Hz. They synchronized and
+          resampled both onto the stored 256 Hz clock. A logged command gives
+          the rotation time. The timing of light at the eye, muscle force and
+          the cause of a movement remain unknown.
+          <a href="https://doi.org/10.1016/j.dib.2021.107635">Data paper</a> ·
+          <a href="https://doi.org/10.1523/ENEURO.0207-18.2018"
+            >Original experiment</a
+          >
+        </p>
+        <p>
+          These are two events from one person. Standing came before walking.
+          This comparison cannot separate posture from session order or describe
+          a typical response. The published channel names tell us which side and
+          muscle were recorded. Exact electrode positions on these legs are
+          unavailable. The standing recording lacks usable head motion. Both
+          paths here follow only the sacrum.
+        </p>
+        <p>
+          The excerpts come from the authors’ CC0
+          <cite>Perturbed beam-walking task</cite>, version 1.0.3. Each
+          downloadable model stores both portions of a single measured path in
+          their original order.
+          <a href="https://doi.org/10.18112/openneuro.ds003739.v1.0.3"
+            >Source dataset</a
+          >
+          ·
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/"
+            >CC0 dedication</a
+          >
+        </p>
+        <div class="filelinks">
+          <a download href="standing.glb">Standing path (.glb)</a
+          ><a download href="walking.glb">Walking path (.glb)</a
+          ><a href="METHODS.md">Sample definitions and reproduction</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
