@@ -1,0 +1,18 @@
+Inside a muscle spindle — Interoceptomics
+
+Extract the whole ZIP into a folder. Open index.html in a current browser, or use
+Open on Windows.cmd, Open on macOS.command or Open on Linux.sh. No installer,
+server or network connection is needed for the cutaway, recording or forecasts.
+On a desktop that asks how to open a shell script, open index.html directly.
+
+Drag the model or use the arrow keys with the model focused. Select a structure
+to locate it. Use the time slider to count detected events and compare the five
+past intervals with the following 20 ms. The full-trial plot also accepts clicks.
+Save mechanics and spike times from Recording, clocks and reuse. The electrical
+trace also exports all native electrical samples.
+
+muscle-spindle.glb opens in a glTF 2.0 viewer. It is an original anatomical
+schematic with exaggerated proportions. The two photographs are observations
+from other rats. NOTICE.md credits the data and images and explains reuse.
+
+The study, external source links and the wider atlas require network access.

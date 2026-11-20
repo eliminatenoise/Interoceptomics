@@ -52,6 +52,8 @@ Trace muscle sensation, organ sensation, skeletal movement and autonomic control
 To open the download, extract the entire ZIP and run **Windows.cmd**, **macOS.command** or **Linux.sh** with Python 3.10 or newer installed. The model runs on your own computer. Each anatomical source retains its own frame, species or donor information and reuse terms. The guide shows structural anatomy and explanatory routes. [Sources and licences](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/sources.html)
 
 
+[Inside a muscle spindle](https://eliminatenoise.github.io/Interoceptomics/muscle-spindle/) pairs a rotatable tissue cutaway with a recording from a single rat sensory axon during passive calf stretch. [Download the offline reader and 3D model](downloads/muscle-spindle/Interoceptomics-Muscle-Spindle.zip).
+
 ## Follow the experiments
 
 [Open the interactive experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** (Small vision) for the movement tasks in people and their available game, camera and recording evidence. Choose **Animal learning** (Big vision) for the six proposed animal stages. In [Stage 0.2 · Navigation](https://eliminatenoise.github.io/Interoceptomics/stages/#0.2), predict a rat’s next position on a W-shaped track, first from its past positions and then with the electrical pulses of its brain cells (spikes) added. Reveal what the camera recorded. An earlier trip from the same published study has a separate frame-by-frame replay. Scrub through an original 3D sketch, turn the view, and open the relevant page of the technical script. A link to a particular step keeps that step selected when someone else opens it.
