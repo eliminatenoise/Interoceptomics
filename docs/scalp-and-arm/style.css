@@ -462,3 +462,171 @@ footer {
     scroll-behavior: auto;
   }
 }
+[hidden] {
+  display: none !important;
+}
+.field-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: -4px 0 12px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+.field-toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 640;
+  cursor: pointer;
+}
+.field-toggle input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--green);
+}
+#window-control {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+#measured-window {
+  max-width: 100%;
+  padding: 0.3rem;
+  color: var(--deep);
+  border-radius: 4px;
+  border: 1px solid #adc0af;
+  background: #fff;
+}
+#scalp-key {
+  padding: 0.65rem 0.7rem;
+  margin: 0.3rem 0;
+  background: #eef1e7;
+  border-radius: 5px;
+}
+#scalp-key p {
+  min-height: 0;
+  margin: 0 0 0.5rem;
+}
+.gradient {
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #3269b0, #f3ead3, #c54a22);
+  border: 1px solid #98a699;
+}
+.gradient-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.73rem;
+  font-variant-numeric: tabular-nums;
+}
+.measured-panel {
+  margin: 1.1rem 0;
+  padding: 0 0 4px;
+}
+.measured-panel h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  margin: 0.7rem 0 0.25rem;
+}
+.measured-panel > p {
+  max-width: 84ch;
+  line-height: 1.45;
+  margin: 0.35em 0;
+}
+.sensor-window {
+  font-size: 0.91rem;
+  font-weight: 660;
+}
+.sensors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 0.65rem 0;
+}
+.sensors > div {
+  background: #eef1e8;
+  border-radius: 6px;
+  padding: 0.7rem;
+}
+.sensors h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+.sensors table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.77rem;
+  table-layout: fixed;
+}
+.sensors td,
+.sensors th {
+  padding: 6px 2px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.sensors th:first-child {
+  width: 42%;
+}
+.sensors tbody th {
+  font-weight: 500;
+}
+.sensors td {
+  font-variant-numeric: tabular-nums;
+}
+.measured-panel details {
+  padding: 0.55rem 0;
+  font-size: 0.88rem;
+}
+.measured-panel summary {
+  font-weight: 640;
+}
+.measured-panel details p {
+  max-width: 84ch;
+}
+@media (max-width: 700px) {
+  .sensors {
+    grid-template-columns: 1fr;
+  }
+  .field-controls {
+    margin: 0 0 8px;
+  }
+  #window-control {
+    flex-wrap: wrap;
+  }
+}
+
+.compare {
+  border-left: 3px solid #a3baa1;
+  padding: 0.4rem 0 0.4rem 0.85rem;
+  margin: 0.75rem 0;
+}
+.compare p {
+  font-size: 0.91rem;
+  line-height: 1.45;
+  max-width: 81ch;
+  margin: 0 0 0.45rem;
+}
+.compare button {
+  background: #e7eee1;
+  border: 1px solid #a5bba7;
+  color: var(--deep);
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 0.82rem;
+}
+
+#full-site {
+  padding: 0 0 0.45rem;
+  font-size: 0.78rem;
+}
+#full-number {
+  display: block;
+  padding: 0.22rem 0;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}

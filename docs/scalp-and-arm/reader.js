@@ -63,19 +63,28 @@ const scalp = camera(headCanvas, {
 });
 const arm = camera(armCanvas, { center: [3, -6, 23], span: [205, 177], yaw: 64, tilt: 17 });
 const headMesh = scalpBase();
+const measures = measuredReader(CUE_FIELDS, (sec) => {
+  time.value = String(sec);
+  showTime();
+});
+function showField() {
+  const field = measures.update(current, 0x600 + task.selectedIndex, Number(time.value));
+  if (field) scalp.setParts([headMesh, scalpMarkers(current, field)]);
+}
 ATLAS.sites.forEach((r, i) => site.add(new Option(r[0] + ' · channel ' + (i + 1), i)));
 tasks.forEach((r, i) => task.add(new Option(r[1] + ' · 0x' + (0x600 + i).toString(16), r[0])));
 function selectSite(i, center) {
   current = i;
   site.value = String(i);
   describeSite();
-  scalp.setParts([headMesh, scalpMarkers(i)]);
+  showField();
   if (center) {
     const n = siteNormal(ATLAS.sites[i].slice(1));
     scalp.setAngle(Math.atan2(n[0], n[1]) / RAD, Math.asin(n[2]) / RAD);
   }
 }
 function showTime() {
+  showField();
   const sec = Number(time.value),
     i = task.selectedIndex,
     selection = tasks[i],

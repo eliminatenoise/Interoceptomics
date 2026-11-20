@@ -15,6 +15,9 @@ INVENTORY = (
     "references/ofner-codebook.pdf", "references/standard_1005.elc",
     "references/standard_skin_5054.vol", "references/standard_skin_5054-1.bnd",
     "references/standard_skin_5054-1.bpl", "references/standard_skin_5054-1.bps",
+    "cue-fields.js", "measurements.js", "measurements/cue-fields.json",
+    "measurements/README.md", "measurements/build_fields.py", "measurements/ofner_source.py",
+    "measurements/protocol.json", "measurements/LICENSE-CODE", "measurements/SHA256SUMS",
     "licenses/CC0-1.0.txt", "licenses/CC-BY-4.0.txt", "licenses/Colin27.txt",
     "licenses/FieldTrip-GPL-3.txt",
 )

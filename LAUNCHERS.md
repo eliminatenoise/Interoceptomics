@@ -39,4 +39,4 @@ Open the 3D stride in a browser or extract the complete standalone ZIP. Inside t
 
 ## Scalp and arm
 
-Extract the ZIP and open the launcher for Windows, macOS or Linux in the extracted folder. Opening `index.html` there also works offline. The standard head, all 61 sites, arm, clocks and original references are included. [Open the companion](https://eliminatenoise.github.io/Interoceptomics/scalp-and-arm/) · [Download the ZIP](downloads/scalp-and-arm.zip)
+Extract the ZIP and open the launcher for Windows, macOS or Linux in the extracted folder. Opening `index.html` there also works offline. The standard head, all 61 sites, four windows of measured changes, arm, clocks and original references are included. [Open the companion](https://eliminatenoise.github.io/Interoceptomics/scalp-and-arm/) · [Download the ZIP](downloads/scalp-and-arm.zip)

@@ -1,4 +1,4 @@
-"""Rebuild the offline anatomical data from the included standard templates and channel map."""
+"""Build the two file-compatible browser packets from the bundled anatomy and study aggregates."""
 from pathlib import Path
 import base64
 import csv
@@ -45,5 +45,38 @@ def assemble():
     print(target.name, hashlib.sha256(target.read_bytes()).hexdigest())
 
 
+def prepare_measurements():
+    source = json.loads((HERE / "measurements/cue-fields.json").read_text())
+    montage = read_template()
+    channels = source["channels"]
+    assert [row["index"] for row in channels["eeg"]] == list(range(1, 62))
+    with (REF / "channel-map.csv").open() as file:
+        codebook_names = [r["table_2_label"] for r in csv.DictReader(file)][:61]
+    assert [r["label"] for r in channels["eeg"]] == codebook_names
+    assert all(row["label"] in montage for row in channels["eeg"])
+    assert [row["index"] for row in channels["eog"]] == [62, 63, 64]
+    assert [row["index"] for row in channels["mechanics"]] == [93, 94, 68]
+    limits = source["eeg_scale"]
+    assert math.isfinite(limits["limit"]) and limits["limit"] > 0
+    assert [task["code"] for task in source["tasks"]] == list(range(1536, 1543))
+    assert [(w["start_s"], w["stop_s"]) for w in source["windows"]] == [
+        (0, 0.25), (0.75, 1), (1.5, 1.75), (2.5, 2.75)
+    ]
+    for task in source["tasks"]:
+        assert task["trials"] == 18
+        assert [w["id"] for w in task["windows"]] == [w["id"] for w in source["windows"]]
+        for window in task["windows"]:
+            for group, channel_list in channels.items():
+                values = window[group]
+                assert len(values) == len(window["valid_trials"][group]) == len(window["valid_runs"][group]) == len(channel_list)
+                assert all(v is None or math.isfinite(v) for v in values)
+                assert all(0 <= n <= task["trials"] for n in window["valid_trials"][group])
+                assert all(0 <= n <= 3 for n in window["valid_runs"][group])
+    target = HERE / "cue-fields.js"
+    target.write_text("const CUE_FIELDS = " + json.dumps(source, separators=(",", ":")) + ";\n")
+    print(target.name, hashlib.sha256(target.read_bytes()).hexdigest())
+
+
 if __name__ == "__main__":
     assemble()
+    prepare_measurements()

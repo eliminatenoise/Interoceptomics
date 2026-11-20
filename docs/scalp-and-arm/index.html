@@ -9,6 +9,8 @@
     <script src="atlas-data.js" defer></script>
     <script src="geometry.js" defer></script>
     <script src="renderer.js" defer></script>
+    <script src="cue-fields.js" defer></script>
+    <script src="measurements.js" defer></script>
     <script src="reader.js" defer></script>
   </head>
   <body>
@@ -22,6 +24,17 @@
           A cue appears. The right arm bends. What could the cap pick up, and what did it take to tell
           whether the elbow moved?
         </p>
+      </section>
+      <section class="field-controls" aria-label="Scalp display">
+        <label class="field-toggle"
+          ><input type="checkbox" id="use-measured" /> Show measured changes after the cue</label
+        >
+        <label id="window-control" hidden
+          >Measurement window
+          <select id="measured-window">
+            <option value="gap" disabled>Between measured windows</option>
+          </select></label
+        >
       </section>
       <section class="twins" aria-label="Scalp and right-arm instruments">
         <article class="instrument head">
@@ -46,10 +59,25 @@
             <label for="site">Recording site</label
             ><select id="site"></select>
             <p id="site-info" aria-live="polite"></p>
+            <div id="scalp-key" hidden>
+              <p id="measured-site" aria-live="polite"></p>
+              <details id="full-site">
+                <summary>Exact stored change</summary>
+                <output id="full-number"></output>
+              </details>
+              <div class="gradient" aria-hidden="true"></div>
+              <div class="gradient-labels">
+                <span id="negative-limit"></span><span>0</span><span id="positive-limit"></span>
+              </div>
+              <small
+                >Blue falls below the pre-cue level. Orange rises above it. The dark ring picks out your
+                site. Grey means the reader has no value at this time.</small
+              >
+            </div>
             <small
-              >Each green dot marks an electrode. Gold marks your selection. On the upper-head template,
-              x increases to the person’s right, y towards the nose and z upwards. A scalp voltage would
-              combine signals from multiple sources.</small
+              ><span id="setup-key">Each green dot marks an electrode. Gold marks your selection.</span>
+              On the upper-head template, x increases to the person’s right, y towards the nose and z
+              upwards. A scalp voltage would combine signals from multiple sources.</small
             >
           </div>
         </article>
@@ -85,6 +113,76 @@
       <p class="gestures">
         Drag either model to turn it. You can also focus a model and use the arrow keys.
       </p>
+      <section id="measurements" class="measured-panel" hidden aria-labelledby="measured-title">
+        <h2 id="measured-title">What did the instruments record?</h2>
+        <p>
+          One participant performed each right-arm task 18 times across three runs. Each coloured
+          electrode shows how its recorded reading shifted from before the cue. The map uses standard
+          placements. Movement, muscle activity and eye movements can all affect the scalp signal.
+        </p>
+        <div class="compare">
+          <p id="example-values"></p>
+          <div>
+            <button type="button" id="example-bend">Inspect bending</button>
+            <button type="button" id="example-straight">Inspect straightening</button>
+          </div>
+        </div>
+        <p id="sensor-window" class="sensor-window" aria-live="polite"></p>
+        <div class="sensors">
+          <div>
+            <h3>Eye electrodes · 512 Hz</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Channel</th>
+                  <th scope="col">Change</th>
+                  <th scope="col">Coverage</th>
+                </tr>
+              </thead>
+              <tbody id="eog-rows"></tbody>
+            </table>
+          </div>
+          <div>
+            <h3>Right-arm sensors · 64 Hz</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Channel</th>
+                  <th scope="col">Change</th>
+                  <th scope="col">Coverage</th>
+                </tr>
+              </thead>
+              <tbody id="mechanics-rows"></tbody>
+            </table>
+          </div>
+        </div>
+        <small
+          >Changes use each channel’s stored units. The file leaves their physical units unspecified.
+          The three arm readings summarize repeated movements. The moving 3D arm remains a drawing of
+          the instruction.</small
+        >
+        <details>
+          <summary>How the readings were calculated</summary>
+          <p>
+            For each trial, take the median of the samples in the chosen quarter-second window. Subtract
+            the median from 0.50 to 0.25 seconds before that trial’s cue. Take the median of those
+            differences for each cue within each run, then give the three run medians equal weight in
+            the final mean. Each run needs at least three complete finite trials. The left edge of a
+            window is included and its right edge excluded.
+          </p>
+          <p>
+            Each quarter-second contains 128 EEG or eye samples and 16 mechanical samples on their
+            native file grids. These are descriptive changes after a cue. Their timing alone cannot
+            assign the change to a muscle, an eye movement or a particular region of the brain.
+          </p>
+          <p id="scale-explanation"></p>
+          <p class="source-links">
+            <a href="measurements/cue-fields.json">Download the aggregates</a
+            ><a href="measurements/README.md">Method and reproduction</a
+            ><a href="https://doi.org/10.5281/zenodo.834976">Original recordings</a>
+          </p>
+        </details>
+      </section>
       <section class="clock" aria-labelledby="clock-title">
         <div class="clock-title">
           <div>

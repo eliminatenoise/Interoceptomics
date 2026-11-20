@@ -5,7 +5,7 @@ const models = {
   scalp: {
     title: 'Turn the scalp and right arm',
     url: '../scalp-and-arm/',
-    reading: 'Choose one of 61 scalp electrodes on a standard head, then follow a study cue to the illustrated right arm and its movement sensors.'
+    reading: 'Choose one of 61 scalp electrodes on a standard head. Follow a right-arm cue and compare four measured changes at the scalp with the eye and movement sensors.'
   },
   coverage: {
     title: 'Compare where electrodes sat in five people',

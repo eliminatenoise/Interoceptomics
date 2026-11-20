@@ -131,25 +131,50 @@ function scalpBase() {
 function siteNormal(p) {
   return V.unit([p[0] / 85 ** 2, (p[1] + 15) / 105 ** 2, (p[2] + 3) / 106 ** 2]);
 }
-function scalpMarkers(index) {
+const lowField = color('3269b0'),
+  zeroField = color('f3ead3'),
+  highField = color('c54a22');
+function scalpMarkers(index, field) {
   const m = newMesh();
   [...ATLAS.sites.map((r) => r.slice(1)), ATLAS.ground].forEach((p, i) => {
     const normal = siteNormal(p),
       axes = basis(normal),
       selected = i === index;
-    const center = V.add(p, V.scale(normal, 2.4)),
-      ring = selected ? 5.2 : 3.25;
-    ellipsoid(
-      m,
-      center,
-      axes,
-      [ring, ring, 2.5],
-      selected ? palette.selected : i === 61 ? palette.ground : palette.site,
-      6,
-      12,
-    );
-    if (selected)
-      ellipsoid(m, V.add(center, V.scale(normal, 1.8)), axes, [2.0, 2.0, 1.5], palette.dark, 5, 10);
+    const center = V.add(p, V.scale(normal, 2.4));
+    if (field.mode && i < 61) {
+      const value = field.values?.[i];
+      let shade = palette.ground;
+      if (Number.isFinite(value)) {
+        shade = V.mix(
+          zeroField,
+          value < 0 ? lowField : highField,
+          Math.min(1, Math.abs(value) / field.limit),
+        );
+      }
+      if (selected) ellipsoid(m, center, axes, [6.25, 6.25, 2.8], palette.dark, 6, 16);
+      ellipsoid(
+        m,
+        V.add(center, V.scale(normal, selected ? 1.8 : 0)),
+        axes,
+        [4.5, 4.5, 2.8],
+        shade,
+        6,
+        14,
+      );
+    } else {
+      const ring = selected ? 5.2 : 3.25;
+      ellipsoid(
+        m,
+        center,
+        axes,
+        [ring, ring, 2.5],
+        selected ? palette.selected : i === 61 ? palette.ground : palette.site,
+        6,
+        12,
+      );
+      if (selected)
+        ellipsoid(m, V.add(center, V.scale(normal, 1.8)), axes, [2, 2, 1.5], palette.dark, 5, 10);
+    }
   });
   return m;
 }
