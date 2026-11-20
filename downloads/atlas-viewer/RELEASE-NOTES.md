@@ -11,8 +11,10 @@ Twenty of the atlas's 141 regions had no surface. They were the white matter of 
 - Until you ask, the 3D model looks exactly as before, pixel for pixel; the panel has one new button.
 - The download is larger, 64.3 MB, because it carries the new surfaces. On the website nothing more is loaded until you ask.
 
-The notes under **Evidence and limits**, shown when you select a region, now say in plain words what the earlier ones said in working shorthand. A cited source is named by its authors and year instead of a code, each structure is explained before its abbreviation is given, and the sentence about how the sources were chosen comes once per region instead of in front of every note. Each note says what it said before and links to the same sources.
+The notes under **Evidence and limits**, shown when you select a region, now say in plain words what the earlier ones said in working shorthand. A cited source is named by its authors and year instead of a code, each structure is explained before its abbreviation is given, and the sentence about how the sources were chosen comes once per region instead of in front of every note. Each note starts on a line of its own and says what it said before. The links below the notes go to the same sources, and each now begins with the source's authors and year instead of the project's code for it. Two of them used to give a title and year only. A small gap now separates one link from the next.
+
+Four regions that were listed with "left atlas surface" after their names now have plain names, like every other region: ventral posterior lateral nucleus (VPL), ventral posterior medial nucleus (VPM), red nucleus and parietal operculum (PaO).
 
 Run for this version, on Linux in Chromium 155 with software rendering, from the download's start file and from a copy of the website served on this computer: the first view, a colour overlay, the parietal operculum shown alone, the three flat cuts, the white matter and the fluid spaces in each of the four views, flat cuts through a ventricle and through the white matter, three of the new regions shown alone, and the page opened straight from the folder. The viewer has not yet been run on Windows, macOS or a phone.
 
-The download contains 94 files in 64,344,309 bytes (121,370,189 bytes unpacked).
+The download contains 94 files in 64,344,535 bytes (121,370,767 bytes unpacked).

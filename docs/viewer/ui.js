@@ -492,14 +492,14 @@ function selection(value, moveFocus = true) {
     instruction = 'The atlas names this region, but no point of any surface in the model belongs to it.';
   }
   selectionInstruction = instruction;
-  evidence.textContent = row ? row.overlay_reason + ' ' + row.limits.join(' ') : '';
+  evidence.textContent = row ? [row.overlay_reason, ...row.limits].join('\n\n') : '';
   const links = document.querySelector('#links');
   links.replaceChildren();
   for (const id of new Set(rows.flatMap(item => item.evidence_source_ids))) {
     const source = Array.isArray(registry.sources) ? registry.sources.find(item => item.id === id) : registry.sources?.[id];
     if (!source) continue;
     const link = document.createElement('a');
-    link.textContent = id + ' ' + (source.short_citation || source.citation || source.title || 'Primary source');
+    link.textContent = source.short_citation || source.citation || source.title || 'Primary source';
     link.href = source.url || source.source_url || source.link;
     link.target = '_blank';
     link.rel = 'noreferrer';

@@ -28,14 +28,14 @@
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "bytes": 3024,
-      "sha256": "17c7b394aeec8885b83bd7ed576f8ca2a113703e8b8f3b43c3aa917a759229fa",
+      "bytes": 3512,
+      "sha256": "e77beee5bd3cca26a49c0e8928389a09643f7be5ae74080f7fd51e6724488c97",
       "mode_octal": "0644"
     },
     {
       "path": "THIRD-PARTY-NOTICES.html",
       "bytes": 17490,
-      "sha256": "fd44e8733c089c8c6f0ecbbf19a4a5daf4716a2950497650faf82381b70a63fb",
+      "sha256": "950dffa5649b574a66f125cdc616701ba635669f3fe1c8cf671cd6996651fc51",
       "mode_octal": "0644"
     },
     {
@@ -436,8 +436,8 @@
     },
     {
       "path": "viewer/index.html",
-      "bytes": 34908,
-      "sha256": "093d513ea37b8cae68953028659ceb668074eb0998bc289b7e6010f046ee3860",
+      "bytes": 34987,
+      "sha256": "93fb62a8f8f841c6fa0d7dea0aa13cb35fe5fa7b6018f357466a4e48b9cdc369",
       "mode_octal": "0644"
     },
     {
@@ -466,8 +466,8 @@
     },
     {
       "path": "viewer/registry.json",
-      "bytes": 308840,
-      "sha256": "df110c4dda5a9c0abd6fc5e56e38691f6ab8a9fb441e6703cb54ca69389d646f",
+      "bytes": 308863,
+      "sha256": "82f74b916ae0d1f0a2f053f8e7893d8e510d800ca54803a6fadb325d84ac50db",
       "mode_octal": "0644"
     },
     {
@@ -514,8 +514,8 @@
     },
     {
       "path": "viewer/ui.js",
-      "bytes": 33727,
-      "sha256": "1b72b5591d963f100b56288fec06c337da06205bfcc029024b10dd0710253f74",
+      "bytes": 33715,
+      "sha256": "ff5b38bdad3626d235dbf84e5e06b856dbcbdb29012da45e0a15b828aad90ba7",
       "mode_octal": "0644"
     },
     {

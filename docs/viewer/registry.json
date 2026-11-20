@@ -1832,7 +1832,7 @@
         ],
         "shade": "I"
       },
-      "display_name": "VPL · left atlas surface",
+      "display_name": "ventral posterior lateral nucleus (VPL)",
       "isolation_only": true,
       "isolation_context": "VPL sits inside the thalamus."
     },
@@ -1908,7 +1908,7 @@
         "shade": "I"
       },
       "isolation_only": true,
-      "display_name": "VPM · left atlas surface",
+      "display_name": "ventral posterior medial nucleus (VPM)",
       "isolation_context": "VPM sits beside VPL inside the thalamus."
     },
     {
@@ -5570,7 +5570,7 @@
         ],
         "shade": "S"
       },
-      "display_name": "Red nucleus · left atlas surface",
+      "display_name": "red nucleus",
       "isolation_only": true,
       "isolation_context": "The red nucleus sits inside the midbrain."
     },
@@ -6705,7 +6705,7 @@
       },
       "isolation_only": true,
       "load_on_selection": true,
-      "display_name": "Parietal operculum · left atlas surface",
+      "display_name": "parietal operculum (PaO)",
       "isolation_context": "The parietal operculum folds over the insula from above."
     },
     {
@@ -7583,7 +7583,7 @@
         12247
       ],
       "family": "midbrain_tissue_union",
-      "display_name": "Red nucleus · left atlas surface",
+      "display_name": "red nucleus",
       "isolatable": true,
       "isolation_only": true,
       "vertices": 1694,
@@ -7599,7 +7599,7 @@
         10424
       ],
       "family": "thalamic_structural_union",
-      "display_name": "VPL · left atlas surface",
+      "display_name": "ventral posterior lateral nucleus (VPL)",
       "isolatable": true,
       "isolation_only": true,
       "vertices": 3118,
@@ -7615,7 +7615,7 @@
         10425
       ],
       "family": "thalamic_structural_union",
-      "display_name": "VPM · left atlas surface",
+      "display_name": "ventral posterior medial nucleus (VPM)",
       "isolatable": true,
       "isolation_only": true,
       "vertices": 1066,
@@ -7631,7 +7631,7 @@
         13230
       ],
       "family": "cerebral_surface_parcels",
-      "display_name": "Parietal operculum · left atlas surface",
+      "display_name": "parietal operculum (PaO)",
       "isolatable": true,
       "isolation_only": true,
       "load_on_selection": true,
@@ -8147,7 +8147,7 @@
     },
     {
       "id": "F02",
-      "citation": "Somatotopy and Attentional Modulation of the Human Parietal and Opercular Regions (2004)",
+      "citation": "Young et al. (2004), Somatotopy and Attentional Modulation of the Human Parietal and Opercular Regions",
       "doi": "",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6729293/",
       "evidence_type": "primary human fMRI",
@@ -8455,7 +8455,7 @@
     },
     {
       "id": "F30",
-      "citation": "Novel Approach to Elucidate Human Baroreflex Regulation at the Brainstem Level: Pharmacological Testing During fMRI (2019)",
+      "citation": "Gerlach et al. (2019), Novel Approach to Elucidate Human Baroreflex Regulation at the Brainstem Level: Pharmacological Testing During fMRI",
       "doi": "",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30890917/",
       "evidence_type": "primary human pharmacological fMRI",
@@ -8598,7 +8598,7 @@
     },
     {
       "id": "A07",
-      "citation": "HumanBrainAtlas: an in vivo MRI dataset for detailed segmentations (2023)",
+      "citation": "Schira et al. (2023), HumanBrainAtlas: an in vivo MRI dataset for detailed segmentations",
       "doi": "10.1007/s00429-023-02653-8",
       "url": "https://link.springer.com/article/10.1007/s00429-023-02653-8",
       "evidence_type": "primary independent living-human MRI dataset; reused source-qualified evidence",

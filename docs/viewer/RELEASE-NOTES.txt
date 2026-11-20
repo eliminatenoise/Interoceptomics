@@ -37,8 +37,16 @@ now say in plain words what the earlier ones said in working shorthand.
 A cited source is named by its authors and year instead of a code, each
 structure is explained before its abbreviation is given, and the sentence
 about how the sources were chosen comes once per region instead of in
-front of every note. Each note says what it said before and links to the
-same sources.
+front of every note. Each note starts on a line of its own and says what
+it said before. The links below the notes go to the same sources, and
+each now begins with the source's authors and year instead of the
+project's code for it. Two of them used to give a title and year only.
+A small gap now separates one link from the next.
+
+Four regions that were listed with "left atlas surface" after their
+names now have plain names, like every other region: ventral posterior
+lateral nucleus (VPL), ventral posterior medial nucleus (VPM), red
+nucleus and parietal operculum (PaO).
 
 
 WHAT IT HAS BEEN RUN ON
