@@ -2,15 +2,30 @@
 
 A person reaches with the right hand for an object. In another laboratory, another person walks heel to toe on a moving beam while a headset rotates their view. Each study gives us the position of a point on the body and electrical activity from muscles in the same recording. How far does that point travel from its starting position in an eighth of a second?
 
-Open `index.html` for the interactive reader. To use a launcher, extract the entire ZIP, then open **Open on Windows.cmd** or **Open on macOS.command**. On Linux, run `sh "Open on Linux.sh"`. The reader and both 3D paths work without a network connection. The study links lead to the original websites.
+Open `index.html` for the interactive reader. To use a launcher, extract the entire ZIP, then open **Open on Windows.cmd** or **Open on macOS.command**. On Linux, run `sh "Open on Linux.sh"`. The reader, forecasts and both measured 3D paths work without a network connection. The study links lead to the original websites.
 
 ## Pick a time
 
 The comparison clock steps in intervals of 1/256 s (3.90625 ms). **Next 125 ms** starts at each recording’s cutoff. **Whole excerpt** includes the preceding movement and muscle activity. **Wrist frames** steps by 2 ms and **Sacrum frames** by 1/256 s. Wrist frames extend to +126 ms so you can inspect both samples that bracket +125 ms. The observations occurred in separate studies, in different people and under different cues. Each time on the slider is relative to its own study cutoff.
 
-Drag either path or focus it and use the arrow keys to turn it. Choose a pair of axes for an orthographic projection. In the 125 ms view, small dots mark the chosen time steps and a cross marks the cutoff. The larger dot marks the selected time. Each panel fits its own trajectory to the available space. Its scale bar measures projected distance. The three coordinate readouts give signed displacement from the cutoff in millimetres. “Distance from cutoff” is the straight-line length of that 3D vector. It can be much shorter than the distance travelled along a curved path.
+Drag either path or focus it and use the arrow keys to turn it. Choose a pair of axes for an orthographic projection. In the 125 ms view, small dots mark the chosen time steps and a cross marks the cutoff. The larger dot marks the selected time. Each panel fits its measured path and all its forecasts to the available space. Switching forecasts keeps that view and its scale bar fixed. The bar measures projected distance. The three coordinate readouts give signed displacement from the cutoff in millimetres. “Distance from cutoff” is the straight-line length of that 3D vector. It can be much shorter than the distance travelled along a curved path.
 
 Each **Stored position frames** table shows the original position samples in source units. The on-screen table rounds coordinates to four decimals. Between samples the reader interpolates each coordinate linearly. At an unsupported time the readout is empty. **Muscle amplitude** shows 24 successive 31.25 ms windows from −625 to +125 ms with a separate scale for each selected muscle. A bin includes its right endpoint and excludes its left. At −625 ms the first bin has yet to finish. Each table compares the 125 ms ending at cutoff and the following 125 ms. Root mean square (RMS) is the square root of the mean squared signed potential. It measures the size of the electrical signal recorded at the skin. Electrode gain, placement, reference, filtering and tissue affect that measurement.
+
+## Where does the forecast miss?
+
+Choose a forecast above the recordings. The solid line traces the measured position. The dashed turquoise line follows the selected forecast. At the time on the slider, the pale dot marks the measurement and the open diamond marks the forecast. The paths can appear to meet in one view and separate when you turn them. The distance readout uses all three coordinates, so it stays the same when you rotate the view. Open **Compare coordinates at this time** to read each signed measured and forecast displacement along the recording axes.
+
+The model gets 625 ms of earlier muscle activity and marker positions, plus the study and task context. At cutoff it predicts 32 positions spaced 3.90625 ms apart. Each model was fitted without any recordings from the person shown in its panel. Three training runs used different starting seeds. Both recordings were already in the atlas before fitting and the displayed seed, 1641, was fixed in advance.
+
+- **Two maps, one per study.** The same movement model reads both studies, then uses one set of final weights for the wrist and another for the sacrum.
+- **Two maps, blended over time.** Both studies use both maps. As the forecast advances, it shifts linearly from the first map at the first time point to the second at the last. Each of these two-map models has 3,975 adjustable weights in total. Their training fits the rest of the model as well as the final maps.
+- **One shared map.** The earlier architecture uses one final map throughout both studies. This fit has 3,924 adjustable weights.
+- **Continue the last velocity.** This straight line extends the direction and speed between the last two marker positions given to the models. The actual spacing is 32 ms for the wrist and 31.25 ms for the sacrum. Both positions were available by cutoff.
+
+The small graph joins the 32 distances between the measured and predicted positions, in millimetres. The mean gives those 32 distances equal weight. Zero is the known starting position and contributes no term to the mean. On the wrist’s native clock the selected time can fall between two forecast points. There the reader joins adjacent predicted positions with a straight line and compares that position to the wrist measurement. The dot can then sit above or below the line joining the scored distances. The forecast ends at +125 ms. The wrist measurement at +126 ms remains available for inspecting its endpoint bracket.
+
+Each distance describes this one movement. For a comparison across participants, muscle channels, recordings and seeds, use the [NeuroTranslation decoder study](https://eliminatenoise.github.io/NeuroTranslation/papers/cross-limb-movement/decoder-study/).
 
 ## Wrist
 
@@ -38,6 +53,13 @@ To regenerate the excerpts, use Python 3.11 or later with NumPy and SciPy. From 
 
 ```sh
 python source/build.py wrist.mat walking-eeg/ output/
+```
+
+To regenerate the four forecast overlays, use the development cache and held-participant predictions from the decoder study above. Keep the matching prediction receipt (`oof-seed-1641.json`) beside its NPZ file. Both examples use fold 0 of the three participant-held folds. The extractor checks the fixed cache and atlas measurements by SHA-256, locates both recordings by matching their 32 measured XYZ triples and checks all 20 past marker positions and muscle windows. It verifies the row and held-person fold assignments before exporting just the selected paths. The package script builds the standalone reader from an Interoceptomics checkout with the regenerated files in `docs/cross-limb-movement/`.
+
+```sh
+python source/extract_forecasts.py development.npz oof-seed-1641.npz recordings.js forecasts.js
+python source/package_atlas.py /path/to/Interoceptomics cross-limb-movement.zip
 ```
 
 The study recordings are dedicated to the public domain under CC0. Please credit Matthew D. Luciw, Ewa Jarocka and Benoni B. Edin for WAY-EEG-GAL and Steven M. Peterson and Daniel P. Ferris for the perturbed beam-walking dataset. The two GLBs, display and code carry the repository’s CC0 dedication. The source papers and figures are linked at their original publications. [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
