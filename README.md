@@ -1,6 +1,6 @@
 # Interoceptomics
 
-The human genome was sequenced, and most rare diseases still have no approved treatment: a list of the parts is not an account of what they do. A wiring diagram of the nervous system has the same limit. It shows what is connected, not what the body feels.
+**The Human Genome Project failed.** Not at sequencing: it delivered the human reference sequence in 2003. It failed at what was promised next, and most rare diseases still have no approved treatment. A list of the parts is not an account of what they do. A wiring diagram of the nervous system has the same limit: it shows what is connected, not what the body feels.
 
 Interoceptomics is a proposed field of science that starts from the other end. *Interoception* is the body sensing its own interior: a heartbeat, a breath. *Connectomics* is the mapping of nerve connections. Put the two together and go function first: measure what the body senses and does, then ask which connections carry it. None of its experiments has been run yet.
 
