@@ -45,9 +45,9 @@ The atlas is a grid of half-millimetre cubes, each carrying the number of a regi
 
 Two things are deliberately absent. The MRI brain template that the atlas was drawn on has separate terms and is not in the download. Nor are the photographs and figures from the papers the viewer cites; those stay with their publishers.
 
-| Part | File in the download, under `payload/brain-outward-r6/` | Its notice in the download |
+| Part | File in the download, under `viewer/` | Its notice in the download |
 | --- | --- | --- |
-| Left half of the brain, 40 surfaces | `assets/brain-source-left-r6.glb` | `THIRD-PARTY-NOTICES.html` |
+| Left half of the brain, 40 surfaces | `assets/brain-left.glb` | `THIRD-PARTY-NOTICES.html` |
 | Which region each surface point belongs to | `assets/identity/*.u32` | `THIRD-PARTY-NOTICES.html` |
 | Overview picture | `assets/overview.png` | `THIRD-PARTY-NOTICES.html` |
 | Red nucleus | `assets/red-nucleus-source-left.glb` | `THIRD-PARTY-NOTICES.html` |
@@ -69,11 +69,10 @@ So are the regions' abbreviations, their numbers and their parent-and-child orde
 
 What was checked, and what was not:
 
-- For all 141 regions, the number, name, abbreviation and full ancestry in the viewer matched the table exactly. No near-match was accepted.
-- The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour.
-- These comparisons were made once, on an early edition of the viewer. Fields that only affect display have been added since. The four matched fields have not changed, and the comparisons have not been repeated. Their record is in the download at `sources/allen-version1/source-binding.json`.
+- For all 141 regions, the number, name, abbreviation and full ancestry in the viewer match the table exactly. No near-match was accepted. This was first checked on an early edition of the viewer and was checked again for the current version, on 20 November 2026.
+- For all 141 regions, the table's count of cubes equals a recount of the atlas grid in the download. The table's other count and volume columns, which add in each region's sub-regions, were not checked.
+- The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour. That comparison was made once, on an early edition, and cannot be repeated from the download, because the response is not in it. Its record is in the download at `sources/allen-version1/source-binding.json`.
 - The table was downloaded on 15 November 2026. The server reports it as last modified on 19 February 2025, so it cannot be shown to be byte-for-byte the 2020 original.
-- The table's own count and volume columns were not checked by this project.
 
 ### The names first came through the Allen web API, whose terms are narrower
 
@@ -95,7 +94,7 @@ What that means for you:
 
 ## Three.js
 
-Three.js revision 186. Copyright © 2010–2026 Three.js authors. [MIT licence](https://opensource.org/license/mit). The complete notice is in the download at `payload/brain-outward-r6/vendor/three/LICENSE` and again at `licenses/THREE-MIT.txt`. Keep it with any copy. [Three.js source](https://github.com/mrdoob/three.js).
+Three.js revision 186. Copyright © 2010–2026 Three.js authors. [MIT licence](https://opensource.org/license/mit). The complete notice is in the download at `viewer/vendor/three/LICENSE` and again at `licenses/THREE-MIT.txt`. Keep it with any copy. [Three.js source](https://github.com/mrdoob/three.js).
 
 ## The scripts
 
@@ -113,10 +112,11 @@ The [pre-release of 4 November 2026](https://github.com/eliminatenoise/Interocep
 
 | | |
 | --- | --- |
-| File | [`Interoceptomics-Brain-R8-Experimental-Preview-R33.zip`](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) |
-| Size | 40,595,864 bytes (84,176,440 bytes unpacked) |
-| Contents | 76 files. `PACKAGE-MANIFEST.json` lists the other 75 with their sizes and checksums |
-| SHA256 | `44047e76e8850cbd67b1119c478cbee14fafddec72c8400ddf512c41858870af` ([checksum file](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256)) |
+| File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
+| Version | 20 November 2026. The file name never carries the version: each new one replaces the last at the same address |
+| Size | 40,478,734 bytes (84,053,691 bytes unpacked) |
+| Contents | 74 files. `MANIFEST.json` lists the other 73 with their sizes and checksums |
+| SHA256 | `eea9b79e683f1cced89a7e86299518603e949b792810b4c514941ac0db1e4fc8` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
 
 Identities of the upstream files, for anyone who wants to start from the same sources:
 
@@ -130,6 +130,6 @@ Identities of the upstream files, for anyone who wants to start from the same so
 
 A licence says who may copy. It says nothing about whether the anatomy is right, and this project does not claim that it is.
 
-The atlas grid carries 141 regions. The viewer's 3D model holds 121 of them in 44 surfaces (40 in the main model file, 4 in files of their own): 34 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 34 and also appears on a combined surface. The other 20 regions have no surface; the download lists them in `payload/brain-outward-r6/omissions.html`. All 141 can be read in the flat cuts.
+The atlas grid carries 141 regions. The viewer's 3D model holds 121 of them in 44 surfaces (40 in the main model file, 4 in files of their own): 34 regions have a surface of their own, 82 more are parts of larger combined surfaces, and 5 are listed by name only. The parietal operculum is counted among the 34 and also appears on a combined surface. The other 20 regions have no surface; the download lists them in `viewer/omissions.html`. All 141 can be read in the flat cuts.
 
 The half-millimetre grid, the midline cap and the display approximation describe how the surfaces were made, not how accurate they are. There is no right half and no fit to any person. The model shows anatomy and nothing else: it demonstrates nothing about what a region does, and nothing clinical. [What the viewer is not](README.md#an-illustration-not-a-measurement).

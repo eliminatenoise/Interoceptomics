@@ -6,7 +6,7 @@ The atlas viewer is a download you start on your own computer. The project page 
 
 You need Python 3.10 or newer and a current browser.
 
-1. [Download the ZIP](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) (40.6 MB) and extract all of it.
+1. [Download the ZIP](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (40.5 MB) and extract all of it.
 2. Open `Windows.cmd` on Windows or `macOS.command` on macOS, or run `sh Linux.sh` in a terminal on Linux.
 3. The start file runs in a terminal window and opens your browser on the viewer, at an address on your own computer. Keep the terminal open while you explore.
 

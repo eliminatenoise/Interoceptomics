@@ -6,7 +6,7 @@ Interoceptomics is a proposed field of science that starts from the other end. *
 
 What exists so far is still a map, not a measurement: the Allen Institute's human reference atlas as a 3D model you can turn, cut and measure. It shows the 141 named regions the atlas draws on the left half of the brain, on a half-millimetre grid, and colours the ones this project links to moving and feeling the body, to running its organs, or to both.
 
-**[Download the atlas viewer](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip)** (ZIP, 40.6 MB) · [Open it in three steps](#open-it-in-three-steps) · [What it is not](#an-illustration-not-a-measurement) · [Licences and credits](RIGHTS.md)
+**[Download the Interoceptomics Atlas Viewer](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip)** (ZIP, 40.5 MB) · [Open it in three steps](#open-it-in-three-steps) · [What it is not](#an-illustration-not-a-measurement) · [Licences and credits](RIGHTS.md)
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
@@ -14,7 +14,7 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 You need Python 3.10 or newer and a current browser.
 
-1. [Download the ZIP](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip) and extract all of it into a folder.
+1. [Download the ZIP](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) and extract all of it into a folder.
 2. In that folder, start the viewer with the file for your system:
 
    | Your computer | Start file |
@@ -43,7 +43,7 @@ The viewer marks that overlap on the atlas: one colour for regions linked to mov
 | Find a region | Type a name, an abbreviation or an atlas number into the search box: `insula`, `VPL`, `13230`. |
 | Lift a region out | **Isolate in place** hides everything else. It works for the 34 regions drawn with a surface of their own. Of the other 87 in the model, 82 are merged into larger surfaces and 5 are listed by name only; none of those can be lifted out alone. **Restore context** brings the brain back. |
 | See the atlas under the surface | **Explore full atlas labels** opens three flat cuts that cross at one point. Step with the arrow keys, one half-millimetre cube (a *voxel*) at a time, or type a position in millimetres. **Find a structure** jumps to any of the 141 regions. |
-| Measure | Mark two points with **Set A** and **Set B** to read the straight-line distance in millimetres and how much of that line lies in each region. **Volume of the selected label** gives a region's volume in cubic millimetres. |
+| Measure | The ruler lives in two closer views: search for `PaO` and choose **Show parietal operculum sections**, or compare VPL with VPM and choose **Show atlas sections**. Mark two points there with **Set A** and **Set B** to read the straight-line distance in millimetres; **Follow the ruler through sections** then lists how much of that line lies in each region. In the flat cuts, **Volume of the selected label** gives a region's volume in cubic millimetres. |
 | Come back to the same place | **Copy saved view** gives you a short piece of text. Paste it into **Open saved view** next time. |
 
 A good first five minutes: choose **Insula exposed**, and the outer surface of the brain steps aside to show the insula, cortex that the outer folds normally cover. Search for `PaO`, the fold that covers it from above, and isolate it. Then search for `VPL`, choose **Compare VPL and VPM**, and **Show shared voxel faces**: two clusters of sensory nerve cells (nuclei) deep in the thalamus, and in gold the 481 grid faces (120.25 mm²) where the atlas has them touch.
@@ -90,4 +90,4 @@ Interoceptomics belongs to Brain2Body, a programme about connecting brain and bo
 
 ---
 
-[Project page](https://eliminatenoise.github.io/Interoceptomics/) · [What changed in the latest viewer](downloads/brain-r8/RELEASE-NOTES.md) · [Checksum of the download](downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip.sha256) · [Desktop shortcuts](LAUNCHERS.md) · [Repository facts in machine-readable form](PROJECT-CONTEXT.json)
+[Project page](https://eliminatenoise.github.io/Interoceptomics/) · [What changed in the latest viewer](downloads/atlas-viewer/RELEASE-NOTES.md) · [Checksum of the download](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256) · [Desktop shortcuts](LAUNCHERS.md) · [Repository facts in machine-readable form](PROJECT-CONTEXT.json)
