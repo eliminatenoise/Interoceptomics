@@ -108,9 +108,9 @@ The works the scripts cite, the passages they quote, and the film, character and
 
 The PDFs embed subsets of two typefaces: Liberation Sans (SIL Open Font License 1.1) and Comic Sans MS Bold (Microsoft's core fonts end-user licence). Both licence texts sit beside the PDFs: [Liberation](docs/current/FONT-LICENSE-Liberation.txt), [Microsoft core fonts](docs/current/FONT-LICENSE-Microsoft-CoreFonts.txt). No font file is distributed on its own, and the DOCX files embed no fonts. The [notice](docs/current/NOTICE.txt) that travels with the scripts says the same.
 
-## The older pre-release
+## The withdrawn 4 November prerelease
 
-The [pre-release of 4 November 2026](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft) holds an older slide deck, the two scripts one revision earlier and a set of 3D models of the proposed experiments. It is a different case from everything above. Its slides and models include material made by others, among it images of Neo and Professor X and separately licensed software and model files. The rights to that material, and how far it may be reused, have not all been established, and the project's CC0 dedication does not cover it. Before reusing anything from that release, read the `NOTICE.txt` and `ASSET-PROVENANCE.json` published with it.
+The withdrawn prerelease contained an older deck, earlier scripts and 3D models of the proposed experiments. Its slides and models include material made by others, among it images of Neo and Professor X and separately licensed software and model files. Reuse rights for some of that material remain unresolved. The project's CC0 dedication applies only to material for which the project holds the rights. If you downloaded that edition, keep its `NOTICE.txt` and `ASSET-PROVENANCE.json` with your copy.
 
 ## The atlas viewer download
 

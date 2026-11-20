@@ -88,8 +88,6 @@ The 3D drawing is done by [Three.js](https://github.com/mrdoob/three.js) (MIT li
 
 The slides are not published: 22 of their 88 pictures are known not to be cleared for redistribution, and the rights to the other 66 have not been confirmed.
 
-An older slide deck, with the two scripts one revision earlier and a 238 MB set of 3D models of the proposed experiments, is still available as a [pre-release from 4 November 2026](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft); the rights to some of its pictures and models have not been established.
-
 ## The widest of three projects, and the least built
 
 Interoceptomics belongs to Brain2Body, a programme about connecting brain and body function.
