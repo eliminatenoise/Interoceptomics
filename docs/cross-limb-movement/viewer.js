@@ -24,6 +24,9 @@ const traces = {};
 const gaps = {};
 const stepMs = 1000 / 256;
 const forecastCopy = {
+  central: "This model reads 625 ms of wrist or sacrum motion, muscle activity and voltage from three central scalp contacts. The dashed line predicts the next 125 ms of movement.",
+  reference: "A second model learned with each available scalp value replaced by its study’s training average. It kept the same motion, muscle recordings and information about which contacts were available.",
+  wrong: "The scalp model receives the same motion and muscle inputs but reads scalp voltage from an eligible earlier trial with the same task, person and contact availability.",
   separate: "After reading 625 ms of marker motion and muscle activity, the model uses one learned map for the wrist and another for the sacrum. Each forecast covers the next 125 ms.",
   matched: "Both studies use the same two learned maps. The forecast shifts from the first map to the second as time passes. This model has as many adjustable weights as the model with one map per study.",
   original: "One learned map turns the model’s reading of the movement and muscle history into positions for both studies and all forecast times.",
@@ -58,6 +61,7 @@ function introduction(key) {
   <div class="legend"><span>Measured before cutoff</span><span class="after">Measured after</span><span class="current">Selected time</span><span class="forecast-key" id="${key}-forecast-key">Forecast</span></div>
   <div class="inside">
   <div class="orient"><span>Drag or use arrow keys to rotate.</span><select aria-label="${cap.title} view" id="${key}-view">${viewOptions}</select></div>
+  <p class="sig-note" id="${key}-no-donor" hidden>No eligible earlier scalp trial for this recording. Only the measured path is shown.</p>
   <section class="error-panel" id="${key}-error-panel" aria-labelledby="${key}-gap-heading">
     <h3 id="${key}-gap-heading">How far apart are the paths?</h3>
     <p>At the selected time <strong id="${key}-gap"></strong><br>Mean across 32 forecast times <strong id="${key}-mean"></strong></p>
@@ -72,17 +76,24 @@ function introduction(key) {
   <div class="readout" aria-label="Measured displacement">${d.axes.map((axis, i) => "<div><small>" + axis + ' · mm</small><b id="' + key + "-axis" + i + '">—</b></div>').join("")}<div><small>Measured distance from cutoff</small><b id="${key}-dist">—</b></div></div>
   <div class="frame"><p id="${key}-status"></p><p class="phase">${cap.cue}</p></div>
   <details><summary>Stored position frames</summary><p>${cap.axes} The table gives the source coordinates in ${d.sourceUnit}, rounded to four decimals. Displacements above use this recording’s own cutoff as the origin.</p><table class="samples"><thead><tr><th>From cutoff</th>${d.axes.map((a) => "<th>" + a + " (" + d.sourceUnit + ")</th>").join("")}</tr></thead><tbody id="${key}-frames"></tbody></table></details>
+  <div id="${key}-scalp-slot"></div>
   <hr class="divider"><div class="chart-title"><h3>Muscle amplitude</h3><select id="${key}-channel" aria-label="${cap.title} muscle">${options}</select></div>
   <canvas class="signal" id="${key}-signal" role="img" aria-label="Muscle amplitude in 31.25 millisecond windows"></canvas><p class="sig-note" id="${key}-amplitude"></p>
+  <p id="${key}-muscle-forecast" class="sig-note muscle-forecast" hidden></p>
   <details><summary>All ${d.muscles.length} muscle channels</summary><p>${cap.muscle} Root mean square (RMS) gives the size of the electrical signal across a window. Each column covers 125 ms, ending or starting at cutoff.</p>
   <table class="samples"><thead><tr><th>Muscle</th><th>Before (${d.emgUnit})</th><th>After (${d.emgUnit})</th></tr></thead><tbody>${d.muscles.map((m, i) => '<tr><th scope="row">' + m + "</th><td>" + formatRMS(key, d.rms.previous[i]) + "</td><td>" + formatRMS(key, d.rms.following[i]) + "</td></tr>").join("")}</tbody></table></details>
   </div>`;
   $("panels").appendChild(section);
+  element(key, "scalp-slot").appendChild(scalpPanel(key));
   const origin = d.xyz[-d.first];
   positions[key] = d.xyz.map((row) => row.map((v, j) => (v - origin[j]) * d.factorMm));
   traces[key] = {};
   gaps[key] = {};
-  for (const [model, path] of Object.entries(forecastPaths[key])) {
+  const paths = {...forecastPaths[key]};
+  for (const [method, output] of Object.entries(scalpExcerpts[key].forecasts)) {
+    if (output) paths[method] = output.path;
+  }
+  for (const [model, path] of Object.entries(paths)) {
     traces[key][model] = [[0, 0, 0], ...path];
     gaps[key][model] = path.map((point, j) => distance(point, at(key, (j + 1) * stepMs).p));
   }
@@ -253,7 +264,8 @@ function drawPath(key, selection) {
 
 function drawError(key, ms, selected) {
   const model = $("forecast").value;
-  const show = model !== "none";
+  const show = Boolean(traces[key][model]);
+  element(key, "no-donor").hidden = model !== "wrong" || show;
   element(key, "forecast-key").hidden = !show;
   element(key, "error-panel").hidden = !show;
   if (!show) return;
@@ -306,6 +318,7 @@ function drawMuscle(key, ms) {
   const d = recordings[key],
     i = Number(element(key, "channel").value),
     { ctx, w, h } = canvasSize(element(key, "signal"));
+  showMuscleForecast(key, $("forecast").value, i);
   const values = d.rms.bins.map((row) => row[i]),
     max = Math.max(...values),
     left = 5,
@@ -386,6 +399,7 @@ function panel(key, ms) {
   drawPath(key, selected);
   drawError(key, ms, selected);
   drawMuscle(key, ms);
+  drawScalp(key, ms);
 }
 
 function clockHz() {
@@ -448,6 +462,11 @@ function start() {
   animation = requestAnimationFrame(tick);
 }
 
+const missingDonors = keys.filter(key => !scalpExcerpts[key].forecasts.wrong);
+if (missingDonors.length === keys.length) $("wrong-option").disabled = true;
+$("donor-note").textContent = missingDonors.length
+  ? "Earlier-trial control unavailable for " + missingDonors.map(k => k === "wrist" ? "the wrist" : "the sacrum").join(" and ") + ". No earlier trial met the matching rules."
+  : "";
 for (const key of keys) {
   introduction(key);
   const plot = element(key, "plot"),

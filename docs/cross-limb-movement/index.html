@@ -6,11 +6,13 @@
     <title>Grasping and balancing · Interoceptomics</title>
     <meta
       name="description"
-      content="Compare movement forecasts with two measured 3D paths and explore the muscle recordings from a grasp-and-lift study and a beam-walking study."
+      content="Compare movement forecasts with two measured 3D paths and explore the scalp and muscle recordings from a grasp-and-lift study and a beam-walking study."
     />
     <link rel="stylesheet" href="style.css" />
     <script defer src="recordings.js"></script>
     <script defer src="forecasts.js"></script>
+    <script defer src="scalp.js"></script>
+    <script defer src="scalp-view.js"></script>
     <script defer src="viewer.js"></script>
   </head>
   <body>
@@ -28,7 +30,7 @@
         <p class="deck">
           One person reaches for an object after a light comes on. Another walks a narrow beam as the
           view through a headset turns. Follow the wrist and the base of the spine through the next
-          eighth of a second. How close can a forecast made at cutoff come to the measured path?
+          eighth of a second. Does adding the voltage from three scalp electrodes bring a forecast closer to the measured path?
         </p>
       </header>
       <section class="transport" aria-label="Explore the recordings">
@@ -74,17 +76,26 @@
         <div>
           <label for="forecast" id="forecast-heading">Compare with a forecast</label>
           <select id="forecast" aria-describedby="forecast-detail">
+            <optgroup label="Scalp, muscles and movement">
+              <option value="central">Recorded scalp voltage</option>
+              <option value="reference">Scalp replaced by training averages</option>
+              <option value="wrong" id="wrong-option">Scalp from an earlier trial</option>
+            </optgroup>
+            <optgroup label="Muscles and movement">
             <option value="separate">Two maps, one per study</option>
             <option value="matched">Two maps, blended over time</option>
             <option value="original">One shared map</option>
+            </optgroup>
             <option value="velocity">Continue the last velocity</option>
             <option value="none">Measured path only</option>
           </select>
         </div>
         <div class="forecast-notes">
           <p id="forecast-detail"></p>
-          <p>Each learned forecast comes from a model trained on other people.
-            <a href="https://eliminatenoise.github.io/NeuroTranslation/papers/cross-limb-movement/decoder-study/">See results across participants</a>.</p>
+          <p id="donor-note"></p>
+          <p>Each learned forecast comes from a model trained on other people. Across participants, adding scalp voltage increased the average path error for both studies. Only the leg-muscle amplitude met the study’s threshold for improvement.
+            <a href="https://eliminatenoise.github.io/NeuroTranslation/papers/cross-limb-movement/scalp-study/">Scalp study across participants</a> ·
+            <a href="https://eliminatenoise.github.io/NeuroTranslation/papers/cross-limb-movement/decoder-study/">Motion and muscle study</a>.</p>
         </div>
       </section>
       <div id="panels" class="panels"></div>
@@ -96,7 +107,7 @@
         <summary>Where the measurements came from</summary>
         <div class="references">
           <div>
-            <h3>Right wrist and five right muscles</h3>
+            <h3>Right wrist, five right muscles and three scalp contacts</h3>
             <p>
               Luciw, Jarocka &amp; Edin measured the wrist with a Polhemus sensor during right-hand
               grasp-and-lift trials. The stored P4 coordinates are in centimetres. The authors’
@@ -114,19 +125,19 @@
             </p>
           </div>
           <div>
-            <h3>Sacrum and eight leg muscles</h3>
+            <h3>Sacrum, eight leg muscles and three scalp contacts</h3>
             <p>
               Peterson &amp; Ferris measured a reflective marker over the sacrum while a person walked
               heel to toe. The cameras recorded at 100 Hz and the leg electrodes at 1,000 Hz. The
               released streams share a 256 Hz clock after the authors’ processing. The leg amplitudes are
-              in microvolts (µV).
+              in microvolts (µV). Cap contacts D19, A1 and B22 sit at nominal sites C3, Cz and C4.
             </p>
             <p>
               <a href="https://doi.org/10.1523/ENEURO.0207-18.2018">Apparatus and visual rotation</a> ·
               <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8711048/">Acquisition and alignment</a> ·
               <a href="https://doi.org/10.18112/openneuro.ds003739.v1.0.3"
                 >OpenNeuro recordings, version 1.0.3</a
-              >
+              > · <a href="https://www.biosemi.com/download/Cap_coords_all.xls">BioSemi cap layout (128-channel sheet)</a>
             </p>
           </div>
         </div>

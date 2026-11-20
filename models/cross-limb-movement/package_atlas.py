@@ -4,9 +4,9 @@ from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
-READER = ("index.html", "style.css", "viewer.js", "recordings.js", "forecasts.js", "METHODS.md",
+READER = ("index.html", "style.css", "viewer.js", "recordings.js", "forecasts.js", "scalp.js", "scalp-view.js", "METHODS.md",
           "sacrum.glb", "wrist.glb", "Open on Linux.sh", "Open on Windows.cmd", "Open on macOS.command")
-SOURCES = ("build.py", "extract_forecasts.py", "package_atlas.py")
+SOURCES = ("build.py", "extract_forecasts.py", "extract_scalp.py", "package_atlas.py")
 
 
 def main():
