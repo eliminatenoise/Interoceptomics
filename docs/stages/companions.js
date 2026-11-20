@@ -2,6 +2,11 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  pedal: {
+    title: 'Compare shin activity and pedal load',
+    url: '../pedal-load/',
+    reading: 'A seated person tries to lift a foot strapped to a fixed pedal. Turn the reference leg, inspect the load cell, and compare earlier muscle activity with the load change 100 samples later.'
+  },
   scalp: {
     title: 'Turn the scalp and right arm',
     url: '../scalp-and-arm/',
@@ -87,7 +92,7 @@ const models = {
 
 const choicesByStep = {
   'map-brain2body': ['wrist', 'muscle', 'cortex', 'coverage', 'scalp'],
-  'map-body2body': ['stride', 'words'],
+  'map-body2body': ['stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['exercise', 'vibration'],
   'read-function': ['vibration', 'trip', 'cortex', 'coverage', 'scalp'],
@@ -95,7 +100,7 @@ const choicesByStep = {
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
-  'mechanics': ['stride', 'reflex', 'knee', 'overground'],
+  'mechanics': ['stride', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],

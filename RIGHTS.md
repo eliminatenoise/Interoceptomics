@@ -164,3 +164,7 @@ Gracia Laso and colleagues’ Experiment 2 measurements and their adaptations re
 ## Inside a lifting foot
 
 Zhang and colleagues’ AnkleImage tracking estimates retain CC BY 4.0. The right leg meshes derive from Z-Anatomy and BodyParts3D and retain CC BY-SA 4.0. The offline reader links the original publication figures. [Attribution and changes](docs/muscle-tracking/NOTICE.txt)
+
+## Seated ankle and fixed pedal
+
+Zhang, Hakam, Akinniyi, Iyer, Bao and Sharma’s numerical AnkleImage Task 1 recordings are licensed under CC BY 4.0. Z-Anatomy and BodyParts3D reference surfaces and the combined standalone scene carry CC BY-SA 4.0. The separate original schematic platform and reader code carry CC0. Full attributions, changes, upstream source links and licences appear in the [pedal atlas notice](docs/pedal-load/NOTICE.txt). The atlas links to the separately licensed article for its apparatus description.

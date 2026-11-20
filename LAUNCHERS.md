@@ -52,3 +52,7 @@ Extract [the offline reader](downloads/back-rotation.zip), then open its Windows
 ## Inside a lifting foot
 
 Extract the [offline muscle reader](downloads/muscle-tracking.zip) and open the launcher for Windows, macOS or Linux, or open its index.html directly. All three-dimensional anatomy and tracking steps are bundled. [Hosted reader](https://eliminatenoise.github.io/Interoceptomics/muscle-tracking/)
+
+## When the pedal holds still
+
+Extract the [offline atlas](downloads/pedal-load.zip) and open the launcher for Windows, macOS or Linux. The reference leg, pedal and eight Task 1 recordings are included. Opening index.html also works. [Hosted atlas](https://eliminatenoise.github.io/Interoceptomics/pedal-load/) · [Standalone 3D scene](docs/pedal-load/neutral-pedal.glb)

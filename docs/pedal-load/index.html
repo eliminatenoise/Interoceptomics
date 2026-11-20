@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore recorded shin muscle activity and pedal loading as a seated person tries to lift a secured foot.">
+<title>When the pedal holds still · Interoceptomics</title><link rel="stylesheet" href="style.css">
+</head><body>
+<nav aria-label="Project navigation"><a id="project" href="../index.html">← Interoceptomics</a><a href="#evidence">Sources &amp; downloads</a></nav>
+<main>
+<header><p class="kicker">Experimental atlas &nbsp;/&nbsp; Seated ankle</p>
+<h1>When the pedal holds still</h1>
+<p class="lead">Try to lift a foot strapped to a fixed pedal. Skin electrodes pick up electrical activity from the muscle beside the shinbone. A separate sensor under the pedal records the load. What changes in the next tenth of a second?</p></header>
+<noscript><p>This interactive atlas uses JavaScript. <a href="README.txt">Read the methods</a> or <a href="neutral-pedal.glb">download the 3D reference model</a>.</p></noscript>
+<div class="columns">
+<section aria-labelledby="anatomy"><h2 id="anatomy">The foot and the pedal</h2>
+<div class="scene"><div class="scene-label"><span>Reference anatomy</span><span>Neutral setup</span></div>
+<div class="view"><canvas tabindex="0" id="leg" aria-label="Rotatable reference shin and schematic fixed pedal. Drag or use the arrow keys. Home restores the oblique view."></canvas></div>
+<div class="key"><span><i class="muscle"></i>Shin muscle</span><span><i class="pedal"></i>Pedal</span><span><i class="cell"></i>Load cell</span></div></div>
+<div class="views" role="group" aria-label="Camera views"><button data-view="oblique">Oblique</button><button data-view="side">Side</button><button data-view="front">Front</button><label><input type="checkbox" id="show-leg" checked> Show leg</label></div>
+<p class="caption">Drag to turn the model. The orange tibialis anterior runs down the shin and its pale tendon crosses the ankle. The blue strap holds the forefoot against the pedal. Hide the leg to see where the gold load cell sits.</p>
+<p class="fine">The atlas supplies a reference right leg. The neutral pose and apparatus are illustrations. Neither participant’s anatomy, limb side or ankle motion was measured by this view.</p>
+</section>
+<section aria-labelledby="recording"><h2 id="recording">Two signals on one clock</h2>
+<div class="selects"><label>Participant<select id="person"><option>A01</option><option>A02</option></select></label><label>Pedal setting<select id="setting"><option value="angle0">Neutral · 0°</option><option value="angle5">angle5</option></select></label><label>Trial<select id="trial"><option>1</option><option>2</option></select></label></div>
+<p id="clock-note" class="fine clock-note"></p>
+<div class="clock"><label for="cutoff">Reading time</label><output id="time" for="cutoff">—</output></div>
+<input aria-label="Reading time in milliseconds from the start of this recording" id="cutoff" type="range" min="200" max="6900" step="1" value="3800">
+<div class="transport"><button id="back" aria-label="Go back 100 milliseconds">−100 ms</button><button id="play" aria-pressed="false">Play</button><button id="forward" aria-label="Advance 100 milliseconds">+100 ms</button></div>
+<div class="graph-head"><h3>Shin muscle <span>surface EMG</span></h3><output id="emg-value"></output></div>
+<svg class="trace" id="emg-chart" role="img" aria-label="Muscle channel trace through the reading time, in native units"></svg>
+<div class="graph-head"><h3>Pedal <span>load channel</span></h3><output id="load-value"></output></div>
+<svg class="trace" id="load-chart" role="img" aria-label="Recorded load channel before and after the reading time, in native units"></svg>
+<div class="options"><label><input id="reveal" type="checkbox" checked> Show next 100 ms</label><label><input id="local-scale" type="checkbox"> Fit scales to window</label></div>
+<div class="outcome"><div><h3>Recorded change</h3><p id="change-detail"></p></div><output id="change"></output></div>
+<p class="fine">Both channels use their stored acquisition units. A signed change tells you which way the load reading moved. The files supply no verified conversion to newtons.</p>
+</section></div>
+<section class="mechanics" aria-labelledby="lever-title">
+<div><h2 id="lever-title">How much turning force?</h2>
+<p>A load applied away from a pivot produces a turning effect called a moment. The study’s platform used a 0.100 m moment arm. Put an example force into the calculation and see how much external moment it would produce.</p>
+<p class="fine">The example force is yours to choose. A participant’s muscle force cannot be recovered from this calculation. Several muscles and passive tissues can contribute to a joint’s response.</p></div>
+<div class="calculator"><h3>Example force on the lever</h3>
+<svg id="lever" viewBox="0 0 360 109" role="img" aria-label="Lever with a 0.100 metre perpendicular distance from pivot to force line"><path d="M67 71 H283" stroke="#356e70" stroke-width="8" stroke-linecap="round"/><path d="M56 87 L68 71 L80 87 Z" fill="#37616a"/><line id="force-line" x1="283" x2="283" y1="50" y2="70" stroke="#b34425" stroke-width="3"/><path id="force-head" d="M277 60 L283 71 L289 60" fill="none" stroke="#b34425" stroke-width="3"/><text x="15" y="68">Pivot</text><path d="M68 92v5h215v-5" fill="none" stroke="#61726b"/><text x="176" y="107" text-anchor="middle">0.100 m</text></svg>
+<label for="force">Perpendicular force <output id="force-value" for="force"></output></label><input id="force" type="range" min="0" max="100" value="30" step="1">
+<output class="formula" id="moment" for="force"></output></div>
+</section>
+<section id="evidence"><h2>Read the measurements</h2>
+<p>Two people took part in the eight recordings here. Each tried to raise the forefoot against a fixed pedal at two settings, twice at each setting. The board recorded the conditioned muscle and load-cell outputs together at a nominal 1,000 samples per second. The plotted time scale is nominal. The last 200 sample intervals, nominally 200 ms, cover 201 samples including both endpoints. At reading time <em>t</em>, the target is the recorded load 100 rows later (nominally 100 ms) minus the load at <em>t</em>.</p>
+<p>The source names its two selected settings angle0 and angle5. Angle5 and angle_5 name different archive records. The sign and direction of the five-degree setting remain unresolved. The muscle graph ends at <em>t</em>. On the load graph, the shaded section starts at <em>t</em> and contains the actual later readings when revealed. This is a replay. The data establish no physiological delay, and the load channel called “right” identifies a channel on the equipment. Both plots connect original samples in source order.</p>
+<p>The published methods describe a weight calibration. The measured gain, its sign and the trial-specific conversion to force remain unavailable here. The 3D model locates the muscle and the sensor with a neutral reference pose across all selections.</p>
+<div class="actions"><button id="csv">Save this recording as CSV</button><a href="neutral-pedal.glb" download>3D model (.glb)</a><a id="zip" href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/pedal-load.zip">Offline atlas (.zip)</a></div>
+<p class="fine"><a id="original" href="https://doi.org/10.6019/S-BIAD1482">Original trial</a> · <a href="https://doi.org/10.6019/S-BIAD1482">AnkleImage dataset</a> · <a href="https://doi.org/10.1038/s41597-024-04285-x">Study and apparatus</a> · <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">Atlas anatomy</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9277928/">Dissection of the tibial attachment</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4974924/">Ultrasound anatomy of the muscle</a></p>
+<p class="fine"><a href="NOTICE.txt">Credits and licences</a> · <a href="sources.json">Trial files and checksums</a> · <a href="README.txt">Methods and offline instructions</a></p>
+</section></main>
+<script src="measurements.js"></script><script src="reference/leg.js"></script><script src="apparatus.js"></script><script src="reference/renderer.js"></script><script src="scene.js"></script><script src="reader.js"></script></body></html>

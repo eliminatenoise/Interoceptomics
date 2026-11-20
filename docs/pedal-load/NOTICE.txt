@@ -1,0 +1,23 @@
+When the pedal holds still · Interoceptomics
+
+Recordings
+Qiang Zhang, Noor Hakam, Oluwasegun Akinniyi, Ashwin Iyer, Xuefeng Bao and Nitin Sharma. AnkleImage, BioImage Archive S-BIAD1482. https://doi.org/10.6019/S-BIAD1482
+The original data and the selected numerical series in measurements.js and the CSV export are licensed under Creative Commons Attribution 4.0 International. https://creativecommons.org/licenses/by/4.0/ (reference/CC-BY-4.0.txt)
+Changes comprise the selection of eight Task 1 trials and two full conditioned channels per trial, lossless storage, row-based time coordinates where the exported time vector is absent, and graphs and endpoint differences calculated in the reader. The original authors have not endorsed this adaptation.
+
+Study methods
+The same authors describe the measurements in “AnkleImage - An ultrafast ultrasound image dataset to understand the ankle joint muscle contractility”, Scientific Data 11, 1439 (2024). https://doi.org/10.1038/s41597-024-04285-x
+The article has a separate CC BY-NC-ND 4.0 licence. Its figures can be viewed in the original paper. No article figure, participant image or adapted figure is included here.
+
+Reference anatomy
+BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan.
+Z-Anatomy - The libre 3D atlas of anatomy - CC-BY-SA 4.0.
+Z-Anatomy by Gauthier Kervyn (design, 3D and anatomy) and Marcin Zielinski (atlas scripts).
+https://github.com/Z-Anatomy/Models-of-human-anatomy
+https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html
+https://creativecommons.org/licenses/by-sa/4.0/
+https://creativecommons.org/licenses/by-sa/2.1/jp/
+The browser geometry in reference/leg.js keeps the original atlas triangles for the tibialis anterior, tibia, fibula and foot bones. Its coordinates were rounded to 0.1 mm. Its original belly and tendon triangle groups receive identification colours. The standalone scene neutral-pedal.glb retains this licence (CC BY-SA 4.0) and attribution in its metadata. It converts the reference coordinates into metres in the glTF axis system and adds an original schematic apparatus. See reference/Z-Anatomy-LICENSE.txt for upstream attribution.
+
+Interoceptomics
+The original code, explanatory text and separate schematic pieces in apparatus.js are dedicated to the public domain under CC0 1.0. https://creativecommons.org/publicdomain/zero/1.0/ (reference/CC0-1.0.txt)
