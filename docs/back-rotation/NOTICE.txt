@@ -1,0 +1,25 @@
+How far does the back sensor turn? · Interoceptomics
+
+Recorded orientation, surface voltages, electrode layout and quality flags
+Desirée Irene Gracia Laso, Eduardo Iáñez, Mario Ortiz and José M. Azorín. An Electrospinography Database of Spinal Cord Activity During Gait-Related Tasks and Motor Imagery Exercises, Zenodo, v2 (2026). Creative Commons Attribution 4.0 International.
+https://doi.org/10.5281/zenodo.19065545
+https://creativecommons.org/licenses/by/4.0/ (reference/CC-BY-4.0.txt)
+
+Adaptations in recording.js: normalized orientations and 10 ms mean raw voltages at each contact for the first walking and standing blocks of S01 trial 02. The whole-trial channel flags and published array layouts accompany those two excerpts. Angular summaries combine trials 02 and 03 within each of four development participants. The sensor plate, plots and coloured contacts are original visual representations of these data. The derived measurements retain CC BY 4.0. The authors do not sponsor this reader.
+
+Study methods and published placement photographs
+Desirée I. Gracia, Eduardo Iáñez, Mario Ortiz and José M. Azorín. An Electrospinography Database of Gait-Related Tasks and Motor Imagery Exercises. Scientific Data 13, 1330 (2026). Figure 1 shows the source apparatus and patch positions, including the Experiment 2 photograph in panel c. The figure is linked in the reader.
+https://doi.org/10.1038/s41597-026-07592-7
+
+Reference spine
+BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan.
+Z-Anatomy - The libre 3D atlas of anatomy - CC-BY-SA 4.0.
+Gauthier Kervyn (design, 3D and anatomy) and Marcin Zielinski (atlas scripts). The anatomy in reference/spine.js is licensed under CC BY-SA 4.0. It retains the upstream model’s evaluated vertices and triangles of eight vertebrae and six discs. Display positions are rounded to 0.05 mm and centred on each region, with colours added to identify the published landmarks. The bones stay in their original relative positions. The neck and lower back are displayed separately. There is no registration to an individual participant.
+https://github.com/Z-Anatomy/Models-of-human-anatomy
+https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html
+https://creativecommons.org/licenses/by-sa/4.0/
+https://creativecommons.org/licenses/by-sa/2.1/jp/
+The upstream licence and requested attributions are in reference/Z-Anatomy-LICENSE.txt.
+
+Interoceptomics dedicates its original reader, code, text and instrument illustration to the public domain under CC0 1.0. The anatomical mesh and the study-derived recordings retain their licences as described above.
+https://creativecommons.org/publicdomain/zero/1.0/ (reference/CC0-1.0.txt)

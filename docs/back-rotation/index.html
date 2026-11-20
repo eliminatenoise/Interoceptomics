@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>How far does the back sensor turn? · Interoceptomics</title>
+    <link rel="stylesheet" href="reader.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the reader</a>
+    <header>
+      <a class="brand" href="https://eliminatenoise.github.io/Interoceptomics/"
+        >Interoceptomics</a
+      >
+      <nav aria-label="Reader navigation">
+        <a href="#record">Recording</a><a href="#sites">Electrode sites</a
+        ><a href="#compare">Four people</a><a href="#sources">Sources</a>
+      </nav>
+    </header>
+    <main id="main">
+      <h1>How far does the back sensor turn?</h1>
+      <p class="intro">
+        One person walks for five seconds, then stands still. A sensor strapped
+        to their back records each small turn. Two patches on their skin pick up
+        electrical activity at the same time.
+      </p>
+      <section class="record" id="record" aria-labelledby="replay-title">
+        <div class="record-head">
+          <div>
+            <h2 id="replay-title">Replay the recording</h2>
+            <p class="sub">
+              Person S01 · Trial 02 · First five-second block of each task
+            </p>
+          </div>
+          <div class="toggle" role="group" aria-label="Recorded task">
+            <button id="walking" aria-pressed="true">Walking</button
+            ><button id="standing" aria-pressed="false">Standing</button>
+          </div>
+        </div>
+        <div class="instrument">
+          <div class="pose">
+            <h3>Sensor orientation</h3>
+            <svg
+              id="device"
+              role="img"
+              aria-labelledby="pose-caption"
+              viewBox="0 0 300 164"
+            ></svg>
+            <p id="pose-caption">
+              The solid plate shows the sensor now. The outline marks its
+              orientation at the start of this block. The plate stays centred so
+              you can see it turn.
+            </p>
+          </div>
+          <div class="timeline">
+            <div class="metric">
+              <div>
+                <h3>Turn over the next tenth of a second</h3>
+                <output id="degrees"></output>
+              </div>
+            </div>
+            <svg
+              id="motion"
+              viewBox="0 0 480 128"
+              role="img"
+              aria-label="Measured rotation in degrees during the selected task"
+            ></svg>
+            <p id="times"></p>
+          </div>
+        </div>
+        <div class="transport">
+          <button id="play">Play</button
+          ><label for="cursor">Recording time</label
+          ><input
+            id="cursor"
+            type="range"
+            min="0"
+            max="489"
+            value="100"
+            step="1"
+          /><output id="cursor-label" for="cursor"></output>
+        </div>
+        <p class="hint">
+          Use the arrow keys on the time slider to move by 0.01 s. The last
+          tenth of a second supplies the endpoint for the last displayed turn.
+        </p>
+      </section>
+      <div class="columns">
+        <section class="site" id="sites" aria-labelledby="sites-title">
+          <h2 id="sites-title">Where the patches sat</h2>
+          <p>
+            The researchers felt for a bone in the neck and another in the lower
+            back to line up the two patches. Choose a patch to see its landmark
+            and read from its contacts.
+          </p>
+          <div class="toggle" role="group" aria-label="Recording region">
+            <button id="upper" aria-pressed="true">Upper back · C4</button
+            ><button id="lower" aria-pressed="false">Lower back · L2</button>
+          </div>
+          <div class="anatomy-grid">
+            <figure>
+              <div class="canvas-wrap">
+                <canvas
+                  id="bones"
+                  tabindex="0"
+                  aria-label="Rotatable reference vertebrae. Use arrow keys to rotate and Home to reset."
+                ></canvas>
+                <div class="orbit">
+                  <button id="left" aria-label="Turn bones left">↶</button
+                  ><button id="right" aria-label="Turn bones right">↷</button
+                  ><button id="back-view">Back view</button
+                  ><button id="reset">Reset</button>
+                </div>
+              </div>
+              <figcaption id="landmark"></figcaption>
+            </figure>
+            <div class="contacts">
+              <h3>Choose a contact</h3>
+              <p class="hint">View from behind · 1 cm spacing</p>
+              <div
+                id="layout"
+                role="group"
+                aria-label="Patch contacts in published row and column order"
+              ></div>
+            </div>
+          </div>
+          <p class="hint">
+            The bones come from a reference adult. The coloured disc marks the
+            level used to align contact 2. The study gives no individual 3D skin
+            coordinates for the contacts. <a href="https://www.nature.com/articles/s41597-026-07592-7/figures/1">See the study photograph, panel c</a>.
+          </p>
+        </section>
+        <section class="voltage" aria-labelledby="volt-title">
+          <h2 id="volt-title">What the skin picked up</h2>
+          <p>
+            Each dot on the patch is a metal contact. Its voltage is measured
+            relative to a separate contact on the right shoulder blade.
+          </p>
+          <div class="volt-meta">
+            <h3 id="volt-label"></h3>
+            <output id="volts"></output>
+          </div>
+          <svg
+            id="signal"
+            viewBox="0 0 440 168"
+            role="img"
+            aria-label="Voltage in microvolts across the selected five-second block"
+          ></svg>
+          <p id="volt-note"></p>
+          <p id="quality"></p>
+          <p class="hint">
+            Nearby muscles, the heartbeat and movement at the skin can all
+            contribute. The voltage at one contact cannot tell us which nerve
+            fired or which joint moved.
+          </p>
+        </section>
+      </div>
+      <section class="cohort" id="compare">
+        <div>
+          <h2>Walking and standing across four people</h2>
+          <p>
+            For each person, we took two recordings and split each walking or
+            standing block into intervals of 0.10 s. The table gives the middle
+            turn for each task. Each interval stays within its original task
+            block.
+          </p>
+          <p id="cohort-note" class="hint"></p>
+        </div>
+        <table>
+          <caption>
+            Median measured sensor turn per 0.10 s
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Person</th>
+              <th scope="col">Walking</th>
+              <th scope="col">Standing</th>
+              <th scope="col">Intervals<br />walk / stand</th>
+            </tr>
+          </thead>
+          <tbody id="people"></tbody>
+        </table>
+      </section>
+      <details id="sources">
+        <summary>How the measurements and anatomy were made</summary>
+        <p>
+          The sensor stored four numbers for each orientation, called a
+          quaternion. The authors list the components as W, X, Y and Z. We
+          divide by their length, then compare the readings exactly 200 stored
+          samples apart. Twice the inverse cosine of the absolute dot product
+          gives the amount of turn, in radians. We convert it to degrees.
+          Flipping the signs of all four numbers leaves that amount unchanged.
+        </p>
+        <p>
+          In the 3D sensor view, the block’s first orientation sets the
+          reference. The camera shows the sensor in its own coordinate system.
+          The recording gives no path through the room and no angles for
+          individual vertebrae. The readings share a 2,000 Hz clock with the
+          skin recordings, but the orientation sensor updates internally at 100
+          Hz. The viewer reads its orientation every 0.01 s.
+        </p>
+        <p>
+          The anatomical model shows the bones on either side of each landmark.
+          Contact spacing, numbering and reference levels come from Experiment
+          2. The paper’s Figure 1 shows the actual recording arrangement. The
+          study authors call the upper patch the brachial matrix and the lower
+          patch the lumbar matrix. Those names describe the recording regions.
+        </p>
+        <p>
+          The skin plots average 20 consecutive raw voltage samples into each
+          0.01 s bin. The mean keeps its sign. Original null and noise flags are
+          shown when they apply to the chosen contact. The display retains
+          flagged readings, including any uncorrected artefacts. The four-person
+          comparison describes these recordings only. Both graphs replay
+          measurements.
+        </p>
+        <p>
+          <a href="https://doi.org/10.5281/zenodo.19065545"
+            >Gracia Laso and colleagues’ dataset, v2</a
+          >
+          ·
+          <a href="https://www.nature.com/articles/s41597-026-07592-7/figures/1"
+            >Study placement photographs</a
+          >
+          ·
+          <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy"
+            >Z-Anatomy reference models</a
+          >
+          · <a href="NOTICE.txt">Credits and licences</a> ·
+          <a href="README.txt">Reproduce the figures</a>
+        </p>
+      </details>
+    </main>
+    <footer>
+      <a
+        href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/back-rotation.zip"
+        >Download the offline reader</a
+      >
+    </footer>
+    <script src="recording.js"></script>
+    <script src="reference/spine.js"></script>
+    <script src="reference/renderer.js"></script>
+    <script src="reader.js"></script>
+  </body>
+</html>

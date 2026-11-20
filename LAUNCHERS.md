@@ -44,3 +44,7 @@ Extract the ZIP and open the launcher for Windows, macOS or Linux in the extract
 ## One wrist stimulus, five recordings
 
 Extract [the offline reader](downloads/cervical-signals.zip) and open `Open on Windows.cmd`, `Open on macOS.command` or `Open on Linux.sh`. Opening the extracted `index.html` also works. The recorded waveforms, electrode montage and rotatable reference anatomy are bundled. [Open the browser edition](https://eliminatenoise.github.io/Interoceptomics/cervical-signals/).
+
+## Back rotation during walking and standing
+
+Extract [the offline reader](downloads/back-rotation.zip), then open its Windows, macOS or Linux launcher or its extracted index.html. The sensor replay, voltage traces and 3D vertebrae run directly in your browser. [Open the hosted reader](https://eliminatenoise.github.io/Interoceptomics/back-rotation/)

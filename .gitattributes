@@ -34,3 +34,8 @@ docs/cervical-signals/*.cmd whitespace=cr-at-eol
 docs/cervical-signals/reference/scalp/*.bnd whitespace=-trailing-space
 docs/cervical-signals/reference/scalp/*.vol whitespace=-trailing-space
 docs/cervical-signals/reference/CC-BY-4.0.txt whitespace=-blank-at-eof
+
+docs/back-rotation/** -text
+docs/back-rotation/*.cmd whitespace=cr-at-eol
+docs/back-rotation/reference/CC-BY-4.0.txt whitespace=-blank-at-eof
+docs/back-rotation/reference/Z-Anatomy-LICENSE.txt whitespace=-trailing-space,-blank-at-eof

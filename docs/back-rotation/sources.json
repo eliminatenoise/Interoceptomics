@@ -1,0 +1,69 @@
+{
+  "title": "How far does the back sensor turn?",
+  "recording": {
+    "authors": [
+      "Desirée Irene Gracia Laso",
+      "Eduardo Iáñez",
+      "Mario Ortiz",
+      "José M. Azorín"
+    ],
+    "dataset": "https://doi.org/10.5281/zenodo.19065545",
+    "version": "v2",
+    "paper": "https://doi.org/10.1038/s41597-026-07592-7",
+    "placement_figure": "https://www.nature.com/articles/s41597-026-07592-7/figures/1",
+    "licence": "CC BY 4.0",
+    "recording": "Experiment 2. Skin voltage in microvolts; normalized back sensor orientation. Stored at 2000 Hz. The authors give 100 Hz internally updated orientation estimates, in W, X, Y, Z order.",
+    "changes": "Every twentieth stored orientation and mean of twenty consecutive raw voltage samples per contact within the first walking and standing block of S01 trial 02. Four-person summaries use non-overlapping 200-gap intervals belonging to a single task block. No voltage filtering or model fit."
+  },
+  "trials": [
+    {
+      "archive": "Experiment2_S01_20240523.zip",
+      "member": "S01_20240523_trial_02.mat",
+      "sha256": "5fb8715aa7adb6ab10cb2cc8c0361212bfdd994b863afcba6084e9546e90c2a7"
+    },
+    {
+      "archive": "Experiment2_S01_20240523.zip",
+      "member": "S01_20240523_trial_03.mat",
+      "sha256": "7946fbd8c77b1151564f6339b36d6f2374fff4249ceb3960461e37fc7769736d"
+    },
+    {
+      "archive": "Experiment2_S02_20240611.zip",
+      "member": "S02_20240611_trial_02.mat",
+      "sha256": "d3944deb9bc0f9a844e74ac7233c05452be0829762847408f8553a92f4cecc96"
+    },
+    {
+      "archive": "Experiment2_S02_20240611.zip",
+      "member": "S02_20240611_trial_03.mat",
+      "sha256": "ecad82eda47d7aa309b72ed586ce5c69ce419ff7ed9c2f712821e266a23eddb4"
+    },
+    {
+      "archive": "Experiment2_S03_20240507.zip",
+      "member": "S03_20240507_trial_02.mat",
+      "sha256": "7ccb1bc9ac8abd72dac98af4578f423410c3d5ae4f9ed2f20b1ac8bba055a1ec"
+    },
+    {
+      "archive": "Experiment2_S03_20240507.zip",
+      "member": "S03_20240507_trial_03.mat",
+      "sha256": "4f1211c12632fee24a4609abc25372fd2f29f64cc47dde5edd218f94103cc8f7"
+    },
+    {
+      "archive": "Experiment2_S05_20240507.zip",
+      "member": "S05_20240507_trial_02.mat",
+      "sha256": "b5963b0f14902f5b5ef1e96802c3296610196140c750363271bb444a21accead"
+    },
+    {
+      "archive": "Experiment2_S05_20240507.zip",
+      "member": "S05_20240507_trial_03.mat",
+      "sha256": "fe8e0bfd9098cc5de555b02f60e4dcd3342ce45e53711981dd311cd6af151c8d"
+    }
+  ],
+  "anatomy": {
+    "source": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+    "upstream_archive_url": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/master/Z-Anatomy.zip",
+    "archive_sha256": "e029688545627bd0214b269e1063143abb580aad72b2c2445d6d8a9a0d9da736",
+    "blend_sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+    "authors": "Z-Anatomy, Gauthier Kervyn and Marcin Zielinski; BodyParts3D, The Database Center for Life Science.",
+    "licence": "CC BY-SA 4.0, derived from BodyParts3D under CC BY-SA 2.1 Japan",
+    "parts": "C3–C6 and L1–L4 vertebrae and their intervening discs. Static reference adult, with original evaluated relative mesh positions and triangles, independently centred and positions rounded to 0.05 mm."
+  }
+}

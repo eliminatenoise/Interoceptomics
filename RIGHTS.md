@@ -156,3 +156,7 @@ Ofner et al.’s codebook, figure copies, dataset-derived channel descriptions, 
 ## Cervical surface recordings
 
 The voltage averages come from Nierula and colleagues’ OpenNeuro ds004388 v1.0.0 (CC0). The study drawings and Human Reference Atlas surfaces carry CC BY 4.0. The FieldTrip scalp and standard electrode coordinates retain GPL v3 and the Colin27 notice. The reader includes these notices and describes the crops, surface simplification and schematic electrode positions. [Sources and licenses](docs/cervical-signals/NOTICE.txt).
+
+## Back sensor and skin recordings
+
+Gracia Laso and colleagues’ Experiment 2 measurements and their adaptations retain CC BY 4.0. The reference vertebrae and discs derive from Z-Anatomy and BodyParts3D under CC BY-SA. [Complete attributions, changes and licences](docs/back-rotation/NOTICE.txt)

@@ -1,0 +1,416 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  font:
+    16px/1.55 system-ui,
+    -apple-system,
+    Arial,
+    sans-serif;
+  color: #192b35;
+  background: #f7f7f3;
+  --ink: #182b34;
+  --teal: #166957;
+  --line: #c4ceca;
+  --paper: #fffefa;
+}
+body {
+  margin: 0;
+}
+header,
+main,
+footer {
+  max-width: 1210px;
+  padding-inline: clamp(16px, 4vw, 60px);
+  margin: auto;
+}
+header {
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-block: 15px;
+}
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+}
+a {
+  color: #185a51;
+  text-underline-offset: 3px;
+}
+.brand {
+  font-weight: 780;
+  color: var(--ink);
+  text-decoration: none;
+}
+header nav a {
+  font-size: 0.87rem;
+}
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+h1 {
+  max-width: 870px;
+  font-size: clamp(2.35rem, 5.4vw, 4.9rem);
+  line-height: 1.03;
+  letter-spacing: -0.06em;
+  margin-top: clamp(25px, 4vw, 50px);
+}
+.intro {
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  max-width: 750px;
+  margin: 15px 0 25px;
+}
+h2 {
+  font-size: clamp(1.36rem, 2.4vw, 1.8rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+h3 {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.record,
+.columns section,
+.cohort {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  padding: clamp(16px, 2.5vw, 30px);
+  min-width: 0;
+}
+.record-head,
+.transport,
+.toggle,
+.volt-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.record-head,
+.volt-meta {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.record-head {
+  margin-bottom: 20px;
+}
+.sub,
+.hint,
+figcaption,
+footer {
+  color: #4e6266;
+  font-size: 0.87rem;
+}
+.sub {
+  margin-top: 4px;
+}
+button {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: #fffefa;
+  border-radius: 5px;
+  border: 1px solid #9dafac;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+button[aria-pressed='true'] {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: white;
+}
+button:focus-visible,
+canvas:focus-visible,
+input:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #ca712d;
+  outline-offset: 2px;
+}
+.toggle {
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.instrument {
+  display: grid;
+  grid-template-columns: minmax(0, 0.77fr) minmax(0, 1.3fr);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #173942;
+  color: #fffefa;
+}
+.pose,
+.timeline {
+  padding: 17px clamp(12px, 2vw, 24px);
+  min-width: 0;
+}
+.pose {
+  border-right: 1px solid #557077;
+  background: #214751;
+}
+.pose svg {
+  display: block;
+  width: 100%;
+  height: 137px;
+}
+.pose p,
+.timeline p {
+  font-size: 0.84rem;
+  color: #d4e4e2;
+}
+.timeline svg,
+.voltage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.timeline output {
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: 1.2;
+  display: block;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #c0f1d6;
+}
+.transport {
+  flex-wrap: wrap;
+  margin-block: 16px 5px;
+}
+.transport input {
+  flex: 1;
+  min-width: 80px;
+  accent-color: var(--teal);
+}
+.transport output,
+output,
+td {
+  font-variant-numeric: tabular-nums;
+}
+.transport label {
+  font-size: 0.87rem;
+}
+.transport output {
+  min-width: 6.4em;
+}
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 15px;
+  margin-block: 16px;
+}
+.columns section > p,
+.cohort p {
+  margin-block: 9px;
+}
+.anatomy-grid {
+  display: grid;
+  grid-template-columns: minmax(130px, 1fr) auto;
+  gap: 12px;
+  margin-block: 14px 0;
+}
+.canvas-wrap {
+  height: 240px;
+  position: relative;
+  background: linear-gradient(140deg, #e2e8e4, #c5d2cb);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.canvas-wrap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: none;
+}
+.orbit {
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+  display: flex;
+  gap: 4px;
+}
+.orbit button {
+  padding: 3px 7px;
+  font-size: 0.76rem;
+}
+figcaption {
+  margin: 6px 0;
+}
+.contacts .hint {
+  font-size: 0.72rem;
+  margin: 3px 0 8px;
+}
+.contacts #layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.contacts button {
+  border-radius: 4px;
+  font-size: 0.76rem;
+  padding: 1px;
+  min-height: 23px;
+}
+.volt-meta {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin: 18px 0 7px;
+}
+.volt-meta output {
+  color: var(--teal);
+  font-size: 1.35rem;
+  font-weight: 720;
+}
+.voltage svg {
+  background: #f1f5f0;
+  border-radius: 6px;
+}
+.cohort {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+table {
+  border-collapse: collapse;
+  align-self: start;
+  font-size: 0.88rem;
+}
+th,
+td {
+  padding: 5px 3px;
+  text-align: right;
+  border-bottom: 1px solid var(--line);
+}
+th:first-child {
+  text-align: left;
+}
+caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+details {
+  margin: 20px 0;
+  border-block: 1px solid var(--line);
+  padding: 14px 0;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+details p {
+  max-width: 90ch;
+  margin-block: 12px;
+}
+footer {
+  padding-bottom: 25px;
+}
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 10px;
+  background: white;
+}
+.charttext {
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+}
+.timeline svg,
+.voltage svg {
+  overflow: visible;
+}
+@media (max-width: 800px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+  .cohort {
+    grid-template-columns: 1fr;
+  }
+  .canvas-wrap {
+    height: 270px;
+  }
+  .anatomy-grid {
+    grid-template-columns: minmax(160px, 1.1fr) minmax(120px, 0.7fr);
+  }
+}
+@media (max-width: 590px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+  header nav {
+    gap: 3px 13px;
+  }
+  header nav a {
+    font-size: 0.8rem;
+  }
+  .instrument {
+    grid-template-columns: 1fr;
+  }
+  .pose {
+    border: 0;
+    border-bottom: 1px solid #557077;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3px;
+    align-items: center;
+  }
+  .pose h3 {
+    grid-column: 1/-1;
+  }
+  .pose svg {
+    height: auto;
+  }
+  .pose p {
+    font-size: 0.77rem;
+  }
+  .record-head {
+    margin-bottom: 12px;
+  }
+  .timeline {
+    padding-top: 13px;
+  }
+  .transport label {
+    display: block;
+  }
+  .transport output {
+    min-width: auto;
+  }
+  .transport input {
+    flex-basis: 40%;
+  }
+  .anatomy-grid {
+    grid-template-columns: minmax(125px, 1fr) 115px;
+    gap: 8px;
+  }
+  .canvas-wrap {
+    height: 245px;
+  }
+  .cohort {
+    gap: 7px;
+  }
+  table {
+    font-size: 0.82rem;
+  }
+}
+
+h1 {
+  text-wrap: balance;
+}
+.orbit {
+  flex-wrap: wrap;
+}
+.orbit button {
+  padding-inline: 5px;
+}
