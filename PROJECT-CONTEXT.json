@@ -14,19 +14,19 @@
       }
     ]
   },
-  "scope_note": "Names and definitions identify the programme and development scope. They do not establish a completed game, validated model, biological or clinical capability.",
-  "release_policy": "Current experimental previews are published with their actual edition and known limitations. Current selected files replace superseded live copies; Git history and original local evidence remain. Preview publication does not establish finished-product acceptance.",
-  "license_note": "Project-owned contributions CC0-1.0; third-party materials retain their own rights and notices.",
-  "development_status": "Model work active; presentation and matched-script work paused.",
-  "programme_focus": "All three projects are active, with priority NeuroTranslation, NeuroSurge, then Interoceptomics.",
+  "scope_note": "Names and definitions identify the programme and its scope. They do not establish a validated model or any biological or clinical capability.",
+  "release_policy": "Each new version replaces the one before it on the main branch; Git history keeps the earlier ones. Experimental previews are published with their known limits. Publishing a version does not mean it has been validated.",
+  "license_note": "The project's own work is CC0-1.0. The atlas anatomy (CC BY 4.0), Three.js (MIT) and the fonts embedded in the script PDFs keep their own terms. See RIGHTS.md.",
+  "development_status": "Atlas viewer active; presentation and its scripts paused.",
+  "programme_focus": "Three projects share the Brain2Body programme: NeuroTranslation, NeuroSurge and Interoceptomics. All three are active.",
   "experimental_preview": {
-    "status": "partial current script preview",
-    "source": "existing provisional outputs, created4November2026UTC",
+    "status": "partial: the two current scripts, without their slides",
+    "source": "script files produced on 4 November 2026 (UTC), published unchanged",
     "core_files": 4,
     "presentation_included": false,
-    "reason": "exact third-party image rights remain unresolved",
-    "site": "https://eliminatenoise.github.io/Interoceptomics/",
-    "development": "Presentation and matched-script work paused; existing script files remain available unchanged.",
+    "reason": "22 of the slide deck's 88 pictures have not been cleared for redistribution",
+    "site": "https://eliminatenoise.github.io/Interoceptomics/#scripts",
+    "development": "Presentation and its scripts paused; the published script files stay available unchanged.",
     "complete_scientific_or_production_acceptance": false
   },
   "experimental_model_preview": {
@@ -34,28 +34,28 @@
     "archive": "downloads/brain-r8/Interoceptomics-Brain-R8-Experimental-Preview-R33.zip",
     "bytes": 40595864,
     "sha256": "44047e76e8850cbd67b1119c478cbee14fafddec72c8400ddf512c41858870af",
-    "source_and_rights": "RIGHTS.md#brain-r8-package-r33",
+    "source_and_rights": "RIGHTS.md#the-atlas-viewer-download",
     "regular_files": 76,
     "uncompressed_bytes": 84176440,
     "package_manifest": {
       "file": "PACKAGE-MANIFEST.json",
       "bytes": 96047,
       "sha256": "3e35623967b3e598921f6f388090a6732a697d967014a99ddfeeb3b31a5c28d3",
-      "scope": "Current identities for 75 files excluding the manifest.",
-      "historical_inner_record": "The geometry-era payload MANIFEST.json records older registry and viewer bytes."
+      "scope": "Sizes and checksums of the 75 other files in the archive.",
+      "historical_inner_record": "payload/brain-outward-r6/MANIFEST.json inside the archive is an older record; it describes earlier registry and viewer files."
     },
-    "change": "Find an occupied native label by name, abbreviation or full ID and open its nearest occupied voxel to the side-specific centroid.",
+    "change": "Find a region by name, abbreviation or atlas number and jump to a point inside it on the chosen side.",
     "source_comparison": {
-      "status": "historical R3 comparison retained unchanged; not rerun",
+      "status": "The comparison of region names with the atlas table was made once, on an early edition, and has not been repeated.",
       "current_registry_bytes": 269503,
       "current_registry_sha256": "9d27a9eb3d4c6b938bd95e323af845baf04bddb16ed5e94b7fc5081dca8bc0ea"
     },
-    "limitations": "The preview accounts for 121 of 141 occupied source labels across 44 meshes and their source records. Thirty-four labels have separate meshes, 83 have samples on combined surfaces and five appear as atlas labels only. A further 20 lack included surfaces. The source is one population atlas. Independent cross-specimen contour error, individual fit, neural function, the original C01 check, native Windows/macOS/physical mobile execution and broader export acceptance remain open.",
+    "limitations": "The 3D model holds 121 of the atlas's 141 regions in 44 surfaces: 34 regions have a surface of their own, 82 more are parts of combined surfaces, and 5 are listed by name only. 20 regions have no surface. The source is one population atlas, left half only. Not checked or not claimed: agreement with other specimens, fit to any person, neural function, one planned visual check, and running on Windows, macOS or a phone.",
     "viewer": {
       "file": "payload/brain-outward-r6/viewer.js",
-      "bytes": 33527,
-      "sha256": "6307a63d1080d3755fdedba303142a490f5e278505441b83638094db4933e865",
-      "code_change": "Draw registered endpoints and straight segments beside the existing atlas section frame."
+      "bytes": 36694,
+      "sha256": "195ad459d55661e5433e30cca97a843d0ba55495ef8fcfb8741fa4c6d9f318ae",
+      "code_change": "Last changed when the three flat cuts through one point were added."
     },
     "software_checks": {
       "kind": "Constructed exact-handler two-vertex CPU colour-input fixture; renderer, scene, DOM and camera substituted.",
@@ -90,7 +90,7 @@
       "startup": "R9 test results cover four retained HTTP 404 cases. R12 checked normal startup and a blocked optional red nucleus asset on AMD/RADV and SwiftShader. Other faults and context loss remain open. R14 additionally checked either and both optional files returning HTTP 404 and a VPL checksum mismatch."
     },
     "complete_scientific_or_production_acceptance": false,
-    "launchers": "Windows, macOS and Linux launchers require Python 3.10+ and a WebGL browser. The Linux launcher served the tested model on loopback. Default-browser opening and native Windows/macOS execution remain unverified.",
+    "launchers": "The Windows, macOS and Linux start files need Python 3.10 or newer and a browser with WebGL. The Linux start file served the tested viewer on the local machine. Opening the default browser, and running on Windows or macOS, have not been tried.",
     "startup_error_source_checks": {
       "kind": "Static renderer-startup source checks only",
       "passed": 20,
@@ -101,28 +101,12 @@
       "limits": "Module import/parse errors, pre-try constants and later asynchronous interaction failures remain outside the repair; exotic thrown-value coercions remain unqualified.",
       "edition": "Historical package R7"
     },
-    "historical_package_R8_viewer_check": {
-      "file_in_archive": "VIEWER-CHECKS.json",
-      "bytes": 1941,
-      "sha256": "92f19a90b325b955b571840d5f86b97137cb07cf836da384e9270501bc0436d6",
-      "scope": "Headless Linux Chromium 155, ANGLE SwiftShader. Initial view matched R7 byte for byte at 900 × 517. Lateral, insula group and isolation state matched. A missing geometry file returned HTTP 404, displayed recovery guidance and left viewer readiness unset. A manual reload after restoring the file opened all 40 meshes.",
-      "extracted_linux_launcher": true,
-      "prior_public_commit": "6fa8cd8829b522b688ee0cac58f8b01be618a636"
-    },
     "red_nucleus": {
       "asset": "payload/brain-outward-r6/assets/red-nucleus-source-left.glb",
       "sha256": "3e67055edca4fe9d1c402aa8e1ad1acb8358c62aa7d203715b501e2a1d89248c",
       "allen_label": 12247,
       "side": "original source-left",
       "evidence": "Exact atlas-derived geometry independently checked. Comparison to separate MRI and histology remains qualitative."
-    },
-    "historical_package_R9_viewer_check": {
-      "file_in_archive": "VIEWER-CHECKS.json",
-      "bytes": 2434,
-      "sha256": "b643391441d7a021daecb50f40a24165476bbaf61ff4f92108023b96a55ab6c0",
-      "scope": "Headless Linux Chromium 155 with ANGLE SwiftShader. Exact R8 initial 555 × 517 3D canvas match. Keyboard evidence covers source-only, shared samples and separate mesh choices, focus, isolation, reset and filtering. Four HTTP 404 cases kept controls locked.",
-      "extracted_linux_launcher": true,
-      "prior_public_commit": "c73bef4533c7fa2610fdc9154e82a2c85d1d81be"
     },
     "viewer_layout": {
       "page": "payload/brain-outward-r6/index.html",
@@ -146,27 +130,6 @@
       "annotation_planes_css": "payload/brain-outward-r6/annotation-planes.css",
       "annotation_planes_css_sha256": "8d923f517d7b9f5a594971c17b5159731c3b63f60b41102ee511495bffe5165c"
     },
-    "historical_package_R10_viewer_check": {
-      "file_in_archive": "VIEWER-CHECKS.json",
-      "bytes": 3122,
-      "sha256": "4c9fd7f5d435c01c5f75edf8b26cb44fbbe9163b526ddc54451e54794b1fabda",
-      "scope": "Linux Chromium/SwiftShader on the packaged Linux launcher. Exact R9 default and restored canvas, keyboard-selected left atlas isolation, focus, rotation, ordinary Insula and missing optional GLB readback.",
-      "prior_public_commit": "bbdc92dbc4559282fda029116f1e9588106922b3"
-    },
-    "historical_package_R11_viewer_check": {
-      "file_in_archive": "VIEWER-CHECKS.json",
-      "bytes": 4675,
-      "sha256": "5db0e4600edde930a13060996d8392c5d46641279ee4f942b5d0d21a8eef7358",
-      "scope": "Extracted Linux launcher in Chromium/SwiftShader. Measured overview overlap at three matched sizes, exact scene/camera pixels, keyboard focus/restore/reset, rotation and blocked optional detail.",
-      "prior_public_commit": "4d798183f4a881106075a8aa183b755bc0e35831"
-    },
-    "historical_package_R12_viewer_check": {
-      "file_in_archive": "VIEWER-CHECKS.json",
-      "bytes": 16144,
-      "sha256": "4097adcb849fc9518eef7d5703fb9eece243975d07401b867d38105de3f0bebc",
-      "scope": "Linux Chromium on one AMD/RADV host and through SwiftShader, with five DPR 1 startup sizes and same-session width and orientation changes. Chromium emulation changed display density together with viewport size. Independent same-size physical display transitions, original C01 visual/colour checks, native Windows/macOS, quantitative anatomy, held-out evidence and full export or performance acceptance remain open.",
-      "prior_public_commit": "70e394451c470ac5f0adb6b93ca2ef009c27d8e9"
-    },
     "vpl": {
       "asset": "payload/brain-outward-r6/assets/vpl-source-left.glb",
       "bytes": 151960,
@@ -183,20 +146,6 @@
       "change_notice": "sources/allen-version1/VPL-NOTICE.txt",
       "offline_review_sha256": "1c7ced7da7081916153237b0615f4d4625c4fdb68a89a640aa2110ece53d2ac0",
       "evidence": "The mesh shows one population-reference atlas boundary. Individual anatomy and neural function require separate evidence."
-    },
-    "historical_package_R13_thalamic_disclosure_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "path": "Original Linux launcher, Chromium keyboard and mouse controls",
-      "scope": "VPL and VPM open under Atlas labels only with isolation and focus disabled. The linked sources stay available. The left red nucleus can still be turned, resized while isolated and restored.",
-      "prior_public_commit": "62b1190504546dc168c23c7eb4262401a22181d4"
-    },
-    "historical_package_R14_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "path": "Extracted ZIP, unchanged Linux launcher, browser keyboard and mouse controls",
-      "scope": "VPL isolates, rotates, focuses, resizes in the same tab and returns to context. The viewer switches between VPL and the red nucleus, and retains atlas entries when the optional files fail independently. VPM stays atlas-only. The initial scene and the checked red nucleus frames match R13 pixel for pixel.",
-      "prior_public_commit": "fb82021e680171fc8527c89f8b9923d0b493f6eb"
     },
     "vpm": {
       "asset": "payload/brain-outward-r6/assets/vpm-source-left.glb",
@@ -337,26 +286,6 @@
         }
       }
     },
-    "historical_package_R15_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. VPM isolates, turns, keeps its camera pose when resized, focuses and returns to context. The five checked startup, selection and isolation frames for the first view, VPL and the red nucleus match R14 pixel for pixel. In missing and damaged asset tests, a failed surface stays searchable as an atlas label and the other surfaces remain usable.",
-      "compared_to_public_commit": "6aaa899497860456d5ed68a7f4b7f823ff230162"
-    },
-    "historical_package_R16_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The two surfaces draw and can be picked in the comparison. Its camera survives rotation and live resize. Returning restores the earlier selection and pose, including single isolation. The checked ordinary startup, deep-context and single-nucleus frames match R15 pixel for pixel. If one mesh fails, the source label remains searchable and the other mesh can still be isolated.",
-      "compared_to_commit": "518edcb7440fcdafb8b3dcd7582b4d73183c4dc0",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R17_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The boundary follows the two labels as you turn or resize the model. Mouse, keyboard and emulated touch passed. If the shared-face file cannot load, both surfaces remain available. A missing surface keeps its searchable atlas label. R16 and R17 drew identical frames for the checked startup, deep context, individual nuclei and comparison with the overlay off.",
-      "compared_to_commit": "27dbff508e1e04c3b0acd87758b4c95294100913",
-      "full_scientific_or_native_acceptance": false
-    },
     "parietal_operculum": {
       "file": "payload/brain-outward-r6/assets/parietal-operculum-source-left.glb",
       "changes": "sources/allen-version1/PARIETAL-OPERCULUM-NOTICE.txt",
@@ -420,99 +349,6 @@
         "scope": "All native layers containing PaO, drawing original annotation IDs in each full plane. Only the original left PaO mesh is isolated in the 3D view."
       }
     },
-    "historical_package_R18_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. The rendered tiles, shared edges and 3D frame matched the source grid at all 85 selectable levels. Keyboard and emulated touch passed. If the section file cannot load, the paired surfaces and shared faces stay available.",
-      "compared_to_commit": "13d23892afd10127142e52539a8c2498fc370be5",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R19_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV opened the extracted ZIP through its Linux launcher. Keyboard and emulated touch exercised isolation and focus. The combined cortical view stays available if the separate mesh fails. All 85 VPL/VPM source sections and camera restoration passed the browser checks.",
-      "compared_to_commit": "67fc95e7dac559b700c323f6770c17b84d1e7311",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R20_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV checked keyboard, emulated touch and the accessibility tree. Restore context and Reset view returned to the named preset in all four atlas views. Focus returned to the selection. Earlier action status cleared on context changes. The model pixels matched R19. All 85 VPL/VPM sections and return to the prior comparison view passed.",
-      "compared_to_commit": "75547a5d81d49606933c114a0ff311522690b0bd",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R21_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium 155.0.8059.84 on AMD/RADV checked all 192 PaO planes, point readout, the 3D frame, keyboard and emulated touch. All 85 VPL/VPM sections passed. The startup, restored and isolated views matched R20 at the checked camera presets.",
-      "compared_to_commit": "c799fc29c5208e6661c30f2a3fc8485d076a38ca",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R22_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "A source-volume comparison matched every voxel in the distributed two-label crop. All 85 levels and registered 3D frames passed in Linux Chromium. Point inspection and clearing the readout and marker on close were checked by keyboard, mouse and emulated touch. Native Windows, macOS, physical mobile and broader export checks remain open.",
-      "point_samples": 214,
-      "compared_to_commit": "c4b5cd6bddfc44581b370dddab1d205ee7f69e5e",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R23_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium with AMD/RADV checked the same VPL/VPM voxel across three views, the section marker, registered 3D frame, all 85 levels, unavailable levels at the crop edge, keyboard and emulated touch. All 192 PaO planes and four camera presets passed their existing checks. Native macOS, Windows and physical mobile execution remain open.",
-      "point_samples": 214,
-      "compared_to_commit": "e1fab2e575ef225e4811188b92f8bad3c061f7e8",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R24_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium with AMD/RADV checked selection in PaO and VPL/VPM across three views, the section marker, registered 3D frame, levels outside the lists, PaO points outside the crop, keyboard and emulated touch. All 192 PaO planes, 85 VPL/VPM levels and four camera presets passed their existing checks. Native macOS, Windows and physical mobile execution remain open.",
-      "parietal_point_samples": 32,
-      "thalamic_point_samples": 214,
-      "compared_to_commit": "b6eb261a35645a0bf3b9e483d98cc0800dafc996",
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R25_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked keyboard and emulated touch coordinate entry, section markers, the registered 3D frame and camera pose. The 469 section rasters matched R24. The four camera presets passed isolation and restoration checks. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "0da36ce533e0de44761ca8c1da4fa07095f9df8a",
-      "section_rasters_compared": 469,
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R26_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked keyboard copy and paste, cross-port reopening, a denied clipboard, an emulated touch viewport and unavailable saved locations. The 469 browse-section rasters matched R25. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "ffd45fffb08e5452f4f9abc477db883d4c87642e",
-      "section_rasters_compared": 469,
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R27_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked keyboard and touch-emulated comparisons, exact voxel-centre registration, and saved-view reopening across ports. All 469 browse-section rasters matched R26. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "7d5ad0a6537aa0f3d063e5708a382eb3ac01cc96",
-      "section_rasters_compared": 469,
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R28_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked measurement reopening across launcher ports, keyboard and emulated touch, clipboard fallback and rejected text that leaves the open section and pair intact. All 469 browse-section rasters matched R27. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "33965c4f3a2755b1cbf729910b957333b5a7c16a",
-      "section_rasters_compared": 469,
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R29_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked native source labels, 3D registration, missing planes, keyboard and emulated touch. All 469 browse-section rasters matched R28. Saved single voxels and paired measurements reopened in a fresh launch. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "29e42d502bce599e1053472a06118f42a46c1ca9",
-      "section_rasters_compared": 469,
-      "full_scientific_or_native_acceptance": false
-    },
     "ruler_annotation": {
       "original": "Allen Human Reference Atlas — 3D, 2020 v1.0.0 (RRID:SCR_017764)",
       "source": "https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz",
@@ -547,15 +383,6 @@
         "qfac": 1.0
       }
     },
-    "historical_package_R30_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The packed labels reproduce all 69,402,312 source voxels. All 469 browse-section rasters match R29. Saved voxel and measurement fragments reopen across launcher ports. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "71960e8edf2414e002e5deba167dadc74193d7ad",
-      "section_rasters_compared": 469,
-      "native_annotation_voxels_compared": 69402312,
-      "full_scientific_or_native_acceptance": false
-    },
     "annotation_planes": {
       "software": [
         "payload/brain-outward-r6/annotation-planes.js",
@@ -587,25 +414,6 @@
         "source": "Original ID at the native voxel. Midline is voxel-centre R = 0 mm. No alias or descendant substitution.",
         "selection": "Nearest occupied voxel to the same-ID, same-side centroid in millimetres. Lowest native flat index breaks exact ties."
       }
-    },
-    "historical_package_R31_viewer_check": {
-      "browser": "Linux Chromium 155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV checked mouse, keyboard and emulated touch. The categorical cuts were checked against original NIfTI voxel IDs and raster pixels. All 469 supplied browse rasters match R30. The ruler and saved fragments reopened across launcher ports. Native Windows, macOS and physical mobile execution remain open.",
-      "compared_to_commit": "1ea7601ad723ff31b788b59c34be677b95bebd55",
-      "section_rasters_compared": 469,
-      "native_annotation_pixels_compared": 8138944,
-      "full_scientific_or_native_acceptance": false
-    },
-    "historical_package_R32_viewer_check": {
-      "browser": "155.0.8059.84",
-      "renderer": "ANGLE (AMD, Vulkan 1.4.354 (AMD Radeon 8060S Graphics (RADV STRIX_HALO) (0x00001586)), radv)",
-      "scope": "Linux Chromium on AMD/RADV reproduced counts for all 141 occupied IDs directly from the original NIfTI data. The checks covered highlighted pixels, keyboard and pointer selection, emulated touch, the linked 3D marker, saved views and the ruler. All 469 supplied section rasters match R31. Native Windows, macOS and physical mobile checks remain open.",
-      "compared_to_commit": "22875cb18c65ae8205d59a42ddd852e64b2ce5f9",
-      "section_rasters_compared": 469,
-      "highlighted_native_pixels_compared": 5595524,
-      "original_label_ids_compared": 141,
-      "full_scientific_or_native_acceptance": false
     },
     "package_R33_viewer_check": {
       "compared_to_commit": "d6197935c2d78329f527d25205aa0c7ccfecf642",
