@@ -139,7 +139,7 @@ The slides are not published: 22 of their 88 pictures are known not to be cleare
 
 ## Three projects, one question
 
-Interoceptomics is one of three projects that ask the same question: what passes between the brain and the body? The brain sends orders out to the muscles, and the body reports back what it is doing and feeling. Each project comes at that traffic from a different side.
+Interoceptomics is one of three projects in one programme, Brain2Body, that ask the same question: what passes between the brain and the body? The brain sends orders out to the muscles, and the body reports back what it is doing and feeling. Each project comes at that traffic from a different side.
 
 - **[NeuroTranslation](https://github.com/eliminatenoise/NeuroTranslation)** predicts one recording of the body from another, most of them of a movement: brain, nerve, muscle, force or motion, recorded by scientists who share their data openly. Every prediction is checked against what was actually recorded, and so far a signal's own recent past, above all a hand's own recent movement, has been the forecast to beat. [Open its pages in your browser](https://eliminatenoise.github.io/NeuroTranslation/START.html)
 - **[NeuroSurge](https://github.com/eliminatenoise/NeuroSurge)** is a game for learning which part of the brain moves which part of the body. You look out from inside a body without skin. Turn your view to a coloured area of the brain in front of you, and the body part it controls moves; click a muscle and its area lights up. What the game's brain does is made up by the game's rules, not read from anyone's brain. [Play NeuroSurge in your browser](https://eliminatenoise.github.io/NeuroSurge/)
