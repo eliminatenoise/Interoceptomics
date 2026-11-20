@@ -28,11 +28,18 @@ published table entry. The header gives names at those indices. The spelling
 unit strings are blank, dimension codes are zero and digital/physical extrema
 match. Hardware timing offsets and physical calibration have not been established.
 Clock ticks and poses in this reader are computed from the nominal trial schedule.
-The optional measured layer summarizes real EEG, EOG and mechanical recordings
+The single-person measured layer summarizes real EEG, EOG and mechanical recordings
 from one person, motor execution runs 1–3. Each cue has 18 trials. Values are
 summarized within each run before averaging the three results. The aggregates
 and their cue-fields.js browser serialization retain CC BY 4.0; the licence
 applies to both. See measurements/README.md for methods and reproducibility.
+
+The agreement layer counts the signs of within-person changes across seven
+participants (S1–S7), execution runs 1–3. Its counts.json, counts.js and
+source-derived protocol and channel descriptions retain CC BY 4.0. The reader
+groups eye channels by original index; lateral labels vary across headers.
+The aggregate contains no individual classifications or traces. The original
+builder and interface are dedicated under CC0. See agreement/README.md.
 
 STANDARD ANATOMY AND COORDINATES
 Robert Oostenveld and Peter Praamstra (2001). The five percent electrode system

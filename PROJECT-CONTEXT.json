@@ -435,7 +435,8 @@
     "channel_map": "docs/scalp-and-arm/references/channel-map.csv",
     "study": "https://doi.org/10.1371/journal.pone.0182578",
     "dataset": "https://doi.org/10.5281/zenodo.834976",
-    "scope": "61 scalp sites on the FieldTrip standard head, with four post-cue quarter-second windows summarizing 18 repeated trials per cue in one person across three runs. Eye sensors (62–64) and elbow, forearm and index-finger sensors appear separately. The 3D right arm illustrates the instruction. EEG and eye channels sample at 512 Hz and mechanical channels at 64 Hz. Individual traces, personal cap coordinates, calibrated physical arm units and hardware synchronization are outside this reader.",
-    "measured_changes": "docs/scalp-and-arm/measurements/cue-fields.json"
+    "scope": "61 scalp sites on the FieldTrip standard head, with four post-cue quarter-second windows summarizing 18 repeated trials per cue in one person across three runs. A second layer counts higher, lower, level and unavailable observations across seven people for 1,876 cue/window/channel cells. Eye sensors (62–64) and elbow, forearm and index-finger sensors appear separately. The 3D right arm illustrates the instruction. EEG and eye channels sample at 512 Hz and mechanical channels at 64 Hz. Individual traces, personal cap coordinates, calibrated physical arm units and hardware synchronization are outside this reader.",
+    "measured_changes": "docs/scalp-and-arm/measurements/cue-fields.json",
+    "agreement_counts": "docs/scalp-and-arm/agreement/counts.json"
   }
 }

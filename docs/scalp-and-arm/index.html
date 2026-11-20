@@ -10,6 +10,8 @@
     <script src="geometry.js" defer></script>
     <script src="renderer.js" defer></script>
     <script src="cue-fields.js" defer></script>
+    <script src="agreement/counts.js" defer></script>
+    <script src="agreement/view.js" defer></script>
     <script src="measurements.js" defer></script>
     <script src="reader.js" defer></script>
   </head>
@@ -26,9 +28,12 @@
         </p>
       </section>
       <section class="field-controls" aria-label="Scalp display">
-        <label class="field-toggle"
-          ><input type="checkbox" id="use-measured" /> Show measured changes after the cue</label
-        >
+        <fieldset class="map-choice">
+          <legend>What should each dot show?</legend>
+          <label><input type="radio" name="map" id="setup-only" checked /> Electrode positions</label>
+          <label><input type="radio" name="map" id="use-measured" /> Change in one person</label>
+          <label><input type="radio" name="map" id="use-agreement" /> Agreement across seven people</label>
+        </fieldset>
         <label id="window-control" hidden
           >Measurement window
           <select id="measured-window">
@@ -73,6 +78,14 @@
                 >Blue falls below the pre-cue level. Orange rises above it. The dark ring picks out your
                 site. Grey means the reader has no value at this time.</small
               >
+            </div>
+            <div id="agreement-key" class="agreement-key" hidden>
+              <p id="agreement-site" aria-live="polite"></p>
+              <div class="gradient" aria-hidden="true"></div>
+              <div class="gradient-labels"><span>All lower</span><span>Even</span><span>All higher</span></div>
+              <small>Blue means more people fell below their own pre-cue reading. Orange means more rose above it.
+                A deeper colour means closer agreement among people with usable readings. Grey marks missing
+                data. The ring marks your selected site.</small>
             </div>
             <small
               ><span id="setup-key">Each green dot marks an electrode. Gold marks your selection.</span>
@@ -183,6 +196,50 @@
           </p>
         </details>
       </section>
+      <section id="agreement-panel" class="measured-panel" hidden aria-labelledby="agreement-title">
+        <h2 id="agreement-title">Did the reading change the same way in everyone?</h2>
+        <p>Seven people saw the same instructions. At each electrode, count how many people’s
+          readings rose, fell or stayed level relative to their own reading before the cue.
+          Each person counts once, however large the change.</p>
+        <div class="compare">
+          <p>At Cz, near the top of the head, six of seven people had a lower reading for bending
+            and four of seven for straightening, 2.50–2.75 seconds after the cue. The elbow sensor
+            rose for all seven during bending and fell for all seven during straightening.</p>
+          <button type="button" id="group-bend">Inspect bending</button>
+          <button type="button" id="group-straight">Inspect straightening</button>
+        </div>
+        <p class="sensor-window" id="agreement-window" aria-live="polite"></p>
+        <div class="sensors agreement-sensors">
+          <div><h3>Eye electrodes · 512 Hz</h3>
+            <table><thead><tr id="group-eyes-head"></tr></thead>
+              <tbody id="group-eyes"></tbody></table>
+          </div>
+          <div><h3>Right-arm sensors · 64 Hz</h3>
+            <table><thead><tr id="group-arm-head"></tr></thead>
+              <tbody id="group-arm"></tbody></table>
+          </div>
+        </div>
+        <p>The instrument files give no physical units. Higher on an arm sensor means a higher stored
+          reading. The drawing shows the instructed movement. The outer eye channels are grouped by
+          recorded channel number because the left and right labels vary across recordings.</p>
+        <details>
+          <summary>What counts as one person’s change?</summary>
+          <p>For each repeat, compare the middle reading in the chosen quarter second with the middle
+            reading 0.50–0.25 seconds before the cue. Take the middle change for each run, then average
+            the three run results. Count the sign of that average. An exact zero counts as level.</p>
+          <p>A person needs three usable runs, each with at least three of six complete repeats for the
+            chosen sensor and window. A channel stuck at a single value throughout a run cannot tell us
+            whether the reading changed. It counts as missing. Missing people stay outside the colour
+            calculation. The colour score is (higher count minus lower count) divided by the valid count.</p>
+          <p>These are descriptive counts from seven previously selected participants. Eye and muscle
+            activity, movement and the recording reference can affect scalp readings. These measurements
+            cannot pinpoint their source inside the brain or establish how often the same pattern occurs
+            in other people.</p>
+          <p class="source-links"><a href="agreement/counts.json">Download all counts</a>
+            <a href="agreement/README.md">Reproduce the counts</a>
+            <a href="https://doi.org/10.5281/zenodo.834976">Original recordings</a></p>
+        </details>
+      </section>
       <section class="clock" aria-labelledby="clock-title">
         <div class="clock-title">
           <div>
@@ -279,9 +336,9 @@
         </div>
         <h3>What the files call each channel</h3>
         <p>
-          The first 61 native labels all say <b>eeg</b>. Table 2 of the authors’ codebook gives the
+          The first 61 labels in the single-person recording all say <b>eeg</b>. Table 2 of the authors’ codebook gives the
           electrode names in order. All 61 match the coordinate template exactly. The table calls eye
-          channel 62 “left” and 64 “right”. The native header calls them <b>eog-r</b> and <b>eog-l</b>,
+          channel 62 “left” and 64 “right”. That recording’s header calls them <b>eog-r</b> and <b>eog-l</b>,
           respectively. Glove channels 80–83 and exoskeleton channel 96 have header names where the
           table gives a dash. These entries retain both descriptions.
         </p>

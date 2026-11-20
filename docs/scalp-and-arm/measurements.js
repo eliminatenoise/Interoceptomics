@@ -1,6 +1,7 @@
 /* Keep the four observed windows discrete. In between, only the study setup is visible. */
 function measuredReader(source, setTrialTime) {
   const checkbox = byId('use-measured');
+  const cohort = byId('use-agreement');
   const selector = byId('measured-window');
   const gaps = 'Outside the four measured windows. Choose a window to see its readings.';
   const signed = (value) => (value === null ? 'Unavailable' : value > 0 ? '+' + value : String(value));
@@ -50,8 +51,10 @@ function measuredReader(source, setTrialTime) {
   }
   byId('example-bend').onclick = () => inspectElbow('flex');
   byId('example-straight').onclick = () => inspectElbow('extend');
-  checkbox.onchange = () => {
-    if (checkbox.checked) {
+  byId('group-bend').onclick = () => inspectElbow('flex');
+  byId('group-straight').onclick = () => inspectElbow('extend');
+  function changeMap() {
+    if (checkbox.checked || cohort.checked) {
       const sinceCue = Number(time.value) - 2;
       const window = source.windows.find((w) => w.start_s <= sinceCue && sinceCue < w.stop_s);
       if (!window) {
@@ -60,7 +63,8 @@ function measuredReader(source, setTrialTime) {
       }
     }
     showTime();
-  };
+  }
+  for (const radio of document.querySelectorAll('input[name=map]')) radio.onchange = changeMap;
   selector.onchange = () => moveToWindow(selector.value);
   const channelNames = {
     62: 'Eye 62 · table left / header eog-r',
@@ -102,18 +106,25 @@ function measuredReader(source, setTrialTime) {
   let lastKey;
   function update(index, cueCode, seconds) {
     const enabled = checkbox.checked;
-    byId('window-control').hidden = !enabled;
+    const grouped = cohort.checked;
+    byId('window-control').hidden = !enabled && !grouped;
+    byId('agreement-panel').hidden = !grouped;
+    byId('agreement-key').hidden = !grouped;
     byId('measurements').hidden = !enabled;
     byId('scalp-key').hidden = !enabled;
     byId('measured-site').hidden = !enabled;
-    byId('setup-key').hidden = enabled;
+    byId('setup-key').hidden = enabled || grouped;
     const taskData = source.tasks.find((t) => t.code === cueCode);
     const relative = seconds - 2;
     const windowIndex = source.windows.findIndex((w) => w.start_s <= relative && relative < w.stop_s);
     const window = enabled && windowIndex >= 0 ? taskData.windows[windowIndex] : null;
-    const key = enabled ? [index, cueCode, windowIndex].join(':') : 'setup:' + index;
+    const key = [enabled, grouped, index, cueCode, windowIndex].join(':');
     if (key === lastKey) return null;
     lastKey = key;
+    if (grouped) {
+      selector.value = windowIndex < 0 ? 'gap' : source.windows[windowIndex].id;
+      return showAgreement(index, cueCode, windowIndex, selector.selectedOptions[0].textContent);
+    }
     if (enabled) {
       selector.value = window ? window.id : 'gap';
       byId('measured-site').textContent = window

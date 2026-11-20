@@ -130,6 +130,9 @@ class Run:
             self.close()
             raise
 
+    def _check_labels(self, labels):
+        require(labels == HEADER_LABELS, "Channel map mismatch")
+
     def _read_layout(self):
         data = self._data
         require(data[:8] == b"GDF 2.10", "Expected GDF 2.10")
@@ -142,7 +145,8 @@ class Run:
             return struct.unpack_from(f"<{count}{kind}", data, 256 + count * offset)
 
         labels = tuple(data[256 + 16*i:272 + 16*i].decode("ascii").strip() for i in range(count))
-        require(labels == HEADER_LABELS and len(CODEBOOK_LABELS) == count, "Channel map mismatch")
+        self._check_labels(labels)
+        require(len(CODEBOOK_LABELS) == count, "Channel count mismatch")
         require(column(216, "i") == RATES and column(220, "i") == (17,)*count,
                 "Expected 512/64 Hz, little-endian float64")
         require(column(104, "d") == column(120, "d") == (-250000.,)*count and
