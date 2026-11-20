@@ -160,3 +160,7 @@ The voltage averages come from Nierula and colleagues’ OpenNeuro ds004388 v1.0
 ## Back sensor and skin recordings
 
 Gracia Laso and colleagues’ Experiment 2 measurements and their adaptations retain CC BY 4.0. The reference vertebrae and discs derive from Z-Anatomy and BodyParts3D under CC BY-SA. [Complete attributions, changes and licences](docs/back-rotation/NOTICE.txt)
+
+## Inside a lifting foot
+
+Zhang and colleagues’ AnkleImage tracking estimates retain CC BY 4.0. The right leg meshes derive from Z-Anatomy and BodyParts3D and retain CC BY-SA 4.0. The offline reader links the original publication figures. [Attribution and changes](docs/muscle-tracking/NOTICE.txt)

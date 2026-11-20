@@ -15,6 +15,8 @@ The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
+**[Inside a lifting foot](https://eliminatenoise.github.io/Interoceptomics/muscle-tracking/).** Turn the reference shin to find the tibialis anterior. Follow a bundle of muscle fibres through recorded ultrasound estimates of its length and angle. [Download the offline reader](downloads/muscle-tracking.zip).
+
 **[How far does the back sensor turn?](https://eliminatenoise.github.io/Interoceptomics/back-rotation/)** Replay measured rotation and skin voltages during walking and standing. Turn the reference vertebrae beneath the neck and lower-back patches and compare the readings from four people. [Download the offline reader](downloads/back-rotation.zip).
 
 **[One wrist stimulus, five recordings](https://eliminatenoise.github.io/Interoceptomics/cervical-signals/).** Read the voltage at the axilla, neck, scalp, thumb muscle and chest before and after a left wrist stimulus. Compare four people, inspect the study montage and turn the reference anatomy. [Download the offline reader](downloads/cervical-signals.zip).

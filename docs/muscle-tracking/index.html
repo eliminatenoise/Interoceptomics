@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Turn a reference shin in 3D and follow the length and angle of a bundle of muscle fibres through ultrasound tracking records.">
+<title>Inside a lifting foot · Interoceptomics</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<noscript><p>Enable JavaScript to rotate the anatomy and read the measurements. <a href="README.txt">Read the methods as plain text.</a></p></noscript>
+<nav aria-label="Project"><a id="project" href="../index.html">← Interoceptomics</a><a href="#sources">Sources &amp; download</a></nav>
+<main>
+<header><h1>Inside a lifting foot</h1><p>Lift the front of your foot. A muscle beside your shinbone pulls on a tendon that crosses the ankle. An ultrasound probe can follow a bundle of fibres inside that muscle as the foot moves.</p></header>
+<div class="columns">
+<section aria-labelledby="where">
+<h2 id="where">Find the muscle</h2>
+<div class="scene">
+<div class="scene-top"><span>Right lower leg</span><span>Reference anatomy</span></div>
+<div class="viewport"><canvas id="leg" tabindex="0" aria-label="Rotatable reference anatomy of the right tibialis anterior and lower-leg bones. Drag or use the arrow keys. Home resets the camera.">Right tibialis anterior, from shin to the inner foot.</canvas><svg id="markers" aria-hidden="true"><g id="m-belly"><path/><circle r="2.2"/><text>Muscle belly</text></g><g id="m-tendon"><path/><circle r="2.2"/><text>Tendon</text></g></svg></div>
+<div class="scale"><span id="scale-bar"></span>50 mm</div>
+<div class="legend"><span><i class="muscle"></i>Muscle</span><span><i class="tendon"></i>Tendon</span><span><i class="bone"></i>Bone</span></div>
+</div>
+<fieldset class="views"><legend>Camera view</legend><button data-view="oblique">Oblique</button><button data-view="front">Front</button><button data-view="side">Outer side</button><label><input type="checkbox" id="bones" checked> Show bones</label></fieldset>
+<p class="description">The tibialis anterior lies just outside the ridge of the shinbone. Follow the pale tendon across the front of the ankle to the inner foot. Drag to turn the atlas, or focus it and use the arrow keys.</p>
+<p class="fine">Z-Anatomy reference adult. Each volunteer’s ankle moved during the task. Their own three-dimensional anatomy and probe position are unavailable here.</p>
+</section>
+<section aria-labelledby="track">
+<h2 id="track">Follow a bundle of fibres</h2>
+<div class="record-controls"><label>Volunteer<select id="person"></select></label><label>Recording<select id="trial"></select></label></div><label class="common"><input type="checkbox" id="common"> Use the same vertical scales across trials</label>
+<div class="trace"><div class="trace-head"><h3>Fascicle length</h3><output id="length"></output></div><svg class="chart" id="length-chart" role="img" aria-label="Image-tracked fascicle length in millimetres across tracking steps"></svg></div>
+<div class="trace"><div class="trace-head"><h3>Pennation angle</h3><output id="angle"></output></div><svg class="chart" id="angle-chart" role="img" aria-label="Image-tracked pennation angle in degrees across tracking steps"></svg></div>
+<div class="timeline"><div class="step-line"><label for="step">Tracking step</label><output id="step-readout" for="step"></output></div><input type="range" min="1" value="1" id="step"><div class="transport"><button id="prev" aria-label="Previous tracking step">−1</button><button id="play" aria-pressed="false">Play steps</button><button id="next" aria-label="Next tracking step">+1</button></div></div>
+<p class="fine" id="trial-note"></p><p class="fine">One step is one row of the original image tracker. Playback advances 24 steps per second of screen time. The elapsed time between acquisitions remains unverified.</p>
+</section></div>
+<section class="geometry" aria-labelledby="shape">
+<div><h2 id="shape">What did the tracker measure?</h2>
+<p>A fascicle is a bundle of muscle fibres. The study tracked how far that bundle ran between two sheets of connective tissue and the angle it made with the central sheet. That tilt is its pennation angle.</p>
+<p>The drawing lays the central sheet flat and draws one straight segment from the two readings. Its origin and orientation on the page are chosen for comparison. The recording contains no three-dimensional coordinates for these endpoints.</p></div>
+<figure><figcaption>Simulated geometry at the selected step</figcaption><svg id="geometry" role="img" viewBox="0 0 430 165" aria-label="A segment with the selected measured length and pennation angle on equal millimetre scales">
+<path id="sheet" d="M 25 93 H 409" stroke="#475755" stroke-width="2"/><path id="angle-arc" fill="none" stroke="#226a6f" stroke-width="2"/><path id="segment" stroke="#a93e28" stroke-width="4" stroke-linecap="round"/><circle cx="36" cy="93" r="4" fill="#212e2b"/><circle id="end-dot" r="4" fill="#a93e28"/><text id="length-text" text-anchor="middle"></text><text x="404" y="118" text-anchor="end">Central sheet</text><path id="ruler" stroke="#536762" fill="none"/><text x="32" y="156">10 mm</text></svg>
+<p id="difference"></p></figure>
+</section>
+<section id="sources" class="sources"><h2>Read the evidence</h2>
+<p>Participants lifted the forefoot while seated, with the foot suspended. <span id="coverage"></span> The curves connect successive tracked estimates. The length and angle come from the same images and can share tracking error. Neither supplies muscle force. The mapping from these tracking steps to the study’s electrical and ankle-motion samples remains unresolved.</p>
+<p>The authors show an example Task 3 trajectory from A02 in Figure 3 and B-mode ultrasound images from other tasks in Figure 6. Those images illustrate what the instrument sees. The selected tracking step has no matched scan in this reader. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11680872/#Fig3">Original trajectories</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11680872/#Fig6">Original ultrasound images</a></p>
+<p><a href="https://doi.org/10.6019/S-BIAD1482">AnkleImage data</a> · <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">Z-Anatomy atlas</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4974924/">Ultrasound of the muscle and central sheet</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9277928/">Dissections of the muscle and shinbone</a></p>
+<div class="download"><a href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/muscle-tracking.zip">Download the offline reader</a><button id="csv">Save selected trial as CSV</button></div>
+<p class="fine">Windows, macOS and Linux launchers are included in the ZIP. Extract it first. <a href="NOTICE.txt">Credits and licences</a> · <a href="README.txt">Methods and controls</a> · <a href="sources.json">Source files and checksums</a></p>
+</section></main>
+<script src="measurements.js"></script><script src="reference/leg.js"></script><script src="reference/renderer.js"></script><script src="leg-view.js"></script><script src="reader.js"></script>
+</body></html>

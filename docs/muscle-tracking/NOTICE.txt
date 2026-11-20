@@ -1,0 +1,26 @@
+Inside a lifting foot · Interoceptomics
+
+Fascicle length and pennation angle
+Qiang Zhang, Noor Hakam, Oluwasegun Akinniyi, Ashwin Iyer, Xuefeng Bao and Nitin Sharma. AnkleImage. BioImage Archive, S-BIAD1482. The released tracking measurements and the selected numerical derivatives in measurements.js and the CSV export are licensed under Creative Commons Attribution 4.0 International.
+Dataset https://doi.org/10.6019/S-BIAD1482
+Licence https://creativecommons.org/licenses/by/4.0/ (reference/CC-BY-4.0.txt)
+Changes: selection of qualified Task 3 trials and original tracking rows, lossless binary encoding of two reported variables and presentation in graphs, a straight-segment diagram and CSV. The tracking step is the one-based source ordinal. The authors do not endorse this work.
+
+The original paper
+Qiang Zhang, Noor Hakam, Oluwasegun Akinniyi, Ashwin Iyer, Xuefeng Bao and Nitin Sharma. AnkleImage - An ultrafast ultrasound image dataset to understand the ankle joint muscle contractility. Scientific Data 11, 1439 (2024).
+https://doi.org/10.1038/s41597-024-04285-x
+The paper and its figures have a separate CC BY-NC-ND 4.0 licence. The reader links the published article and its figures. No article text, figure or participant image is included in this package.
+
+Anatomical surfaces
+BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan.
+Z-Anatomy - The libre 3D atlas of anatomy - CC-BY-SA 4.0.
+Z-Anatomy by Gauthier Kervyn (design, 3D and anatomy) and Marcin Zielinski (atlas scripts).
+The right tibialis anterior muscle, its tendon annotation, tibia, fibula and 26 foot bones in reference/leg.js are adapted from the evaluated Z-Anatomy mesh. The adaptation preserves the atlas coordinates and triangles, rounds coordinates to 0.1 mm and adds identification colours. Reference/leg.js remains CC BY-SA 4.0. The pose represents the reference adult.
+https://github.com/Z-Anatomy/Models-of-human-anatomy
+https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html
+https://creativecommons.org/licenses/by-sa/4.0/
+https://creativecommons.org/licenses/by-sa/2.1/jp/
+See reference/Z-Anatomy-LICENSE.txt for the original licence and attributions.
+
+The original Interoceptomics code, explanatory text and straight-segment illustration are dedicated to the public domain under CC0 1.0. The anatomical meshes and measured data retain the licences above.
+https://creativecommons.org/publicdomain/zero/1.0/ (reference/CC0-1.0.txt)
