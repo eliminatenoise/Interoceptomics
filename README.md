@@ -33,7 +33,7 @@ So far it has been run on Linux, in Chromium. The Windows and macOS start files 
 
 Run, and your legs, your balance, your breathing and your heart have to change together. The parts of the brain that move the body and the parts that run its organs are not separate machines: they overlap.
 
-The viewer marks that overlap on the atlas: one colour for regions linked to movement and touch (*somatic*), one for regions linked to the automatic running of the organs (*autonomic*), one where the two meet (*integration*). Which region gets which colour is this project's reading of 54 cited sources, not a recording.
+The viewer marks that overlap on the atlas: one colour for regions linked to movement and touch (*somatic*), one for regions linked to the automatic running of the organs (*autonomic*), one where the two meet (*integration*). Which region gets which colour is this project's reading of published sources, not a recording: the viewer lists 54, and 49 of them are cited for at least one region.
 
 | You want to | In the viewer |
 | --- | --- |
