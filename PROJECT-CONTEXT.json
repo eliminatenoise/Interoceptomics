@@ -411,5 +411,11 @@
     "data_and_method": "models/recorded-cortex/README.md",
     "offline": "downloads/recorded-cortex.zip",
     "scope": "Electrical band-power changes during finger cues versus following blank periods in one participant. The public reader loads the original anatomical surface and positions on request from Stanford or an exact local file."
+  },
+  "cortical_coverage": {
+    "viewer": "docs/cortex-coverage/index.html",
+    "methods": "docs/cortex-coverage/README.md",
+    "offline": "downloads/recorded-cortex.zip",
+    "scope": "Regional coverage for 278 retained contacts in five preselected FingerFlex participants. Their deposited cortical surfaces, positions and anatomical labels open on demand. Each display keeps the participant’s native coordinates and camera."
   }
 }

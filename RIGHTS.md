@@ -143,3 +143,5 @@ The half-millimetre grid, the midline cap and the display approximation describe
 ## The recorded cortex
 
 The Stanford FingerFlex data from Kai Joshua Miller and colleagues and the derived cue/blank comparisons carry CC BY-SA 4.0. The public software reads the original anatomy on demand. No participant surface or raw signal records are part of the public package. Original project code carries the repository’s CC0 dedication. [Original source](https://purl.stanford.edu/zk881ps0522) · [Analysis changes, full credit and required ethics statement](models/recorded-cortex/METHODS.md)
+
+The five-person cortical coverage reader counts the anatomical codes in the Stanford FingerFlex deposit. The counts and adaptations of the study data retain CC BY-SA 4.0. [Attribution, Methods and required ethics statement](docs/cortex-coverage/README.md)

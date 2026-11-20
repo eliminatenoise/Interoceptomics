@@ -13,3 +13,5 @@ The public viewer and download contain the software and the numerical summaries.
 To rebuild the standalone page with Python, keep the repository layout and run `python build.py` from this folder. To prepare one local copy with the anatomical packet included, use `python build.py --local-anatomy PATH_TO_PACKET.json --out PATH_TO_LOCAL_COPY.html`. The latter copy contains participant-specific anatomy and belongs in your local working folder.
 
 The recording and derived summaries carry CC BY-SA 4.0. The original viewer code carries the repository’s CC0 dedication. [Study methods, source notice and ethics statement](../../models/recorded-cortex/METHODS.md)
+
+[Compare where the electrodes sat in five participants](../cortex-coverage/index.html). The offline ZIP includes both readers.

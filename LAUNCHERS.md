@@ -30,3 +30,5 @@ The shortcuts need a browser and an internet connection. The Windows and macOS s
 ## The recorded cortex
 
 [Open the browser viewer](https://eliminatenoise.github.io/Interoceptomics/recorded-cortex/) or extract the [recorded cortex ZIP](downloads/recorded-cortex.zip). Open the launcher named for your computer, or open `docs/recorded-cortex/index.html` directly. The measurements work offline. The brain opens from Stanford on demand or from a verified local anatomy file.
+
+The same ZIP includes the [five-participant coverage reader](https://eliminatenoise.github.io/Interoceptomics/cortex-coverage/). Open a launcher in `docs/cortex-coverage` to start there. Its counts work offline and its surfaces open from the matching original MATLAB files.

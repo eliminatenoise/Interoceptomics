@@ -14,3 +14,5 @@ docs/viewer/** -text
 docs/recorded-cortex/** -text
 models/recorded-cortex/** -text
 docs/recorded-cortex/*.cmd whitespace=cr-at-eol
+docs/cortex-coverage/** -text
+docs/cortex-coverage/*.cmd whitespace=cr-at-eol

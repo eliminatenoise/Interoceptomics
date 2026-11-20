@@ -3,7 +3,10 @@ function cortexSurface(canvas, anatomy, selectSite) {
   const gl=canvas.getContext('webgl2',{antialias:true,alpha:false});
   const ctx=gl?null:canvas.getContext('2d');
   if (!gl && !ctx) throw Error('Your browser could not open a 3D or software canvas.');
-  const verts=anatomy.verts, tri=new Uint32Array(anatomy.faces);
+  const verts=anatomy.verts, tri=anatomy.faces instanceof Uint32Array ? anatomy.faces : Uint32Array.from(anatomy.faces);
+  const contactCount=anatomy.regions.length;
+  const [initialAz,initialEl]=anatomy.camera || [250,15];
+  const winding=anatomy.inward===false ? 1 : -1;
   const normal=new Float32Array(verts.length), limit=[[Infinity,-Infinity],[Infinity,-Infinity],[Infinity,-Infinity]];
   for(let i=0;i<verts.length;i++) {
     const lim=limit[i%3];lim[0]=Math.min(lim[0],verts[i]);lim[1]=Math.max(lim[1],verts[i]);
@@ -16,17 +19,17 @@ function cortexSurface(canvas, anatomy, selectSite) {
     const a=tri[f]*3,b=tri[f+1]*3,c=tri[f+2]*3;
     const ax=points[b]-points[a],ay=points[b+1]-points[a+1],az=points[b+2]-points[a+2];
     const bx=points[c]-points[a],by=points[c+1]-points[a+1],bz=points[c+2]-points[a+2];
-    // The deposited mesh is wound inward. Reverse the lighting normals only.
-    const nx=bz*(-ay)+az*by, ny=ax*bz-az*bx, nz=ay*bx-ax*by;
+    // Preserve deposited faces. Orient only the lighting normals for this mesh.
+    const nx=winding*(ay*bz-az*by), ny=winding*(az*bx-ax*bz), nz=winding*(ax*by-ay*bx);
     for(const idx of [a,b,c]) {normal[idx]+=nx;normal[idx+1]+=ny;normal[idx+2]+=nz;}
   }
   for(let i=0;i<normal.length;i+=3) {
     const length=Math.hypot(normal[i],normal[i+1],normal[i+2])||1;
     normal[i]/=length;normal[i+1]/=length;normal[i+2]/=length;
   }
-  let az=250,el=15,zoom=1,through=true,selected=0,drag=null,frame=0,lastView,disposed=false;
-  let colors=new Float32Array(46*3).fill(.5), active=new Float32Array(46).fill(1);
-  const rad=Math.PI/180, ids=Array.from({length:46},(_,i)=>i+1);
+  let az=initialAz,el=initialEl,zoom=1,through=true,selected=0,drag=null,frame=0,lastView,disposed=false;
+  let colors=new Float32Array(contactCount*3).fill(.5), active=new Float32Array(contactCount).fill(1);
+  const rad=Math.PI/180, ids=Array.from({length:contactCount},(_,i)=>i+1);
   function view() {
     const w=canvas.width,h=canvas.height, a=(az-90)*rad,e=el*rad;
     const direction=[Math.cos(a)*Math.cos(e),Math.sin(a)*Math.cos(e),Math.sin(e)];
@@ -79,7 +82,7 @@ function cortexSurface(canvas, anatomy, selectSite) {
       if(through)gl.disable(gl.DEPTH_TEST);
       gl.uniform1f(uni.uMarker,1);gl.bindVertexArray(sites);
       gl.bindBuffer(gl.ARRAY_BUFFER,rgb);gl.bufferSubData(gl.ARRAY_BUFFER,0,colors);
-      gl.bindBuffer(gl.ARRAY_BUFFER,flag);gl.bufferSubData(gl.ARRAY_BUFFER,0,active);gl.drawArrays(gl.POINTS,0,46);
+      gl.bindBuffer(gl.ARRAY_BUFFER,flag);gl.bufferSubData(gl.ARRAY_BUFFER,0,active);gl.drawArrays(gl.POINTS,0,contactCount);
       gl.bindVertexArray(null);
     };
     // Single-sample picking keeps an antialiased dot edge from blending into another contact's ID.
@@ -125,7 +128,7 @@ function cortexSurface(canvas, anatomy, selectSite) {
       ctx.beginPath();ctx.moveTo(xy[a],xy[a+1]);ctx.lineTo(xy[b],xy[b+1]);ctx.lineTo(xy[c],xy[c+1]);ctx.fill();
     }
     projectedContacts=cp;
-    for(let i=0;i<46;i++) {
+    for(let i=0;i<contactCount;i++) {
       const k=i*3;ctx.fillStyle='rgb('+Array.from(colors.subarray(k,k+3),n=>Math.round(n*255)).join(',')+')';
       ctx.strokeStyle=selected===i+1?'white':'#182021';ctx.lineWidth=2;
       ctx.beginPath();ctx.arc(cp[k],cp[k+1],(selected===i+1?7:active[i]?5:3)*v.w/canvas.clientWidth,0,2*Math.PI);ctx.fill();ctx.stroke();
@@ -141,14 +144,14 @@ function cortexSurface(canvas, anatomy, selectSite) {
   function schedule(){if(!frame)frame=requestAnimationFrame(()=>{frame=0;draw();});}
   function rotate(dx,dy){az+=dx;el=Math.max(-85,Math.min(85,el+dy));schedule();}
   function magnify(by){zoom=Math.max(.55,Math.min(2.4,zoom*by));schedule();}
-  function reset(){az=250;el=15;zoom=1;schedule();}
+  function reset(){az=initialAz;el=initialEl;zoom=1;schedule();}
   function pick(event) {
     if(!lastView)return;
     const r=canvas.getBoundingClientRect(), x=(event.clientX-r.left)*canvas.width/r.width,y=(event.clientY-r.top)*canvas.height/r.height;
     let id=0;
     if(gl){id=readSite(lastView,x,y);}
-    else if(projectedContacts){let best=13;for(let i=0;i<46;i++){const k=i*3,d=Math.hypot(x-projectedContacts[k],y-projectedContacts[k+1]);if(d<best){best=d;id=i+1;}}}
-    if(id>0 && id<=46)selectSite(id);
+    else if(projectedContacts){let best=13;for(let i=0;i<contactCount;i++){const k=i*3,d=Math.hypot(x-projectedContacts[k],y-projectedContacts[k+1]);if(d<best){best=d;id=i+1;}}}
+    if(id>0 && id<=contactCount)selectSite(id);
   }
   const ctl=new AbortController(), opt={signal:ctl.signal};
   canvas.addEventListener('pointerdown',e=>{drag={id:e.pointerId,x:e.clientX,y:e.clientY,d:0};canvas.setPointerCapture(e.pointerId);},opt);
