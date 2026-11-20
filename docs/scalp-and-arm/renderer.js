@@ -133,6 +133,33 @@ function camera(canvas, options) {
       ctx.stroke();
     }
   }
+  // Center the illustrated limb in the current view, including fingers and brace.
+  // Keep its usual scale unless the entire projected pose needs more space.
+  function fitPose() {
+    const [right, up] = axes;
+    let left = Infinity,
+      rightmost = -Infinity,
+      bottom = Infinity,
+      top = -Infinity;
+    for (const mesh of parts) {
+      for (let i = 0; i < mesh.p.length; i += 3) {
+        const x = mesh.p[i],
+          y = mesh.p[i + 1],
+          z = mesh.p[i + 2];
+        const r = x * right[0] + y * right[1] + z * right[2],
+          u = x * up[0] + y * up[1] + z * up[2];
+        left = Math.min(left, r);
+        rightmost = Math.max(rightmost, r);
+        bottom = Math.min(bottom, u);
+        top = Math.max(top, u);
+      }
+    }
+    if (!Number.isFinite(left)) return;
+    scale = Math.min(scale, (0.88 * w) / (rightmost - left || 1), (0.88 * h) / (top - bottom || 1));
+    const horizontal = (left + rightmost) / 2 - V.dot(options.center, right);
+    const vertical = (bottom + top) / 2 - V.dot(options.center, up);
+    origin = V.add(options.center, V.add(V.scale(right, horizontal), V.scale(up, vertical)));
+  }
   function draw() {
     frame = 0;
     const rect = canvas.getBoundingClientRect();
@@ -158,6 +185,7 @@ function camera(canvas, options) {
       [sn * ct, cs * ct, st],
     ];
     scale = Math.min(w / options.span[0], h / options.span[1]);
+    if (options.fitPose) fitPose();
     if (gl) {
       gl.viewport(0, 0, ww, hh);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);

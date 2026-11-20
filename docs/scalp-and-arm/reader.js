@@ -61,7 +61,13 @@ const scalp = camera(headCanvas, {
     if (near && near[0] < 13) selectSite(near[1], false);
   },
 });
-const arm = camera(armCanvas, { center: [3, -6, 23], span: [205, 177], yaw: 64, tilt: 17 });
+const arm = camera(armCanvas, {
+  center: [3, -6, 23],
+  span: [205, 177],
+  yaw: 64,
+  tilt: 17,
+  fitPose: true,
+});
 const headMesh = scalpBase();
 const measures = measuredReader(CUE_FIELDS, (sec) => {
   time.value = String(sec);
