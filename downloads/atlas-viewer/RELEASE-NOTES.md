@@ -12,6 +12,6 @@ This is the viewer published on 19 November 2026, with the same anatomy and the 
 - **Licences and credits in plain words.** Every credit, link, disclaimer and change notice is kept. Nothing was dropped, and nothing was relicensed.
 - **Tidier inside.** The viewer's own files are in a folder named `viewer`. Two records that described earlier editions' files are gone. No surface, no grid file and no licence text changed by a single byte.
 
-Run for this version, in Chromium 155 on Linux with software rendering: the start file, the first view, a colour overlay, lifting out one region, the VPL and VPM comparison, the flat cuts, the finder and the ruler. In the four views that were compared, the 3D model is the same picture, pixel for pixel, as in the version of 19 November. The viewer has not yet been run on Windows, macOS or a phone.
+Run for this version, in Chromium 155 on Linux with software rendering: the start file, the first view, a colour overlay, lifting out one region, the VPL and VPM comparison, the flat cuts, the finder and the ruler. In the four views that were compared, the 3D model is the same picture, pixel for pixel, as in the version of 19 November; the only pixels that differ beside it are the new words under the small overview picture. The viewer has not yet been run on Windows, macOS or a phone.
 
-The download contains 74 files in 40,478,734 bytes (84,053,691 bytes unpacked). SHA256 `eea9b79e683f1cced89a7e86299518603e949b792810b4c514941ac0db1e4fc8`.
+The download contains 74 files in 40,479,519 bytes (84,055,924 bytes unpacked).

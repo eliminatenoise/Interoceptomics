@@ -32,22 +32,22 @@
   "atlas_viewer": {
     "edition": "Interoceptomics Atlas Viewer, version of 20 November 2026",
     "archive": "downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip",
-    "bytes": 40478734,
-    "sha256": "eea9b79e683f1cced89a7e86299518603e949b792810b4c514941ac0db1e4fc8",
+    "bytes": 40479519,
+    "sha256": "36900fe8df2462f54d6c66f96be577affd3ad794fcd1b1d9e49b7ea142289009",
     "source_and_rights": "RIGHTS.md#the-atlas-viewer-download",
     "regular_files": 74,
-    "uncompressed_bytes": 84053691,
+    "uncompressed_bytes": 84055924,
     "package_manifest": {
       "file": "MANIFEST.json",
-      "bytes": 17699,
-      "sha256": "556ab0f2c92ed0e6841016f76d3cc2f4e070a94e02ec8433fd80cc391b22d7b5",
+      "bytes": 17746,
+      "sha256": "73609ea27f6abd336632a886f8d9d2bc14c27051cb8a1354281b38f99f7f2b3f",
       "scope": "Sizes and checksums of the 73 other files in the archive, the counts recomputed from its data, and the identities of the upstream files."
     },
     "change": "One name, the Interoceptomics Atlas Viewer, on the download, its folder, its title and its pages; a guide that starts with how to open it; corrected counts. The anatomy and the controls are those of the version of 19 November 2026.",
     "source_comparison": {
       "status": "The region names were compared with the atlas table on an early edition and again on this version (20 November 2026): all 141 match on number, name, abbreviation and ancestry. The comparison with the API response was made once and cannot be repeated from the download.",
-      "current_registry_bytes": 269020,
-      "current_registry_sha256": "547d2da902bd33adc2c2abc61cfdcaaf7f783d0b5bac43eaacc5d3c40a87dc22"
+      "current_registry_bytes": 268970,
+      "current_registry_sha256": "f7eba3c845fad8f8b793b23784366cbad5f264ff0d3044db16b910a24cb93440"
     },
     "limitations": "The 3D model holds 121 of the atlas's 141 regions in 44 surfaces: 34 regions have a surface of their own, 82 more are parts of combined surfaces, and 5 are listed by name only. 20 regions have no surface. The source is one population atlas, left half only. Not checked or not claimed: agreement with other specimens, fit to any person, neural function, one planned visual check, and running on Windows, macOS or a phone.",
     "viewer": {
@@ -68,8 +68,8 @@
     "viewer_layout": {
       "page": "viewer/index.html",
       "controller": "viewer/ui.js",
-      "page_sha256": "d1d20134740498aca0ebedaf12e0551da6f2342eaa325c374e1d03f74c18870a",
-      "controller_sha256": "ac5c63d66a39ce1ed3118901070455dc7558648b7f952760c6dc6b0b7da8d11e",
+      "page_sha256": "428fb6ba21b044b3c60fc2ac95b6d3626aa427c37bff68556db792f30c99ab87",
+      "controller_sha256": "dc4bbf4b0f084e8099de29a1d73df7b0b3fad0c18e51d00d278f6b96b3f41ed4",
       "renderer_page": "viewer/render.html",
       "renderer_page_sha256": "1911a764d5dfb7e91a6138907fc88bdd29b72f5b2584ef79049307047431629f",
       "location_comparison": "viewer/location-comparison.js",
@@ -375,7 +375,7 @@
       "version": "2026-11-20",
       "chromium": "155.0.8059.84",
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
-      "scope": "Run for this version on Linux in headless Chromium with software rendering: the start file, the first view, a colour overlay, isolating the parietal operculum, the VPL and VPM comparison with its shared faces and sections, the parietal operculum sections with the two-point ruler, and the flat cuts with the finder, the highlight and the volume table. In the four views compared with the version of 19 November 2026 the 3D model is the same picture, pixel for pixel. Not run: hardware rendering, keyboard and touch input, saved views, Windows, macOS, a phone.",
+      "scope": "Run for this version on Linux in headless Chromium with software rendering: the start file, the first view, a colour overlay, isolating the parietal operculum, the VPL and VPM comparison with its shared faces and sections, the parietal operculum sections with the two-point ruler, and the flat cuts with the finder, the highlight and the volume table. In the four views compared with the version of 19 November 2026 the 3D model is the same picture, pixel for pixel; the only pixels that differ beside it are the new words under the small overview picture. Not run: hardware rendering, keyboard and touch input, saved views, Windows, macOS, a phone.",
       "version_of_19_november_2026": {
         "what": "The edition this version carries its anatomy and code over from.",
         "compared_to_commit": "d6197935c2d78329f527d25205aa0c7ccfecf642",

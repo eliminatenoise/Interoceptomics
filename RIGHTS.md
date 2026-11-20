@@ -43,7 +43,7 @@ The atlas is a grid of half-millimetre cubes, each carrying the number of a regi
 | A lookup of starting points | For each region and side, the one cube of that region closest to the average position of its cubes. Ties go to the lowest index in the original order. |
 | Additions that are not anatomy | The somatic, autonomic and integration colours, the cameras and lights, the controls, and a generated overview picture. |
 
-Two things are deliberately absent. The MRI brain template that the atlas was drawn on has separate terms and is not in the download. Nor are the photographs and figures from the papers the viewer cites; those stay with their publishers.
+Two things are deliberately absent. The MRI brain template that the atlas was drawn on, the ICBM 2009b nonlinear symmetric MNI152 average, is not in the download. The atlas's README sends you to [the McConnell Brain Imaging Centre](http://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009) for the template and its terms of use, and gives its copyright as © 1993–2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University. Nothing here is a licence for it. The photographs and figures from the papers the viewer cites are not in the download either; those stay with their publishers.
 
 | Part | File in the download, under `viewer/` | Its notice in the download |
 | --- | --- | --- |
@@ -71,7 +71,7 @@ What was checked, and what was not:
 
 - For all 141 regions, the number, name, abbreviation and full ancestry in the viewer match the table exactly. No near-match was accepted. This was first checked on an early edition of the viewer and was checked again for the current version, on 20 November 2026.
 - For all 141 regions, the table's count of cubes equals a recount of the atlas grid in the download. The table's other count and volume columns, which add in each region's sub-regions, were not checked.
-- The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour. That comparison was made once, on an early edition, and cannot be repeated from the download, because the response is not in it. Its record is in the download at `sources/allen-version1/source-binding.json`.
+- The API response described below and the table carried the same set of region numbers and agreed exactly on name, abbreviation, ancestry, parent, order and colour. That comparison was made once, on an early edition, and cannot be repeated from the download, because the response is not in it. Its record is in the download at `sources/allen-version1/source-binding.json`; it keeps the name and the folder the viewer had then.
 - The table was downloaded on 15 November 2026. The server reports it as last modified on 19 February 2025, so it cannot be shown to be byte-for-byte the 2020 original.
 
 ### The names first came through the Allen web API, whose terms are narrower
@@ -88,7 +88,7 @@ The API falls under the Allen Institute's general [Terms of Use](https://allenin
 What that means for you:
 
 - The names, abbreviations, numbers and ancestry of the 141 regions match the published table, so the CC BY 4.0 credit above covers them.
-- The rest of the API response was not examined and is not in the download. This page gives no permission for it, and no blanket permission for AI use or for improvements the Institute develops later.
+- The rest of the API response was not examined and is not in the download. This page gives no permission for it, and no blanket permission for AI use, for future improvements (the Terms' own word is "Improvements"), or for the model as a whole.
 - That the whole response carries no licence here does not narrow CC BY 4.0 for the matching fields or for the atlas-derived files, nor the MIT licence of Three.js.
 - If you fetch from the API yourself, the Terms of Use apply to what you fetch, as they do to this project's own fetch.
 
@@ -114,9 +114,9 @@ The [pre-release of 4 November 2026](https://github.com/eliminatenoise/Interocep
 | --- | --- |
 | File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
 | Version | 20 November 2026. The file name never carries the version: each new one replaces the last at the same address |
-| Size | 40,478,734 bytes (84,053,691 bytes unpacked) |
+| Size | 40,479,519 bytes (84,055,924 bytes unpacked) |
 | Contents | 74 files. `MANIFEST.json` lists the other 73 with their sizes and checksums |
-| SHA256 | `eea9b79e683f1cced89a7e86299518603e949b792810b4c514941ac0db1e4fc8` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+| SHA256 | `36900fe8df2462f54d6c66f96be577affd3ad794fcd1b1d9e49b7ea142289009` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
 
 Identities of the upstream files, for anyone who wants to start from the same sources:
 
