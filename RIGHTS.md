@@ -176,3 +176,7 @@ The walking trial comes from Moissenet and Schreiber (dataset v8). The plate dia
 ## One walker, two instructions
 
 The skin-marker trajectories, muscle recordings, foot events and floor-plate readings derive from the Rehazenter Adult Walking Dataset v8 by Schreiber and Moissenet, under CC BY 4.0. The reader and animated models use attribution and adapted coordinate and time displays. [Original data](https://doi.org/10.6084/m9.figshare.7734767.v8) · [Changes and credits](docs/walking-instructions/NOTICE.txt) · [Original licence](docs/walking-instructions/DATA-LICENCE.txt)
+
+## Visual rotation during walking
+
+Steven M. Peterson and Daniel P. Ferris released the Perturbed beam-walking task under CC0. The visual balance reader includes one short event excerpt, digitized electrode positions and two derived models from version 1.0.3. The apparatus and experiment papers are linked. [Dataset](https://doi.org/10.18112/openneuro.ds003739.v1.0.3) · [Data paper](https://doi.org/10.1016/j.dib.2021.107635) · [Reference checks and derivation](docs/visual-balance/METHODS.md)

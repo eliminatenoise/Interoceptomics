@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>When the room tilts · Interoceptomics</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="excerpt.js"></script>
+    <script defer src="viewer.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="shell">
+        <a id="home" href="../">Interoceptomics</a
+        ><span>Recorded movement atlas</span>
+      </div>
+    </header>
+    <main class="shell">
+      <div class="intro">
+        <div>
+          <h1>When the room tilts</h1>
+          <p>
+            A person walks a narrow beam. The scene in their headset turns
+            counterclockwise. Follow the voltage at the scalp and the movement
+            of two body markers through that single turn.
+          </p>
+        </div>
+        <a
+          class="download"
+          href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/visual-balance.zip"
+          id="download"
+          >Download offline reader ↓</a
+        >
+      </div>
+      <section class="clock" aria-label="Recording clock">
+        <div class="clocktop">
+          <div>
+            <span class="mini">Time from visual onset</span
+            ><strong id="clockTime"></strong>
+          </div>
+          <div class="transport">
+            <button id="play" type="button">Play at ¼ speed</button
+            ><button id="previous" type="button" aria-label="Previous sample">
+              −1 sample</button
+            ><button id="next" type="button" aria-label="Next sample">
+              +1 sample
+            </button>
+          </div>
+        </div>
+        <label class="sr" for="time"
+          >Move through the recording one stored sample at a time</label
+        ><input id="time" type="range" min="0" max="191" step="1" value="159" />
+        <div class="clockfoot">
+          <span id="sample"></span>
+          <div class="jumps">
+            <button data-jump="onset">Visual onset</button
+            ><button data-jump="cutoff">Observation cutoff</button
+            ><button data-jump="end">Measured endpoint</button>
+          </div>
+        </div>
+      </section>
+      <div class="models">
+        <section class="model">
+          <div class="panelhead">
+            <p class="mini">Scalp electrodes</p>
+            <h2>Voltage at the skin</h2>
+          </div>
+          <div class="scene">
+            <canvas
+              id="cap"
+              tabindex="0"
+              aria-label="3D scalp electrodes. Drag or use arrow keys to turn. Use the scalp site menu for readings."
+            ></canvas>
+            <div class="watermark">Digitized sites · individual head</div>
+          </div>
+          <div class="tools">
+            <label for="scalpView">View</label
+            ><select id="scalpView">
+              <option>Oblique</option>
+              <option>Top</option>
+              <option>Side</option></select
+            ><span>Drag or use arrow keys to turn</span>
+          </div>
+          <div class="panelbody">
+            <div class="legend">
+              <span>−40 µV</span><i></i><span>+40 µV</span>
+            </div>
+            <p>
+              Blue is negative, warm red positive, white zero. Rings mark the 15
+              sites the authors excluded. Color stops at ±40 µV. The number
+              below keeps the full reading.
+            </p>
+            <label for="scalp">Scalp site</label
+            ><select id="scalp"></select
+            ><output id="scalpVal"></output>
+            <p id="coordRead"></p>
+            <label class="refToggle"
+              ><input type="checkbox" id="auxSites" /> Show eye and neck
+              electrode locations</label
+            >
+            <p id="auxKey" hidden>
+              Eye sites are violet diamonds, neck sites green diamonds. Labels
+              follow the channels selected in the traces below. Leg electrode
+              positions were not digitized here.
+            </p>
+          </div>
+        </section>
+        <section class="model">
+          <div class="panelhead">
+            <p class="mini">Optical motion tracking</p>
+            <h2>Where the markers went</h2>
+          </div>
+          <div class="scene">
+            <canvas
+              id="paths"
+              tabindex="0"
+              aria-label="3D recorded head and sacrum displacement paths. Drag or use arrow keys to turn. Numeric coordinates follow."
+            ></canvas>
+            <div class="watermark">Grid spacing 20 mm</div>
+          </div>
+          <div class="tools">
+            <label for="motionView">View</label
+            ><select id="motionView">
+              <option>Oblique</option>
+              <option>ML × SI</option>
+              <option>ML × AP</option>
+              <option>AP × SI</option></select
+            ><span>Drag or use arrow keys to turn</span>
+          </div>
+          <div class="panelbody">
+            <div class="keys">
+              <span class="headkey">● Head</span
+              ><span class="sacrumkey">◆ Sacrum</span>
+            </div>
+            <p>
+              Each marker starts a new measurement at the cutoff. The curves
+              meet there because each uses its own position as zero. ML spans
+              side to side, SI vertical, and AP front to back. Both paths grow
+              with the clock.
+            </p>
+            <div class="tablewrap">
+              <table>
+                <caption>
+                  Displacement from each marker’s cutoff (mm)
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Marker</th>
+                    <th>ML</th>
+                    <th>SI</th>
+                    <th>AP</th>
+                  </tr>
+                </thead>
+                <tbody id="positions"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="signals">
+        <div class="signalshead">
+          <h2>What else did the electrodes pick up?</h2>
+          <p>
+            Eyes move and muscles contract during a step. Compare their
+            electrical traces with the scalp trace on the same clock. Similar
+            peaks alone cannot identify their source.
+          </p>
+        </div>
+        <div class="traces" id="traces"></div>
+        <p class="traceNote">
+          Each row has its own fixed vertical scale in microvolts. The dashed
+          line marks the logged visual onset. The solid line marks the cutoff.
+          The electrical excerpt ends there. Marker measurements continue for
+          another 125 ms.
+        </p>
+      </section>
+      <details>
+        <summary>Read the measurements and sources</summary>
+        <h3>One turn of a virtual room</h3>
+        <p>
+          Peterson and Ferris recorded a walker on a treadmill-mounted beam. The
+          visual scene rotated 20° for half a second. The log places this turn
+          between stored samples 10485 and 10486. The button for visual onset
+          selects sample 10486, 1.68 ms after the log. The clock measures
+          elapsed time from the fractional onset. It does not measure display
+          latency or prove when the walker perceived the turn.
+        </p>
+        <h3>Scalp, eyes and muscles</h3>
+        <p>
+          The scalp contacts record electrical potential relative to the
+          authors’ common median reference. Their stored EEG, eye and neck
+          recordings were high-pass filtered at 1 Hz and treated for line noise.
+          Raw optical tracking ran at 100 Hz and leg muscle recording at 1,000
+          Hz. The authors synchronized and resampled these streams to the stored
+          256 Hz clock. We added no filtering, source localization or signal
+          interpolation. These scalp potentials can include movement and muscle
+          signals. They cannot tell us which brain network produced a voltage.
+        </p>
+        <h3>How the geometry travels</h3>
+        <p>
+          The researchers digitized each person’s electrode locations. The SET
+          file retains more digits than the table, and its coordinates agree
+          with the table within 0.005 m per axis. The coordinate sidecar names
+          CTF/EEGLAB and gives millimetres, while the authors’ data paper
+          explicitly gives metres for this table. This reader uses the paper’s
+          units and the SET coordinates. There is no anatomical mesh. The
+          electrode and motion frames are displayed separately.
+        </p>
+        <p>
+          For movement, ML means mediolateral, SI superior–inferior and AP
+          anterior–posterior. The numbers keep the original signs. The source
+          leaves anatomical positive directions and the alignment between head
+          and laboratory frames unresolved. Motion at the two points gives no
+          joint angle or measure of total-body sway.
+        </p>
+        <h3>Independent things you can inspect</h3>
+        <ul>
+          <li>
+            Compare the 3D digitizer locations with the published electrode
+            table and the recorded scalp readings with the researchers’ original
+            binary samples. The authors mark 113 of 128 scalp channels usable in
+            this recording.
+          </li>
+          <li>
+            Read the log, the first sample after onset, the observation cutoff
+            at 10518 and the later movement at 10550. Cutoff to endpoint is
+            exactly 32 stored intervals, or 125 ms.
+          </li>
+          <li>
+            Check the study’s equipment and electrode placement in Figure 1 of
+            the data paper. A second study paper describes how the digitizer and
+            reflective markers were used.
+          </li>
+        </ul>
+        <p>
+          Steven M. Peterson and Daniel P. Ferris, University of Michigan.
+          OpenNeuro ds003739, version 1.0.3, released under CC0. One excerpt
+          from one person appears here. No forecast is displayed.
+          <a href="https://openneuro.org/datasets/ds003739/versions/1.0.3"
+            >Versioned recordings</a
+          >
+          ·
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8711048/"
+            >Data paper and apparatus</a
+          >
+          ·
+          <a href="https://doi.org/10.1523/ENEURO.0207-18.2018"
+            >Original balance experiment</a
+          >
+          · <a href="METHODS.md">Reproduction notes</a>
+        </p>
+      </details>
+      <footer>
+        <h2>Take the models with you</h2>
+        <p>
+          The cap file stores the 128 electrode positions and their status at
+          the cutoff. The marker file stores both measured paths in metres, each
+          relative to its own cutoff.
+        </p>
+        <a href="scalp-at-cutoff.glb" download>Scalp at the cutoff (.glb)</a
+        ><a href="marker-paths.glb" download>Marker paths (.glb)</a>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -64,3 +64,7 @@ Extract the [offline atlas](downloads/pedal-load.zip) and open the launcher for 
 ## One walker, two instructions
 
 Extract [the offline reader](downloads/walking-instructions.zip), then run the launcher labelled for Windows, macOS or Linux, or open index.html. Both animated GLBs are included. [Browser reader](https://eliminatenoise.github.io/Interoceptomics/walking-instructions/)
+
+## When the room tilts
+
+Extract the entire ZIP and choose the Windows, macOS or Linux launcher inside. Opening index.html directly also works. The reader includes the measured electrode positions, scalp and eye voltages, muscle traces, both marker paths and two standalone 3D files. [Browser reader](https://eliminatenoise.github.io/Interoceptomics/visual-balance/) · [Offline ZIP](downloads/visual-balance.zip)

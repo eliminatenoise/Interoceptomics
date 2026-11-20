@@ -15,6 +15,8 @@ The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
+**[When the room tilts](https://eliminatenoise.github.io/Interoceptomics/visual-balance/).** A walker sees the room turn. Read the scalp, eye and muscle voltages and follow the head and sacrum through the same recorded moment. [Download the offline reader and both measured models](downloads/visual-balance.zip).
+
 **[One walker, two instructions](https://eliminatenoise.github.io/Interoceptomics/walking-instructions/).** Compare the same person walking “as usual” and “fast but not running”. Match elapsed time or stride fraction, turn both figures and compare the pelvis and right-leg muscle recordings. [Download the offline reader and both animated models](downloads/walking-instructions.zip).
 
 **[Heel and force](https://eliminatenoise.github.io/Interoceptomics/heel-and-force/).** Follow the measured skin markers over two floor plates during a barefoot walk. At three points in one stance, compare how far the right heel moved in 100 milliseconds with the upward force recorded under that foot. [Offline atlas](downloads/heel-and-force.zip) · [Target pose at 0.39 s](docs/heel-and-force/pose-39.glb)

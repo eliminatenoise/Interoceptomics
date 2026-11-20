@@ -44,3 +44,8 @@ docs/walking-instructions/** -text
 docs/walking-instructions/*.cmd whitespace=cr-at-eol
 docs/walking-instructions/DATA-LICENCE.txt whitespace=cr-at-eol
 docs/walking-instructions/*.glb binary
+
+# Keep the offline visual-rotation excerpt and launchers byte-identical.
+docs/visual-balance/** -text
+docs/visual-balance/*.cmd whitespace=cr-at-eol
+docs/visual-balance/*.glb binary
