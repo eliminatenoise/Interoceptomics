@@ -14,6 +14,8 @@ The model learned from five volunteers and was tested on five different people. 
 
 Each entry gives the root mean squared error over one 30-second interval. Square the difference between each prediction and the measured sensor voltage, average those squared differences, then take the square root to return to millivolts. Larger misses carry more weight. Negative percentages mean the electrical input increased the error. Each person contributes once to the average, whether their sensor swings by a few millivolts or many. The median change was a 9.85% increase in error. The same five comparisons with an otherwise identical model trained and tested on ECG delayed by 5.012 seconds gave two wins and an average error increase of 8.72%. The experiment required the aligned ECG to beat both comparisons on average and for at least four people against each. It missed that mark. [Full scores and controls](results.json)
 
+[Check the model against an actual test recording](https://eliminatenoise.github.io/Interoceptomics/inside/recording-forecast.html). The page runs the fitted models from earlier signals, then lets you reveal the later measured voltage. Use the built-in excerpts from all five test recordings, or load a complete original file locally. [How the examples were made](replay/README.md)
+
 ## Try the forecast
 
 Open the browser forecast and move the pulse slider. It calculates both fitted models on your device. You can save the page and use it offline. [Try the interactive forecast](https://eliminatenoise.github.io/Interoceptomics/inside/forecast.html)

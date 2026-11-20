@@ -10,6 +10,10 @@ Open recording b001 and choose ECG lead II. The first dotted line lands at **60.
 
 The source recorded four channels 5,000 times a second. Each excerpt starts 60 seconds into its file. The last sample is at 71.9998 seconds. At each cursor position, the page converts the stored integer into millivolts using the scale and baseline for its channel. The breathing band and accelerometer report sensor output voltages. Recovering a lung volume, force or acceleration in physical units would require additional calibration.
 
+## Check a forecast against what happened
+
+Pick one of five recordings the model was tested on. Move the cutoff, compare the forecasts, then reveal the vibration measured 80 milliseconds later. The built-in excerpts use the first second of test cutoffs from each recording. Opening an original waveform file lets you try all 7,500 cutoffs for that person and reproduce their full-interval error. [Run the recorded forecast](https://eliminatenoise.github.io/Interoceptomics/inside/recording-forecast.html)
+
 ## Can the electrical signal improve a forecast?
 
 We used ten other people from this archive to test a prediction. Five supplied the training recordings. In the other five, adding ECG to chest vibration and breathing increased the average person-relative forecast error by 8.76% at 80 milliseconds. Change an invented ECG pulse in the browser to see how these fitted models respond, then compare the forecasts with what happened in the measured recordings. [Try the forecast](https://eliminatenoise.github.io/Interoceptomics/inside/forecast.html) · [Study and per-person results](../../models/chest-vibration/README.md)
