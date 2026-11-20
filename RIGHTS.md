@@ -152,3 +152,7 @@ The five-person cortical coverage reader counts the anatomical codes in the Stan
 ## Scalp and arm
 
 Ofner et al.’s codebook, figure copies, dataset-derived channel descriptions, repeated-trial summaries and seven-person agreement counts and scalp–eye cohort summaries carry CC BY 4.0. FieldTrip’s standard 10–5 electrode coordinates and triangulated scalp retain the GNU GPL v3. The Colin27 attribution and original template files accompany both the site and the ZIP. The project's own viewer, limb illustration and prose carry CC0. [Sources, modifications and full licences](docs/scalp-and-arm/NOTICE.txt)
+
+## Cervical surface recordings
+
+The voltage averages come from Nierula and colleagues’ OpenNeuro ds004388 v1.0.0 (CC0). The study drawings and Human Reference Atlas surfaces carry CC BY 4.0. The FieldTrip scalp and standard electrode coordinates retain GPL v3 and the Colin27 notice. The reader includes these notices and describes the crops, surface simplification and schematic electrode positions. [Sources and licenses](docs/cervical-signals/NOTICE.txt).

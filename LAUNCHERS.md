@@ -40,3 +40,7 @@ Open the 3D stride in a browser or extract the complete standalone ZIP. Inside t
 ## Scalp and arm
 
 Extract the ZIP and open the launcher for Windows, macOS or Linux in the extracted folder. Opening `index.html` there also works offline. The standard head, all 61 sites, four windows of single-person changes and seven-person agreement counts, the early scalp–eye comparison, the illustrated arm, clocks and original references are included. [Open the companion](https://eliminatenoise.github.io/Interoceptomics/scalp-and-arm/) · [Download the ZIP](downloads/scalp-and-arm.zip)
+
+## One wrist stimulus, five recordings
+
+Extract [the offline reader](downloads/cervical-signals.zip) and open `Open on Windows.cmd`, `Open on macOS.command` or `Open on Linux.sh`. Opening the extracted `index.html` also works. The recorded waveforms, electrode montage and rotatable reference anatomy are bundled. [Open the browser edition](https://eliminatenoise.github.io/Interoceptomics/cervical-signals/).

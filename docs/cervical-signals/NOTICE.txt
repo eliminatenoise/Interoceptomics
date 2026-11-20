@@ -1,0 +1,32 @@
+One wrist stimulus, five recordings · Interoceptomics
+
+Recorded voltages
+Nierula and colleagues. Somatosensory evoked potentials in the human spinal cord to mixed nerve stimulation. OpenNeuro ds004388 v1.0.0, CC0. This reader takes means across 80 median-stimulus events per person and publishes those means at the native sample interval. The raw continuous files and single trials are not included.
+https://doi.org/10.18112/openneuro.ds004388.v1.0.0
+https://github.com/OpenNeuroDatasets/ds004388/blob/ab5f0cb559249cb6d82b6f763767c6fe99292886/dataset_description.json
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Study figures
+Birgit Nierula, Tilman Stephani, Emma Bailey, Merve Kaptan, Lisa-Marie Geertje Pohle, Ulrike Horn, André Mouraux, Burkhard Maess, Arno Villringer, Gabriel Curio, Vadim V. Nikulin and Falk Eippert (2024). A multichannel electrophysiological approach to noninvasively and precisely record human spinal cord activity. PLOS Biology 22(10), e3002828. Figure 1A (wrist stimulus) and 1C (electrode montage) were cropped, resized and re-encoded as WebP. The study drawings retain CC BY 4.0. The wrist drawing identifies the stimulation site. No study illustration supplies individualized electrode coordinates here.
+https://doi.org/10.1371/journal.pbio.3002828
+https://doi.org/10.1371/journal.pbio.3002828.g001
+https://creativecommons.org/licenses/by/4.0/ (reference/CC-BY-4.0.txt)
+
+Spinal cord and heart surfaces
+Kristen Browne and Heidi Schlehlein, HuBMAP Human Reference Atlas, Female united organ set v1.10, based on the National Library of Medicine’s Visible Human Dataset. CC BY 4.0. From the existing Interoceptomics four-organ atlas subset (SHA256 dadce56c2c48bbabda915aae8d2a47bbcb0c2ae81dae6675528279590de7705e), this reader retains the eight cervical segments and heart surfaces. It centres each group, converts the display axes to right/anterior/superior, merges nearby vertices with a 0.9 mm cord grid or a 2.6 mm heart grid, and assigns display colours. The models supply regional landmarks. They have no spatial registration to the study participants, to the head template or to the arm illustration.
+https://doi.org/10.48539/HBM637.DWBM.744
+https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/metadata.json
+https://github.com/eliminatenoise/Interoceptomics/blob/952d9a23cabcd98c77019662e977b994e549e6fb/docs/atlas/backslash/organs.glb
+https://creativecommons.org/licenses/by/4.0/
+
+Scalp and standard CP4 position
+Robert Oostenveld and Peter Praamstra (2001). The five percent electrode system for high-resolution EEG and ERP measurements. Robert Oostenveld, Dick F. Stegeman, Peter Praamstra and Anton van Oosterom (2003). Brain symmetry and topographic analysis of lateralized event-related potentials. FieldTrip supplies the standard scalp mesh and standard electrode coordinate file from commit 77ff5f572c58c4b0138c09bee66f8a97e3845763, under GNU GPL v3. Colin27 template by Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University. Source ASA files, GPL and Colin27 notices are in reference/. The scalp retains its original triangles and MNI millimetres. The program renders the CP4 template coordinate as a disk-like marker independently of recorded voltage.
+https://doi.org/10.1016/S1388-2457(00)00527-7
+https://doi.org/10.1016/S1388-2457(03)00059-2
+https://www.fieldtriptoolbox.org/template/headmodel/
+https://github.com/fieldtrip/fieldtrip/tree/77ff5f572c58c4b0138c09bee66f8a97e3845763/template
+https://www.fieldtriptoolbox.org/copyrights/
+
+Original work
+The static left arm and palm are illustrations built with the existing Interoceptomics limb primitives. The yellow marker shows an approximate skin region. There is no subject-specific arm model, motion capture or estimated neural pathway here. Interoceptomics dedicates its own viewer code, original illustrations and explanatory text to the public domain under CC0 1.0. The source-derived surfaces and study figures retain their respective licenses.
+https://creativecommons.org/publicdomain/zero/1.0/ (reference/CC0-1.0.txt)

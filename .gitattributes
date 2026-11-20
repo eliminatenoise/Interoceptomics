@@ -27,3 +27,10 @@ docs/scalp-and-arm/*.cmd whitespace=cr-at-eol
 docs/scalp-and-arm/licenses/CC-BY-4.0.txt whitespace=-blank-at-eof
 docs/scalp-and-arm/references/*.bnd whitespace=-trailing-space
 docs/scalp-and-arm/references/*.vol whitespace=-trailing-space
+
+# Keep the standalone recording reader and archive byte-identical across platforms.
+docs/cervical-signals/** -text
+docs/cervical-signals/*.cmd whitespace=cr-at-eol
+docs/cervical-signals/reference/scalp/*.bnd whitespace=-trailing-space
+docs/cervical-signals/reference/scalp/*.vol whitespace=-trailing-space
+docs/cervical-signals/reference/CC-BY-4.0.txt whitespace=-blank-at-eof

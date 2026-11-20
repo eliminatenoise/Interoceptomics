@@ -15,6 +15,8 @@ The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
+**[One wrist stimulus, five recordings](https://eliminatenoise.github.io/Interoceptomics/cervical-signals/).** Read the voltage at the axilla, neck, scalp, thumb muscle and chest before and after a left wrist stimulus. Compare four people, inspect the study montage and turn the reference anatomy. [Download the offline reader](downloads/cervical-signals.zip).
+
 **[Follow one stride in 3D](https://eliminatenoise.github.io/Interoceptomics/stride-signals/).** Rotate the figure from one right footfall to the next and compare skin-marker movement with eight right-leg muscle recordings and the loads on two floor plates. Select a marker to see where it moved over the next 200 ms. The figure averages 89 slow barefoot strides from 30 people. [Offline reader](downloads/stride-signals.zip) · [Measurements and methods](models/stride-signals/OVERGROUND-STRIDE.md)
 
 **[Compare electrode coverage in five people](https://eliminatenoise.github.io/Interoceptomics/cortex-coverage/).** Choose an anatomical region, then load a participant’s own surface to inspect the recording contacts. [Both readers offline](downloads/recorded-cortex.zip)

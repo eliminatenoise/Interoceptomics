@@ -1,0 +1,76 @@
+{
+  "dataset": "OpenNeuro ds004388, v1.0.0",
+  "doi": "doi:10.18112/openneuro.ds004388.v1.0.0",
+  "snapshot": "ab5f0cb559249cb6d82b6f763767c6fe99292886",
+  "license": "CC0 1.0",
+  "runs": [
+    {
+      "participant": "sub-001",
+      "run": 3,
+      "stem": "sub-001/eeg/sub-001_task-median_run-03_",
+      "sidecars": {
+        "channels.tsv": "c1f32128c9ff91facbe3006feece4a559c0c4023fd093ab9f3608dd7aa774724",
+        "events.tsv": "231f43a0c04e14c2ea01d21669b676649810177dde64e5bef9d50fac96d1db31",
+        "eeg.json": "4614cfc04941d485eeaaacc35b3ed667cf39260539e2030de0d28a34edc63c95"
+      },
+      "continuous_bytes": 1795049016,
+      "publisher_continuous_sha256": "8d273a1dd2fbf40007fce0707813d69c6273635eb7d0ed81e72a2e3ecf580b6c",
+      "selected_sha256": {
+        "baseline": "2eeb9bf276dee38c3fdfe6c3b97f2b9aac4ce527027f6a186131a25c198dfc97",
+        "early": "975d3836bac73f50b06a721c074389346e507ed8a37e3ee37dc88e132a2550d2",
+        "late": "d167e02efa86036b552f1b62f0ed04d4a5690d73a5332436b8c66a079502fd9f"
+      }
+    },
+    {
+      "participant": "sub-002",
+      "run": 3,
+      "stem": "sub-002/eeg/sub-002_task-median_run-03_",
+      "sidecars": {
+        "channels.tsv": "c1f32128c9ff91facbe3006feece4a559c0c4023fd093ab9f3608dd7aa774724",
+        "events.tsv": "dc1d71d9f5cba24db7ef4ec7bf156f6267714f8974092f660938222383859291",
+        "eeg.json": "6baa3a76392c5157a70946f188a8a7d63f3617c37f12787fa68670217e02fd70"
+      },
+      "continuous_bytes": 1797442104,
+      "publisher_continuous_sha256": "fe59888a27e06854fe46601edb2c4bd30fd67b4e3b6ec92344b9eb0c14c22757",
+      "selected_sha256": {
+        "baseline": "2509468d3d0d9ce36e757444ef102b3c239fc90b29b65179cea43a990c791fe6",
+        "early": "fd5d6099994596debc3ff4d5d6be238c75dfc41b31015f4371a1d2f39e49ff44",
+        "late": "4708d49eb36b5a7cdccd77a69d20c60501f54c11dc84b09eb08c2de6cbedad00"
+      }
+    },
+    {
+      "participant": "sub-003",
+      "run": 2,
+      "stem": "sub-003/eeg/sub-003_task-median_run-02_",
+      "sidecars": {
+        "channels.tsv": "c1f32128c9ff91facbe3006feece4a559c0c4023fd093ab9f3608dd7aa774724",
+        "events.tsv": "5b2d1dc6d0bc50ef409d44760adce3455cc08da8436282836dadcf9e3463001f",
+        "eeg.json": "f528aba1da092704b046103434af45eddf619fb92693df901c721d511ff0d066"
+      },
+      "continuous_bytes": 1784730648,
+      "publisher_continuous_sha256": "7b5100e619d3dedde8628b070b74beee8a7548a7f064feddd1679637b59d1dc4",
+      "selected_sha256": {
+        "baseline": "0b604159e0e466c8cfc3ae74ceaf61b1a52b1279aa675cc030cde1834425ba78",
+        "early": "2afe353b0340df402a0b88c97ee82dfeffc502a706edb76315102acda9cac310",
+        "late": "bd7e942279b9325cc039823244ce67d217a38af895446e17f3edb205cebd071b"
+      }
+    },
+    {
+      "participant": "sub-004",
+      "run": 2,
+      "stem": "sub-004/eeg/sub-004_task-median_run-02_",
+      "sidecars": {
+        "channels.tsv": "c1f32128c9ff91facbe3006feece4a559c0c4023fd093ab9f3608dd7aa774724",
+        "events.tsv": "d191eff8c0f46516cbf67986f2b7322d7899fc3cf77bc7bf8dc0419f797b75e2",
+        "eeg.json": "1d7b4bb4de2286db893b9e86269df9b13fb68248a7652f41d192c796e3ef2940"
+      },
+      "continuous_bytes": 1793059032,
+      "publisher_continuous_sha256": "de3d8cbe6183da5914a7e979ebb02665135be2c6ca51045bd50cdfb33eef879e",
+      "selected_sha256": {
+        "baseline": "b34bbcef54175a2abee0a757bdaf7e3ebebb0011a0bfb0a17b9a44bf1c04e862",
+        "early": "de3571fc9f68687e53a770c6f42afc1f6e085e36e86a3556b399acd9239312a2",
+        "late": "32e03a5159fbe948179ab4018dff194744be48b65381604a23f8f25191c6da28"
+      }
+    }
+  ]
+}
