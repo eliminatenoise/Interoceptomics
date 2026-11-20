@@ -7,18 +7,18 @@
   "files": [
     {
       "name": "Install-Interoceptomics-Linux.sh",
-      "bytes": 2595,
-      "sha256": "955d4af2605eea78d0375cdef51e19554d5e214b39b884e71ebeb6361173f9ab"
+      "bytes": 2599,
+      "sha256": "7470a6e24211ebf4ff884ac96e58d32ed518234cd67fe6b194afec395a4e6639"
     },
     {
       "name": "Interoceptomics-Launchers.zip",
-      "bytes": 3622,
-      "sha256": "56ff065c3b98cc42798215a694a241f294091232bf13e927ea10c6bb7ee30053"
+      "bytes": 3607,
+      "sha256": "f999b78d18523f36c9f9d95baedb6f228c50322b9b9b1b976b7fe28da7246110"
     },
     {
       "name": "Interoceptomics-Linux.desktop",
-      "bytes": 363,
-      "sha256": "0be2c17225519d2f8b06632b7e220f1e1cde8e4f0fb3062cdd8bb98c1a5d5aa1"
+      "bytes": 367,
+      "sha256": "1067b1377ba27a8573764656f321a71def6636cd6cf389188527992a09c1fa97"
     },
     {
       "name": "Interoceptomics-Windows.url",
@@ -32,13 +32,13 @@
     },
     {
       "name": "README.txt",
-      "bytes": 1814,
-      "sha256": "5bc73e4e2ef432dea1c74cbdfc339607af9273de905ba5e83ef0103801f82c45"
+      "bytes": 1798,
+      "sha256": "c10078fb34533d01b6ccdfa983d4496ddc2d2686d11ae8119d01535020f3a240"
     },
     {
       "name": "SHA256SUMS",
       "bytes": 461,
-      "sha256": "66af47639a0f12190965d85463d82226096d42779f106cf92d01dd7cdbc715d5"
+      "sha256": "a835b70eca16967d71fbe1e4b047cf42393ff1061fc28ae93898c407fefc29e5"
     }
   ],
   "qualification": "File formats and the Linux installer (in a test folder) were checked on Linux. The Windows and macOS shortcuts have not been opened on those systems. Each shortcut opens the project web page; none contains an application.",

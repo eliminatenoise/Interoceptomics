@@ -32,7 +32,7 @@ cat > "$temporary" <<_BRAIN2BODY_DESKTOP_
 Version=1.0
 Type=Application
 Name=Interoceptomics
-Comment=Open the Interoceptomics project page: the 3D brain atlas and the scripts
+Comment=Open the Interoceptomics project page: the brain atlas viewer and the scripts
 Exec=$launcher_exec https://eliminatenoise.github.io/Interoceptomics/
 TryExec=$launcher_tryexec
 Icon=web-browser

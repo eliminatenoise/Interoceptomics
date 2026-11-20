@@ -5,9 +5,9 @@ your browser:
 
   https://eliminatenoise.github.io/Interoceptomics/
 
-That page has the download of the 3D brain atlas and the two scripts. The
-shortcuts are not the atlas viewer. The viewer has its own start files
-inside its download.
+That page has the download of the atlas viewer and the two scripts. The
+shortcuts do not start the viewer. It has its own start files inside its
+download.
 
 Windows: double-click Interoceptomics-Windows.url.
 macOS:   double-click Interoceptomics-macOS.webloc.
@@ -23,10 +23,10 @@ Open a terminal in this folder and run:
   sh Install-Interoceptomics-Linux.sh
 
 The installer writes one entry, brain2body-interoceptomics.desktop, into
-${XDG_DATA_HOME:-$HOME/.local/share}/applications, for your user only. It
-installs no software, starts no background job and opens no browser while
-it works. It uses your desktop's web-app opener when it finds one, and
-xdg-open otherwise.
+${XDG_DATA_HOME:-$HOME/.local/share}/applications, for your user only,
+and does nothing else. The entry opens the page with xdg-open. On one
+Linux distribution the installer finds that system's own web-app opener
+and uses it instead.
 
 If the same entry is already there, it leaves it. If a different file has
 that name, it leaves that too and tells you. An entry installed from an
