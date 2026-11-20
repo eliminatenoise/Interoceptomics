@@ -47,13 +47,13 @@
     },
     {
       "name": "README.md",
-      "bytes": 4879,
-      "sha256": "71fe92225a3e23179bb89e97ef94eaee8a9b8ec360d4ebde15e3afab6caf69e5"
+      "bytes": 3781,
+      "sha256": "91fd71e4a5c59322f90759700d859698657cfa56d3065f533f772dc0a1e6c54b"
     },
     {
       "name": "RELEASE-NOTES.md",
-      "bytes": 1243,
-      "sha256": "292772e36f37ca54ea5106e20faa64ba2b034605cbda112e41d0ca2047e303d1"
+      "bytes": 1293,
+      "sha256": "0502213b69970ee278e90422a6e6eb85c2650f80c2f5b8232dbbc7aa0a675db2"
     }
   ]
 }

@@ -1,11 +1,16 @@
-# Experimental script preview
+# Script notes
 
-This partial edition makes the existing provisional technical and simple scripts available in editable DOCX and fixed PDF formats. It contains four current core files, with unchanged text, metadata and file bytes.
+**The four script files have not changed since they were first published here.** They are the technical and the simple script of *I Know Kung Fu*, each as PDF and DOCX, as produced on 4 November 2026. The talk they belong to is paused.
 
-The scripts follow 111 slides and 135 reveal cues. The technical PDF has 114 pages; the simple PDF has 36. Existing wording identifies the ape image as AI-generated and the brain contacts as simplified models with unvalidated anatomical fit and no demonstrated transfer.
+| Date | What changed |
+| --- | --- |
+| 20 November 2026 | The pages that describe the scripts, the [README](README.md) and this one, were rewritten. The four script files are the same, byte for byte. |
+| 10 November 2026 | The four script files were published here, without their slides. |
 
-The newer presentation files are excluded because exact image rights remain unresolved. No older presentation or companion archive is repackaged as a new matching edition. No new research, model training, scientific result or feature development forms part of this publication selection.
+What is known to be missing or unchecked:
 
-Known limits include incomplete full-page visual and other-machine checks, unvalidated anatomy and proposed interfaces, incomplete model/source dependency qualification, and open scientific and clinical acceptance. Extracted script-body parity is narrower evidence than those requirements.
+- **The slides.** 22 of their 88 pictures have not been cleared for redistribution, so the deck is not published. The scripts still describe the pictures.
+- **Appearance on other computers.** The PDFs were made with LibreOffice on one computer. The DOCX files have not been opened in Microsoft Word, and their page breaks depend on the fonts installed.
+- **The science.** The scripts argue for experiments. None has been run, and nothing in them is a clinical instruction.
 
-Use the file hashes to distinguish this preview from earlier releases. The project history and original private source edition remain preserved.
+An older edition of the scripts, with an older slide deck, is in the [pre-release of 4 November 2026](https://github.com/eliminatenoise/Interoceptomics/releases/tag/interoceptomics-r42-draft). The files here are the newer scripts.
