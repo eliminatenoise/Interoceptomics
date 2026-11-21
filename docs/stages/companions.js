@@ -112,6 +112,11 @@ const models = {
     url: '../walking-instructions/',
     reading: 'One person walked at their usual pace and at a fast pace. Match the walks at the same time after foot strike or at the same fraction of a stride. How far did the pelvis travel in each?'
   },
+  melbourneWalkingForecast: {
+    title: 'Forecast a walk with force',
+    url: neuro + 'joint-alpha/missing-pelvis-markers/melbourne-force/',
+    reading: 'A treadmill plate measures how hard a foot presses on it. Skin electrodes record electrical activity near muscles. In a separate Melbourne study, see whether earlier plate readings helped forecast how far markers on the pelvis would rise or fall over the next 100 milliseconds.'
+  },
   visualBalance: {
     title: 'Replay a turn of the visual scene',
     url: '../visual-balance/',
@@ -232,7 +237,7 @@ const models = {
 
 const choicesByStep = {
   'map-brain2body': ['humanWrist', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
-  'map-body2body': ['walkingInstructions','targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
+  'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'fingertipTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
   'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
