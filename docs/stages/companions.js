@@ -72,6 +72,11 @@ const models = {
     url: neuro + 'cross-limb-movement/#evidence',
     reading: 'How closely did earlier movement and muscle activity predict the next 125 milliseconds? Compare the errors for each task. The editable forecast starts from invented readings. Choose “Replay the wrist and pelvis recordings” to inspect two measured examples from model development.'
   },
+  walkingFloorForce: {
+    title: 'See what the floor records as you walk',
+    url: '../walking-force/',
+    reading: 'Move through a recorded walk. Compare the front of the right foot with the load measured by the floor plates. The overlay shows how closely force calculated from voltage matches the authors’ export.'
+  },
   walkingInstructions: {
     title: 'Compare a usual walk with a fast walk',
     url: '../walking-instructions/',
@@ -207,7 +212,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
   'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
