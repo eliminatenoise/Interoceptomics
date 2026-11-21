@@ -17,6 +17,8 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 **[After the reach](https://eliminatenoise.github.io/Interoceptomics/reach-feedback/).** A macaque reaches for a target while a camera tracks its hand and elbow and a robot measures where the handle goes. Follow four recorded reaches, then compare the spikes counted in sensory cortex with the counts forecast from the earlier recording. [Offline reader and eight animated models](downloads/reach-feedback.zip) · [Methods and attribution](docs/reach-feedback/NOTICE.md)
 
+**[One week later](https://eliminatenoise.github.io/Interoceptomics/reach-feedback/one-week/).** Follow one macaque on two recording dates. Compare freshly measured positions with the earlier forecast, then inspect later spikes by acquisition contact and local sort. [Offline reader and ten animated models](downloads/reach-feedback-one-week.zip) · [Methods and attribution](docs/reach-feedback/one-week/NOTICE.md)
+
 **[How the cylinder turns](https://eliminatenoise.github.io/Interoceptomics/cylinder-rotation/).** A sensor on the lid records each twist as a person carries the object to one of nine targets. Compare its 100 Hz readings with a forecast of the next tenth of a second. [Offline atlas and 18 animated models](downloads/cylinder-rotation.zip) · [Methods and attribution](docs/cylinder-rotation/METHODS.md)
 
 **[Carry the cylinder](https://eliminatenoise.github.io/Interoceptomics/target-reach/).** One person carries a cylinder to nine visual targets with each hand. Turn the measured optical paths in three dimensions, compare two recordings and export their motion. [Offline reader and 18 animated models](downloads/target-reach.zip) · [Recording and apparatus](docs/target-reach/METHODS.md)

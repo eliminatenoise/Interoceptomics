@@ -154,6 +154,14 @@ def build(data, clip, planar):
             "timing": "glTF 0.20 s = prediction cutoff k. Glyphs have illustrative radii.",
         },
     }
+    if "recording_block" in data:
+        doc["extras"].update(
+            recordingBlock=data["recording_block"],
+            goOrdinal=data["go_ordinal"],
+            updateAvailableMATRow=clip["k"]+10,
+            firstLaterCountMATRow=clip["k"]+10,
+            lastLaterCountMATRow=clip["k"]+19,
+        )
     header = json.dumps(doc, separators=(",", ":")).encode()
     header += b" " * (-len(header) % 4)
     return (

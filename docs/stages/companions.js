@@ -2,6 +2,11 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  reachWeek: {
+    title: 'One week later',
+    url: '../reach-feedback/one-week/',
+    reading: 'Turn the hand and forearm through two days of reaching. See when a new position becomes available, then count the spikes at one cortical contact.'
+  },
   reachFeedback: {
     title: 'After the reach',
     url: '../reach-feedback/',
@@ -146,17 +151,17 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['contactForecast', 'reachFeedback', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
+  'map-brain2body': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions','targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
-  'motorsensation': ['contactForecast', 'reachFeedback', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
+  'motorsensation': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
   'handler': ['graspBalanceRecording','targetReach', 'cylinderRotation', 'graspBalanceForecast'],
   'read-function': ['vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
-  'mechanics': ['contactForecast', 'reachFeedback', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
+  'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['graspBalanceForecast','targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],

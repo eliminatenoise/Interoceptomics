@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Follow a recorded macaque reach and compare two forecasts of later sensory-cortex activity, seven days after training.">
+  <title>One week later · Interoceptomics</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="week.css">
+  <script src="recordings.js" defer></script>
+  <script src="../scene.js" defer></script>
+  <script src="week.js" defer></script>
+</head>
+<body>
+<header><nav aria-label="Main navigation">
+  <a class="brand" href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a>
+  <div><a href="https://eliminatenoise.github.io/Interoceptomics/reach-feedback/">First study</a><a href="https://eliminatenoise.github.io/NeuroTranslation/reach-feedback/one-week/">Forecasts</a><a href="#data">Credits</a></div>
+</nav></header>
+<main>
+  <section class="intro">
+    <div><h1>One week later</h1>
+    <p>A macaque grasps a handle and reaches. A week after the model learned from that animal’s movements, can another glimpse of its arm improve a forecast of the next spikes in sensory cortex?</p></div>
+    <div class="source"><span>Rhesus macaque C</span><span>7 &amp; 14 September 2017</span><a href="#contact">Inspect a recording contact ↓</a></div>
+  </section>
+  <section aria-labelledby="replay">
+    <div class="case"><div><h2 id="replay">Replay the reach</h2><span id="identity"></span></div><label>Recording<select id="clip"></select></label></div>
+    <p id="missing" hidden></p>
+    <div id="viewer">
+      <div class="panels">
+        <article class="optical">
+          <div class="panel-title"><h3>Hand and forearm</h3><span>XYZ · metres</span></div>
+          <div class="scene-wrap"><canvas id="scene" tabindex="0" aria-label="Recorded hand and proximal-ulna markers in three dimensions. Drag or press an arrow key to rotate."></canvas><div class="scene-key"><span class="hand">Hand</span><span class="elbow">Proximal ulna</span></div></div>
+          <div class="settings"><label>Frame<select id="focus"><option value="both">Both markers</option><option value="hand">Hand</option><option value="elbow">Proximal ulna</option></select></label><label>View<select id="view"><option value="oblique">Oblique</option><option value="xy">XY</option><option value="xz">XZ</option><option value="yz">YZ</option><option value="custom" disabled>Rotated</option></select></label></div>
+          <p class="hint">The camera followed paint on the hand and the forearm near the elbow. Drag to turn the shoulder-relative axes.</p>
+        </article>
+        <article class="encoder">
+          <div class="panel-title"><h3>Robot handle</h3><span>XY · centimetres</span></div>
+          <canvas id="handle" aria-label="Recorded robot handle path in the apparatus plane"></canvas>
+          <div class="key"><span class="measure">Recorded</span><span class="forecast">Forecast</span></div>
+          <p class="hint">The handle’s encoders measured its position in a separate plane, with their own origin and scale.</p>
+        </article>
+      </div>
+      <div class="timeline">
+        <div class="timehead"><div><span id="phase"></span><strong id="time"></strong></div><button id="play">Play slowly</button></div>
+        <div class="bands"><button data-step="0">Earlier history<span>−200 to 0 ms</span></button><button data-step="20">Observe the reach<span>0 to +100 ms</span></button><button data-step="30">Count later spikes<span>+100 to +200 ms</span></button></div>
+        <label for="clock" class="sr">Selected 10 ms bin</label><input id="clock" type="range" min="0" max="39" value="29" step="1">
+        <div class="transport"><button id="prev">← Back</button><button id="next">Next →</button><output id="row"></output></div>
+        <p id="phaseNote"></p>
+      </div>
+      <div class="data-block">
+        <div class="section-title"><h3>Where was the arm?</h3><label>Compare with<select id="motion"><option value="velocity">Constant velocity</option><option value="stationary">Stationary position</option><option value="motor">Transformer + contact counts</option><option value="motorPose">Transformer + pose correction</option><option value="none">Recorded only</option></select></label></div>
+        <p id="motionNote"></p>
+        <table><thead><tr><th>Site</th><th>X</th><th>Y</th><th>Z</th></tr></thead><tbody id="positions"></tbody></table>
+      </div>
+      <div class="data-block" id="contact">
+        <div class="section-title"><h3>What did the electrode record?</h3><label>Acquisition contact<select id="channel"></select></label></div>
+        <p id="coverage"></p>
+        <div class="contact-plot"><canvas id="trace" aria-label="Spike counts at the selected acquisition contact across forty bins. Each bar is a 10 ms interval."></canvas></div>
+        <p id="selectedCount"></p>
+        <table><thead><tr><th>Local sort label</th><th>7 Sep</th><th>14 Sep · B1</th><th>14 Sep · B2</th><th>Selected bin</th></tr></thead><tbody id="sorts"></tbody></table>
+        <p class="hint">The sorter put unassigned spikes in label 0. Positive numbers distinguish clusters within a recording. An electrode number lets us compare acquisition channels across dates. Matching sort numbers cannot identify a neuron across dates.</p>
+      </div>
+      <div class="data-block">
+        <h3>Forecast the next 100 milliseconds</h3>
+        <p id="countCaption">Both forecasts target the same ten later bins. The first uses history through −10 ms. At +100 ms, the update adds the difference between the arm’s measured endpoint at +90 ms and the endpoint expected from its earlier velocity.</p>
+        <div class="table-wrap"><table><thead><tr><th>Count at this contact</th><th>Recorded</th><th>Earlier forecast</th><th>Motion update</th></tr></thead><tbody id="predictions"></tbody></table></div>
+        <p class="hint" id="predictionNote"></p>
+        <details><summary>What if the model also heard the latest spikes?</summary>
+          <p>A second pair of models gets the spike counts right up to +100 ms. One also gets the measured change in position at +40 and +90 ms. Both predict only the later positive-sort total on this contact.</p>
+          <p id="recent"></p>
+        </details>
+      </div>
+      <div class="data-block" id="outcome" hidden><h3>Across the held recordings</h3><p id="cohort"></p><p id="otherOutcomes"></p><p><a href="https://eliminatenoise.github.io/NeuroTranslation/papers/reach-feedback/one-week/">Read the cross-date study ↗</a></p></div>
+      <div class="download"><div><h3>Keep this recording</h3><p>Each animated model carries 30 measured positions. The complete reader also includes the counts, forecasts and source figures.</p></div>
+        <div class="files"><a id="markers" download>Hand and forearm ↓</a><a id="encoder" download>Planar handle ↓</a><a id="offline" href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/reach-feedback-one-week.zip">Complete offline reader ↓</a></div>
+      </div>
+    </div>
+  </section>
+  <section id="data"><h2>Two days on the same apparatus</h2>
+    <p>Chowdhury, Glaser and Miller recorded rhesus macaque C reaching to targets in two workspaces. The models learned from the near workspace on 7 September. The test uses the near and far workspaces from two recording blocks on 14 September. Each replay is the first eligible original reach in its block and workspace, selected by controller timing before reading its measurements.</p>
+    <div class="refs">
+      <figure><a href="../reference/figure-2.webp"><img src="../reference/figure-2.webp" loading="lazy" alt="The reaching apparatus, macaque, optical arm markers and camera."></a><figcaption><b>Capture.</b> A camera follows the arm while the animal guides a cursor with a handle. Figure 2.</figcaption></figure>
+      <figure><a href="../reference/figure-3.webp"><img src="../reference/figure-3.webp" loading="lazy" alt="Reaches in the near and far workspaces and example spike activity in each."></a><figcaption><b>Workspaces.</b> Near and far targets change the posture of the arm. Figure 3.</figcaption></figure>
+      <figure><a href="../reference/figure-1.webp"><img src="../reference/figure-1.webp" loading="lazy" alt="Array locations and somatosensory receptive-field maps in the original study."></a><figcaption><b>Recording site.</b> The array samples area 2 of sensory cortex. These maps come from the original mapping sessions. Figure 1.</figcaption></figure>
+    </div>
+    <p>The processed recordings share a 10 ms clock. Optical interpolation, filtering and offline spike sorting limit real-time interpretation. The export gives a spike count in each bin; it supplies neither a voltage trace nor the instant of each spike. These recordings cannot establish which peripheral nerves produced a response or whether a movement caused it.</p>
+    <p class="refs-links"><a href="https://doi.org/10.5061/dryad.nk98sf7q7">Dryad data · CC0 ↗</a><a href="https://doi.org/10.7554/eLife.48198">Original paper &amp; figures ↗</a><a href="NOTICE.md">Methods and rights</a><a href="READ-ME.txt">Offline instructions</a></p>
+  </section>
+</main></body></html>

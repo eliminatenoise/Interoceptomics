@@ -44,7 +44,7 @@ def write_zip(output):
         for frame in ("markers", "handle")
     ]
     paths = sorted(FILES + models)
-    names = {p.relative_to(BASE).as_posix() for p in BASE.rglob("*") if p.is_file()}
+    names = {p.relative_to(BASE).as_posix() for p in BASE.rglob("*") if p.is_file() and "one-week" not in p.relative_to(BASE).parts}
     if names - {"SHA256SUMS"} != set(paths):
         raise ValueError(
             f"Files differ from inventory: {names.symmetric_difference(set(paths)) - {'SHA256SUMS'}}"

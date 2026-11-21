@@ -1,0 +1,22 @@
+#data {margin: 3rem 0 4rem; border-top: 1px solid var(--edge); padding-top: 1.6rem}
+#data h2, #data p, #countCaption, #coverage, #selectedCount, #motionNote, #cohort {margin: .65rem 0}
+#motionNote, #coverage, #cohort {max-width: 58rem}
+.table-wrap {overflow-x: auto}
+.contact-plot {background: #eff2e9; border-radius: .45rem; margin: 1rem 0 .7rem}
+#trace {display: block; width: 100%; height: 114px; cursor: crosshair}
+#sorts td, #predictions td, #positions td {white-space: normal}
+#viewer .bands button:nth-child(2) {background-color: #dcebe3}
+#viewer .bands button:nth-child(3) {background-color: #e4e5f2}
+#viewer .bands button[aria-current="step"] {outline: 2px solid #244f48; outline-offset: -2px}
+#viewer .bands span {display: block}
+@media(max-width: 460px) {
+  #viewer .bands button {font-size: .72rem; padding: .35rem .1rem}
+  #viewer .bands span {font-size: .66rem}
+  .data-block table {font-size: .79rem}
+  .data-block th, .data-block td {padding: .4rem .2rem;}
+  #data .refs figure {grid-template-columns: 40% 60%}
+}
+
+details {margin-top: 1rem; padding: .7rem .9rem; background: #f1f3e9; border-radius: .4rem}
+summary {cursor: pointer; font-weight: 650}
+details p {margin: .6rem 0 0}

@@ -80,3 +80,7 @@ docs/reach-feedback/** -text
 docs/reach-feedback/*.cmd whitespace=cr-at-eol
 docs/reach-feedback/models/*.glb binary
 downloads/reach-feedback.zip binary
+
+docs/reach-feedback/one-week/models/*.glb binary
+downloads/reach-feedback-one-week.zip binary
+docs/reach-feedback/one-week/*.cmd whitespace=cr-at-eol

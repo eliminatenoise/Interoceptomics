@@ -1,0 +1,9 @@
+One week later  |  Interoceptomics
+
+Extract the whole ZIP. Open the Windows, macOS or Linux launcher, or open index.html in your browser. A browser with JavaScript can play the recorded examples offline. The 3D view uses WebGL where available and a rotatable 2D projection otherwise. Source citations and links to the wider project use the internet.
+
+Select a recording. B1 and B2 are recording blocks. Use the time slider or jump to the earlier history, the measured movement or the later spikes. Drag the marker view or use the arrow keys to turn it. Switch to a single marker to enlarge its path. The handle has a separate planar view. Change the forecast overlay to compare measured paths with constant velocity, stationary position or the fitted movement model.
+
+Select an acquisition contact. The bars count spikes in each 10 ms bin through the end of the selected bin. The table shows which local sort labels were present on each recording date. Forecasts below the bars predict a single total across the ten later bins. Fractional values are expectations. Scrub to the last bin to reveal the recorded total.
+
+The animated files in one-week/models hold separately calibrated marker and handle paths, each with 30 recorded samples. To rebuild them from one-week/recordings.js, run python one-week/export.py from the extracted folder. No installation is needed to read the recording. Source attribution, physical frames and data selection are in one-week/NOTICE.md. SHA256SUMS covers the contents of the extracted edition.
