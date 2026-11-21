@@ -32,6 +32,11 @@ const models = {
     url: neuro + 'joint-alpha/shared-tasks/trajectory/reach/explore/',
     reading: 'A camera tracked a mark on a macaque’s hand and another near its elbow. Choose one of three reaches used to fit the models. Turn the saved forecasts in 3D, then reveal where each mark went over the next 100 milliseconds on the archive’s clock.'
   },
+  runReachForecast: {
+    title: 'Run a reach forecast',
+    url: neuro + 'joint-alpha/shared-tasks/trajectory/reach/density/second-day/predict/',
+    reading: 'Run a model with 20 recorded positions of the hand, elbow and handle. Try the example or paste your own readings. Compare where the model places the hand and elbow with a forecast that extends their recent motion.'
+  },
   cylinderRotation: {
     title: 'How the cylinder turns',
     url: '../cylinder-rotation/',
@@ -192,7 +197,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
   'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
