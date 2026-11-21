@@ -7,6 +7,7 @@ HERE = Path(__file__).resolve().parent
 FILES = (
     "index.html", "style.css", "finger.js", "shading.js", "scene.js", "viewer.js", "clock.js",
     "methods.html", "LICENSE.txt", "MAKEHUMAN-CC0.txt", "derive_finger.py",
+    "BENSMAIA-DATA-CC-BY.txt", "check_recorded_bins.py",
     "Open on Linux.sh", "Open on macOS.command", "Open on Windows.cmd",
 )
 

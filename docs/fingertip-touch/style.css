@@ -27,3 +27,36 @@ button{border:1px solid #b7beb2;border-radius:4px;background:#f5f6ee;color:#263c
  .clock-section .scrub input{grid-row:2;grid-column:1/-1;width:100%}
  .clock-section .scrub output{grid-row:1;grid-column:2}
 }
+
+.nerve-replay { margin-block: 1.6rem; padding: 0 1.5rem; }
+.nerve-replay > summary { padding-block: 1.05rem; font-size: clamp(1.05rem, 1.8vw, 1.28rem); }
+.nerve-replay summary { cursor: pointer; font-weight: 650; }
+.nerve-replay summary:focus-visible { outline: 3px solid #be532d; outline-offset: 3px; }
+.replay-body { padding-bottom: 1.25rem; }
+.replay-body > p { max-width: 76ch; }
+.replay-columns {
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: start; gap: 1.5rem; margin-block: 1.1rem;
+}
+.replay-history { width: 100%; table-layout: fixed; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.replay-history caption, .replay-next h2 { font-size: 1rem; font-weight: 650; text-align: left; line-height: 1.4; }
+.replay-history caption { padding-bottom: .6rem; }
+.replay-history th, .replay-history td { background: #edf2ec; border-inline-end: 2px solid #fcfbf7; text-align: center; }
+.replay-history th { padding: .6rem .12rem .1rem; font-size: .83rem; color: #3b5146; }
+.replay-history td { padding: .12rem .12rem .6rem; font-size: 1.55rem; font-weight: 650; }
+.replay-next { padding-inline-start: 1.25rem; border-inline-start: 2px solid var(--rule); }
+.replay-next h2 { margin: 0; }
+.replay-next .expected-count { margin: .3rem 0 .4rem; }
+.expected-count strong { font-size: 1.55rem; color: var(--force); font-variant-numeric: tabular-nums; }
+.count-check summary, .replay-source { color: var(--force); font-size: .9rem; }
+.count-check summary { padding: .5rem 0; }
+.count-check p { padding-block-end: .4rem; }
+.replay-source { display: inline-block; margin-top: .7rem; }
+@media (max-width: 720px) {
+  .nerve-replay { padding-inline: 1rem; }
+  .replay-columns { grid-template-columns: 1fr; gap: 1rem; }
+  .replay-next { padding: .75rem 0 0; border-inline-start: 0; border-top: 1px solid var(--rule); }
+}
+@media (max-width: 400px) {
+  .replay-history th span { display: block; }
+}

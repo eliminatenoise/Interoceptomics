@@ -45,9 +45,32 @@
 <canvas id="camera-clock" width="720" height="180" role="img" aria-label="Example timeline with a spike at 44 milliseconds. Example camera frames are 20 milliseconds apart."></canvas>
 <p id="camera-clock-result" role="status"></p>
 </section>
+<details class="panel nerve-replay" id="nerve-replay">
+<summary>Replay one macaque fingertip recording</summary>
+<div class="replay-body">
+<p>In a separate experiment, a drum drew satin across a macaque’s fingertip at 80 mm/s. A single sensory nerve fibre fired once in the four intervals below. Each spike is a brief electrical impulse. How many will the next 20 milliseconds hold?</p>
+<div class="replay-columns">
+<table class="replay-history">
+<caption>Recorded spikes in the preceding 80 ms</caption>
+<thead><tr><th scope="col">100–120<span> ms</span></th><th scope="col">120–140<span> ms</span></th><th scope="col">140–160<span> ms</span></th><th scope="col">160–180<span> ms</span></th></tr></thead>
+<tbody><tr><td>0</td><td>1</td><td>0</td><td>0</td></tr></tbody>
+</table>
+<div class="replay-next">
+<h2>Forecast for 180–200 ms</h2>
+<p class="expected-count"><strong>0.32</strong> expected spikes</p>
+<details class="count-check" id="count-check">
+<summary>Show recorded count</summary>
+<p><strong>0 spikes.</strong> The recording contains no impulses in this interval.</p>
+</details>
+</div>
+</div>
+<p>A model trained on human fingertip recordings used the four earlier counts. Its forecast of 0.32 means it would expect about 32 spikes in total across 100 windows with this history. The clock here belongs to the stored macaque recording. The camera and force illustrations above have separate clocks.</p>
+<a class="replay-source" href="methods.html#macaque-recording">Recording, forecast and data licence</a>
+</div>
+</details>
 <section class="basis" id="sources">
 <h2>What was measured?</h2>
-<p>Delhaye and colleagues recorded electrical impulses from individual sensory fibres during passive fingertip loading. In one development example, six spikes fell in 71 successive 20 ms counting windows. The example above keeps that total. It uses a constructed load curve and places the six spikes in invented windows. Each mark represents a count within a window. It gives no exact firing time.</p>
+<p>Delhaye and colleagues recorded electrical impulses from individual human sensory fibres during passive fingertip loading. In one development example, six spikes fell in 71 successive 20 ms counting windows. The force-and-firing illustration keeps that total. It uses a constructed load curve and places the six spikes in invented windows. Each mark represents a count within a window. It gives no exact firing time.</p>
 <p>The load is the mean tangential force over 20 samples on a 1 kHz grid. Relative to the last load sample, the count covers samples 13 through 32 ms later. The camera in the experiment imaged the contact at 50 frames per second. Matching a patch in the archived optical files to a particular fibre and spike would require the patch location, strain-column definitions and a verified frame-to-event clock.</p>
 <div class="sources"><a href="https://doi.org/10.7554/eLife.64679">The recording experiment ↗</a><a href="https://zenodo.org/records/4818439">Original recordings ↗</a><a href="methods.html">Methods, references and licences</a></div>
 </section>

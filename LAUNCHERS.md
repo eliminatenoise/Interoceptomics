@@ -4,7 +4,7 @@ The atlas viewer opens on the project's website, and it can also be downloaded a
 
 ## When glass slips under a fingertip
 
-Extract the complete ZIP and open the launcher for Windows, macOS or Linux, or open the extracted index.html. The illustrated finger, force and spike windows and skin-patch control work offline. [Open the browser model](https://eliminatenoise.github.io/Interoceptomics/fingertip-touch/) · [Download the offline edition](downloads/fingertip-touch.zip)
+Extract the complete ZIP and open the launcher for Windows, macOS or Linux, or open the extracted index.html. The illustrated finger, force and spike windows, skin-patch and camera controls, and the macaque count replay work offline. [Open the browser model](https://eliminatenoise.github.io/Interoceptomics/fingertip-touch/) · [Download the offline edition](downloads/fingertip-touch.zip)
 
 ## Which wrist moved?
 
