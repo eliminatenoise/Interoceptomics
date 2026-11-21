@@ -32,6 +32,11 @@ const models = {
     url: neuro + 'joint-alpha/shared-tasks/trajectory/reach/explore/',
     reading: 'A camera tracked a mark on a macaque’s hand and another near its elbow. Choose one of three reaches used to fit the models. Turn the saved forecasts in 3D, then reveal where each mark went over the next 100 milliseconds on the archive’s clock.'
   },
+  kuopioLift: {
+    title: 'Wrist forecasts for a box lift',
+    url: neuro + 'joint-alpha/kuopio-lift/compare/',
+    reading: 'Cameras tracked both wrists as people lifted a 12 kg box. Compare how closely wrist, muscle and floor readings predicted the right wrist’s position 100 milliseconds later.'
+  },
   runReachForecast: {
     title: 'Run a reach forecast',
     url: neuro + 'joint-alpha/shared-tasks/trajectory/reach/density/second-day/predict/',
@@ -197,7 +202,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
   'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
