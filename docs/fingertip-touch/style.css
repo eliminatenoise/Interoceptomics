@@ -14,3 +14,9 @@ button{border:1px solid #b7beb2;border-radius:4px;background:#f5f6ee;color:#263c
 .patch-section{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:28px;margin:16px 0}.patch-words p{margin-top:8px}.patch-graph{background:#f2f3eb;border-radius:5px;padding:4px 14px}#patch{height:133px}.patch-graph .scrub{margin-top:0}.basis{border-top:1px solid var(--rule);padding-top:22px;margin:30px 0 42px;max-width:890px}.basis p{margin:10px 0}.sources{display:flex;gap:8px 20px;flex-wrap:wrap;font-size:.86rem;color:var(--force)}
 @media(max-width:720px){header{min-height:50px}h1{margin-top:24px}.lead{margin:12px 0 19px}.pair,.patch-section{grid-template-columns:1fr}.scene,.traces,.patch-section{padding:16px}#scene{height:205px}.patch-section{gap:12px}}
 .methods{max-width:920px;margin-bottom:48px}.methods h1{font-size:clamp(2.05rem,4.1vw,3.4rem)}.methods h2{margin:28px 0 10px;font-size:1.4rem}.methods p,.methods li{font-size:1rem;line-height:1.6;margin:10px 0}.methods ul{padding-left:19px}.methods code{font-family:inherit;font-weight:650}
+
+.clock-section{margin-block:1.6rem;padding:1.5rem}
+.clock-section p{max-width:72ch}
+.clock-section canvas{display:block;width:100%;height:auto;margin-block:.8rem;background:#f3f7f5;border-radius:.35rem}
+.clock-section .scrub{max-width:36rem}
+.clock-section [role="status"]{min-height:1.5rem;font-weight:650}

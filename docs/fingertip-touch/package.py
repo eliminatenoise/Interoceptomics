@@ -5,7 +5,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 HERE = Path(__file__).resolve().parent
 FILES = (
-    "index.html", "style.css", "finger.js", "shading.js", "scene.js", "viewer.js",
+    "index.html", "style.css", "finger.js", "shading.js", "scene.js", "viewer.js", "clock.js",
     "methods.html", "LICENSE.txt", "MAKEHUMAN-CC0.txt", "derive_finger.py",
     "Open on Linux.sh", "Open on macOS.command", "Open on Windows.cmd",
 )

@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>When glass slips under a fingertip · Interoceptomics</title>
 <link rel="stylesheet" href="style.css">
-<script defer src="finger.js"></script><script defer src="shading.js"></script><script defer src="scene.js"></script><script defer src="viewer.js"></script>
+<script defer src="finger.js"></script><script defer src="shading.js"></script><script defer src="scene.js"></script><script defer src="viewer.js"></script><script defer src="clock.js"></script>
 </head>
 <body>
 <header><a href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a><a href="#sources">Sources &amp; methods ↓</a></header>
@@ -36,6 +36,14 @@
 <div class="patch-graph"><canvas id="patch" width="525" height="153" aria-label="Original and deformed triangles overlaid, with the selected change in width reported below."></canvas>
 <div class="scrub"><label for="strain">Change in width</label><input id="strain" type="range" min="-24" max="24" value="-12"><output for="strain" id="strain-value">−12%</output></div>
 </div>
+</section>
+<section class="panel clock-section" aria-labelledby="clock-heading">
+<h2 id="clock-heading">Which camera frame came before the spike?</h2>
+<p>The archive gives force readings and spike times on a 1 ms grid. The camera recorded at 50 frames per second, one frame every 20 ms. Two inspected recordings each list <strong>310 camera frames</strong> and contain <strong>220 processed optical slices</strong>. The available files do not say where those slices land on the spike clock.</p>
+<p>Slide the camera clock in this invented example. A picture can move from before a spike to after it without changing the camera’s frame rate.</p>
+<div class="scrub"><label for="camera-offset">Example camera offset</label><input type="range" id="camera-offset" min="-30" max="30" step="1" value="0"><output id="camera-offset-value" for="camera-offset">0 ms</output></div>
+<canvas id="camera-clock" width="720" height="180" role="img" aria-label="Example timeline with a spike at 44 milliseconds. Example camera frames are 20 milliseconds apart."></canvas>
+<p id="camera-clock-result" role="status"></p>
 </section>
 <section class="basis" id="sources">
 <h2>What was measured?</h2>
