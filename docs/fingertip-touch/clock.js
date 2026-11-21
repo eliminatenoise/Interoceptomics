@@ -5,7 +5,6 @@
   const result = document.getElementById('camera-clock-result');
   const canvas = document.getElementById('camera-clock');
   const ctx = canvas.getContext('2d');
-  const x = time => 106 + time * 6.6;
   const spike = 44;
 
   function line(x1, y1, x2, y2, color, width) {
@@ -29,17 +28,35 @@
     canvas.setAttribute('aria-label', 'Example time grid, zero to 90 milliseconds. ' + description);
     if (!ctx) return;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.font = '16px system-ui, sans-serif';
+    const width = Math.max(canvas.clientWidth, 160);
+    const height = 180;
+    const scale = Math.min(window.devicePixelRatio || 1, 2);
+    const bitmapWidth = Math.round(width * scale);
+    const bitmapHeight = Math.round(height * scale);
+    if (canvas.width !== bitmapWidth || canvas.height !== bitmapHeight) {
+      canvas.width = bitmapWidth;
+      canvas.height = bitmapHeight;
+    }
+    ctx.setTransform(scale, 0, 0, scale, 0, 0);
+    ctx.clearRect(0, 0, width, height);
+    const narrow = width < 420;
+    const left = narrow ? 63 : 96;
+    const right = width - 13;
+    const x = time => left + time * (right - left) / 90;
+    ctx.font = (narrow ? '12px' : '15px') + ' system-ui, sans-serif';
     ctx.fillStyle = '#203237';
     ctx.fillText('Force', 8, 40);
     ctx.fillText('Nerve', 8, 82);
     ctx.fillText('Camera', 8, 124);
     for (const y of [35, 77, 119]) line(x(0), y, x(90), y, '#b8c9c6', 1.5);
     for (let t = 0; t <= 90; t++) line(x(t), 29, x(t), 41, t % 10 ? '#dce5e4' : '#4d6867', 1);
-    for (let t = 0; t <= 90; t += 10) {
+    const labelEvery = narrow ? 30 : 10;
+    for (let t = 0; t <= 90; t += labelEvery) {
+      const label = t === 90 ? '90 ms' : String(t);
+      const labelWidth = ctx.measureText(label).width;
+      const leftEdge = Math.min(x(t) - labelWidth / 2, width - labelWidth - 5);
       ctx.fillStyle = '#40585a';
-      ctx.fillText(t === 90 ? '90 ms' : String(t), Math.min(x(t) - 6, 677), 164);
+      ctx.fillText(label, leftEdge, 164);
     }
     line(x(spike), 59, x(spike), 94, '#904b31', 4);
     for (let t = selected - 80; t <= 90; t += 20) {
@@ -52,5 +69,7 @@
     line(x(spike), 99, x(spike), 138, '#904b31', 1);
   }
   slider.addEventListener('input', draw);
+  if ('ResizeObserver' in window) new ResizeObserver(draw).observe(canvas);
+  else window.addEventListener('resize', draw);
   draw();
 })();

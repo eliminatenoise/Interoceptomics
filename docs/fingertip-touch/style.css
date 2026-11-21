@@ -17,6 +17,13 @@ button{border:1px solid #b7beb2;border-radius:4px;background:#f5f6ee;color:#263c
 
 .clock-section{margin-block:1.6rem;padding:1.5rem}
 .clock-section p{max-width:72ch}
-.clock-section canvas{display:block;width:100%;height:auto;margin-block:.8rem;background:#f3f7f5;border-radius:.35rem}
+.clock-section canvas{display:block;width:100%;height:180px;margin-block:.8rem;background:#f3f7f5;border-radius:.35rem}
 .clock-section .scrub{max-width:36rem}
 .clock-section [role="status"]{min-height:1.5rem;font-weight:650}
+
+@media (max-width:560px){
+ .clock-section{padding:1rem}
+ .clock-section .scrub{grid-template-columns:minmax(0,1fr) auto}
+ .clock-section .scrub input{grid-row:2;grid-column:1/-1}
+ .clock-section .scrub output{grid-row:1;grid-column:2}
+}
