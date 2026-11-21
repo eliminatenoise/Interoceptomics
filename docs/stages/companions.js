@@ -95,7 +95,7 @@ const models = {
   runningStrideForecast: {
     title: 'Forecast a running stride',
     url: neuro + 'joint-alpha/missing-pelvis-markers/stride-demo/',
-    reading: 'See which stretch of an earlier stride the forecast used. Change the invented camera readings to see when it assumes zero movement or needs more readings.'
+    reading: 'Choose 100, 150 or 250 camera frames per second. The demo uses invented readings and an earlier stride to predict how far the pelvis markers will rise or fall 100 milliseconds after the last reading.'
   },
   bathInclineForecast: {
     title: 'Usual pace on three slopes',
