@@ -210,3 +210,5 @@ Sziburis, Blex, Glasmachers and Iossifidis supply the 18 inertial recordings and
 ## After the reach
 
 Raeed Chowdhury, Joshua Glaser and Lee Miller released the processed macaque recordings under CC0. Figures 1–3 of their study, resized and converted to WebP for the reader, retain CC BY 4.0. Interoceptomics supplies the replay and animated paths, and NeuroTranslation supplies the forecasts. [Recording, figure credits and methods](docs/reach-feedback/NOTICE.md).
+
+The [fingertip touch reader](https://eliminatenoise.github.io/Interoceptomics/fingertip-touch/methods.html) uses the MakeHuman Team’s CC0 generic right index finger, an original constructed sequence and a count derived from Delhaye and colleagues’ CC BY 4.0 archive. Original figures and participant recordings remain at their sources.

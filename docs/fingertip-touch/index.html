@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When glass slips under a fingertip · Interoceptomics</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="finger.js"></script><script defer src="shading.js"></script><script defer src="scene.js"></script><script defer src="viewer.js"></script>
+</head>
+<body>
+<header><a href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a><a href="#sources">Sources &amp; methods ↓</a></header>
+<main>
+<h1>When glass slips under a fingertip</h1>
+<p class="lead">Hold the finger still and move the glass. A force sensor reads the load across the whole contact. A camera sees the skin move in patches. An electrode in the median nerve listens to one sensory fibre.</p>
+<section class="pair" aria-label="Passive touch illustration">
+<article class="scene panel">
+<div class="heading"><h2>At the glass</h2><span>3D illustration</span></div>
+<canvas id="scene" width="640" height="356" aria-label="Rotatable right index finger resting at an angle on a transparent glass plate">Right index finger above the moving glass. The finger pad faces the glass and the finger stays still.</canvas>
+<div class="scene-tools"><label for="angle">Rotate</label><input type="range" id="angle" min="-180" max="180" value="-13"><button id="side" type="button">Side view</button></div>
+<p>The robot pressed the glass against the finger with a target of <strong>4 N</strong>, then slid it along the skin. The illustration shows where contact occurs. The study located each fibre’s sensitive patch by testing the skin.</p>
+</article>
+<article class="panel traces">
+<div class="heading"><h2>Force and firing</h2><span>Invented example</span></div>
+<div class="metric"><div><span>Earlier tangential load</span><strong class="force" id="load">–</strong></div><div><span>Later fibre count</span><strong class="events" id="spikes">–</strong></div></div>
+<canvas id="plot" width="600" height="160" aria-label="Constructed tangential load and six constructed spike-count bins. The vertical cursor selects one earlier load and its later count."></canvas>
+<div class="ends"><span>Window 1</span><span>Window 71</span></div>
+<div class="scrub"><label for="frame">Window</label><input id="frame" type="range" min="1" max="71" value="36"><output for="frame" id="frame-value">36 / 71</output></div>
+<div class="controls"><button type="button" id="play">Play</button><button type="button" id="next">Next spike</button></div>
+<p>Slide along the flat part of the force curve. At the same load, one later window can contain a spike and the next can be quiet. Here the values and timing were invented to make that difference visible.</p>
+</article>
+</section>
+<section class="patch-section panel" aria-labelledby="patch-title">
+<div class="patch-words"><div class="heading"><h2 id="patch-title">What the camera adds</h2></div>
+<p>Pick three features on the skin and join them into a triangle. If two approach each other, that patch shortens along the line between them. A plate force in newtons can’t tell you how much shorter that line became.</p>
+<p>Move the two points in this drawing. The dotted outline keeps their starting positions. This control has its own scale, separate from the force and spike windows.</p>
+</div>
+<div class="patch-graph"><canvas id="patch" width="525" height="153" aria-label="Original and deformed triangles overlaid, with the selected change in width reported below."></canvas>
+<div class="scrub"><label for="strain">Change in width</label><input id="strain" type="range" min="-24" max="24" value="-12"><output for="strain" id="strain-value">−12%</output></div>
+</div>
+</section>
+<section class="basis" id="sources">
+<h2>What was measured?</h2>
+<p>Delhaye and colleagues recorded electrical impulses from individual sensory fibres during passive fingertip loading. In one development example, six spikes fell in 71 successive 20 ms counting windows. The example above keeps that total. It uses a constructed load curve and places the six spikes in invented windows. Each mark represents a count within a window. It gives no exact firing time.</p>
+<p>The load is the mean tangential force over 20 samples on a 1 kHz grid. Relative to the last load sample, the count covers samples 13 through 32 ms later. The camera in the experiment imaged the contact at 50 frames per second. Matching a patch in the archived optical files to a particular fibre and spike would require the patch location, strain-column definitions and a verified frame-to-event clock.</p>
+<div class="sources"><a href="https://doi.org/10.7554/eLife.64679">The recording experiment ↗</a><a href="https://zenodo.org/records/4818439">Original recordings ↗</a><a href="methods.html">Methods, references and licences</a></div>
+</section>
+</main>
+</body></html>

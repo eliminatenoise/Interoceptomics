@@ -2,6 +2,10 @@
 
 The atlas viewer opens on the project's website, and it can also be downloaded and started on your own computer. The shortcuts below are bookmarks to the project page.
 
+## When glass slips under a fingertip
+
+Extract the complete ZIP and open the launcher for Windows, macOS or Linux, or open the extracted index.html. The illustrated finger, force and spike windows and skin-patch control work offline. [Open the browser model](https://eliminatenoise.github.io/Interoceptomics/fingertip-touch/) · [Download the offline edition](downloads/fingertip-touch.zip)
+
 ## Which wrist moved?
 
 [Open the cross-person wrist atlas](https://eliminatenoise.github.io/Interoceptomics/cross-person-wrist/) or [download the offline edition](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/cross-person-wrist.zip). Extract the whole folder and open its Windows, macOS or Linux launcher. The illustrated body, motion and references open from local files. The linked publications need internet access.

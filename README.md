@@ -17,6 +17,8 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 **[After the reach](https://eliminatenoise.github.io/Interoceptomics/reach-feedback/).** A macaque reaches for a target while a camera tracks its hand and elbow and a robot measures where the handle goes. Follow four recorded reaches, then compare the spikes counted in sensory cortex with the counts forecast from the earlier recording. [Offline reader and eight animated models](downloads/reach-feedback.zip) · [Methods and attribution](docs/reach-feedback/NOTICE.md)
 
+**[When glass slips under a fingertip](https://eliminatenoise.github.io/Interoceptomics/fingertip-touch/).** Turn the finger above the glass and scrub an invented load curve and spike counts. Change the width of a patch of skin separately. The count of six spikes across 71 windows comes from one real recording. The displayed timings are constructed. [Offline model](downloads/fingertip-touch.zip) · [Methods and primary sources](https://eliminatenoise.github.io/Interoceptomics/fingertip-touch/methods.html)
+
 **[One wrist reach](https://eliminatenoise.github.io/Interoceptomics/human-wrist/).** Compare the voltage at a selected contact with two tracked arms, one electrical sample at a time. Practice with an invented trace, then [download the local reader and AJILE12 converter](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/human-wrist.zip).
 
 **[Which wrist moved?](https://eliminatenoise.github.io/Interoceptomics/cross-person-wrist/)** Turn an invented reach in 3D. Switch the implant side, mirror the camera and compare both wrists eight or fifteen frames later. [Download the offline model](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/cross-person-wrist.zip).
