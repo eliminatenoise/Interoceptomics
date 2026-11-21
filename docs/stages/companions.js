@@ -37,6 +37,11 @@ const models = {
     url: neuro + 'joint-alpha/kuopio-lift/compare/',
     reading: 'Cameras tracked both wrists as people lifted a 12 kg box. Compare how closely wrist, muscle and floor readings predicted the right wrist’s position 100 milliseconds later.'
   },
+  kuopioTurning: {
+    title: 'Turning-lift wrist forecasts',
+    url: neuro + 'joint-alpha/kuopio-turning-lift/',
+    reading: 'What changes when a lift includes a turn? Compare the models trained on different lifts and see how adding muscle readings changed the wrist forecast.'
+  },
   runReachForecast: {
     title: 'Run a reach forecast',
     url: neuro + 'joint-alpha/shared-tasks/trajectory/reach/density/second-day/predict/',
@@ -202,7 +207,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
   'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
