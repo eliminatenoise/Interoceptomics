@@ -10,7 +10,7 @@ export const sources = {
   columns:['Human dorsal column nuclei and brainstem microstructure','https://pmc.ncbi.nlm.nih.gov/articles/PMC10651583/'],
   cerebellar:['Experimental evidence for spinocerebellar pathways','https://pmc.ncbi.nlm.nih.gov/articles/PMC8805613/'],
   pelvic:['Hardy and Korstanje · lower urinary tract circuits','https://pmc.ncbi.nlm.nih.gov/articles/PMC10726905/'],
-  gut:['Human enteric nervous system in three dimensions','https://pmc.ncbi.nlm.nih.gov/articles/PMC8310542/'],
+  gut:['Sun and colleagues · nerves in mouse, rhesus macaque and human colon','https://pmc.ncbi.nlm.nih.gov/articles/PMC8310542/'],
   vagus:['Human vagus nerve · anatomy and imaging','https://pmc.ncbi.nlm.nih.gov/articles/PMC12633527/'],
   carotid:['Human carotid sinus nerve anatomy','https://pmc.ncbi.nlm.nih.gov/articles/PMC10714086/'],
   motor:['OpenStax · corticospinal pathway','https://commons.wikimedia.org/wiki/File:1426_Corticospinal_Pathway.jpg'],

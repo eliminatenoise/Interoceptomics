@@ -80,9 +80,9 @@
     "article": "https://doi.org/10.3389/fnana.2021.627656"
   },
   "enteric": {
-    "name": "Nerves in the human colon wall",
-    "read": "In panels E–F, examine the nerve networks within human colon tissue. This preparation has its own scale and orientation. The HRA colon surface is a separate reference.",
-    "modality": "Human colon · light-sheet microscopy",
+    "name": "Nerves in the colon wall",
+    "read": "Panels A–C show mouse colon. A shows the tissue before and after it was made transparent. B shows the web of nerves through the wall, and C uses colour to distinguish two kinds of nerve fibre. D shows rhesus macaque colon. In adult human colon, E shows nerves across the wall and F shows them in the lining. Each view has its own scale and orientation. The 3D human colon model comes from a separate source.",
+    "modality": "Mouse, rhesus macaque and human colon · tissue photographs and light-sheet microscopy",
     "source": "Sun et al. (2021), Fig. 1",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8310542/figure/Fig1/",
     "rights": "CC BY 4.0",
