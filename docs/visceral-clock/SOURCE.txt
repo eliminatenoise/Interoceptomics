@@ -69,7 +69,9 @@ https://doi.org/10.1371/journal.pone.0112466.g001
 
 The human colon surface comes from the female Human Reference Atlas, v1.10,
 by Kristen Browne and Heidi Schlehlein (HuBMAP, 2026), CC BY 4.0.
-https://doi.org/10.48539/HBM637.DWBM.744
+The publisher lists DOI 10.48539/HBM637.DWBM.744 for this edition.
+Its version record gives the citation and licence.
+https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/metadata.json
 https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/index.html#scene=body&organ=colon
 
 Both references open online. The readings, diagrams, exact values and their
