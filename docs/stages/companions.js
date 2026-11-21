@@ -28,7 +28,7 @@ const models = {
     reading: 'Turn the recorded hand and elbow markers, follow the handle in its own plane, and count the spikes that followed in sensory cortex. Which forecasts matched the measurements?'
   },
   reachPaths: {
-    title: 'Compare hand and elbow forecasts',
+    title: 'Hand and elbow forecasts',
     url: neuro + 'joint-alpha/shared-tasks/trajectory/reach/explore/',
     reading: 'A camera tracked a mark on a macaque’s hand and another near its elbow. Choose one of three reaches used to fit the models. Turn the saved forecasts in 3D, then reveal where each mark went over the next 100 milliseconds on the archive’s clock.'
   },
