@@ -2,6 +2,10 @@
 
 The atlas viewer opens on the project's website, and it can also be downloaded and started on your own computer. The shortcuts below are bookmarks to the project page.
 
+## One wrist reach
+
+[Open the viewer](https://eliminatenoise.github.io/Interoceptomics/human-wrist/) or [download the standalone edition](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/human-wrist.zip). Extract the whole folder, then open its Windows, macOS or Linux launcher. The fictional example runs offline. Its optional Python converter prepares one recorded AJILE12 example for the local file picker.
+
 ## The atlas viewer
 
 [Open it on the website](https://eliminatenoise.github.io/Interoceptomics/atlas/), with nothing to install. To use it offline, download it. You need Python 3.10 or newer and a current browser.

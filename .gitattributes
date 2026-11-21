@@ -84,3 +84,5 @@ downloads/reach-feedback.zip binary
 docs/reach-feedback/one-week/models/*.glb binary
 downloads/reach-feedback-one-week.zip binary
 docs/reach-feedback/one-week/*.cmd whitespace=cr-at-eol
+downloads/human-wrist.zip binary
+docs/human-wrist/*.cmd whitespace=cr-at-eol

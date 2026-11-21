@@ -1,0 +1,77 @@
+ONE WRIST REACH
+Interoceptomics · Experimental atlas, edition 2
+
+Extract the entire ZIP before opening index.html or the Windows, macOS or
+Linux launcher beside it. The viewer starts with a fictional signal, contact
+layout and two drawn arms. The signal comes from two sine waves. No clinical
+measurements, images, individual-fit weights or participant geometry are in
+this download. The reader works offline without a server or a fixed port.
+Ordinary standard browser security settings suffice.
+
+Try the controls
+Choose a 3D plane or rotate the contacts by dragging. Shape marks grid, strip
+or depth. Select a contact, scrub one 2 ms step at a time using the arrow keys
+on the slider, or click on its voltage trace. Pin a time and move the cursor.
+The comparison reports the voltage change and the displacement between the
+two displayed right-wrist positions in the camera plane. A blank camera panel
+means that the window has no preceding frame. The two clocks stay independent.
+
+Make the recorded example
+The recorded view opens one specific JSON file made on your machine. For a
+new Python environment, open a terminal in this extracted folder and run the
+appropriate commands (Python 3.11 or later).
+
+Linux/macOS
+  python3 -m venv wrist-env
+  wrist-env/bin/python -m pip install -r requirements.txt
+  wrist-env/bin/python prepare.py --fetch --out wrist.json
+
+Windows
+  py -3 -m venv wrist-env
+  wrist-env\Scripts\python -m pip install -r requirements.txt
+  wrist-env\Scripts\python prepare.py --fetch --out wrist.json
+
+The fetch option reads bounded HTTP ranges from a single versioned DANDI
+asset to temporary storage. It verifies their offsets, lengths and ETag and
+checks every extracted array against its digest. The conversion needs access
+to the archive. Afterward choose wrist.json under Open a recording. The
+reader checks the file locally and makes no upload. Use the Close recording
+button to return to the fictional example. Closing the tab clears the view.
+
+Two offline inputs work with the same installed requirements. In the commands
+above, replace --fetch with either --nwb "path/to/file.nwb" for the original
+whole file or --npz "path/to/first-window.npz" for the exact ten-array derived
+window. A full original file must match DANDI's SHA-256 and the NPZ must
+match its own fixed SHA-256. Choose a new output filename on each invocation.
+
+Release and identifiers
+  DANDI 000055, version 0.220127.0436
+  sub-01/sub-01_ses-3_behavior+ecephys.nwb
+  Asset ID: 7b9e2ca1-9097-488a-b4e9-ac407fb31457
+  Full NWB: 15,903,762,527 bytes
+  NWB SHA-256: 943f57a0d417445158cee76eb7147cc97d562848aa6993593ee8f3930c55be7e
+  Source ETag: 93a6289a5836cc078cb91340254d296c-237
+  Derived NPZ SHA-256: 261512396188747a9033ad308537fcfb609a31cef5cc5f333ed066c2230b0bca
+  Reader JSON SHA-256: 7699b0abf182c6e13ab086296aab102adfbb8572886d05c086f9487a60b063a5
+  array-digests.json records the type and digests of the shape and contents
+  of each array. The converter reads the event time and both source clocks
+  from the NWB. On the verified NPZ route it recovers the event time from
+  the central tick of the extracted electrical time grid.
+
+Source and adaptation
+Steven M. Peterson, Satpreet H. Singh, Benjamin Dichter, Michael Scheid,
+Rajesh P. N. Rao and Bingni W. Brunton (2022), AJILE12: Long-term naturalistic
+human intracranial neural recordings and pose. DANDI release 0.220127.0436.
+The dataset is licensed CC BY 4.0. This adaptation extracts one second from
+the first eligible right-wrist event of the first participant's earliest day,
+rotates the implant positions and draws the arm keypoints on their image plane.
+The published coordinate chart and timing limits are detailed in index.html.
+The software and fictional practice scene use the CC0 dedication in LICENSE.txt.
+Python dependencies are installed separately under their own licences.
+
+Versioned data: https://doi.org/10.48324/dandi.000055/0.220127.0436
+Asset: https://api.dandiarchive.org/api/assets/7b9e2ca1-9097-488a-b4e9-ac407fb31457/
+Study and original reference figures: https://pmc.ncbi.nlm.nih.gov/articles/PMC9023453/
+Movement events: https://doi.org/10.1523/ENEURO.0007-21.2021
+Original file writer: https://github.com/BruntonUWBio/ajile12-nwb-data/blob/f44ca6f6c51251b62b6f47492bba400472d4a7ba/brunton_lab_to_nwb/brunton_lab_to_nwb.py
+Dataset licence: https://creativecommons.org/licenses/by/4.0/

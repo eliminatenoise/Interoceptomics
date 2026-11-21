@@ -4,6 +4,7 @@ The project's own work in this repository is dedicated to the public domain. The
 
 | What | Whose | Terms | To reuse it you must |
 | --- | --- | --- | --- |
+| One wrist reach reader and optional AJILE12 conversion | Original reader and practice scene by Interoceptomics. AJILE12 by Peterson, Singh, Dichter, Scheid, Rao and Brunton | Software and practice scene CC0. [AJILE12 release](https://doi.org/10.48324/dandi.000055/0.220127.0436) CC BY 4.0 | The download contains software and an invented example. When sharing an adaptation of the separately obtained recording, credit its authors, link the licence and describe changes. [Source and scope](docs/human-wrist/READ-ME.txt) |
 | Heart electrical activity, chest vibration and breathing excerpts | Miguel Ángel García González and Ariadna Argelagós Palou, Universitat Politècnica de Catalunya, via PhysioNet CEBSDB 1.0.0 | [Open Data Commons Attribution License 1.0](https://physionet.org/content/cebsdb/view-license/1.0.0/) | Preserve the source and licence notices and identify adaptations. [Excerpt details and citations](docs/inside/README.md) |
 | The brain anatomy in the atlas viewer: surfaces, region grid, region names and numbers | Allen Institute for Brain Science, adapted by this project | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Give the credit below, link the licence, keep the notices, say what you changed |
 | Three.js, the 3D drawing library inside the viewer | Three.js authors | [MIT](https://opensource.org/license/mit) | Keep its copyright and permission notice |

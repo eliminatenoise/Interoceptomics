@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>One wrist reach · Interoceptomics</title>
+<meta name="description" content="Rotate a 3D electrode map and track both arms across one second. Practice on invented signals, then open an AJILE12 example on your own device.">
+<link rel="stylesheet" href="viewer.css">
+<script defer src="practice.js"></script><script defer src="viewer.js"></script><script defer src="load.js"></script>
+</head><body>
+<header><nav class="wrap mast" aria-label="Atlas navigation"><a class="mast-title" href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a><div><a href="#open">Open a recording</a><a href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/human-wrist.zip" download>Download offline ↓</a></div></nav></header>
+<main class="wrap">
+<div class="intro"><p class="kicker" id="mode">Fictional practice trace</p><h1>One wrist reach</h1><p class="lead">An electrode gets 500 readings in a second. A camera gets 30 frames. Turn the contacts, follow each arm and see which frame was available when the voltage changed.</p><p id="intro"></p></div>
+<noscript><p>Enable JavaScript to draw the electrodes and arm positions. The recording and setup notes below remain readable.</p></noscript>
+<div id="stage"></div>
+<template id="reader-template">
+    <section class="transport" aria-label="Recording time">
+      <div class="play-controls"><button id="play">Play</button><label for="speed" class="sr">Replay speed</label><select id="speed"><option value="0.25">¼ speed</option><option value="0.5">½ speed</option><option value="1" selected>1× speed</option></select></div>
+      <div class="timeline"><div class="time-top"><label for="time">Time from marker</label><output id="relative-time" for="time"></output></div><input id="time" type="range" min="0" max="499" value="250" step="1"><div class="ticks"><span>−500 ms</span><button id="onset" title="Jump to the time marker">0 · onset</button><span>+498 ms</span></div></div>
+    </section>
+    <div class="pair">
+      <section class="panel"><header class="card-head"><div><p class="kicker">Implant · 500 Hz</p><h2>Contact voltage</h2></div><span id="visible-count"></span></header>
+        <div class="figure"><svg id="implant" viewBox="0 0 360 276" role="img" aria-label="Rotatable projection of source x, y and z contact positions"></svg></div>
+        <div class="scale"><span id="neg-limit"></span><span class="bar" aria-hidden="true"></span><span id="pos-limit"></span></div>
+        <div class="legend"><span>■ Grid</span><span>● Strip</span><span>◆ Depth</span><span>× Flagged</span><span>Outline only · missing</span></div>
+        <div class="options"><label>View <select id="view"><option value="angled">Oblique</option><option value="yz">y–z plane</option><option value="xz">x–z plane</option><option value="xy">x–y plane</option></select></label>
+          <label>Colour scale <select id="limit"><option value="50">±50 µV</option><option value="150" selected>±150 µV</option><option value="350">±350 µV</option></select></label>
+          <label class="toggle"><input type="checkbox" id="flagged"> <span id="flag-count"></span></label></div>
+        <p class="hint">Drag to rotate or choose a plane. Select a contact to inspect its trace. Click across the trace to move through time. Colours reach their limit at the scale ends. The centre is 0 µV.</p>
+        <p class="caption" id="map-note"></p>
+      </section>
+      <section class="panel"><header class="card-head"><div><p class="kicker">Camera · 30 Hz</p><h2>Arm position</h2></div><span>2D pixels</span></header>
+        <div class="figure"><svg id="camera" viewBox="0 0 460 276" role="img" aria-label="Six camera keypoints in an image crop with x increasing right and y down"></svg></div>
+        <div class="legend tracks"><span><b class="right-arm"></b> Right arm</span><span><b class="left-arm"></b> Left arm</span></div>
+        <div class="legend"><span>■ Shoulder</span><span>● Elbow</span><span>◎ Wrist</span></div>
+        <p class="clock" id="camera-clock"></p>
+        <details><summary>Read six joint coordinates</summary><table><thead><tr><th scope="col">Landmark</th><th scope="col">x (px)</th><th scope="col">y (px)</th></tr></thead><tbody id="joints"></tbody></table></details>
+        <p class="caption" id="camera-note"></p>
+      </section>
+    </div>
+    <section class="panel signal"><header class="card-head"><div><p class="kicker" id="signal-label"></p><h2>One contact over time</h2></div><label>Contact <select id="contact"></select></label></header>
+      <div class="readouts"><strong id="voltage"></strong><span id="sample-clock"></span></div>
+      <svg id="trace" viewBox="0 0 840 142" role="img" aria-label="Selected contact signed voltage from 500 ms before to 498 ms after the marker"></svg>
+      <p id="contact-detail"></p><p class="caption" id="signal-note"></p><div class="compare"><div><button id="pin">Pin this time</button> <button id="clear-pin" hidden>Clear pin</button></div><p id="comparison"></p></div>
+    </section>
+</template>
+<section id="open" class="methods">
+<h2>Open the recording on your device</h2>
+<p>The local reader accepts one verified second from AJILE12. Download the offline edition and follow the conversion steps to make the JSON file. Once you have it, this page works offline too.</p>
+<div class="file-row"><label for="local-file">Choose local AJILE12 JSON <input id="local-file" type="file" accept=".json,application/json"></label><button id="practice-reset" hidden>Close recording and return to practice</button></div>
+<p id="source-status" role="status"></p><p id="load-error" hidden role="alert"></p>
+<details><summary>Make the JSON from DANDI</summary><ol>
+<li><a href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/human-wrist.zip" download>Download the standalone edition</a> and extract it. Open a terminal in the extracted <code>human-wrist</code> folder.</li>
+<li>Use Python 3.11 or later. In your own Python environment run <code>python -m pip install -r requirements.txt</code>. Windows users can substitute <code>py -3</code> for <code>python</code>, macOS and Linux users <code>python3</code>.</li>
+<li>Run <code>python prepare.py --fetch --out wrist.json</code>. The converter retrieves selected ranges from the original DANDI archive, checks ten arrays, then writes the one-second example to a new file on your machine. Choose <code>wrist.json</code> above.</li>
+</ol><p>Already have the original NWB? Use <code>python prepare.py --nwb PATH_TO_NWB --out wrist.json</code> to convert offline. The original day file is 15.9 GB. The converter checks its SHA-256 first. Source identity, the ten-array alternative and installation details are in <a href="READ-ME.txt">the offline guide</a>.</p></details>
+</section>
+<details class="methods" id="methods"><summary>What AJILE12 measured</summary>
+<h3>One movement during an ordinary day</h3><p>Peterson and colleagues recorded 12 people during inpatient epilepsy monitoring over 55 days. This example uses the earliest eligible right-wrist onset for the first participant on their first available day, session 3. The annotation came after the movement. The converter takes half a second before the annotation and half a second after it. <a href="https://dandiarchive.org/dandiset/000055/0.220127.0436">Versioned release</a> · <a href="https://doi.org/10.1523/ENEURO.0007-21.2021">Movement detection methods</a></p>
+<h3>What an electrode records</h3><p>The electrode table links each electrical channel to its contact. Shapes mark grid, strip and depth contacts. The reader hides contacts flagged by the authors’ daily noise screen until you select them. The others can still carry artifacts. The authors filtered the recordings, reduced the rate to 500 Hz and referenced contacts to their group median. Stored values read in microvolts. Colour shows signed voltage; the display saturates at the chosen scale limits. The trace retains the full values.</p>
+<p>The authors located contacts using CT and MRI and mapped them into Montreal Neurological Institute (MNI) space. The dots show those positions. The electrode table does not specify axis conventions, physical coordinate units, template version or localization error. These recordings cannot establish a specific pathway or locate the source of a deflection. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9023453/#Fig3">Original contact maps and signal quality</a></p>
+<h3>What the camera sees</h3><p>Each arm has three tracked points, shoulder, elbow and wrist. DeepLabCut estimated their positions in one camera image. The authors’ file writer copied image pixels into a field nominally labelled “meters,” with an undefined conversion. The axes here use pixels at equal scale, increasing rightward and downward. Tracking mistakes and occlusion affect the trace. The file supplies neither metric depth nor confidence for each frame. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9023453/#Fig4">Original movement display</a> · <a href="https://github.com/BruntonUWBio/ajile12-nwb-data/blob/f44ca6f6c51251b62b6f47492bba400472d4a7ba/brunton_lab_to_nwb/brunton_lab_to_nwb.py">Authors’ file writer</a></p>
+<h3>Which frame belongs to this voltage?</h3><p>The recording clock starts at zero for both streams. The reader calculates original sample and frame indices from the imported time grids. The display holds the latest included frame at or before the current electrical sample. The camera panel stays blank until the first included frame arrives. The frame age measures the gap between released sample times. The study used video timestamps for alignment; residual timing error and drift are unknown here. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9023453/#Fig1">Study design and acquisition</a></p>
+<h3>Credit and rights</h3><p>Steven M. Peterson, Satpreet H. Singh, Benjamin Dichter, Michael Scheid, Rajesh P. N. Rao and Bingni W. Brunton released AJILE12 (2022). The DANDI release is licensed under CC BY 4.0. This reader extracts a short window, projects contact positions, draws the tracked arms and adds time controls. The download contains the reader, converter and a fictional example. <a href="https://doi.org/10.48324/dandi.000055/0.220127.0436">Data citation</a> · <a href="https://api.dandiarchive.org/api/assets/7b9e2ca1-9097-488a-b4e9-ac407fb31457/">Original asset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">Data licence</a> · <a href="LICENSE.txt">Software dedication</a></p>
+</details>
+<footer><a href="https://eliminatenoise.github.io/NeuroTranslation/human-wrist/">Wrist forecasts</a><a href="https://eliminatenoise.github.io/NeuroTranslation/papers/human-wrist/">Read the experiment</a><a href="https://eliminatenoise.github.io/Interoceptomics/recorded-cortex/">Explore recorded cortex</a></footer>
+</main></body></html>

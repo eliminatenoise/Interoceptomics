@@ -1,0 +1,52 @@
+{
+  "ecog_uv": {
+    "sha256": "607a96553a07b91f144dcc2943ff8ae2fd1824f8508c4070f372e2142c8e75ef",
+    "dtype": "<f4",
+    "shape_sha256": "ff0126866136d1d8c11f12d7127c25efb023719d6055280fa02317c9913d11d2"
+  },
+  "pose_xy_px": {
+    "sha256": "091718d48970adfcaac3a588f64fa9a72ab0765f6e5e430bd970727eaf78b805",
+    "dtype": "<f8",
+    "shape_sha256": "47cb84a46b5ccf47dd8ed8c56d22ccaa2f41b987095979500f0fd7a132ea6e21"
+  },
+  "joint_names": {
+    "sha256": "406d08aeb8e65030547454b1da6d324b0b96584506a7208d322af6d8211aaf6a",
+    "dtype": "<U10",
+    "shape_sha256": "fe94b827f0455bee6f4a6a265286f827f18748ede569565ee827058085bad146"
+  },
+  "ecog_time_s": {
+    "sha256": "04e6637ace37441821acefe8f2a2a4058f2a18498af0a323f2ced3607a8f7867",
+    "dtype": "<f8",
+    "shape_sha256": "82678b87fb5a1381041b7a06ce96c047011758c40dddec0ff11b183842c9cc0e"
+  },
+  "pose_time_s": {
+    "sha256": "66a45aac601c86a8538614600695599f852818249f3975f82f653ae7e7aa6b36",
+    "dtype": "<f8",
+    "shape_sha256": "5436cc4750cf070868dc8194674f290f21aa7d184577bb0b5b694093da216ecd"
+  },
+  "ecog_electrode_table_row": {
+    "sha256": "4ca97b27f889c3f4da45f549889982fd013b7405558493e63ac460e4d7660666",
+    "dtype": "<i8",
+    "shape_sha256": "d6d6dfaa75ccdcf8f78230b1823245b1cdfe185dd0cfe785d6a4ed7821d32a56"
+  },
+  "electrode_id": {
+    "sha256": "4ca97b27f889c3f4da45f549889982fd013b7405558493e63ac460e4d7660666",
+    "dtype": "<i8",
+    "shape_sha256": "d6d6dfaa75ccdcf8f78230b1823245b1cdfe185dd0cfe785d6a4ed7821d32a56"
+  },
+  "group_name": {
+    "sha256": "df039528758d1cced70896230a52959f0f02a79432e4ac930b7bf07cd661b608",
+    "dtype": "<U4",
+    "shape_sha256": "d6d6dfaa75ccdcf8f78230b1823245b1cdfe185dd0cfe785d6a4ed7821d32a56"
+  },
+  "author_good": {
+    "sha256": "605003ef25cf63adffdede9dd8f36bc1e43f4f55b6fb6f7a9066a23821919b7e",
+    "dtype": "|b1",
+    "shape_sha256": "d6d6dfaa75ccdcf8f78230b1823245b1cdfe185dd0cfe785d6a4ed7821d32a56"
+  },
+  "electrode_xyz_source": {
+    "sha256": "06c823acbd116d425de6adfb6ca9b02137e8e6827ce94a31843d9e45462a935f",
+    "dtype": "<f8",
+    "shape_sha256": "524cae2e7bb7a0f26ec4377a3f810f79ce17ecf14ef8dd9f35f988a5864961d5"
+  }
+}
