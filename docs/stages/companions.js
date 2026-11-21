@@ -82,6 +82,11 @@ const models = {
     url: neuro + 'joint-alpha/missing-pelvis-markers/real-camera-gaps/',
     reading: 'During a deep squat, marks on the pelvis can drop out of the camera record. These saved forecasts use the heights still available to estimate the change in average marker height 100 milliseconds later. A score needs readings from the markers at both times. Muscle activity and nerve firing need their own measurements.'
   },
+  squatSensors: {
+    title: 'Force in a squat',
+    url: neuro + 'joint-alpha/missing-pelvis-markers/squat-sensor-comparison/',
+    reading: 'Plates under the feet measured floor force. Electrodes on the thighs recorded electrical activity. Compare which readings helped predict the next 100 milliseconds when a camera reading was missing, using recordings from eight people.'
+  },
   walkingFloorForce: {
     title: 'See what the floor records as you walk',
     url: '../walking-force/',
@@ -222,7 +227,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
   'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
