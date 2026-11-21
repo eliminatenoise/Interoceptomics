@@ -86,3 +86,9 @@ downloads/reach-feedback-one-week.zip binary
 docs/reach-feedback/one-week/*.cmd whitespace=cr-at-eol
 downloads/human-wrist.zip binary
 docs/human-wrist/*.cmd whitespace=cr-at-eol
+
+# Preserve the offline model, mesh and launchers across operating systems.
+docs/cross-person-wrist/** -text
+docs/cross-person-wrist/*.cmd whitespace=cr-at-eol
+docs/cross-person-wrist/MAKEHUMAN-CC0.txt whitespace=-blank-at-eof,-trailing-space
+downloads/cross-person-wrist.zip binary

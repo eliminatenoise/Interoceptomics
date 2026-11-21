@@ -2,6 +2,10 @@
 
 The atlas viewer opens on the project's website, and it can also be downloaded and started on your own computer. The shortcuts below are bookmarks to the project page.
 
+## Which wrist moved?
+
+[Open the cross-person wrist atlas](https://eliminatenoise.github.io/Interoceptomics/cross-person-wrist/) or [download the offline edition](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/cross-person-wrist.zip). Extract the whole folder and open its Windows, macOS or Linux launcher. The illustrated body, motion and references open from local files. The linked publications need internet access.
+
 ## One wrist reach
 
 [Open the viewer](https://eliminatenoise.github.io/Interoceptomics/human-wrist/) or [download the standalone edition](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/human-wrist.zip). Extract the whole folder, then open its Windows, macOS or Linux launcher. The fictional example runs offline. Its optional Python converter prepares one recorded AJILE12 example for the local file picker.

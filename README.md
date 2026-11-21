@@ -19,6 +19,8 @@ The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo h
 
 **[One wrist reach](https://eliminatenoise.github.io/Interoceptomics/human-wrist/).** Compare the voltage at a selected contact with two tracked arms, one electrical sample at a time. Practice with an invented trace, then [download the local reader and AJILE12 converter](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/human-wrist.zip).
 
+**[Which wrist moved?](https://eliminatenoise.github.io/Interoceptomics/cross-person-wrist/)** Turn an invented reach in 3D. Switch the implant side, mirror the camera and compare both wrists eight or fifteen frames later. [Download the offline model](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/cross-person-wrist.zip).
+
 **[One week later](https://eliminatenoise.github.io/Interoceptomics/reach-feedback/one-week/).** Follow one macaque on two recording dates. Compare freshly measured positions with the earlier forecast, then inspect later spikes by acquisition contact and local sort. [Offline reader and ten animated models](downloads/reach-feedback-one-week.zip) · [Methods and attribution](docs/reach-feedback/one-week/NOTICE.md)
 
 **[How the cylinder turns](https://eliminatenoise.github.io/Interoceptomics/cylinder-rotation/).** A sensor on the lid records each twist as a person carries the object to one of nine targets. Compare its 100 Hz readings with a forecast of the next tenth of a second. [Offline atlas and 18 animated models](downloads/cylinder-rotation.zip) · [Methods and attribution](docs/cylinder-rotation/METHODS.md)

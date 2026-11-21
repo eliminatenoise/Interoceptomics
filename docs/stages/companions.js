@@ -2,6 +2,11 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  crossPersonWrist: {
+    title: 'Which wrist moved?',
+    url: '../cross-person-wrist/',
+    reading: 'Turn an invented reach in three dimensions. Switch the implant side or mirror the camera, then see how an earlier shoulder line gives both wrists a common frame.'
+  },
   humanWrist: {
     title: 'One wrist reach',
     url: '../human-wrist/',
@@ -156,12 +161,12 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['humanWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
+  'map-brain2body': ['humanWrist', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions','targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
   'handler': ['graspBalanceRecording','targetReach', 'cylinderRotation', 'graspBalanceForecast'],
-  'read-function': ['humanWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp'],
+  'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
@@ -170,7 +175,7 @@ const choicesByStep = {
   'movement-model': ['graspBalanceForecast','targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],
-  'humans': ['humanWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
+  'humans': ['humanWrist', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };
 
 const stepShortcut = { handler: 'graspBalanceRecording', mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };
