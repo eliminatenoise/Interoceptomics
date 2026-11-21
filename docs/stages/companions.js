@@ -75,7 +75,7 @@ const models = {
   walkingFloorForce: {
     title: 'See what the floor records as you walk',
     url: '../walking-force/',
-    reading: 'Move through a recorded walk. Compare the front of the right foot with the load measured by the floor plates. The overlay shows how closely force calculated from voltage matches the authors’ export.'
+    reading: 'Move through three recorded walks. Compare foot height with the load on the floor, then see what changes when you set the empty plates to zero.'
   },
   walkingInstructions: {
     title: 'Compare a usual walk with a fast walk',
