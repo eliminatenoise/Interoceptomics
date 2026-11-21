@@ -60,5 +60,20 @@ Interoceptomics dedicates its original text, diagram, code and launchers
 to the public domain under CC0 to the extent of its rights. See CC0-1.0.txt
 or https://creativecommons.org/publicdomain/zero/1.0/.
 
+Optional online anatomy
+
+Spencer NJ, Kyloh M and Duffield M (2014), Figure 1A, show a labelled spinal
+sensory fibre branching in a cluster of nerve cells in the bowel wall of a
+mouse from a separate study. The figure is available under CC BY 4.0.
+https://doi.org/10.1371/journal.pone.0112466.g001
+
+The human colon surface comes from the female Human Reference Atlas, v1.10,
+by Kristen Browne and Heidi Schlehlein (HuBMAP, 2026), CC BY 4.0.
+https://doi.org/10.48539/HBM637.DWBM.744
+https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/index.html#scene=body&organ=colon
+
+Both references open online. The readings, diagrams, exact values and their
+source coordinates are included in the standalone download.
+
 To rebuild the standalone ZIP from an extracted copy, run python package.py
 in the reader folder. The rebuilt folder holds the ZIP and its SHA-256 checksum.

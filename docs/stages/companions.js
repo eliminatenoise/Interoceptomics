@@ -37,6 +37,11 @@ const models = {
     url: '../target-reach/',
     reading: 'Follow one cylinder through the air as a person carries it to one of nine cued locations. Compare the paths from separate left- and right-hand trials.'
   },
+  graspSensors: {
+    title: 'Forecast a grasp sensor reading',
+    url: neuro + 'joint-alpha/grasp-sensor/',
+    reading: 'A macaque pulled a sliding handle. What would its six sensors read 20 milliseconds later? Compare forecasts with and without spikes recorded from the brain. In each of two fits, a model without spikes gave the smallest error for handle travel.'
+  },
   graspBalanceRecording: {
     title: 'Replay the wrist and pelvis recordings',
     url: '../cross-limb-movement/',
@@ -175,7 +180,7 @@ const choicesByStep = {
   'map-body2body': ['walkingInstructions','targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'fingertipTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
-  'handler': ['graspBalanceRecording','targetReach', 'cylinderRotation', 'graspBalanceForecast'],
+  'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
   'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
