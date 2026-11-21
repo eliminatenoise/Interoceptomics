@@ -2,6 +2,10 @@
 
 The atlas viewer opens on the project's website, and it can also be downloaded and started on your own computer. The shortcuts below are bookmarks to the project page.
 
+## Between two pressure readings
+
+Extract the entire ZIP. Open the launcher for Windows, macOS or Linux, or open the extracted `index.html` directly in a browser. You can inspect both events offline. [Open the reader](https://eliminatenoise.github.io/Interoceptomics/visceral-clock/) · [Download the standalone reader](downloads/visceral-clock.zip)
+
 ## When glass slips under a fingertip
 
 Extract the complete ZIP and open the launcher for Windows, macOS or Linux, or open the extracted index.html. The illustrated finger, force and spike windows, skin-patch and camera controls, and the macaque count replay work offline. [Open the browser model](https://eliminatenoise.github.io/Interoceptomics/fingertip-touch/) · [Download the offline edition](downloads/fingertip-touch.zip)

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Between two pressure readings · Interoceptomics</title>
+  <meta name="description" content="Locate two marked events in a mouse pelvic nerve recording between the pressure samples on the same clock.">
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+  <header>
+    <span>Interoceptomics</span>
+    <a href="#source">About the recording</a>
+  </header>
+  <main>
+    <h1>Between two pressure readings</h1>
+    <p class="lead">Researchers measured pressure inside an isolated mouse colon and recorded electrical activity in the pelvic nerve attached to it. Both recordings used the same clock. Where did a marked nerve event fall between readings of the pressure gauge?</p>
+
+    <fieldset class="reader">
+      <legend>Choose a marked nerve event</legend>
+      <input id="earlier" type="radio" name="event" aria-controls="earlier-reading" checked>
+      <label for="earlier">Earlier mark</label>
+      <input id="later" type="radio" name="event" aria-controls="later-reading">
+      <label for="later">Later mark</label>
+
+      <div class="readings" aria-live="polite" aria-atomic="true">
+        <figure id="earlier-reading" style="--event-position: 36.224%">
+          <figcaption>Time since the recording began</figcaption>
+          <div class="timeline">
+            <div class="nerve"><span>Marked nerve event</span><strong>0.136256 s</strong></div>
+            <div class="axis" aria-hidden="true"></div>
+            <div class="samples">
+              <div><span>Earlier pressure sample</span><strong>0.100032 s</strong></div>
+              <div><span>Later pressure sample</span><strong>0.200032 s</strong></div>
+            </div>
+          </div>
+          <p class="offset">This mark falls <strong>36.224 ms</strong> after the earlier pressure sample and <strong>63.776 ms</strong> before the next.</p>
+        </figure>
+        <figure id="later-reading" style="--event-position: 4.928%">
+          <figcaption>Time since the recording began</figcaption>
+          <div class="timeline">
+            <div class="nerve"><span>Marked nerve event</span><strong>7.104960 s</strong></div>
+            <div class="axis" aria-hidden="true"></div>
+            <div class="samples">
+              <div><span>Earlier pressure sample</span><strong>7.100032 s</strong></div>
+              <div><span>Later pressure sample</span><strong>7.200032 s</strong></div>
+            </div>
+          </div>
+          <p class="offset">This mark falls <strong>4.928 ms</strong> after the earlier pressure sample and <strong>95.072 ms</strong> before the next.</p>
+        </figure>
+      </div>
+    </fieldset>
+
+    <section class="resolution" aria-labelledby="gap">
+      <h2 id="gap">What fits in a tenth of a second?</h2>
+      <p>The recording clock counts in steps of 8 microseconds. The pressure gauge takes a reading every 100 milliseconds. That lets us place the nerve event within the gap. The pressure values at either end and the pressure at the event itself are unknown here.</p>
+    </section>
+    <section id="source" aria-labelledby="recording">
+      <h2 id="recording">About the recording</h2>
+      <p>Brierley and Brizuela deposited this recording from mouse R481. Each example uses the first mark saved on one of two nerve-event channels. Which nerve fibre produced each event, which treatment was in effect and which part of the trial was underway remain unknown.</p>
+      <p class="links"><a href="https://doi.org/10.26275/UZOC-EOK4">SPARC dataset 659, version 1</a><a href="SOURCE.txt">File coordinates and credits</a><a href="CC-BY-4.0.txt">Data licence (CC BY 4.0)</a></p>
+    </section>
+  </main>
+</body>
+</html>

@@ -112,6 +112,11 @@ const models = {
     url: atlas + '#route=visceral&step=0',
     reading: 'Stretch in an artery sends sensory information towards the brainstem. Follow the route to a labelled human donor section of the solitary nucleus.'
   },
+  visceralClock: {
+    title: 'Between two pressure readings',
+    url: '../visceral-clock/',
+    reading: 'Choose a marked event in a mouse pelvic nerve recording. See where it falls between two measurements of pressure inside the colon, taken a tenth of a second apart.'
+  },
   exercise: {
     title: 'Follow the exercise and pressure loop',
     url: atlas + '#route=exercise&step=0',
@@ -179,7 +184,7 @@ const choicesByStep = {
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['graspBalanceForecast','targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
-  'visceroception': ['visceral', 'pelvic', 'vibration'],
+  'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
   'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };
 

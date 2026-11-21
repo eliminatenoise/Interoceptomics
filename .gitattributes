@@ -92,3 +92,7 @@ docs/cross-person-wrist/** -text
 docs/cross-person-wrist/*.cmd whitespace=cr-at-eol
 docs/cross-person-wrist/MAKEHUMAN-CC0.txt whitespace=-blank-at-eof,-trailing-space
 downloads/cross-person-wrist.zip binary
+
+docs/visceral-clock/** -text
+docs/visceral-clock/*.cmd whitespace=cr-at-eol
+downloads/visceral-clock.zip binary

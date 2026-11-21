@@ -1,0 +1,36 @@
+Between two pressure readings
+
+Brierley SM and Brizuela M (2026). Electrophysiological recordings of mouse
+colonic afferent responses to mechanical and pharmacological stimuli in ex vivo
+preparations. SPARC dataset 659, version 1. CC BY 4.0.
+https://doi.org/10.26275/UZOC-EOK4
+https://discover.pennsieve.io/datasets/659
+
+The source file is files/primary/sub-R481/sam-R481/sam-R481.smr.
+The published object's version ID is bgu_LkC1yT3fA6OcBlw2BWgHITij6yA5.
+The provider lists SHA-256 a4c9fe6fcd215bc02f4ffce8264965a1edfdc7c9b65cb15178770a9b9b2c7183.
+
+The examples use the first stored mark on each of channels 6 and 7 in R481.
+Channel numbers start at one. Each mark has two neighbouring samples
+in one continuous block of the pressure recording on channel 3. The table
+gives ticks since the recording began. Each tick is 8 microseconds.
+
+  Mark       Nerve channel   Earlier sample   Nerve event   Later sample
+  Earlier         6                12504          17032           25004
+  Later           7               887504         888120          900004
+
+The two event markers begin at byte offsets 239862292 and 251802132.
+The corresponding pairs of pressure samples begin at 5142 and 5144,
+and at 5282 and 5284. Byte offsets start at zero.
+
+The reader converts ticks to seconds and places each event on a time
+axis spanning its two pressure samples. It subtracts the event and sample
+times to show the two distances in milliseconds. The file coordinates
+identify the samples without retrieving either pressure value. Pressure
+between readings, fibre identity, treatment and trial phase remain unknown.
+
+The times derived from the recording retain CC BY 4.0. The full licence
+is in CC-BY-4.0.txt and at https://creativecommons.org/licenses/by/4.0/.
+Interoceptomics dedicates its original text, diagram, code and launchers
+to the public domain under CC0 to the extent of its rights. See CC0-1.0.txt
+or https://creativecommons.org/publicdomain/zero/1.0/.
