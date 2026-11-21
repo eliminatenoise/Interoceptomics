@@ -78,3 +78,7 @@ Extract the [offline reader and both measured trajectories](downloads/cross-limb
 ## Carry the cylinder
 
 Extract [the complete reader](downloads/target-reach.zip), then open `index.html` or use the Windows, macOS or Linux launcher in the extracted folder. The 18 animated `.glb` files also open independently. [Browser reader](https://eliminatenoise.github.io/Interoceptomics/target-reach/)
+
+## How the cylinder turns
+
+Extract [the offline atlas](downloads/cylinder-rotation.zip) and open the Windows, macOS or Linux launcher. The browser replay and 18 animated GLB files run offline. [Open the atlas](https://eliminatenoise.github.io/Interoceptomics/cylinder-rotation/)

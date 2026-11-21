@@ -67,3 +67,9 @@ docs/target-reach/** -text
 docs/target-reach/*.cmd whitespace=cr-at-eol
 docs/target-reach/CC-BY-4.0.txt whitespace=-blank-at-eof
 downloads/target-reach.zip binary
+
+# Preserve byte-identical sensor recordings, images, models and the offline ZIP.
+docs/cylinder-rotation/** -text
+docs/cylinder-rotation/*.cmd whitespace=cr-at-eol
+docs/cylinder-rotation/CC-BY-4.0.txt whitespace=-blank-at-eof
+downloads/cylinder-rotation.zip binary

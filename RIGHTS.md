@@ -200,3 +200,7 @@ The [contact forecast atlas](docs/contact-forecast/NOTICE.md) uses the 12 and 13
 ## Carry the cylinder
 
 The Ruhr Hand Motion Catalog by Tim Sziburis, Susanne Blex, Tobias Glasmachers and Ioannis Iossifidis supplies 18 selected optical-marker trajectories and original Figures 2, 4 and 6. The numerical data, figures and measured content of the derived 3D exports retain CC BY 4.0 attribution. The reader centres each optical position on its recording start and derives the display clock from frame number. [Dataset](https://doi.org/10.17605/OSF.IO/J3QC8) · [Article](https://doi.org/10.1038/s41597-025-05576-7) · [Changes and licences](docs/target-reach/METHODS.md)
+
+## Cylinder rotation
+
+Sziburis, Blex, Glasmachers and Iossifidis supply the 18 inertial recordings and Figures 2, 4 and 6. Measurements, their derived animation channels and the figures retain CC BY 4.0. The atlas centres orientation on each first pose and derives ten-sample means from the device axes. Original viewer code, text and illustrative geometry carry CC0 to the extent of programme rights. [Methods, source and licences](docs/cylinder-rotation/METHODS.md)

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Turn a model of a hand-held cylinder through 18 real recordings and compare its measured angular velocity with a forecast made 100 milliseconds earlier."
+    />
+    <title>How the cylinder turns · Interoceptomics</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="shell nav">
+        <a href="https://eliminatenoise.github.io/Interoceptomics/"
+          >Interoceptomics</a
+        ><span>Movement atlas</span>
+      </div>
+    </header>
+    <main class="shell">
+      <div class="intro">
+        <h1>How the cylinder turns</h1>
+        <p>
+          A person carries a cylinder across a table. The sensor on its lid
+          records every twist, ten milliseconds at a time.
+        </p>
+      </div>
+      <div class="workspace">
+        <section
+          class="instrument"
+          aria-label="Three-dimensional cylinder and playback"
+        >
+          <div class="instrument-head">
+            <strong>Sensor orientation</strong><span id="clipLabel"></span>
+          </div>
+          <div class="sceneWrap">
+            <canvas
+              id="scene"
+              tabindex="0"
+              aria-label="Three-dimensional rotating cylinder. Drag or use the arrow keys to orbit the camera."
+              >Three-dimensional cylinder orientation. Read the same recording
+              in the sensor values below.</canvas
+            ><button
+              class="camera"
+              id="resetView"
+              title="Restore the starting camera angle"
+            >
+              Reset view
+            </button>
+          </div>
+          <div class="stagefoot">
+            <span><i id="legendDot"></i><span id="legendText"></span></span
+            ><span>Drag to orbit</span>
+          </div>
+          <div class="transport">
+            <button id="play" type="button">▶ Play</button
+            ><label class="sr" for="clock">Sensor recording time</label
+            ><input type="range" id="clock" min="0" step="1" /><output
+              id="clockRead"
+              for="clock"
+            ></output>
+          </div>
+        </section>
+        <aside class="controls">
+          <h2>Recording</h2>
+          <div class="fields">
+            <label
+              >Hand<select id="hand">
+                <option value="left">Left hand</option>
+                <option value="right">Right hand</option>
+              </select></label
+            ><label>Destination<select id="target"></select></label>
+          </div>
+          <p class="hint">
+            Each hand and target opens a separate trial from one participant.
+          </p>
+          <div class="line"></div>
+          <h2>Sensor vector</h2>
+          <label class="sr" for="channel">Vector and trace</label
+          ><select id="channel">
+            <option value="gyro">Angular velocity · rad/s</option>
+            <option value="accel">Acceleration · m/s²</option>
+          </select>
+          <div class="readings" id="readings"></div>
+          <p class="hint" id="vectorHint"></p>
+          <div class="stepper">
+            <button id="prev" aria-label="Previous sensor sample">−10 ms</button
+            ><button id="next" aria-label="Next sensor sample">+10 ms</button
+            ><button id="peak">Peak turn</button>
+          </div>
+        </aside>
+      </div>
+      <section class="traceStrip">
+        <div class="traceHead">
+          <h2 id="traceTitle">Angular velocity</h2>
+          <div class="key">
+            <span class="ax">X</span><span class="ay">Y</span
+            ><span class="az">Z</span>
+          </div>
+        </div>
+        <canvas
+          id="trace"
+          tabindex="0"
+          aria-label="Time series of all three recorded axes. Click or use arrow keys to select a sample."
+        ></canvas>
+        <div class="bands">
+          <span>200 ms input</span><span>100 ms outcome</span>
+        </div>
+      </section>
+      <section class="forecast">
+        <div>
+          <h2>The next tenth of a second</h2>
+          <p>
+            The model sees 20 earlier samples and the assigned target. Compare
+            its forecast with the mean of the next ten gyroscope readings.
+          </p>
+          <label class="cutoff"
+            >End of input
+            <select id="cutoff"></select
+          ></label>
+          <p id="windowText" class="hint"></p>
+        </div>
+        <div class="comparison">
+          <div class="compare-title">
+            <strong>Mean angular velocity</strong><span>rad/s</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Sensor axis</th>
+                <th>Measured</th>
+                <th>Forecast</th>
+              </tr>
+            </thead>
+            <tbody id="compare"></tbody>
+          </table>
+          <p id="miss"></p>
+        </div>
+      </section>
+      <p class="caption">
+        These recordings helped fit the model. On 2,653 matched windows from
+        later repetitions in 24 people, its average error was 0.158 rad/s across
+        three fits. Using only the sensors, hand and elapsed time gave 0.151
+        rad/s.
+        <a
+          href="https://eliminatenoise.github.io/NeuroTranslation/cylinder-rotation/"
+          >Run the model</a
+        >
+        ·
+        <a
+          href="https://eliminatenoise.github.io/NeuroTranslation/papers/cylinder-rotation/"
+          >Read the study</a
+        >
+      </p>
+      <section class="sources">
+        <div>
+          <h2>What was in the hand?</h2>
+          <p>
+            A printed cylinder, 50 mm across and 25 mm tall. Two reflective
+            markers sit above the orange sensor. The whole assembly weighed 41
+            g.
+          </p>
+          <p>
+            The instrument estimates its orientation on board. Here the first
+            pose sets the reference. The cylinder turns around a fixed centre.
+            The recording supplies no table heading, wrist angle, muscle
+            activity or nerve signals.
+          </p>
+          <p>
+            <a id="modelLink" download>Download this animated 3D model</a> ·
+            <a href="METHODS.md">Methods and licences</a>
+          </p>
+          <p id="member" class="sourceID"></p>
+        </div>
+        <figure>
+          <a href="references/figure-2.png"
+            ><img
+              src="references/figure-2.png"
+              alt="Original study photograph showing the dark cylinder, orange sensor case and two reflective markers."
+          /></a>
+          <figcaption>Fig. 2 · The instrument</figcaption>
+        </figure>
+        <figure>
+          <a href="references/figure-4.png"
+            ><img
+              src="references/figure-4.png"
+              alt="Nine assigned target locations arranged in a semicircle around the starting station."
+          /></a>
+          <figcaption>Fig. 4 · The destinations</figcaption>
+        </figure>
+      </section>
+    </main>
+    <footer>
+      <div class="shell">
+        <p>
+          Measurements and figures by Tim Sziburis, Susanne Blex, Tobias
+          Glasmachers and Ioannis Iossifidis (2025).
+          <a href="https://doi.org/10.17605/OSF.IO/J3QC8">Source recordings</a>
+          ·
+          <a href="https://doi.org/10.1038/s41597-025-05576-7"
+            >Original study</a
+          >
+          · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </p>
+        <a
+          href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/cylinder-rotation.zip"
+          >Download the complete offline atlas</a
+        >
+      </div>
+    </footer>
+    <script src="recordings.js"></script>
+    <script src="apparatus.js"></script>
+    <script src="scene.js"></script>
+    <script src="reader.js"></script>
+  </body>
+</html>
