@@ -35,7 +35,7 @@ const models = {
   runReachForecast: {
     title: 'Run a reach forecast',
     url: neuro + 'joint-alpha/shared-tasks/trajectory/reach/density/second-day/predict/',
-    reading: 'Run a model with 20 recorded positions of the hand, elbow and handle. Try the example or paste your own readings. Compare where the model places the hand and elbow with a forecast that extends their recent motion.'
+    reading: 'Give two models the same 20 readings of the hand, elbow and handle. One reads the recorded positions. The other uses changes from the last reading. Compare both forecasts with a path that continues the last measured speed and direction.'
   },
   cylinderRotation: {
     title: 'How the cylinder turns',
