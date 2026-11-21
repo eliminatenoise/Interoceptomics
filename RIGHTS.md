@@ -204,3 +204,7 @@ The Ruhr Hand Motion Catalog by Tim Sziburis, Susanne Blex, Tobias Glasmachers a
 ## Cylinder rotation
 
 Sziburis, Blex, Glasmachers and Iossifidis supply the 18 inertial recordings and Figures 2, 4 and 6. Measurements, their derived animation channels and the figures retain CC BY 4.0. The atlas centres orientation on each first pose and derives ten-sample means from the device axes. Original viewer code, text and illustrative geometry carry CC0 to the extent of programme rights. [Methods, source and licences](docs/cylinder-rotation/METHODS.md)
+
+## After the reach
+
+Raeed Chowdhury, Joshua Glaser and Lee Miller released the processed macaque recordings under CC0. Figures 1–3 of their study, resized and converted to WebP for the reader, retain CC BY 4.0. Interoceptomics supplies the replay and animated paths, and NeuroTranslation supplies the forecasts. [Recording, figure credits and methods](docs/reach-feedback/NOTICE.md).

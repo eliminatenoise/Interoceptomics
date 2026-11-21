@@ -74,3 +74,9 @@ docs/cylinder-rotation/** -text
 docs/cylinder-rotation/*.cmd whitespace=cr-at-eol
 docs/cylinder-rotation/CC-BY-4.0.txt whitespace=-blank-at-eof
 downloads/cylinder-rotation.zip binary
+
+# Keep the offline reach recording, models and launchers byte-identical.
+docs/reach-feedback/** -text
+docs/reach-feedback/*.cmd whitespace=cr-at-eol
+docs/reach-feedback/models/*.glb binary
+downloads/reach-feedback.zip binary

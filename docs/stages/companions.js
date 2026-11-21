@@ -2,6 +2,11 @@ const atlas = '../atlas/backslash/';
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  reachFeedback: {
+    title: 'After the reach',
+    url: '../reach-feedback/',
+    reading: 'Turn the recorded hand and elbow markers, follow the handle in its own plane, and count the spikes that followed in sensory cortex. Which forecasts matched the measurements?'
+  },
   cylinderRotation: {
     title: 'How the cylinder turns',
     url: '../cylinder-rotation/',
@@ -141,17 +146,17 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['contactForecast', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
+  'map-brain2body': ['contactForecast', 'reachFeedback', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions','targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
-  'motorsensation': ['contactForecast', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
+  'motorsensation': ['contactForecast', 'reachFeedback', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
   'handler': ['graspBalanceRecording','targetReach', 'cylinderRotation', 'graspBalanceForecast'],
   'read-function': ['vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
-  'mechanics': ['contactForecast', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
+  'mechanics': ['contactForecast', 'reachFeedback', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['graspBalanceForecast','targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'vibration'],

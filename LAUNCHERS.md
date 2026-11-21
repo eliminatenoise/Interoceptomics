@@ -82,3 +82,7 @@ Extract [the complete reader](downloads/target-reach.zip), then open `index.html
 ## How the cylinder turns
 
 Extract [the offline atlas](downloads/cylinder-rotation.zip) and open the Windows, macOS or Linux launcher. The browser replay and 18 animated GLB files run offline. [Open the atlas](https://eliminatenoise.github.io/Interoceptomics/cylinder-rotation/)
+
+## After the reach
+
+Extract the [offline reader and eight animated models](downloads/reach-feedback.zip). In the `Reach feedback` folder, open the launcher named for your computer or open `index.html` in your browser. The four recordings, movement forecasts, spike counts and study figures are included. [Browser edition](https://eliminatenoise.github.io/Interoceptomics/reach-feedback/).

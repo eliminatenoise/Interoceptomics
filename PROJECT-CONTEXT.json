@@ -658,5 +658,13 @@
     "measured_changes": "docs/scalp-and-arm/measurements/cue-fields.json",
     "agreement_counts": "docs/scalp-and-arm/agreement/counts.json",
     "early_scalp_eye_comparison": "docs/scalp-and-arm/eyes/cohort.json"
+  },
+  "reach_feedback": {
+    "reader": "docs/reach-feedback/index.html",
+    "archive": "downloads/reach-feedback.zip",
+    "measurements_and_forecasts": "docs/reach-feedback/recordings.js",
+    "methods": "docs/reach-feedback/NOTICE.md",
+    "source": "https://doi.org/10.5061/dryad.nk98sf7q7",
+    "scope": "Four reaches from one macaque on one recording day. The reader compares measured hand and elbow-marker positions, handle movement and later spike counts in sensory cortex with offline forecasts. The two workspaces were recorded on the same day."
   }
 }

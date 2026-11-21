@@ -1,0 +1,9 @@
+After the reach  |  Interoceptomics
+
+Extract the entire ZIP. Open the launcher for your operating system, or open index.html directly in a browser with JavaScript enabled. Data, model outputs, drawings and source figures are bundled. Links to the wider atlas, study, paper and original sources use the internet.
+
+Choose a recording. The forecast menu switches between the motor-to-count study and the secondary joint rollout. Move the time slider in 10 ms steps. “Earlier inputs”, “Movement” and “Later counts” jump to the start of each interval. The play button advances one bin every 150 ms. Select a single optical marker to enlarge its path. Drag or focus the 3D view and press arrow keys to turn it. The planar handle uses its own axes. Select a unit from the menu, click the spike-count grid or use arrows on the focused grid. Read the selected unit's recorded and expected counts below.
+
+The separate marker and handle GLB files each contain a 30-sample animation. In a glTF 2 viewer with playback controls, choose the animation and play it slowly. The first 0.20 seconds are the forecast history. The ten remaining position samples cover the next 90 ms from the cutoff. Later cortical counts occupy the following 100 ms and appear in the browser.
+
+recordings.js contains the selected native sample values and available fitted forecasts as JSON assigned to window.REACH_FEEDBACK. From the extracted folder, run “python export-models.py” to rebuild the 3D files. The data and code are CC0; the original-study figures are CC BY 4.0. NOTICE.md contains the scientific source, coordinate transforms, example selection and model details. SHA256SUMS lists the files in this edition.

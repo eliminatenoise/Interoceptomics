@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Follow a macaque’s hand, elbow marker and robot handle in two reach workspaces. Compare their paths and later sensory-cortex spike counts with forecasts."
+    />
+    <title>After the reach · Interoceptomics</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="recordings.js" defer></script>
+    <script src="scene.js" defer></script>
+    <script src="reader.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <a class="brand" href="https://eliminatenoise.github.io/Interoceptomics/">Interoceptomics</a>
+        <div>
+          <a href="https://eliminatenoise.github.io/Interoceptomics/stages/">Stages</a
+          ><a href="https://eliminatenoise.github.io/NeuroTranslation/reach-feedback/">Study</a
+          ><a href="https://eliminatenoise.github.io/NeuroTranslation/papers/reach-feedback/">Paper</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <h1>After the reach</h1>
+          <p>
+            A macaque moved a handle through two workspaces. What could the preceding 200 milliseconds
+            tell us about the next stretch of that reach, and the spikes that followed in sensory cortex?
+          </p>
+        </div>
+        <div class="source">
+          <span>Rhesus macaque C</span><span>7 September 2017</span
+          ><a href="#references">Recording &amp; references ↓</a>
+        </div>
+      </section>
+      <section aria-labelledby="replay">
+        <div class="case">
+          <div>
+            <h2 id="replay">Reach replay</h2>
+            <span id="identity"></span>
+          </div>
+          <label>Recording<select id="clip"></select></label>
+        </div>
+        <p id="unavailable" hidden></p>
+        <div id="viewer">
+          <div class="modelrow">
+            <label
+              >Forecast comparison<select id="model">
+                <option value="primary">Motor forecast → cortical counts</option>
+                <option value="joint">Joint motion and count forecast</option>
+              </select></label
+            ><span id="modelCaption"></span>
+          </div>
+          <div class="panels">
+            <article class="optical">
+              <div class="panel-title">
+                <h3>Optical markers</h3>
+                <span>XYZ · metres</span>
+              </div>
+              <div class="scene-wrap">
+                <canvas
+                  id="scene"
+                  tabindex="0"
+                  aria-label="3D hand and proximal-ulna marker trajectories. Drag or use arrow keys to rotate."
+                ></canvas>
+                <div class="scene-key">
+                  <span class="hand">Hand</span><span class="elbow">Elbow marker</span>
+                </div>
+              </div>
+              <div class="settings">
+                <label
+                  >Frame<select id="focus">
+                    <option value="both">Both markers</option>
+                    <option value="hand">Follow hand path</option>
+                    <option value="elbow">Follow elbow path</option>
+                  </select></label
+                ><label
+                  >View<select id="view">
+                    <option value="oblique">Oblique</option>
+                    <option value="xy">XY</option>
+                    <option value="xz">XZ</option>
+                    <option value="yz">YZ</option>
+                    <option value="custom" disabled>Rotated</option>
+                  </select></label
+                >
+              </div>
+              <p class="hint">
+                Drag or use the arrow keys to turn the shoulder-relative axes. A dotted line joins the
+                two marker sites.
+              </p>
+            </article>
+            <article class="encoder">
+              <div class="panel-title">
+                <h3>Robot handle</h3>
+                <span>XY · centimetres</span>
+              </div>
+              <canvas id="handle" aria-label="Planar encoder trajectory in centimetres"></canvas>
+              <div class="key">
+                <span class="measure">Recorded path</span><span class="forecast">Forecast</span>
+              </div>
+              <p class="hint">
+                The encoders record motion in the apparatus plane. This plot has its own origin and
+                scale.
+              </p>
+            </article>
+          </div>
+          <div class="timeline">
+            <div class="timehead">
+              <div><span id="phase"></span><strong id="time"></strong></div>
+              <button id="play" type="button">Play slowly</button>
+            </div>
+            <div class="bands" aria-label="Jump to a time window">
+              <button data-step="0">Earlier inputs <span>20 bins</span></button
+              ><button data-step="20">Movement <span>10 bins</span></button
+              ><button data-step="30">Later counts <span>10 bins</span></button>
+            </div>
+            <label class="sr" for="clock">Selected time bin</label
+            ><input id="clock" type="range" min="0" max="39" value="29" step="1" />
+            <div class="ticks"><span>−200 ms</span><span>0</span><span>+100</span><span>+200</span></div>
+            <div class="transport">
+              <button id="prev" aria-label="Previous 10 millisecond bin">← Back</button
+              ><button id="next" aria-label="Next 10 millisecond bin">Next →</button
+              ><output id="row"></output>
+            </div>
+            <p id="phaseNote"></p>
+          </div>
+          <div class="data-block">
+            <div class="section-title">
+              <h3>Position at this sample</h3>
+              <label><input type="checkbox" id="showPred" checked /> Show motor forecast</label>
+            </div>
+            <table id="positions">
+              <thead>
+                <tr>
+                  <th>Measured site</th>
+                  <th>X</th>
+                  <th>Y</th>
+                  <th>Z</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <p id="motorNote" class="hint"></p>
+          </div>
+          <div class="data-block">
+            <div class="section-title">
+              <div>
+                <h3>Spikes in area 2</h3>
+                <p>
+                  Each square is one 10 ms bin for a sorted unit on an electrode. Select a row to inspect
+                  the recorded counts and the model’s expectation.
+                </p>
+              </div>
+              <label>Electrode / sort<select id="unit"></select></label>
+            </div>
+            <canvas
+              id="raster"
+              tabindex="0"
+              aria-label="Spike-count heatmap of 23 units and 40 bins. Click to select a unit and bin, or use the electrode menu and time slider."
+            ></canvas>
+            <div class="rasterkey"><span>0</span><i></i><span>3 or more spikes per bin</span></div>
+            <div class="count-title">
+              <h4 id="countTitle"></h4>
+              <span id="countNow"></span>
+            </div>
+            <table id="counts">
+              <thead>
+                <tr>
+                  <th>Later bin</th>
+                  <th>Observed</th>
+                  <th id="fullHeader">Past + forecast motion</th>
+                  <th id="otherHeader">Past alone</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <p id="countNote" class="hint"></p>
+          </div>
+          <div class="data-block">
+            <h3>Did the movement forecast help?</h3>
+            <p>
+              Adding the predicted movement failed to improve later spike-count forecasts over the same
+              earlier measurements alone. On later trials in workspace 1, the change in count error was
+              +0.0035 (95% interval −0.0232 to +0.0277, 113 windows from 42 original trials). On transfer
+              to workspace 2, it rose by +0.0100 (+0.0011 to +0.0185, 822 windows from 315 trials).
+            </p>
+            <p class="hint">
+              Error is Poisson deviance per sorted unit for the 100 ms total. Lower is better. The
+              intervals resample chronological blocks of eight original trials. These are cohort results
+              from the primary comparison.
+              <a href="https://eliminatenoise.github.io/NeuroTranslation/papers/reach-feedback/"
+                >Read the full comparisons and controls</a
+              >.
+            </p>
+          </div>
+          <div class="download">
+            <div>
+              <h3>Take this reach with you</h3>
+              <p>
+                Each 3D file plays 30 recorded samples. The marker and encoder files open separately in a
+                glTF viewer.
+              </p>
+            </div>
+            <div class="files">
+              <a id="glMarker" download>3D marker motion ↓</a
+              ><a id="glHandle" download>Planar handle motion ↓</a
+              ><a
+                id="offline"
+                href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/reach-feedback.zip"
+                >Complete offline atlas ↓</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="references">
+        <h2>What was measured?</h2>
+        <p>
+          Chowdhury, Glaser and Miller tracked painted arm landmarks with a depth camera while the
+          macaque moved a robot handle towards successive visual targets. The two plotted landmarks are
+          Marker_1 on the hand and Pronation_Pt1 on the proximal ulna near the elbow. The encoders
+          measured the handle independently. A cortical array recorded spikes that the experimenters
+          sorted offline.
+        </p>
+        <div class="refs">
+          <figure>
+            <a href="reference/figure-2.webp"
+              ><img
+                src="reference/figure-2.webp"
+                loading="lazy"
+                alt="Figure 2. The experimental apparatus, arm markers and camera."
+            /></a>
+            <figcaption>
+              <b>The apparatus.</b> A handle moved a cursor. A separate camera followed the arm markers.
+              Figure 2.
+            </figcaption>
+          </figure>
+          <figure>
+            <a href="reference/figure-3.webp"
+              ><img
+                src="reference/figure-3.webp"
+                loading="lazy"
+                alt="Figure 3. The near and far workspaces and example neural activity."
+            /></a>
+            <figcaption>
+              <b>The workspaces.</b> Near and far reaches took place in interleaved trials. The published
+              example illustrates that task. Figure 3.
+            </figcaption>
+          </figure>
+          <figure>
+            <a href="reference/figure-1.webp"
+              ><img
+                src="reference/figure-1.webp"
+                loading="lazy"
+                alt="Figure 1. Array locations and receptive-field maps for the study animals."
+            /></a>
+            <figcaption>
+              <b>The recording site.</b> These mapping sessions locate arrays. The replay identifies
+              units by electrode and sort number. Figure 1.
+            </figcaption>
+          </figure>
+        </div>
+        <p>
+          Each clip was fixed as the first candidate in its split by controller timing before inspecting
+          movement or spike counts. All clips come from the same macaque on the same day. The original
+          authors released the recordings under CC0 and these three figures under CC BY 4.0. The samples
+          share a processed 10 ms clock. Filtering, optical interpolation and offline sorting limit what
+          this replay can say about real-time sensing. Movement precedes the later counts here. That
+          ordering alone cannot tell us which movements caused which spikes.
+        </p>
+        <p class="refs-links">
+          <a href="https://doi.org/10.5061/dryad.nk98sf7q7">Data on Dryad ↗</a
+          ><a href="https://doi.org/10.7554/eLife.48198">Original paper ↗</a
+          ><a href="NOTICE.md">Methods &amp; rights</a><a href="READ-ME.txt">Offline instructions</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

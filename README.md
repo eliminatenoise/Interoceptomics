@@ -15,6 +15,8 @@ The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
+**[After the reach](https://eliminatenoise.github.io/Interoceptomics/reach-feedback/).** A macaque reaches for a target while a camera tracks its hand and elbow and a robot measures where the handle goes. Follow four recorded reaches, then compare the spikes counted in sensory cortex with the counts forecast from the earlier recording. [Offline reader and eight animated models](downloads/reach-feedback.zip) · [Methods and attribution](docs/reach-feedback/NOTICE.md)
+
 **[How the cylinder turns](https://eliminatenoise.github.io/Interoceptomics/cylinder-rotation/).** A sensor on the lid records each twist as a person carries the object to one of nine targets. Compare its 100 Hz readings with a forecast of the next tenth of a second. [Offline atlas and 18 animated models](downloads/cylinder-rotation.zip) · [Methods and attribution](docs/cylinder-rotation/METHODS.md)
 
 **[Carry the cylinder](https://eliminatenoise.github.io/Interoceptomics/target-reach/).** One person carries a cylinder to nine visual targets with each hand. Turn the measured optical paths in three dimensions, compare two recordings and export their motion. [Offline reader and 18 animated models](downloads/target-reach.zip) · [Recording and apparatus](docs/target-reach/METHODS.md)
