@@ -87,6 +87,11 @@ const models = {
     url: neuro + 'joint-alpha/missing-pelvis-markers/squat-sensor-comparison/',
     reading: 'Plates under the feet measured floor force. Electrodes on the thighs recorded electrical activity. Compare which readings helped predict the next 100 milliseconds when a camera reading was missing, using recordings from eight people.'
   },
+  runningStrideForecast: {
+    title: 'Forecast a running stride',
+    url: neuro + 'joint-alpha/missing-pelvis-markers/stride-demo/',
+    reading: 'See which stretch of an earlier stride the forecast used. Change the invented camera readings to see when it assumes zero movement or needs more readings.'
+  },
   walkingFloorForce: {
     title: 'See what the floor records as you walk',
     url: '../walking-force/',
@@ -227,7 +232,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'runningStrideForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
   'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
