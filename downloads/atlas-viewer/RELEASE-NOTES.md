@@ -2,7 +2,7 @@
 
 The Interoceptomics Atlas Viewer, version of 21 November 2026.
 
-[Open it on the website](https://eliminatenoise.github.io/Interoceptomics/viewer/) · [Download it](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (ZIP, 64.3 MB) · [Checksum](Interoceptomics-Atlas-Viewer.zip.sha256) · [How to open the download](../../README.md#use-it-offline-download-it) · [Licences and credits](../../RIGHTS.md)
+[Open it on the website](https://eliminatenoise.github.io/Interoceptomics/atlas/) · [Download it](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (ZIP, 64.3 MB) · [Checksum](Interoceptomics-Atlas-Viewer.zip.sha256) · [How to open the download](../../README.md#use-it-offline-download-it) · [Licences and credits](../../RIGHTS.md)
 
 Twenty of the atlas's 141 regions had no surface. They were the white matter of the forebrain and five of its named bundles of nerve fibres, nine fluid spaces (the ventricles and canals), the four regions of the smell pathway and the claustrum: 2,255,724 of the atlas's 6,999,201 labelled voxels, a third of the atlas. Each now has a surface, made from the same atlas grid the same way as the thirty single-region surfaces of the main model file: a surface around the region's voxels on the half-millimetre grid, smoothed so that no point moved more than 0.125 mm.
 
@@ -15,6 +15,8 @@ The notes under **Evidence and limits**, shown when you select a region, now say
 
 Four regions that were listed with "left atlas surface" after their names now have plain names, like every other region: ventral posterior lateral nucleus (VPL), ventral posterior medial nucleus (VPM), red nucleus and parietal operculum (PaO).
 
+On the website the viewer now opens at [eliminatenoise.github.io/Interoceptomics/atlas](https://eliminatenoise.github.io/Interoceptomics/atlas/). The address it had until now, which ended in /viewer/, forwards there, and a link that opens a saved view keeps its view. [Backslash of the Brain](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/) sits beside it: a separate anatomy atlas that follows signals from muscles and organs through 3D models and slices of the human brain, spinal cord and organs. Its 3D brain is this viewer's 3D model, shown inside its own pages.
+
 Run for this version, on Linux in Chromium 155 with software rendering, from the download's start file and from a copy of the website served on this computer: the first view, a colour overlay, the parietal operculum shown alone, the three flat cuts, the white matter and the fluid spaces in each of the four views, flat cuts through a ventricle and through the white matter, three of the new regions shown alone, and the page opened straight from the folder. The viewer has not yet been run on Windows, macOS or a phone.
 
-The download contains 94 files in 64,344,535 bytes (121,370,767 bytes unpacked).
+The download contains 94 files in 64,344,808 bytes (121,371,527 bytes unpacked).

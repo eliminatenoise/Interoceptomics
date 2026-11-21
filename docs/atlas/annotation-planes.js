@@ -10,9 +10,9 @@ const colours = [
   [205, 111, 168], [106, 188, 221], [188, 142, 128], [180, 179, 216],
 ];
 const directions = [
-  ['P', 'A', 'S', 'I', 'Posterior left, anterior right, superior up, inferior down.'],
-  ['L', 'R', 'S', 'I', 'Anatomical left at screen left, right at screen right, superior up, inferior down.'],
-  ['L', 'R', 'A', 'P', 'Anatomical left at screen left, right at screen right, anterior up, posterior down.'],
+  ['P', 'A', 'S', 'I', 'Back on the left, front on the right, up at the top, down at the bottom.'],
+  ['L', 'R', 'S', 'I', 'The body’s left on the left of the screen, its right on the right, up at the top, down at the bottom.'],
+  ['L', 'R', 'A', 'P', 'The body’s left on the left of the screen, its right on the right, front at the top, back at the bottom.'],
 ];
 const pointPrefix = '#atlas-labels-v1/';
 const highlightPrefix = '#atlas-labels-v2/';
@@ -66,13 +66,13 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
   let modelResult;
   const refreshCopy = bindFragmentCopy(panel.querySelector('#annotation-save-view'), () =>
     source ? (highlight.checked ? highlightPrefix : pointPrefix) + source.space + '/' +
-      point.join(',') + (highlight.checked ? '/highlight' : '') : '', 'Atlas label view copied.');
+      point.join(',') + (highlight.checked ? '/highlight' : '') : '', 'Saved view copied.');
 
   function updateVolume(id) {
     if (!volume.open) return;
     const counts = source.labelCounts(id);
     countsTable.hidden = !counts;
-    regionName.textContent = counts ? source.describe(id) : 'This voxel has no atlas label to measure.';
+    regionName.textContent = counts ? source.describe(id) : 'This voxel is in no region, so there is nothing to measure.';
     if (!counts) return;
     const {left, midline, right} = counts;
     const values = [left, midline, right, left + midline + right];
@@ -107,7 +107,7 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
       sliderLabel.htmlFor = slider.id;
       slider.max = shape[axis] - 1;
       canvas.dataset.axis = axis;
-      canvas.setAttribute('aria-label', sectionNames[axis] + ' annotation. ' + description);
+      canvas.setAttribute('aria-label', sectionNames[axis] + ' cut. ' + description);
       [left, right, top, bottom].forEach((word, i) => { edges[i].textContent = word; });
       const width = canvas.width = shape[u];
       const height = canvas.height = shape[v];
@@ -140,7 +140,7 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
       return pane;
     });
     formControl = bindCoordinateJump(form, {
-      coordinate, start: [0, 0, 0], stop: shape, outside: 'The annotation grid',
+      coordinate, start: [0, 0, 0], stop: shape, outside: 'Outside the atlas grid.',
       jump: next => { choose(next); },
     });
     bindRegionFinder(panel.querySelector('#region-finder'), source, () => point, next => {
@@ -170,8 +170,8 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     const id = source.label(point);
     const mask = highlight.checked && id > 0 ? source.ids.indexOf(id) : -1;
     key.hidden = !highlight.checked;
-    key.textContent = mask >= 0 ? 'Gold marks this exact ID. Grey shows other labels. Dark tiles have no label.'
-      : 'Pick a labelled tile to highlight its ID.';
+    key.textContent = mask >= 0 ? 'Gold marks this region. Grey marks other regions. Dark tiles are in no region.'
+      : 'Pick a tile inside a region to highlight that region.';
     for (const pane of panes) {
       const {axis, u, v, width, height, canvas, context, image, plane, slider, sliderLabel, cross} = pane;
       const newLevel = pane.index !== point[axis];
@@ -204,7 +204,7 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
       const level = coordinateLabel(coordinate, axis, point[axis]);
       slider.value = point[axis];
       slider.setAttribute('aria-valuetext', level);
-      sliderLabel.textContent = sectionNames[axis] + ' level · ' + level;
+      sliderLabel.textContent = sectionNames[axis] + ' cut · ' + level;
       cross.style.left = 100 * (point[u] + 0.5) / width + '%';
       cross.style.top = 100 * (height - point[v] - 0.5) / height + '%';
     }
@@ -231,11 +231,11 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     }
     let text;
     if (coordinate(0, point[0]) > 0) {
-      text = 'This voxel is on the source right. The 3D frame covers the left.';
+      text = 'This voxel is on the right side. The 3D model covers the left.';
     } else if (source.label(point) === 0) {
-      text = 'The source gives this voxel no label. The 3D frame has no marker here.';
+      text = 'The atlas puts this voxel in no region. The 3D model has no marker here.';
     } else if (!modelReady()) {
-      text = 'The left 3D frame is unavailable. You can still read the three annotation planes.';
+      text = 'The 3D model is not available. You can still read the three cuts.';
     }
     if (text) {
       modelRequest = modelResult = undefined;
@@ -247,7 +247,7 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     if (modelRequest?.join(',') === ras.join(',')) return;
     modelRequest = ras;
     modelResult = undefined;
-    modelReading.textContent = 'Linking this voxel to the left 3D frame…';
+    modelReading.textContent = 'Finding this voxel in the 3D model…';
     modelPoint(ras);
   }
 
@@ -255,8 +255,8 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     if (panel.hidden || !modelRequest || ras?.join(',') !== modelRequest.join(',') || modelResult === inView) return;
     modelResult = inView;
     modelReading.textContent = inView
-      ? 'The teal cross marks this voxel in the left 3D frame. Surface coverage varies by label.'
-      : 'The voxel is linked to the left 3D frame and lies outside the current camera view.';
+      ? 'The teal cross marks this voxel in the 3D model. Not every region has a surface there.'
+      : 'This voxel lies outside what the 3D view shows now.';
   }
 
   async function open(request = {}, current = () => true) {
@@ -265,7 +265,7 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     if (attempt !== opening || !current()) return false;
     if ((request.space && request.space !== loaded.space) ||
         (request.point && !request.point.every((index, axis) => index >= 0 && index < loaded.shape[axis]))) {
-      throw Error('The saved label view refers to a different source grid or a voxel outside it.');
+      throw Error('The saved view refers to another atlas grid, or to a voxel outside this one.');
     }
     const wasHidden = panel.hidden;
     modelRequest = modelResult = undefined;
@@ -288,14 +288,14 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     panel.hidden = false;
     tools.hidden = retry.hidden = true;
     mode(true);
-    status.textContent = 'Reading the atlas labels…';
+    status.textContent = 'Reading the atlas grid…';
     panel.querySelector('#annotation-close').focus();
     const attempt = opening + 1;
     try {
       await open(request);
     } catch (error) {
       if (attempt !== opening) return;
-      status.textContent = 'The atlas labels couldn’t load.';
+      status.textContent = 'The atlas grid couldn’t load.';
       retry.hidden = false;
       console.warn('Full annotation planes unavailable:', error);
     }

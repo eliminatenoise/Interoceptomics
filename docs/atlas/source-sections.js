@@ -43,17 +43,17 @@ export async function makeSourceSections(comparison, elements, onPlane) {
   const space = atlasSpace(grid.annotation_sha256, origin, spacing);
   let plot;
   let selectedVoxel;
-  const domain = {start, stop, coordinate: mm, outside: 'Outside the VPL/VPM crop.'};
+  const domain = {start, stop, coordinate: mm, outside: 'Outside the cut-out that holds VPL and VPM.'};
   const coordinateJump = bindCoordinateJump(coordinateForm, {
     ...domain,
     jump(point) {
       const current = Number(orientation.value);
       const axis = availableSectionAxis(point, current, levels);
-      if (axis === undefined) return 'This voxel is inside the crop, beyond the listed levels in all three planes.';
+      if (axis === undefined) return 'This voxel is inside the cut-out, beyond the positions listed in all three directions.';
       selectedVoxel = point;
       orientation.value = axis;
       setOrientation();
-      return axis === current ? '' : 'Opened the ' + sectionNames[axis].toLowerCase() + ' plane at this voxel.';
+      return axis === current ? '' : 'Opened the ' + sectionNames[axis].toLowerCase() + ' cut at this voxel.';
     },
   });
 
@@ -78,7 +78,7 @@ export async function makeSourceSections(comparison, elements, onPlane) {
       indices: [...indices],
       values: indices.map((index, axis) => mm(axis, index)),
       labelled: code !== '0',
-      label: code === '0' ? 'Outside VPL and VPM. Native label unavailable in this crop.' : labels[code],
+      label: code === '0' ? 'Outside VPL and VPM. This cut-out does not hold the region here.' : labels[code],
     };
   }
 
@@ -102,10 +102,10 @@ export async function makeSourceSections(comparison, elements, onPlane) {
       follow(point, commit) {
         const current = Number(orientation.value);
         if (point.some((index, dim) => index < start[dim] || index >= stop[dim])) {
-          return 'This voxel lies outside the VPL/VPM crop.';
+          return 'This voxel lies outside the cut-out that holds VPL and VPM.';
         }
         const axis = availableSectionAxis(point, current, levels);
-        if (axis === undefined) return 'No supplied plane in this crop contains this voxel.';
+        if (axis === undefined) return 'No cut here contains this voxel.';
         if (!commit()) return;
         coordinateJump.clear();
         selectedVoxel = [...point];
@@ -128,7 +128,7 @@ export async function makeSourceSections(comparison, elements, onPlane) {
     if (!cursor) {
       hideMarker();
       const coordinate = coordinateLabel(mm, axis, selectedVoxel[axis]);
-      voxel.textContent = 'The selected voxel lies at ' + coordinate + ', outside the listed levels.';
+      voxel.textContent = 'The selected voxel lies at ' + coordinate + ', outside the positions listed for this direction of cut.';
       return;
     }
     const [horizontal, vertical] = cursor;

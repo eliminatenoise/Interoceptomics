@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interoceptomics Atlas Viewer</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#27323a;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) 330px;height:100vh;position:relative;grid-template-areas:"model controls"}main{grid-area:model;min-width:0}iframe{height:100%;width:100%;border:0}aside{grid-area:controls;border-left:1px solid #dfe4e5;padding:22px;overflow:auto}h1{font-size:25px;line-height:1.1;margin:0 0 12px}h2{font-size:16px}p,li{font-size:13px;line-height:1.45}label{display:block;font-size:13px;font-weight:bold;margin:15px 0 5px}select,input,button{font:13px Arial,Helvetica,sans-serif;border:1px solid #bdc7cb;background:#fff;color:inherit;border-radius:3px;padding:9px;width:100%}button{cursor:pointer;margin-top:8px}button:disabled{opacity:.45;cursor:default}button:focus,select:focus,input:focus{outline:2px solid #3a6981;outline-offset:2px}.row{display:flex;gap:7px}.key{display:flex;gap:8px;align-items:center;font-size:12px;margin:6px 0}.swatch{width:15px;height:15px;border-radius:2px}.overview{grid-area:model;position:absolute;bottom:12px;left:12px;width:160px;margin:0;background:rgba(255,255,255,.95);border:1px solid #dfe4e5;padding:6px}.overview img{width:100%;display:block}.overview figcaption{display:inline;font-size:10px}#selection{border-top:1px solid #dfe4e5;margin-top:17px;padding-top:9px}#tags{font-size:12px;color:#4c6574}#model-controls{min-width:0;padding:0;margin:0;border:0}#model-controls :disabled{opacity:.55;cursor:default}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}details{font-size:12px;margin-top:15px}a{color:#315f79}small{font-size:11px;line-height:1.4;display:block}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interoceptomics Atlas Viewer</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#27323a;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) 330px;height:100vh;position:relative;grid-template-areas:"model controls"}main{grid-area:model;min-width:0}iframe{height:100%;width:100%;border:0}aside{grid-area:controls;border-left:1px solid #dfe4e5;padding:22px;overflow:auto}h1{font-size:25px;line-height:1.1;margin:0 0 12px}h2{font-size:16px}p,li{font-size:13px;line-height:1.45}label{display:block;font-size:13px;font-weight:bold;margin:15px 0 5px}select,input,button{font:13px Arial,Helvetica,sans-serif;border:1px solid #bdc7cb;background:#fff;color:inherit;border-radius:3px;padding:9px;width:100%}button{cursor:pointer;margin-top:8px}button:disabled{opacity:.45;cursor:default}button:focus,select:focus,input:focus{outline:2px solid #3a6981;outline-offset:2px}.row{display:flex;gap:7px}.key{display:flex;gap:8px;align-items:center;font-size:12px;margin:6px 0}.swatch{width:15px;height:15px;border-radius:2px}.overview{grid-area:model;position:absolute;bottom:12px;left:12px;width:160px;margin:0;background:rgba(255,255,255,.95);border:1px solid #dfe4e5;padding:6px}.overview img{width:100%;display:block}.overview figcaption{display:inline;font-size:10px}#selection{border-top:1px solid #dfe4e5;margin-top:17px;padding-top:9px}#evidence{white-space:pre-line}#links a{display:inline-block;margin-bottom:6px}#tags{font-size:12px;color:#4c6574}#model-controls{min-width:0;padding:0;margin:0;border:0}#model-controls :disabled{opacity:.55;cursor:default}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}details{font-size:12px;margin-top:15px}a{color:#315f79}small{font-size:11px;line-height:1.4;display:block}
 main { position: relative; }
 .comparison-legend:not([hidden]) {
   position: absolute;
@@ -183,13 +183,13 @@ body.is-isolated {
 .ruler-segment-range { display: block; margin-top: 3px; font-variant-numeric: tabular-nums; }
 .distance-a { color: #075d60; }
 .distance-b { color: #642984; }
-</style><link rel="stylesheet" href="./annotation-planes.css"><link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23376c8c%22%2F%3E%3Cpath%20d%3D%22M15%208c-4-3-9%201-7%205-3%203-1%208%203%208%200%204%204%205%204%202V8Zm2%200c4-3%209%201%207%205%203%203%201%208-3%208%200%204-4%205-4%202V8Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"></head><body><main><iframe id="model" title="Left-hemisphere brain atlas" data-src="render.html?interactive=1"></iframe><div id="comparison-legend" class="comparison-legend" aria-hidden="true" hidden></div></main><figure class="overview"><img src="assets/overview.png" alt="Fixed medial overview of the same left hemisphere"><figcaption>Inner face of the left half • A anterior, S superior, R right. ⊙ towards you; ⊗ away.</figcaption></figure><aside id="atlas-sidebar">
-<button id="annotation-toggle" type="button" data-open-annotation aria-controls="annotation-panel" aria-expanded="false" aria-describedby="annotation-toggle-help">Explore full atlas labels</button>
-<small id="annotation-toggle-help">Search for a structure by name or atlas number and see it in three cuts.</small>
+</style><link rel="stylesheet" href="./annotation-planes.css"><link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23376c8c%22%2F%3E%3Cpath%20d%3D%22M15%208c-4-3-9%201-7%205-3%203-1%208%203%208%200%204%204%205%204%202V8Zm2%200c4-3%209%201%207%205%203%203%201%208-3%208%200%204-4%205-4%202V8Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"></head><body><main><iframe id="model" title="3D model of the left half of the brain" data-src="render.html?interactive=1"></iframe><div id="comparison-legend" class="comparison-legend" aria-hidden="true" hidden></div></main><figure class="overview"><img src="assets/overview.png" alt="Small fixed picture of the inner face of the left half"><figcaption>Inner face of the left half • A front, S up, R right. ⊙ towards you; ⊗ away.</figcaption></figure><aside id="atlas-sidebar">
+<button id="annotation-toggle" type="button" data-open-annotation aria-controls="annotation-panel" aria-expanded="false" aria-describedby="annotation-toggle-help">Open three flat cuts</button>
+<small id="annotation-toggle-help">Cut through the atlas grid itself, where every region can be read, and find any region by name or atlas number.</small>
 <details id="saved-view-controls">
   <summary>Open saved view</summary>
   <form id="open-saved-view">
-    <label for="saved-view-fragment">Saved view fragment</label>
+    <label for="saved-view-fragment">Saved view text</label>
     <input id="saved-view-fragment" type="text" spellcheck="false" autocomplete="off" autocapitalize="none"
       aria-describedby="saved-view-help">
     <small id="saved-view-help">Paste the text from Copy saved view or Copy measurement.</small>
@@ -198,8 +198,8 @@ body.is-isolated {
 </details>
 <p id="saved-view-status" role="status" aria-atomic="true"></p>
 <section id="atlas-distance" aria-labelledby="atlas-distance-title" hidden>
-  <h2 id="atlas-distance-title">Compare two voxel centres</h2>
-  <small id="atlas-distance-help">Mark a voxel on the section or enter its RAS coordinates. Set A, then mark another voxel and set B. These points stay here as you change sections.</small>
+  <h2 id="atlas-distance-title">Measure between two voxels</h2>
+  <small id="atlas-distance-help">Pick a voxel in the cut, or type its position, and choose Set A. Pick another and choose Set B. Both points stay while you change cuts.</small>
   <div class="row">
     <button type="button" data-compare-point="a" aria-describedby="atlas-distance-help" disabled>Set A</button>
     <button type="button" data-compare-point="b" aria-describedby="atlas-distance-help" disabled>Set B</button>
@@ -215,9 +215,9 @@ body.is-isolated {
     </div>
     <p data-distance-visibility></p>
   </div>
-  <small>Filled markers carry a source label. Rings mark unlabelled voxels or tiles whose label is missing from this crop. The line measures distance through atlas space. Fibre routes and clinical guidance require separate evidence.</small>
+  <small>A filled marker sits in a region. A ring marks a voxel that is in no region, or whose region this cut-out does not hold. The line is a straight distance through the atlas: it is not the path of a nerve fibre and not a guide for anything clinical.</small>
   <details id="ruler-walk" hidden>
-    <summary>Follow the ruler through sections</summary>
+    <summary>Follow the ruler through the cuts</summary>
     <label for="ruler-position">Voxel along the line, A to B</label>
     <input id="ruler-position" type="range" min="1" max="1" value="1" step="1">
     <div class="row">
@@ -229,18 +229,18 @@ body.is-isolated {
     <small>The amber cross marks a voxel centre. The line can pass to one side of that centre.</small>
     <p id="ruler-marker-status"></p>
     <section id="ruler-segments" aria-labelledby="ruler-segment-title">
-      <h3 id="ruler-segment-title">How much of the line crosses each label?</h3>
-      <small>Lengths follow the straight line through the full Allen annotation. A segment ends where the label changes at a voxel face. Choose a segment to try opening its first voxel.</small>
+      <h3 id="ruler-segment-title">How much of the line lies in each region</h3>
+      <small>Lengths are measured along the straight line through the whole atlas grid. A stretch ends where the line passes into another region. Choose a stretch to open its first voxel.</small>
       <p id="ruler-segment-status" role="status" aria-atomic="true"></p>
-      <button id="ruler-segment-retry" type="button" hidden>Retry atlas labels</button>
+      <button id="ruler-segment-retry" type="button" hidden>Load the atlas grid again</button>
       <p id="ruler-native-label" aria-live="polite"></p>
       <div id="ruler-segment-timeline" aria-hidden="true" hidden></div>
-      <ol role="list" id="ruler-segment-list" aria-label="Atlas segments in order from A to B"></ol>
+      <ol role="list" id="ruler-segment-list" aria-label="Stretches of the line, in order from A to B"></ol>
     </section>
   </details>
   <div id="distance-save" class="saved-view">
     <button type="button" disabled>Copy measurement</button>
-    <div data-manual-copy hidden><label for="measurement-fragment">Measurement fragment</label><input id="measurement-fragment" readonly></div>
+    <div data-manual-copy hidden><label for="measurement-fragment">Measurement text</label><input id="measurement-fragment" readonly></div>
     <p role="status"></p>
   </div>
   <button type="button" data-clear-comparison>Clear A and B</button>
@@ -248,7 +248,7 @@ body.is-isolated {
 <section id="comparison-panel" aria-labelledby="comparison-title" hidden>
   <h1 id="comparison-title">Left thalamus</h1>
   <button id="comparison-return" type="button">Return to prior view</button>
-  <div class="row" id="comparison-choices" role="group" aria-label="Identify a territory"></div>
+  <div class="row" id="comparison-choices" role="group" aria-label="VPL or VPM"></div>
   <p id="comparison-selected" role="status"></p>
   <div class="row" role="group" aria-label="Camera controls">
     <button type="button" data-comparison-view="front">From front</button>
@@ -256,24 +256,24 @@ body.is-isolated {
     <button id="comparison-focus" type="button">Frame both</button>
   </div>
   <p id="comparison-evidence"></p>
-  <button id="boundary-toggle" type="button" aria-pressed="false" aria-controls="boundary-details" aria-describedby="comparison-evidence">Show shared voxel faces</button>
+  <button id="boundary-toggle" type="button" aria-pressed="false" aria-controls="boundary-details" aria-describedby="comparison-evidence">Show the faces they share</button>
   <p id="boundary-status" role="status"></p>
   <p id="boundary-details" hidden></p>
-  <button id="sections-toggle" type="button" aria-expanded="false" aria-controls="source-sections">Show atlas sections</button>
+  <button id="sections-toggle" type="button" aria-expanded="false" aria-controls="source-sections">Show cuts through VPL and VPM</button>
   <p id="sections-status" role="status"></p>
-  <section id="source-sections" aria-label="Native atlas sections" hidden>
+  <section id="source-sections" aria-label="Cuts through VPL and VPM" hidden>
     <div class="row">
-      <div><label for="source-orientation">Section plane</label><select id="source-orientation"></select></div>
-      <div><label for="source-level">Atlas level</label><select id="source-level"></select></div>
+      <div><label for="source-orientation">Direction of the cut</label><select id="source-orientation"></select></div>
+      <div><label for="source-level">Position of the cut</label><select id="source-level"></select></div>
     </div>
     <form id="source-coordinate" class="coordinate-jump" autocomplete="off">
       <fieldset aria-describedby="source-coordinate-help">
-        <legend>Go to atlas coordinates</legend>
-        <small id="source-coordinate-help">Enter signed RAS values in mm on the 0.5 mm atlas grid.</small>
+        <legend>Go to a position</legend>
+        <small id="source-coordinate-help">Millimetres in the atlas’s own coordinates: R to the right (negative numbers are to the left), A to the front, S up. Positions snap to the half-millimetre grid.</small>
         <div class="row">
           <div><label for="source-r">Right (R)</label><input id="source-r" name="R" type="text" spellcheck="false" enterkeyhint="go"></div>
-          <div><label for="source-a">Anterior (A)</label><input id="source-a" name="A" type="text" spellcheck="false" enterkeyhint="go"></div>
-          <div><label for="source-s">Superior (S)</label><input id="source-s" name="S" type="text" spellcheck="false" enterkeyhint="go"></div>
+          <div><label for="source-a">Front (A)</label><input id="source-a" name="A" type="text" spellcheck="false" enterkeyhint="go"></div>
+          <div><label for="source-s">Up (S)</label><input id="source-s" name="S" type="text" spellcheck="false" enterkeyhint="go"></div>
         </div>
         <button type="submit">Go to voxel</button>
         <p role="status"></p>
@@ -286,114 +286,114 @@ body.is-isolated {
         <span id="source-section-marker" aria-hidden="true" hidden></span>
       </div>
       <figcaption>
-        <small id="source-section-inspect">Pick a tile or use the arrow keys to read its label and coordinates. Change the section plane to see the same voxel from another direction.</small>
+        <small id="source-section-inspect">Pick a tile, or use the arrow keys, to read its region and position. Change the direction of the cut to see the same voxel from another side.</small>
         <p id="source-section-voxel" role="status"></p>
         <div id="source-save-view" class="saved-view">
           <button type="button" disabled aria-describedby="source-section-inspect">Copy saved view</button>
-          <div data-manual-copy hidden><label for="source-view-fragment">Saved view fragment</label><input id="source-view-fragment" readonly></div>
+          <div data-manual-copy hidden><label for="source-view-fragment">Saved view text</label><input id="source-view-fragment" readonly></div>
           <p role="status"></p>
         </div>
-        <button type="button" data-open-annotation aria-controls="annotation-panel" disabled>Open full atlas at this voxel</button>
+        <button type="button" data-open-annotation aria-controls="annotation-panel" disabled>Open the flat cuts at this voxel</button>
         <div id="source-distance-slot"></div>
         <small id="source-section-directions"></small>
-        <div class="row" aria-label="Section key">
+        <div class="row" aria-label="Colour key">
           <span class="comparison-region" style="--region-color:#245c99">VPL</span>
           <span class="comparison-region dotted" style="--region-color:#b3561c">VPM</span>
           <span class="comparison-region trace" style="--region-color:#27323a">Shared edge</span>
         </div>
-        <small>The violet frame marks this plane in 3D. Each tile is one 0.5 mm atlas voxel. Grey lies outside these two labels. <a href="source.html#atlas-sections">Source and axes</a></small>
+        <small>The violet frame shows in 3D where this cut lies. Each tile is one voxel, a half-millimetre cube of the atlas grid. Grey is outside these two regions. <a href="source.html#atlas-sections">How to read the cuts</a></small>
       </figcaption>
     </figure>
   </section>
-  <small>Drag to turn both surfaces together. The colours identify labels in one reference atlas.</small>
+  <small>Drag to turn both surfaces together. Here the two colours only tell the two regions apart.</small>
 </section>
-<div id="atlas-controls"><h1>Interoceptomics Atlas Viewer</h1><p>The left half of the Allen Institute’s human reference atlas. Colours mark the regions this project links to movement and touch, to the automatic running of the organs, or to both. They are a reading of published sources, not a recording. A region can belong to more than one group, and a grey region is not idle.</p><p id="controls-status" role="status">3D controls unlock when the model is ready.</p><fieldset id="model-controls" disabled><legend class="visually-hidden">3D model controls</legend><label for="view">View of the same left hemisphere</label><select id="view"><option>Medial</option><option>Lateral</option><option value="InsulaDissection">Insula exposed</option><option value="Deep">Deep structures</option></select><p id="construction"></p><label for="role">Association overlay</label><select id="role"><option value="all">All selected associations</option><option value="S">Somatic examples</option><option value="A">Autonomic examples</option><option value="I">Integration examples</option><option value="anatomy">Neutral anatomy</option></select><div class="key"><span class="swatch" style="background:#376c8c"></span>Somatic</div><div class="key"><span class="swatch" style="background:#ae7053"></span>Autonomic</div><div class="key"><span class="swatch" style="background:#79658c"></span>Integration / shared context</div><label for="search">Find a source territory</label><input id="search" placeholder="Name, group or source ID"><select id="label" aria-label="Select source territory" aria-describedby="scope"></select><p id="scope">Drag to rotate, scroll to zoom. The overview and anatomical axes stay available when a structure is isolated.</p><div class="row"><button id="isolate" disabled>Isolate in place</button><button id="focus" disabled>Focus</button></div><button id="reset" aria-description="Keep the selection. End isolation and return to this view’s starting angle and zoom.">Reset view</button><p id="view-action" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+<div id="atlas-controls"><h1>Interoceptomics Atlas Viewer</h1><p>A 3D model of the left half of the brain, built from the Allen Institute’s human reference atlas: a published map that divides the brain into named regions. Colours mark the regions this project links to movement and touch, to the automatic running of the organs, or to both. They are a reading of published sources, not a recording. A region can belong to more than one group, and a grey region is not idle.</p><p>New here? <a href="README.html">The guide</a> says what each control does.</p><p id="controls-status" role="status">3D controls unlock when the model is ready.</p><fieldset id="model-controls" disabled><legend class="visually-hidden">3D model controls</legend><label for="view">Starting view</label><select id="view"><option value="Medial">Inner face (medial)</option><option value="Lateral">Outer face (lateral)</option><option value="InsulaDissection">Insula exposed</option><option value="Deep">Deep regions</option></select><p id="construction"></p><label for="role">Colour groups</label><select id="role"><option value="all">All three groups</option><option value="S">Somatic: movement and touch</option><option value="A">Autonomic: running the organs</option><option value="I">Integration: where the two meet</option><option value="anatomy">No colours</option></select><div class="key"><span class="swatch" style="background:#376c8c"></span>Somatic</div><div class="key"><span class="swatch" style="background:#ae7053"></span>Autonomic</div><div class="key"><span class="swatch" style="background:#79658c"></span>Integration</div><label for="search">Find a region</label><input id="search" placeholder="Name, abbreviation or atlas number"><select id="label" aria-label="Choose a region" aria-describedby="scope"></select><p id="scope">Drag to turn the brain, scroll to zoom. The small picture and the axis letters stay on screen when a region is shown alone.</p><div class="row"><button id="isolate" disabled>Show it alone</button><button id="focus" disabled>Zoom to it</button></div><button id="reset" aria-description="Keeps the selected region. Shows the whole brain again at this view’s starting angle and zoom.">Reset view</button><button id="layers" type="button" aria-describedby="layers-help">Show white matter and fluid spaces</button><small id="layers-help">Off at first: a 36 MB download. White matter is the bundles of nerve fibres that join the regions; the fluid spaces are the ventricles, cavities filled with the fluid that bathes the brain. Most of the white matter and all the fluid spaces are drawn see-through, so the regions behind them stay in sight.</small><p id="layers-status" role="status"></p><p id="view-action" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
 <section id="comparison-entry" hidden>
   <button id="comparison-toggle" type="button" aria-expanded="false" aria-controls="comparison-panel">Compare VPL and VPM</button>
-  <p id="comparison-hint" hidden>Both surfaces need to load before you can compare them. You can still isolate either surface that loaded.</p>
+  <p id="comparison-hint" hidden>Both surfaces need to load before you can compare them. You can still show either loaded surface alone.</p>
 
-</section><section id="pao-entry" aria-label="Parietal operculum atlas sections" hidden>
-  <button id="pao-toggle" type="button" aria-expanded="false" aria-controls="pao-sections">Show parietal operculum sections</button>
+</section><section id="pao-entry" aria-label="Cuts through the parietal operculum" hidden>
+  <button id="pao-toggle" type="button" aria-expanded="false" aria-controls="pao-sections">Show cuts through the parietal operculum</button>
   <p id="pao-loading" role="status"></p>
   <div id="pao-sections" hidden>
     <div class="row">
-      <div><label for="pao-orientation">Section plane</label><select id="pao-orientation" aria-label="PaO section plane"></select></div>
-      <div><label for="pao-level">Atlas level</label><select id="pao-level" aria-label="PaO atlas level"></select></div>
+      <div><label for="pao-orientation">Direction of the cut</label><select id="pao-orientation" aria-label="Direction of the cut through the parietal operculum"></select></div>
+      <div><label for="pao-level">Position of the cut</label><select id="pao-level" aria-label="Position of the cut through the parietal operculum"></select></div>
     </div>
     <form id="pao-coordinate" class="coordinate-jump" autocomplete="off">
       <fieldset aria-describedby="pao-coordinate-help">
-        <legend>Go to atlas coordinates</legend>
-        <small id="pao-coordinate-help">Enter signed RAS values in mm on the 0.5 mm atlas grid.</small>
+        <legend>Go to a position</legend>
+        <small id="pao-coordinate-help">Millimetres in the atlas’s own coordinates: R to the right (negative numbers are to the left), A to the front, S up. Positions snap to the half-millimetre grid.</small>
         <div class="row">
           <div><label for="pao-r">Right (R)</label><input id="pao-r" name="R" type="text" spellcheck="false" enterkeyhint="go"></div>
-          <div><label for="pao-a">Anterior (A)</label><input id="pao-a" name="A" type="text" spellcheck="false" enterkeyhint="go"></div>
-          <div><label for="pao-s">Superior (S)</label><input id="pao-s" name="S" type="text" spellcheck="false" enterkeyhint="go"></div>
+          <div><label for="pao-a">Front (A)</label><input id="pao-a" name="A" type="text" spellcheck="false" enterkeyhint="go"></div>
+          <div><label for="pao-s">Up (S)</label><input id="pao-s" name="S" type="text" spellcheck="false" enterkeyhint="go"></div>
         </div>
         <button type="submit">Go to voxel</button>
         <p role="status"></p>
       </fieldset>
     </form>
-    <label for="pao-extent">View of the plane</label>
-    <select id="pao-extent" disabled><option value="near">PaO and neighbours</option><option value="full">Full atlas plane</option></select>
+    <label for="pao-extent">How much of the cut</label>
+    <select id="pao-extent" disabled><option value="near">PaO and neighbours</option><option value="full">The whole cut</option></select>
     <p id="pao-status" role="status"></p>
     <p id="pao-reading" role="status"></p>
     <figure>
-      <div class="atlas-distance-plot"><canvas id="pao-section-image" role="img" aria-label="Native Allen atlas labels" aria-describedby="pao-reading pao-bounds pao-inspect pao-voxel" tabindex="-1" hidden></canvas></div>
+      <div class="atlas-distance-plot"><canvas id="pao-section-image" role="img" aria-label="Regions of the atlas in this cut" aria-describedby="pao-reading pao-bounds pao-inspect pao-voxel" tabindex="-1" hidden></canvas></div>
       <figcaption>
         <small id="pao-bounds"></small>
-        <ul id="pao-key" aria-label="Section key"></ul>
-        <small id="pao-inspect">Select a point or use the arrow keys. Change the plane to see the same voxel from another direction.</small>
+        <ul id="pao-key" aria-label="Colour key"></ul>
+        <small id="pao-inspect">Pick a tile, or use the arrow keys. Change the direction of the cut to see the same voxel from another side.</small>
         <p id="pao-voxel" role="status"></p>
         <div id="pao-save-view" class="saved-view">
           <button type="button" disabled aria-describedby="pao-inspect">Copy saved view</button>
-          <div data-manual-copy hidden><label for="pao-view-fragment">Saved view fragment</label><input id="pao-view-fragment" readonly></div>
+          <div data-manual-copy hidden><label for="pao-view-fragment">Saved view text</label><input id="pao-view-fragment" readonly></div>
           <p role="status"></p>
         </div>
-        <button type="button" data-open-annotation aria-controls="annotation-panel" disabled>Open full atlas at this voxel</button>
+        <button type="button" data-open-annotation aria-controls="annotation-panel" disabled>Open the flat cuts at this voxel</button>
         <div id="pao-distance-slot"></div>
       </figcaption>
     </figure>
-    <label for="pao-highlight">Highlight a label</label><select id="pao-highlight" disabled></select>
-    <button id="pao-frame" type="button" disabled>Frame section in 3D</button>
-    <small>The violet frame marks the window in 3D. Tissue can hide parts of the frame. Each tile is one 0.5 mm atlas voxel. Grey marks other labels and near-white marks unlabelled voxels. <a href="source.html#pao-sections">Source, axes and limits</a></small>
+    <label for="pao-highlight">Highlight a region</label><select id="pao-highlight" disabled></select>
+    <button id="pao-frame" type="button" disabled>Show this cut in 3D</button>
+    <small>The violet frame shows in 3D where this cut lies; tissue can hide parts of it. Each tile is one voxel, a half-millimetre cube of the atlas grid. Grey marks other regions, and near-white marks voxels that are in no region. <a href="source.html#pao-sections">How to read the cuts, and their limits</a></small>
   </div>
 </section>
-<div id="selection"><h2 id="name">Select a territory</h2><p id="tags"></p><details><summary>Evidence and limits</summary><p id="evidence"></p><div id="links"></div></details></div><details><summary>What remains unshown</summary><p>The 3D model holds 121 of the atlas’s 141 regions. <a href="omissions.html">Twenty have no surface</a>. Being in the model does not make a region visible in every view, and says nothing about what it does. The atlas gives no voxels of their own to the small nuclei that regulate the organs or to the separate deep nuclei of the cerebellum, and it does not mark the working fields of the cortex, so none of these is drawn.</p><p>Some regions are only parts of larger surfaces and cannot be lifted out alone. The habenula, the pineal body and the zona incerta are left grey.</p></details><details><summary>Two stray voxels</summary><p>The atlas labels two voxels as hypothalamus far from the rest of it. They are in the model and are not drawn unless you ask. Whether the atlas is right about them is not settled here.</p><button id="qc">Show the two voxels</button></details></fieldset><p><a href="https://eliminatenoise.github.io/Interoceptomics/cortical-reach/">The bump and the reach</a> · A separate macaque arm and sensory-cortex recording</p><p><a href="https://eliminatenoise.github.io/Interoceptomics/muscle-spindle/">Inside a muscle spindle</a> · Rat tissue and sensory recording</p><p><a href="source.html">Source, changes and attribution</a></p><small>Every view shows the same left hemisphere. Hidden layers stay in their original anatomical positions. Version of 20 November 2026.</small></div></aside>
+<div id="selection"><h2 id="name">No region selected</h2><p id="tags"></p><details><summary>Evidence and limits</summary><p id="evidence"></p><div id="links"></div></details></div><details><summary>What the model leaves out</summary><p>The 3D model holds all 141 of the atlas’s regions. <a href="omissions.html">Twenty of them are drawn only when you ask</a>: choose one and Show it alone, or choose Show white matter and fluid spaces to see fifteen of them in place. Being in the model does not make a region visible in every view, and says nothing about what it does. The atlas gives no voxels of their own to the small nuclei that regulate the organs or to the separate deep nuclei of the cerebellum, and it does not mark the working fields of the cortex, so none of these is drawn.</p><p>Some regions are only parts of larger surfaces and cannot be lifted out alone. The habenula, the pineal body and the zona incerta are left grey.</p></details><details><summary>Two stray voxels</summary><p>The atlas labels two voxels as hypothalamus far from the rest of it. They are in the model and are not drawn unless you ask. Whether the atlas is right about them is not settled here.</p><button id="qc">Show the two voxels</button></details></fieldset><p><a href="README.html">Guide</a> · <a href="source.html">Where the anatomy comes from</a> · <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a></p><small>Every view shows the same left half of the brain, and what a view hides stays where it is in the head. Version of 21 November 2026.</small></div></aside>
 <aside id="annotation-panel" aria-labelledby="annotation-title" hidden>
-  <button id="annotation-close" class="annotation-back" type="button">Back to atlas controls</button>
-  <h2 id="annotation-title">Full atlas labels</h2>
-  <p>Three cuts through the same 0.5 mm voxel. Pick a tile or use the arrow keys. Hold Shift to move ten voxels.</p>
-  <p>These colours show the original Allen annotation IDs. Colours can repeat. The supplied section images and the MRI reference are separate from these views.</p>
+  <button id="annotation-close" class="annotation-back" type="button">Back to the 3D model</button>
+  <h2 id="annotation-title">Three flat cuts through the atlas</h2>
+  <p>The atlas is a grid of half-millimetre cubes, called voxels, and each voxel carries the number of one region. These three cuts cross at one voxel. Pick a tile, or use the arrow keys; hold Shift to move ten voxels at a time.</p>
+  <p>Each colour stands for one atlas number, and colours can repeat. The atlas’s own section images and the MRI template it was drawn on are not shown here.</p>
   <p id="annotation-status" role="status"></p>
-  <button id="annotation-retry" type="button" hidden>Retry atlas labels</button>
+  <button id="annotation-retry" type="button" hidden>Load the atlas grid again</button>
   <div id="annotation-tools" hidden>
     <div id="annotation-reading">
       <p id="annotation-voxel" role="status" aria-atomic="true"></p>
       <p id="annotation-model"></p>
     </div>
     <details id="region-finder">
-      <summary>Find a structure</summary>
+      <summary>Find a region</summary>
       <form>
-        <label for="region-query">Name, abbreviation or native ID</label>
+        <label for="region-query">Name, abbreviation or atlas number</label>
         <input id="region-query" name="query" type="search" placeholder="e.g. putamen or 10338" disabled>
         <div class="region-pickers">
-          <div><label for="region-match">Matching structure</label><select id="region-match" name="match" disabled></select></div>
+          <div><label for="region-match">Matching region</label><select id="region-match" name="match" disabled></select></div>
           <div><label for="region-side">Side</label><select id="region-side" name="side" disabled></select></div>
         </div>
         <p id="region-choice"></p>
         <button type="submit" disabled>Show voxel in all three cuts</button>
       </form>
       <p id="region-search-status" role="status" aria-atomic="true"></p>
-      <button type="button" data-retry hidden>Retry structure finder</button>
-      <p>Each side offered here contains voxels with that exact ID. The crosshair lands on the labelled voxel nearest their average position. Child structures have their own IDs.</p>
+      <button type="button" data-retry hidden>Load the finder again</button>
+      <p>Each side offered has voxels with that atlas number. The crosshair lands on the one nearest their average position. A region’s named parts have atlas numbers of their own.</p>
     </details>
-    <label class="region-highlight"><input type="checkbox" id="region-highlight"> Highlight the selected label</label>
+    <label class="region-highlight"><input type="checkbox" id="region-highlight"> Highlight the selected region</label>
     <p id="region-key" hidden></p>
     <details id="region-volume">
-      <summary>Volume of the selected label</summary>
+      <summary>Volume of the selected region</summary>
       <p id="region-name" role="status"></p>
       <table id="region-counts" hidden>
-        <thead><tr><th scope="col">Voxel centres</th><th scope="col">Voxels</th><th scope="col">Volume (mm³)</th></tr></thead>
+        <thead><tr><th scope="col">Side</th><th scope="col">Voxels</th><th scope="col">Volume (mm³)</th></tr></thead>
         <tbody>
           <tr><th scope="row">Left</th><td></td><td></td></tr>
           <tr><th scope="row">Midline</th><td></td><td></td></tr>
@@ -401,11 +401,11 @@ body.is-isolated {
           <tr><th scope="row">Whole grid</th><td></td><td></td></tr>
         </tbody>
       </table>
-      <p>Each 0.5 mm cube contributes 0.125 mm³. Its centre falls left of, on, or right of R = 0. The count spans the entire annotated grid and includes only the exact selected ID. Child labels have their own IDs.</p>
-      <p>This atlas labels mainly the left side. A zero on the right means this grid assigns no voxels there to that ID. Boundaries follow the grid and give an approximate anatomical volume.</p>
+      <p>Each voxel adds 0.125 mm³, and counts as left, midline or right by where its centre lies. The count covers the whole atlas grid and only this region’s own atlas number: its named parts have numbers of their own and are not included.</p>
+      <p>The atlas labels mainly the left side: a zero on the right means it puts none of this region’s voxels there. Borders follow the grid, so the volume is approximate.</p>
     </details>
     <div id="annotation-grid"></div>
-    <p><small>L/R left/right · P/A posterior/anterior · I/S inferior/superior. RAS numbers give voxel centres in millimetres.</small></p>
+    <p><small>Coronal cuts run parallel to the face, sagittal cuts parallel to the side of the head, axial cuts horizontal. Letters at the edges of each cut: L left, R right, P back, A front, I down, S up. The R, A and S numbers give a voxel’s centre in millimetres.</small></p>
     <form id="annotation-coordinate">
       <div class="row">
         <div><label for="annotation-r">R (mm)</label><input id="annotation-r" name="R" inputmode="decimal" type="text" required></div>
@@ -418,13 +418,13 @@ body.is-isolated {
     <div id="annotation-save-view" class="saved-view">
       <button type="button">Copy saved view</button>
       <div data-manual-copy hidden>
-        <label for="annotation-share">Saved atlas label fragment</label>
+        <label for="annotation-share">Saved view text</label>
         <input id="annotation-share" type="text" readonly spellcheck="false">
       </div>
       <p role="status"></p>
     </div>
   </div>
-  <p><a href="source.html#annotation-planes">Annotation source and orientation</a></p>
+  <p><a href="source.html#annotation-planes">How to read the cuts</a></p>
   <template>
     <section>
       <h3></h3>
@@ -440,4 +440,21 @@ body.is-isolated {
       <label></label><input type="range" min="0" step="1">
     </section>
   </template>
-</aside><script type="module" src="./ui.js"></script></body></html>
+</aside><script>
+// Opened straight from a folder (file://), the browser will not load the viewer's modules, and the panel would wait
+// for ever. Say why, and what to do instead.
+if (location.protocol === 'file:') {
+  var note = document.createElement('div');
+  note.id = 'folder-note';
+  note.setAttribute('role', 'alert');
+  note.style.cssText = 'position:absolute;inset:0;z-index:2;padding:32px;background:#fff;font-size:16px;line-height:1.5;overflow:auto';
+  note.innerHTML = '<style>#folder-note code{font:inherit;background:#eef1f2;padding:0 3px}</style>'
+    + '<h2 style="font-size:22px">This page cannot start the viewer</h2>'
+    + '<p>It was opened straight from a folder on your computer, and browsers will not run the 3D model that way.</p>'
+    + '<p>If you downloaded the ZIP, close this page and start the viewer with a start file from the top of the extracted folder: open <code>Windows.cmd</code> on Windows or <code>macOS.command</code> on macOS, or run <code>sh Linux.sh</code> in a terminal on Linux. <a href="README.html#open">The guide</a> says how.</p>'
+    + '<p>Or open the viewer on the website, with nothing to install: <a href="https://eliminatenoise.github.io/Interoceptomics/atlas/">eliminatenoise.github.io/Interoceptomics/atlas</a></p>';
+  document.querySelector('main').appendChild(note);
+  document.querySelector('.overview').hidden = true;
+  document.getElementById('controls-status').textContent = 'The controls stay locked: this page was opened from a folder. The message on this page says what to do.';
+}
+</script><script type="module" src="./ui.js"></script></body></html>

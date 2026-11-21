@@ -7,7 +7,7 @@ try {
     const message = document.createElement('p');
     message.id = 'error';
     message.setAttribute('role', 'alert');
-    message.textContent = 'The viewer files couldn’t load. Extract the whole ZIP and open it with its start file.';
+    message.textContent = 'The viewer files couldn’t load. Reload the page. If you are using the download, extract the whole ZIP again and open it with its start file.';
     document.body.append(message);
     document.body.dataset.error = error?.stack || String(error);
     parent.postMessage({type: 'brain-error'}, location.origin);

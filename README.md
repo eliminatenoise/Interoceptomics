@@ -10,7 +10,7 @@ The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 1. **[Backslash of the Brain](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/)** follows signals from muscles and organs through 3D models and slices of the human brain, spinal cord and organs (an anatomy atlas). [More below](#backslash-of-the-brain).
 2. **[The experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/)** walks through the proposed experiments one step at a time, each beside a 3D sketch you can turn, with recorded examples from open datasets: a wrist movement, a walk, a rat on a W-shaped track. [More below](#follow-the-experiments).
-3. **[The Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/)** is a 3D model of the left half of a human brain, built from a published map of the brain's regions: the Allen Institute's human reference atlas. [More below](#the-atlas-viewer-a-brain-map-you-can-turn-cut-and-measure).
+3. **[The Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/atlas/)** is a 3D model of the left half of a human brain, built from a published map of the brain's regions: the Allen Institute's human reference atlas. [More below](#the-atlas-viewer-a-brain-map-you-can-turn-cut-and-measure).
 4. **[The two scripts](#the-talk-is-paused-its-scripts-are-published)** of the talk that proposes the field, as PDF and Word (DOCX) files.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
@@ -76,7 +76,7 @@ Three short human recordings let you follow a heartbeat alongside chest vibratio
 
 A brain atlas is a published map that divides the brain into named regions. The viewer turns the Allen Institute's human reference atlas into a 3D model of the left half of the brain: all 141 regions the atlas draws there are in the model, twenty of them shown only when you ask, and all 141 can also be read in flat cuts through its grid of half-millimetre cubes. It colours the regions this project links to moving and feeling the body, to running its organs, or to both. It is still a map, not a measurement.
 
-**[Open the Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/)** · [Download it for offline use](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (ZIP, 64.3 MB) · [What it is not](#an-illustration-not-a-measurement) · [Licences and credits](RIGHTS.md)
+**[Open the Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/atlas/)** · [Download it for offline use](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip) (ZIP, 64.3 MB) · [What it is not](#an-illustration-not-a-measurement) · [Licences and credits](RIGHTS.md)
 
 It opens in any current browser that can show 3D graphics (WebGL). The model is a 66 MB file, so the first view takes a moment. The viewer's own guide, linked from its panel, explains every control.
 
@@ -118,7 +118,7 @@ The viewer marks that overlap on the atlas: one colour for regions linked to mov
 
 A good first five minutes: choose **Insula exposed**, and the outer surface of the brain steps aside to show the insula. Search for `PaO` and choose **Show it alone**: the fold over the insula, on its own. Then search for `VPL`, choose **Compare VPL and VPM**, and **Show the faces they share**: two clusters of sensory nerve cells (nuclei) in the thalamus, deep in the middle of the brain, and in gold the 481 grid faces (120.25 mm²) where the atlas has them touch.
 
-The viewer's guide has every control: [on the website](https://eliminatenoise.github.io/Interoceptomics/viewer/README.html), or `README.html` in the download.
+The viewer's guide has every control: [on the website](https://eliminatenoise.github.io/Interoceptomics/atlas/README.html), or `README.html` in the download.
 
 ## An illustration, not a measurement
 
@@ -155,7 +155,7 @@ Interoceptomics is one of three projects in one programme, Brain2Body, that ask 
 
 - **[NeuroTranslation](https://github.com/eliminatenoise/NeuroTranslation)** predicts one recording of the body from another, most of them of a movement: brain, nerve, muscle, force or motion, recorded by scientists who share their data openly. Every prediction is checked against what was actually recorded, and so far a signal's own recent past, above all a hand's own recent movement, has been the forecast to beat. [Open its pages in your browser](https://eliminatenoise.github.io/NeuroTranslation/START.html)
 - **[NeuroSurge](https://github.com/eliminatenoise/NeuroSurge)** is a game for learning which part of the brain moves which part of the body. You look out from inside a body without skin. Turn your view to a coloured area of the brain in front of you, and the body part it controls moves; click a muscle and its area lights up. What the game's brain does is made up by the game's rules, not read from anyone's brain. [Play NeuroSurge in your browser](https://eliminatenoise.github.io/NeuroSurge/)
-- **Interoceptomics**, this project, is a proposed field of science that would measure what the body senses of its own interior, a heartbeat or a breath, and then ask which nerve connections carry it. None of its experiments has been run yet. [The experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/) walks through the proposed experiments one step at a time, each beside a 3D sketch you can turn. [The atlas viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/) is a 3D model of the left half of a human brain that you can turn, cut and measure. It is built from the Allen Institute's published map of the brain's regions: a map, not a measurement.
+- **Interoceptomics**, this project, is a proposed field of science that would measure what the body senses of its own interior, a heartbeat or a breath, and then ask which nerve connections carry it. None of its experiments has been run yet. [The experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/) walks through the proposed experiments one step at a time, each beside a 3D sketch you can turn. [The atlas viewer](https://eliminatenoise.github.io/Interoceptomics/atlas/) is a 3D model of the left half of a human brain that you can turn, cut and measure. It is built from the Allen Institute's published map of the brain's regions: a map, not a measurement.
 
 They are joined by a plan and a guide.
 
@@ -164,4 +164,4 @@ They are joined by a plan and a guide.
 
 ---
 
-[Project page](https://eliminatenoise.github.io/Interoceptomics/) · [Atlas viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/) · [What changed in the latest viewer](downloads/atlas-viewer/RELEASE-NOTES.md) · [Checksum of the download](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256) · [Desktop shortcuts](LAUNCHERS.md) · [Repository facts in machine-readable form](PROJECT-CONTEXT.json)
+[Project page](https://eliminatenoise.github.io/Interoceptomics/) · [Atlas viewer](https://eliminatenoise.github.io/Interoceptomics/atlas/) · [What changed in the latest viewer](downloads/atlas-viewer/RELEASE-NOTES.md) · [Checksum of the download](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256) · [Desktop shortcuts](LAUNCHERS.md) · [Repository facts in machine-readable form](PROJECT-CONTEXT.json)

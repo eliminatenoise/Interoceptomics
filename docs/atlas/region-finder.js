@@ -65,8 +65,8 @@ export function bindRegionFinder(group, source, current, jump) {
     if (retained && (!found[0].exact.includes(term) || retained.exact.includes(term))) matches.value = previousId;
     matches.disabled = !found.length;
     selectSides(previousSide);
-    status.textContent = found.length ? found.length + (found.length === 1 ? ' matching label.' : ' matching labels.') :
-      (term === '0' ? 'ID 0 marks unlabelled voxels.' : 'No directly labelled structure matches this search.');
+    status.textContent = found.length ? found.length + (found.length === 1 ? ' matching region.' : ' matching regions.') :
+      (term === '0' ? 'Number 0 marks voxels that are in no region.' : 'No region with voxels of its own matches this search.');
   }
 
   async function prepare() {
@@ -92,7 +92,7 @@ export function bindRegionFinder(group, source, current, jump) {
         selectSides(r < 0 ? 'left' : r > 0 ? 'right' : 'midline');
       }
     } catch {
-      status.textContent = 'The structure locations couldn’t load. You can still explore the cuts.';
+      status.textContent = 'The finder couldn’t load. You can still explore the cuts.';
       retry.hidden = false;
     } finally {
       loading = false;
@@ -108,7 +108,7 @@ export function bindRegionFinder(group, source, current, jump) {
     if (submit.disabled) return;
     const point = locations[matches.value]?.[side.value];
     if (!point || source.label(point) !== Number(matches.value)) {
-      status.textContent = 'This location has no matching native ID.';
+      status.textContent = 'No voxel here carries that atlas number.';
       return;
     }
     jump([...point]);

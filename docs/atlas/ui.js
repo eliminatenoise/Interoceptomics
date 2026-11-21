@@ -10,7 +10,10 @@ const search = document.querySelector('#search');
 const scope = document.querySelector('#scope');
 const viewAction = document.querySelector('#view-action');
 const construction = document.querySelector('#construction');
-const surfaceLoading = 'Loading the separate atlas surface…';
+const surfaceLoading = () => {
+  const bytes = registry.nodes.find(node => node.native_id === Number(current) && node.bytes)?.bytes ?? 0;
+  return bytes >= 1e6 ? 'Loading this region’s own surface, a ' + (bytes / 1e6).toFixed(1) + ' MB download…' : 'Loading this region’s own surface…';
+};
 const evidence = document.querySelector('#evidence');
 const view = document.querySelector('#view');
 const isolate = document.querySelector('#isolate');
@@ -18,6 +21,8 @@ const focus = document.querySelector('#focus');
 const role = document.querySelector('#role');
 const reset = document.querySelector('#reset');
 const diagnostic = document.querySelector('#qc');
+const layersButton = document.querySelector('#layers');
+const layersStatus = document.querySelector('#layers-status');
 const comparisonEntry = document.querySelector('#comparison-entry');
 const comparisonToggle = document.querySelector('#comparison-toggle');
 const comparisonHint = document.querySelector('#comparison-hint');
@@ -39,7 +44,7 @@ const paoLoading = document.querySelector('#pao-loading');
 const boundaryKey = document.createElement('span');
 boundaryKey.id = 'boundary-key';
 boundaryKey.className = 'comparison-region';
-boundaryKey.textContent = 'Shared voxel faces';
+boundaryKey.textContent = 'Shared faces';
 boundaryKey.hidden = true;
 const atlasControls = document.querySelector('#atlas-controls');
 const sidebar = document.querySelector('aside');
@@ -54,11 +59,11 @@ const distances = bindLocationComparison(document.querySelector('#atlas-distance
   reader => reader === 'pao' ? 'pao' : sourceTerritory(), (points, cursor) => send({distancePoints: points, distanceCursor: cursor}));
 
 const familyNames = {
-  insula: 'Insula (all five source labels)',
-  amygdaloid: 'Amygdaloid group (all ten occupied labels)',
-  basal_ganglia_and_STH: 'Basal ganglia / STH + accumbens context',
-  hippocampus: 'Hippocampal head, body and tail',
-  basal_forebrain_septal_BNST: 'Basal forebrain + septal / BNST context',
+  insula: 'Insula, all five regions',
+  amygdaloid: 'Amygdala, all ten regions',
+  basal_ganglia_and_STH: 'Basal ganglia with the subthalamic nucleus and the nucleus accumbens',
+  hippocampus: 'Hippocampus: head, body and tail',
+  basal_forebrain_septal_BNST: 'Basal forebrain, septal nuclei and bed nucleus of the stria terminalis',
 };
 let registry;
 let available;
@@ -115,7 +120,7 @@ const comparisonItems = new Map();
 function invalidateViewAction(keepLoading = false) {
   viewActionRevision++;
   const stillLoading = keepLoading && available?.deferred.get(Number(current)) === 'pending';
-  const text = stillLoading ? surfaceLoading : '';
+  const text = stillLoading ? surfaceLoading() : '';
   if (viewAction.textContent !== text) viewAction.textContent = text;
 }
 
@@ -140,18 +145,18 @@ function announceViewAction(action, state) {
   const label = viewName(state.view);
   const messages = {
     isolate: state.isolate
-      ? `Isolated the selection at the starting angle for ${label}.`
-      : 'The selected atlas surface is unavailable.',
-    restore: `Restored the ${label} preset at its starting angle and zoom.`,
-    focus: `Centred the selection at the starting angle for ${label}.`,
-    reset: `Reset the ${label} preset to its starting angle and zoom.`,
+      ? `Showing the region alone, from the starting angle of ${label}.`
+      : 'This region’s surface is not available.',
+    restore: `Showing the whole brain again: ${label}, at its starting angle and zoom.`,
+    focus: `Zoomed to the region from the starting angle of ${label}.`,
+    reset: `Back to the starting angle and zoom of ${label}.`,
   };
   if (messages[action]) viewAction.textContent = messages[action];
 }
 
 function name(row) {
   if (row.display_name) return row.display_name;
-  return row.name + ([10361, 10338, 10349].includes(row.id) ? ' · labelled residual territory' : '');
+  return row.name + ([10361, 10338, 10349].includes(row.id) ? ' (parts not named separately)' : '');
 }
 
 function options() {
@@ -173,8 +178,8 @@ function options() {
     const group = hasSeparate ? separate : available.shared.has(row.id) ? shared : sourceOnly;
     collect(String(row.id), name(row), [name(row), row.name, row.acronym, row.id].join(' '), group);
   }
-  select.replaceChildren(new Option('Choose a source territory', ''));
-  for (const [label, choices] of [['Separate meshes', separate], ['Surface samples', shared], ['Atlas labels only', sourceOnly]]) {
+  select.replaceChildren(new Option('Choose a region', ''));
+  for (const [label, choices] of [['Can be shown alone', separate], ['Part of a larger surface', shared], ['Named only, no surface', sourceOnly]]) {
     if (!choices.length) continue;
     const group = document.createElement('optgroup');
     group.label = label;
@@ -187,23 +192,23 @@ function options() {
 function setIsolation(active) {
   isolated = active;
   document.body.classList.toggle('is-isolated', active || comparing);
-  isolate.textContent = isolated ? 'Restore context' : 'Isolate in place';
+  isolate.textContent = isolated ? 'Show the whole brain' : 'Show it alone';
   isolate.disabled = !canIsolate;
   focus.disabled = !canIsolate || (isolationOnlyLabel && !isolated);
   let instruction = selectionInstruction;
   if (isolated) {
     const label = viewName();
-    instruction = `Drag to turn the selection. Focus centres it from the starting angle for ${label}. Restore context returns to that preset at its starting zoom.`;
+    instruction = `Drag to turn the region. Zoom to it centres it again from the starting angle of ${label}. Show the whole brain returns to that view at its starting zoom.`;
   } else if (isolationOnlyLabel) {
     if (!canIsolate) {
       const pending = available.deferred.get(isolationOnlyLabel.id) === 'pending';
       instruction = pending
-        ? surfaceLoading
-        : isolationOnlyLabel.load_on_selection
-          ? 'The separate atlas surface couldn’t load. Its samples remain visible where the cortical surface is exposed. Reload the atlas to try again.'
-          : 'The left atlas label is available. Its separate surface couldn’t load. The rest of the brain is ready to explore.';
+        ? surfaceLoading()
+        : isolationOnlyLabel.load_on_selection && isolationOnlyLabel.existing_group
+          ? 'This region’s own surface couldn’t load. Its part of the outer surface still shows where that surface is visible. Reload the page to try again.'
+          : 'This region’s own surface couldn’t load. The rest of the brain is ready to explore.';
     } else {
-      instruction = isolationOnlyLabel.isolation_context + ' Choose Isolate in place to see the left atlas surface, then drag to turn it.';
+      instruction = isolationOnlyLabel.isolation_context + ' Choose Show it alone to see its surface, then drag to turn it.';
     }
   }
   if (scope.textContent !== instruction) scope.textContent = instruction;
@@ -230,11 +235,11 @@ function setupComparison() {
   }
   const area = shared_faces * voxel_size_mm ** 2;
   document.querySelector('#comparison-evidence').textContent =
-    'VPL and VPM share ' + shared_faces + ' voxel faces (' + area + ' mm²) on the ' + voxel_size_mm + ' mm left Allen atlas grid.';
+    'VPL and VPM share ' + shared_faces + ' voxel faces (' + area + ' mm²) on the atlas’s ' + voxel_size_mm + ' mm grid.';
   const [right, anterior, superior] = overlay.faces_by_RAS_normal;
   boundaryDetails.textContent =
-    'Faces by perpendicular axis. Right–left ' + right + ' · front–back ' + anterior + ' · up–down ' + superior +
-    '. Individual anatomy and neural connections require separate evidence.';
+    'Of these faces, ' + right + ' face left and right, ' + anterior + ' front and back, and ' + superior + ' up and down. ' +
+    'This is where the atlas draws the two touching. A person’s own anatomy, or a nerve connection between the two, would need separate evidence.';
   boundaryKey.style.setProperty('--region-color', overlay.color);
   comparisonLegend.append(boundaryKey);
 }
@@ -246,8 +251,8 @@ function showBoundaryStatus(phase) {
   boundaryToggle.setAttribute('aria-disabled', String(phase === 'loading' || phase === 'unavailable'));
   boundaryDetails.hidden = boundaryKey.hidden = !active;
   const message = phase === 'loading'
-    ? 'Loading shared voxel faces…'
-    : phase === 'unavailable' ? 'Shared voxel faces couldn’t load. Reload the atlas to try again.' : '';
+    ? 'Loading the shared faces…'
+    : phase === 'unavailable' ? 'The shared faces couldn’t load. Reload the page to try again.' : '';
   if (boundaryStatus.textContent !== message) boundaryStatus.textContent = message;
 }
 
@@ -258,7 +263,7 @@ function collapseSections(clearFrame = true) {
   sections?.close();
   sectionsToggle.setAttribute('aria-expanded', 'false');
   sectionsToggle.removeAttribute('aria-disabled');
-  sectionsToggle.textContent = 'Show atlas sections';
+  sectionsToggle.textContent = 'Show cuts through VPL and VPM';
   sectionsStatus.textContent = '';
   document.body.classList.remove('has-source-section');
   if (clearFrame) send({sourcePlane: null});
@@ -297,7 +302,7 @@ async function toggleSections() {
   const mine = ++sectionsRevision;
   sectionsRequested = true;
   if (!sections) {
-    sectionsStatus.textContent = 'Loading atlas sections…';
+    sectionsStatus.textContent = 'Loading the cuts…';
     try {
       await loadSourceSections();
     } catch (error) {
@@ -305,7 +310,7 @@ async function toggleSections() {
       console.warn('Atlas sections unavailable:', error);
       collapseSections();
       sectionsToggle.setAttribute('aria-disabled', 'true');
-      sectionsStatus.textContent = 'Atlas sections couldn’t load. Reload the atlas to try again.';
+      sectionsStatus.textContent = 'The cuts couldn’t load. Reload the page to try again.';
       return;
     }
   }
@@ -320,7 +325,7 @@ function showSourceSections(saved) {
   sectionsPanel.hidden = false;
   document.body.classList.add('has-source-section');
   sectionsToggle.setAttribute('aria-expanded', 'true');
-  sectionsToggle.textContent = 'Hide atlas sections';
+  sectionsToggle.textContent = 'Hide the cuts';
   sectionsStatus.textContent = '';
   sections.open(saved);
 }
@@ -330,7 +335,7 @@ function closePaoSections() {
   paoRevision++;
   paoOpen = false;
   paoSections?.close();
-  paoToggle.textContent = 'Show parietal operculum sections';
+  paoToggle.textContent = 'Show cuts through the parietal operculum';
   paoToggle.setAttribute('aria-expanded', 'false');
   paoLoading.textContent = '';
   paoPanel.hidden = true;
@@ -364,16 +369,16 @@ async function togglePaoSections() {
   }
   const mine = ++paoRevision;
   paoOpen = true;
-  paoToggle.textContent = 'Hide parietal operculum sections';
+  paoToggle.textContent = 'Hide the cuts';
   if (!paoSections) {
-    paoLoading.textContent = 'Loading parietal operculum sections…';
+    paoLoading.textContent = 'Loading the cuts…';
     try {
       await loadPaoSections();
     } catch (error) {
       if (mine !== paoRevision) return;
       console.warn('Parietal operculum sections unavailable:', error);
       closePaoSections();
-      paoLoading.textContent = 'The sections couldn’t load. Choose Show parietal operculum sections to try again.';
+      paoLoading.textContent = 'The cuts couldn’t load. Choose Show cuts through the parietal operculum to try again.';
       return;
     }
   }
@@ -385,7 +390,7 @@ async function togglePaoSections() {
 function showPaoSections(saved) {
   paoRevision++;
   paoOpen = true;
-  paoToggle.textContent = 'Hide parietal operculum sections';
+  paoToggle.textContent = 'Hide the cuts';
   paoLoading.textContent = '';
   paoToggle.setAttribute('aria-expanded', 'true');
   paoPanel.hidden = false;
@@ -401,7 +406,7 @@ function inspectComparisonRegion(id) {
     button.setAttribute('aria-pressed', String(regionId === id));
     legend.classList.toggle('is-active', regionId === id);
   }
-  comparisonSelected.textContent = item.row.name + ' · atlas label ' + item.row.id;
+  comparisonSelected.textContent = item.row.name + ' · atlas number ' + item.row.id;
   sourceShare.refresh();
   distances.refreshCopy();
 }
@@ -468,30 +473,33 @@ function selection(value, moveFocus = true) {
   canIsolate = meshes > 0;
   isolationOnlyLabel = !family && row?.isolation_only ? row : undefined;
 
-  document.querySelector('#name').textContent = family ? familyNames[family] : row ? name(row) : 'Select a territory';
-  const association = !isolationOnlyLabel && (meshes || shared) ? 'Selected overlay' : 'Teaching associations';
+  document.querySelector('#name').textContent = family ? familyNames[family] : row ? name(row) : 'No region selected';
+  const groups = [...new Set(rows.flatMap(item => item.display_tags))].map(tag => ({S: 'somatic', A: 'autonomic', I: 'integration'})[tag] ?? tag);
+  // drawn: the region's colour is on a surface in the whole-brain views (the test the old line used)
+  const drawn = !isolationOnlyLabel && (meshes || shared);
   document.querySelector('#tags').textContent = rows.length
-    ? association + ' · ' + ([...new Set(rows.flatMap(item => item.display_tags))].join(' / ') || 'neutral context') + ' · nonexclusive'
+    ? (groups.length ? (groups.length === 1 ? 'Colour group: ' : 'Colour groups: ') + groups.join(', ')
+      + (drawn ? '' : isolationOnlyLabel ? ' (coloured once you choose Show it alone)' : ' (not drawn: it has no surface)') : 'No colour group')
     : '';
-  let instruction = 'Drag to rotate and scroll to zoom. The overview and anatomical axes stay available during isolation.';
+  let instruction = 'Drag to turn the brain, scroll to zoom. The small picture and the axis letters stay on screen when a region is shown alone.';
   if (family) {
-    instruction = meshes + ' separate meshes for ' + rows.length + ' source labels. A parent label covers only its own territory.';
+    instruction = meshes + ' surfaces for ' + rows.length + ' regions. Where a region has named parts, its own surface covers only what is left over.';
   } else if (meshes) {
-    instruction = 'Isolate in place hides the surrounding tissue. Focus centres and zooms to the selection from the view’s starting angle.';
+    instruction = 'Show it alone hides everything else. Zoom to it centres the region from the view’s starting angle.';
   } else if (shared) {
-    instruction = 'Dark grey marks the samples assigned to this label where they’re exposed. Focus and isolation require a separate mesh.';
+    instruction = 'Its part of a larger surface turns dark grey where that surface is visible. It has no surface of its own, so it cannot be shown alone.';
   } else if (row) {
-    instruction = 'The source atlas names this territory. This model has no labelled surface samples for it.';
+    instruction = 'The atlas names this region, but no point of any surface in the model belongs to it.';
   }
   selectionInstruction = instruction;
-  evidence.textContent = row ? row.overlay_reason + ' ' + row.limits.join(' ') : '';
+  evidence.textContent = row ? [row.overlay_reason, ...row.limits].join('\n\n') : '';
   const links = document.querySelector('#links');
   links.replaceChildren();
   for (const id of new Set(rows.flatMap(item => item.evidence_source_ids))) {
     const source = Array.isArray(registry.sources) ? registry.sources.find(item => item.id === id) : registry.sources?.[id];
     if (!source) continue;
     const link = document.createElement('a');
-    link.textContent = id + ' ' + (source.short_citation || source.citation || source.title || 'Primary source');
+    link.textContent = source.short_citation || source.citation || source.title || 'Primary source';
     link.href = source.url || source.source_url || source.link;
     link.target = '_blank';
     link.rel = 'noreferrer';
@@ -524,10 +532,10 @@ async function prepareSection(saved, space) {
   const id = pao ? registry.parietal_operculum_sections?.target_id :
     [...comparisonItems].find(([, item]) => item.row.acronym.toLowerCase() === saved.territory)?.[0];
   if (!id || (!pao && [...comparisonItems.keys()].some(region => !available.separate.has(region)))) {
-    return {error: 'This atlas territory is unavailable.'};
+    return {error: 'This region is not available.'};
   }
   const reader = await (pao ? loadPaoSections() : loadSourceSections());
-  if (space && reader.space !== space) return {error: 'The source or grid differs from this atlas.'};
+  if (space && reader.space !== space) return {error: 'The saved view comes from another atlas or grid.'};
   return {id, pao, ...await reader.prepareSavedView(saved)};
 }
 
@@ -535,7 +543,7 @@ async function restoreSavedView(request) {
   const {saved, endpoints, space, fragment, writeHash} = request;
   const report = message => savedViewError(message, !!endpoints);
   if (failed) {
-    report('The 3D atlas couldn’t load.');
+    report('The 3D model couldn’t load.');
     return;
   }
   if (controls.disabled) return;
@@ -569,7 +577,7 @@ async function restoreSavedView(request) {
   } catch (error) {
     if (waitingSavedView !== request) return;
     console.warn('Saved atlas section unavailable:', error);
-    report('The requested atlas section couldn’t load.');
+    report('The saved cut couldn’t load.');
   }
 }
 
@@ -582,7 +590,7 @@ function openSavedView(fragment, writeHash = false) {
     }
     const request = {annotation: true};
     waitingSavedView = request;
-    savedViewStatus.textContent = 'Opening atlas labels…';
+    savedViewStatus.textContent = 'Opening the flat cuts…';
     annotation.open(requested, () => waitingSavedView === request).then(opened => {
       if (!opened) return;
       if (writeHash) history.replaceState(history.state, '', fragment);
@@ -598,7 +606,7 @@ function openSavedView(fragment, writeHash = false) {
   const saved = measurement ? parseSavedMeasurement(fragment) : {saved: parseSavedView(fragment)};
   if (!saved?.saved) {
     const copy = measurement ? 'Copy measurement' : 'Copy saved view or Copy measurement';
-    savedViewError('Paste the fragment from ' + copy + '.', measurement);
+    savedViewError('Paste the text from ' + copy + '.', measurement);
     return;
   }
   const request = {...saved, fragment, writeHash};
@@ -629,7 +637,7 @@ function syncAvailability() {
   }
   controls.disabled = !ready;
   const message = failed
-    ? '3D controls are unavailable. Reload the viewer to try again.'
+    ? '3D controls are unavailable. Reload the page to try again.'
     : ready ? '3D controls ready.' : '3D controls unlock when the model is ready.';
   if (status.textContent !== message) status.textContent = message;
   status.classList.toggle('visually-hidden', ready);
@@ -665,6 +673,12 @@ focus.onclick = () => send({focus: true, viewAction: 'focus'});
 reset.onclick = () => {
   setIsolation(false);
   send({reset: true, isolate: false, viewAction: 'reset'});
+};
+let layers = false;
+layersButton.onclick = () => {
+  layers = !layers;
+  layersButton.textContent = layers ? 'Hide white matter and fluid spaces' : 'Show white matter and fluid spaces';
+  send({layers});
 };
 diagnostic.onclick = event => {
   qc = !qc;
@@ -714,9 +728,13 @@ addEventListener('message', event => {
     if (current === String(message.id) && !comparing) {
       canIsolate = message.ready;
       setIsolation(isolated);
-      viewAction.textContent = message.ready ? 'Separate atlas surface ready. Choose Isolate in place.' : scope.textContent;
+      viewAction.textContent = message.ready ? 'Its own surface is ready. Choose Show it alone.' : scope.textContent;
       options();
     }
+  } else if (message?.type === 'brain-layers') {
+    const megabytes = Math.round(registry.nodes.filter(node => node.layer).reduce((sum, node) => sum + node.bytes, 0) / 1e6);
+    layersStatus.textContent = message.status === 'loading' ? 'Loading the white matter and the fluid spaces, a ' + megabytes + ' MB download…'
+      : message.status === 'partial' ? 'Some of them couldn’t load. Reload the page to try again.' : '';
   } else if (message?.type === 'brain-error') {
     failed = true;
     syncAvailability();
@@ -724,7 +742,7 @@ addEventListener('message', event => {
     annotation.modelReadback(message);
   } else if (message?.type === 'brain-state') {
     if (message.viewAction && message.viewAction.revision !== viewActionRevision) return;
-    const description = message.state.isolate ? 'The surrounding tissue is hidden.' : message.construction;
+    const description = message.state.isolate ? 'Everything else is hidden.' : message.construction;
     if (construction.textContent !== description) construction.textContent = description;
     if (message.viewAction && !comparing) announceViewAction(message.viewAction.name, message.state);
   } else if (message?.type === 'brain-comparison-exit') {

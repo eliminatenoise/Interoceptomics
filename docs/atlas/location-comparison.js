@@ -121,7 +121,7 @@ export function bindLocationComparison(panel, territory, sendToModel) {
       point && (point.space !== view.space || !view.inVolume(point)) ? [roles[i]] : []
     ) : [];
     const note = a && b && !complete ? 'Choose both voxels in the same atlas space.' :
-      missing.length ? missing.join(' and ') + (missing.length === 1 ? ' is' : ' are') + ' outside this 3D atlas window.' : '';
+      missing.length ? missing.join(' and ') + (missing.length === 1 ? ' is' : ' are') + ' outside the 3D view.' : '';
     if (visibility.textContent !== note) visibility.textContent = note;
     walk.show(complete && a.space === view?.space ? points : undefined);
     refreshCopy();

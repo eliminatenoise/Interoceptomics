@@ -65,7 +65,7 @@ export function readSavedPoint({values, axis}, domain, levels) {
   if (result.error) return result;
   const {first, stop} = levels[axis];
   if (result.point[axis] < first || result.point[axis] >= stop) {
-    return {error: 'The saved ' + (sectionOnly ? 'level' : 'voxel') + ' falls outside the supplied levels in that plane.'};
+    return {error: 'The saved ' + (sectionOnly ? 'cut' : 'voxel') + ' lies outside the positions listed for that direction of cut.'};
   }
   return sectionOnly ? {level: result.point[axis]} : result;
 }

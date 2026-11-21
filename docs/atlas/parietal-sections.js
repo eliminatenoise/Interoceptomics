@@ -1,7 +1,7 @@
 import {arrowSteps, availableSectionAxis, bindCoordinateJump, coordinateLabel, formatMm, readSavedPoint, sectionNames, sectionOrder, setSectionLevels, voxelInPlane, voxelLabel} from './section-coordinates.js';
 import {atlasSpace} from './location-comparison.js';
 
-const directions = ['Right', 'Anterior', 'Superior'];
+const directions = ['Right', 'Front', 'Up'];
 const neighbourhood = [
   [13230, '#654495'],
   [12177, '#147b72'],
@@ -75,15 +75,15 @@ export async function makeParietalSections(spec, elements, onPlane) {
     jump(point) {
       const current = Number(orientation.value);
       const axis = availableSectionAxis(point, current, levels);
-      if (axis === undefined) return 'This voxel lies outside the atlas levels supplied with the PaO sections.';
+      if (axis === undefined) return 'This voxel lies outside every cut that contains PaO.';
       const openFull = extent.value === 'near' && outsideNeighbourhood(point, index.planes[axis]);
       if (openFull) extent.value = 'full';
       selectedVoxel = point;
       orientation.value = axis;
       setOrientation();
       const changes = [];
-      if (axis !== current) changes.push('Opened the ' + sectionNames[axis].toLowerCase() + ' plane at this voxel.');
-      if (openFull) changes.push('This voxel lies outside the neighbourhood. Switched to Full atlas plane.');
+      if (axis !== current) changes.push('Opened the ' + sectionNames[axis].toLowerCase() + ' cut at this voxel.');
+      if (openFull) changes.push('This voxel lies outside PaO and its neighbours, so the whole cut is shown.');
       return changes.join(' ');
     },
   });
@@ -113,7 +113,7 @@ export async function makeParietalSections(spec, elements, onPlane) {
 
   function describeLabel(labelId) {
     const [acronym, name] = labels[labelId];
-    return name + (labelId ? ' (' + acronym + ', ' + labelId + ')' : '');
+    return labelId ? name + ' (' + acronym + ', ' + labelId + ')' : 'In no region (0)';
   }
 
   function describePoint(indices, id) {
@@ -159,10 +159,10 @@ export async function makeParietalSections(spec, elements, onPlane) {
       message = voxelLabel(coordinate, selectedVoxel) + ' · ' + describeLabel(id);
     } else if (selectedVoxel && selectedVoxel[plane.axis] !== displayedLevel) {
       const at = coordinateLabel(coordinate, plane.axis, selectedVoxel[plane.axis]);
-      message = 'The selected voxel lies at ' + at + ', outside the listed levels.';
+      message = 'The selected voxel lies at ' + at + ', outside the positions listed for this direction of cut.';
     } else if (selectedVoxel) {
       message = 'The selected voxel (' + voxelLabel(coordinate, selectedVoxel) +
-        ') lies outside this window. Choose Full atlas plane to see it.';
+        ') lies outside this part of the cut. Under How much of the cut, choose The whole cut to see it.';
     } else {
       message = voxelLabel(coordinate, pointAt(...example)) + ' · ' + describeLabel(labelIdAt(...example));
     }
@@ -213,7 +213,7 @@ export async function makeParietalSections(spec, elements, onPlane) {
     }
     const sorted = [...counts].filter(([id]) => id && id !== target)
       .sort(([a], [b]) => labels[a][1].localeCompare(labels[b][1], 'en'));
-    highlight.replaceChildren(new Option('PaO and nearby labels', target),
+    highlight.replaceChildren(new Option('PaO and nearby regions', target),
       ...sorted.map(([id, count]) => new Option(labels[id][1] + ' (' + labels[id][0] + ') · ' + count, id)));
     highlight.value = counts.has(selected) && selected ? selected : target;
     const nearby = neighbourhood.filter(([id]) => counts.has(id));
@@ -286,7 +286,7 @@ export async function makeParietalSections(spec, elements, onPlane) {
 
   async function follow(point, commit) {
     const axis = availableSectionAxis(point, plane.axis, levels);
-    if (axis === undefined) return 'No supplied atlas plane contains this voxel.';
+    if (axis === undefined) return 'No cut here contains this voxel.';
     const next = index.planes[axis];
     const selected = point[axis];
     const sameLevel = plane.axis === axis && displayedLevel === selected;
@@ -316,7 +316,7 @@ export async function makeParietalSections(spec, elements, onPlane) {
       if (!(file instanceof ArrayBuffer)) {
         setReady(false);
         onPlane(null);
-        status.textContent = 'Loading ' + next.name + ' sections…';
+        status.textContent = 'Loading ' + next.name + ' cuts…';
         file = await file;
       }
       if (!active || mine !== request) return;
@@ -325,7 +325,7 @@ export async function makeParietalSections(spec, elements, onPlane) {
       if (active && mine === request) {
         setReady(false);
         onPlane(null);
-        status.textContent = 'This section couldn’t load. Change the plane or reopen the sections to try again.';
+        status.textContent = 'This cut couldn’t load. Change its direction, or close and reopen the cuts, to try again.';
         console.warn('Parietal operculum section unavailable:', error);
       }
     }
@@ -389,7 +389,7 @@ export async function makeParietalSections(spec, elements, onPlane) {
       const {point} = result;
       const next = index.planes[saved.axis];
       if (point && saved.extent === 'near' && outsideNeighbourhood(point, next)) {
-        return {error: 'The saved voxel falls outside the PaO neighbourhood in that plane.'};
+        return {error: 'The saved voxel lies outside PaO and its neighbours in that direction of cut.'};
       }
       const cells = readLevel(next, result.level ?? point[saved.axis], await loadPlaneFile(next));
       if (point) result.measurementPoint = describePoint(point, cells[point[next.vertical] * shape[next.horizontal] + point[next.horizontal]]);

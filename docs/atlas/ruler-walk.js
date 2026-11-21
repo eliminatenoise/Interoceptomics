@@ -70,7 +70,7 @@ export function bindRulerWalk(details, getView, renderModel) {
     const {indices, fraction} = path[Number(slider.value) - 1];
     const distance = 'Line sample ' + (fraction * length).toFixed(3) + ' mm from A.';
     const prefix = position + '. ' + distance + ' ';
-    reading.textContent = prefix + 'Opening section…';
+    reading.textContent = prefix + 'Opening the cut…';
     try {
       const reason = await view.follow(indices, () => {
         if (!current()) return false;
@@ -80,8 +80,8 @@ export function bindRulerWalk(details, getView, renderModel) {
       if (mine !== request || !details.open || getView()?.reader !== view.reader) return;
       if (reason) {
         if (current()) {
-          reading.textContent = prefix + reason + ' The last section stays open.';
-          segments.markers('No ruler marker in the section or 3D window.');
+          reading.textContent = prefix + reason + ' The last cut stays open.';
+          segments.markers('No ruler marker in the cut or the 3D view.');
         }
         return;
       }
@@ -89,20 +89,20 @@ export function bindRulerWalk(details, getView, renderModel) {
       const accepted = cursor();
       if (!accepted) {
         selected = undefined;
-        reading.textContent = 'Section moved. Show a ruler voxel to return to the line.';
+        reading.textContent = 'The cut moved. Choose Show this voxel to return to the line.';
         segments.markers('The ruler marker is cleared.');
         return;
       }
       reading.textContent = prefix + 'Voxel centre ' + voxelLabel((axis, value) => value, accepted.values) +
         ' · ' + accepted.label;
       segments.markers(getView().inVolume(accepted)
-        ? 'The section and 3D window mark this voxel centre.'
-        : 'The section marks this voxel centre. It lies outside the 3D window.');
+        ? 'The cut and the 3D view mark this voxel centre.'
+        : 'The cut marks this voxel centre. It lies outside the 3D view.');
       renderModel();
     } catch (error) {
       if (!current()) return;
-      reading.textContent = prefix + 'This atlas section couldn’t load. The last section stays open.';
-      segments.markers('No ruler marker in the section or 3D window.');
+      reading.textContent = prefix + 'This cut couldn’t load. The last cut stays open.';
+      segments.markers('No ruler marker in the cut or the 3D view.');
       console.warn('Ruler section unavailable:', error);
     } finally {
       if (pending === attempt) pending = undefined;
@@ -176,7 +176,7 @@ export function bindRulerWalk(details, getView, renderModel) {
       }
       if (interrupted || (selected && !cursor())) {
         selected = undefined;
-        reading.textContent = 'Section moved. Show a ruler voxel to return to the line.';
+        reading.textContent = 'The cut moved. Choose Show this voxel to return to the line.';
         segments.markers('The ruler marker is cleared.');
       }
     },
@@ -203,7 +203,7 @@ function bindSegments(details, jump) {
     selected = voxel;
     if (!measurement) return;
     const id = measurement.labels[voxel];
-    const next = 'Full atlas annotation · ' + source.describe(id);
+    const next = 'Whole atlas grid · ' + source.describe(id);
     if (nativeLabel.textContent !== next) nativeLabel.textContent = next;
     const run = measurement.activeRuns[voxel];
     if (run === active) return;
@@ -220,7 +220,7 @@ function bindSegments(details, jump) {
       status.textContent = 'A and B coincide. The ruler has zero length.';
       return;
     }
-    status.textContent = runs.length + (runs.length === 1 ? ' segment' : ' segments') +
+    status.textContent = runs.length + (runs.length === 1 ? ' stretch' : ' stretches') +
       ' along ' + total.toFixed(3) + ' mm.';
     const bands = [];
     const entries = [];
@@ -254,7 +254,7 @@ function bindSegments(details, jump) {
     const current = path;
     started = true;
     retry.hidden = true;
-    status.textContent = 'Reading the full atlas annotation…';
+    status.textContent = 'Reading the whole atlas grid…';
     try {
       const loaded = await loadAtlasLabels();
       if (path !== current) return;
@@ -265,7 +265,7 @@ function bindSegments(details, jump) {
       select(selected);
     } catch (error) {
       if (path !== current) return;
-      status.textContent = 'The full atlas labels couldn’t load. You can still step through the supplied sections.';
+      status.textContent = 'The atlas grid couldn’t load. You can still step through the cuts.';
       retry.hidden = false;
       console.warn('Atlas segment lengths unavailable:', error);
     }

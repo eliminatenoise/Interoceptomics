@@ -25,7 +25,7 @@ The atlas's [official README](https://download.alleninstitute.org/informatics-ar
 When you copy or adapt any atlas-derived file from the viewer:
 
 1. Keep the creators' names, the copyright line, and the links to the source and to the licence.
-2. Keep the disclaimers and the change notices that travel with the files. In the download they are `THIRD-PARTY-NOTICES.html`, the `licenses/` folder and the notices in `sources/allen-version1/`. On the website the same files sit beside the viewer, in `docs/viewer/`.
+2. Keep the disclaimers and the change notices that travel with the files. In the download they are `THIRD-PARTY-NOTICES.html`, the `licenses/` folder and the notices in `sources/allen-version1/`. On the website the same files sit beside the viewer, in `docs/atlas/`.
 3. Say what you changed in turn.
 4. Do not suggest that the creators or the Allen Institute endorse you or your use. They have not endorsed this project.
 
@@ -121,11 +121,11 @@ The withdrawn prerelease contained an older deck, earlier scripts and 3D models 
 | --- | --- |
 | File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
 | Version | 21 November 2026. The file name never carries the version: each new one replaces the last at the same address |
-| Size | 64,344,535 bytes (121,370,767 bytes unpacked) |
+| Size | 64,344,808 bytes (121,371,527 bytes unpacked) |
 | Contents | 94 files. `MANIFEST.json` lists the other 93 with their sizes and checksums |
-| SHA256 | `350926fa5fe222b05a84176e2328d93c4c6772be2d800eb804ba5e651f4600a1` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+| SHA256 | `a2ff84b54e3511042998d3134e8a34305f643e56701690f145254d7699e05c9c` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
 
-The website serves the same files, without the four start files, at [eliminatenoise.github.io/Interoceptomics/viewer](https://eliminatenoise.github.io/Interoceptomics/viewer/): the folder `docs/viewer/` of this repository, built from the download's own files. The credit and the conditions on this page apply to that copy exactly as they do to the download.
+The website serves the same files, without the four start files, at [eliminatenoise.github.io/Interoceptomics/atlas](https://eliminatenoise.github.io/Interoceptomics/atlas/): the folder `docs/atlas/` of this repository, built from the download's own files. The credit and the conditions on this page apply to that copy exactly as they do to the download. The folder `docs/atlas/backslash/` beside the viewer's files is not part of the copy: it is Backslash of the Brain, a separate anatomy atlas that shows the viewer's 3D model inside its own pages. Its sources, and the terms for reusing its own files, are on [its sources page](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/sources.html).
 
 Identities of the upstream files, for anyone who wants to start from the same sources:
 

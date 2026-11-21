@@ -108,9 +108,9 @@ export function readLabelRuns(index, buffer) {
       return {name, acronym};
     },
     describe(id) {
-      if (id === 0) return 'Unlabelled atlas voxel (0)';
+      if (id === 0) return 'In no region (0)';
       const name = names[id];
-      return name ? name[1] + ' (' + name[0] + ', ' + id + ')' : 'Atlas label ' + id;
+      return name ? name[1] + ' (' + name[0] + ', ' + id + ')' : 'Atlas number ' + id;
     },
   };
 }

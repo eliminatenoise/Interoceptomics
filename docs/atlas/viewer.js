@@ -14,7 +14,7 @@ async function fetchModelFile(path,options){
 const loading=document.createElement('p');
 loading.id='loading';
 loading.setAttribute('role','status');
-loading.textContent='Loading the 3D model…';
+loading.textContent='Loading the 3D model, a 66 MB file…';
 document.body.append(loading);
 
 let startupStep='graphics';
@@ -34,7 +34,7 @@ try{
  gltf.scene.traverse(o=>{if(o.isMesh){o.userData.info=nodeInfo.get(o.name);o.userData.originalMaterial=o.material;meshes.push(o);}});
  async function loadIsolatedTerritory(info){
   try{
-   const response=await fetchModelFile('./'+info.geometry_file,{signal:AbortSignal.timeout(10000)});
+   const response=await fetchModelFile('./'+info.geometry_file,{signal:AbortSignal.timeout(10000+(info.bytes||0)/125)});
    const data=await response.arrayBuffer();
    const digest=new Uint8Array(await crypto.subtle.digest('SHA-256',data));
    const sha256=Array.from(digest,byte=>byte.toString(16).padStart(2,'0')).join('');
@@ -102,7 +102,7 @@ try{
  scene.add(new THREE.HemisphereLight(0xffffff,0x9aa4ab,1.75));
  const rigs=[];for(const [colour,power,offset] of [[0xffffff,1.7,[.6,.32,.35]],[0xe7f0ff,.7,[-.6,.07,-.45]],[0xffffff,.45,[.2,-.1,-.25]]]){const l=new THREE.DirectionalLight(colour,power);l.position.copy(overviewTarget).add(new THREE.Vector3(...offset));scene.add(l);rigs.push({light:l,offset});}
  const controls=new OrbitControls(camera,canvas);controls.enableDamping=false;controls.enablePan=true;controls.target.copy(overviewTarget);controls.enabled=interactive;
- const state={variant:query.get('variant')||variantSpec.default,view:query.get('view')||'Medial',role:query.get('role')||'all',selection:query.get('select')||'',isolate:query.get('isolate')==='1',qc:query.get('qc')==='all',compare:false};
+ const state={variant:query.get('variant')||variantSpec.default,view:query.get('view')||'Medial',role:query.get('role')||'all',selection:query.get('select')||'',isolate:query.get('isolate')==='1',qc:query.get('qc')==='all',compare:false,layers:false};
  const comparisonMaterials=new Map();
  const comparison=registry.vpl_vpm_comparison;
  let boundaryMesh;
@@ -126,7 +126,7 @@ try{
  }
  const comparisonViews={front:new THREE.Vector3(0,0,1),above:new THREE.Vector3(0,1,.28).normalize()};
  let beforeComparison;
- const descriptions={Medial:'Constructed medial dissection of selected left surfaces. Added deep/opercular masks are not drawn in this preset.',Lateral:'Lateral surface of the same left hemisphere. The insula and deep nuclei remain beneath the overlying surface.',InsulaDissection:'Whole combined cerebral surface hidden to expose the five insular source parcels. This is broader than an opercular removal.',Deep:'Cerebral surface and added insula hidden. Deep source parcels remain in place; overlapping structures can still obscure one another.'};
+ const descriptions={Medial:'The inner face of the left half, where the two halves of the brain meet. The surfaces added separately for deep regions and for the parietal operculum are not drawn in this view.',Lateral:'The outer face of the left half. The insula and the deep regions stay hidden under the outer surface.',InsulaDissection:'The whole outer surface is hidden to show the five regions of the insula. That hides far more than the folds that cover the insula in a real brain.',Deep:'The outer surface and the insula are hidden. The deep regions stay where they sit in the head, so one can still hide another.'};
  const offsets={Medial:[1,0,0],Lateral:[-1,0,0],InsulaDissection:[-1,.12,.28],Deep:[-1,.18,.35]};
  const activeVariant=()=>variantSpec.variants.find(v=>v.key===state.variant);
  function offsetInWorld(a){const v=activeVariant();if(!v)throw Error('Variant is not source-qualified');return new THREE.Vector3(a[0]*v.camera_light_X_factor,a[1],a[2]);}
@@ -134,7 +134,7 @@ try{
  const palette={};for(const [k,rgb] of Object.entries(registry.palette))palette[k]=new THREE.Color().setRGB(rgb[0]/255,rgb[1]/255,rgb[2]/255).convertSRGBToLinear();
  const selectedIds=()=>state.selection.startsWith('group:')?new Set(registry.labels.filter(r=>r.state==='new_per_label_mesh'&&r.family===state.selection.slice(6)).map(r=>r.id)):new Set(state.selection?[Number(state.selection)]:[]);
  const selectedMeshes=()=>{const ids=selectedIds();return meshes.filter(o=>o.userData.info.kind==='new'&&ids.has(o.userData.info.native_id));};
- function colours(){if(query.get('stock')==='1'||query.get('asset')==='1'){for(const o of meshes){o.material=o.userData.originalMaterial.clone();o.material.side=query.get('double')==='1'?THREE.DoubleSide:THREE.FrontSide;o.material.flatShading=!o.geometry.hasAttribute('normal');}return;}const chosen=selectedIds(),selectionColour=new THREE.Color(0x34464f);for(const o of meshes){const n=o.userData.info,P=o.geometry.attributes.position,values=new Float32Array(P.count*3),ids=o.userData.labels;for(let i=0;i<P.count;i++){const r=labels.get(n.kind==='new'?n.native_id:ids[i]);let shade=state.role==='anatomy'?'neutral':state.role==='all'?r.default_shade:r.display_tags.includes(state.role)?state.role:'neutral';const c=chosen.has(r.id)&&!state.isolate?selectionColour:palette[shade]||palette.neutral;values.set([c.r,c.g,c.b],i*3);}o.geometry.setAttribute('color',new THREE.BufferAttribute(values,3));o.material?.dispose();o.material=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.83,metalness:0,side:query.get('double')==='1'?THREE.DoubleSide:THREE.FrontSide,flatShading:!o.geometry.hasAttribute('normal')});}}
+ function colours(){if(query.get('stock')==='1'||query.get('asset')==='1'){for(const o of meshes){o.material=o.userData.originalMaterial.clone();o.material.side=query.get('double')==='1'?THREE.DoubleSide:THREE.FrontSide;o.material.flatShading=!o.geometry.hasAttribute('normal');}return;}const chosen=selectedIds(),selectionColour=new THREE.Color(0x34464f);for(const o of meshes){const n=o.userData.info,P=o.geometry.attributes.position,values=new Float32Array(P.count*3),ids=o.userData.labels;for(let i=0;i<P.count;i++){const r=labels.get(n.kind==='new'?n.native_id:ids[i]);let shade=state.role==='anatomy'?'neutral':state.role==='all'?r.default_shade:r.display_tags.includes(state.role)?state.role:'neutral';const c=chosen.has(r.id)&&!state.isolate?selectionColour:palette[shade]||palette.neutral;values.set([c.r,c.g,c.b],i*3);}o.geometry.setAttribute('color',new THREE.BufferAttribute(values,3));o.material?.dispose();o.material=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.83,metalness:0,side:query.get('double')==='1'?THREE.DoubleSide:THREE.FrontSide,flatShading:!o.geometry.hasAttribute('normal')});if(n.see_through&&!state.isolate)Object.assign(o.material,{transparent:true,opacity:.3,depthWrite:false});}}
  function visible(){
   const stock=query.get('stock')==='1',chosen=selectedIds();
   for(const o of meshes){
@@ -144,7 +144,7 @@ try{
    }
    const n=o.userData.info;
    let show;
-   if(n.isolation_only)show=!stock&&state.isolate&&chosen.has(n.native_id);
+   if(n.isolation_only)show=!stock&&(state.isolate?chosen.has(n.native_id):Boolean(n.layer)&&state.layers);
    else if(stock)show=true;
    else if(state.isolate&&chosen.size)show=n.kind==='new'&&chosen.has(n.native_id);
    else if(n.kind==='existing')show=(state.view==='Medial'||state.view==='Lateral')||n.source_group!=='cerebral_surface_parcels';
@@ -448,6 +448,20 @@ try{
  const glAudit=renderer.getContext(),frontFaces=new Map();let currentMesh;
  for(const o of meshes)o.onBeforeRender=()=>{currentMesh=o;};
  const territoryLoads=new Map();
+ let layerLoads;
+ async function setLayers(active){
+  state.layers=active;
+  let status=active?'on':'off';
+  if(active){
+   parent.postMessage({type:'brain-layers',status:'loading'},location.origin);
+   layerLoads??=Promise.all(registry.nodes.filter(node=>node.layer).map(node=>loadSelectedTerritory(node.native_id)));
+   const loaded=await layerLoads;
+   if(!state.layers)return;
+   if(loaded.some(detail=>!detail))status='partial';
+  }
+  colours();visible();draw();publish();
+  parent.postMessage({type:'brain-layers',status},location.origin);
+ }
  function loadSelectedTerritory(id){
   if(territoryLoads.has(id))return territoryLoads.get(id);
   const territory=deferredTerritories.get(id);
@@ -469,6 +483,7 @@ try{
  function metrics(measure=false){const gl=renderer.getContext(),dbg=gl.getExtension('WEBGL_debug_renderer_info');const visibility=measure?measureVisibility():null,records=meshes.map(o=>({name:o.name,visible:o.visible,triangles:o.geometry.index.count/3,normal_attribute_present:o.geometry.hasAttribute('normal'),flat_shading:o.material.flatShading}));return {status:'R6_outward_export_candidate_not_independent_acceptance',variant:state.variant,variantLabel:activeVariant().label,view:state.view,role:state.role,selection:state.selection,isolate:state.isolate,qc:state.qc,width,height,source_counts:registry.counts,construction:descriptions[state.view],active_anatomical_half:'original annotated source left',frame:frameMetrics(),fixed_source_principal_framing:state.view==='Medial'&&!state.isolate&&camera.zoom===1&&controls.target.distanceTo(overviewTarget)<1e-12&&camera.position.distanceTo(overviewTarget.clone().add(offsetInWorld([1,0,0])))<1e-12,camera:{worldMatrixColumnMajor:camera.matrixWorld.toArray(),viewMatrixColumnMajor:camera.matrixWorldInverse.toArray(),projectionMatrixColumnMajor:camera.projectionMatrix.toArray(),position:camera.position.toArray(),target:controls.target.toArray(),zoom:camera.zoom,frustum:[camera.left,camera.right,camera.top,camera.bottom]},ordinary_asset_material:query.get('stock')==='1'||query.get('asset')==='1',diagnostic_double_sided:query.get('double')==='1',renderInfo:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},renderer:dbg?gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),elapsedMs:performance.now()-start,records,visibility,assemblies:[],visibility_sampling:measure?{width:900,height:600,scope:'Depth-tested mesh IDs, not anatomical/function validation'}:null};}
  function publish(viewAction){window.renderMetrics=metrics(false);parent.postMessage({type:'brain-state',state:{...state},variantLabel:activeVariant().label,construction:descriptions[state.view],selectionIds:[...selectedIds()],canIsolate:selectedMeshes().length>0,viewAction},location.origin);}
  function apply(command){
+  if('layers' in command){setLayers(command.layers);return;}
   if('annotationMode' in command){
    annotationMode=command.annotationMode;
    if(!annotationMode)annotationReading=undefined;
@@ -535,7 +550,7 @@ try{
   if(!box.width||!box.height)return;
   pointer.set((e.clientX-box.left)/box.width*2-1,1-(e.clientY-box.top)/box.height*2);
   ray.setFromCamera(pointer,camera);
-  const [hit]=ray.intersectObjects(meshes.filter(mesh=>mesh.visible));
+  const [hit]=ray.intersectObjects(meshes.filter(mesh=>mesh.visible&&!(mesh.userData.info.see_through&&!state.isolate)));
   if(!hit)return;
   const n=hit.object.userData.info;
   if(n.kind==='new')parent.postMessage({type:'brain-pick',id:n.native_id},'*');
@@ -581,7 +596,7 @@ try{
  }[startupStep];
  const help=startupStep==='graphics'
   ?'Try opening the model in a browser with WebGL enabled.'
-  :'Reload the viewer. If it still won’t open, extract a fresh copy of the whole ZIP and open it with its start file.';
+  :'Reload the page. If you are using the download and it still won’t open, extract a fresh copy of the whole ZIP and open it with its start file.';
  document.body.innerHTML='<div id="startup-error"><p id="error" role="alert"></p><p></p><details><summary>Technical details</summary><pre></pre></details></div>';
  document.querySelector('#error').textContent=heading;
  document.querySelector('#startup-error p:nth-child(2)').textContent=help;

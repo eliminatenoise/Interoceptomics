@@ -48,6 +48,15 @@ names now have plain names, like every other region: ventral posterior
 lateral nucleus (VPL), ventral posterior medial nucleus (VPM), red
 nucleus and parietal operculum (PaO).
 
+On the website the viewer now opens at
+eliminatenoise.github.io/Interoceptomics/atlas. The address it had until
+now, which ended in /viewer/, forwards there, and a link that opens a
+saved view keeps its view. Backslash of the Brain sits beside it, at
+eliminatenoise.github.io/Interoceptomics/atlas/backslash: a separate
+anatomy atlas that follows signals from muscles and organs through 3D
+models and slices of the human brain, spinal cord and organs. Its 3D
+brain is this viewer's 3D model, shown inside its own pages.
+
 
 WHAT IT HAS BEEN RUN ON
 
