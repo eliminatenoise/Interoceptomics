@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Between two pressure readings · Interoceptomics</title>
-  <meta name="description" content="Locate two marked events in a mouse pelvic nerve recording between the pressure samples on the same clock.">
+  <meta name="description" content="Read the pressure inside a mouse colon just before and just after two marked events in its pelvic nerve recording.">
   <link rel="stylesheet" href="reader.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
   </header>
   <main>
     <h1>Between two pressure readings</h1>
-    <p class="lead">Researchers measured pressure inside an isolated mouse colon and recorded electrical activity in the pelvic nerve attached to it. Both recordings used the same clock. Where did a marked nerve event fall between readings of the pressure gauge?</p>
+    <p class="lead">Researchers recorded pressure inside an isolated mouse colon and electrical activity in its attached pelvic nerve. Both recordings share a clock. What did the gauge read just before and just after a mark in the nerve recording?</p>
 
     <fieldset class="reader">
       <legend>Choose a marked nerve event</legend>
@@ -25,40 +25,43 @@
 
       <div class="readings" aria-live="polite" aria-atomic="true">
         <figure id="earlier-reading" style="--event-position: 36.224%">
-          <figcaption>Time since the recording began</figcaption>
+          <figcaption>Pressure inside the colon</figcaption>
+          <p class="units">Pressure is in millimetres of mercury (mmHg). Times on the line are seconds from the start of the recording.</p>
           <div class="timeline">
             <div class="nerve"><span>Marked nerve event</span><strong>0.136256 s</strong></div>
             <div class="axis" aria-hidden="true"></div>
             <div class="samples">
-              <div><span>Earlier pressure sample</span><strong>0.100032 s</strong></div>
-              <div><span>Later pressure sample</span><strong>0.200032 s</strong></div>
+              <div><span>Before the mark</span><strong><data value="0.0457763671875">0.046</data> mmHg</strong><span class="sample-time">at 0.100032 s</span></div>
+              <div><span>After the mark</span><strong><data value="0.030517578125">0.031</data> mmHg</strong><span class="sample-time">at 0.200032 s</span></div>
             </div>
           </div>
-          <p class="offset">This mark falls <strong>36.224 ms</strong> after the earlier pressure sample and <strong>63.776 ms</strong> before the next.</p>
+          <p class="offset">The nerve mark falls <strong>36.224 ms</strong> after the first reading and <strong>63.776 ms</strong> before the next.</p>
         </figure>
         <figure id="later-reading" style="--event-position: 4.928%">
-          <figcaption>Time since the recording began</figcaption>
+          <figcaption>Pressure inside the colon</figcaption>
+          <p class="units">Pressure is in millimetres of mercury (mmHg). Times on the line are seconds from the start of the recording.</p>
           <div class="timeline">
             <div class="nerve"><span>Marked nerve event</span><strong>7.104960 s</strong></div>
             <div class="axis" aria-hidden="true"></div>
             <div class="samples">
-              <div><span>Earlier pressure sample</span><strong>7.100032 s</strong></div>
-              <div><span>Later pressure sample</span><strong>7.200032 s</strong></div>
+              <div><span>Before the mark</span><strong><data value="0.030517578125">0.031</data> mmHg</strong><span class="sample-time">at 7.100032 s</span></div>
+              <div><span>After the mark</span><strong><data value="0.06103515625">0.061</data> mmHg</strong><span class="sample-time">at 7.200032 s</span></div>
             </div>
           </div>
-          <p class="offset">This mark falls <strong>4.928 ms</strong> after the earlier pressure sample and <strong>95.072 ms</strong> before the next.</p>
+          <p class="offset">The nerve mark falls <strong>4.928 ms</strong> after the first reading and <strong>95.072 ms</strong> before the next.</p>
         </figure>
       </div>
+      <p class="scale-note">The scale saved in the file converts the gauge’s counts to mmHg. The display rounds the results to three decimal places. This recording gives no check against a known pressure, so the gauge’s accuracy is unknown.</p>
     </fieldset>
 
     <section class="resolution" aria-labelledby="gap">
-      <h2 id="gap">What fits in a tenth of a second?</h2>
-      <p>The recording clock counts in steps of 8 microseconds. The pressure gauge takes a reading every 100 milliseconds. That lets us place the nerve event within the gap. The pressure values at either end and the pressure at the event itself are unknown here.</p>
+      <h2 id="gap">What was the pressure at the nerve mark?</h2>
+      <p>The clock counted in steps of 8 microseconds. The gauge took a reading every 100 milliseconds (ms). Both nerve marks fell in the gap between readings, so the pressure at the instant of each mark is unknown.</p>
     </section>
     <section id="source" aria-labelledby="recording">
       <h2 id="recording">About the recording</h2>
-      <p>Brierley and Brizuela deposited this recording from mouse R481. Each example uses the first mark saved on one of two nerve-event channels. Which nerve fibre produced each event, which treatment was in effect and which part of the trial was underway remain unknown.</p>
-      <p class="links"><a href="https://doi.org/10.26275/UZOC-EOK4">SPARC dataset 659, version 1</a><a href="SOURCE.txt">File coordinates and credits</a><a href="CC-BY-4.0.txt">Data licence (CC BY 4.0)</a></p>
+      <p>Brierley and Brizuela deposited this recording from mouse R481. Each example uses the first mark saved on one of two nerve-event channels. For each mark, the nerve fibre, the kind of response, the treatment and the stage of the trial are unknown.</p>
+      <p class="links"><a href="pressure-brackets.json">Exact times and pressure values (JSON)</a><a href="SOURCE.txt">File coordinates and credits</a><a href="https://doi.org/10.26275/UZOC-EOK4">SPARC dataset 659, version 1</a><a href="CC-BY-4.0.txt">Data licence (CC BY 4.0)</a></p>
     </section>
   </main>
 </body>

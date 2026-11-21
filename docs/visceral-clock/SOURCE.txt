@@ -23,14 +23,42 @@ The two event markers begin at byte offsets 239862292 and 251802132.
 The corresponding pairs of pressure samples begin at 5142 and 5144,
 and at 5282 and 5284. Byte offsets start at zero.
 
-The reader converts ticks to seconds and places each event on a time
-axis spanning its two pressure samples. It subtracts the event and sample
-times to show the two distances in milliseconds. The file coordinates
-identify the samples without retrieving either pressure value. Pressure
-between readings, fibre identity, treatment and trial phase remain unknown.
+Channel 3 stores a signed 16-bit count for each reading, with the low byte
+first. Its scale is 100, its offset is 0 and its unit is mmHg (millimetres
+of mercury). The Spike2 waveform conversion is
 
-The times derived from the recording retain CC BY 4.0. The full licence
+  pressure in mmHg = count × scale / 6553.6 + offset
+
+One count on this channel equals 0.0152587890625 mmHg on the file's scale.
+
+  Mark       Counts before / after    Before (mmHg)     After (mmHg)
+  Earlier             3 / 2           0.0457763671875   0.030517578125
+  Later               2 / 4           0.030517578125    0.06103515625
+
+The reader converts ticks to seconds and places each nerve mark between its
+two pressure samples. Subtracting the times gives the two intervals in
+milliseconds. On the diagram, pressure values are rounded to three decimal
+places. The exact conversions, sample times and byte offsets are in
+pressure-brackets.json.
+
+The decimals above follow from the file's scale. The recording header,
+dataset readme and study protocol give no comparison to a known pressure
+for this recording, so the gauge's absolute accuracy is unknown. The
+pressure at either nerve mark, the nerve fibre, the kind of response, the
+treatment and the stage of the trial are also unknown.
+
+Cambridge Electronic Design documents the conversion under "Waveform
+channels" in its Spike2 version 8 manual. NeuralEnsemble's reader for this
+file format implements the same conversion.
+https://ced.co.uk/img/Spike8print.pdf
+https://github.com/NeuralEnsemble/python-neo/blob/e899f3e1e13e11ed09045c463ee340ac86f98311/neo/rawio/spike2rawio.py
+
+The times, counts and pressure values derived from the recording retain
+CC BY 4.0. The full licence
 is in CC-BY-4.0.txt and at https://creativecommons.org/licenses/by/4.0/.
 Interoceptomics dedicates its original text, diagram, code and launchers
 to the public domain under CC0 to the extent of its rights. See CC0-1.0.txt
 or https://creativecommons.org/publicdomain/zero/1.0/.
+
+To rebuild the standalone ZIP from an extracted copy, run python package.py
+in the reader folder. The rebuilt folder holds the ZIP and its SHA-256 checksum.

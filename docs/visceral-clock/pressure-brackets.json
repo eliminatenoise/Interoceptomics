@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "edition": "SPARC-659.v1-R481-pressure-brackets.1",
+  "source": {
+    "dataset": "Electrophysiological recordings of mouse colonic afferent responses to mechanical and pharmacological stimuli in ex vivo preparations",
+    "creators": [
+      "Stuart M. Brierley",
+      "Mariana Brizuela"
+    ],
+    "year": 2026,
+    "release": "SPARC 659 v1",
+    "doi": "https://doi.org/10.26275/UZOC-EOK4",
+    "dataset_url": "https://discover.pennsieve.io/datasets/659",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "derivation": "Four signed pressure-channel codes were selected and converted using the scale and offset stored in the original recording."
+  },
+  "subject": "sub-R481",
+  "sample": "sam-R481",
+  "object_path": "files/primary/sub-R481/sam-R481/sam-R481.smr",
+  "object_version": "bgu_LkC1yT3fA6OcBlw2BWgHITij6yA5",
+  "object_url": "https://sparc-prod-aod-discover-publish50-use1.s3.amazonaws.com/659/files/primary/sub-R481/sam-R481/sam-R481.smr?versionId=bgu_LkC1yT3fA6OcBlw2BWgHITij6yA5",
+  "object_size_bytes": 253891072,
+  "provider_whole_sha256": "a4c9fe6fcd215bc02f4ffce8264965a1edfdc7c9b65cb15178770a9b9b2c7183",
+  "tick_us": 8,
+  "time_origin": "Elapsed time on this recording's acquisition clock.",
+  "channel_numbering": "One-based Spike2 disk channel.",
+  "pressure_channel": {
+    "channel_one_based": 3,
+    "hardware_input_port": 2,
+    "name": "pressure",
+    "comment": "pressure wave",
+    "son_system_id": 4,
+    "waveform_kind": 1,
+    "storage": "little-endian signed int16",
+    "unit": "mmHg",
+    "scale": 100,
+    "offset": 0,
+    "conversion": "values_mmHg = raw_int16 * scale / 6553.6 + offset",
+    "mmHg_per_count": 0.0152587890625,
+    "sample_period_ticks": 12500,
+    "sample_period_us": 100000,
+    "format_reference": "https://ced.co.uk/img/Spike8print.pdf",
+    "legacy_reader_reference": "https://github.com/NeuralEnsemble/python-neo/blob/e899f3e1e13e11ed09045c463ee340ac86f98311/neo/rawio/spike2rawio.py"
+  },
+  "reading_scope": "Each event fell between two recorded pressure samples, 100 ms apart. The values use the file's conversion to mmHg. The pressure at either event and the sensor's accuracy against a physical reference remain unknown.",
+  "events": [
+    {
+      "channel_one_based": 6,
+      "adc_port": -1,
+      "marker_prefix_byte_offset": 239862292,
+      "marker_bytes_hex": "04000000",
+      "first_sort_byte": 4,
+      "native_event_tick": 17032,
+      "event_time_us": 136256,
+      "pressure_bracket": {
+        "channel_one_based": 3,
+        "unit": "mmHg",
+        "order": [
+          "before",
+          "after"
+        ],
+        "block_file_offset": 5120,
+        "block_bounds_inclusive_ticks": [
+          4,
+          3062504
+        ],
+        "block_samples": 246,
+        "sample_period_ticks": 12500,
+        "ordinals_zero_based_in_block": [
+          1,
+          2
+        ],
+        "sample_ticks": [
+          12504,
+          25004
+        ],
+        "times_us": [
+          100032,
+          200032
+        ],
+        "int16_le_sample_byte_offsets": [
+          5142,
+          5144
+        ],
+        "raw_int16": [
+          3,
+          2
+        ],
+        "values_mmHg": [
+          0.0457763671875,
+          0.030517578125
+        ]
+      },
+      "pressure_at_event_mmHg": null,
+      "author_fibre_id": null,
+      "author_response_class": null,
+      "author_trial_id": null,
+      "pressure_phase": null,
+      "treatment_at_event": null
+    },
+    {
+      "channel_one_based": 7,
+      "adc_port": -1,
+      "marker_prefix_byte_offset": 251802132,
+      "marker_bytes_hex": "02000000",
+      "first_sort_byte": 2,
+      "native_event_tick": 888120,
+      "event_time_us": 7104960,
+      "pressure_bracket": {
+        "channel_one_based": 3,
+        "unit": "mmHg",
+        "order": [
+          "before",
+          "after"
+        ],
+        "block_file_offset": 5120,
+        "block_bounds_inclusive_ticks": [
+          4,
+          3062504
+        ],
+        "block_samples": 246,
+        "sample_period_ticks": 12500,
+        "ordinals_zero_based_in_block": [
+          71,
+          72
+        ],
+        "sample_ticks": [
+          887504,
+          900004
+        ],
+        "times_us": [
+          7100032,
+          7200032
+        ],
+        "int16_le_sample_byte_offsets": [
+          5282,
+          5284
+        ],
+        "raw_int16": [
+          2,
+          4
+        ],
+        "values_mmHg": [
+          0.030517578125,
+          0.06103515625
+        ]
+      },
+      "pressure_at_event_mmHg": null,
+      "author_fibre_id": null,
+      "author_response_class": null,
+      "author_trial_id": null,
+      "pressure_phase": null,
+      "treatment_at_event": null
+    }
+  ]
+}

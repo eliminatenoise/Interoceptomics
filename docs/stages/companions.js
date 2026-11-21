@@ -115,7 +115,7 @@ const models = {
   visceralClock: {
     title: 'Between two pressure readings',
     url: '../visceral-clock/',
-    reading: 'Choose a marked event in a mouse pelvic nerve recording. See where it falls between two measurements of pressure inside the colon, taken a tenth of a second apart.'
+    reading: 'Choose a mark in a mouse pelvic nerve recording and read the pressure inside the colon just before and just after it. The gauge took these readings a tenth of a second apart.'
   },
   exercise: {
     title: 'Follow the exercise and pressure loop',

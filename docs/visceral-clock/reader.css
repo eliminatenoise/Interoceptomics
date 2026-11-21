@@ -63,6 +63,7 @@ legend { padding: 0; margin-bottom: .55rem; font-size: .92rem; font-weight: 650;
 .readings { margin-top: 1rem; }
 .readings figure { padding: clamp(.95rem, 3.5vw, 1.75rem); background: var(--paper); border: 1px solid var(--rule); border-radius: .5rem; }
 figcaption { font-size: clamp(1.12rem, 3vw, 1.4rem); font-weight: 650; letter-spacing: -.025em; }
+.units { max-width: 62ch; margin-top: .4rem; line-height: 1.45; font-size: .9rem; }
 .timeline { position: relative; margin: 1.5rem .38rem 1.2rem; padding-top: 4.6rem; }
 .axis {
   position: relative;
@@ -105,8 +106,10 @@ figcaption { font-size: clamp(1.12rem, 3vw, 1.4rem); font-weight: 650; letter-sp
 .samples > div:last-child { text-align: right; }
 .timeline span { display: block; font-size: .83rem; }
 .timeline strong { display: block; font-size: clamp(1.04rem, 3vw, 1.42rem); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sample-time { margin-top: .15rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .offset { border-top: 1px solid var(--rule); padding-top: .85rem; font-size: .96rem; line-height: 1.5; }
 .offset strong { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.scale-note { max-width: 70ch; margin-top: .65rem; line-height: 1.5; font-size: .94rem; }
 section { margin-top: 1.65rem; }
 h2 { font-size: 1.3rem; line-height: 1.3; letter-spacing: -.025em; }
 section p { max-width: 70ch; margin-top: .5rem; line-height: 1.6; }

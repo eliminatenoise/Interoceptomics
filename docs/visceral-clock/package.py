@@ -1,4 +1,4 @@
-"""Build the standalone timing reader from its public files."""
+"""Build the standalone pressure reader from its public files."""
 
 from hashlib import sha256
 from pathlib import Path
@@ -8,7 +8,9 @@ HERE = Path(__file__).resolve().parent
 FILES = (
     "index.html",
     "reader.css",
+    "pressure-brackets.json",
     "SOURCE.txt",
+    "package.py",
     "CC-BY-4.0.txt",
     "CC0-1.0.txt",
     "Open on Linux.sh",
@@ -18,7 +20,11 @@ FILES = (
 
 
 def build():
-    destination = HERE.parents[1] / "downloads" / "visceral-clock.zip"
+    repo = HERE.parent.parent
+    output = HERE / "rebuilt"
+    if HERE.parent.name == "docs" and (repo / "RIGHTS.md").is_file():
+        output = repo / "downloads"
+    destination = output / "visceral-clock.zip"
     destination.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(destination, "w") as archive:
         for name in FILES:

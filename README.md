@@ -15,7 +15,7 @@ The anatomy atlas, experiment guide and recorded cortex all run in your browser.
 
 The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
 
-**[Between two pressure readings](https://eliminatenoise.github.io/Interoceptomics/visceral-clock/).** Choose a marked event in a mouse pelvic nerve recording and find the pressure samples on either side of it. The gauge sampled the colon once every tenth of a second. [Offline reader](downloads/visceral-clock.zip) · [Recording and credits](docs/visceral-clock/SOURCE.txt)
+**[Between two pressure readings](https://eliminatenoise.github.io/Interoceptomics/visceral-clock/).** Read the pressure inside a mouse colon just before and just after a marked nerve event. The gauge took a reading every tenth of a second. The pressure at the mark itself is unknown. [Offline reader](downloads/visceral-clock.zip) · [Recording and credits](docs/visceral-clock/SOURCE.txt)
 
 **[After the reach](https://eliminatenoise.github.io/Interoceptomics/reach-feedback/).** A macaque reaches for a target while a camera tracks its hand and elbow and a robot measures where the handle goes. Follow four recorded reaches, then compare the spikes counted in sensory cortex with the counts forecast from the earlier recording. [Offline reader and eight animated models](downloads/reach-feedback.zip) · [Methods and attribution](docs/reach-feedback/NOTICE.md)
 
