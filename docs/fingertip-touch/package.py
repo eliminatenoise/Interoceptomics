@@ -12,6 +12,22 @@ FILES = (
 )
 
 
+def offline_contents(name):
+    data = (HERE / name).read_bytes()
+    link = (b'<a href="https://raw.githubusercontent.com/eliminatenoise/'
+            b'Interoceptomics/main/downloads/fingertip-touch.zip">'
+            b'Download the fingertip atlas (ZIP)</a>')
+    if name == "index.html":
+        return data.replace(b'<p class="lead">' + link + b'</p>\n', b'', 1)
+    if name == "methods.html":
+        hosted = (link + b' and extract all the files. Open the launcher for Windows, '
+                  b'macOS or Linux, or open <code>index.html</code> in your browser.')
+        standalone = (b'Extract the entire download and open the launcher for Windows, '
+                      b'macOS or Linux. Opening index.html also works.')
+        return data.replace(hosted, standalone, 1)
+    return data
+
+
 def build():
     dest = HERE.parents[1] / "downloads/fingertip-touch.zip"
     with ZipFile(dest, "w") as archive:
@@ -20,7 +36,7 @@ def build():
             item.create_system = 3
             item.external_attr = (0o100755 if name.endswith((".sh", ".command")) else 0o100644) << 16
             item.compress_type = ZIP_DEFLATED
-            archive.writestr(item, (HERE/name).read_bytes(), compresslevel=9)
+            archive.writestr(item, offline_contents(name), compresslevel=9)
     digest = sha256(dest.read_bytes()).hexdigest()
     dest.with_suffix(".zip.sha256").write_text(digest + "  " + dest.name + "\n")
     return dest

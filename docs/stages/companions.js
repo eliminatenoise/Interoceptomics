@@ -7,6 +7,11 @@ const models = {
     url: '../fingertip-touch/',
     reading: 'Turn a supported fingertip above a glass plate. Compare whole-contact load, a local change in skin shape and counts of impulses in a single sensory fibre using a constructed example.'
   },
+  macaqueTouch: {
+    title: 'Replay a macaque touch recording',
+    url: '../fingertip-touch/#macaque-touch-history',
+    reading: 'Read the four spike counts from one nerve fibre as satin moved across a macaque’s fingertip. A spike is a brief electrical impulse. Choose “Show recorded count” to see how many spikes followed in the next 20 milliseconds and compare that number with the forecast.'
+  },
   crossPersonWrist: {
     title: 'Which wrist moved?',
     url: '../cross-person-wrist/',
@@ -239,7 +244,7 @@ const choicesByStep = {
   'map-brain2body': ['humanWrist', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
   'virtual-challenge': ['words', 'stride'],
-  'motorsensation': ['contactForecast', 'fingertipTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
+  'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
   'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
   'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp'],
   '0.1': ['trip', 'wrist'],
@@ -250,7 +255,7 @@ const choicesByStep = {
   'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
-  'humans': ['humanWrist', 'fingertipTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
+  'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };
 
 const stepShortcut = { handler: 'graspBalanceRecording', mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };
