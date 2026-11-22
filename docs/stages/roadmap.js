@@ -88,7 +88,7 @@ export const groups = [
   ]),
   group('big', 'Back to human function', [
     step('myoception','Myoception',76,'mechanics','As you walk, can the rhythm in your leg muscles tell us how often your knees bend? Compare the two measurements, then trace the sensory route from a muscle in the atlas.','Skin electrodes picked up muscle electrical activity. Motion sensors supplied estimates of knee angle. Separate device clocks leave open which muscle burst went with which bend. What the walkers felt would take a separate observation, such as their own report.'),
-    step('visceroception','Visceroception',77,'loop','What could the experiment say about sensing the organs during movement?','Pair a declared physiological observation with its timing and context. Movement alone cannot tell us what someone felt.'),
+    step('visceroception','Visceroception',77,'loop','Visceroception is sensing conditions inside your organs, such as your bladder stretching as it fills. Trace a sensory pathway in the atlas. Then open a recording from a person at rest to see what changes around a heartbeat.','Skin electrodes recorded the heart’s electrical activity (ECG). An accelerometer on the chest picked up vibration, and a band around the chest responded to breathing. To know what the person felt, you would need their own report.'),
     step('humans','Then We Do It In Humans',78,'body','A result in an animal can suggest a human experiment. The human result still has to be earned.','Choose the task, population, measurement and independent comparison again. A viewer supplies none of the missing observations.')
   ])
 ];

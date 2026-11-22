@@ -203,6 +203,11 @@ const models = {
     url: atlas + '#route=pelvis&step=0',
     reading: 'Compare a stretch signal from the bladder with the autonomic and skeletal motor routes involved in emptying it.'
   },
+  heartBreathing: {
+    title: 'Read the heartbeat and breathing traces',
+    url: '../inside/',
+    reading: 'Move the cursor through one recording. At each instant, compare the ECG with the voltages from the chest accelerometer and the breathing band.'
+  },
   vibration: {
     title: 'Check a chest-vibration forecast',
     url: '../inside/recording-forecast.html',
@@ -260,7 +265,7 @@ const choicesByStep = {
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground'],
-  'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration'],
+  'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration', 'heartBreathing'],
   'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };
 
