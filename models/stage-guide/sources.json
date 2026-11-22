@@ -21,7 +21,7 @@
     "docs/inside/style.css": "53583e6efddcb09f00f05997ab9fa55764d7adf32cede6d41735bcef8152a699",
     "docs/inside/viewer.js": "4ff8d4d47526ef3a50747f3a62e421f4a801475df471ec4f379d1b690728fc15",
     "docs/stages/README.md": "bf0440eadd5cb3065feaa4eb7439f3df065833fbda899077ed17ecfe3f7f515c",
-    "docs/stages/companions.js": "d6f8cc0468c4426495326be1138b9fab9cee024f1350a7d2f715973922de4287",
+    "docs/stages/companions.js": "d69b62e7d3c67fbbc5b031f02e6f96dd3a15544c08edf75f07a07eef9fe87472",
     "docs/stages/guide.js": "7eecee44fa247372e841d5a7592c89bdc5f6cfed8b6b3e2b31387548685f7ed2",
     "docs/stages/index.html": "a99d60c2a0faae5b556d191e0bde684f0ba6b32384b2a71d224d38d1a22e8ef6",
     "docs/stages/recording/MAZE-NOTICE.md": "1e93a23f379676d1f22cf22f6864b2c8d97ba11f29c65539ec7041049a794fd6",
@@ -203,7 +203,7 @@
   },
   "file_blobs": {
     "docs/stages/README.md": "225aa93f1c436f76b96e2b0fb7166e34e0131a13",
-    "docs/stages/companions.js": "2acdb50d00db53731165749207f98178ee75b3f5",
+    "docs/stages/companions.js": "145ef704a4c04427c9e74c116f4f4529e04a84fe",
     "docs/stages/index.html": "c8aca4b90c52ab45bf683dd54216a24a2b55a424",
     "docs/stages/recording/ramp-results.json": "97e7ba43f03da074abab684be18c93d08c9d6e4d",
     "docs/stages/recording/ramp-summary.js": "f07dda0639fd1f099f6ddbb2c7993123b4c88f46",

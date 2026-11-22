@@ -88,6 +88,15 @@ const models = {
     url: neuro + 'joint-alpha/chair-directions/',
     reading: 'Choose a movement and how many earlier camera positions to use. Compare a model trained to stand, one trained to sit, and one that learned both. The linked model runs locally with invented readings or a prepared camera history.'
   },
+  standSitForce: {
+    title: 'Standing and sitting force forecast',
+    url: neuro + 'utah-stand-sit/',
+    reading: 'Edit an invented 200 ms history of force on two floor plates. Compare three forecasts of vertical impulse, the upward force added up over the next 100 ms. Recordings from two of the three people reserved for testing passed the force check and supplied 230 forecast windows.',
+    download: {
+      label: 'Download the stand-and-sit model for offline use (ZIP)',
+      url: 'https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/main/models/neurotranslate-0.0/stand-sit-force/Stand-and-sit-force-preview.zip'
+    }
+  },
   squatMarkerGaps: {
     title: 'Gaps in camera readings',
     url: neuro + 'joint-alpha/missing-pelvis-markers/real-camera-gaps/',
@@ -268,7 +277,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'overground', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration', 'heartBreathing', 'exercise'],
   'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
@@ -281,8 +290,6 @@ export function bindCompanions(section, shortcut) {
   const button=section.querySelector('button');
   const external=section.querySelector('a');
   const download=document.createElement('a');
-  download.href=backslashDownload.url;
-  download.textContent=backslashDownload.label;
   const caption=section.querySelector('p');
   const mount=section.querySelector('.companion-frame');
   const choiceLabel=section.querySelector('label');
@@ -318,7 +325,11 @@ export function bindCompanions(section, shortcut) {
     const model=models[select.value];
     caption.textContent=model.reading;
     external.href=model.url;
-    if(model.url.startsWith(atlas) && !backslashDownload.stagesWithResource.includes(currentStep)){
+    const needsAtlasDownload=model.url.startsWith(atlas) && !backslashDownload.stagesWithResource.includes(currentStep);
+    const pack=model.download || (needsAtlasDownload ? backslashDownload : null);
+    if(pack){
+      download.href=pack.url;
+      download.textContent=pack.label;
       external.after(download);
     }else{
       download.remove();
