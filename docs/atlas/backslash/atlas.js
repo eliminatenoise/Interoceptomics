@@ -105,7 +105,9 @@ function show(scene,key,write=true){
     $('plate-prev').disabled=landmark===stemKeys[0];$('plate-next').disabled=landmark===stemKeys.at(-1);
   }
   sourceCaption(landmark);
-  const parcel=scene==='brain'?brain[landmark][2]:null,xyz=locations[parcel]?.left;
+  const parcel=scene==='brain'?brain[landmark][2]:null;
+  const xyz=showCut?cuts.landmarks[landmark].slices[cutIndex].inspectIJK:locations[parcel]?.left;
+  $('native-point').textContent=showCut?'Inspect a highlighted voxel from this slice in all three planes':'Inspect this atlas voxel in all three planes';
   $('native-link').hidden=!xyz;
   if(xyz)$('native-point').href='../index.html#atlas-labels-v2/be23763c15386f2f211105f1e8144a6887e7615571229090e209b1c78355d378/-98,-134,-72/0.5/'+xyz.join(',')+'/highlight';
   if(showCut){

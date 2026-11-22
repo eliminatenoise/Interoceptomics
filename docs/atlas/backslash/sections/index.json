@@ -207,7 +207,8 @@
       12126,
       12138
     ],
-    "selectedPaletteIndex": 255
+    "selectedPaletteIndex": 255,
+    "inspection": "inspectIJK gives a highlighted source-left voxel on this slice. It is closest to the parcel’s left reference voxel in i and k. Ties use the lower i, then the lower k."
   },
   "notice": "sections/NOTICE.txt",
   "landmarks": {
@@ -234,7 +235,12 @@
             180
           ],
           "image": "sections/motor-j248.png",
-          "sha256": "cf9317d403bfbb92b9ddcabad6036ba03d611cc00c48877423a76d1b6b29d4cb"
+          "sha256": "cf9317d403bfbb92b9ddcabad6036ba03d611cc00c48877423a76d1b6b29d4cb",
+          "inspectIJK": [
+            108,
+            248,
+            241
+          ]
         },
         {
           "position": "Central",
@@ -249,7 +255,12 @@
             197
           ],
           "image": "sections/motor-j254.png",
-          "sha256": "a216279271d3a335eb3bcf42924ac3a9f3920d89e75ddf4ec9a856fb09bc7e41"
+          "sha256": "a216279271d3a335eb3bcf42924ac3a9f3920d89e75ddf4ec9a856fb09bc7e41",
+          "inspectIJK": [
+            113,
+            254,
+            236
+          ]
         },
         {
           "position": "Rostral",
@@ -264,7 +275,12 @@
             204
           ],
           "image": "sections/motor-j260.png",
-          "sha256": "865ca6e4fabeaf81975fffa8f4a67753e9d821f19e8f33fb77bf3b4ac541b089"
+          "sha256": "865ca6e4fabeaf81975fffa8f4a67753e9d821f19e8f33fb77bf3b4ac541b089",
+          "inspectIJK": [
+            113,
+            260,
+            236
+          ]
         }
       ]
     },
@@ -291,7 +307,12 @@
             164
           ],
           "image": "sections/sensory-j216.png",
-          "sha256": "6997997c54b12978faffcc26ead5e4e129ffe753e75d0d91e0d3b5e769a210ec"
+          "sha256": "6997997c54b12978faffcc26ead5e4e129ffe753e75d0d91e0d3b5e769a210ec",
+          "inspectIJK": [
+            113,
+            216,
+            244
+          ]
         },
         {
           "position": "Central",
@@ -306,7 +327,12 @@
             166
           ],
           "image": "sections/sensory-j222.png",
-          "sha256": "4220798991a5800c53d518808361dfe9c71f19ff6050ef543a026d8247c30697"
+          "sha256": "4220798991a5800c53d518808361dfe9c71f19ff6050ef543a026d8247c30697",
+          "inspectIJK": [
+            110,
+            222,
+            243
+          ]
         },
         {
           "position": "Rostral",
@@ -321,7 +347,12 @@
             169
           ],
           "image": "sections/sensory-j228.png",
-          "sha256": "bb17759e9499070576450041ea1fbc5312b4424567d821dd5864bea174a752c0"
+          "sha256": "bb17759e9499070576450041ea1fbc5312b4424567d821dd5864bea174a752c0",
+          "inspectIJK": [
+            110,
+            228,
+            243
+          ]
         }
       ]
     },
@@ -348,7 +379,12 @@
             155
           ],
           "image": "sections/leg-j214.png",
-          "sha256": "9d72410f455ff50f71b50746f2caf6ebea482822b6c8a201cb9283167684027a"
+          "sha256": "9d72410f455ff50f71b50746f2caf6ebea482822b6c8a201cb9283167684027a",
+          "inspectIJK": [
+            184,
+            214,
+            264
+          ]
         },
         {
           "position": "Central",
@@ -363,7 +399,12 @@
             155
           ],
           "image": "sections/leg-j220.png",
-          "sha256": "8c300e228bb37b507b7f81965b4a1733c80a4c5004930327f3116f69568e4e5d"
+          "sha256": "8c300e228bb37b507b7f81965b4a1733c80a4c5004930327f3116f69568e4e5d",
+          "inspectIJK": [
+            184,
+            220,
+            264
+          ]
         },
         {
           "position": "Rostral",
@@ -378,7 +419,12 @@
             154
           ],
           "image": "sections/leg-j226.png",
-          "sha256": "127b3e9721a9e7f4d01c957e659ec541bf59014d31e70d3d9cc136ec59e5f13d"
+          "sha256": "127b3e9721a9e7f4d01c957e659ec541bf59014d31e70d3d9cc136ec59e5f13d",
+          "inspectIJK": [
+            185,
+            226,
+            264
+          ]
         }
       ]
     },
@@ -405,7 +451,12 @@
             238
           ],
           "image": "sections/vpl-j220.png",
-          "sha256": "fa8906d82eeae27da6210995c92aa3c6da77f1eed82378220fe43c6dfded6b41"
+          "sha256": "fa8906d82eeae27da6210995c92aa3c6da77f1eed82378220fe43c6dfded6b41",
+          "inspectIJK": [
+            161,
+            220,
+            151
+          ]
         },
         {
           "position": "Central",
@@ -420,7 +471,12 @@
             241
           ],
           "image": "sections/vpl-j226.png",
-          "sha256": "0f1d0d2ee8959f7e2fa63241a869f0963fb6c94c772afad34ecafce24c4b39bd"
+          "sha256": "0f1d0d2ee8959f7e2fa63241a869f0963fb6c94c772afad34ecafce24c4b39bd",
+          "inspectIJK": [
+            161,
+            226,
+            151
+          ]
         },
         {
           "position": "Rostral",
@@ -435,7 +491,12 @@
             240
           ],
           "image": "sections/vpl-j232.png",
-          "sha256": "27195865c83c90285b5471bd45fb39c12d54ebe5600714c3735843ba784b9f5f"
+          "sha256": "27195865c83c90285b5471bd45fb39c12d54ebe5600714c3735843ba784b9f5f",
+          "inspectIJK": [
+            161,
+            232,
+            151
+          ]
         }
       ]
     },
@@ -462,7 +523,12 @@
             359
           ],
           "image": "sections/cerebellum-j136.png",
-          "sha256": "0a8fd05111f5cee843e47bbba5043a36692891ccb61996576edbf569055ae407"
+          "sha256": "0a8fd05111f5cee843e47bbba5043a36692891ccb61996576edbf569055ae407",
+          "inspectIJK": [
+            132,
+            136,
+            64
+          ]
         },
         {
           "position": "Central",
@@ -477,7 +543,12 @@
             360
           ],
           "image": "sections/cerebellum-j142.png",
-          "sha256": "fc438d811e0707e5686fe66e6fb091bd9042a132e860dad3ea516d4009ea502c"
+          "sha256": "fc438d811e0707e5686fe66e6fb091bd9042a132e860dad3ea516d4009ea502c",
+          "inspectIJK": [
+            132,
+            142,
+            64
+          ]
         },
         {
           "position": "Rostral",
@@ -492,7 +563,12 @@
             361
           ],
           "image": "sections/cerebellum-j148.png",
-          "sha256": "bbfa607804c56532179880b037d023833014fd1e247ec3937a3e9076862dbf52"
+          "sha256": "bbfa607804c56532179880b037d023833014fd1e247ec3937a3e9076862dbf52",
+          "inspectIJK": [
+            129,
+            148,
+            62
+          ]
         }
       ]
     },
@@ -519,7 +595,12 @@
             275
           ],
           "image": "sections/insula-j285.png",
-          "sha256": "a78d48f952f30c46b4e6600a3d1c81dd7d2f8d466813eeaa57abf79cda8f8559"
+          "sha256": "a78d48f952f30c46b4e6600a3d1c81dd7d2f8d466813eeaa57abf79cda8f8559",
+          "inspectIJK": [
+            122,
+            285,
+            140
+          ]
         },
         {
           "position": "Central",
@@ -534,7 +615,12 @@
             278
           ],
           "image": "sections/insula-j291.png",
-          "sha256": "ca41a94b68051014425533a52f1f7f4c1442d4221335876d49a92cb667ed67a3"
+          "sha256": "ca41a94b68051014425533a52f1f7f4c1442d4221335876d49a92cb667ed67a3",
+          "inspectIJK": [
+            124,
+            291,
+            139
+          ]
         },
         {
           "position": "Rostral",
@@ -549,7 +635,12 @@
             274
           ],
           "image": "sections/insula-j297.png",
-          "sha256": "0ec9cfcd711d9e1c3838e9cf2edc0d5b0737ec4cbf337667a282c48180b6b9a3"
+          "sha256": "0ec9cfcd711d9e1c3838e9cf2edc0d5b0737ec4cbf337667a282c48180b6b9a3",
+          "inspectIJK": [
+            124,
+            297,
+            139
+          ]
         }
       ]
     },
@@ -576,7 +667,12 @@
             262
           ],
           "image": "sections/cingulate-j316.png",
-          "sha256": "b090bf94c38573a0bb5811b2a346a1f4ff9aa045618866c6f6bb7c80d64adda6"
+          "sha256": "b090bf94c38573a0bb5811b2a346a1f4ff9aa045618866c6f6bb7c80d64adda6",
+          "inspectIJK": [
+            186,
+            316,
+            179
+          ]
         },
         {
           "position": "Central",
@@ -591,7 +687,12 @@
             262
           ],
           "image": "sections/cingulate-j322.png",
-          "sha256": "163b9990e4d8f29c6d4e61c864ad75c9aaa446bd959aacdf55e7d279097affc4"
+          "sha256": "163b9990e4d8f29c6d4e61c864ad75c9aaa446bd959aacdf55e7d279097affc4",
+          "inspectIJK": [
+            186,
+            322,
+            178
+          ]
         },
         {
           "position": "Rostral",
@@ -606,7 +707,12 @@
             262
           ],
           "image": "sections/cingulate-j328.png",
-          "sha256": "9d0d95aa329e31c43f83ad4cfc59836443c775647918f8f715b5dd605f5df068"
+          "sha256": "9d0d95aa329e31c43f83ad4cfc59836443c775647918f8f715b5dd605f5df068",
+          "inspectIJK": [
+            186,
+            328,
+            178
+          ]
         }
       ]
     },
@@ -633,7 +739,12 @@
             257
           ],
           "image": "sections/hypothalamus-j242.png",
-          "sha256": "b45ba45c2e745da62ef0155e619893d83b7fc6f6b7974eebfc2bb0bb80630f25"
+          "sha256": "b45ba45c2e745da62ef0155e619893d83b7fc6f6b7974eebfc2bb0bb80630f25",
+          "inspectIJK": [
+            193,
+            242,
+            125
+          ]
         },
         {
           "position": "Central",
@@ -648,7 +759,12 @@
             262
           ],
           "image": "sections/hypothalamus-j244.png",
-          "sha256": "bebcd3d8a3a07efdfa7b7fd555132d4870dc7e51a89fdc73e4fd89587e67660b"
+          "sha256": "bebcd3d8a3a07efdfa7b7fd555132d4870dc7e51a89fdc73e4fd89587e67660b",
+          "inspectIJK": [
+            191,
+            244,
+            125
+          ]
         },
         {
           "position": "Rostral",
@@ -663,7 +779,12 @@
             266
           ],
           "image": "sections/hypothalamus-j246.png",
-          "sha256": "5bf56dabf284f1a6870f1835dece99ca6d76b4bc0316234ec11583f02ace9f49"
+          "sha256": "5bf56dabf284f1a6870f1835dece99ca6d76b4bc0316234ec11583f02ace9f49",
+          "inspectIJK": [
+            193,
+            246,
+            123
+          ]
         }
       ]
     },
@@ -690,7 +811,12 @@
             274
           ],
           "image": "sections/midbrain-j213.png",
-          "sha256": "a4010d58ef3090e9ae6908613314984df09b6915f8bd755f2eb2f83b6950068c"
+          "sha256": "a4010d58ef3090e9ae6908613314984df09b6915f8bd755f2eb2f83b6950068c",
+          "inspectIJK": [
+            184,
+            213,
+            121
+          ]
         },
         {
           "position": "Central",
@@ -705,7 +831,12 @@
             276
           ],
           "image": "sections/midbrain-j219.png",
-          "sha256": "6347af44612295f4d46b3eebbd485115fa2b1ff2b0a5846ea532fe01c59c9c40"
+          "sha256": "6347af44612295f4d46b3eebbd485115fa2b1ff2b0a5846ea532fe01c59c9c40",
+          "inspectIJK": [
+            184,
+            219,
+            121
+          ]
         },
         {
           "position": "Rostral",
@@ -720,7 +851,12 @@
             275
           ],
           "image": "sections/midbrain-j225.png",
-          "sha256": "8e66047d9adedc952e20226aca994281cd9f2a201f8cade39a38899f676c6e56"
+          "sha256": "8e66047d9adedc952e20226aca994281cd9f2a201f8cade39a38899f676c6e56",
+          "inspectIJK": [
+            180,
+            225,
+            118
+          ]
         }
       ]
     },
@@ -747,7 +883,12 @@
             372
           ],
           "image": "sections/medulla-j179.png",
-          "sha256": "0245fc3dfbfbd48ca039480d55fd048b0c4d2e915c7addcab1431c5c067085be"
+          "sha256": "0245fc3dfbfbd48ca039480d55fd048b0c4d2e915c7addcab1431c5c067085be",
+          "inspectIJK": [
+            187,
+            179,
+            34
+          ]
         },
         {
           "position": "Central",
@@ -762,7 +903,12 @@
             373
           ],
           "image": "sections/medulla-j185.png",
-          "sha256": "0c71ec925df33863f4ad5c81efac0382b6b4760997f350131f969bdfac4bd528"
+          "sha256": "0c71ec925df33863f4ad5c81efac0382b6b4760997f350131f969bdfac4bd528",
+          "inspectIJK": [
+            187,
+            185,
+            34
+          ]
         },
         {
           "position": "Rostral",
@@ -777,7 +923,12 @@
             365
           ],
           "image": "sections/medulla-j191.png",
-          "sha256": "9716303a2a80f94a9afa40236464893467f87975aa1891365cc2d89c602a8e31"
+          "sha256": "9716303a2a80f94a9afa40236464893467f87975aa1891365cc2d89c602a8e31",
+          "inspectIJK": [
+            187,
+            191,
+            34
+          ]
         }
       ]
     }

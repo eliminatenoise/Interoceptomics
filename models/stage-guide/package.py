@@ -15,14 +15,15 @@ NAME = 'Interoceptomics-Stage-Guide'
 STAMP = (2026, 11, 22, 0, 0, 0)
 
 
-def source_bytes(path, digest, commit):
+def source_bytes(path, digest, commit, source_blob=None):
     local = REPO / path
     if local.is_file():
         data = local.read_bytes()
         if sha256(data).hexdigest() == digest:
             return data
     # The website may have advanced, for example by adding a link to this ZIP.
-    data = subprocess.check_output(['git', '-C', str(REPO), 'show', commit + ':' + path])
+    source = source_blob or commit + ':' + path
+    data = subprocess.check_output(['git', '-C', str(REPO), 'cat-file', 'blob', source])
     if sha256(data).hexdigest() != digest:
         raise ValueError('Unexpected public source bytes: ' + path)
     return data
@@ -83,7 +84,8 @@ def main():
                         add('www/RIGHTS.md', data)
 
             for slug, product in inventory['companion_archives'].items():
-                archive = source_bytes(product['path'], product['sha256'], inventory['source_commit'])
+                archive = source_bytes(product['path'], product['sha256'], inventory['source_commit'],
+                                       product.get('git_blob'))
                 with ZipFile(BytesIO(archive)) as original:
                     for member in original.infolist():
                         if member.is_dir():
