@@ -1,0 +1,200 @@
+{
+  "source_commit": "cc86d3cccb5610d6effaae6cacef9f062b68c20c",
+  "public_repository": "https://github.com/eliminatenoise/Interoceptomics",
+  "files": {
+    "LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "RIGHTS.md": "71500ad84ce19213ecca3260e8c5a5c6bc5b95c1eefb3adc4ecfe621d1f6e00f",
+    "docs/current/FONT-LICENSE-Liberation.txt": "93fed46019c38bbe566b479d22148e2e8a1e85ada614accb0211c37b2c61c19b",
+    "docs/current/FONT-LICENSE-Microsoft-CoreFonts.txt": "2f4ddfab76725b733505a55821db32152189cde34b65beb1c8500f047c049ea7",
+    "docs/current/Interoceptomics-Script-Simple.pdf": "cce180133187d6a4796546a49b9beaeba3900e5e9a9566b919b43f41d01b78b9",
+    "docs/current/Interoceptomics-Script-Technical.pdf": "ae07b1d7784ad28945b7ece9da528da585037032292f347e7dafec3c01b24e7d",
+    "docs/current/LICENSE-CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "docs/current/NOTICE.txt": "255e87ad3892e9933612ada4bc89aa11faafb32da776cdec9430023f91878031",
+    "docs/inside/README.md": "79e06d6255be896a082fbb863f4e0dad7b71298c11fb895c5fd8d467e256611e",
+    "docs/inside/data/b001.bin": "eab9494fd0d4922afbfcaf6069eeb8c6b201f6323684a785f8eba126bcea9a5e",
+    "docs/inside/data/b002.bin": "e7133235a184006757f36024bd326c5e953f6c2b3a1255bf5ae4b403791d301a",
+    "docs/inside/data/b003.bin": "19d89ac77c109b3e4d8809548be0e3996bedbe92c63b33258e76a963d5ac3dd1",
+    "docs/inside/data/manifest.json": "ea8aa4fe4546bf79b09a89a30c89c128fb28bbb580ecca09e0cead69c5b6be8d",
+    "docs/inside/forecast.html": "eacd10c4370756eadfbd85a837688b3f81826ec72a2eb25708ea92bb6261061b",
+    "docs/inside/index.html": "9c33f0a3715a19562c123f98f5afc05930791ddc718476a023cf386b5b1e1777",
+    "docs/inside/recording-forecast.html": "b9ce42f1b9fdb462df3abb4a5c1e343c2dc7ed059934df82e2b6cf5974542f47",
+    "docs/inside/style.css": "53583e6efddcb09f00f05997ab9fa55764d7adf32cede6d41735bcef8152a699",
+    "docs/inside/viewer.js": "4ff8d4d47526ef3a50747f3a62e421f4a801475df471ec4f379d1b690728fc15",
+    "docs/stages/README.md": "23c0b2c2089e7ff7a38c5534ea671e2b8902be179671096588edf68fc505a6ff",
+    "docs/stages/companions.js": "9be90c507ea9b6af94787dbcd6e4ad505db9894c751e925f08b2626dfa3653e0",
+    "docs/stages/guide.js": "7eecee44fa247372e841d5a7592c89bdc5f6cfed8b6b3e2b31387548685f7ed2",
+    "docs/stages/index.html": "c4e5af6498e62487ed8aa5a5810b6e32c1c3399a098268ea1ede1079f19cbc61",
+    "docs/stages/recording/MAZE-NOTICE.md": "1e93a23f379676d1f22cf22f6864b2c8d97ba11f29c65539ec7041049a794fd6",
+    "docs/stages/recording/NOTICE.md": "2e2b271c065d12dd751906ba2fb13c9047e66ad0880ad134d1b9fd11f2f081b0",
+    "docs/stages/recording/WRIST-NOTICE.md": "4e1608f3b05a62e27e5efbd9dba19c904a309791c8ad61dda99aedbf8d899cdc",
+    "docs/stages/recording/maze-trial.json": "65d3223f5e2958064711b36dd98abb0f7bd6ee4c8cc556f212fd5891a514e6b7",
+    "docs/stages/recording/maze.js": "037a44e9512a5828c4a7c7d35b0c48b59e36d634b9884f8e6efd94c5f8db1212",
+    "docs/stages/recording/read-packet.js": "b30038401fb44744ca8ea122e24b46f9e81a8c4d0b704cca66a732b5727e7ab9",
+    "docs/stages/recording/rebuild-maze.py": "1acfae41e16240ef9833ba50c1ab5d0d806ea1e27bfe559299a5f54b483f20e3",
+    "docs/stages/recording/view.js": "fd2b3798ca633cdb43d239de29187c96968882f0fca6dc988a81dc7b4d04b364",
+    "docs/stages/recording/walking.json": "48c0ed4e6f6db73a6646680d0682bb635dcff5195578666e3766b1400a6418e2",
+    "docs/stages/recording/wrist-forecasts.json": "2bd309fae885c2a2ff5b3d0d70e18e67354acbe6a28a290b5799e4a80cd4e982",
+    "docs/stages/recording/wrist-pointing.json": "578184a108d7682c37a4f409ce4cd7535b33d203007f39ca0f5d28831ffde41f",
+    "docs/stages/recording/wrist.js": "62389f206469c6f96b81d31dd452afa5d77d2c1d9b542af68824ca0aac720caa",
+    "docs/stages/recording/wtrack/NOTICE.md": "12bbf6a7f3a02356d8642239c9af4e177489a17d2fe90cec064b0ca28ecae504",
+    "docs/stages/recording/wtrack/build_packet.py": "4c782825eab5e788a474db616e80d176a83193124b0dcadc0b99ef453bd53f48",
+    "docs/stages/recording/wtrack/packet.json": "6a683b82dea7260977c3464f7468943d21915633daf4ec81c7ee1a9926965d21",
+    "docs/stages/recording/wtrack/plane.js": "6ad485e573d3ac7174f28706513ebb7fffcd2399a23e9104e80e31e49d211e1c",
+    "docs/stages/recording/wtrack/ridge.js": "b5943c61beea254985e7c88d4343230a38203e03c95b278d3d20f0303687e75c",
+    "docs/stages/recording/wtrack/style.css": "81340c0657566a208fe47e963f13c702f1f5d47d6aec8bbd84437dcb9522a100",
+    "docs/stages/recording/wtrack/view.js": "44d8c9eb8fba02911c83432ec4ffa21f29afa91b37bcebd3f4b0aba48da18314",
+    "docs/stages/roadmap.js": "e0ba277a2478a5eaab4852c4492c4d51f0fcd711b04f256d8799c073685d709b",
+    "docs/stages/scene.js": "471a725ab24cb491a78bfc047f0306e6e8bc19005c5918e23a41b96c9c649381",
+    "docs/stages/style.css": "4b1de31b2b0db2dcb635a005602b32ddf115b9de8801c6b8c029a2889191d8eb"
+  },
+  "companion_archives": {
+    "backslash": {
+      "path": "downloads/backslash/Backslash-Atlas.zip",
+      "sha256": "beeba659cd576fa00021477d69dda2077fcfd4435bc7237759fdbad967922563",
+      "routes": {
+        "/atlas/": "Backslash-Atlas/viewer/"
+      }
+    },
+    "contact-forecast": {
+      "path": "downloads/contact-forecast/Interoceptomics-Contact-Forecast.zip",
+      "sha256": "2c5a9bf32e6710acd9225a69b902440f3273acc6ff806d4fc8f27f81a9f511db",
+      "routes": {
+        "/contact-forecast/": "Contact Forecast/"
+      }
+    },
+    "cortical-reach": {
+      "path": "downloads/cortical-reach/Interoceptomics-Cortical-Reach.zip",
+      "sha256": "8daff897c3f11038050692a904a192c7220c84e2b43062763d5f501cde883f3d",
+      "routes": {
+        "/cortical-reach/": "Cortical Reach/"
+      }
+    },
+    "cross-limb-movement": {
+      "path": "downloads/cross-limb-movement.zip",
+      "sha256": "3cce4681d4b6fda4b695fb29ddd62b0db1c889eb0fc7a3cb49310469a86e0d22",
+      "routes": {
+        "/cross-limb-movement/": "Grasping and balancing/"
+      }
+    },
+    "cross-person-wrist": {
+      "path": "downloads/cross-person-wrist.zip",
+      "sha256": "adedc29fea20b77dc8585d3706f857af7251ff3e585b9ad995146bc893704de8",
+      "routes": {
+        "/cross-person-wrist/": "cross-person-wrist/"
+      }
+    },
+    "cylinder-rotation": {
+      "path": "downloads/cylinder-rotation.zip",
+      "sha256": "ea9ac232b11f7a4cac5b66741ee3f0c2442d46178da7e7491fbf04b991fd7cd9",
+      "routes": {
+        "/cylinder-rotation/": "cylinder-rotation/"
+      }
+    },
+    "fingertip-touch": {
+      "path": "downloads/fingertip-touch.zip",
+      "sha256": "51ffcaeacb54d82ee4b8e25778d828cc2b577410eb70a8fae53f078729084229",
+      "routes": {
+        "/fingertip-touch/": "fingertip-touch/"
+      }
+    },
+    "human-wrist": {
+      "path": "downloads/human-wrist.zip",
+      "sha256": "9ec583e129433ccbe58407895348b95e3e551bb73375c1008bfc41e5d4ad26f8",
+      "routes": {
+        "/human-wrist/": "human-wrist/"
+      }
+    },
+    "muscle-and-motion": {
+      "path": "downloads/muscle-and-motion.zip",
+      "sha256": "bb75238bde7bfb26c7f9a40576652363888ff80c507bf5ba914ae191f77ea3e1",
+      "routes": {
+        "/muscle-and-motion/": "Muscle and motion/"
+      }
+    },
+    "muscle-spindle": {
+      "path": "downloads/muscle-spindle/Interoceptomics-Muscle-Spindle.zip",
+      "sha256": "56b6efd596ec44cd2195dab2a6090d8cd1c76a127816184f50bbd56c5495ddba",
+      "routes": {
+        "/muscle-spindle/": "Muscle Spindle/"
+      }
+    },
+    "pedal-load": {
+      "path": "downloads/pedal-load.zip",
+      "sha256": "a49b582bd54ec4dce35f9ced21bdd259daa4fe0f7d6a42e7cd7b848d0ef70ed2",
+      "routes": {
+        "/pedal-load/": ""
+      }
+    },
+    "reach-feedback": {
+      "path": "downloads/reach-feedback.zip",
+      "sha256": "ec054615dc8d6411e264c93e730f8ae91eb90fd7951c51e2e7555ccfb51c7963",
+      "routes": {
+        "/reach-feedback/": "Reach feedback/"
+      }
+    },
+    "reach-feedback-one-week": {
+      "path": "downloads/reach-feedback-one-week.zip",
+      "sha256": "d004658fc57ca198440e88a9dc1d6f54367271cc5e6fb9f1fc9de06d53405f96",
+      "routes": {
+        "/reach-feedback/one-week/": "One week later/one-week/"
+      }
+    },
+    "recorded-cortex": {
+      "path": "downloads/recorded-cortex.zip",
+      "sha256": "5120d878165cb5fcbf260691dda57ef7c70e167e5976dd51fa846dc5818723f9",
+      "routes": {
+        "/recorded-cortex/": "docs/recorded-cortex/",
+        "/cortex-coverage/": "docs/cortex-coverage/"
+      }
+    },
+    "scalp-and-arm": {
+      "path": "downloads/scalp-and-arm.zip",
+      "sha256": "4a45df9447278b01d61ef5a255d734287d73c6e3e28203bedad43e01a190725e",
+      "routes": {
+        "/scalp-and-arm/": ""
+      }
+    },
+    "stride-signals": {
+      "path": "downloads/stride-signals.zip",
+      "sha256": "5c6671f4f1acda27db577bb5566b5132d4b18239e688a6f30cbcc4aabf06e907",
+      "routes": {
+        "/stride-signals/": "docs/stride-signals/"
+      }
+    },
+    "target-reach": {
+      "path": "downloads/target-reach.zip",
+      "sha256": "2ba42e0e5de3b376791066cfc6b3d16f91bdff4b16ee1aefd2de5b0386fd34cf",
+      "routes": {
+        "/target-reach/": "target-reach/"
+      }
+    },
+    "visceral-clock": {
+      "path": "downloads/visceral-clock.zip",
+      "sha256": "19e4f366d7b65086d921100c9139bfe697140455ba10334fcd7a6ca3f8747929",
+      "routes": {
+        "/visceral-clock/": "visceral-clock/"
+      }
+    },
+    "visual-balance": {
+      "path": "downloads/visual-balance.zip",
+      "sha256": "28c3ad556f7b0098d26d0669ccf4bdec3fc2e7216787d3e48d1be5af7bfaec87",
+      "routes": {
+        "/visual-balance/": "Visual Balance/"
+      }
+    },
+    "walking-force": {
+      "path": "downloads/walking-force.zip",
+      "sha256": "d8dc3aa8eb9482bd94c68bd1d8770cc4f3c9e3c4e9f590508ebc349cb09623de",
+      "routes": {
+        "/walking-force/": "Walking force replay/"
+      }
+    },
+    "walking-instructions": {
+      "path": "downloads/walking-instructions.zip",
+      "sha256": "64eecd4331d52d3e835e9b8234a40c730ff68a4bfbdde64125f56660f7c08f17",
+      "routes": {
+        "/walking-instructions/": ""
+      }
+    }
+  }
+}

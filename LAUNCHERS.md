@@ -2,6 +2,10 @@
 
 The atlas viewer opens on the project's website, and it can also be downloaded and started on your own computer. The shortcuts below are bookmarks to the project page.
 
+## Experiment guide
+
+Extract the entire ZIP and open **Windows.cmd**, **macOS.command** or **Linux.sh**. You need Python 3.10 or newer and a browser. The human recordings, animal-stage diagrams and Backslash atlas work offline. The separate NeuroTranslate models and NeuroSurge game open online. [Open the guide](https://eliminatenoise.github.io/Interoceptomics/stages/) · [Download the offline edition](downloads/stage-guide/Interoceptomics-Stage-Guide.zip)
+
 ## Between two pressure readings
 
 Extract the entire ZIP. Open the launcher for Windows, macOS or Linux, or open the extracted `index.html` directly in a browser. You can inspect both events offline. [Open the reader](https://eliminatenoise.github.io/Interoceptomics/visceral-clock/) · [Download the standalone reader](downloads/visceral-clock.zip)
