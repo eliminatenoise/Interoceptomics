@@ -36,7 +36,7 @@ const models = {
   reachFeedback: {
     title: 'After the reach',
     url: '../reach-feedback/',
-    reading: 'Turn the recorded hand and elbow markers, follow the handle in its own plane, and count the spikes that followed in sensory cortex. Which forecasts matched the measurements?'
+    reading: 'Turn the recorded hand and elbow markers, follow the handle in its own plane, and count the spikes that followed in sensory cortex. Compare the forecasts with those measurements.'
   },
   reachPaths: {
     title: 'Hand and elbow forecasts',
@@ -51,7 +51,7 @@ const models = {
   kuopioTurning: {
     title: 'Turning-lift wrist forecasts',
     url: neuro + 'joint-alpha/kuopio-turning-lift/',
-    reading: 'What changes when a lift includes a turn? Compare the models trained on different lifts and see how adding muscle readings changed the wrist forecast.'
+    reading: 'Compare models trained on different lifting tasks. Check how adding muscle readings changes the wrist forecast during a lift with a turn.'
   },
   runReachForecast: {
     title: 'Run a reach forecast',
@@ -71,7 +71,7 @@ const models = {
   graspSensors: {
     title: 'Forecast a grasp sensor reading',
     url: neuro + 'joint-alpha/grasp-sensor/',
-    reading: 'A macaque pulled a sliding handle. What would its six sensors read 20 milliseconds later? Compare forecasts with and without spikes recorded from the brain. In each of two fits, a model without spikes gave the smallest error for handle travel.'
+    reading: 'A macaque pulled a sliding handle. Compare forecasts for its six sensor readings 20 milliseconds later, with and without recorded brain spikes. In each of two fits, a model without spikes gave the smallest error for handle travel.'
   },
   graspBalanceRecording: {
     title: 'Replay the wrist and pelvis recordings',
@@ -81,7 +81,7 @@ const models = {
   graspBalanceForecast: {
     title: 'Check the wrist and pelvis forecasts',
     url: neuro + 'cross-limb-movement/#evidence',
-    reading: 'How closely did earlier movement and muscle activity predict the next 125 milliseconds? Compare the errors for each task. The editable forecast starts from invented readings. Choose “Replay the wrist and pelvis recordings” to inspect two measured examples from model development.'
+    reading: 'Compare how closely earlier movement and muscle activity predicted the next 125 milliseconds in each task. The editable forecast starts from invented readings. Choose “Replay the wrist and pelvis recordings” to inspect two measured examples from model development.'
   },
   chairDirections: {
     title: 'Compare forecasts for standing up and sitting down',
@@ -126,7 +126,7 @@ const models = {
   walkingInstructions: {
     title: 'Compare a usual walk with a fast walk',
     url: '../walking-instructions/',
-    reading: 'One person walked at their usual pace and at a fast pace. Match the walks at the same time after foot strike or at the same fraction of a stride. How far did the pelvis travel in each?'
+    reading: 'Compare one person’s usual and fast walks at the same time after foot strike or the same fraction of a stride. Read how far the pelvis moved in each walk.'
   },
   melbourneWalkingForecast: {
     title: 'Forecast a walk with force',
@@ -136,12 +136,12 @@ const models = {
   visualBalance: {
     title: 'Replay a turn of the visual scene',
     url: '../visual-balance/',
-    reading: 'A person walks a beam while the view in their headset turns. Pick a sample and compare scalp voltage with the positions of the head and pelvis. The recordings show how the body moved. What the person felt is a separate question.'
+    reading: 'A person walks a beam while the view in their headset turns. Pick a sample and compare scalp voltage with head and pelvis position. The recordings show movement. Describing what the person felt would require their own report.'
   },
   muscleBalance: {
     title: 'Compare standing and walking balance',
     url: '../muscle-and-motion/',
-    reading: 'When the view turns, where does a marker at the base of the spine go? Compare the paths from one person standing and walking on a beam. Move through each recording to see what eight electrodes on the lower legs picked up at the same time.'
+    reading: 'Follow the marker at the base of the spine as the view turns. Compare its path for one person standing and walking on a beam. Read the simultaneous signals from eight lower-leg electrodes.'
   },
   pedal: {
     title: 'Compare shin activity and pedal load',
@@ -176,7 +176,7 @@ const models = {
   spindle: {
     title: 'Count the spikes from a muscle spindle',
     url: '../muscle-spindle/',
-    reading: 'During passive stretch of a rat calf, how many spikes travel along one sensory axon? Turn the cutaway, then use the trial clock to compare five past intervals with the following 20 milliseconds.'
+    reading: 'Rotate the cutaway, then count the spikes recorded from one sensory axon during passive stretch of a rat’s calf. Use the trial clock to compare five past intervals with the next 20 milliseconds.'
   },
   muscle: {
     title: 'Trace a signal from a muscle',
@@ -231,7 +231,7 @@ const models = {
   knee: {
     title: 'Compare knee-angle forecasts',
     url: neuro + 'knee-motion/',
-    reading: 'Five readings from the hips, knees and ankles go in. How far will each knee bend 15 frames later? Try the invented step, check the errors for 12 people whose walks were kept out of training, or open an original angle file to see what followed.'
+    reading: 'Use five earlier readings from the hips, knees and ankles to forecast both knee angles 15 frames later. Try the invented step, check the errors for the 12 walkers kept out of training, or open an original angle file to inspect the measured movement.'
   },
   overground: {
     title: 'Follow one stride from muscles to the floor',
@@ -242,7 +242,7 @@ const models = {
     title: 'Compare muscle and knee rhythms',
     url: neuro + 'gait-rhythm/',
     start: '#case-title',
-    reading: 'Try walker S41, then S42. How often do the leg muscles and knees repeat their patterns? Compare each walker’s knee rate with their own muscle rate and with another person’s. Each instrument supplies its own 40-second window.'
+    reading: 'Select walker S41, then S42. Compare how often each person’s knee movement and muscle activity repeat, then compare the muscle rate from the other walker. Each instrument supplies its own 40-second window.'
   },
   words: {
     title: 'Generate a walk or run from its name',

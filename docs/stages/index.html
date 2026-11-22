@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Follow a real wrist-pointing trial, compare forecasts with measured movement, or explore proposed animal learning experiments.">
+<meta name="description" content="Recorded wrist pointing, movement forecasts and proposed animal learning experiments in the Interoceptomics stage guide.">
 <title>Experiment guide · Interoceptomics</title>
 <link rel="stylesheet" href="recording/wtrack/style.css">
 <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
@@ -11,8 +11,8 @@
 <a class="skip" href="#experiment">Skip to the experiment</a>
 <header><a href="../" class="wordmark">Interoceptomics</a><span class="location">Experiment guide</span><a class="source" href="https://github.com/eliminatenoise/Interoceptomics">Source ↗</a></header>
 <main>
-<h1>Explore movement and learning</h1>
-<p class="intro">Choose <strong>Human movement</strong> to check a saved wrist forecast against a recording. Choose <strong>Animal learning</strong> to see how proposed experiments would test what an animal learns after guidance stops. The 3D diagrams illustrate proposed setups. The recordings come from earlier studies.</p>
+<h1>Human movement and animal learning</h1>
+<p class="intro">Choose <strong>Human movement</strong> to check a saved wrist forecast against a recording. Choose <strong>Animal learning</strong> for proposed tests of animal learning after guidance stops. The 3D diagrams illustrate proposed setups. The recordings come from earlier studies.</p>
 <p><a href="https://raw.githubusercontent.com/eliminatenoise/Interoceptomics/main/downloads/stage-guide/Interoceptomics-Stage-Guide.zip">Download the guide for offline use (ZIP)</a></p>
 <nav class="visions" aria-label="Choose an experiment"><a id="small-link" href="#map-brain2body">Human movement <span>Small vision · NeuroTranslation × NeuroSurge</span></a><a id="big-link" href="#0.1">Animal learning <span>Big vision · Interoceptomics</span></a></nav>
 <noscript>This guide needs JavaScript for its controls. Read the <a href="../current/Interoceptomics-Script-Technical.pdf">technical script</a> or <a href="../current/Interoceptomics-Script-Simple.pdf">simple script</a>.</noscript>
@@ -42,7 +42,7 @@
 <p class="wrist-key">Both wrist traces use the same scale. Positive angles mean the wrist bends back or tilts towards the thumb. Each voltage trace has its own scale.</p>
 </div>
 <div class="wrist-compare">
-<h4>What happened a quarter-second later?</h4>
+<h4>Wrist-angle forecast a quarter of a second ahead</h4>
 <p>Choose the last instant the model could see. It used the preceding half-second and the time since the cue to forecast both angles.</p>
 <label for="wrist-cutoff">Last input, after the cue</label><select id="wrist-cutoff"></select>
 <label for="wrist-inputs">Measurements the model used</label>
@@ -52,7 +52,7 @@
 </div>
 </div>
 <p>These forecasts were calculated in advance with the three trained NeuroTranslation models. This public example was excluded from the 959-trial comparison. Across those trials from three people, adding the forearm signals increased the model’s error from 5.432° to 5.866°.</p>
-<details class="wrist-methods"><summary>What did the instruments record?</summary>
+<details class="wrist-methods"><summary>Wrist sensors and electrode readings</summary>
 <p>The displayed scalp voltage comes from electrode C3. The forearm trace subtracts the reading at M3R from the reading at M3L. Both use microvolts (µV). Every 16 stored rows, the full model calculates an average for each of eight scalp channels and a voltage amplitude for each of four forearm pairs.</p>
 <p>The file stores 512 rows per second. The angle sensors update at 100 readings per second, so neighbouring rows can repeat the same angle. Hardware delays are unknown. The target marker records when the screen cued the movement. Spinal activity, muscle force and sensory nerve feedback would each require a separate measurement.</p>
 </details>
@@ -68,18 +68,18 @@
 <label for="maze-frame">Camera frame <output id="maze-time" for="maze-frame"></output></label>
 <input type="range" id="maze-frame" min="0" step="1" value="0">
 <div class="maze-columns">
-<div><h4>Where was the rat?</h4>
+<div><h4>Rat position on the track</h4>
 <svg id="maze-map" viewBox="0 0 265 270" aria-hidden="true"></svg>
 <output id="maze-position" for="maze-frame"></output>
 <p id="maze-clock"></p>
 <p>The pale dots are the camera readings from the whole trip. The orange ring marks your frame. Both axes use centimetres in the study’s track coordinates.</p></div>
-<div><h4>When did the cells fire?</h4>
+<div><h4>Spike times from two recorded cells</h4>
 <p>Each short stroke marks a spike from one cell. Both rows cover the same 48.899 seconds. The orange line follows your camera frame.</p>
 <div id="maze-units"></div>
 <button type="button" id="maze-jump">Find the first hippocampal spike</button>
 <p id="maze-gap" role="status"></p>
 </div></div>
-<details><summary>How close are the two measurements in time?</summary>
+<details><summary>Camera and spike timing</summary>
 <p>The camera positions and spikes share a session clock. The file holds 1,387 tracked positions, with 20–91 milliseconds between readings. The rat’s exact position between those readings is unknown. The source names the centre well as its reference frame and gives no compass bearing.</p>
 <p>The study sorted the electrical events into groups attributed to individual cells. This excerpt takes the first listed unit in each of two brain regions. Their timing alone cannot tell us which cell made the rat turn. Testing feedback would require measuring what guidance reached an animal and how it responded.</p>
 </details>
@@ -98,9 +98,9 @@
 <div class="control" id="limb-wrap"><label for="limb">Limb</label><select id="limb"><option value="left-arm">Left arm</option><option value="left-leg">Left leg</option><option value="right-leg">Right leg</option><option value="right-arm" selected>Right arm</option></select></div>
 </div>
 <p class="readout" id="scene-caption"></p>
-<section class="evidence"><h3>What would count as evidence?</h3><p id="evidence"></p><a id="script-link">Read this step in the technical script ↗</a></section>
+<section class="evidence"><h3>Evidence and limits</h3><p id="evidence"></p><a id="script-link">Read this step in the technical script ↗</a></section>
 <section id="recording">
-<h3>Read a real walking sensor</h3><p>A walker wore sensors on both arms, both legs and the torso. As a leg speeds up, slows down or tilts relative to gravity, its sensor reading changes. This is the acceleration the model tries to predict. Pick a sensor and compare the forecast with the reading taken 120 milliseconds after the last input. The computer learned from this parking-lot walk.</p>
+<h3>Walking sensor recordings</h3><p>A walker wore sensors on both arms, both legs and the torso. As a leg speeds up, slows down or tilts relative to gravity, its sensor reading changes. This is the acceleration the model tries to predict. Pick a sensor and compare the forecast with the reading taken 120 milliseconds after the last input. This parking-lot walk was part of the model’s training data.</p>
 <button type="button" id="open-recording" aria-controls="sample-panel" aria-expanded="false">Open the walking recording</button><p id="sample-status" role="status"></p>
 <div id="sample-panel" hidden>
 <div class="controls"><div class="control"><label for="sensor">Wearable sensor</label><select id="sensor"><option value="right_arm">Right arm</option><option value="left_arm">Left arm</option><option value="right_leg">Right leg</option><option value="left_leg">Left leg</option><option value="torso">Torso</option></select></div>
