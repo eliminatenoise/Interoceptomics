@@ -20,7 +20,7 @@
     "docs/inside/recording-forecast.html": "b9ce42f1b9fdb462df3abb4a5c1e343c2dc7ed059934df82e2b6cf5974542f47",
     "docs/inside/style.css": "53583e6efddcb09f00f05997ab9fa55764d7adf32cede6d41735bcef8152a699",
     "docs/inside/viewer.js": "4ff8d4d47526ef3a50747f3a62e421f4a801475df471ec4f379d1b690728fc15",
-    "docs/stages/README.md": "dbfa73ce33502173bf8d2732e97b87b5a1f987e00575c4c7ece414e26c0b9eb8",
+    "docs/stages/README.md": "7666a599ad4ae725a524819702db905eff65b29c7d473f4e90c60486235d5ab3",
     "docs/stages/companions.js": "d67410710965553934f7d54b4d03fbaf489caf6cec4836d3a07c62faebf1e345",
     "docs/stages/guide.js": "7eecee44fa247372e841d5a7592c89bdc5f6cfed8b6b3e2b31387548685f7ed2",
     "docs/stages/index.html": "6da4b406e6b5f0e5d464680ece72f928458e23d5e3690ea02f6ca3592c26d7b9",
@@ -45,7 +45,7 @@
     "docs/stages/recording/wtrack/ridge.js": "b5943c61beea254985e7c88d4343230a38203e03c95b278d3d20f0303687e75c",
     "docs/stages/recording/wtrack/style.css": "81340c0657566a208fe47e963f13c702f1f5d47d6aec8bbd84437dcb9522a100",
     "docs/stages/recording/wtrack/view.js": "44d8c9eb8fba02911c83432ec4ffa21f29afa91b37bcebd3f4b0aba48da18314",
-    "docs/stages/roadmap.js": "b021cfa9453b2d7c5f0d4fbe440b10c2414dfe930be9c57eb2e4b1b0ec75051e",
+    "docs/stages/roadmap.js": "6c71574f0f9fd165cfe4ca96e193e2439ff671456145e59589a4fab485f64168",
     "docs/stages/scene.js": "471a725ab24cb491a78bfc047f0306e6e8bc19005c5918e23a41b96c9c649381",
     "docs/stages/style.css": "ba6ed0a66b822cf150fae3bf2bfceed9c9b1ff9b0815b1b6eebfae6a733fe10f"
   },
@@ -201,12 +201,12 @@
     }
   },
   "file_blobs": {
-    "docs/stages/README.md": "4f32299a9f99b1f2ebe066e84039d4f22700eeec",
+    "docs/stages/README.md": "994071a2e1bb31d0d0e43136d07d8e00faafa6c0",
     "docs/stages/companions.js": "444dda11909257c716d80de01e292881858acdd2",
     "docs/stages/index.html": "3ddf1fd44a9fa2293edefc1fcb0a7b5d2ad38ae9",
     "docs/stages/recording/ramp-results.json": "97e7ba43f03da074abab684be18c93d08c9d6e4d",
     "docs/stages/recording/ramp-summary.js": "f07dda0639fd1f099f6ddbb2c7993123b4c88f46",
-    "docs/stages/roadmap.js": "12d43843462edaf3b32409518feb6e254f2751fb",
+    "docs/stages/roadmap.js": "525359b06005d639155990189ca8d9ad3fd3fe89",
     "docs/stages/style.css": "d749b0920b32b2b79656ecc1636a0f3a6a578a8a"
   }
 }
