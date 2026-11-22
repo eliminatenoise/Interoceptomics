@@ -50,11 +50,11 @@
   "companion_archives": {
     "backslash": {
       "path": "downloads/backslash/Backslash-Atlas.zip",
-      "sha256": "350798d7127e5b12197a9bbac607d72b6351f1e0a699ea65360c9be1b4abfc84",
+      "sha256": "fdb48ac9081717129a05fba6846395f1a9f318e3c26e54a78966cf48ca9f9962",
       "routes": {
         "/atlas/": "Backslash-Atlas/viewer/"
       },
-      "git_blob": "139ac4946b50f8dc54007b1498779c1392154baf"
+      "git_blob": "5cdde0aeadff343d111506db5ed7921ef2fc0bd9"
     },
     "contact-forecast": {
       "path": "downloads/contact-forecast/Interoceptomics-Contact-Forecast.zip",
