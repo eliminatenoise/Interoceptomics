@@ -158,6 +158,12 @@ function render(directionFocus=false){
     $('companions').scrollIntoView({block:'start'});
   }else if(directionFocus)$('experiment').focus({preventScroll:true});
 }
+document.querySelector('.skip').addEventListener('click',event=>{
+  // The URL fragment already identifies the active stage and companion.
+  event.preventDefault();
+  $('experiment').focus({preventScroll:true});
+  $('experiment').scrollIntoView({block:'start'});
+});
 function move(delta){
   const s=allSteps[allSteps.indexOf(current)+delta];
   if(s)location.hash=s.id;

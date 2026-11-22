@@ -281,6 +281,7 @@ export function bindCompanions(section, shortcut) {
   const manualLink=section.querySelector('#manual-stage-link');
   const address=manualLink.querySelector('input');
   let currentStep;
+  let focusOnClose;
   let copyAttempt=0;
 
   function selectionHash() {
@@ -292,6 +293,7 @@ export function bindCompanions(section, shortcut) {
   }
 
   function close() {
+    focusOnClose=null;
     mount.replaceChildren();
     mount.hidden=true;
     button.textContent='Open here';
@@ -329,8 +331,13 @@ export function bindCompanions(section, shortcut) {
   }
 
   button.addEventListener('click',()=>{
-    if(mount.hidden)open();
-    else close();
+    if(mount.hidden){
+      open();
+    }else{
+      const opener=focusOnClose || button;
+      close();
+      opener.focus();
+    }
   });
   shortcut.addEventListener('click',()=>{
     const reader=stepShortcut[currentStep];
@@ -340,6 +347,7 @@ export function bindCompanions(section, shortcut) {
     }
     rememberSelection();
     if(mount.hidden)open();
+    focusOnClose=shortcut;
     button.focus();
     section.scrollIntoView({block:'start'});
   });
