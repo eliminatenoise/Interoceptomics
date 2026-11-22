@@ -64,6 +64,7 @@ function refreshHash(write=true){
   if(routeId){q.set('route',routeId);q.set('step',stepIndex);}
   const fragment='#'+q;
   if(onlineSelection)onlineSelection.href=onlineAtlas+fragment;
+  if(current==='body')$('organ-gallery').querySelector('a').href='organ/index.html'+fragment;
   if(write)history.replaceState(null,'',fragment);
 }
 function show(scene,key,write=true){
