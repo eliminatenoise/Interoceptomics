@@ -99,6 +99,9 @@ function render(directionFocus=false){
   $('progress').style.width=(sidx/same.length*100)+'%';
   $('title').textContent=(/^\d/.test(current.id)?current.id+' · ':'')+current.title;
   $('group-name').textContent=g.title;$('question').textContent=current.question;$('evidence').textContent=current.evidence;
+  if(current.id==='map-brain2body')
+    $('evidence').append(' ',link('See how a shared pulse checks brain and wheel clocks in a mouse recording',
+      'https://eliminatenoise.github.io/NeuroTranslation/joint-alpha/probe-wheel-clock/'));
   $('script-link').href='../current/Interoceptomics-Script-Technical.pdf#page='+technicalPage(current.slide);
   $('script-link').textContent='Technical script · slide '+current.slide+' ↗';
   const showWTrack = current.id === '0.2';
