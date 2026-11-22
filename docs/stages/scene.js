@@ -96,6 +96,7 @@ export function showScene(canvas, step, limb, t, angle, mode) {
     if(step.scene.endsWith('-replay')&&mode!=='off'){
       const [rx,rz]=atDistance(path,ref);circle(rx,.11,rz,.25,paper);
     }
+    if(step.id==='0.2')return 'The dot is '+pct+'% along the programmed corridor. Use the Camera frame slider above to follow the rat’s measured position on the W-track.';
     return 'Prescribed route '+pct+'% complete.'+(step.scene.endsWith('-replay')?' Replay '+(mode==='off'?'off.':Math.round(ref*100)+'% through the same route.'):'')+' No animal position has been recorded.';
   }
   if(human){
