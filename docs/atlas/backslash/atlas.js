@@ -113,11 +113,17 @@ function routeRender(openPlace=true){
   $('family').textContent=route.family+' · '+step.kind;$('step-title').textContent=step.name;$('step-copy').textContent=step.text;
   sourceLink($('step-source'),sources[step.source]);$('progress').textContent=(stepIndex+1)+' of '+route.stops.length;
   $('back').disabled=stepIndex===0;$('forward').disabled=stepIndex===route.stops.length-1;
-  $('steps').replaceChildren(...route.stops.map((s,i)=>{
-    const item=document.createElement('li'),b=document.createElement('button'),kind=document.createElement('span');
-    b.textContent=s.name;kind.textContent=s.kind;b.append(kind);if(i===stepIndex)b.setAttribute('aria-current','step');
-    b.onclick=()=>{stepIndex=i;routeRender();};item.append(b);return item;
-  }));
+  const steps=$('steps');
+  if(steps.dataset.route!==routeId){
+    steps.replaceChildren(...route.stops.map((s,i)=>{
+      const item=document.createElement('li'),b=document.createElement('button'),kind=document.createElement('span');
+      b.textContent=s.name;kind.textContent=s.kind;b.append(kind);
+      b.onclick=()=>{stepIndex=i;routeRender();};item.append(b);return item;
+    }));
+    steps.dataset.route=routeId;
+  }
+  steps.querySelector('[aria-current="step"]')?.removeAttribute('aria-current');
+  steps.children[stepIndex].firstElementChild.setAttribute('aria-current','step');
   if(openPlace){cut=false;cutIndex=1;show(...step.where.split(':'));}
 }
 $('route').add(new Option('Choose a pathway…',''));
