@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Walking forecasts with measured force · Interoceptomics</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; background: #fafaf6; color: #192d29; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 46rem; padding: clamp(1rem, 4vw, 2rem); margin: 0 auto; }
+    h1 { font-size: clamp(1.65rem, 5vw, 2.65rem); line-height: 1.1; letter-spacing: -.035em; margin: 0 0 .85rem; }
+    p { margin: .7rem 0; }
+    .finding { padding: .8rem 1rem; background: #edf2ed; border-left: .25rem solid #257661; }
+    .finding p:first-child { margin-top: 0; } .finding p:last-child { margin-bottom: 0; }
+    a { color: #145c50; text-underline-offset: .18em; }
+    a:focus-visible { outline: 3px solid #9c4e14; outline-offset: 3px; }
+    nav { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem 1rem; padding-top:.35rem; }
+    nav a { padding:.48rem 0; font-weight:650; }
+    footer { border-top: 1px solid #b7c8bb; margin-top:1.3rem; color:#43584e; font-size:.9rem; }
+  </style>
+</head>
+<body><main>
+  <h1>Walking forecasts with measured force</h1>
+  <p>Cameras tracked markers on the heels of 16 people walking with an above-knee prosthesis at 0.6 m/s. Force plates measured how hard each foot pressed down. The models used 200 milliseconds of earlier readings to forecast the next 100 milliseconds.</p>
+  <section class="finding" aria-labelledby="result"><p id="result"><strong>Adding force made the impulse forecast more accurate for all 16 walkers.</strong></p><p>Vertical impulse is the force under a foot added up over the forecast interval. Average error fell from 16.35 newton-seconds using heel positions alone to 7.13 using heel positions and force. For each input choice, the comparison averaged the forecasts of two training runs.</p></section>
+  <p>These sensors measured heel movement and floor force. Muscle electrical activity would need a separate recording. To learn what walking felt like, we would need the walkers’ own reports.</p>
+  <nav aria-label="Study and model"><a href="https://github.com/eliminatenoise/NeuroTranslation/tree/main/models/neurotranslate-0.0/compact-walking#comparison-on-recorded-walks" target="_blank" rel="noopener noreferrer">Read the NeuroTranslate 0.0 results on GitHub</a><a href="https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/main/models/neurotranslate-0.0/compact-walking/Compact-walking-preview.zip" target="_blank" rel="noopener noreferrer">Download the offline model (ZIP)</a></nav>
+  <p>Download the ZIP while online. Extract it and open index.html or the launcher for your computer. The sliders use invented heel movements and loads to show each foot’s forecast offline.</p>
+  <footer><p>Utah walking recordings by Sarah Hood and Tommaso Lenzi. NeuroTranslation computed the forecast errors from those recordings. <a href="https://doi.org/10.6084/m9.figshare.c.4962305.v1" target="_blank" rel="noopener noreferrer">Original data</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · <a href="https://github.com/eliminatenoise/NeuroTranslation/blob/main/models/neurotranslate-0.0/compact-walking/DATASET-CREDITS.md" target="_blank" rel="noopener noreferrer">Model and recording credits</a>.</p></footer>
+</main></body>
+</html>

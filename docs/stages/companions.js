@@ -113,6 +113,11 @@ const models = {
     url: neuro + 'joint-alpha/missing-pelvis-markers/running-incline/',
     reading: 'The forecast uses camera readings to predict how much pelvis height changes 100 milliseconds after the last reading. Compare the same 38 Bath runners at their usual treadmill pace setting on slopes of +1%, +6% and −4%.'
   },
+  utahForceForecast: {
+    title: 'Walking forecasts with measured force',
+    url: 'walking-force-forecast.html',
+    reading: 'Adding force readings improved the impulse forecast for all 16 walkers at 0.6 m/s. The companion links the recorded results and an offline model with invented inputs.'
+  },
   walkingFloorForce: {
     title: 'See what the floor records as you walk',
     url: '../walking-force/',
@@ -253,7 +258,7 @@ const models = {
 
 const choicesByStep = {
   'map-brain2body': ['humanWrist', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
-  'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal'],
+  'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
   'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
@@ -263,7 +268,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'overground', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration', 'heartBreathing', 'exercise'],
   'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']

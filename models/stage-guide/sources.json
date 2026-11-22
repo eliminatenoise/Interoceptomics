@@ -21,7 +21,7 @@
     "docs/inside/style.css": "53583e6efddcb09f00f05997ab9fa55764d7adf32cede6d41735bcef8152a699",
     "docs/inside/viewer.js": "4ff8d4d47526ef3a50747f3a62e421f4a801475df471ec4f379d1b690728fc15",
     "docs/stages/README.md": "bf0440eadd5cb3065feaa4eb7439f3df065833fbda899077ed17ecfe3f7f515c",
-    "docs/stages/companions.js": "08255fdc37a5ebd60bc83554c55e4b1970955ae37fe7203cf80e5b49f50a6d3e",
+    "docs/stages/companions.js": "9feb4281bb8e2ef0fea66e59a5b523606422c512d4e8e24918fd43c5244d2aca",
     "docs/stages/guide.js": "7eecee44fa247372e841d5a7592c89bdc5f6cfed8b6b3e2b31387548685f7ed2",
     "docs/stages/index.html": "6da4b406e6b5f0e5d464680ece72f928458e23d5e3690ea02f6ca3592c26d7b9",
     "docs/stages/recording/MAZE-NOTICE.md": "1e93a23f379676d1f22cf22f6864b2c8d97ba11f29c65539ec7041049a794fd6",
@@ -47,7 +47,8 @@
     "docs/stages/recording/wtrack/view.js": "44d8c9eb8fba02911c83432ec4ffa21f29afa91b37bcebd3f4b0aba48da18314",
     "docs/stages/roadmap.js": "8e1cc11a148d60d774274d8fb6f9a98c6a0acbfdc67f2268af0fc2e942e4041b",
     "docs/stages/scene.js": "471a725ab24cb491a78bfc047f0306e6e8bc19005c5918e23a41b96c9c649381",
-    "docs/stages/style.css": "ba6ed0a66b822cf150fae3bf2bfceed9c9b1ff9b0815b1b6eebfae6a733fe10f"
+    "docs/stages/style.css": "ba6ed0a66b822cf150fae3bf2bfceed9c9b1ff9b0815b1b6eebfae6a733fe10f",
+    "docs/stages/walking-force-forecast.html": "41bc5a3993a5d366b8cc76ba2f09fc9374651d9061b70b6e32c648b1e4aa512c"
   },
   "companion_archives": {
     "backslash": {
@@ -202,11 +203,12 @@
   },
   "file_blobs": {
     "docs/stages/README.md": "225aa93f1c436f76b96e2b0fb7166e34e0131a13",
-    "docs/stages/companions.js": "87be9bceb02f89c04370bda090c3a8aceba33d8b",
+    "docs/stages/companions.js": "be0405bb5589518ec70d6558a127cafbaccd381f",
     "docs/stages/index.html": "3ddf1fd44a9fa2293edefc1fcb0a7b5d2ad38ae9",
     "docs/stages/recording/ramp-results.json": "97e7ba43f03da074abab684be18c93d08c9d6e4d",
     "docs/stages/recording/ramp-summary.js": "f07dda0639fd1f099f6ddbb2c7993123b4c88f46",
     "docs/stages/roadmap.js": "42fe8996a30461d0980ae9bd8345cfea6484a731",
-    "docs/stages/style.css": "d749b0920b32b2b79656ecc1636a0f3a6a578a8a"
+    "docs/stages/style.css": "d749b0920b32b2b79656ecc1636a0f3a6a578a8a",
+    "docs/stages/walking-force-forecast.html": "34306a02261402878d473d3232aaad5d15af7f52"
   }
 }
