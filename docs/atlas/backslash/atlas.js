@@ -9,6 +9,14 @@ const first={brain:'medial',stem:'medulla',body:'all',plate:'spindle'};
 const prefs={...first};
 let current='brain',landmark='medial',routeId='',stepIndex=0,bodyPromise,rotation=false;
 const frame=$('brain-frame');
+const onlineAtlas='https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/';
+let onlineSelection;
+if(['127.0.0.1','localhost','[::1]'].includes(location.hostname)){
+  onlineSelection=document.createElement('a');
+  onlineSelection.textContent='Open this selection online';
+  onlineSelection.rel='noreferrer';
+  document.querySelector('header nav').append(onlineSelection);
+}
 function sourceLink(parent,link){
   const anchor=document.createElement('a');anchor.href=link[1];anchor.textContent=link[0];
   parent.replaceChildren(anchor);
@@ -50,11 +58,13 @@ function sourceCaption(key){
     const a=document.createElement('a');a.textContent=p.rights;a.href=p.license;$('view-source').append(' · ',a);
   }
 }
-function refreshHash(){
+function refreshHash(write=true){
   const q=new URLSearchParams({scene:current,[{brain:'landmark',stem:'plate',body:'organ',plate:'plate'}[current]]:landmark});
   if(cut&&current==='brain')q.set('cut',['caudal','central','rostral'][cutIndex]);
   if(routeId){q.set('route',routeId);q.set('step',stepIndex);}
-  history.replaceState(null,'','#'+q);
+  const fragment='#'+q;
+  if(onlineSelection)onlineSelection.href=onlineAtlas+fragment;
+  if(write)history.replaceState(null,'',fragment);
 }
 function show(scene,key,write=true){
   const entries=scene==='brain'?Object.entries(brain).map(([k,v])=>[k,v[0]]):scene==='body'?Object.entries(organs).map(([k,v])=>[k,v[0]]):(scene==='stem'?stemKeys:tissueKeys).map(k=>[k,plates[k].name]);
@@ -101,7 +111,7 @@ function show(scene,key,write=true){
     const info=cuts.landmarks[landmark],slice=info.slices[cutIndex];
     $('view-caption').textContent='Coronal section of the Allen atlas annotation. Orange marks '+slice.selectedVoxels+' source-left voxels with label '+info.labelId+' on this slice. Each pixel represents 0.5 mm along each displayed axis. L and R are anatomical left and right in the reference atlas.'+(info.labelId===10467?' Here 10467 is the residual parent label. Its orange voxels cover only part of the hypothalamus; several subregions have separate labels.':'');
   }
-  if(write)refreshHash();
+  refreshHash(write);
 }
 $('section').onclick=()=>{cut=true;cutIndex=1;show('brain',landmark);};
 $('surface').onclick=()=>{cut=false;show('brain',landmark);};
