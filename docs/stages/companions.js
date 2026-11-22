@@ -1,4 +1,10 @@
 const atlas = '../atlas/backslash/';
+
+export const backslashDownload = {
+  label: 'Download Backslash circuits and PDF (ZIP)',
+  url: 'https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/backslash/Backslash-Atlas.zip',
+  stagesWithResource: ['myoception', 'visceroception', 'composite', '5.3', 'mechanics']
+};
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
@@ -264,6 +270,9 @@ export function bindCompanions(section, shortcut) {
   const select=section.querySelector('select');
   const button=section.querySelector('button');
   const external=section.querySelector('a');
+  const download=document.createElement('a');
+  download.href=backslashDownload.url;
+  download.textContent=backslashDownload.label;
   const caption=section.querySelector('p');
   const mount=section.querySelector('.companion-frame');
   const choiceLabel=section.querySelector('label');
@@ -297,6 +306,11 @@ export function bindCompanions(section, shortcut) {
     const model=models[select.value];
     caption.textContent=model.reading;
     external.href=model.url;
+    if(model.url.startsWith(atlas) && !backslashDownload.stagesWithResource.includes(currentStep)){
+      external.after(download);
+    }else{
+      download.remove();
+    }
     external.textContent='Open in a separate tab';
     external.setAttribute('aria-label',model.title+' in a separate tab');
   }
@@ -365,6 +379,7 @@ export function bindCompanions(section, shortcut) {
       manualLink.hidden=true;
       feedback.textContent='';
       select.replaceChildren();
+      download.remove();
       external.removeAttribute('href');
       return false;
     }

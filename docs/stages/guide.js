@@ -1,4 +1,4 @@
-import {bindCompanions} from './companions.js';
+import {backslashDownload,bindCompanions} from './companions.js';
 import {allSteps,groups,visions,technicalPage} from './roadmap.js';
 import {sceneInfo,showScene} from './scene.js';
 import {selectWalkingLimb} from './recording/view.js';
@@ -146,9 +146,8 @@ function render(directionFocus=false){
   if(['0.1','0.3','0.4','0.5'].includes(current.id))
     resource('Follow a recorded rat and two brain cells on a W-track', '#0.2');
   if(!small){
-    if(['myoception','visceroception','composite','5.3','mechanics'].includes(current.id))
-      resource('Download Backslash circuits and PDF (ZIP)',
-        'https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/backslash/Backslash-Atlas.zip');
+    if(backslashDownload.stagesWithResource.includes(current.id))
+      resource(backslashDownload.label,backslashDownload.url);
     resource('Download the reference brain atlas (ZIP) ↗',external.atlas);
     resource('Atlas instructions and attribution ↗',external.atlasGuide);
   }
