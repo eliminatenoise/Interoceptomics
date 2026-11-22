@@ -1,10 +1,22 @@
-# The experiment guide
+# Use the experiment guide
 
-[Open the guide](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** or **Animal learning**, then pick a stage or task. Move through its steps with the Previous and Next buttons or the left and right arrow keys. The address follows the selected step. Copy it to share a particular experiment.
+[Open the guide in your browser](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** to start with the wrist recording or **Animal learning** to explore six proposed stages. The animal section also includes a previous study of a rat on a W-shaped track. The planned experiments have yet to run.
 
-**Human movement** (Small vision) opens with a [right-wrist pointing trial](https://eliminatenoise.github.io/Interoceptomics/stages/#map-brain2body). Scrub through three seconds of scalp voltage, forearm voltage and two wrist angles. Choose where a forecast starts and see how far each trained model missed the wrist reading a quarter-second later. This public example is separate from the reported evaluation. [Wrist trial, model and licence](recording/WRIST-NOTICE.md)
+Use the **Stage or task** menu to change experiments. The Previous and Next buttons or the left and right arrow keys move through the steps. Copy the browser address to share the current step.
 
-Below the recording, move the time slider to bend an arm or a leg. The movement in the drawing is programmed. Select **Open the walking recording** to see measurements from a real person. Compare a computer’s prediction with what the sensor recorded 120 milliseconds later. This walk was used to train the computer model. The guide also links to the NeuroSurge game controls, the camera preview and the NeuroTranslate 0.0 studies. [Recording and licence](recording/NOTICE.md)
+## Check a wrist forecast against a recording
+
+1. [Open the right-wrist trial](https://eliminatenoise.github.io/Interoceptomics/stages/#map-brain2body). Move **Time from the visual cue** to read three seconds of scalp voltage, forearm voltage and wrist movement.
+2. Under **Last input, after the cue**, select where the model's input ended. Under **Measurements the model used**, choose which set of readings its forecast came from.
+3. Compare the saved forecast with the two angles the wrist sensors measured a quarter of a second later. Select **Show this outcome on the traces** to move the slider to that reading.
+
+This public trial was left out of the reported evaluation. [Wrist trial, model and licence](recording/WRIST-NOTICE.md)
+
+## Compare a forecast with a recorded walk
+
+Select **Open the walking recording** to compare a saved forecast with the sensor reading taken 120 milliseconds after the last input. The walking clip was part of model training. Back in the guide, **Task time** bends the arm or leg in the separate programmed diagram. The guide also links to NeuroSurge's game controls, the camera preview and the NeuroTranslate 0.0 studies. [Recording and licence](recording/NOTICE.md)
+
+## Follow the other movement examples
 
 Under **Human movement**, choose **NeuroHandler** in the stage menu. Select **Replay the wrist and pelvis recordings**, then **Cutoff** and **Last frame**. A wrist moves after a light cues a grasp. In the other study, a marker on the back of the pelvis moves as a walker’s view turns. Each panel fits its own path to the screen. Read the displacement in millimetres to compare distance from the cutoff. Each study has its own clock, coordinates and muscle recordings. [Open Manual dexterity](https://eliminatenoise.github.io/Interoceptomics/stages/#handler)
 

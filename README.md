@@ -1,19 +1,19 @@
 # Interoceptomics
 
-**The Human Genome Project failed.** Not at sequencing: it delivered the human reference sequence in 2003. It failed at what was promised next, and most rare diseases still have no approved treatment. A list of the parts is not an account of what they do. A wiring diagram of the nervous system has the same limit: it shows what is connected, not what the body feels.
+How does the body sense a heartbeat or a breath? Interoceptomics is a proposed field that would study those sensations alongside the nerves that carry and process their signals. Sensing what happens inside the body is called *interoception*. Mapping connections between nerve cells is called *connectomics*. A map helps identify possible routes. Measurements would test what happens along those routes.
 
-Interoceptomics is a proposed field of science that starts from the other end. *Interoception* is the body sensing its own interior: a heartbeat, a breath. *Connectomics* is the mapping of nerve connections. Put the two together and go function first: measure what the body senses and does, then ask which connections carry it. None of its experiments has been run yet.
+## Try one wrist forecast
 
-## Open these first
+[Open the right-wrist trial](https://eliminatenoise.github.io/Interoceptomics/stages/#map-brain2body). Under **Last input, after the cue**, choose the last moment the model could use. Compare its saved forecast with the two wrist angles the sensors measured a quarter of a second later.
 
-The anatomy atlas, experiment guide and recorded cortex all run in your browser.
+The [experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/) also contains earlier recordings of a walk and a rat on a W-shaped track. The 3D sketches show the planned setups. Interoceptomics has yet to run its proposed experiments.
 
-1. **[Backslash of the Brain](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/)** follows signals from muscles and organs through 3D models and slices of the human brain, spinal cord and organs (an anatomy atlas). [More below](#backslash-of-the-brain).
-2. **[The experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/)** walks through the proposed experiments one step at a time, each beside a 3D sketch you can turn, with recorded examples from open datasets: a wrist movement, a walk, a rat on a W-shaped track. [More below](#follow-the-experiments).
-3. **[The Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/atlas/)** is a 3D model of the left half of a human brain, built from a published map of the brain's regions: the Allen Institute's human reference atlas. [More below](#the-atlas-viewer-a-brain-map-you-can-turn-cut-and-measure).
-4. **[The two scripts](#the-talk-is-paused-its-scripts-are-published)** of the talk that proposes the field, as PDF and Word (DOCX) files.
+## Open an atlas or read the proposal
 
-The argument is made in full in a talk, *I Know Kung Fu*. In *The Matrix*, Neo has kung fu loaded into his brain through a cable; the talk's 111 slides ask what a real version would have to measure, beginning with one movement. The field is named on slides 87 and 88. The talk is paused. Its two scripts are [published](#the-talk-is-paused-its-scripts-are-published).
+- **[Backslash of the Brain](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/)** lets you trace pathways from muscles and organs through the brain and spinal cord. Turn the anatomical models or open a slice. [About this atlas](#backslash-of-the-brain)
+- **[Interoceptomics Atlas Viewer](https://eliminatenoise.github.io/Interoceptomics/atlas/)** lets you turn, cut and measure a 3D model of the left half of a reference brain. The regions come from the Allen Institute's published atlas. [About this viewer](#the-atlas-viewer-a-brain-map-you-can-turn-cut-and-measure)
+- **[Recorded cortex](https://eliminatenoise.github.io/Interoceptomics/recorded-cortex/)** shows where electrodes sat on one person's brain surface and how the electrical signals changed around a finger cue.
+- **[The two scripts of I Know Kung Fu](#the-talk-is-paused-its-scripts-are-published)** are available as PDF and Word documents. The paused 111-slide talk uses *The Matrix* to ask what a real test of skill transfer would have to measure. Slides 87 and 88 introduce Interoceptomics.
 
 **[Between two pressure readings](https://eliminatenoise.github.io/Interoceptomics/visceral-clock/).** Read the pressure inside a mouse colon just before and just after a marked nerve event. The gauge took a reading every tenth of a second. The pressure at the mark itself is unknown. [Offline reader](downloads/visceral-clock.zip) · [Recording and credits](docs/visceral-clock/SOURCE.txt)
 
