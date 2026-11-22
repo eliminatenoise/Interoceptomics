@@ -16,6 +16,8 @@ This public trial was left out of the reported evaluation. [Wrist trial, model a
 
 Select **Open the walking recording** to compare a saved forecast with the sensor reading taken 120 milliseconds after the last input. The walking clip was part of model training. Back in the guide, **Task time** bends the arm or leg in the separate programmed diagram. The guide also links to NeuroSurge's game controls, the camera preview and the NeuroTranslate 0.0 studies. [Recording and licence](recording/NOTICE.md)
 
+Open **Compare forecasts on level ground and ramps** for a separate walking study. Pick a walking condition and choose heel movement or upward force. The two scores show how far each forecast was from the measurement using room directions or directions lined up with the measured floor. Both use the same model and recordings. [Ramp recordings and licence](https://doi.org/10.6084/m9.figshare.29300888.v1)
+
 ## Follow the other movement examples
 
 Under **Human movement**, choose **NeuroHandler** in the stage menu. Select **Replay the wrist and pelvis recordings**, then **Cutoff** and **Last frame**. A wrist moves after a light cues a grasp. In the other study, a marker on the back of the pelvis moves as a walker’s view turns. Each panel fits its own path to the screen. Read the displacement in millimetres to compare distance from the cutoff. Each study has its own clock, coordinates and muscle recordings. [Open Manual dexterity](https://eliminatenoise.github.io/Interoceptomics/stages/#handler)

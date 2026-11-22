@@ -1,0 +1,103 @@
+{
+  "forecast_ms": 100,
+  "conditions": {
+    "all": {
+      "movement": {
+        "room": 38.88775202444868,
+        "floor": 26.356646571003306,
+        "people": 12,
+        "forecasts": 22304
+      },
+      "impulse": {
+        "room": 13.250019620387874,
+        "floor": 13.383886836503157,
+        "people": 12,
+        "forecasts": 9763
+      }
+    },
+    "level_down": {
+      "movement": {
+        "room": 23.797686554909603,
+        "floor": 23.735899089263,
+        "people": 12,
+        "forecasts": 2500
+      },
+      "impulse": {
+        "room": 11.247855628410333,
+        "floor": 11.233718920334171,
+        "people": 12,
+        "forecasts": 1049
+      }
+    },
+    "level_up": {
+      "movement": {
+        "room": 23.261737874312363,
+        "floor": 23.168450573333384,
+        "people": 12,
+        "forecasts": 2094
+      },
+      "impulse": {
+        "room": 11.253196991376603,
+        "floor": 11.268958807262374,
+        "people": 12,
+        "forecasts": 890
+      }
+    },
+    "ramp_10_down": {
+      "movement": {
+        "room": 47.14921097514522,
+        "floor": 27.542685127062956,
+        "people": 12,
+        "forecasts": 4380
+      },
+      "impulse": {
+        "room": 14.330630733631985,
+        "floor": 14.479201610144692,
+        "people": 12,
+        "forecasts": 2038
+      }
+    },
+    "ramp_10_up": {
+      "movement": {
+        "room": 44.45052269084246,
+        "floor": 28.296563199083497,
+        "people": 12,
+        "forecasts": 4832
+      },
+      "impulse": {
+        "room": 14.664391669651758,
+        "floor": 14.948080504950331,
+        "people": 12,
+        "forecasts": 2058
+      }
+    },
+    "ramp_75_down": {
+      "movement": {
+        "room": 40.88181642578248,
+        "floor": 26.583639531782556,
+        "people": 12,
+        "forecasts": 4226
+      },
+      "impulse": {
+        "room": 12.547992427059532,
+        "floor": 12.568714300222785,
+        "people": 12,
+        "forecasts": 1966
+      }
+    },
+    "ramp_75_up": {
+      "movement": {
+        "room": 38.40765885249055,
+        "floor": 25.73715705975442,
+        "people": 11,
+        "forecasts": 4272
+      },
+      "impulse": {
+        "room": 13.88652887327396,
+        "floor": 14.185253730747327,
+        "people": 11,
+        "forecasts": 1762
+      }
+    }
+  }
+}

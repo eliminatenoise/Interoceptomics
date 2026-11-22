@@ -110,6 +110,30 @@
 <p>The first 16 readings span 0 to 600 milliseconds (ms). Compare the prediction with the reading at 720 ms. X, Y and Z are directions on the sensor, and the numbers use its original units. The recording measures acceleration. Joint angles and nerve activity would each need a different measurement.</p>
 <p class="data-credit">Billur Barshan and Kerem Altun, <i>Daily and Sports Activities</i> (2010). <a href="https://archive.ics.uci.edu/dataset/256/daily">UCI dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="recording/NOTICE.md">Clip, checkpoint and source hashes</a></p>
 </div>
+<details id="ramp-comparison">
+<summary>Compare forecasts on level ground and ramps</summary>
+<p>In a separate study, cameras tracked people’s heels as they walked up and down ramps. Plates in the floor measured how hard they pushed against it. The same model forecast each walk twice. First it used the usual room directions. Then it used directions lined up with the measured floor.</p>
+<p id="ramp-status" role="status"></p>
+<div id="ramp-data" hidden>
+<div class="controls">
+<div class="control"><label for="ramp-condition">Walking condition</label><select id="ramp-condition">
+<option value="all">All walks</option><option value="level_up">Level ground, first direction</option><option value="level_down">Level ground, reverse direction</option>
+<option value="ramp_75_up">Up a 7.5° ramp</option><option value="ramp_75_down">Down a 7.5° ramp</option>
+<option value="ramp_10_up">Up a 10° ramp</option><option value="ramp_10_down">Down a 10° ramp</option>
+</select></div>
+<div class="control"><label for="ramp-outcome">What the model forecast</label><select id="ramp-outcome">
+<option value="movement">Heel movement</option><option value="impulse">Upward force over time</option>
+</select></div>
+</div>
+<p id="ramp-reading"></p>
+<dl class="ramp-errors" aria-label="Average forecast error. Smaller is closer to the measurement.">
+<div><dt>Room directions</dt><dd><output id="ramp-room" for="ramp-condition ramp-outcome"></output><span class="ramp-track" aria-hidden="true"><span></span></span></dd></div>
+<div><dt>Lined up with the floor</dt><dd><output id="ramp-floor" for="ramp-condition ramp-outcome"></output><span class="ramp-track" aria-hidden="true"><span></span></span></dd></div>
+</dl>
+<p id="ramp-coverage" role="status"></p>
+</div>
+<p class="data-credit">Adapted from walking recordings by Lucas Schreff, Johanna Vielemeyer, Roy Müller and Lisa Tronicke. <a href="https://doi.org/10.6084/m9.figshare.29300888.v1">Recordings</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · <a href="https://github.com/eliminatenoise/NeuroTranslation/blob/9fbaefd6474c5eb74056418788d38ea24b1aa171/models/neurotranslate-0.1/paired-plates/RAMP.md">Test method and instructions</a></p>
+</details>
 </section>
 <section id="coverage"><h3 id="coverage-title">Movement coverage</h3><dl id="coverage-data"></dl>
 <a href="https://github.com/eliminatenoise/NeuroTranslation/blob/main/benchmarks/daily-sports-limbs/CAPABILITIES.md">Compare body regions in the capability catalogue ↗</a></section>
@@ -132,5 +156,6 @@
 </div>
 <footer><a href="../">Project home</a><a href="../current/Interoceptomics-Script-Simple.pdf">Simple script</a><a href="https://github.com/eliminatenoise/Interoceptomics/blob/main/RIGHTS.md">Rights and credits</a></footer>
 </main><script type="module" src="guide.js"></script>
+<script type="module" src="recording/ramp-summary.js"></script>
 </body>
 </html>

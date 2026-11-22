@@ -73,7 +73,8 @@ def main():
                 bundle.writestr(item, data, compresslevel=7)
 
             for path, digest in inventory['files'].items():
-                data = source_bytes(path, digest, inventory['source_commit'])
+                data = source_bytes(path, digest, inventory['source_commit'],
+                                    inventory.get('file_blobs', {}).get(path))
                 if path == 'docs/stages/companions.js':
                     data = offline_companions(data)
                 if path.startswith('docs/'):

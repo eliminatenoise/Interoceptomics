@@ -25,6 +25,18 @@ dl{margin:0}dl div{display:grid;grid-template-columns:minmax(106px,21%) 1fr;gap:
 #sample-panel th:first-child{text-align:left}#sample-panel caption{text-align:left;font-weight:650;padding:8px 0;color:var(--ink)}
 #sample-panel p{font-size:.86rem;margin-top:8px}.data-credit{color:var(--muted)}#sample-status{font-size:.86rem}
 
+#ramp-comparison{padding:12px 14px 14px;background:#f0f3ed;border:1px solid var(--line);border-radius:8px}
+#ramp-status:empty{display:none}
+#ramp-comparison .controls{background:transparent;padding:9px 0 0}
+#ramp-comparison select{padding:6px 8px}
+.ramp-errors{margin-top:7px}
+.ramp-errors>div{grid-template-columns:minmax(104px,32%) minmax(0,1fr)}
+.ramp-errors dd{display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.ramp-errors output{min-width:6ch;white-space:nowrap}
+.ramp-track{flex:1;height:8px;background:#e0e7e0;border-radius:2px}
+.ramp-track span{height:100%;display:block;background:#526e67;border-radius:2px}
+.ramp-errors>div:last-child .ramp-track span{background:var(--green)}
+
 #wrist {border-top:2px solid var(--ink);margin:1rem 0 1.5rem}
 #wrist-status:empty {display:none}
 #wrist-status button {margin-left:.5em}
