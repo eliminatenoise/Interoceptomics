@@ -5,6 +5,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
 import sys
+from threading import Thread
 from urllib.parse import quote, urlsplit
 import webbrowser
 
@@ -32,6 +33,15 @@ class GuideHandler(SimpleHTTPRequestHandler):
         return super().send_head()
 
 
+def open_browser(url):
+    try:
+        opened = webbrowser.open(url)
+    except (OSError, webbrowser.Error):
+        opened = False
+    if not opened:
+        print('Open the printed address in your browser.', flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--no-browser', action='store_true', help='Print the local address without opening a browser.')
@@ -53,12 +63,8 @@ def main():
         url = f'http://127.0.0.1:{server.server_port}/stages/'
         print('Open', url, flush=True)
         if not args.no_browser:
-            try:
-                opened = webbrowser.open(url)
-            except (OSError, webbrowser.Error):
-                opened = False
-            if not opened:
-                print('Open the printed address in your browser.', flush=True)
+            # Some browser openers wait for the page to load before returning.
+            Thread(target=open_browser, args=(url,), daemon=True).start()
         server.serve_forever()
     except KeyboardInterrupt:
         pass
