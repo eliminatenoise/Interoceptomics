@@ -129,6 +129,9 @@ function render(directionFocus=false){
     resource('Inspect recordings in NeuroTranslate 0.0 ↗',external.model);
   if(['motorsensation','map-brain2body'].includes(current.id))
     resource('Compare recorded heart activity, chest vibration and breathing','../inside/');
+  if(['motorsensation','humans'].includes(current.id))
+    resource('Download the fingertip atlas (ZIP)',
+      'https://raw.githubusercontent.com/eliminatenoise/Interoceptomics/main/downloads/fingertip-touch.zip');
   if(current.id==='handler')
     resource('Search and replay 26 tracked hand joints ↗','https://eliminatenoise.github.io/NeuroTranslation/hand-search/');
   if(['map-body2body','movement-model'].includes(current.id))
