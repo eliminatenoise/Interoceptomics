@@ -20,8 +20,8 @@
     "docs/inside/recording-forecast.html": "b9ce42f1b9fdb462df3abb4a5c1e343c2dc7ed059934df82e2b6cf5974542f47",
     "docs/inside/style.css": "53583e6efddcb09f00f05997ab9fa55764d7adf32cede6d41735bcef8152a699",
     "docs/inside/viewer.js": "4ff8d4d47526ef3a50747f3a62e421f4a801475df471ec4f379d1b690728fc15",
-    "docs/stages/README.md": "8944a8b5d0c513dfe00d311dba4185ee929c20e6ec93ff5109cf563c2ec370a8",
-    "docs/stages/companions.js": "0d88de251067c7bf811d559adf2e0b991e6660cf75ae9c148024ae9243c102d7",
+    "docs/stages/README.md": "bf0440eadd5cb3065feaa4eb7439f3df065833fbda899077ed17ecfe3f7f515c",
+    "docs/stages/companions.js": "08255fdc37a5ebd60bc83554c55e4b1970955ae37fe7203cf80e5b49f50a6d3e",
     "docs/stages/guide.js": "7eecee44fa247372e841d5a7592c89bdc5f6cfed8b6b3e2b31387548685f7ed2",
     "docs/stages/index.html": "6da4b406e6b5f0e5d464680ece72f928458e23d5e3690ea02f6ca3592c26d7b9",
     "docs/stages/recording/MAZE-NOTICE.md": "1e93a23f379676d1f22cf22f6864b2c8d97ba11f29c65539ec7041049a794fd6",
@@ -201,8 +201,8 @@
     }
   },
   "file_blobs": {
-    "docs/stages/README.md": "33360ace106d452e57f03e56a497d470af235750",
-    "docs/stages/companions.js": "d4e7c6e9e8f927cdf4264e10d255e4c042949d10",
+    "docs/stages/README.md": "225aa93f1c436f76b96e2b0fb7166e34e0131a13",
+    "docs/stages/companions.js": "87be9bceb02f89c04370bda090c3a8aceba33d8b",
     "docs/stages/index.html": "3ddf1fd44a9fa2293edefc1fcb0a7b5d2ad38ae9",
     "docs/stages/recording/ramp-results.json": "97e7ba43f03da074abab684be18c93d08c9d6e4d",
     "docs/stages/recording/ramp-summary.js": "f07dda0639fd1f099f6ddbb2c7993123b4c88f46",
