@@ -73,9 +73,9 @@ function renderLocal(){
   $('local-help').textContent=help;
 }
 function render(directionFocus=false){
-  let id=location.hash.slice(1);
+  const fragment=location.hash.slice(1);
+  const [id,model,...extra]=fragment.split('/');
   current=allSteps.find(s=>s.id===id) ||allSteps[0];
-  if(current.id!==id)history.replaceState(null,'','#'+current.id);
   const g=current.group,vision=g.vision,small=vision==='small';
   last[vision]=current.id;
   for(const k of Object.keys(visions)){
@@ -123,7 +123,10 @@ function render(directionFocus=false){
     const span=document.createElement('span'),dot=document.createElement('i');
     dot.style.background=color;span.append(dot,title);$('legend').append(span);
   }
-  showCompanions(current.id);
+  const validStep=current.id===id && extra.length===0;
+  const selected=showCompanions(current.id,validStep ? model : undefined);
+  const canonical=selected ? current.id+'/'+model : current.id;
+  if(canonical!==fragment)history.replaceState(history.state,'','#'+canonical);
   $('resources').replaceChildren();
   if(small || ['0.1','movement-model','composite','5.3'].includes(current.id))
     resource('Inspect recordings in NeuroTranslate 0.0 ↗',external.model);
@@ -151,7 +154,10 @@ function render(directionFocus=false){
   }
   document.title=$('title').textContent+' · '+visions[vision].name+' · Interoceptomics';
   updateCoverage();renderLocal();renderScene();
-  if(directionFocus)$('experiment').focus({preventScroll:true});
+  if(selected){
+    $('companion-choice').focus({preventScroll:true});
+    $('companions').scrollIntoView({block:'start'});
+  }else if(directionFocus)$('experiment').focus({preventScroll:true});
 }
 function move(delta){
   const s=allSteps[allSteps.indexOf(current)+delta];

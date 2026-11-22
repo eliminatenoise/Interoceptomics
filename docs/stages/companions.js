@@ -267,7 +267,20 @@ export function bindCompanions(section, shortcut) {
   const caption=section.querySelector('p');
   const mount=section.querySelector('.companion-frame');
   const choiceLabel=section.querySelector('label');
-  let previousStep;
+  const copyLink=section.querySelector('#copy-stage-link');
+  const feedback=section.querySelector('#share-feedback');
+  const manualLink=section.querySelector('#manual-stage-link');
+  const address=manualLink.querySelector('input');
+  let currentStep;
+  let copyAttempt=0;
+
+  function selectionHash() {
+    return '#'+currentStep+'/'+select.value;
+  }
+
+  function rememberSelection() {
+    history.replaceState(history.state,'',selectionHash());
+  }
 
   function close() {
     mount.replaceChildren();
@@ -278,6 +291,9 @@ export function bindCompanions(section, shortcut) {
 
   function choose() {
     close();
+    copyAttempt++;
+    feedback.textContent='';
+    manualLink.hidden=true;
     const model=models[select.value];
     caption.textContent=model.reading;
     external.href=model.url;
@@ -303,28 +319,60 @@ export function bindCompanions(section, shortcut) {
     else close();
   });
   shortcut.addEventListener('click',()=>{
-    const reader=stepShortcut[previousStep];
+    const reader=stepShortcut[currentStep];
     if(select.value!==reader){
       select.value=reader;
       choose();
     }
+    rememberSelection();
     if(mount.hidden)open();
     button.focus();
     section.scrollIntoView({block:'start'});
   });
-  select.addEventListener('change',choose);
-  return function showFor(stepId) {
-    if(stepId===previousStep)return;
-    previousStep=stepId;
+  select.addEventListener('change',()=>{
+    choose();
+    rememberSelection();
+  });
+  copyLink.addEventListener('click',async()=>{
+    rememberSelection();
+    const url=new URL(location.href);
+    url.search='';
+    const attempt=++copyAttempt;
+    try {
+      await navigator.clipboard.writeText(url.href);
+      if(attempt!==copyAttempt)return;
+      manualLink.hidden=true;
+      feedback.textContent='Link copied. It opens the guide with this model selected.';
+    } catch {
+      if(attempt!==copyAttempt)return;
+      manualLink.hidden=false;
+      address.value=url.href;
+      address.focus();
+      address.select();
+      feedback.textContent='Copy the selected address.';
+    }
+  });
+  return function showFor(stepId, requested) {
+    currentStep=stepId;
     close();
     const reader=stepShortcut[stepId];
     shortcut.hidden=!reader;
     if(reader)shortcut.textContent=models[reader].title;
     const choices=choicesByStep[stepId] || [];
     section.hidden=!choices.length;
-    if(!choices.length){select.replaceChildren();external.removeAttribute('href');return;}
+    if(!choices.length){
+      copyAttempt++;
+      manualLink.hidden=true;
+      feedback.textContent='';
+      select.replaceChildren();
+      external.removeAttribute('href');
+      return false;
+    }
     select.replaceChildren(...choices.map(k=>new Option(models[k].title,k)));
+    const hasSelection=choices.includes(requested);
+    if(hasSelection)select.value=requested;
     choiceLabel.textContent=choices.length===1?'Model for this step':'Model to explore';
     choose();
+    return hasSelection;
   };
 }
