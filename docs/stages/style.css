@@ -28,6 +28,11 @@ dl{margin:0}dl div{display:grid;grid-template-columns:minmax(106px,21%) 1fr;gap:
 #ramp-comparison{padding:12px 14px 14px;background:#f0f3ed;border:1px solid var(--line);border-radius:8px}
 #ramp-status:empty{display:none}
 #ramp-comparison .controls{background:transparent;padding:9px 0 0}
+.share-view{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem .75rem;margin-top:.65rem}
+.share-view button{margin:0}
+.share-view [role=status]:empty{display:none}
+.share-view label{flex:1 0 100%;min-width:0}
+.share-view input{display:block;width:100%;min-width:0;margin-top:.3rem}
 #ramp-comparison select{padding:6px 8px}
 .ramp-errors{margin-top:7px}
 .ramp-errors>div{grid-template-columns:minmax(104px,32%) minmax(0,1fr)}

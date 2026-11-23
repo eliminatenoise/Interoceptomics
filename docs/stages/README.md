@@ -2,7 +2,7 @@
 
 [Open the guide in your browser](https://eliminatenoise.github.io/Interoceptomics/stages/). Choose **Human movement** to start with the wrist recording or **Animal learning** to explore six proposed stages. The animal section also includes a previous study of a rat on a W-shaped track. The planned experiments have yet to run.
 
-Use the **Stage or task** menu to change experiments. The Previous and Next buttons or the left and right arrow keys move through the steps. Copy the browser address to share the current step.
+Use the **Stage or task** menu to change experiments. The Previous and Next buttons or the left and right arrow keys move through the steps. **Copy link to this view** shares the step, the selected model and your diagram settings. In the right-wrist trial it also shares the trace position and forecast settings. The link opens the public guide and leaves any companion closed. Use the displayed address if clipboard copying is unavailable.
 
 ## Check a wrist forecast against a recording
 

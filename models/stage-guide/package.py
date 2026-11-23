@@ -40,14 +40,10 @@ def checked_name(name):
 def offline_companions(data):
     text = data.decode('utf-8')
     original = '    caption.textContent=model.reading;'
-    source = '    const url=new URL(location.href);\n    url.search=\'\';'
-    if text.count(original) != 1 or text.count(source) != 1:
+    if text.count(original) != 1:
         raise ValueError('Stage controls changed; review standalone source transformations.')
     text = text.replace(original, """    const online = new URL(model.url, location.href).origin !== location.origin;
     caption.textContent = model.reading + (online ? ' This companion needs internet access.' : '');""")
-    # A shared stage address must remain useful after this local server closes.
-    text = text.replace(source, """    const url=new URL('https://eliminatenoise.github.io/Interoceptomics/stages/');
-    url.hash=selectionHash();""")
     return text.encode('utf-8')
 
 

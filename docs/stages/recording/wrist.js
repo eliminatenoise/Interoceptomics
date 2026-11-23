@@ -11,7 +11,7 @@ const channels = [
   {key: 'wristRadialDeviation_deg', name: 'Side tilt', unit: '°', low: -60, high: 10, decimals: 2}
 ];
 const traceViews = [];
-let clip, windows, loading = false;
+let clip, windows, pendingView, loading;
 
 function angle(value) {
   return value.toFixed(2).replace('-', '−') + '°';
@@ -132,9 +132,28 @@ function chooseCutoff() {
   drawComparison();
 }
 
-async function load() {
-  if (clip || loading) return;
-  loading = true;
+function restoreView(view) {
+  const sourceRow = view?.get('wrist-cutoff');
+  const traceRow = view?.get('wrist-row');
+  const inputs = view?.get('wrist-inputs');
+  const cutoff = windows.findIndex(row => String(row.cutoff_source_row) === sourceRow);
+  const select = $('wrist-inputs'), frame = $('wrist-frame');
+  if (cutoff >= 0) {
+    $('wrist-cutoff').value = cutoff;
+    frame.value = windows[cutoff].cutoff_source_row;
+  }
+  if ([...select.options].some(option => option.value === inputs)) select.value = inputs;
+  if (traceRow && /^\d+$/.test(traceRow) && Number(traceRow) >= clip.firstSourceRow &&
+      Number(traceRow) <= clip.lastSourceRow) frame.value = traceRow;
+  drawFrame();
+  drawComparison();
+}
+
+function load() {
+  return loading ??= loadRecording();
+}
+
+async function loadRecording() {
   $('wrist-status').textContent = 'Loading the wrist recording…';
   try {
     const [recording, forecasts] = await Promise.all([
@@ -154,8 +173,10 @@ async function load() {
     select.value = '1';
     $('wrist-data').hidden = false;
     $('wrist-status').textContent = '';
-    chooseCutoff();
+    frame.value = currentWindow().cutoff_source_row;
+    restoreView(pendingView);
     new ResizeObserver(drawFrame).observe($('wrist-traces'));
+    return true;
   } catch {
     $('wrist-status').textContent = 'The guide could not verify the wrist files. Use HTTPS or serve the downloaded guide on localhost.';
     const retry = document.createElement('button');
@@ -163,8 +184,9 @@ async function load() {
     retry.textContent = 'Try again';
     retry.addEventListener('click', load);
     $('wrist-status').append(retry);
+    return false;
   } finally {
-    loading = false;
+    loading = null;
   }
 }
 
@@ -177,10 +199,30 @@ $('wrist-jump').addEventListener('click', () => {
   $('wrist-frame').focus();
 });
 
-export function showWristRecording(visible) {
+export function showWristRecording(visible,view) {
+  pendingView = visible ? view : null;
   $('wrist').hidden = !visible;
   if (visible) {
-    if (clip) drawFrame();
+    if (clip) restoreView(pendingView);
     else load();
   }
+}
+
+export function wristView(keepPending = false) {
+  if ($('wrist').hidden) return {};
+  if (!clip) {
+    const settings = ['wrist-row','wrist-cutoff','wrist-inputs'];
+    return keepPending && pendingView
+      ? Object.fromEntries(settings.filter(key => pendingView.has(key)).map(key => [key, pendingView.get(key)]))
+      : {};
+  }
+  return {
+    'wrist-row': $('wrist-frame').value,
+    'wrist-cutoff': currentWindow().cutoff_source_row,
+    'wrist-inputs': $('wrist-inputs').value
+  };
+}
+
+export function waitForWristView() {
+  return $('wrist').hidden || clip ? null : load();
 }

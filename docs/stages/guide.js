@@ -4,7 +4,7 @@ import {sceneInfo,showScene} from './scene.js';
 import {selectWalkingLimb} from './recording/view.js';
 import {mountWTrack} from './recording/wtrack/view.js';
 import {showMazeRecording} from './recording/maze.js';
-import {showWristRecording} from './recording/wrist.js';
+import {showWristRecording,wristView,waitForWristView} from './recording/wrist.js';
 
 const $=id=>document.getElementById(id);
 const external={
@@ -18,10 +18,72 @@ const external={
 const limbs={
   'left-arm':['Left arm','1'],'left-leg':['Left leg','2'],'right-leg':['Right leg','3'],'right-arm':['Right arm','4']
 };
-const showCompanions=bindCompanions($('companions'), $('walk-reader'));
+const publicGuide='https://eliminatenoise.github.io/Interoceptomics/stages/';
+const manualLink=$('manual-stage-link'), shareFeedback=$('share-feedback');
+const referenceOptions=['matched','delayed','off'];
+const shareFields=['time','angle','reference','limb','wrist-row','wrist-cutoff','wrist-inputs'];
+const showCompanions=bindCompanions($('companions'), $('walk-reader'),selectCompanion);
 const canvas=document.querySelector('.scene canvas');
-let current,localOrigin,wtrackMounted = false;
+let current,localOrigin,wtrackMounted = false,copyAttempt=0;
 const last={small:'map-brain2body',big:'0.1'};
+
+function clearShare(){
+  copyAttempt++;
+  shareFeedback.textContent='';
+  manualLink.hidden=true;
+}
+function readInteger(params,name,minimum,maximum){
+  const value=params.get(name);
+  const number=Number(value);
+  return value!==null && /^-?\d+$/.test(value) && Number.isSafeInteger(number) &&
+    number>=minimum && number<=maximum ? String(number) : null;
+}
+function captureView(keepPendingWrist=false){
+  const view=new URLSearchParams({time:$('moment').value,angle:$('angle').value});
+  if(!$('mode-wrap').hidden)view.set('reference',$('mode').value);
+  if(!$('limb-wrap').hidden)view.set('limb',$('limb').value);
+  for(const [name,value] of Object.entries(wristView(keepPendingWrist)))view.set(name,value);
+  return view;
+}
+function locationFor(step,companion,view){
+  const query=view?.toString();
+  return '#'+step+(companion?'/'+companion:'')+(query?'?'+query:'');
+}
+function selectCompanion(step,companion){
+  clearShare();
+  history.replaceState(history.state,'',locationFor(step,companion,location.hash.includes('?')?captureView(true):null));
+}
+async function copyView(){
+  clearShare();
+  const attempt=copyAttempt;
+  const pending=waitForWristView();
+  if(pending){
+    shareFeedback.textContent='Waiting for the wrist recording…';
+    const ready=await pending;
+    if(attempt!==copyAttempt)return;
+    if(!ready){
+      shareFeedback.textContent='The wrist recording could not load. Try again before copying the view.';
+      return;
+    }
+  }
+  const companion=$('companions').hidden?null:$('companion-choice').value;
+  const url=new URL(publicGuide);
+  const hash=locationFor(current.id,companion,captureView());
+  history.replaceState(history.state,'',hash);
+  url.hash=hash;
+  try{
+    await navigator.clipboard.writeText(url.href);
+    if(attempt===copyAttempt)shareFeedback.textContent='Link copied.';
+  }catch{
+    if(attempt!==copyAttempt)return;
+    const input=manualLink.querySelector('input');
+    input.value=url.href;
+    manualLink.hidden=false;
+    input.focus();
+    input.select();
+    shareFeedback.textContent='Copy the selected address.';
+  }
+}
 function link(text,href){
   const a=document.createElement('a');a.textContent=text;a.href=href;return a;
 }
@@ -74,9 +136,15 @@ function renderLocal(){
 }
 function render(directionFocus=false){
   const fragment=location.hash.slice(1);
-  const [id,model,...extra]=fragment.split('/');
+  const [route,query]=fragment.split('?',2);
+  const [id,model,...extra]=route.split('/');
+  clearShare();
   current=allSteps.find(s=>s.id===id) ||allSteps[0];
   const g=current.group,vision=g.vision,small=vision==='small';
+  const validStep=current.id===id && extra.length===0;
+  const rawView=new URLSearchParams(validStep?query:undefined);
+  const view=new URLSearchParams();
+  for(const field of shareFields)if(rawView.has(field))view.set(field,rawView.get(field));
   last[vision]=current.id;
   for(const k of Object.keys(visions)){
     $(k+'-link').href='#'+last[k];
@@ -111,11 +179,15 @@ function render(directionFocus=false){
     mountWTrack($('wtrack-forecast'));
   }
   showMazeRecording(showWTrack);
-  showWristRecording(current.id === 'map-brain2body');
+  showWristRecording(current.id === 'map-brain2body',view);
   $('coverage').hidden=!small;$('recording').hidden=!small;
   $('limb-wrap').hidden=!small && current.scene!=='body';
   $('mode-wrap').hidden=!(current.scene.includes('replay')||current.scene==='guide');
-  $('moment').value='35';$('mode').value='matched';$('angle').value='0';
+  $('moment').value=readInteger(view,'time',0,100)??'35';
+  $('angle').value=readInteger(view,'angle',-160,160)??'0';
+  const reference=view.get('reference');
+  $('mode').value=!$('mode-wrap').hidden && referenceOptions.includes(reference)?reference:'matched';
+  if(!$('limb-wrap').hidden && Object.hasOwn(limbs,view.get('limb')))$('limb').value=view.get('limb');
   const meta=sceneInfo(current.scene);
   $('scene-title').textContent=meta.title;
   $('legend').replaceChildren();
@@ -123,10 +195,9 @@ function render(directionFocus=false){
     const span=document.createElement('span'),dot=document.createElement('i');
     dot.style.background=color;span.append(dot,title);$('legend').append(span);
   }
-  const validStep=current.id===id && extra.length===0;
   const selected=showCompanions(current.id,validStep ? model : undefined);
-  const canonical=selected ? current.id+'/'+model : current.id;
-  if(canonical!==fragment)history.replaceState(history.state,'','#'+canonical);
+  const canonical=locationFor(current.id,selected?model:null,view);
+  if(canonical!=='#'+fragment)history.replaceState(history.state,'',canonical);
   $('resources').replaceChildren();
   if(small || ['0.1','movement-model','composite','5.3'].includes(current.id))
     resource('Inspect recordings in NeuroTranslate 0.0 ↗',external.model);
@@ -153,10 +224,11 @@ function render(directionFocus=false){
   }
   document.title=$('title').textContent+' · '+visions[vision].name+' · Interoceptomics';
   updateCoverage();renderLocal();renderScene();
-  if(selected){
+  if(view.has('limb'))selectWalkingLimb($('limb').value);
+  if(selected && !view.size){
     $('companion-choice').focus({preventScroll:true});
     $('companions').scrollIntoView({block:'start'});
-  }else if(directionFocus)$('experiment').focus({preventScroll:true});
+  }else if(directionFocus || view.size)$('experiment').focus({preventScroll:true});
 }
 document.querySelector('.skip').addEventListener('click',event=>{
   // The URL fragment already identifies the active stage and companion.
@@ -169,6 +241,7 @@ function move(delta){
   if(s)location.hash=s.id;
 }
 $('next').onclick=()=>move(1);$('previous').onclick=()=>move(-1);
+$('copy-stage-link').addEventListener('click',copyView);
 $('group-select').onchange=e=>location.hash=e.target.value;
 for(const id of ['angle','moment','mode'])$(id).addEventListener('input',renderScene);
 $('limb').onchange=()=>{renderScene();updateCoverage();selectWalkingLimb($('limb').value);};

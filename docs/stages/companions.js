@@ -295,7 +295,7 @@ const choicesByStep = {
 
 const stepShortcut = { handler: 'graspBalanceRecording', mechanics: 'knee', 'movement-model': 'knee', myoception: 'rhythm' };
 
-export function bindCompanions(section, shortcut) {
+export function bindCompanions(section, shortcut, onSelection) {
   const select=section.querySelector('select');
   const button=section.querySelector('button');
   const external=section.querySelector('a');
@@ -303,20 +303,11 @@ export function bindCompanions(section, shortcut) {
   const caption=section.querySelector('p');
   const mount=section.querySelector('.companion-frame');
   const choiceLabel=section.querySelector('label');
-  const copyLink=section.querySelector('#copy-stage-link');
-  const feedback=section.querySelector('#share-feedback');
-  const manualLink=section.querySelector('#manual-stage-link');
-  const address=manualLink.querySelector('input');
   let currentStep;
   let focusOnClose;
-  let copyAttempt=0;
-
-  function selectionHash() {
-    return '#'+currentStep+'/'+select.value;
-  }
 
   function rememberSelection() {
-    history.replaceState(history.state,'',selectionHash());
+    onSelection(currentStep,select.value);
   }
 
   function close() {
@@ -329,9 +320,6 @@ export function bindCompanions(section, shortcut) {
 
   function choose() {
     close();
-    copyAttempt++;
-    feedback.textContent='';
-    manualLink.hidden=true;
     const model=models[select.value];
     caption.textContent=model.reading;
     external.href=model.url;
@@ -386,25 +374,6 @@ export function bindCompanions(section, shortcut) {
     choose();
     rememberSelection();
   });
-  copyLink.addEventListener('click',async()=>{
-    rememberSelection();
-    const url=new URL(location.href);
-    url.search='';
-    const attempt=++copyAttempt;
-    try {
-      await navigator.clipboard.writeText(url.href);
-      if(attempt!==copyAttempt)return;
-      manualLink.hidden=true;
-      feedback.textContent='Link copied. It opens the guide with this model selected.';
-    } catch {
-      if(attempt!==copyAttempt)return;
-      manualLink.hidden=false;
-      address.value=url.href;
-      address.focus();
-      address.select();
-      feedback.textContent='Copy the selected address.';
-    }
-  });
   return function showFor(stepId, requested) {
     currentStep=stepId;
     close();
@@ -414,9 +383,6 @@ export function bindCompanions(section, shortcut) {
     const choices=choicesByStep[stepId] || [];
     section.hidden=!choices.length;
     if(!choices.length){
-      copyAttempt++;
-      manualLink.hidden=true;
-      feedback.textContent='';
       select.replaceChildren();
       download.remove();
       external.removeAttribute('href');
