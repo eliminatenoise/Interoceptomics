@@ -1,0 +1,30 @@
+:root {
+  color-scheme: light;
+  font: 1.0625rem/1.62 system-ui, sans-serif;
+  color: #182d39;
+  background: #f7f9fa;
+}
+body { margin: 0; }
+main { max-width: 50rem; margin: 0 auto; padding: 1.125rem clamp(1rem, 4vw, 2.25rem) 4rem; }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #bdc9d1;
+}
+a { color: #125973; text-underline-offset: 0.2em; overflow-wrap: anywhere; }
+a:focus-visible { outline: 2px solid #176481; outline-offset: 4px; }
+nav [aria-current] { font-weight: 750; }
+h1, h2, h3 { color: #102631; line-height: 1.18; margin-top: 1.45em; }
+h1 { font-size: clamp(1.9rem, 4.8vw, 2.75rem); }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.175rem; }
+li + li { margin-top: 0.55rem; }
+code { font-family: ui-monospace, monospace; font-size: 0.9em; overflow-wrap: anywhere; }
+table { border-collapse: collapse; width: 100%; margin-block: 1.25rem; }
+th, td { border-bottom: 1px solid #bdc9d1; padding: 0.6rem; vertical-align: top; text-align: left; }
+th { background: #e5eef2; }
+td:first-child { width: 29%; }
+@media (max-width: 28rem) { th, td { padding: 0.4rem; } }
+@media print { :root { background: #fff; } main { padding: 0; } }
