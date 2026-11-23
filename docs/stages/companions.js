@@ -8,6 +8,11 @@ export const backslashDownload = {
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  visualTailCohort: {
+    title: 'Compare tail forecasts across 12 recordings',
+    url: 'optic-flow-cohort/index.html',
+    reading: 'Compare seven forecasts of tail-angle spread for all 12 May recordings or one recording at a time. Read the change in error when a model uses the logged visual command.'
+  },
   visualTail: {
     title: 'Compare zebrafish tail forecasts',
     url: 'optic-flow/index.html',
@@ -274,9 +279,9 @@ const choicesByStep = {
   'map-brain2body': ['humanWrist', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
   'virtual-challenge': ['words', 'stride'],
-  'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail'],
+  'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail', 'visualTailCohort'],
   'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
-  'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp', 'visualTail'],
+  'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp', 'visualTail', 'visualTailCohort'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
