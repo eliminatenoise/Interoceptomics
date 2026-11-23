@@ -8,6 +8,11 @@ export const backslashDownload = {
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  visualTail: {
+    title: 'Compare zebrafish tail forecasts',
+    url: 'optic-flow/index.html',
+    reading: 'Choose all 2,268 later windows or one of 20 one-minute blocks. Compare camera-based forecasts of tail-angle spread with forecasts that also use the logged visual command.'
+  },
   fingertipTouch: {
     title: 'When glass slips under a fingertip',
     url: '../fingertip-touch/',
@@ -269,9 +274,9 @@ const choicesByStep = {
   'map-brain2body': ['humanWrist', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
   'virtual-challenge': ['words', 'stride'],
-  'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration'],
+  'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail'],
   'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
-  'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp'],
+  'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp', 'visualTail'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
