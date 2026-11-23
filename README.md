@@ -1,6 +1,10 @@
 # Interoceptomics
 
-How does the body sense a heartbeat or a breath? Interoceptomics is a proposed field that would study those sensations alongside the nerves that carry and process their signals. Sensing what happens inside the body is called *interoception*. Mapping connections between nerve cells is called *connectomics*. A map helps identify possible routes. Measurements would test what happens along those routes.
+**[Open the 3D atlas](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/) · [Explore the experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/) · [Download the offline atlas](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/backslash/Backslash-Atlas.zip)**
+
+[Project browser](https://eliminatenoise.github.io/NeuroTranslation/projects/?project=interoceptomics) · [Technical index](https://eliminatenoise.github.io/NeuroTranslation/projects/technical.html#interoceptomics) · [Read the atlas PDF](docs/atlas/backslash/atlas.pdf)
+
+Interoceptomics is a proposed field that would study how the body senses its own state, such as a heartbeat or a breath. Sensing what happens inside the body is called *interoception*. Mapping connections between nerve cells is called *connectomics*. The map helps identify possible routes for signals. Measurements would test what happens along those routes.
 
 ## Try one wrist forecast
 
