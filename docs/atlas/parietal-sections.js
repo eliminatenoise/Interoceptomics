@@ -14,7 +14,7 @@ const colours = new Map(neighbourhood);
 const decoder = new TextDecoder();
 
 async function checkedFile({file, sha256, bytes}) {
-  const response = await fetch('./' + file, {signal: AbortSignal.timeout(10000)});
+  const response = await fetch('./' + file, {signal: AbortSignal.timeout(10000 + bytes / 125)});
   if (!response.ok) throw Error('HTTP ' + response.status);
   const data = await response.arrayBuffer();
   if (data.byteLength !== bytes) throw Error('Section file length mismatch');

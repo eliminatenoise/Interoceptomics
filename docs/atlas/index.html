@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interoceptomics Atlas Viewer</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#27323a;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) 330px;height:100vh;position:relative;grid-template-areas:"model controls"}main{grid-area:model;min-width:0}iframe{height:100%;width:100%;border:0}aside{grid-area:controls;border-left:1px solid #dfe4e5;padding:22px;overflow:auto}h1{font-size:25px;line-height:1.1;margin:0 0 12px}h2{font-size:16px}p,li{font-size:13px;line-height:1.45}label{display:block;font-size:13px;font-weight:bold;margin:15px 0 5px}select,input,button{font:13px Arial,Helvetica,sans-serif;border:1px solid #bdc7cb;background:#fff;color:inherit;border-radius:3px;padding:9px;width:100%}button{cursor:pointer;margin-top:8px}button:disabled{opacity:.45;cursor:default}button:focus,select:focus,input:focus{outline:2px solid #3a6981;outline-offset:2px}.row{display:flex;gap:7px}.key{display:flex;gap:8px;align-items:center;font-size:12px;margin:6px 0}.swatch{width:15px;height:15px;border-radius:2px}.overview{grid-area:model;position:absolute;bottom:12px;left:12px;width:160px;margin:0;background:rgba(255,255,255,.95);border:1px solid #dfe4e5;padding:6px}.overview img{width:100%;display:block}.overview figcaption{display:inline;font-size:10px}#selection{border-top:1px solid #dfe4e5;margin-top:17px;padding-top:9px}#evidence{white-space:pre-line}#links a{display:inline-block;margin-bottom:6px}#tags{font-size:12px;color:#4c6574}#model-controls{min-width:0;padding:0;margin:0;border:0}#model-controls :disabled{opacity:.55;cursor:default}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}details{font-size:12px;margin-top:15px}a{color:#315f79}small{font-size:11px;line-height:1.4;display:block}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interoceptomics Atlas Viewer</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#27323a;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) 330px;height:100vh;position:relative;grid-template-areas:"model controls"}main{grid-area:model;min-width:0}iframe{display:block;height:100%;width:100%;border:0}aside{grid-area:controls;border-left:1px solid #dfe4e5;padding:22px;overflow:auto}h1{font-size:25px;line-height:1.1;margin:0 0 12px}h2{font-size:16px}p,li{font-size:13px;line-height:1.45}label{display:block;font-size:13px;font-weight:bold;margin:15px 0 5px}select,input,button{font:13px Arial,Helvetica,sans-serif;border:1px solid #bdc7cb;background:#fff;color:inherit;border-radius:3px;padding:9px;width:100%}button{cursor:pointer;margin-top:8px}button:disabled{opacity:.45;cursor:default}button:focus,select:focus,input:focus{outline:2px solid #3a6981;outline-offset:2px}.row{display:flex;gap:7px}.key{display:flex;gap:8px;align-items:center;font-size:12px;margin:6px 0}.swatch{width:15px;height:15px;border-radius:2px}.overview{grid-area:model;position:absolute;bottom:12px;left:12px;width:160px;margin:0;background:rgba(255,255,255,.95);border:1px solid #dfe4e5;padding:6px}.overview img{width:100%;display:block}.overview figcaption{display:inline;font-size:10px}#selection{border-top:1px solid #dfe4e5;margin-top:17px;padding-top:9px}#evidence{white-space:pre-line}#links a{display:inline-block;margin-bottom:6px}#tags{font-size:12px;color:#4c6574}#model-controls{min-width:0;padding:0;margin:0;border:0}#model-controls :disabled{opacity:.55;cursor:default}.visually-hidden{position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}details{font-size:12px;margin-top:15px}a{color:#315f79}small{font-size:12px;line-height:1.4;display:block}input,select{border-color:#788691}#saved-view-fragment[aria-invalid="true"]{border-color:#a32f31}
 main { position: relative; }
 .comparison-legend:not([hidden]) {
   position: absolute;
@@ -101,6 +101,25 @@ body.is-isolated {
     grid-template-areas: "model" "overview" "controls";
     grid-template-rows: 65vh auto auto;
   }
+  body, body.is-isolated {
+    --model-height: clamp(220px, 42svh, 360px);
+    grid-template-areas: "model" "overview" "controls";
+    grid-template-rows: var(--model-height) auto auto;
+  }
+  main { position: sticky; top: 0; z-index: 1; background: #fff; box-shadow: 0 1px #dfe4e5; }
+  .overview { grid-area: overview; position: static; width: 100%; display: grid; grid-template-columns: minmax(0, 96px) minmax(0, 1fr); align-items: center; gap: 12px; padding: 8px 12px; }
+  .overview[hidden] { display: none; }
+  .overview figcaption { font-size: 12px; line-height: 1.35; }
+  aside :is(button, select, input, summary, a) { scroll-margin-top: calc(var(--model-height) + 8px); }
+  #selection { scroll-margin-top: calc(var(--model-height) + 8px); }
+  aside small { font-size: 13px; }
+  select, input { font-size: 16px; }
+  aside button, aside select, aside input:not([type=checkbox]):not([type=range]) { min-height: 44px; }
+  aside details > summary { padding-block: 15px; }
+  #atlas-sidebar > * { max-width: 36rem; }
+  #links a { padding-block: 7px; margin-bottom: 0; }
+  @media (min-width: 600px) and (min-height: 900px) { body, body.is-isolated { --model-height: clamp(360px, 50svh, 560px); } }
+  @media (max-height: 500px) { body, body.is-isolated { --model-height: max(160px, 45svh); } }
   body.is-comparing { grid-template-areas: "model" "controls" "overview"; }
   body.has-source-section {
     --source-model-height: clamp(152px, 34svh, 285px);
@@ -116,6 +135,10 @@ body.is-isolated {
   .has-source-section aside :is(button, select, input, a, canvas) { scroll-margin-top: calc(var(--source-model-height) + 8px); }
   .has-source-section #sections-toggle { scroll-margin-block: calc(var(--source-model-height) + 8px) 98px; }
 }
+@media (max-height: 500px) and (min-width: 801px) {
+  body:not(.is-isolated) .overview { width: 100px; }
+  body:not(.is-isolated) .overview figcaption { display: none; }
+}
 #pao-entry, #pao-sections { margin-block: 10px; }
 #pao-entry button, #pao-entry select { min-height: 44px; }
 #pao-sections[hidden], #pao-section-image[hidden], #pao-status:empty, #pao-loading:empty { display: none; }
@@ -129,7 +152,7 @@ body.is-isolated {
 #pao-bounds { margin-top: 7px; }
 #pao-key { padding: 0; margin: 8px 0; display: flex; flex-wrap: wrap; column-gap: 10px; list-style: none; }
 #pao-key li { display: inline-flex; align-items: baseline; gap: 4px; font-size: 12px; }
-#pao-key li::before { content: ''; width: 9px; height: 9px; flex: 0 0 9px; background: var(--region-color); border-radius: 2px; }
+#pao-key li::before { content: ''; width: 12px; height: 12px; flex: 0 0 12px; background: var(--region-color); border-radius: 2px; }
 @media (max-width: 800px) {
   body.has-pao-section {
     --pao-model-height: clamp(155px, 32svh, 285px);
@@ -183,15 +206,15 @@ body.is-isolated {
 .ruler-segment-range { display: block; margin-top: 3px; font-variant-numeric: tabular-nums; }
 .distance-a { color: #075d60; }
 .distance-b { color: #642984; }
-</style><link rel="stylesheet" href="./annotation-planes.css"><link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23376c8c%22%2F%3E%3Cpath%20d%3D%22M15%208c-4-3-9%201-7%205-3%203-1%208%203%208%200%204%204%205%204%202V8Zm2%200c4-3%209%201%207%205%203%203%201%208-3%208%200%204-4%205-4%202V8Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"></head><body><main><iframe id="model" title="3D model of the left half of the brain" data-src="render.html?interactive=1"></iframe><div id="comparison-legend" class="comparison-legend" aria-hidden="true" hidden></div></main><figure class="overview"><img src="assets/overview.png" alt="Small fixed picture of the inner face of the left half"><figcaption>Inner face of the left half • A front, S up, R right. ⊙ towards you; ⊗ away.</figcaption></figure><aside id="atlas-sidebar">
+</style><link rel="stylesheet" href="./annotation-planes.css"><link rel="modulepreload" href="./ui.js"><link rel="modulepreload" href="./section-coordinates.js"><link rel="modulepreload" href="./annotation-planes.js"><link rel="modulepreload" href="./location-comparison.js"><link rel="modulepreload" href="./region-finder.js"><link rel="modulepreload" href="./atlas-label-runs.js"><link rel="modulepreload" href="./ruler-walk.js"><link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23376c8c%22%2F%3E%3Cpath%20d%3D%22M15%208c-4-3-9%201-7%205-3%203-1%208%203%208%200%204%204%205%204%202V8Zm2%200c4-3%209%201%207%205%203%203%201%208-3%208%200%204-4%205-4%202V8Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"></head><body><main><iframe id="model" title="3D model of the left half of the brain" data-src="render.html?interactive=1"></iframe><div id="comparison-legend" class="comparison-legend" aria-hidden="true" hidden></div></main><figure class="overview"><img src="assets/overview.png" alt="The whole left half from the inner face, to keep your bearings"><figcaption>Inner face of the left half • A front, S up, R right. ⊙ towards you; ⊗ away.</figcaption></figure><aside id="atlas-sidebar" aria-label="Viewer controls">
 <button id="annotation-toggle" type="button" data-open-annotation aria-controls="annotation-panel" aria-expanded="false" aria-describedby="annotation-toggle-help">Open three flat cuts</button>
-<small id="annotation-toggle-help">Cut through the atlas grid itself, where every region can be read, and find any region by name or atlas number.</small>
+<small id="annotation-toggle-help">The flat cuts show every region; find one by name or atlas number.</small>
 <details id="saved-view-controls">
   <summary>Open saved view</summary>
   <form id="open-saved-view">
     <label for="saved-view-fragment">Saved view text</label>
     <input id="saved-view-fragment" type="text" spellcheck="false" autocomplete="off" autocapitalize="none"
-      aria-describedby="saved-view-help">
+      aria-describedby="saved-view-help saved-view-status">
     <small id="saved-view-help">Paste the text from Copy saved view or Copy measurement.</small>
     <button type="submit">Open view</button>
   </form>
@@ -286,7 +309,7 @@ body.is-isolated {
         <span id="source-section-marker" aria-hidden="true" hidden></span>
       </div>
       <figcaption>
-        <small id="source-section-inspect">Pick a tile, or use the arrow keys, to read its region and position. Change the direction of the cut to see the same voxel from another side.</small>
+        <small id="source-section-inspect">Pick a tile, use the arrow keys, or type a position above, to read its region and position. Change the direction of the cut to see the same voxel from another side.</small>
         <p id="source-section-voxel" role="status"></p>
         <div id="source-save-view" class="saved-view">
           <button type="button" disabled aria-describedby="source-section-inspect">Copy saved view</button>
@@ -305,12 +328,12 @@ body.is-isolated {
       </figcaption>
     </figure>
   </section>
-  <small>Drag to turn both surfaces together. Here the two colours only tell the two regions apart.</small>
+  <small>Drag, or use Shift and the arrow keys on the model, to turn both surfaces together. Here the two colours only tell the two regions apart.</small>
 </section>
-<div id="atlas-controls"><h1>Interoceptomics Atlas Viewer</h1><p>A 3D model of the left half of the brain, built from the Allen Institute’s human reference atlas: a published map that divides the brain into named regions. Colours mark the regions this project links to movement and touch, to the automatic running of the organs, or to both. They are a reading of published sources, not a recording. A region can belong to more than one group, and a grey region is not idle.</p><p>New here? <a href="README.html">The guide</a> says what each control does.</p><p id="controls-status" role="status">3D controls unlock when the model is ready.</p><fieldset id="model-controls" disabled><legend class="visually-hidden">3D model controls</legend><label for="view">Starting view</label><select id="view"><option value="Medial">Inner face (medial)</option><option value="Lateral">Outer face (lateral)</option><option value="InsulaDissection">Insula exposed</option><option value="Deep">Deep regions</option></select><p id="construction"></p><label for="role">Colour groups</label><select id="role"><option value="all">All three groups</option><option value="S">Somatic: movement and touch</option><option value="A">Autonomic: running the organs</option><option value="I">Integration: where the two meet</option><option value="anatomy">No colours</option></select><div class="key"><span class="swatch" style="background:#376c8c"></span>Somatic</div><div class="key"><span class="swatch" style="background:#ae7053"></span>Autonomic</div><div class="key"><span class="swatch" style="background:#79658c"></span>Integration</div><label for="search">Find a region</label><input id="search" placeholder="Name, abbreviation or atlas number"><select id="label" aria-label="Choose a region" aria-describedby="scope"></select><p id="scope">Drag to turn the brain, scroll to zoom. The small picture and the axis letters stay on screen when a region is shown alone.</p><div class="row"><button id="isolate" disabled>Show it alone</button><button id="focus" disabled>Zoom to it</button></div><button id="reset" aria-description="Keeps the selected region. Shows the whole brain again at this view’s starting angle and zoom.">Reset view</button><button id="layers" type="button" aria-describedby="layers-help">Show white matter and fluid spaces</button><small id="layers-help">Off at first: a 36 MB download. White matter is the bundles of nerve fibres that join the regions; the fluid spaces are the ventricles, cavities filled with the fluid that bathes the brain. Most of the white matter and all the fluid spaces are drawn see-through, so the regions behind them stay in sight.</small><p id="layers-status" role="status"></p><p id="view-action" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+<div id="atlas-controls"><h1>Interoceptomics Atlas Viewer</h1><p>A 3D model of the left half of the brain, built from the Allen Institute’s human reference atlas: a published map that divides the brain into named regions. Colours mark the regions this project links to movement and touch, to the automatic running of the organs, or to both. They are a reading of published sources, not a recording. A region can belong to more than one group, and a grey region is not idle.</p><p>New here? <a href="README.html">The guide</a> says what each control does.</p><p id="controls-status" role="status">3D controls unlock when the model is ready. The three flat cuts work already.</p><fieldset id="model-controls" disabled><legend class="visually-hidden">3D model controls</legend><label for="view">Starting view</label><select id="view"><option value="Medial">Inner face (medial)</option><option value="Lateral">Outer face (lateral)</option><option value="InsulaDissection">Insula exposed</option><option value="Deep">Deep regions</option></select><p id="construction"></p><label for="role">Colour groups</label><select id="role"><option value="all">All three groups</option><option value="S">Somatic: movement and touch</option><option value="A">Autonomic: running the organs</option><option value="I">Integration: where the two meet</option><option value="anatomy">No colours</option></select><div class="key"><span class="swatch" style="background:#376c8c"></span>Somatic</div><div class="key"><span class="swatch" style="background:#ae7053"></span>Autonomic</div><div class="key"><span class="swatch" style="background:#79658c"></span>Integration</div><small id="colour-help">If colours look alike, choose one group above.</small><label for="search">Find a region</label><input id="search" placeholder="Name, abbreviation or atlas number"><select id="label" aria-label="Choose a region" aria-describedby="tags scope"></select><p id="search-status" class="visually-hidden" role="status"></p><p id="scope">Drag to turn the brain; pinch or scroll to zoom. From the keyboard, press Tab to reach the model (a blue ring marks it): Shift and the arrow keys turn it, the arrow keys move it, + and − zoom. In the views Insula exposed and Deep regions, a click or tap on a region chooses it. The small picture and the axis letters stay on screen when a region is shown alone.</p><div class="row"><button id="isolate" disabled>Show it alone</button><button id="focus" disabled>Zoom to it</button></div><button id="reset" aria-describedby="reset-help">Reset view</button><span id="reset-help" hidden>Keeps the selected region. Shows the whole brain again at this view’s starting angle and zoom.</span><button id="layers" type="button" aria-describedby="layers-help">Show white matter and fluid spaces</button><small id="layers-help">Off at first: a 36 MB download. White matter is the bundles of nerve fibres that join the regions; the fluid spaces are the ventricles, cavities filled with the fluid that bathes the brain. Most of the white matter and all the fluid spaces are drawn see-through, so the regions behind them stay in sight.</small><p id="layers-status" role="status"></p><p id="view-action" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
 <section id="comparison-entry" hidden>
   <button id="comparison-toggle" type="button" aria-expanded="false" aria-controls="comparison-panel">Compare VPL and VPM</button>
-  <p id="comparison-hint" hidden>Both surfaces need to load before you can compare them. You can still show either loaded surface alone.</p>
+  <p id="comparison-hint" hidden>One of the two surfaces couldn’t load, so they can’t be compared. You can still show a loaded surface alone; reload the page to try again.</p>
 
 </section><section id="pao-entry" aria-label="Cuts through the parietal operculum" hidden>
   <button id="pao-toggle" type="button" aria-expanded="false" aria-controls="pao-sections">Show cuts through the parietal operculum</button>
@@ -342,7 +365,7 @@ body.is-isolated {
       <figcaption>
         <small id="pao-bounds"></small>
         <ul id="pao-key" aria-label="Colour key"></ul>
-        <small id="pao-inspect">Pick a tile, or use the arrow keys. Change the direction of the cut to see the same voxel from another side.</small>
+        <small id="pao-inspect">Pick a tile, use the arrow keys, or type a position above. Change the direction of the cut to see the same voxel from another side. To find one region, choose it under Highlight a region.</small>
         <p id="pao-voxel" role="status"></p>
         <div id="pao-save-view" class="saved-view">
           <button type="button" disabled aria-describedby="pao-inspect">Copy saved view</button>
@@ -359,12 +382,10 @@ body.is-isolated {
   </div>
 </section>
 <p><a href="https://eliminatenoise.github.io/Interoceptomics/human-wrist/">Follow one wrist reach</a> in a separate contact-and-camera viewer. Its implant positions belong to their own recording.</p>
-<div id="selection"><h2 id="name">No region selected</h2><p id="tags"></p><details><summary>Evidence and limits</summary><p id="evidence"></p><div id="links"></div></details></div><details><summary>What the model leaves out</summary><p>The 3D model holds all 141 of the atlas’s regions. <a href="omissions.html">Twenty of them are drawn only when you ask</a>: choose one and Show it alone, or choose Show white matter and fluid spaces to see fifteen of them in place. Being in the model does not make a region visible in every view, and says nothing about what it does. The atlas gives no voxels of their own to the small nuclei that regulate the organs or to the separate deep nuclei of the cerebellum, and it does not mark the working fields of the cortex, so none of these is drawn.</p><p>Some regions are only parts of larger surfaces and cannot be lifted out alone. The habenula, the pineal body and the zona incerta are left grey.</p></details><details><summary>Two stray voxels</summary><p>The atlas labels two voxels as hypothalamus far from the rest of it. They are in the model and are not drawn unless you ask. Whether the atlas is right about them is not settled here.</p><button id="qc">Show the two voxels</button></details></fieldset><p><a href="README.html">Guide</a> · <a href="source.html">Where the anatomy comes from</a> · <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a></p><small>Every view shows the same left half of the brain, and what a view hides stays where it is in the head. Version of 21 November 2026.</small></div></aside>
+<div id="selection"><h2 id="name">No region selected</h2><p id="tags"></p><details><summary>Evidence and limits</summary><p id="evidence"></p><div id="links"></div></details></div><details><summary>What the model leaves out</summary><p>The 3D model holds all 141 of the atlas’s regions. <a href="omissions.html">Twenty of them are drawn only when you ask</a>: choose one and Show it alone, or choose Show white matter and fluid spaces to see fifteen of them in place. Being in the model does not make a region visible in every view, and says nothing about what it does. The atlas gives no voxels of their own to the small nuclei that regulate the organs or to the separate deep nuclei of the cerebellum, and it does not mark the working fields of the cortex, so none of these is drawn.</p><p>Some regions are only parts of larger surfaces and cannot be lifted out alone. The habenula, the pineal body and the zona incerta are left grey.</p></details><details><summary>Two stray voxels</summary><p>The atlas labels two voxels as hypothalamus far from the rest of it. They are in the model and are not drawn unless you ask. Whether the atlas is right about them is not settled here.</p><button id="qc">Show the two voxels</button></details></fieldset><p><a href="README.html">Guide</a> · <a href="source.html">Where the anatomy comes from</a> · <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a></p><small>Every view shows the same left half of the brain, and what a view hides stays where it is in the head. Version of 24 November 2026.</small></div></aside>
 <aside id="annotation-panel" aria-labelledby="annotation-title" hidden>
   <button id="annotation-close" class="annotation-back" type="button">Back to the 3D model</button>
   <h2 id="annotation-title">Three flat cuts through the atlas</h2>
-  <p>The atlas is a grid of half-millimetre cubes, called voxels, and each voxel carries the number of one region. These three cuts cross at one voxel. Pick a tile, or use the arrow keys; hold Shift to move ten voxels at a time.</p>
-  <p>Each colour stands for one atlas number, and colours can repeat. The atlas’s own section images and the MRI template it was drawn on are not shown here.</p>
   <p id="annotation-status" role="status"></p>
   <button id="annotation-retry" type="button" hidden>Load the atlas grid again</button>
   <div id="annotation-tools" hidden>
@@ -390,6 +411,7 @@ body.is-isolated {
     </details>
     <label class="region-highlight"><input type="checkbox" id="region-highlight"> Highlight the selected region</label>
     <p id="region-key" hidden></p>
+    <div id="annotation-grid"></div>
     <details id="region-volume">
       <summary>Volume of the selected region</summary>
       <p id="region-name" role="status"></p>
@@ -405,7 +427,8 @@ body.is-isolated {
       <p>Each voxel adds 0.125 mm³, and counts as left, midline or right by where its centre lies. The count covers the whole atlas grid and only this region’s own atlas number: its named parts have numbers of their own and are not included.</p>
       <p>The atlas labels mainly the left side: a zero on the right means it puts none of this region’s voxels there. Borders follow the grid, so the volume is approximate.</p>
     </details>
-    <div id="annotation-grid"></div>
+    <p>The atlas is a grid of half-millimetre cubes, called voxels, and each voxel carries the number of one region. These three cuts cross at one voxel. Pick a tile, move the slider under a cut, or type R, A and S below to go to an exact voxel. With a keyboard, the arrow keys move one voxel at a time; hold Shift to move ten.</p>
+    <p>Each colour stands for one atlas number, and colours can repeat. The atlas’s own section images and the MRI template it was drawn on are not shown here.</p>
     <p><small>Coronal cuts run parallel to the face, sagittal cuts parallel to the side of the head, axial cuts horizontal. Letters at the edges of each cut: L left, R right, P back, A front, I down, S up. The R, A and S numbers give a voxel’s centre in millimetres.</small></p>
     <form id="annotation-coordinate">
       <div class="row">
@@ -426,6 +449,7 @@ body.is-isolated {
     </div>
   </div>
   <p><a href="source.html#annotation-planes">How to read the cuts</a></p>
+  <button class="annotation-back" type="button">Back to the 3D model</button>
   <template>
     <section>
       <h3></h3>

@@ -9,7 +9,7 @@ body{max-width:780px;margin:36px auto;padding:0 22px;color:#20282c;background:#f
 </style>
 </head>
 <body>
-<p><small>Version of 21 November 2026 · <a href="RELEASE-NOTES.txt">what changed</a></small></p>
+<p><small>Version of 24 November 2026 · <a href="RELEASE-NOTES.txt">what changed</a></small></p>
 <h1>Interoceptomics Atlas Viewer</h1>
 
 <p>A brain atlas is a published map that divides the brain into named regions. This viewer turns one of them, the Allen Institute’s reference atlas of the human brain, into a 3D model you can turn, cut through and measure: the left half of the brain, its 141 named regions on a half-millimetre grid. Three colours mark the regions this project links to movement and touch, to the automatic running of the organs, or to both. The project is Interoceptomics, a proposed field of science that joins the body’s sense of its own interior to the mapping of nerve connections.</p>
@@ -22,7 +22,7 @@ body{max-width:780px;margin:36px auto;padding:0 22px;color:#20282c;background:#f
 
 <p><a class="open" href="https://eliminatenoise.github.io/Interoceptomics/atlas/">Open the viewer on the website</a></p>
 
-<p>It runs in any current browser that can show 3D graphics (WebGL). The model is a 66 MB file, so the first view takes a moment, longer on a slow connection. The panel on the right says “3D controls unlock when the model is ready.” until it is.</p>
+<p>It runs in any current browser that can show 3D graphics (WebGL). The model is a 66 MB file. On the website the first view downloads about 43 MB, which takes under a minute on a 9 Mbit/s connection and nearly four minutes on a slow phone network (1.6 Mbit/s). Until the model is ready, the space where it will appear counts the megabytes as they arrive, and the panel (beside the model, or below it on a phone) says that the 3D controls are still locked. The three flat cuts work already.</p>
 
 <h3 id="offline">Offline: open the download in three steps</h3>
 
@@ -40,7 +40,7 @@ body{max-width:780px;margin:36px auto;padding:0 22px;color:#20282c;background:#f
 <li>The start file runs in a terminal window and opens your browser on the viewer, at an address on your own computer. If the browser stays closed, copy the address the terminal shows into it. Keep the terminal open while you explore. To stop, press Ctrl+C in the terminal.</li>
 </ol>
 
-<p>The download installs nothing and runs on your own computer. Only the links to cited papers need the internet.</p>
+<p>The download installs nothing and runs on your own computer. Only links that lead out of the viewer, such as those to cited papers and to the project’s website, need the internet.</p>
 
 <h3 id="first-look">When the brain appears</h3>
 
@@ -58,7 +58,7 @@ body{max-width:780px;margin:36px auto;padding:0 22px;color:#20282c;background:#f
 <tr><td>“The browser couldn’t start 3D graphics.”</td><td>Use a browser with WebGL switched on.</td></tr>
 </table>
 
-<p>So far the viewer has been run on Linux, in Chromium. The Windows and macOS start files have not yet been tried on those systems, and the viewer has not been tried on a phone. If something fails for you, <a href="https://github.com/eliminatenoise/Interoceptomics/issues">say so here</a>.</p>
+<p>So far the viewer has been run on Linux, in Chromium. The Windows and macOS start files have not yet been tried on those systems, and the viewer has not been tried on a phone itself, only in Chromium’s emulation of one. If something fails for you, <a href="https://github.com/eliminatenoise/Interoceptomics/issues">say so here</a>.</p>
 
 <h2 id="controls">Turn it, cut it, measure it</h2>
 
@@ -82,7 +82,7 @@ body{max-width:780px;margin:36px auto;padding:0 22px;color:#20282c;background:#f
 
 <h3 id="look">Look around</h3>
 
-<p>Drag to turn the brain, scroll to zoom. The brain has two halves, called hemispheres, and the atlas labels almost only the left one, so every view shows the left half. <strong>Starting view</strong> offers four places to start from:</p>
+<p>Drag to turn the brain; pinch or scroll to zoom. From the keyboard, press Tab to reach the model, where a blue ring shows it is ready for keys: Shift and the arrow keys turn it, the arrow keys move it, + and − zoom. In <strong>Insula exposed</strong> and <strong>Deep regions</strong>, a click or tap on a region chooses it. The brain has two halves, called hemispheres, and the atlas labels almost only the left one, so every view shows the left half. <strong>Starting view</strong> offers four places to start from:</p>
 
 <table>
 <tr><th>View</th><th>What it shows</th></tr>
@@ -142,7 +142,7 @@ body{max-width:780px;margin:36px auto;padding:0 22px;color:#20282c;background:#f
 <p><strong>Open three flat cuts</strong> shows three cuts that cross at one voxel: one parallel to the face (coronal), one parallel to the side of the head (sagittal), one horizontal (axial). The cuts read the whole atlas grid, so they show all 141 regions, including the little the atlas labels on the right side.</p>
 
 <ul>
-<li>Pick a tile in any cut, or step with the arrow keys, one voxel at a time. Hold Shift to move ten.</li>
+<li>Pick a tile in any cut, or move the slider under it. With a keyboard, step with the arrow keys, one voxel at a time; hold Shift to move ten. On a phone a voxel is smaller than a fingertip: type its position instead.</li>
 <li>Type a position in millimetres into <strong>R (mm)</strong>, <strong>A (mm)</strong> and <strong>S (mm)</strong> and choose <strong>Go to voxel</strong>. R grows to the right, A to the front, S upwards; <a href="source.html#axes">where they start</a>.</li>
 <li><strong>Find a region</strong> takes a name, an abbreviation or an atlas number. Choose a <strong>Side</strong>, then <strong>Show voxel in all three cuts</strong>. The crosshair lands on a voxel that really carries that region’s number.</li>
 <li><strong>Highlight the selected region</strong> paints the region under the crosshair gold in all three cuts.</li>

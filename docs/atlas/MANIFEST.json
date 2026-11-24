@@ -1,6 +1,6 @@
 {
   "name": "Interoceptomics Atlas Viewer",
-  "version": "2026-11-21",
+  "version": "2026-11-24",
   "about": "The left half of the Allen Human Reference Atlas — 3D, 2020, as a 3D model in the browser. A picture of published anatomy: no brain activity was recorded for it, and nothing in it has been validated.",
   "guide": "README.html",
   "licences_and_credits": "THIRD-PARTY-NOTICES.html",
@@ -22,14 +22,14 @@
     },
     {
       "path": "README.html",
-      "bytes": 19212,
-      "sha256": "a21767b689c904e737e9f304566ba16f92cec04e8b9026286a97b5750d464c54",
+      "bytes": 19976,
+      "sha256": "6a8e2a457a8c80da5a192ef2cd383071782478f39498f62a8f7f740362b31faf",
       "mode_octal": "0644"
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "bytes": 4033,
-      "sha256": "4ce45602942d6abfb57537d059d7ce74dc673c55882f3015beab46eee0edb76e",
+      "bytes": 5533,
+      "sha256": "ab8b84f6de9719c983613168cc2aa6aa3dd5493c6fdae796bc4aad60635958ba",
       "mode_octal": "0644"
     },
     {
@@ -131,7 +131,7 @@
     {
       "path": "viewer/README.md",
       "bytes": 3441,
-      "sha256": "1b483645783f0686913757168c4ccd6a50d545faa32c23bc294fdada241dc4d6",
+      "sha256": "543c4aaf7b1e5568f78dc4bad1a25f2491ec18d3fbd9d1b5b10090222a81db84",
       "mode_octal": "0644"
     },
     {
@@ -142,8 +142,8 @@
     },
     {
       "path": "viewer/annotation-planes.js",
-      "bytes": 13642,
-      "sha256": "d88f9d11984fcde8804dc5e24575efadc28e95d3cd8ad4ea4d16871b5b310672",
+      "bytes": 13773,
+      "sha256": "75732d041622d4e57f03bd612a8eb177a8e25694ae5c9f0c318b97711f6d4c63",
       "mode_octal": "0644"
     },
     {
@@ -436,8 +436,8 @@
     },
     {
       "path": "viewer/index.html",
-      "bytes": 34985,
-      "sha256": "6ed745f725e5388c42b1e980b43ae33f7c0bba8b8c680260001c2aae624f32fc",
+      "bytes": 37988,
+      "sha256": "730a756b70a5f2b63b8b489570f52860dfbb55fde6e99c21542c019ef47c753c",
       "mode_octal": "0644"
     },
     {
@@ -448,14 +448,14 @@
     },
     {
       "path": "viewer/omissions.html",
-      "bytes": 8335,
-      "sha256": "7b284bcdc9813ecbd8574b9f39c776882ef69ad6181af78ac192bd4bac03ccd0",
+      "bytes": 8397,
+      "sha256": "f41204151477b026f97e0c8dcb0ba3ccb589d33f9f2aaa92a2920007907784b2",
       "mode_octal": "0644"
     },
     {
       "path": "viewer/parietal-sections.js",
-      "bytes": 16884,
-      "sha256": "1d4318801f744e4404e413daccfc29bd89ce2cacd246bd96e5f75cca2fee0ec1",
+      "bytes": 16898,
+      "sha256": "fe3b96fa5911ddcf3748b7f54193c380f7e440cbaf318bf710df57223aa36981",
       "mode_octal": "0644"
     },
     {
@@ -472,8 +472,8 @@
     },
     {
       "path": "viewer/render.html",
-      "bytes": 2036,
-      "sha256": "a21f20ebd5fa287b3312e25832e5d8e7bff755d075f2393a4567cd119089518e",
+      "bytes": 2947,
+      "sha256": "793c0ae51cd12d5be42b538c9fc756536dc9c58aa3420e9e7bfc847d6b5e0295",
       "mode_octal": "0644"
     },
     {
@@ -514,8 +514,8 @@
     },
     {
       "path": "viewer/ui.js",
-      "bytes": 33715,
-      "sha256": "ff5b38bdad3626d235dbf84e5e06b856dbcbdb29012da45e0a15b828aad90ba7",
+      "bytes": 34714,
+      "sha256": "39f0054e748a6ffcc2f859b75dd76c846b958089d4fc2d0e5b7e99517a806218",
       "mode_octal": "0644"
     },
     {
@@ -568,8 +568,8 @@
     },
     {
       "path": "viewer/viewer.js",
-      "bytes": 37630,
-      "sha256": "af661b3395b9d0581b724e96d96a444d3fe18da27c5ba582b496a8992f953c33",
+      "bytes": 40463,
+      "sha256": "ab4513a140509ba994a8304e9b94d510aa6c98dba0b747e52567a50194fe44c6",
       "mode_octal": "0644"
     }
   ],

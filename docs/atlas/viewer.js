@@ -11,11 +11,17 @@ async function fetchModelFile(path,options){
  return response;
 }
 
-const loading=document.createElement('p');
+const loading=document.querySelector('#loading')||document.createElement('p');
 loading.id='loading';
 loading.setAttribute('role','status');
 loading.textContent='Loading the 3D model, a 66 MB file…';
 document.body.append(loading);
+// While the model file arrives: a count that moves (event.loaded counts unpacked bytes, and the file is 66 MB
+// unpacked), and a word and a reload button when nothing has arrived for half a minute
+let stall,shownMB=-1,stalled=false;
+function waitForBytes(){clearTimeout(stall);stall=setTimeout(()=>{stalled=true;loading.removeAttribute('aria-busy');loading.textContent+=' Nothing has arrived for 30 seconds: check the connection, or reload the page.';const again=document.createElement('button');again.type='button';again.id='reload';again.textContent='Reload the page';again.onclick=()=>(parent===window?location:parent.location).reload();loading.append(' ',again);},30000);}
+// aria-busy: a screen reader is not read every megabyte, only what follows the count
+function progress(event){const mb=Math.floor(event.loaded/1e6);if(mb!==shownMB||stalled){shownMB=mb;stalled=false;loading.setAttribute('aria-busy','true');loading.textContent='Loading the 3D model: '+mb+' of 66 MB…';}waitForBytes();}
 
 let startupStep='graphics';
 try{
@@ -23,18 +29,20 @@ try{
  const canvas=renderer.domElement;
  document.body.append(canvas);
  startupStep='files';
+ waitForBytes();
  const [registry,frame,variantSpec,gltf]=await Promise.all([
   fetchModelFile('./registry.json').then(response=>response.json()),
   fetchModelFile('./camera-r4-bounds.json').then(response=>response.json()),
   fetchModelFile('./variants.json').then(response=>response.json()),
-  new GLTFLoader().loadAsync('./assets/brain-left.glb'),
+  new GLTFLoader().loadAsync('./assets/brain-left.glb',progress),
  ]);
+ clearTimeout(stall);loading.removeAttribute('aria-busy');loading.textContent='Colouring the regions…';
  const labels=new Map(registry.labels.map(r=>[r.id,r])),nodeInfo=new Map(registry.nodes.map(r=>[r.node,r]));
  const scene=new THREE.Scene();scene.add(gltf.scene);const frameRoot=gltf.scene.getObjectByName('R5_FRAME'),meshes=[];if(!frameRoot)throw Error('Required source-frame root missing');
  gltf.scene.traverse(o=>{if(o.isMesh){o.userData.info=nodeInfo.get(o.name);o.userData.originalMaterial=o.material;meshes.push(o);}});
- async function loadIsolatedTerritory(info){
+ async function loadIsolatedTerritory(info,allowance){
   try{
-   const response=await fetchModelFile('./'+info.geometry_file,{signal:AbortSignal.timeout(10000+(info.bytes||0)/125)});
+   const response=await fetchModelFile('./'+info.geometry_file,{signal:AbortSignal.timeout(10000+(allowance||info.bytes||0)/125)});
    const data=await response.arrayBuffer();
    const digest=new Uint8Array(await crypto.subtle.digest('SHA-256',data));
    const sha256=Array.from(digest,byte=>byte.toString(16).padStart(2,'0')).join('');
@@ -65,7 +73,7 @@ try{
   for(const id of o.userData.labels)surfaceLabelIds.add(id);
  });
  const deferredTerritories=new Map(registry.nodes.filter(node=>node.load_on_selection).map(node=>[node.native_id,node]));
- const optionalLoads=registry.nodes.filter(node=>node.isolation_only&&!node.load_on_selection).map(loadIsolatedTerritory);
+ const optionalLoads=registry.nodes.filter(node=>node.isolation_only&&!node.load_on_selection).map(node=>loadIsolatedTerritory(node));
  const [details]=await Promise.all([Promise.all(optionalLoads),Promise.all(identityLoads)]);
  for(const detail of details){
   if(!detail)continue;
@@ -102,6 +110,8 @@ try{
  scene.add(new THREE.HemisphereLight(0xffffff,0x9aa4ab,1.75));
  const rigs=[];for(const [colour,power,offset] of [[0xffffff,1.7,[.6,.32,.35]],[0xe7f0ff,.7,[-.6,.07,-.45]],[0xffffff,.45,[.2,-.1,-.25]]]){const l=new THREE.DirectionalLight(colour,power);l.position.copy(overviewTarget).add(new THREE.Vector3(...offset));scene.add(l);rigs.push({light:l,offset});}
  const controls=new OrbitControls(camera,canvas);controls.enableDamping=false;controls.enablePan=true;controls.target.copy(overviewTarget);controls.enabled=interactive;
+ if(interactive){canvas.tabIndex=0;canvas.setAttribute('role','img');canvas.setAttribute('aria-label','3D model of the left half of the brain. Shift and the arrow keys turn it, the arrow keys move it, plus and minus zoom.');controls.listenToKeyEvents(canvas);canvas.addEventListener('keydown',()=>{controls.keyRotateSpeed=canvas.clientHeight/72;},{capture:true});}
+
  const state={variant:query.get('variant')||variantSpec.default,view:query.get('view')||'Medial',role:query.get('role')||'all',selection:query.get('select')||'',isolate:query.get('isolate')==='1',qc:query.get('qc')==='all',compare:false,layers:false};
  const comparisonMaterials=new Map();
  const comparison=registry.vpl_vpm_comparison;
@@ -166,7 +176,7 @@ try{
     camera.zoom=Math.min(halfY,camera.right)/(radius*1.13);
    }else{
     const size=box.getSize(new THREE.Vector3());
-    camera.zoom=Math.min(12,Math.max(1,halfY*2/(Math.max(size.x,size.y,size.z)*1.35)));
+    camera.zoom=Math.min(12,Math.max(1,Math.min(halfY,camera.right)*2/(Math.max(size.x,size.y,size.z)*1.35)));
    }
   }
   camera.position.copy(controls.target).add(offsetInWorld(offsets[state.view]));
@@ -433,7 +443,7 @@ try{
   if(!controls.update()){draw();publish();}
  }
  let axes;
- if(interactive){axes=document.createElementNS('http://www.w3.org/2000/svg','svg');axes.id='axes';axes.setAttribute('viewBox','0 0 110 90');document.body.append(axes);}
+ if(interactive){axes=document.createElementNS('http://www.w3.org/2000/svg','svg');axes.id='axes';axes.setAttribute('aria-hidden','true');axes.setAttribute('viewBox','0 0 110 90');document.body.append(axes);}
  function drawAxes(){if(!axes)return;axes.replaceChildren();for(const [name,v] of [['A',new THREE.Vector3(0,0,1)],['S',new THREE.Vector3(0,1,0)],['R',new THREE.Vector3(-1,0,0)]]){v.applyQuaternion(camera.quaternion.clone().invert());const x=55+v.x*30,y=45-v.y*30,line=document.createElementNS(axes.namespaceURI,'line'),text=document.createElementNS(axes.namespaceURI,'text');for(const [k,val] of Object.entries({x1:55,y1:45,x2:x,y2:y,stroke:'#424c52','stroke-width':1.5}))line.setAttribute(k,val);text.setAttribute('x',x+3);text.setAttribute('y',y-3);text.setAttribute('font-size',12);text.setAttribute('font-family','Arial,Helvetica,sans-serif');text.textContent=name==='R'&&Math.abs(v.z)>.95?(v.z>0?'R ⊙':'R ⊗'):name;axes.append(line,text);}}
  function renderInteractive(){
   const hidden=annotationMode?[sourcePlane,parietalPlane,distanceOverlay?.marks].filter(object=>object?.visible):[];
@@ -454,25 +464,29 @@ try{
   let status=active?'on':'off';
   if(active){
    parent.postMessage({type:'brain-layers',status:'loading'},location.origin);
-   layerLoads??=Promise.all(registry.nodes.filter(node=>node.layer).map(node=>loadSelectedTerritory(node.native_id)));
+   const layerNodes=registry.nodes.filter(node=>node.layer).sort((a,b)=>a.bytes-b.bytes);let before=0;
+   layerLoads??=Promise.all(layerNodes.map((node,i)=>{const allowance=before+(layerNodes.length-i)*node.bytes;before+=node.bytes;return loadSelectedTerritory(node.native_id,allowance);}));
    const loaded=await layerLoads;
+   const failed=loaded.some(detail=>!detail);
+   if(failed)layerLoads=undefined;
    if(!state.layers)return;
-   if(loaded.some(detail=>!detail))status='partial';
+   if(failed)status='partial';
   }
   colours();visible();draw();publish();
   parent.postMessage({type:'brain-layers',status},location.origin);
  }
- function loadSelectedTerritory(id){
+ function loadSelectedTerritory(id,allowance){
   if(territoryLoads.has(id))return territoryLoads.get(id);
   const territory=deferredTerritories.get(id);
   if(!territory)return;
-  const pending=loadIsolatedTerritory(territory).then(detail=>{
+  const pending=loadIsolatedTerritory(territory,allowance).then(detail=>{
    if(detail){
     detail.mesh.onBeforeRender=()=>{currentMesh=detail.mesh;};
     frameRoot.add(detail.scene);
     meshes.push(detail.mesh);
    }
    parent.postMessage({type:'brain-territory',id,ready:Boolean(detail)},location.origin);
+   if(!detail)territoryLoads.delete(id);
    return detail;
   });
   territoryLoads.set(id,pending);
@@ -534,6 +548,7 @@ try{
  }
  window.addEventListener('message',e=>{if(e.source===parent&&e.origin===location.origin&&e.data?.type==='brain-command')apply(e.data.command);});
  window.addEventListener('keydown',event=>{
+  if(interactive&&event.target===canvas&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&['+','=','-'].includes(event.key)){camera.zoom=Math.min(60,Math.max(.2,camera.zoom*(event.key==='-'?1/1.15:1.15)));camera.updateProjectionMatrix();draw();publish();event.preventDefault();return;}
   if(interactive&&state.compare&&event.key==='Escape'){
    parent.postMessage({type:'brain-comparison-exit'},location.origin);
    event.preventDefault();
@@ -545,7 +560,7 @@ try{
  canvas.addEventListener('pointerup',e=>{
   const origin=down;
   down=undefined;
-  if(!interactive||!origin||Math.hypot(e.clientX-origin[0],e.clientY-origin[1])>4)return;
+  if(!interactive||!origin||Math.hypot(e.clientX-origin[0],e.clientY-origin[1])>(e.pointerType==='touch'?10:4))return;
   const box=canvas.getBoundingClientRect();
   if(!box.width||!box.height)return;
   pointer.set((e.clientX-box.left)/box.width*2-1,1-(e.clientY-box.top)/box.height*2);
@@ -583,7 +598,7 @@ try{
  updateFrame();colours();visible();resetCamera(state.isolate);draw();
  window.brain={renderer,scene,camera,controls,registry,state,frameRoot,variantSpec,apply,draw,measureVisibility,metrics,async isolatedVisibility(){const save={...state};const result=[];for(const r of registry.labels.filter(r=>r.state==='new_per_label_mesh')){state.view=r.family==='insula'?'InsulaDissection':'Deep';state.selection=String(r.id);state.isolate=true;visible();resetCamera(true);draw();const counts=measureVisibility();result.push({id:r.id,name:r.name,camera_zoom:camera.zoom,visible_pixels:counts.find(x=>x.kind==='new'&&x.source_ids[0]===r.id)?.pixel_samples||0,all_other_meshes_hidden:true,overview_and_axes:'UI retains corrected source-left medial overview and proper anatomical axes; source positions unchanged'});}Object.assign(state,save);visible();resetCamera(false);draw();publish();return result;}};
  window.renderMetrics=metrics(query.get('measure')==='1');document.body.dataset.ready='true';publish();if(query.get('measure')==='1')window.renderMetrics=metrics(true);
- loading.remove();
+ loading.remove();document.querySelector('#start')?.remove();
  const separateLabelIds=meshes.filter(o=>o.userData.info.kind==='new').map(o=>o.userData.info.native_id);
  parent.postMessage({type:'brain-ready',separate:separateLabelIds,shared:[...surfaceLabelIds],
   deferred:[...deferredTerritories.keys()]},location.origin);
@@ -596,11 +611,15 @@ try{
  }[startupStep];
  const help=startupStep==='graphics'
   ?'Try opening the model in a browser with WebGL enabled.'
+  :startupStep==='files'
+  ?'The connection may have dropped. Reload the page to start the download again, from the beginning; the three flat cuts work without the 3D model. If you are using the download and it still won’t open, extract a fresh copy of the whole ZIP and open it with its start file.'
   :'Reload the page. If you are using the download and it still won’t open, extract a fresh copy of the whole ZIP and open it with its start file.';
- document.body.innerHTML='<div id="startup-error"><p id="error" role="alert"></p><p></p><details><summary>Technical details</summary><pre></pre></details></div>';
+ document.body.innerHTML='<div id="startup-error"><p id="error" role="alert"></p><p></p><p><button type="button" id="reload">Reload the page</button></p><details><summary>Technical details</summary><pre></pre></details></div>';
  document.querySelector('#error').textContent=heading;
  document.querySelector('#startup-error p:nth-child(2)').textContent=help;
  document.querySelector('#startup-error pre').textContent=errorName+': '+errorMessage;
+ const reload=document.querySelector('#reload');
+ if(startupStep==='graphics')reload.parentElement.remove();else reload.onclick=()=>(parent===window?location:parent.location).reload();
  delete document.body.dataset.ready;
  document.body.dataset.error=e?.stack||errorName+': '+errorMessage;
  parent.postMessage({type:'brain-error'},location.origin);

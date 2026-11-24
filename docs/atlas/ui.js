@@ -7,6 +7,7 @@ const controls = document.querySelector('#model-controls');
 const status = document.querySelector('#controls-status');
 const select = document.querySelector('#label');
 const search = document.querySelector('#search');
+const searchStatus = document.querySelector('#search-status');
 const scope = document.querySelector('#scope');
 const viewAction = document.querySelector('#view-action');
 const construction = document.querySelector('#construction');
@@ -107,6 +108,7 @@ const annotation = bindAnnotationPlanes(annotationPanel, {
   },
   modelPoint: point => send({annotationMode: true, annotationPoint: point}),
   modelReady: () => !controls.disabled,
+  modelFailed: () => failed,
 });
 for (const button of document.querySelectorAll('[data-open-annotation]')) {
   button.onclick = () => {
@@ -161,10 +163,12 @@ function name(row) {
 
 function options() {
   const term = search.value.toLowerCase();
+  let matches = 0;
   const separate = [];
   const shared = [];
   const sourceOnly = [];
   function collect(value, label, searchable, group) {
+    if (searchable.toLowerCase().includes(term)) matches++;
     if (searchable.toLowerCase().includes(term) || value === current) group.push(new Option(label, value));
   }
   for (const [id, label] of Object.entries(familyNames)) {
@@ -187,6 +191,8 @@ function options() {
     select.append(group);
   }
   select.value = current;
+  const found = term ? (matches === 1 ? '1 match' : (matches || 'No') + ' matches') : '';
+  if (searchStatus.textContent !== found) searchStatus.textContent = found;
 }
 
 function setIsolation(active) {
@@ -198,7 +204,7 @@ function setIsolation(active) {
   let instruction = selectionInstruction;
   if (isolated) {
     const label = viewName();
-    instruction = `Drag to turn the region. Zoom to it centres it again from the starting angle of ${label}. Show the whole brain returns to that view at its starting zoom.`;
+    instruction = `Drag to turn the region, or use Shift and the arrow keys on the model. Zoom to it centres it again from the starting angle of ${label}. Show the whole brain returns to that view at its starting zoom.`;
   } else if (isolationOnlyLabel) {
     if (!canIsolate) {
       const pending = available.deferred.get(isolationOnlyLabel.id) === 'pending';
@@ -481,7 +487,7 @@ function selection(value, moveFocus = true) {
     ? (groups.length ? (groups.length === 1 ? 'Colour group: ' : 'Colour groups: ') + groups.join(', ')
       + (drawn ? '' : isolationOnlyLabel ? ' (coloured once you choose Show it alone)' : ' (not drawn: it has no surface)') : 'No colour group')
     : '';
-  let instruction = 'Drag to turn the brain, scroll to zoom. The small picture and the axis letters stay on screen when a region is shown alone.';
+  let instruction = 'Drag to turn the brain; pinch or scroll to zoom. From the keyboard, press Tab to reach the model (a blue ring marks it): Shift and the arrow keys turn it, the arrow keys move it, + and − zoom. In the views Insula exposed and Deep regions, a click or tap on a region chooses it. The small picture and the axis letters stay on screen when a region is shown alone.';
   if (family) {
     instruction = meshes + ' surfaces for ' + rows.length + ' regions. Where a region has named parts, its own surface covers only what is left over.';
   } else if (meshes) {
@@ -522,6 +528,7 @@ function selection(value, moveFocus = true) {
 
 function savedViewError(message, measurement = false) {
   waitingSavedView = undefined;
+  if (savedViewInput.value.trim()) savedViewInput.setAttribute('aria-invalid', 'true');
   const notice = (measurement ? 'Couldn’t open measurement. ' : 'Couldn’t open saved view. ') + message;
   savedViewStatus.textContent = notice;
   annotation.reportSavedViewError(notice);
@@ -611,7 +618,7 @@ function openSavedView(fragment, writeHash = false) {
   }
   const request = {...saved, fragment, writeHash};
   waitingSavedView = request;
-  savedViewStatus.textContent = measurement ? 'Opening measurement…' : 'Opening saved view…';
+  savedViewStatus.textContent = (measurement ? 'Opening measurement' : 'Opening saved view') + (controls.disabled ? ' once the 3D model has loaded…' : '…');
   restoreSavedView(request);
 }
 
@@ -638,13 +645,14 @@ function syncAvailability() {
   controls.disabled = !ready;
   const message = failed
     ? '3D controls are unavailable. Reload the page to try again.'
-    : ready ? '3D controls ready.' : '3D controls unlock when the model is ready.';
+    : ready ? '3D controls ready.' : '3D controls unlock when the model is ready. The three flat cuts work already.';
   if (status.textContent !== message) status.textContent = message;
   status.classList.toggle('visually-hidden', ready);
   if (waitingSavedView && !waitingSavedView.annotation && (ready || failed)) restoreSavedView(waitingSavedView);
   annotation.syncModel();
 }
 
+savedViewInput.addEventListener('input', () => savedViewInput.removeAttribute('aria-invalid'));
 savedViewForm.onsubmit = event => {
   event.preventDefault();
   openSavedView(savedViewInput.value.trim(), true);
@@ -734,7 +742,7 @@ addEventListener('message', event => {
   } else if (message?.type === 'brain-layers') {
     const megabytes = Math.round(registry.nodes.filter(node => node.layer).reduce((sum, node) => sum + node.bytes, 0) / 1e6);
     layersStatus.textContent = message.status === 'loading' ? 'Loading the white matter and the fluid spaces, a ' + megabytes + ' MB download…'
-      : message.status === 'partial' ? 'Some of them couldn’t load. Reload the page to try again.' : '';
+      : message.status === 'partial' ? 'Some of them couldn’t load. Hide them and show them again to try once more.' : '';
   } else if (message?.type === 'brain-error') {
     failed = true;
     syncAvailability();
@@ -763,6 +771,7 @@ addEventListener('message', event => {
       return;
     }
     selection(message.id);
+    document.querySelector('#selection').scrollIntoView({block: 'nearest'});
   }
 });
 

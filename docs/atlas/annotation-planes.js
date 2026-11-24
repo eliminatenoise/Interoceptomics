@@ -36,7 +36,7 @@ export function annotationPalette(ids) {
   return ids.map(id => id === 0 ? [32, 45, 55] : colours[id % colours.length]);
 }
 
-export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
+export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady, modelFailed}) {
   const status = panel.querySelector('#annotation-status');
   const retry = panel.querySelector('#annotation-retry');
   const tools = panel.querySelector('#annotation-tools');
@@ -235,7 +235,7 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     } else if (source.label(point) === 0) {
       text = 'The atlas puts this voxel in no region. The 3D model has no marker here.';
     } else if (!modelReady()) {
-      text = 'The 3D model is not available. You can still read the three cuts.';
+      text = modelFailed?.() ? 'The 3D model couldn’t load. You can still read the three cuts.' : 'The 3D model has not loaded yet. You can already read the three cuts.';
     }
     if (text) {
       modelRequest = modelResult = undefined;
@@ -310,7 +310,7 @@ export function bindAnnotationPlanes(panel, {mode, modelPoint, modelReady}) {
     modelRequest = modelResult = undefined;
     mode(false, restoreFocus);
   }
-  panel.querySelector('#annotation-close').onclick = () => close();
+  for (const back of panel.querySelectorAll('.annotation-back')) back.onclick = () => close();
 
   retry.onclick = () => show();
   return {

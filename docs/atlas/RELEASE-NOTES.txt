@@ -1,8 +1,39 @@
 Interoceptomics Atlas Viewer
-Version of 21 November 2026
+Version of 24 November 2026
 
 
-WHAT THIS VERSION IS
+WHAT THIS VERSION CHANGES
+
+The viewer is easier to use on a phone, from the keyboard and on a slow
+connection. The 3D model, its regions and its colours are the same as in
+the version of 21 November 2026.
+
+  On a phone. On a narrow screen the 3D model stays at the top while the
+  panel scrolls under it, so a region you show alone or zoom to stays in
+  sight. The text and the controls are larger. In the three flat cuts,
+  the cuts come before their explanation, and a second "Back to the 3D
+  model" button sits at the bottom.
+
+  From the keyboard. The Tab key reaches the model, and a blue ring
+  marks it. Shift and the arrow keys turn the model, the arrow keys move
+  it, + and - zoom.
+
+  On a slow connection. While the model loads, a faded picture of the
+  brain and a count of the megabytes show that it is arriving. A
+  download that stops says so and offers a button that reloads the page.
+  If some of the white matter and fluid spaces fail to load, hiding them
+  and showing them again fetches only the ones that failed.
+
+  Colours. A sentence under the colour key says what to do if two of
+  the colours look alike to you.
+
+  One link. The panel links to a separate viewer on the project's
+  website that follows one wrist reach. That link needs the internet.
+
+
+WHAT THE VERSION OF 21 NOVEMBER 2026 CHANGED
+
+All of it is in this version too.
 
 The twenty regions that had no surface now have one: the white matter of
 the forebrain and five of its named bundles of nerve fibres, nine fluid
@@ -64,8 +95,11 @@ Linux, in Chromium 155 with software rendering, both from the start file
 and from a copy of the website served on this computer: the first view,
 the white matter and fluid spaces in each view, regions shown alone, a
 colour overlay, the three flat cuts, and the page opened straight from the
-folder. The Windows and macOS start files have not yet been tried on those
-systems, and the viewer has not been run on a phone.
+folder. Phone and tablet screens, touch and slow connections were tried
+only in Chromium's emulation of them, and the keyboard only with key
+presses sent by a test program. The Windows and macOS start files have
+not yet been tried on those systems, and the viewer has not been run on
+a phone.
 
 
 WHERE THINGS ARE
