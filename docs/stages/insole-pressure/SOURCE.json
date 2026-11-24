@@ -1,0 +1,27 @@
+{
+  "model_commit": "14e3c351624e4d336e47b0d1cd36c00da22d5cb0",
+  "model_files": {
+    "pressure.mjs": {
+      "url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/14e3c351624e4d336e47b0d1cd36c00da22d5cb0/benchmarks/outdoor-insole-pressure/pressure.mjs",
+      "sha256": "401496f0f7eea2cc413e40aebcb77fd35121a34dc767f26bbf5fce740a6fd68d"
+    },
+    "pressure-model.json": {
+      "url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/14e3c351624e4d336e47b0d1cd36c00da22d5cb0/benchmarks/outdoor-insole-pressure/pressure-model.json",
+      "sha256": "72c8e23adaa45a166f88463d53aa5cb86304b324f32b369edb3e6b0c40657d2d"
+    },
+    "results.json": {
+      "url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/14e3c351624e4d336e47b0d1cd36c00da22d5cb0/benchmarks/outdoor-insole-pressure/results.json",
+      "sha256": "050147e4ea0c2f69857806fe95ac82f6e5920369b0bc38449d5dcf646f25fc3f"
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/14e3c351624e4d336e47b0d1cd36c00da22d5cb0/benchmarks/outdoor-insole-pressure/LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    }
+  },
+  "dataset": "https://doi.org/10.6084/m9.figshare.19834324.v1",
+  "paper": "https://doi.org/10.1038/s41597-022-01580-3",
+  "sensor_locations": "Fig. 4 and Table 3. Eight author-named pressure locations per foot. The controls group sensor readings; they provide no anatomical scale.",
+  "pressure_unit": "millibar",
+  "scope": "Frozen model, aggregate benchmark, and generated exercise inputs. Offline pressure forecast. The study and the floor force companion measure different quantities in separate recordings.",
+  "license": "CC0-1.0"
+}

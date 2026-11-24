@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pressure under the foot, technical guide · Interoceptomics</title>
+  <link rel="stylesheet" href="../reading.css"><link rel="icon" href="data:,">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the guide</a>
+  <header><nav aria-label="Insole forecast methods">
+    <a href="forecast.html">Open the exercise</a><a href="index.html">Simple guide</a>
+    <a href="../#movement-model/insolePressure" target="_top">Movement model stage</a>
+  </nav></header>
+  <main id="content">
+    <h1>Pressure under the foot</h1>
+    <p>The exercise runs the frozen NeuroTranslate models on generated pressure readings. There are 13 samples at 60 Hz, spanning 200 milliseconds. At issue time the model forecasts 100 milliseconds ahead. The controls group the pads by location. Model input order is big toe, other toes, first, third and fifth metatarsal heads, arch, and left and right heel pads.</p>
+
+    <h2>Run the forecast</h2>
+    <p>Select a foot, a pad and an input time, then edit pressure in millibar. The green line shows history and the blue dot shows the forecast. Restore returns the generated history. The same-foot recurrent model uses the selected foot’s eight readings per sample. The both-feet model uses 16. Both update an internal state across samples and output a change that is added to the latest pressure.</p>
+    <p>In the Stage Guide download, open <strong>Movement model</strong>, select <strong>Forecast insole pressure</strong> and choose <strong>Open here</strong>. The exercise and saved benchmark scores are served locally by the Stage Guide launcher.</p>
+
+    <h2>What the instruments measure</h2>
+    <p>Pressure is force per area. One millibar equals 100 pascals (100 N/m²). A force plate measures net force, with an upward component in newtons. Its vertical impulse over a specified window is the integral of that force over time, in newton-seconds. Estimating force by integrating pressure over the contact surface requires the sensor areas, measurement axes and calibration. The insole and floor-plate exercises use separate archives. These pressure channels describe shoe contact. Nerve firing and sensation require separate observations. <a href="../force-waist/technical.html">Force plate and waist watch methods</a>.</p>
+
+    <h2>Source and benchmark</h2>
+    <p>NEWBEE recorded 20 adults on three outdoor courses. Authors aligned modalities after acquisition and linearly interpolated the pressure series to 60 Hz. Interpolation can use a subsequent original sample, so the 100 millisecond result applies to the prepared clock. Live arrival timing remains unverified.</p>
+    <p>Roles were one format check, eight fitting participants, three development participants and eight held out. The final set contained 67,355 forecasts from 24 recordings. We averaged absolute errors over sensors and windows within each course, over courses within each person, and over people equally.</p>
+    <p>Mean error was 49.58 mbar for the same-foot recurrent model, 60.37 for carrying the last reading forward, 60.62 for same-foot linear and 50.27 for both-feet recurrent. Same-foot recurrence improved on both baselines in all eight people. The both-feet minus same-foot recurrent difference was +0.69 mbar. The central 95% interval across 10,000 paired person-level resamples was −0.43 to +1.72 mbar.</p>
+    <p>Open <strong>Results from recorded walks</strong> for the six-method table. <a href="results.json">Results data</a> · <a href="SOURCE.json">Exact model sources</a> · <a href="https://eliminatenoise.github.io/NeuroTranslation/outdoor-insole-pressure/">NeuroTranslate model page</a> · <a href="https://doi.org/10.1038/s41597-022-01580-3">Original study, Figure 4 and Table 3</a> · <a href="https://doi.org/10.6084/m9.figshare.19834324.v1">Source data</a> · <a href="LICENSE">CC0 model and code license</a>.</p>
+  </main>
+</body>
+</html>

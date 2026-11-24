@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pressure under the foot · Interoceptomics</title>
+  <link rel="stylesheet" href="../reading.css"><link rel="icon" href="data:,">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the guide</a>
+  <header><nav aria-label="Insole pressure guide">
+    <a href="forecast.html">Open the exercise</a><a href="technical.html">Technical guide</a>
+    <a href="../#movement-model/insolePressure" target="_top">Movement model stage</a>
+  </nav></header>
+  <main id="content">
+    <h1>Pressure under the foot</h1>
+    <p>The insole used in this study had eight pressure pads under each foot. A pad measures the pressure against it, in millibar. Select a pad to see its recent readings and a model’s estimate for a tenth of a second later.</p>
+
+    <h2>Try one pressure reading</h2>
+    <ol>
+      <li>Open the exercise, choose a foot, and select a pad. The controls group the pads under the toes, front of the foot, arch and heel. Three pads sit beneath the heads of the first, third and fifth long bones that lead to the toes. These bones are called metatarsals.</li>
+      <li>Choose <strong>Time to edit</strong> and change <strong>Pressure</strong>. The green line shows the 13 readings, equally spaced over the previous fifth of a second. The blue dot shows the forecast 100 milliseconds after the last reading. <strong>Restore example</strong> brings back the generated values.</li>
+      <li>Compare <strong>Same-foot recurrent</strong> with <strong>Both-feet recurrent</strong>. A recurrent model reads the samples in order and updates a running record as it goes. The first version uses only the foot it predicts. The second reads both feet. Changing the generated values leaves the recorded test scores as they were.</li>
+    </ol>
+
+    <h2>Compare pressure and floor force</h2>
+    <p>Pressure describes how much push is spread over an area. A millibar is 100 pascals, and a pascal is one newton per square metre. A floor plate measures the whole vertical push in newtons. The force exercise adds up that push over a tenth of a second. Its answer is called impulse and uses newton-seconds. To add up pressure from a shoe into force, you need the areas over which those pressures act, along with the directions and calibration of the measurements. The two examples here come from separate recordings.</p>
+    <p>These shoe readings help describe contact. The study recorded what the pads measured. Estimating how the contact felt or how the nerves responded would require separate observations. <a href="../force-waist/index.html">Compare with the force plate and waist watch exercise</a>.</p>
+
+    <h2>Check the result from recorded walks</h2>
+    <p>Twenty adults walked three outdoor courses. The researchers aligned the measurements afterward and filled in values between original samples to make 60 readings per second. A filled-in value can use a later original reading. The test measures the model on those prepared files. Live shoe sensors need a timing test of their own.</p>
+    <p>One person’s recording was used to check the files, eight people supplied fitting examples, and three helped choose the settings. The final test used 67,355 forecasts from 24 recordings of another eight people. The error was averaged over each course, then over the courses for each person, then over people.</p>
+    <p>The same-foot model missed by 49.58 mbar on average. Repeating the latest reading missed by 60.37 mbar, and a same-foot linear forecast missed by 60.62 mbar. The same-foot recurrent model beat both for all eight people. Using both feet gave an average error of 50.27 mbar. We redrew groups of eight from the same eight people 10,000 times, allowing repeats. The middle 95% of the differences ranged from both feet doing 0.43 mbar better to doing 1.72 mbar worse.</p>
+    <p>Open <strong>Results from recorded walks</strong> for all six scores. The exercise runs from the Stage Guide download. In the guide, choose <strong>Movement model</strong>, find <strong>Forecast insole pressure</strong> and select <strong>Open here</strong>. <a href="https://eliminatenoise.github.io/NeuroTranslation/outdoor-insole-pressure/">NeuroTranslate model page</a> · <a href="https://doi.org/10.1038/s41597-022-01580-3">Original study and sensor locations</a> · <a href="https://doi.org/10.6084/m9.figshare.19834324.v1">Source data</a> · <a href="LICENSE">CC0 model and code license</a>.</p>
+  </main>
+</body>
+</html>

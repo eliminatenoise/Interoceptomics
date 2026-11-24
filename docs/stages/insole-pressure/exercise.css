@@ -1,0 +1,29 @@
+.exercise { max-width: 62rem; }
+.forecast-panel { border: 1px solid #becac3; border-radius: 0.75rem; padding: clamp(0.875rem, 3vw, 1.5rem); background: #f0f5f1; }
+.exercise h2 { margin-top: 0; }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+.controls label { display: grid; gap: 0.25rem; min-width: 0; font-weight: 600; }
+.controls select, .controls input, .controls button { min-width: 0; width: 100%; padding: 0.45rem; min-height: 2.5rem; border: 1px solid #839b8c; color: #18372b; background: white; border-radius: 0.4rem; font: inherit; }
+.controls button { align-self: end; }
+.pads { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+.pads h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
+.sensor-group { display: grid; align-content: start; min-width: 0; gap: 0.35rem; }
+.sensor-group button { padding: 0.38rem 0.45rem; min-height: 2.2rem; color: #18372b; background: #fff; border: 1px solid #839b8c; border-radius: 0.35rem; font: inherit; text-align: left; }
+.sensor-group button[aria-pressed=true] { background: #174f3b; color: #fff; border-color: #174f3b; }
+.exercise button:focus-visible, .exercise input:focus-visible, .exercise select:focus-visible { outline: 2px solid #156243; outline-offset: 2px; }
+.values { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin: 0.6rem 0; }
+.values div { background: white; padding: 0.55rem; border: 1px solid #becac3; border-radius: 0.35rem; }
+.values dt { font-size: 0.9rem; }
+.values dd { margin: 0; font-weight: 700; font-size: clamp(1rem, 2.6vw, 1.3rem); font-variant-numeric: tabular-nums; }
+.subtle, #status { margin: 0.5rem 0; color: #355446; font-size: 0.95rem; }
+#history { display: block; height: 10rem; width: 100%; }
+.controls.edit { grid-template-columns: 1fr 1fr auto; margin-bottom: 0; }
+.exercise details { margin: 1.15rem 0; }
+.exercise summary { font-weight: 650; cursor: pointer; }
+.exercise table { width: 100%; font-variant-numeric: tabular-nums; }
+.exercise td:last-child { text-align: right; }
+.exercise-links { display: flex; flex-wrap: wrap; gap: 0.55rem 1rem; }
+@media (max-width: 515px) {
+  .controls.edit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .controls.edit button { grid-column: 1 / -1; }
+}

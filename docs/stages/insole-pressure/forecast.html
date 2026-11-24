@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Forecast insole pressure · Interoceptomics</title>
+  <link rel="stylesheet" href="../reading.css"><link rel="stylesheet" href="exercise.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the exercise</a>
+  <header><nav aria-label="Insole forecast">
+    <a href="index.html">Simple guide</a><a href="technical.html">Technical guide</a>
+    <a href="../#movement-model/insolePressure" target="_top">Movement model stage</a>
+  </nav></header>
+  <main id="content" class="exercise">
+    <h1>Forecast insole pressure</h1>
+    <p>Choose a pad and edit an earlier reading. The model estimates what that pad will read 100 milliseconds after the last reading. The editable example uses generated values.</p>
+
+    <section class="forecast-panel" aria-labelledby="run-title">
+      <h2 id="run-title">Pressure under one foot</h2>
+      <div class="controls">
+        <label>Foot<select id="foot"><option value="left">Left</option><option value="right">Right</option></select></label>
+        <label>Model<select id="model"><option value="same">Same-foot recurrent</option><option value="both">Both-feet recurrent</option></select></label>
+      </div>
+      <div id="pads" class="pads" aria-label="Choose a sensor location"></div>
+      <dl class="values" aria-label="Selected pad values in millibar">
+        <div><dt>Latest reading</dt><dd id="latest" data-unit="mbar">—</dd></div>
+        <div><dt>Forecast at +100 ms</dt><dd id="prediction" data-unit="mbar">—</dd></div>
+      </dl>
+      <p id="pad-label" class="subtle"></p>
+      <canvas id="history" role="img" aria-label="History and forecast for the selected pad"></canvas>
+      <div class="controls edit">
+        <label>Time to edit<select id="time"></select></label>
+        <label>Pressure (mbar)<input id="reading" type="number" step="any" inputmode="decimal"></label>
+        <button type="button" id="restore">Restore example</button>
+      </div>
+      <p id="status" role="status">Opening the example…</p>
+    </section>
+
+    <details>
+      <summary>Results from recorded walks</summary>
+      <p id="benchmark-scope"></p>
+      <table id="benchmark">
+        <thead><tr><th scope="col">Forecast</th><th scope="col">Average error (mbar)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </details>
+    <nav class="exercise-links" aria-label="Related measurements">
+      <a href="../force-waist/index.html">Force plate and waist watch</a>
+      <a href="https://eliminatenoise.github.io/NeuroTranslation/outdoor-insole-pressure/">NeuroTranslate model page</a>
+    </nav>
+  </main>
+  <script type="module" src="exercise.mjs"></script>
+</body>
+</html>
