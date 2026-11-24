@@ -55,9 +55,9 @@
     "docs/stages/recording/wtrack/view.js": "44d8c9eb8fba02911c83432ec4ffa21f29afa91b37bcebd3f4b0aba48da18314",
     "docs/stages/roadmap.js": "fb8322f55cad184ce434feea0776f6cc2fda3494ddb18c625a18ba1790674f6e",
     "docs/stages/scene.js": "471a725ab24cb491a78bfc047f0306e6e8bc19005c5918e23a41b96c9c649381",
-    "docs/stages/simple.html": "7d24657f35f6204458e330834053a1a969777b630f49af7d70392810158c678f",
+    "docs/stages/simple.html": "3c130457804b75df29b5c3ca574c62d7bea8ca7aa4c129c689456c0b9cfb28b8",
     "docs/stages/style.css": "daeaf842277aa56546ff5887f59c3c5284f11b8eb4f6890e6bd492469cbea909",
-    "docs/stages/technical.html": "d2ef9095a57a72bbd517d73152b7c6bcf8bfad27802702b7878366cb111d2449",
+    "docs/stages/technical.html": "742efda11fc45f070dc9ed5abd2a8f5197a4e4117a4c074c2063d7a4002253a6",
     "docs/stages/walking-force-forecast.html": "41bc5a3993a5d366b8cc76ba2f09fc9374651d9061b70b6e32c648b1e4aa512c"
   },
   "companion_archives": {
@@ -228,9 +228,9 @@
     "docs/stages/recording/ramp-summary.js": "f07dda0639fd1f099f6ddbb2c7993123b4c88f46",
     "docs/stages/recording/wrist.js": "999886a9fffbf441543890d416bad1062fc9ba1f",
     "docs/stages/roadmap.js": "cffc6b554cd3acb224ab5c415cc3a6ff110d9928",
-    "docs/stages/simple.html": "0ee63e1d6ec3995843a203f746f82820165012bf",
+    "docs/stages/simple.html": "d3ed88c2b6605442f4e06f1a5ec89805b3775336",
     "docs/stages/style.css": "a4c5018d471db9ac9dd1ee2aa04994b2093f9b07",
-    "docs/stages/technical.html": "2ff9315ec3884fb187a38c83f79b3ae466a46033",
+    "docs/stages/technical.html": "612fc70f9505ab697218d79079c2e6e86528f068",
     "docs/stages/walking-force-forecast.html": "34306a02261402878d473d3232aaad5d15af7f52"
   }
 }
