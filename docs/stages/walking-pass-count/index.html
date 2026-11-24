@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare walking forecasts by pass count · Interoceptomics</title>
+<link rel="stylesheet" href="../optic-flow/style.css">
+<link rel="icon" href="data:,">
+<style>tr.best output{font-weight:750}tr.best .bar{background:#175746}.choose{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:.65rem 1rem}.control{display:grid;gap:.25rem}.control select{width:100%}</style>
+</head>
+<body>
+<a class="skip" href="#comparison">Skip to the comparison</a>
+<header><nav aria-label="Reader navigation">
+<a href="../#movement-model/walkingPassCount" target="_top">Movement model stage</a>
+<a id="other-edition" href="technical.html">Technical edition</a>
+</nav></header>
+<main>
+<h1>Compare walking forecasts by pass count</h1>
+<p>Compare five settings of the same walking model. Choose <strong>Accumulated force</strong> to see how well they predicted the force under the walker over the next tenth of a second. Choose <strong>New-load probability</strong> to see how well they estimated the chance that a plate would start taking load.</p>
+<section id="comparison" aria-labelledby="comparison-title">
+<h2 id="comparison-title">Compare the forecast errors</h2>
+<div class="choose">
+<div class="control"><label for="metric">Error measure</label>
+<select id="metric" disabled>
+<option value="impulse">Accumulated force</option>
+<option value="event">New-load probability</option>
+</select></div>
+<div class="control"><label for="support">Forecast rows</label>
+<select id="support" disabled>
+<option value="endpoint_specific">Use all measured rows for each error</option>
+<option value="joint_support">Use the same rows for both errors</option>
+</select></div>
+</div>
+<div class="result">
+<p id="coverage"></p>
+<table>
+<caption id="comparison-caption">Mean forecast error</caption>
+<thead><tr><th scope="col">Forecast method</th><th scope="col">Error</th></tr></thead>
+<tbody>
+<tr data-arm="fit_prior_and_physical_persistence"><th scope="row">Keep the last force</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="native_recurrence_1_passes"><th scope="row">1 pass</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="native_recurrence_3_passes"><th scope="row">3 passes</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="native_recurrence_5_passes"><th scope="row">5 passes</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="native_recurrence_7_passes"><th scope="row">7 passes</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="native_recurrence_9_passes"><th scope="row">9 passes</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+</tbody>
+</table>
+<p>Shorter bars show smaller errors. The bars are drawn from zero to the largest error in the current selection.</p>
+<p id="comparison-status" role="status">Checking the saved results…</p>
+</div>
+<noscript><p>Enable JavaScript to compare the saved scores in this page.</p></noscript>
+</section>
+<section><h2>What changes when the model makes another pass</h2>
+<p>The model reads the last fifth of a second of muscle voltages and vertical force underfoot. It has 24 layers that process these measurements. The middle 12 can repeat. With three passes it goes through that middle section three times, using the output from the previous pass. The weights were fitted at three passes and stayed fixed for all five settings.</p>
+<p>The first row is a simple comparison. It assumes the current force stays steady and uses the chance of a new load measured among the training walks. The force score measures the average size of the mistake in newton-seconds. The probability score squares the difference between the prediction and what actually happened.</p></section>
+<section><h2>Read the comparison</h2>
+<p>Each of three walkers counts equally. Their nine walks supplied 432 rows for force and 427 for new loading. Eighteen of the 427 rows show a new load. They cover eight separate events because neighbouring forecasts can capture the same event. Choose <strong>Use the same rows for both errors</strong> to restrict both scores to those 427 rows.</p>
+<p>With all usable force rows, three passes had the lowest force error, 2.895 newton-seconds. The comparison that kept the last force gave 3.237. On the new-load score, five passes gave 0.038593 and three gave 0.038625. This small difference applies to the previously scored validation walks used in this comparison. Three of six assigned walkers had the required recordings. The final test group stayed unopened.</p>
+<p>This page displays saved results. To run the model, download the original checkpoint and follow its setup instructions.</p></section>
+<footer><p>Walking data from Van Criekinge and colleagues. The scores are from the NeuroTranslate 0.1 Research Edition pass-count comparison. <a href="https://doi.org/10.6084/m9.figshare.24192480.v1">Original recordings</a> · <a href="https://github.com/eliminatenoise/NeuroTranslation/tree/7c823cf51fb658cdb7a55a3b78177f8bbd3dadd0/benchmarks/expanded-walking-research/pass-count">Study results</a> · <a href="https://github.com/eliminatenoise/NeuroTranslation/releases/tag/expanded-walking-2026-11-24">Checkpoint and setup</a></p></footer>
+</main><script type="module" src="compare.js"></script>
+</body></html>
