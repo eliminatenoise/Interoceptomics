@@ -1,6 +1,6 @@
 {
   "name": "Interoceptomics Atlas Viewer",
-  "version": "2026-11-24",
+  "version": "2026-11-25",
   "about": "The left half of the Allen Human Reference Atlas — 3D, 2020, as a 3D model in the browser. A picture of published anatomy: no brain activity was recorded for it, and nothing in it has been validated.",
   "guide": "README.html",
   "licences_and_credits": "THIRD-PARTY-NOTICES.html",
@@ -10,9 +10,9 @@
     "linux": "Linux.sh",
     "needs": "Python 3.10 or newer and a browser with WebGL"
   },
-  "files_total_including_manifest": 94,
+  "files_total_including_manifest": 95,
   "manifest_self_excluded_from_entries": true,
-  "entry_count": 93,
+  "entry_count": 94,
   "entries": [
     {
       "path": "Linux.sh",
@@ -22,20 +22,20 @@
     },
     {
       "path": "README.html",
-      "bytes": 19976,
-      "sha256": "6a8e2a457a8c80da5a192ef2cd383071782478f39498f62a8f7f740362b31faf",
+      "bytes": 19992,
+      "sha256": "9343e0ad8281adf6deb2edb9a41f0e6c395fca461eefc4ecaf707bd21db9fa5d",
       "mode_octal": "0644"
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "bytes": 5533,
-      "sha256": "ab8b84f6de9719c983613168cc2aa6aa3dd5493c6fdae796bc4aad60635958ba",
+      "bytes": 6973,
+      "sha256": "b6b11f758c05f7cc3192c3dc3231d36be8cc3b60c68622c9d70a82ef5b8695e6",
       "mode_octal": "0644"
     },
     {
       "path": "THIRD-PARTY-NOTICES.html",
-      "bytes": 17733,
-      "sha256": "a18f61459086070d78ccd01572acd06cb8fed626734cd2645a14fd918ead6558",
+      "bytes": 17772,
+      "sha256": "466fe2fcbfc8a399c0098dc8f16d47ed7bc2ea1b1131d38a656356f7e2262e98",
       "mode_octal": "0644"
     },
     {
@@ -131,7 +131,7 @@
     {
       "path": "viewer/README.md",
       "bytes": 3441,
-      "sha256": "543c4aaf7b1e5568f78dc4bad1a25f2491ec18d3fbd9d1b5b10090222a81db84",
+      "sha256": "7476f26e6c287e08691d1996129d96d9b7d833830904d455f8adbff699f24633",
       "mode_octal": "0644"
     },
     {
@@ -177,69 +177,75 @@
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/cerebral_surface_parcels.u32",
+      "path": "viewer/assets/identity/cerebral_surface_parcels.bin",
       "bytes": 3858580,
       "sha256": "af046db316c3eb896d5710fd78833d269762d46c8452f14fcdbb32fb122cf680",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/corpus_callosum.u32",
+      "path": "viewer/assets/identity/corpus_callosum.bin",
       "bytes": 114596,
       "sha256": "47ccdd75d47a9be37ca89a45c127dd5ea7b2e707bfd0550027bc1c1dbb603b98",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/hindbrain_tissue_union.u32",
+      "path": "viewer/assets/identity/hindbrain_tissue_union.bin",
       "bytes": 454924,
       "sha256": "83b5e8efbff7dce087ba354c83ba1c8b54a7a29f5ab066fdb3e5342765379ae8",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/hypothalamic_structural_union__part_0.u32",
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_0.bin",
       "bytes": 20932,
       "sha256": "5ab531b08104b4f27b63650b7543cc375850b3fab77c1818d55486009ad47e1c",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/hypothalamic_structural_union__part_1.u32",
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_1.bin",
       "bytes": 920,
       "sha256": "7a22e13335534010287a98bd6def3420005ef1f1a49f1eb22665905b3b9de79a",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/hypothalamic_structural_union__part_2.u32",
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_2.bin",
       "bytes": 12,
       "sha256": "92166a6a91e40b98ba4802cbfa54332d1dcac32be82fc08df0f35a9bfc93d3ce",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/hypothalamic_structural_union__part_3.u32",
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_3.bin",
       "bytes": 12,
       "sha256": "92166a6a91e40b98ba4802cbfa54332d1dcac32be82fc08df0f35a9bfc93d3ce",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/hypothalamic_structural_union__part_4__QC_REMOTE_HTH.u32",
+      "path": "viewer/assets/identity/hypothalamic_structural_union__part_4__QC_REMOTE_HTH.bin",
       "bytes": 40,
       "sha256": "e0881f9813f2276b0d000d3289440330513ea6c055ebf0a31130048e8528e3aa",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/midbrain_tissue_union.u32",
+      "path": "viewer/assets/identity/midbrain_tissue_union.bin",
       "bytes": 55128,
       "sha256": "964b187538e199fc5d65a046744a3cfad60784457a20a1f01e530a80c62a57ed",
       "mode_octal": "0644"
     },
     {
-      "path": "viewer/assets/identity/thalamic_structural_union.u32",
+      "path": "viewer/assets/identity/thalamic_structural_union.bin",
       "bytes": 71868,
       "sha256": "142b4b6255d7ba417a62b49e3a068055660b0f7771ac9e9175729d6da140068a",
       "mode_octal": "0644"
     },
     {
+      "path": "viewer/assets/overview-900.webp",
+      "bytes": 24502,
+      "sha256": "155c643959b87ba13b303f017f4aeebd2ba2175490a1e0cf62661229bcf9b92e",
+      "mode_octal": "0644"
+    },
+    {
       "path": "viewer/assets/overview.png",
-      "bytes": 577511,
-      "sha256": "b342f79178dffa1dec33032b60a3fd35c23293cee49ba20f8d4133b68cda2f49",
+      "bytes": 541217,
+      "sha256": "ed72f662048a93ac8387f83b919d9c6f67361d3b3ab9b717b673bdc88af74dd4",
       "mode_octal": "0644"
     },
     {
@@ -436,8 +442,8 @@
     },
     {
       "path": "viewer/index.html",
-      "bytes": 37988,
-      "sha256": "730a756b70a5f2b63b8b489570f52860dfbb55fde6e99c21542c019ef47c753c",
+      "bytes": 37993,
+      "sha256": "27b9819231af153788635b27e93718a876c3f451f214745210347ce7768603bc",
       "mode_octal": "0644"
     },
     {
@@ -467,13 +473,13 @@
     {
       "path": "viewer/registry.json",
       "bytes": 308863,
-      "sha256": "82f74b916ae0d1f0a2f053f8e7893d8e510d800ca54803a6fadb325d84ac50db",
+      "sha256": "7a0af65d90f3a6c21e3a2b83b9847c48898a11976bd1a34a6122a80cf813d5f3",
       "mode_octal": "0644"
     },
     {
       "path": "viewer/render.html",
-      "bytes": 2947,
-      "sha256": "793c0ae51cd12d5be42b538c9fc756536dc9c58aa3420e9e7bfc847d6b5e0295",
+      "bytes": 2952,
+      "sha256": "3892469c7207e00a68317ce8f9ede95aa0d5960e973895ca6bd4ccd9f8c43a6f",
       "mode_octal": "0644"
     },
     {

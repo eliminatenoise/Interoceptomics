@@ -1,6 +1,6 @@
 # Interoceptomics Atlas Viewer: the viewer's own files
 
-This folder is the viewer itself: one web page, its code, and the anatomy it draws. Version of 24 November 2026.
+This folder is the viewer itself: one web page, its code, and the anatomy it draws. Version of 25 November 2026.
 
 In the download, open it with a start file in the folder above this one. On the website it opens at <https://eliminatenoise.github.io/Interoceptomics/atlas/>, with nothing to install. [The guide](README.html) says how, and lists every control.
 
@@ -28,7 +28,7 @@ Serve it from your own computer (`127.0.0.1` or `localhost`) or from an `https` 
 | `location-comparison.js`, `ruler-walk.js`, `shared-faces.js` | The two-point ruler, the walk along it, and the faces VPL and VPM share. |
 | `registry.json` | The list of the atlas's 141 regions: names, numbers, colours, notes, cited sources. |
 | `variants.json`, `camera-r4-bounds.json`, `source-provenance.json` | Settings and records of how the main model file was made. |
-| `assets/` | The anatomy: surfaces (`.glb`; `surface-N.glb` is the surface of the region with atlas number N), the region number of each surface point (`identity/*.u32`), the whole atlas grid repacked (`atlas-label-runs.*`), the data for those cuts, the overview picture. |
+| `assets/` | The anatomy: surfaces (`.glb`; `surface-N.glb` is the surface of the region with atlas number N), the region number of each surface point (`identity/*.bin`), the whole atlas grid repacked (`atlas-label-runs.*`), the data for those cuts, the overview picture. |
 | `vendor/three/` | Three.js, the 3D drawing library, with its licence. |
 | `source.html` | Where the anatomy comes from and how to read its coordinates. |
 | `omissions.html` | The twenty regions drawn only when you ask, and why. |

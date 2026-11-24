@@ -7066,7 +7066,7 @@
         146034888,
         146034892
       ],
-      "vertex_identity_file": "assets/identity/cerebral_surface_parcels.u32",
+      "vertex_identity_file": "assets/identity/cerebral_surface_parcels.bin",
       "vertices": 964645,
       "default_qc_exclusion": false,
       "display_name": "cerebral surface parcels",
@@ -7079,7 +7079,7 @@
       "source_ids": [
         10561
       ],
-      "vertex_identity_file": "assets/identity/corpus_callosum.u32",
+      "vertex_identity_file": "assets/identity/corpus_callosum.bin",
       "vertices": 28649,
       "default_qc_exclusion": false,
       "display_name": "corpus callosum",
@@ -7110,7 +7110,7 @@
         10463,
         13045
       ],
-      "vertex_identity_file": "assets/identity/thalamic_structural_union.u32",
+      "vertex_identity_file": "assets/identity/thalamic_structural_union.bin",
       "vertices": 17967,
       "default_qc_exclusion": false,
       "display_name": "THM-descendant structural context",
@@ -7127,7 +7127,7 @@
         10483,
         10495
       ],
-      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_0.u32",
+      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_0.bin",
       "vertices": 5233,
       "default_qc_exclusion": false,
       "display_name": "hypothalamic structural union  part 0",
@@ -7144,7 +7144,7 @@
         10483,
         10495
       ],
-      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_1.u32",
+      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_1.bin",
       "vertices": 230,
       "default_qc_exclusion": false,
       "display_name": "hypothalamic structural union  part 1",
@@ -7161,7 +7161,7 @@
         10483,
         10495
       ],
-      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_2.u32",
+      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_2.bin",
       "vertices": 3,
       "default_qc_exclusion": false,
       "display_name": "hypothalamic structural union  part 2",
@@ -7178,7 +7178,7 @@
         10483,
         10495
       ],
-      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_3.u32",
+      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_3.bin",
       "vertices": 3,
       "default_qc_exclusion": false,
       "display_name": "hypothalamic structural union  part 3",
@@ -7195,7 +7195,7 @@
         10483,
         10495
       ],
-      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_4__QC_REMOTE_HTH.u32",
+      "vertex_identity_file": "assets/identity/hypothalamic_structural_union__part_4__QC_REMOTE_HTH.bin",
       "vertices": 10,
       "default_qc_exclusion": true,
       "display_name": "hypothalamic structural union  part 4  QC REMOTE HTH",
@@ -7215,7 +7215,7 @@
         12330,
         12354
       ],
-      "vertex_identity_file": "assets/identity/midbrain_tissue_union.u32",
+      "vertex_identity_file": "assets/identity/midbrain_tissue_union.bin",
       "vertices": 13782,
       "default_qc_exclusion": false,
       "display_name": "midbrain tissue union",
@@ -7239,7 +7239,7 @@
         12741,
         12768
       ],
-      "vertex_identity_file": "assets/identity/hindbrain_tissue_union.u32",
+      "vertex_identity_file": "assets/identity/hindbrain_tissue_union.bin",
       "vertices": 113731,
       "default_qc_exclusion": false,
       "display_name": "hindbrain tissue union",

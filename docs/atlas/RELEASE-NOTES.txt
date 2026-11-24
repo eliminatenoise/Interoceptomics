@@ -1,8 +1,40 @@
 Interoceptomics Atlas Viewer
-Version of 24 November 2026
+Version of 25 November 2026
 
 
 WHAT THIS VERSION CHANGES
+
+On the website the first view arrives sooner. Nothing you see changes:
+the 3D model, its regions and its colours are the same as in the version
+of 24 November 2026, and the 3D model file keeps its bytes.
+
+  Less to download. Before the model shows, the website now sends about
+  38 megabytes instead of about 43. Through a link held to 1.6 Mbit/s,
+  the speed of a slow phone network, the wait for the first view fell
+  from 3 minutes 39 seconds to 3 minutes 14 seconds; at 9 Mbit/s, from
+  about 45 seconds to 39.
+
+  The region files. Ten files say which region each point of the surface
+  belongs to. They are now named .bin instead of .u32, and their bytes
+  are the same. The website compresses files by their type and did not
+  compress .u32, so it sent 4.6 megabytes that it now sends as 0.2.
+
+  The small picture. The small picture of the whole brain, and the faded
+  picture shown while the model loads, now come from a copy of the
+  picture that is 900 pixels wide and 25 kilobytes, instead of the
+  original of 1800 pixels and 578 kilobytes. At the sizes the viewer
+  draws the small picture, the two look the same.
+
+  The original picture, viewer/assets/overview.png, stays in the
+  download. It is packed more tightly and holds the same pixels.
+
+The download starts no faster than before: its start file serves the
+files from your own computer.
+
+
+WHAT THE VERSION OF 24 NOVEMBER 2026 CHANGED
+
+All of it is in this version too.
 
 The viewer is easier to use on a phone, from the keyboard and on a slow
 connection. The 3D model, its regions and its colours are the same as in

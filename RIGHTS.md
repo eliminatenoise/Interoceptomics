@@ -56,8 +56,8 @@ Two things are deliberately absent. The MRI brain template that the atlas was dr
 | Part | File in the download, under `viewer/` | Its notice in the download |
 | --- | --- | --- |
 | Left half of the brain, 40 surfaces | `assets/brain-left.glb` | `THIRD-PARTY-NOTICES.html` |
-| Which region each surface point belongs to | `assets/identity/*.u32` | `THIRD-PARTY-NOTICES.html` |
-| Overview picture | `assets/overview.png` | `THIRD-PARTY-NOTICES.html` |
+| Which region each surface point belongs to | `assets/identity/*.bin` | `THIRD-PARTY-NOTICES.html` |
+| Overview picture | `assets/overview.png`, `assets/overview-900.webp` | `THIRD-PARTY-NOTICES.html` |
 | Red nucleus | `assets/red-nucleus-source-left.glb` | `THIRD-PARTY-NOTICES.html` |
 | Twenty more regions, one surface each | `assets/surface-N.glb`, where N is the region's atlas number | `THIRD-PARTY-NOTICES.html` |
 | VPL | `assets/vpl-source-left.glb` | `sources/allen-version1/VPL-NOTICE.txt` |
@@ -122,10 +122,10 @@ The withdrawn prerelease contained an older deck, earlier scripts and 3D models 
 | | |
 | --- | --- |
 | File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
-| Version | 24 November 2026. The file name never carries the version: each new one replaces the last at the same address |
-| Size | 64,348,133 bytes (121,381,744 bytes unpacked) |
-| Contents | 94 files. `MANIFEST.json` lists the other 93 with their sizes and checksums |
-| SHA256 | `b738d34a721c4d0ff63531ed073a8a402d781e899d618c939f48f179c8c35b5e` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+| Version | 25 November 2026. The file name never carries the version: each new one replaces the last at the same address |
+| Size | 64,336,756 bytes (121,371,652 bytes unpacked) |
+| Contents | 95 files. `MANIFEST.json` lists the other 94 with their sizes and checksums |
+| SHA256 | `a8fe4d4082bcf9de3880cb80a05334ed22ab6ad7994c1dbc2732820e931dca4d` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
 
 The website serves the same files, without the four start files, at [eliminatenoise.github.io/Interoceptomics/atlas](https://eliminatenoise.github.io/Interoceptomics/atlas/): the folder `docs/atlas/` of this repository, built from the download's own files. The credit and the conditions on this page apply to that copy exactly as they do to the download. The folder `docs/atlas/backslash/` beside the viewer's files is not part of the copy: it is Backslash of the Brain, a separate anatomy atlas that shows the viewer's 3D model inside its own pages. Its sources, and the terms for reusing its own files, are on [its sources page](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/sources.html).
 
