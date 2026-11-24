@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare hand forecasts with measured force · Technical edition · Interoceptomics</title>
+<link rel="stylesheet" href="../optic-flow/style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<a class="skip" href="#comparison">Skip to the comparison</a>
+<header><nav aria-label="Reader navigation">
+<a href="../#map-brain2body/area2Force" target="_top">Brain signals to movement stage</a>
+<a id="other-edition" href="index.html">Simple edition</a>
+</nav></header>
+<main>
+<h1>Compare hand forecasts with measured force</h1>
+<p>Compare six predictions of the hand’s movement over the next tenth of a second. Choose a group and an error measure to see what changes when a prediction uses more measurements.</p>
+<section id="comparison" aria-labelledby="comparison-title">
+<h2 id="comparison-title">Compare the forecast errors</h2>
+<div class="choose">
+<label for="group">Forecasts to compare</label>
+<select id="group" disabled>
+<option value="all">All forecasts</option>
+<optgroup label="Measured hand movement">
+<option value="under_2mm">Under 2 mm</option>
+<option value="2_to_under_10mm">2 to under 10 mm</option>
+<option value="10_to_under_20mm">10 to under 20 mm</option>
+<option value="at_least_20mm">At least 20 mm</option>
+</optgroup>
+<optgroup label="Recorded trial groups">
+<option value="active">Trials without a bump</option>
+<option value="with_bump">Trials with a bump</option>
+</optgroup>
+</select>
+<label for="metric">Error measure</label>
+<select id="metric" disabled>
+<option value="0">Ending position error</option>
+<option value="1">Distance error</option>
+</select>
+</div>
+<div class="result">
+<p id="coverage"></p>
+<table>
+<caption id="comparison-caption">Mean error in millimetres</caption>
+<thead><tr><th scope="col">Forecast</th><th scope="col">Mean error (mm)</th></tr></thead>
+<tbody>
+<tr data-arm="stay_put"><th scope="row">Stay put</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="constant_velocity"><th scope="row">Keep the same speed and direction</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion"><th scope="row">Motion</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion_force"><th scope="row">Motion and force</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion_area2"><th scope="row">Motion and sensory cortex</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion_force_area2"><th scope="row">Motion, force and sensory cortex</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+</tbody>
+</table>
+<p id="scale" class="controls"></p>
+<p id="comparison-status" role="status">Loading the measured results…</p>
+<h2>Change from adding a measurement</h2>
+<p class="controls">Positive values show a reduction in error. The range comes from repeated draws of whole trials.</p>
+<dl>
+<dt data-contrast="force_given_motion">Add force to motion. <output>—</output> <span class="controls">(95% range <span class="range">—</span>)</span></dt>
+<dd>Compares motion with motion and force.</dd>
+<dt data-contrast="area2_given_motion_and_force">Add sensory cortex to motion and force. <output>—</output> <span class="controls">(95% range <span class="range">—</span>)</span></dt>
+<dd>Compares motion and force with all three measurements.</dd>
+</dl>
+</div>
+<noscript><p>Enable JavaScript to select forecasts and error measures.</p></noscript>
+</section>
+<section><h2>Methods and measurements</h2>
+<p>DANDI 000127 version 0.220113.0359 contains hand x/y and three measured force axes on a common stated 1 kHz archive clock. Force moments were excluded. Every fitted forecast uses ten 20 ms bins of up to three modalities from the 200 ms preceding issue. The neural input consists of half-open spike counts from 65 sorted Area 2 units with declared observation coverage. Each forecast targets the measured change in planar position over 100 ms.</p>
+<p>Four FP64 ridge maps compare motion, motion and force, motion and Area 2, and all three. Stay put predicts zero displacement. The constant-velocity control repeats the average velocity over the last 20 ms. The chronological split holds the last 74 of the 364 labelled trials out of both fitting (218) and setting selection (72). We froze all 624 shared rows before reading their later positions.</p>
+<p>The first metric is the Euclidean difference from the measured endpoint. The second scores the absolute difference of displacement lengths. In each selection the average weights contributing trials equally. Pairwise improvement is reference error minus candidate error. The paired 95% ranges resample whole trials 4,000 times. Bars scale to the largest error in the current selection.</p></section>
+<section><h2>Results and scope</h2>
+<p>Overall endpoint errors were 2.396 mm for motion, 2.276 mm for motion and force, and 2.328 mm with Area 2 added to both. For displacements of at least 20 mm, adding Area 2 decreased endpoint error from 6.237 to 5.674 mm. Under 2 mm, it increased the error from 0.881 to 1.221 mm. Displacement strata use the measured later positions, after issuance. The center-hold bump labels apply to whole trials.</p>
+<p>This is an archived analysis of one recording. The hand position series was low-pass filtered at 100 Hz. Filter phase and the physical lag between the instruments remain unknown. This limits the interpretation to the archived sample comparison.</p></section>
+<footer>
+<p><a href="results.json">Download scores and trial ranges (JSON)</a></p>
+<p><a href="https://github.com/eliminatenoise/NeuroTranslation/blob/c6b642e3bcdf2a8f33bef8dc311239f794453e0b/benchmarks/area2-hand-force/TECHNICAL.md">NeuroTranslation study report (online)</a> · <a href="https://dandiarchive.org/dandiset/000127/0.220113.0359">DANDI recording archive (online)</a></p>
+<p>The recording is credited to the archive and study contributors under CC BY 4.0. <a href="../#map-brain2body/corticalReach" target="_top">Open a separate 3D replay of tracked arm movement from the same published study</a>.</p>
+</footer>
+</main>
+<script type="module" src="compare.js"></script>
+</body>
+</html>

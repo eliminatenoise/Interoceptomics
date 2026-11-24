@@ -8,6 +8,11 @@ export const backslashDownload = {
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  area2Force: {
+    title: 'Compare hand forecasts with measured force',
+    url: 'area2-hand-force/index.html',
+    reading: 'Compare six ways to forecast hand movement over 100 milliseconds. Choose a measured movement group or recorded trial type, then see how adding handle force or recorded sensory activity changes the error.'
+  },
   handForecasts: {
     title: 'Compare hand forecasts from recorded brain signals',
     url: 'hand-forecasts/index.html',
@@ -281,7 +286,7 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['humanWrist', 'handForecasts', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
+  'map-brain2body': ['humanWrist', 'handForecasts', 'area2Force', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail', 'visualTailCohort'],
@@ -291,7 +296,7 @@ const choicesByStep = {
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'overground', 'trip'],
-  'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
+  'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'area2Force', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration', 'heartBreathing', 'exercise'],

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare hand forecasts with measured force · Simple edition · Interoceptomics</title>
+<link rel="stylesheet" href="../optic-flow/style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<a class="skip" href="#comparison">Skip to the comparison</a>
+<header><nav aria-label="Reader navigation">
+<a href="../#map-brain2body/area2Force" target="_top">Brain signals to movement stage</a>
+<a id="other-edition" href="technical.html">Technical edition</a>
+</nav></header>
+<main>
+<h1>Compare hand forecasts with measured force</h1>
+<p>Compare six predictions of the hand’s movement over the next tenth of a second. Choose a group and an error measure to see what changes when a prediction uses more measurements.</p>
+<section id="comparison" aria-labelledby="comparison-title">
+<h2 id="comparison-title">Compare the forecast errors</h2>
+<div class="choose">
+<label for="group">Forecasts to compare</label>
+<select id="group" disabled>
+<option value="all">All forecasts</option>
+<optgroup label="Measured hand movement">
+<option value="under_2mm">Under 2 mm</option>
+<option value="2_to_under_10mm">2 to under 10 mm</option>
+<option value="10_to_under_20mm">10 to under 20 mm</option>
+<option value="at_least_20mm">At least 20 mm</option>
+</optgroup>
+<optgroup label="Recorded trial groups">
+<option value="active">Trials without a bump</option>
+<option value="with_bump">Trials with a bump</option>
+</optgroup>
+</select>
+<label for="metric">Error measure</label>
+<select id="metric" disabled>
+<option value="0">Ending position error</option>
+<option value="1">Distance error</option>
+</select>
+</div>
+<div class="result">
+<p id="coverage"></p>
+<table>
+<caption id="comparison-caption">Mean error in millimetres</caption>
+<thead><tr><th scope="col">Forecast</th><th scope="col">Mean error (mm)</th></tr></thead>
+<tbody>
+<tr data-arm="stay_put"><th scope="row">Stay put</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="constant_velocity"><th scope="row">Keep the same speed and direction</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion"><th scope="row">Motion</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion_force"><th scope="row">Motion and force</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion_area2"><th scope="row">Motion and sensory cortex</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-arm="motion_force_area2"><th scope="row">Motion, force and sensory cortex</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+</tbody>
+</table>
+<p id="scale" class="controls"></p>
+<p id="comparison-status" role="status">Loading the measured results…</p>
+<h2>Change from adding a measurement</h2>
+<p class="controls">Positive values show a reduction in error. The range comes from repeated draws of whole trials.</p>
+<dl>
+<dt data-contrast="force_given_motion">Add force to motion. <output>—</output> <span class="controls">(95% range <span class="range">—</span>)</span></dt>
+<dd>Compares motion with motion and force.</dd>
+<dt data-contrast="area2_given_motion_and_force">Add sensory cortex to motion and force. <output>—</output> <span class="controls">(95% range <span class="range">—</span>)</span></dt>
+<dd>Compares motion and force with all three measurements.</dd>
+</dl>
+</div>
+<noscript><p>Enable JavaScript to select forecasts and error measures.</p></noscript>
+</section>
+<section><h2>The three measurements</h2>
+<p>One macaque held a movable handle. A sensor measured hand position, and the handle recorded force in three directions. The archive gives position and force one thousand times a second on the same recorded clock. We used the three force readings, leaving out the three readings that measure twisting effects. The same archive includes concurrent brain activity. The analysis counts electrical events from 65 units in Area 2, a region of the brain that receives sensory signals from the arm.</p>
+<p>Each forecast started at the current measured hand position. It used ten periods of 20 milliseconds from the previous fifth of a second. It predicted the change in position over the next 100 milliseconds. The stay-put prediction uses the current position again. The speed and direction prediction extends the movement measured in the last 20 milliseconds. The four fitted models learn different combinations of the same available inputs from earlier trials.</p>
+<p>Of 364 labelled trials, the first 218 supplied examples for fitting the models and 72 more were used to choose the settings. The last 74 supplied the comparison above. The program saved 624 forecasts per method before looking up the measured endings. Each trial had equal weight within a displayed group.</p></section>
+<section><h2>Read the errors and changes</h2>
+<p>Ending position error is how far the predicted endpoint is from the measured endpoint. Distance error compares only how far the hand moved in a straight line. A prediction can get the distance right while pointing in the wrong direction. All errors are in millimetres. Lower numbers mean a closer forecast. When you switch selections, the scale above changes to fit that group.</p>
+<p>Each change shows how the error moved when the model used one more kind of measurement. A positive number means error fell, and a negative number means it rose. We estimated the middle 95% of the changes after resampling whole trials 4,000 times. A range that crosses zero includes both a gain and a loss in this comparison.</p></section>
+<section><h2>Where the extra readings helped</h2>
+<p>With <strong>All forecasts</strong> and <strong>Ending position error</strong> selected, motion alone averages 2.396 mm. Motion and force averages 2.276 mm. Adding sensory cortex to both raises the average to 2.328 mm.</p>
+<p>Choose <strong>At least 20 mm</strong>. On these movements, adding sensory cortex to motion and force lowers the error from 6.237 to 5.674 mm. Under 2 mm, it raises the error from 0.881 to 1.221 mm. We grouped motions by distance after looking up the outcomes. A model using these signals while a movement is happening would need to work out in advance when that information helps.</p>
+<p>The experiment used a handle that could push the hand during a trial. The bump flag applies to the whole trial, so that group can include forecasts before or after a push. This is one archived recording. The hand position was smoothed with a filter set at 100 hertz. The timing effects of the filter and delays between instruments remain unknown.</p></section>
+<footer>
+<p><a href="results.json">Download scores and trial ranges (JSON)</a></p>
+<p><a href="https://github.com/eliminatenoise/NeuroTranslation/blob/c6b642e3bcdf2a8f33bef8dc311239f794453e0b/benchmarks/area2-hand-force/README.md">NeuroTranslation study report (online)</a> · <a href="https://dandiarchive.org/dandiset/000127/0.220113.0359">DANDI recording archive (online)</a></p>
+<p>The recording is credited to the archive and study contributors under CC BY 4.0. <a href="../#map-brain2body/corticalReach" target="_top">Open a separate 3D replay of tracked arm movement from the same published study</a>.</p>
+</footer>
+</main>
+<script type="module" src="compare.js"></script>
+</body>
+</html>
