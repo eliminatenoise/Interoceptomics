@@ -8,6 +8,11 @@ export const backslashDownload = {
 const neuro = 'https://eliminatenoise.github.io/NeuroTranslation/';
 
 const models = {
+  handForecasts: {
+    title: 'Compare hand forecasts from recorded brain signals',
+    url: 'hand-forecasts/index.html',
+    reading: 'Compare NeuroTranslate with staying put across 45,324 forecasts from one macaque recording. Choose how far the hand moved and whether to compare ending position or distance.'
+  },
   visualTailCohort: {
     title: 'Compare tail forecasts across 12 recordings',
     url: 'optic-flow-cohort/index.html',
@@ -276,7 +281,7 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['humanWrist', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
+  'map-brain2body': ['humanWrist', 'handForecasts', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail', 'visualTailCohort'],

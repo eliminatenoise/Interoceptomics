@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hand forecasts from brain recordings · Technical edition · Interoceptomics</title>
+<link rel="stylesheet" href="../optic-flow/style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<a class="skip" href="#comparison">Skip to the comparison</a>
+<header><nav aria-label="Reader navigation">
+<a href="../#map-brain2body/handForecasts" target="_top">Brain signals to movement stage</a>
+<a id="other-edition" href="index.html">Simple edition</a>
+</nav></header>
+<main>
+<h1>Hand forecasts from brain recordings</h1>
+<p>Compare trial-weighted hand forecasts on the September 10, 2010 archive. Select an observed displacement band and a metric. Lower error is closer to the measured outcome.</p>
+<section id="comparison" aria-labelledby="comparison-title">
+<h2 id="comparison-title">Compare the forecast errors</h2>
+<div class="choose">
+<label for="movement">How far the hand moved</label>
+<select id="movement" disabled>
+<option value="all">All movements</option>
+<option value="0_to_2_mm">Under 2 mm</option>
+<option value="2_to_10_mm">2 to under 10 mm</option>
+<option value="10_to_20_mm">10 to under 20 mm</option>
+<option value="20_to_inf_mm">At least 20 mm</option>
+</select>
+<label for="metric">Error measure</label>
+<select id="metric" disabled>
+<option value="0">Ending position error</option>
+<option value="1">Distance error</option>
+</select>
+</div>
+<div class="result">
+<p id="coverage"></p>
+<table><caption id="comparison-caption">Mean error in millimetres</caption>
+<thead><tr><th scope="col">Forecast</th><th scope="col">Mean error (mm)</th></tr></thead>
+<tbody>
+<tr data-method="zero"><th scope="row">Stay put</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-method="original"><th scope="row">Original models</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-method="published_blend"><th scope="row">Published blend</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-method="reach_preserving_blend"><th scope="row">Reach-weighted blend</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+</tbody></table>
+<p id="scale" class="controls"></p>
+<p id="comparison-status" role="status">Loading the measured results…</p>
+</div>
+<noscript><p>Enable JavaScript to compare the movement groups and error measures.</p></noscript>
+</section>
+
+<section><h2>Methods and scoring</h2>
+<p>Three fixed NeuroTranslate models use 200 ms of prior events from 96 ordered primary motor cortex electrodes to forecast 100 ms ahead. Both blends scale the same outputs. The reach-weighted fit assigns half of its calibration objective to displacement of at least 20 mm. See the original report for the six inputs, coefficient fit and calibration recordings.</p>
+<p>Ending position error is the distance between predicted and measured endpoints. Distance error is the absolute difference between the separate straight-line distance prediction and the measured displacement magnitude. In each group, averages give trials equal weight and include all three fitted seeds. Measured displacement bands are assigned after forecasts are issued. The bars share a zero origin within the current selection and scale to its largest error.</p></section>
+<section><h2>Results and scope</h2>
+<p>On 45,324 frozen forecasts from 2,911 trials, overall ending position error was 3.225 mm with the published blend, 3.355 mm with the reach-weighted blend and 6.111 mm with staying put. Staying put had the lowest error under 2 mm. The original models had the lowest error at 20 mm or more.</p>
+<p>Reach weighting lowered endpoint error on movements of at least 20 mm by 0.699 mm and raised it under 2 mm by 0.233 mm relative to the published blend. Overall endpoint error rose 0.130 mm (paired 95% interval 0.120 to 0.140 mm). Distance error fell 0.030 mm (paired 95% interval for improvement 0.017 to 0.044 mm). The study resampled whole trials 4,000 times for the intervals. The held recording is a different day from the same macaque. New animals, electrode layouts and live control require separate tests.</p></section>
+<footer><p><a href="results.json">Download the measured results and intervals (JSON)</a></p>
+<p><a href="https://github.com/eliminatenoise/NeuroTranslation/blob/57fdce22086d97bd1728f40a92fd5fb2670effad/benchmarks/cortical-movement-blend/third-recording/TECHNICAL.md">NeuroTranslation study report (online)</a> · <a href="https://dandiarchive.org/dandiset/000070">DANDI recording archive (online)</a></p></footer>
+</main>
+<script type="module" src="compare.js"></script>
+</body>
+</html>

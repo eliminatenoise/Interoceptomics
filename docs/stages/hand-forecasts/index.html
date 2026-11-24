@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hand forecasts from brain recordings · Simple edition · Interoceptomics</title>
+<link rel="stylesheet" href="../optic-flow/style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<a class="skip" href="#comparison">Skip to the comparison</a>
+<header><nav aria-label="Reader navigation">
+<a href="../#map-brain2body/handForecasts" target="_top">Brain signals to movement stage</a>
+<a id="other-edition" href="technical.html">Technical edition</a>
+</nav></header>
+<main>
+<h1>Hand forecasts from brain recordings</h1>
+<p>See how closely four forecasts match the hand’s later movement. Choose a movement size and an error measure. Smaller numbers mean the forecast came closer to the recorded result.</p>
+<section id="comparison" aria-labelledby="comparison-title">
+<h2 id="comparison-title">Compare the forecast errors</h2>
+<div class="choose">
+<label for="movement">How far the hand moved</label>
+<select id="movement" disabled>
+<option value="all">All movements</option>
+<option value="0_to_2_mm">Under 2 mm</option>
+<option value="2_to_10_mm">2 to under 10 mm</option>
+<option value="10_to_20_mm">10 to under 20 mm</option>
+<option value="20_to_inf_mm">At least 20 mm</option>
+</select>
+<label for="metric">Error measure</label>
+<select id="metric" disabled>
+<option value="0">Ending position error</option>
+<option value="1">Distance error</option>
+</select>
+</div>
+<div class="result">
+<p id="coverage"></p>
+<table><caption id="comparison-caption">Mean error in millimetres</caption>
+<thead><tr><th scope="col">Forecast</th><th scope="col">Mean error (mm)</th></tr></thead>
+<tbody>
+<tr data-method="zero"><th scope="row">Stay put</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-method="original"><th scope="row">Original models</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-method="published_blend"><th scope="row">Published blend</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+<tr data-method="reach_preserving_blend"><th scope="row">Reach-weighted blend</th><td><output>—</output><span class="track" aria-hidden="true"><span class="bar"></span></span></td></tr>
+</tbody></table>
+<p id="scale" class="controls"></p>
+<p id="comparison-status" role="status">Loading the measured results…</p>
+</div>
+<noscript><p>Enable JavaScript to compare the movement groups and error measures.</p></noscript>
+</section>
+
+<section><h2>Four forecasts for the same movement</h2>
+<p>The first guess keeps the hand at its last measured position. The original NeuroTranslate models read the preceding 200 milliseconds of electrical events from 96 ordered electrodes in the brain area involved in moving the arm. They predict the change in hand position over the next 100 milliseconds.</p>
+<p>Both blends start with those same three models. They shorten the predicted motion by an amount calculated from the earlier electrode readings and forecasts. The reach-weighted blend gave movements of at least 20 mm half the weight during fitting. The original model files are the same in both blends.</p></section>
+<section><h2>Read the two error measures</h2>
+<p>Ending position error measures the distance between the guessed ending point and where the hand actually ended. Distance error compares the separate estimate of how far the hand travelled in a straight line with the measured distance between the start and end. A forecast can get the distance right while pointing in the wrong direction.</p>
+<p>The browser groups the results by how far the hand actually moved. That measurement comes from the later recording. Each forecast used earlier readings. Each row gives every contributing trial equal weight and averages the errors from the three fitted models. The scale changes with the selection. Read the millimetre values to compare different groups.</p></section>
+<section><h2>Results on this day</h2>
+<p>With all movements selected, the published blend gives 3.225 mm of average ending position error. The reach-weighted blend gives 3.355 mm and staying put gives 6.111 mm. Choose <strong>Under 2 mm</strong> to see where staying put comes closest. Choose <strong>At least 20 mm</strong> to see the original models come closest.</p>
+<p>The new fit improved the published blend’s ending position error by 0.699 mm on the larger movements and raised it by 0.233 mm on movements under 2 mm. Across the whole day, it raised this error by 0.130 mm. The middle 95% of paired comparisons place the increase between 0.120 and 0.140 mm. Distance error fell by 0.030 mm, with a corresponding range of 0.017 to 0.044 mm of improvement. The study drew whole trials again in 4,000 comparisons to estimate these ranges.</p></section>
+<section><h2>Recording and scope</h2>
+<p>This recording day was held aside from fitting. It yielded 45,324 forecasts in 2,911 trials from one macaque. The program finished saving its forecasts before reading the hand measurements used to score them. This day and the earlier recordings come from the same animal. New animals, different electrode layouts and live movement control still need their own tests.</p></section>
+<footer><p><a href="results.json">Download the measured results and intervals (JSON)</a></p>
+<p><a href="https://github.com/eliminatenoise/NeuroTranslation/blob/57fdce22086d97bd1728f40a92fd5fb2670effad/benchmarks/cortical-movement-blend/third-recording/SIMPLE.md">NeuroTranslation study report (online)</a> · <a href="https://dandiarchive.org/dandiset/000070">DANDI recording archive (online)</a></p></footer>
+</main>
+<script type="module" src="compare.js"></script>
+</body>
+</html>
