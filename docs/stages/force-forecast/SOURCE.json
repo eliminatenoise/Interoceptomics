@@ -1,0 +1,17 @@
+{
+  "project": "NeuroTranslation",
+  "commit": "3ccfbb5d66aa8d19204368f54f04bbbd7f760479",
+  "published_page": "https://eliminatenoise.github.io/NeuroTranslation/force-forecast/",
+  "app": {
+    "path": "forecast/index.html",
+    "sha256": "625998ed483fe20d09c7a5448994c05a6166f669ce10716075026064d5b3d06c",
+    "source_url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/3ccfbb5d66aa8d19204368f54f04bbbd7f760479/docs/force-forecast/index.html"
+  },
+  "license": {
+    "name": "CC0 1.0",
+    "path": "LICENSE",
+    "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "source_url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/3ccfbb5d66aa8d19204368f54f04bbbd7f760479/LICENSE"
+  },
+  "scope": "Published force exercise used byte-for-byte. Signed force histories, 100 ms impulse forecasts, generated editable examples, and published aggregate scores."
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>From floor force to a forecast · Interoceptomics</title>
+  <link rel="stylesheet" href="../reading.css"><link rel="icon" href="data:,">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the guide</a>
+  <header><nav aria-label="Force forecast guide">
+    <a href="forecast/">Open the exercise</a><a href="technical.html">Technical guide</a>
+    <a href="../#mechanics/forceForecast" target="_top">Mechanics stage</a>
+    <a href="../#movement-model/forceForecast" target="_top">Movement model stage</a>
+  </nav></header>
+  <main id="content">
+    <h1>From floor force to a forecast</h1>
+    <p>A force plate sits in the floor and measures how hard it pushes back as someone steps on it. It reports force in newtons. Adding up that push over time gives impulse, measured in newton-seconds. If the plate pushes back with 500 newtons for a tenth of a second, the impulse is 50 newton-seconds. <a href="../../walking-force/">See force and foot height on recorded walks</a>.</p>
+    <p>A pressure pad beneath the foot measures how much push is spread over its small area. The plate records the force exchanged with the whole plate. During a walk, the person can still be moving while one plate carries very little load. <a href="../insole-pressure/">Compare with insole pressure</a>.</p>
+
+    <h2>Change the earlier readings</h2>
+    <ol>
+      <li>Open the exercise and choose <strong>Loading plate</strong>, <strong>Unloading plate</strong> or <strong>Quiet plate</strong>. Each example starts with generated force readings. The plot shows ten averages of 20 milliseconds each. Positive values mean upward force.</li>
+      <li>Edit an earlier value and compare the seven forecasts. Two simple rules hold the last value steady or extend its recent rise or fall. The learned methods use the earlier values to adjust an estimate or make a forecast directly. The output is the force added up over the next 100 milliseconds.</li>
+      <li>Use <strong>Restore example</strong> to get back the starting values. In the Stage Guide, this exercise appears in <strong>Mechanics</strong> and <strong>Movement model</strong>. Select <strong>Compare seven force forecasts</strong> and <strong>Open here</strong>.</li>
+    </ol>
+
+    <h2>Read the recorded test</h2>
+    <p>Changing the example affects the on-screen forecasts. <strong>Results on recorded force</strong> uses scores from real recordings. Choose the Dijon group in which the last 20-millisecond force average reached 20 newtons. On those 855 forecasts from 29 people, continuing the recent trend missed by 14.03 newton-seconds on average. The walking-trained recurrent correction missed by 10.13. It had a lower average error for each person. A recurrent model carries information from one reading to the next.</p>
+    <p>The recurrent correction trained with an extra set of recordings averaged 10.04 newton-seconds on the same loaded windows. We drew groups of 29 from the same people, allowing repeats. The middle 95% of the estimated changes from adding the recordings ranged from 0.26 newton-seconds worse to 0.49 better. In the group below 20 newtons, holding the latest force steady had the lowest average error. The exercise also shows the earlier treadmill and mixed-activity tests. These comparisons use separate recordings from the floor replay and the shoe pressure exercise. <a href="https://github.com/eliminatenoise/NeuroTranslation/blob/88860a92b05570c8ac30e9ae395edbcb61fa4eab/benchmarks/expanded-walking-research/cross-lab-force/source-mix/dijon/SIMPLE.md">Read the Dijon results</a>.</p>
+
+    <h2>Open it offline</h2>
+    <p>Extract the Stage Guide ZIP and open the launcher for your computer. The exercise works from both stages. To use the exercise by itself, choose <strong>Download this page</strong> in the exercise and open the saved HTML file in a browser.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>From floor force to a forecast, technical guide · Interoceptomics</title>
+  <link rel="stylesheet" href="../reading.css"><link rel="icon" href="data:,">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the guide</a>
+  <header><nav aria-label="Force forecast methods">
+    <a href="forecast/">Open the exercise</a><a href="index.html">Simple guide</a>
+    <a href="../#mechanics/forceForecast" target="_top">Mechanics stage</a>
+    <a href="../#movement-model/forceForecast" target="_top">Movement model stage</a>
+  </nav></header>
+  <main id="content">
+    <h1>From floor force to a forecast</h1>
+    <p>The exercise accepts ten signed vertical force means in newtons for one plate, each spanning 20 milliseconds. Positive force is up. The target is the impulse over the next 100 milliseconds, in newton-seconds. In Dijon the force sampling rate was 1 kHz. The target sums 100 later force samples and multiplies the sum by 0.001 seconds. The floor replay illustrates measured contact force and foot height on other recordings. A local insole pad gives pressure, which requires an effective area and calibrated directions to contribute to a force estimate. <a href="../../walking-force/">Floor replay</a> · <a href="../insole-pressure/technical.html">Insole methods</a>.</p>
+
+    <h2>Run the published forecasts</h2>
+    <p>In <strong>Mechanics</strong> or <strong>Movement model</strong>, select <strong>Compare seven force forecasts</strong> and choose <strong>Open here</strong>. Pick a generated example and edit a 20 ms value to rerun the forecasts. Use <strong>Restore example</strong> to reset the history. The page compares persistence, recent trend, two weighted corrections and three recurrent methods. Each recurrent method averages predictions from three previously fitted networks.</p>
+    <p>Extract the Stage Guide ZIP and open the launcher for your computer to run this exercise offline. The ZIP includes the same HTML, weights and aggregate scores as the hosted guide. For a browser-only copy, open the exercise and choose <strong>Download this page</strong>. <a href="SOURCE.json">Exercise provenance</a> · <a href="LICENSE">CC0 exercise license</a>.</p>
+
+    <h2>Read the matched result</h2>
+    <p>Dijon reports participant-balanced mean absolute errors for 19,846 forecasts from 29 people. The loaded subset includes 855 forecasts where the last 20-millisecond input average reached 20 N. There, the walking-only recurrent correction scored 10.1349 N·s and the trend rule 14.0301 N·s. The correction improved the average for all 29 people. The correction learned from both archives scored 10.0355 N·s. The paired gain from adding data was 0.0994 N·s with a 95% resampling interval of −0.2639 to 0.4874. Below 20 N, persistence had the lowest mean error. These groups are defined by the measured history and describe the force on one plate.</p>
+    <p>Switch the recorded group to see the earlier treadmill and mixed-activity scores. The browser executes the previously released methods. The aggregate errors in the test table come from the original studies. <a href="https://github.com/eliminatenoise/NeuroTranslation/blob/88860a92b05570c8ac30e9ae395edbcb61fa4eab/benchmarks/expanded-walking-research/cross-lab-force/source-mix/dijon/TECHNICAL.md">Dijon measurements and methods</a> · <a href="https://eliminatenoise.github.io/NeuroTranslation/force-forecast/">Original NeuroTranslate exercise</a>.</p>
+  </main>
+</body>
+</html>
