@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Force and waist forecast methods · Interoceptomics</title>
+  <link rel="stylesheet" href="../reading.css"><link rel="icon" href="data:,">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the guide</a>
+  <header><nav aria-label="Force and waist guide">
+    <a href="forecast.html">Open the exercise</a><a href="index.html">Simple guide</a>
+    <a href="../#movement-model/forceWaist" target="_top">Movement model stage</a>
+  </nav></header>
+  <main id="content">
+    <h1>Force and waist forecast methods</h1>
+    <p>The exercise runs the NeuroTranslate 0.0 browser checkpoint on generated histories. Four methods use ten completed 20 ms means per device. Force predicts signed vertical impulse over the next 100 ms in newton-seconds. Waist predicts mean rotation rate around each device axis over the same duration in radians per second. Each input and outcome uses its device’s own timestamps.</p>
+    <p>The models were fitted on six people and tested on three different people. The test scored 2,537 force windows and 1,561 waist windows. Twelve waist forecasts lacked a usable follow-up. Force error is the absolute difference between predicted and measured impulse. For waist error, the test squares the three rotation-rate differences in each window, averages them and takes the square root. Scores give equal weight to each person after averaging within recordings and then within people.</p>
+    <p>Holding the last mean gave the lowest overall force error, 2.979701 N·s. On the waist task it gave 0.516938 rad/s. Ridge regression and shared attention scored 0.306853 and 0.307716 rad/s. Ridge is a weighted sum of input values with a penalty on large weights.</p>
+    <p>Use <strong>Edit earlier readings</strong> to change a single input and <strong>Restore example</strong> to reset the selected device. On the waist task, <strong>Input channel</strong> selects one of three acceleration or three rotation-rate channels. <strong>Results on recorded data</strong> displays the original aggregate benchmark. The two force groups split at a last completed 20 ms mean of 20 N.</p>
+    <ul>
+      <li><a href="results.json">Recorded benchmark totals</a></li>
+      <li><a href="TECHNICAL.md">Original methods and checkpoint instructions</a></li>
+      <li><a href="SOURCE.json">Browser source, version and reuse</a></li>
+    </ul>
+  </main>
+</body>
+</html>

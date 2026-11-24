@@ -1,0 +1,26 @@
+{
+  "project": "NeuroTranslation",
+  "version": "3d3455f53058d3eeb382403f2ef10eeb1a87412c",
+  "checkpoint_sha256": "d285453548c7e7254116bec4f9b39bf35865d98e2e8123beac2e47f66eaacc86",
+  "original_browser": {
+    "url": "https://github.com/eliminatenoise/NeuroTranslation/blob/3d3455f53058d3eeb382403f2ef10eeb1a87412c/docs/walking-force/force-and-waist/index.html",
+    "sha256": "c3353332da1a9152968f4479845bf791e2fa98ff261954b042e2bfb54076e239"
+  },
+  "standalone_package": {
+    "url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/3d3455f53058d3eeb382403f2ef10eeb1a87412c/benchmarks/native-force-waist/Force-and-Waist-Browser.zip",
+    "sha256": "4791a286798f07276bb5785bf97ceb2507c2764c3750bf3c807a92f1618fef0d"
+  },
+  "included_files_sha256": {
+    "LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "SIMPLE.md": "a2b295a13bc78789cf1f42648fec0f38014219981c2d1e25f5f3d99accf8c522",
+    "TECHNICAL.md": "e538125fa17ee8841af35c75917087e378deafed447d09098820367ffa1afed1",
+    "results.json": "b0f843390529e9ace80321d9b1dfb8a26f2352a133283d48831395370f809825",
+    "forecast.html": "b626163ad282b00fdfd0f36be3b93b322cf80b6f8c167b6fe6cbf0a1c608dc16"
+  },
+  "embedded_program_sha256": "dd57baf9e01bf8d3747f96d397c77c36e94b2fcaaa264d2d651504a45636114f",
+  "embedded_input_and_model_sha256": "5198115d6a0dccc0da569803ec18d5e87a29790edba01139c7125334b466cd77",
+  "changes": "The browser exercise uses local guide links and links to the pinned original package. The program, style, generated examples and weights are byte-identical.",
+  "scope": "Generated editable examples and recorded aggregate scores. The exercise forecasts each device’s next 100 milliseconds on its own clock.",
+  "license": "CC0 1.0 for the reused program and packaged project material. See LICENSE in this directory.",
+  "recording_reference": "https://doi.org/10.1038/s41597-026-07183-6"
+}
