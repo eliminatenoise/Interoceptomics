@@ -2,7 +2,7 @@
 
 This folder is the viewer itself: one web page, its code, and the anatomy it draws. Version of 25 November 2026.
 
-In the download, open it with a start file in the folder above this one. On the website it opens at <https://eliminatenoise.github.io/Interoceptomics/atlas/>, with nothing to install. [The guide](README.html) says how, and lists every control.
+In the download, open it with a start file in the folder above this one. On the website it opens at <https://eliminatenoise.github.io/Interoceptomics/atlas/>, with nothing to install. The guide says how, and lists every control. It comes in two editions that state the same facts: the [Simple edition](simple.html) explains each step, and the [Technical edition](technical.html) is shorter.
 
 ## Serving it yourself
 
@@ -30,8 +30,8 @@ Serve it from your own computer (`127.0.0.1` or `localhost`) or from an `https` 
 | `variants.json`, `camera-r4-bounds.json`, `source-provenance.json` | Settings and records of how the main model file was made. |
 | `assets/` | The anatomy: surfaces (`.glb`; `surface-N.glb` is the surface of the region with atlas number N), the region number of each surface point (`identity/*.bin`), the whole atlas grid repacked (`atlas-label-runs.*`), the data for those cuts, the overview picture. |
 | `vendor/three/` | Three.js, the 3D drawing library, with its licence. |
-| `source.html` | Where the anatomy comes from and how to read its coordinates. |
-| `omissions.html` | The twenty regions drawn only when you ask, and why. |
+| `source.html`, `source-technical.html` | Where the anatomy comes from and how to read its coordinates: the Simple edition and the Technical edition. |
+| `omissions.html`, `omissions-technical.html` | The twenty regions drawn only when you ask, and why: the Simple edition and the Technical edition. Both pages, like the guide, take their style from `editions.css` in the folder above. |
 
 ## Whose work this is
 

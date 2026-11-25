@@ -3,6 +3,24 @@
   "version": "2026-11-25",
   "about": "The left half of the Allen Human Reference Atlas — 3D, 2020, as a 3D model in the browser. A picture of published anatomy: no brain activity was recorded for it, and nothing in it has been validated.",
   "guide": "README.html",
+  "editions": {
+    "note": "The guide and the two pages about the anatomy come in a Technical and a Simple edition that state the same facts. The address each page had before holds its Simple edition.",
+    "guide": {
+      "technical": "technical.html",
+      "simple": "simple.html",
+      "copies_of_the_simple_edition": [
+        "README.html"
+      ]
+    },
+    "source": {
+      "technical": "viewer/source-technical.html",
+      "simple": "viewer/source.html"
+    },
+    "omissions": {
+      "technical": "viewer/omissions-technical.html",
+      "simple": "viewer/omissions.html"
+    }
+  },
   "licences_and_credits": "THIRD-PARTY-NOTICES.html",
   "start_files": {
     "windows": "Windows.cmd",
@@ -10,9 +28,9 @@
     "linux": "Linux.sh",
     "needs": "Python 3.10 or newer and a browser with WebGL"
   },
-  "files_total_including_manifest": 95,
+  "files_total_including_manifest": 100,
   "manifest_self_excluded_from_entries": true,
-  "entry_count": 94,
+  "entry_count": 99,
   "entries": [
     {
       "path": "Linux.sh",
@@ -22,14 +40,14 @@
     },
     {
       "path": "README.html",
-      "bytes": 19992,
-      "sha256": "9343e0ad8281adf6deb2edb9a41f0e6c395fca461eefc4ecaf707bd21db9fa5d",
+      "bytes": 37523,
+      "sha256": "05a8754751658f87c02c4ccf2859bb66f26d9d5b6138a6215a4f5ba91ac65c54",
       "mode_octal": "0644"
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "bytes": 6973,
-      "sha256": "b6b11f758c05f7cc3192c3dc3231d36be8cc3b60c68622c9d70a82ef5b8695e6",
+      "bytes": 13634,
+      "sha256": "8ece2c20f1380fcd4dc4ce0823334e1b640bc5316286e9966b47fbabbd492e12",
       "mode_octal": "0644"
     },
     {
@@ -42,6 +60,12 @@
       "path": "Windows.cmd",
       "bytes": 764,
       "sha256": "4a5e7c588dabef59f2b7d803ae354ee822e163956a7d76de6afd8000d0ad4d6e",
+      "mode_octal": "0644"
+    },
+    {
+      "path": "editions.css",
+      "bytes": 1284,
+      "sha256": "e64fbf70e1dbba557ceae4677e47255182b6d3445232455cbe87d8fead87ed17",
       "mode_octal": "0644"
     },
     {
@@ -73,6 +97,12 @@
       "bytes": 618,
       "sha256": "972a66d777db46767b72993b4808f499b68e4391cb090946555cc00feea44db4",
       "mode_octal": "0755"
+    },
+    {
+      "path": "simple.html",
+      "bytes": 37523,
+      "sha256": "05a8754751658f87c02c4ccf2859bb66f26d9d5b6138a6215a4f5ba91ac65c54",
+      "mode_octal": "0644"
     },
     {
       "path": "sources/allen-version1/PAO-SECTIONS-NOTICE.txt",
@@ -129,9 +159,15 @@
       "mode_octal": "0644"
     },
     {
+      "path": "technical.html",
+      "bytes": 29971,
+      "sha256": "042e6710e14394f03f099c6c151fb3ee80e0ebe29f37dc8370c9689e0707ea51",
+      "mode_octal": "0644"
+    },
+    {
       "path": "viewer/README.md",
-      "bytes": 3441,
-      "sha256": "7476f26e6c287e08691d1996129d96d9b7d833830904d455f8adbff699f24633",
+      "bytes": 3822,
+      "sha256": "31f2c7ed502511bf8c03fca85cd8d94888e5f3bcf6b358448b71c776b90df834",
       "mode_octal": "0644"
     },
     {
@@ -244,8 +280,8 @@
     },
     {
       "path": "viewer/assets/overview.png",
-      "bytes": 541217,
-      "sha256": "ed72f662048a93ac8387f83b919d9c6f67361d3b3ab9b717b673bdc88af74dd4",
+      "bytes": 509677,
+      "sha256": "ea6c3a1402f66100e394beb77a26bb84b332eddbe23f5719f827bb7b4a1d4eca",
       "mode_octal": "0644"
     },
     {
@@ -443,7 +479,7 @@
     {
       "path": "viewer/index.html",
       "bytes": 37993,
-      "sha256": "27b9819231af153788635b27e93718a876c3f451f214745210347ce7768603bc",
+      "sha256": "0394d6e31531a6aef98bb44889713e57173312aef69770a3f40ff4c51d20263a",
       "mode_octal": "0644"
     },
     {
@@ -453,9 +489,15 @@
       "mode_octal": "0644"
     },
     {
+      "path": "viewer/omissions-technical.html",
+      "bytes": 11163,
+      "sha256": "532f2876e580bcc80be3a1895de6eb330c79567f92ea99316a5785af36f394d1",
+      "mode_octal": "0644"
+    },
+    {
       "path": "viewer/omissions.html",
-      "bytes": 8397,
-      "sha256": "f41204151477b026f97e0c8dcb0ba3ccb589d33f9f2aaa92a2920007907784b2",
+      "bytes": 12349,
+      "sha256": "a803724d7031f81fc7f450f5b77753649ee2be29d77729cd7388e3484c527ab0",
       "mode_octal": "0644"
     },
     {
@@ -513,9 +555,15 @@
       "mode_octal": "0644"
     },
     {
+      "path": "viewer/source-technical.html",
+      "bytes": 18068,
+      "sha256": "2a8085a9ff1c083a852937a74cceec63afe72a735a51f3fdb23b66d026562aea",
+      "mode_octal": "0644"
+    },
+    {
       "path": "viewer/source.html",
-      "bytes": 14582,
-      "sha256": "b60908a43c0f27f6f51cd00e49b06d8bcafe01a610f4817265403fa43ae0b51b",
+      "bytes": 21416,
+      "sha256": "075e5a8b92d448546a2105dd8d14c4e41f059262c68a478be91a5c8977320bfa",
       "mode_octal": "0644"
     },
     {

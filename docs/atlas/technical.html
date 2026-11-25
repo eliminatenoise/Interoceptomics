@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interoceptomics Atlas Viewer · Guide · Technical edition</title>
+<link rel="stylesheet" href="editions.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<nav aria-label="Reading editions">
+<a href="index.html">Atlas viewer</a>
+<a href="technical.html" aria-current="page">Technical edition</a>
+<a href="simple.html">Simple edition</a>
+</nav>
+<p><small>Version of 25 November 2026 · <a href="RELEASE-NOTES.txt">what changed</a> (a plain-text file)</small></p>
+<h1>Interoceptomics Atlas Viewer · Technical guide</h1>
+
+<p>The Interoceptomics Atlas Viewer shows, in a web browser, a 3D model of the left half of the human brain. The model can be turned, cut through and measured, and 54 of its regions can be shown on their own. It is made from a brain atlas: a published map that divides the brain into named regions. The atlas is the Allen Institute’s reference atlas of the human brain. The model has 141 named regions on a grid of 0.5 mm cubes. Three colours mark the regions that this project links to movement and touch (blue), to the automatic running of the organs (copper), and to where the two meet (purple). The project is Interoceptomics, a proposed field of science that joins the body’s sense of its own interior (for example of a heartbeat or a breath) to the mapping of nerve connections.</p>
+
+<p>The viewer is a picture of published anatomy, and its colours are a reading of published sources. No brain activity was recorded for it, and nothing in it has been validated, which means confirmed by tests. The limits are listed under <a href="#limits">Limits of the viewer</a>.</p>
+
+<h2 id="open">Open the viewer on the website or from the download</h2>
+
+<p>The same viewer, file for file, is on the project’s website and in a download. The download is <a href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip">a ZIP file</a>, for use without an internet connection.</p>
+
+<p><a class="open" href="https://eliminatenoise.github.io/Interoceptomics/atlas/">Open the viewer on the website</a></p>
+
+<table>
+<tr><th></th><th>Website</th><th>Download</th></tr>
+<tr><th scope="row">Needs</th><td>Built for any current browser that can show 3D graphics. The part of a browser that draws them is called WebGL. Run so far only in Chromium, on Linux.</td><td>The same browser, and Python 3.10 or newer.</td></tr>
+<tr><th scope="row">Installs</th><td>Nothing.</td><td>Nothing. It runs on your own computer.</td></tr>
+<tr><th scope="row">Internet</th><td>Needed.</td><td>Needed only for links that lead out of the viewer, such as the links to cited papers and to the project’s website.</td></tr>
+</table>
+
+<p>The model is a 66 MB file. On the website the first view downloads about 38 MB, because the website sends the files compressed. The wait for it was timed on 25 November 2026 in Chromium on a desktop computer, with the link held to a set speed: about 40 seconds at 9 Mbit/s, and about three and a quarter minutes at 1.6 Mbit/s, the speed of a slow phone network. It was not timed on a phone or on the published website.</p>
+
+<p>Until the model is ready, the space where it will appear shows a pale still picture of the brain, which cannot be turned, and counts the megabytes as they arrive, and the panel says that the 3D controls are still locked. The panel is the column of controls beside the model, or below it on a phone. <a href="#cuts">The three flat cuts</a> work before the model is ready.</p>
+
+<h3 id="first-look">First view</h3>
+
+<p>Under <strong>Starting view</strong>, choose <strong>Insula exposed</strong>. The outer surface of the brain is hidden and the insula is shown in purple. The insula is a stretch of the brain’s outer layer (the cortex) that lies folded deep inside the side of the brain, hidden under the folds that cover it. Drag to turn the model. <a href="#first">Three more things to try</a> are listed below.</p>
+
+<h3 id="offline">Start the download</h3>
+
+<ol>
+<li><a href="https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip">Download the ZIP</a> and extract all of it into a folder.</li>
+<li>In that folder, start the viewer with the start file for your system:
+<table>
+<tr><th>System</th><th>Start file</th></tr>
+<tr><td>Windows</td><td>Open <code>Windows.cmd</code>. Not yet tried on Windows.</td></tr>
+<tr><td>macOS</td><td>Open <code>macOS.command</code>. Not yet tried on a Mac. If macOS will not open it and offers only “Move to Trash” and “Done”: choose “Done”, then in System Settings, Privacy &amp; Security, choose “Open Anyway”, and choose “Open” when the warning returns, as Apple’s page <a href="https://support.apple.com/en-us/102445">Safely open apps on your Mac</a> describes.</td></tr>
+<tr><td>Linux</td><td>Run <code><span>sh</span> <span>Linux.sh</span></code> in a terminal in that folder.</td></tr>
+</table></li>
+<li>The start file runs in a terminal window and opens your browser on the viewer, at an address on your own computer. If the browser stays closed, copy the address that the terminal shows into the browser. Keep the terminal open while you use the viewer. To stop, press Ctrl+C in the terminal.</li>
+</ol>
+
+<h3 id="trouble">Messages when the viewer does not start</h3>
+
+<table>
+<tr><th>Message or symptom</th><th>Cause and action</th></tr>
+<tr><td>“Python 3.10 or newer was not found”</td><td>Install Python 3.10 or newer (free from <a href="https://www.python.org/downloads/">python.org</a>) so that <code>python3</code> or <code>python</code> works in a terminal, then run the start file again. Or use the viewer on the website.</td></tr>
+<tr><td>“The viewer’s files are missing.”, or “can’t open file” with the name <code>launch.py</code></td><td>The start file is not beside the other files. Extract the whole ZIP into a folder and start it there.</td></tr>
+<tr><td>“No such file or directory”, or another message that a file cannot be opened, with the name <code>Linux.sh</code> or <code>launch.py</code>, after typing the command yourself</td><td>The terminal is not in the viewer’s folder (a terminal opened from the system’s menu starts in the home folder). Move it there with <code>cd</code> and the folder’s path, and run the command again.</td></tr>
+<tr><td>The terminal shows an address and no browser opens</td><td>Copy the address into your browser. To get the address without the start file trying to open a browser, run <code><span>python3</span> <span>-B</span> <span>launch.py</span> <span>--no-browser</span></code> in the folder.</td></tr>
+<tr><td>“This page cannot start the viewer”</td><td>The page was opened straight from the folder. Its address begins with <code>file://</code>, and the browser will not run the viewer that way. Close the page and use the start file, or the website.</td></tr>
+<tr><td>“The model files couldn’t load.”</td><td>Reload the page. If you use the download and the message returns, extract a fresh copy of the whole ZIP and start that copy. <strong>Technical details</strong> under the message shows the error.</td></tr>
+<tr><td>“The browser couldn’t start 3D graphics.”</td><td>Use a browser with WebGL switched on.</td></tr>
+</table>
+
+<p>So far the viewer has been run on Linux, in Chromium. The Windows and macOS start files have not yet been tried on those systems. The viewer has not been tried on a phone, only in Chromium’s emulation of one. Report a failure on <a href="https://github.com/eliminatenoise/Interoceptomics/issues">the project’s issue list</a>.</p>
+
+<h2 id="controls">Controls</h2>
+
+<p>The project assigned each colour from what published studies report. In that reading, the parts of the brain that move the body and the parts that run its organs are not separate: they overlap. The viewer marks the overlap on the atlas and lets you take the atlas apart to look at it. The marks are a reading of published sources, not a recording.</p>
+
+<p>A name in bold is a name on the screen. Six terms are used throughout:</p>
+
+<ul>
+<li>A <em>region</em> is one named part of the atlas. Its <em>atlas number</em> is the number that the atlas gives it.</li>
+<li>A <em>voxel</em> is one 0.5 mm cube of the atlas grid. Every voxel carries the number of one region, or 0 for none.</li>
+<li>A <em>cut</em> is a flat slice through that grid. A <em>tile</em> is one voxel as a cut shows it.</li>
+<li>A <em>surface</em> is the skin that the viewer draws around a region, or around several regions merged together.</li>
+</ul>
+
+<h3 id="first">Three things to try</h3>
+
+<ol>
+<li>Type <code>PaO</code> into <strong>Find a region</strong>, pick the parietal operculum from the list under it and choose <strong>Show it alone</strong>. The parietal operculum is the fold that covers the back part of the insula from above; it is shown on its own. Picked in <strong>Insula exposed</strong>, it turns the view to <strong>Outer face (lateral)</strong>. <strong>Show the whole brain</strong> brings the rest back.</li>
+<li>Type <code>VPL</code>, pick it, and choose <strong>Compare VPL and VPM</strong>, then <strong>Show the faces they share</strong>. The view shows two neighbouring regions deep in the brain, with gold marking where the atlas has them touch. <strong>Return to prior view</strong> puts everything back.</li>
+<li>Choose <strong>Open three flat cuts</strong>. The view shows three cuts through the atlas grid itself. Pick a tile in one cut and the other two cuts follow.</li>
+</ol>
+
+<h3 id="look">Turn, zoom and choose a view</h3>
+
+<table>
+<tr><th>To</th><th>Do this</th></tr>
+<tr><td>Turn the model</td><td>Drag. From the keyboard: Shift and the arrow keys.</td></tr>
+<tr><td>Zoom</td><td>Pinch or scroll. From the keyboard: + and −.</td></tr>
+<tr><td>Move the model</td><td>From the keyboard: the arrow keys.</td></tr>
+<tr><td>Reach the model from the keyboard</td><td>Press Tab to reach the model. A blue ring shows that it is ready for keys.</td></tr>
+<tr><td>Choose a region on the model</td><td>Click or tap the region. This works in the views <strong>Insula exposed</strong> and <strong>Deep regions</strong>.</td></tr>
+<tr><td>Go back to the start of a view</td><td><strong>Reset view</strong> returns to the starting angle and zoom of the view you chose.</td></tr>
+</table>
+
+<p>The brain has a left and a right half. The atlas labels almost only the left one, so every view shows the left half. <strong>Starting view</strong> offers four views:</p>
+
+<table>
+<tr><th>View</th><th>What it shows</th></tr>
+<tr><td><strong>Inner face (medial)</strong></td><td>The flat inner face, where the two halves of the brain meet. Medial means towards the midline, the boundary between the left and right halves of the head.</td></tr>
+<tr><td><strong>Outer face (lateral)</strong></td><td>The outside of the left half. Lateral means towards the side.</td></tr>
+<tr><td><strong>Insula exposed</strong></td><td>The whole outer surface is hidden to show the insula. That hides far more than the folds that cover the insula in a real brain.</td></tr>
+<tr><td><strong>Deep regions</strong></td><td>The outer surface and the insula are both hidden. What is left stays where it sits in the head, so one deep region can still stand in front of another.</td></tr>
+</table>
+
+<p>A small picture of the inner face and three letters stay on screen for orientation: A points to the front of the head, S up, R to the right. R pointing straight towards you reads R ⊙, and straight away from you R ⊗; the small picture’s caption uses the same marks.</p>
+
+<p>The four views leave out most of the white matter and all the fluid spaces. White matter is the bundles of nerve fibres that join the regions to one another. The views leave out the white matter of the forebrain and five of its fibre bundles; some other white matter is drawn, as part of larger surfaces. The forebrain is the largest part of the brain: the two cerebral hemispheres (the large folded masses that make up most of each half of the brain) and the parts deep between them. The fluid spaces are the cavities that hold the fluid bathing the brain: the ventricles and the canals that join them, which the atlas divides into nine regions. These fifteen regions (the white matter of the forebrain, which the atlas counts as one region, with its five fibre bundles and the nine fluid spaces) hold almost a third of the atlas’s labelled voxels (2,238,813 of 6,999,201), which are the voxels that belong to a region.</p>
+
+<table>
+<tr><th>Control</th><th>Effect</th></tr>
+<tr><td><strong>Show white matter and fluid spaces</strong>, under <strong>Reset view</strong></td><td>Draws these fifteen regions, in grey. The white matter of the forebrain and the fluid spaces are also see-through, so the regions inside and behind them stay in sight. They are a 36 MB download, so they stay off until you ask. They show best with <strong>Deep regions</strong>.</td></tr>
+<tr><td><strong>Hide white matter and fluid spaces</strong></td><td>Takes them away again.</td></tr>
+</table>
+
+<h3 id="colours">Colour groups</h3>
+
+<p><strong>Colour groups</strong> chooses the colours:</p>
+
+<table>
+<tr><th>Choice</th><th>Colours</th></tr>
+<tr><td><strong>All three groups</strong></td><td>Blue, copper and purple at once.</td></tr>
+<tr><td><strong>Somatic: movement and touch</strong></td><td>Blue: regions linked to moving the body and feeling touch.</td></tr>
+<tr><td><strong>Autonomic: running the organs</strong></td><td>Copper: regions linked to the automatic running of the organs.</td></tr>
+<tr><td><strong>Integration: where the two meet</strong></td><td>Purple: regions that this project places where the two meet. Every coloured region is one of them.</td></tr>
+<tr><td><strong>No colours</strong></td><td>Plain anatomy.</td></tr>
+</table>
+
+<p>A region is drawn in one colour at a time. With <strong>All three groups</strong>, a region that belongs to more than one group has the colour of one of its groups, so the colour alone does not give all its groups. With a single group chosen, every region that belongs to it takes that group’s colour.</p>
+
+<p>Which region gets which colour is this project’s reading of published sources, not a measurement. The viewer lists 54 sources, and 49 of them are cited for at least one region. To see the reading for one region, select it and open <strong>Evidence and limits</strong>: why the region is coloured or left plain, what its outline leaves out, and links to the sources. The line under the region’s name lists all its colour groups, or says that it has none.</p>
+
+<h3 id="find">Find a region and show it alone</h3>
+
+<p>Type a name, an abbreviation or an atlas number into <strong>Find a region</strong> (for example <code>insula</code>, <code>VPL</code> or <code>13230</code>) and pick from the list under it. The list has three groups. The group states what the model can do with the region:</p>
+
+<table>
+<tr><th>Group in the list</th><th>Regions</th><th>What you can do</th></tr>
+<tr><td><strong>Can be shown alone</strong></td><td>54 regions with a surface of their own, and five ready-made groups of them, such as the whole insula.</td><td><strong>Show it alone</strong> hides everything else. <strong>Zoom to it</strong> centres the region and zooms in. <strong>Show the whole brain</strong> brings the rest back. For some regions <strong>Zoom to it</strong> can be chosen only while the region is shown alone: for the twenty regions drawn only when you ask, listed below, and for VPL, VPM, the parietal operculum and the red nucleus (a small region deep in the brain).</td></tr>
+<tr><td><strong>Part of a larger surface</strong></td><td>82 regions merged into larger surfaces.</td><td>Selecting one turns its part of the larger surface dark grey where that surface is in sight. It cannot be shown alone.</td></tr>
+<tr><td><strong>Named only, no surface</strong></td><td>Nuclei (clusters of nerve cells) of the thalamus that the atlas names, five in all: mediodorsal nucleus of thalamus (MD), lateral posterior nucleus of thalamus (LP), ventral lateral nucleus of thalamus (VL), centromedian nucleus of thalamus (CM) and parafascicular nucleus of thalamus (Pf). The thalamus is a mass of grey matter (tissue where the bodies of the nerve cells lie) deep in the middle of the brain.</td><td>Their notes can be read. They lie inside the thalamus, and no point of any surface in the model belongs to them.</td></tr>
+</table>
+
+<p>Those three groups are all 141 of the atlas’s regions. Picking from the list can change <strong>Starting view</strong>: a region of the insula, or the whole insula, turns it to <strong>Insula exposed</strong>; anything else under <strong>Can be shown alone</strong> turns it to <strong>Deep regions</strong>, except the regions whose <strong>Zoom to it</strong> waits for <strong>Show it alone</strong>, which keep the view; a cortical region that is part of a larger surface, the parietal operculum among them, picked in <strong>Insula exposed</strong> or <strong>Deep regions</strong> turns it to <strong>Outer face (lateral)</strong>, which shows little or nothing of many of them: those on the inner face or the underside (for example the cingulate gyrus and the precuneus) and those deep in the groove along the side (for example the frontal operculum). Use <strong>Inner face (medial)</strong> for those on the inner face; the flat cuts show every region. <strong>Show the whole brain</strong> then returns to the view that is chosen.</p>
+
+<p><a href="omissions-technical.html">Twenty of the regions are drawn only when you ask</a>: the white matter of the forebrain and five of its fibre bundles, the nine fluid spaces, the four regions of the smell pathway (which carries smell from the nose into the brain), and the claustrum (a thin sheet of grey matter). Pick one and choose <strong>Show it alone</strong>; its surface loads when you pick it. Every region can also be read in <a href="#cuts">the flat cuts</a>.</p>
+
+<p>Three names in the list end in “(parts not named separately)”: the putamen, the basal forebrain and the amygdaloid complex. Each is what the atlas leaves under the region’s own number after it has named the parts inside it.</p>
+
+<h3 id="pair">Compare VPL and VPM</h3>
+
+<p>The ventral posterior lateral nucleus (VPL) and the ventral posterior medial nucleus (VPM) are two sensory nuclei that lie side by side in the thalamus, deep in the middle of the brain. In their names ventral means lower, posterior further back, lateral nearer the side and medial nearer the midline. Select either, then choose <strong>Compare VPL and VPM</strong>. The two surfaces appear together, VPL in blue and VPM in copper.</p>
+
+<table>
+<tr><th>Control</th><th>Effect</th></tr>
+<tr><td><strong>From front</strong>, <strong>From above</strong>, <strong>Frame both</strong></td><td>Move the camera (the viewpoint from which the model is drawn).</td></tr>
+<tr><td><strong>Show the faces they share</strong></td><td>Turns both surfaces transparent and marks in gold the 481 grid faces (120.25 mm²) where the atlas has the two regions touch.</td></tr>
+<tr><td><strong>Show cuts through VPL and VPM</strong></td><td>Opens the grid itself, one 0.5 mm layer at a time. Choose a <strong>Direction of the cut</strong> and a <strong>Position of the cut</strong>. A violet frame shows in 3D where the cut lies. While the cuts are open the button reads <strong>Hide the cuts</strong> and closes them.</td></tr>
+<tr><td><strong>Return to prior view</strong>, or the Escape key</td><td>Puts everything back as it was.</td></tr>
+</table>
+
+<h3 id="cuts">The three flat cuts</h3>
+
+<p><strong>Open three flat cuts</strong> shows three cuts that cross at one voxel: one parallel to the face (coronal), one parallel to the side of the head (sagittal) and one horizontal (axial). The cuts read the whole atlas grid, so they show all 141 regions, including the little that the atlas labels on the right side.</p>
+
+<table>
+<tr><th>Control</th><th>Effect</th></tr>
+<tr><td>A tile, or the slider under a cut</td><td>Moves the crossing point. From the keyboard the arrow keys step one voxel at a time, and ten with Shift held. On a phone a voxel is smaller than a fingertip, so type its position instead.</td></tr>
+<tr><td><strong>R (mm)</strong>, <strong>A (mm)</strong>, <strong>S (mm)</strong> and <strong>Go to voxel</strong></td><td>Go to a position typed in millimetres. R grows to the right, A to the front and S upwards. <a href="source-technical.html#axes">The source page</a> states where the three axes start.</td></tr>
+<tr><td><strong>Find a region</strong>, <strong>Side</strong> and <strong>Show voxel in all three cuts</strong></td><td>The first is a line that unfolds when chosen. Type a name, an abbreviation or an atlas number into it, pick the region under <strong>Matching region</strong>, choose a side, then choose the button. The crosshair (the mark where the three cuts cross) lands on a voxel that carries that region’s number. The viewer then ticks <strong>Highlight the selected region</strong> and unfolds <strong>Volume of the selected region</strong>.</td></tr>
+<tr><td><strong>Highlight the selected region</strong></td><td>Paints the region under the crosshair gold in all three cuts.</td></tr>
+<tr><td><strong>Volume of the selected region</strong></td><td>A line that unfolds when chosen. It counts the region’s voxels on the left, on the midline (the boundary between the left and right halves of the head) and on the right, and gives the volume in cubic millimetres. Each voxel is 0.125 mm³.</td></tr>
+<tr><td><strong>Back to the 3D model</strong></td><td>Returns to the model’s panel.</td></tr>
+</table>
+
+<p>Besides VPL and VPM, one region has cuts of its own. Search for <code>PaO</code>, the parietal operculum, and select it.</p>
+
+<table>
+<tr><th>Control</th><th>Effect</th></tr>
+<tr><td><strong>Show cuts through the parietal operculum</strong></td><td>Steps through every layer of the grid that contains the region. While the cuts are open the button reads <strong>Hide the cuts</strong> and closes them.</td></tr>
+<tr><td><strong>How much of the cut</strong></td><td>Switches between <strong>PaO and neighbours</strong> and <strong>The whole cut</strong>.</td></tr>
+<tr><td><strong>Highlight a region</strong></td><td>Picks out one neighbour.</td></tr>
+<tr><td><strong>Show this cut in 3D</strong></td><td>Moves the camera to the layer you are reading.</td></tr>
+<tr><td><strong>Open the flat cuts at this voxel</strong></td><td>Carries the voxel you marked into the three flat cuts. The cuts through VPL and VPM have the same button.</td></tr>
+</table>
+
+<h3 id="measure">Measure between two voxels</h3>
+
+<p>The ruler, which the screen heads <strong>Measure between two voxels</strong>, is in two places: under <strong>Show cuts through the parietal operculum</strong> and, in the VPL and VPM comparison, under <strong>Show cuts through VPL and VPM</strong>. It is not in the three flat cuts.</p>
+
+<ol>
+<li>Mark a voxel: pick a tile, or type its position under <strong>Go to a position</strong> and choose <strong>Go to voxel</strong>. Choose <strong>Set A</strong>.</li>
+<li>Mark another voxel and choose <strong>Set B</strong>. The panel gives <strong>B minus A</strong> along each axis and the <strong>Straight-line distance</strong>, in millimetres. Both points stay while you change cuts.</li>
+<li><strong>Follow the ruler through the cuts</strong> lists how much of the line lies in each region, in order from A to B. Choose a row to jump to where that stretch begins.</li>
+<li><strong>Clear A and B</strong> starts again.</li>
+</ol>
+
+<p>Under <strong>Follow the ruler through the cuts</strong>, the slider <strong>Voxel along the line, A to B</strong>, with <strong>Previous voxel</strong> and <strong>Next voxel</strong>, steps through the voxels the line passes through. The cut opens at each, and an amber cross marks its centre; the line can pass to one side of that centre. After the cut is moved away, <strong>Show this voxel</strong> returns to the line.</p>
+
+<p>The line is a straight line through the atlas’s reference brain. It is not the path of a nerve fibre and not a guide for anything clinical (the care of patients).</p>
+
+<h3 id="return">Save a view and open it again</h3>
+
+<table>
+<tr><th>Control</th><th>Where</th><th>Effect</th></tr>
+<tr><td><strong>Copy saved view</strong></td><td>Under the cut: in the three flat cuts (at the foot of the panel, below the three boxes), in the cuts through the parietal operculum and in the cuts through VPL and VPM. In the last two it is greyed out until a tile is picked.</td><td>Gives a short piece of text for the voxel you are looking at.</td></tr>
+<tr><td><strong>Open saved view</strong>, <strong>Saved view text</strong> and <strong>Open view</strong></td><td>The first is a line near the top of the 3D model’s panel that unfolds when chosen and shows the other two. That panel is hidden while the three flat cuts are open: choose <strong>Back to the 3D model</strong> first.</td><td>Paste the text into the box and choose the button to return to that voxel. Cuts through the parietal operculum or through VPL and VPM open further down the panel (on a phone, further down the page).</td></tr>
+<tr><td><strong>Copy measurement</strong></td><td>In the ruler, under the two points. It can be chosen once A and B are both set.</td><td>Does the same for a pair of points and the distance between them.</td></tr>
+</table>
+
+<p>If the browser will not let the page use the clipboard, the text appears under the button for you to copy by hand. The same text also works at the end of the viewer’s address.</p>
+
+<h2 id="limits">Limits of the viewer</h2>
+
+<p>The viewer shows where a published atlas draws each region. It does not show what any region does. The panel’s line <strong>What the model leaves out</strong> lists several of these limits.</p>
+
+<ul>
+<li>One reference brain, left half. The atlas was drawn on an averaged reference brain (the ICBM 2009b nonlinear symmetric MNI152 average), not on a person. It is nobody’s brain. The atlas labels almost only the left side: all 141 regions have voxels on the left, 22 have some on the midline and 7 have some on the right. The 3D model draws the left side up to the midline.</li>
+<li>The colours are a reading, not a recording. A region can belong to more than one group. No colour does not mean that a region does nothing, only that this project gave it no colour group: 81 of the atlas’s 141 regions carry none.</li>
+<li>The grid steps in 0.5 mm. Borders follow the atlas’s cubes, so small regions look blocky. Most surfaces were smoothed a little, and the smoothing moved no point more than 0.125 mm; the surfaces of VPL, VPM, the red nucleus and the parietal operculum were not smoothed. Where the model is cut at the midline, points beyond the midline were moved onto it, by at most 0.25 mm.</li>
+<li>The atlas gives no voxels of their own to the small nuclei that regulate the organs, so they are not drawn separately. They lie in the brainstem (the stalk at the base of the brain that joins the rest of the brain to the spinal cord) and in the hypothalamus (a small region at the base of the brain). The same holds for the separate deep nuclei of the cerebellum (the folded part at the back of the brain, below the hemispheres), which the atlas has only together, as one region, the cerebellar deep nuclei.</li>
+<li>The atlas does not mark the working fields of the cortex, the areas defined by the work they do, such as the field that first receives touch from the body. A coloured stretch of cortex is the atlas’s outline, not a field that has been shown to do that work.</li>
+<li>Nothing in the viewer has been validated, scientifically or clinically. Distances and volumes describe the atlas’s reference brain, not a patient. The viewer holds anatomy and code, and no recordings.</li>
+</ul>
+
+<p>The atlas labels two voxels as hypothalamus far from the rest of it. They are drawn only after <strong>Show the two voxels</strong>, under the panel’s line <strong>Two stray voxels</strong>.</p>
+
+<h2 id="credits">Credits and licences</h2>
+
+<p>The regions, their names and their numbers come from the <em>Allen Human Reference Atlas — 3D, 2020</em> (version 1.0.0) by Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein, © 2019 Allen Institute for Brain Science, used under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, which lets anyone copy and adapt the work if they give the credit, link the licence, keep the notices and say what they changed. This project kept the labelled left half, built the surfaces, and added the colours and the controls. The Allen Institute has not endorsed any of it.</p>
+
+<p>The 3D drawing is done by <a href="https://github.com/mrdoob/three.js">Three.js</a> (MIT licence, which lets anyone reuse the code if they keep its copyright and permission notice).</p>
+
+<p>Before you copy or adapt anything from this viewer, read <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a>: the full credit, every change made to the atlas, and what you must keep.</p>
+
+<p><small><a href="source-technical.html">Where the anatomy comes from, and how to read its coordinates</a> · <a href="licenses/index.html">Licence texts</a> · <a href="MANIFEST.json">Every file of the download with its size and checksum</a> (a plain-text file; a checksum is a short code worked out from the file’s bytes) · <a href="https://eliminatenoise.github.io/Interoceptomics/">Project page</a></small></p>
+<script>for(const a of document.querySelectorAll('nav a+a:not([aria-current])'))a.onclick=()=>{a.hash=location.hash}</script>
+</body>
+</html>

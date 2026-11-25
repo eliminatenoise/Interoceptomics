@@ -3,38 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Interoceptomics Atlas Viewer · Where the anatomy comes from</title>
-<style>body{max-width:790px;margin:45px auto;padding:0 24px;color:#27323a;background:#fff;font:16px/1.6 Arial,Helvetica,sans-serif}h1{font-size:30px;line-height:1.15}h2{font-size:21px;line-height:1.25;margin-top:36px}a{color:#315f79}table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;padding:8px 9px;border-bottom:1px solid #d4dadd}li{margin:7px 0}code{font:inherit;overflow-wrap:anywhere;background:#eef1f2;padding:0 3px}</style>
+<title>Interoceptomics Atlas Viewer · Where the anatomy comes from · Simple edition</title>
+<link rel="stylesheet" href="editions.css">
 <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23376c8c%22%2F%3E%3Cpath%20d%3D%22M15%208c-4-3-9%201-7%205-3%203-1%208%203%208%200%204%204%205%204%202V8Zm2%200c4-3%209%201%207%205%203%203%201%208-3%208%200%204-4%205-4%202V8Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E">
 </head>
 <body>
-<p><a href="index.html">Back to the viewer</a> · <a href="README.html">Guide</a> · <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a></p>
-<h1>Where the anatomy comes from, and how to read it</h1>
+<nav aria-label="Reading editions">
+<a href="index.html">Atlas viewer</a>
+<a href="source-technical.html">Technical edition</a>
+<a href="source.html" aria-current="page">Simple edition</a>
+</nav>
+<p><small><a href="simple.html">Guide</a> · <a href="omissions.html">Regions drawn only when you ask</a> · <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a></small></p>
+<h1>Where the anatomy comes from, and how to read it · Simple edition</h1>
 
-<p>Every surface, every cut and every number in the viewer comes from one file: the grid of region numbers in the Allen Institute’s human reference atlas. This page says whose work that is, what this project did to it, and how the viewer’s positions and measurements are defined.</p>
+<p>The Interoceptomics Atlas Viewer draws a 3D model of the left half of the human brain. It makes the model from one published brain atlas. A brain atlas is a map that divides the brain into named regions.</p>
 
-<h2 id="credit">The atlas is the Allen Institute’s</h2>
+<p>Every surface, every cut and every number in the viewer comes from one file of that atlas: the grid of region numbers in the Allen Institute’s human reference atlas. This page says three things:</p>
 
-<p>Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein (2020), <i>Allen Human Reference Atlas — 3D, 2020</i>, version 1.0.0, RRID:SCR_017764. Copyright © 2019 Allen Institute for Brain Science. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, which the atlas’s <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf">own README</a> states as effective 1 September 2022. Adapted by the Interoceptomics project. The Allen Institute has not endorsed this viewer. <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/">Original atlas files</a> · <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz">the grid itself, <code>annotation.nii.gz</code></a>.</p>
+<ul>
+<li>whose work the file is;</li>
+<li>what this project did to it;</li>
+<li>how the viewer’s positions and measurements are defined.</li>
+</ul>
 
-<p>From that grid this project kept the labelled left half, drew surfaces around the regions, merged some regions and gave others a surface of their own, converted the coordinates, repacked the whole grid without loss for the cuts and the ruler, and added the colours, the cameras and the controls. The complete list of changes, and what you must keep when you reuse any file, is on the page <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a>.</p>
+<p>Four words are used on this page. A <i>region</i> is one named part of the atlas, and each region has a number. A <i>voxel</i> is one of the small cubes that the atlas is built from. A <i>cut</i> is a flat slice through those cubes. A <i>surface</i> is the skin that the viewer draws around a region, or around several regions merged together.</p>
 
-<p>The 3D drawing is done by Three.js, © 2010–2026 Three.js authors, under the <a href="vendor/three/LICENSE">MIT licence</a>.</p>
+<h2 id="credit">The atlas is the Allen Institute’s work</h2>
 
-<h2 id="axes">Positions are in millimetres, on three axes</h2>
+<p>The atlas is the <i>Allen Human Reference Atlas — 3D, 2020</i>, version 1.0.0. Its authors are Song-Lin Ding, Joshua J. Royall, Susan M. Sunkin, Benjamin A. C. Facer, Phil Lesnar, Amy Bernard, Lydia Ng and Ed S. Lein, and its year is 2020. Its number in a public register of research resources is RRID:SCR_017764. Its copyright line is: Copyright © 2019 Allen Institute for Brain Science.</p>
 
-<p>The atlas is a block of 394 × 466 × 378 cubes, each half a millimetre on a side. Each cube (a <i>voxel</i>) carries the number of one region, or 0 for none. A position names the centre of a voxel with three numbers:</p>
+<p>The atlas is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. That licence lets anyone copy and adapt the work if they give the credit, link the licence, keep the notices and say what they changed. The atlas’s <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/README.pdf">own README</a>, the document of notes that comes with its files, states the licence as effective 1 September 2022.</p>
+
+<p>The atlas was adapted by the Interoceptomics project for this viewer. The Allen Institute has not endorsed the viewer. The Allen Institute offers the <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/">original atlas files</a>, and among them <a href="https://download.alleninstitute.org/informatics-archive/allen_human_reference_atlas_3d_2020/version_1/annotation.nii.gz">the grid itself, a file named <code>annotation.nii.gz</code></a>.</p>
+
+<p>This project did six things with that grid:</p>
+
+<ol>
+<li>It kept the labelled left half.</li>
+<li>It drew surfaces around the regions.</li>
+<li>It merged some regions into larger surfaces and gave others a surface of their own.</li>
+<li>It converted the coordinates, which are the numbers that say where a point is.</li>
+<li>It repacked the whole grid for the cuts and the ruler, without loss: it stored the grid in another form and kept every region number.</li>
+<li>It added the colours, the cameras and the controls. A camera is a viewpoint from which the model is drawn.</li>
+</ol>
+
+<p>The page <a href="THIRD-PARTY-NOTICES.html">Licences and credits</a> has the complete list of changes. It also says what you must keep when you reuse any file.</p>
+
+<p>The 3D drawing is done by Three.js, © 2010–2026 Three.js authors, under the <a href="licenses/THREE-MIT.txt">MIT licence</a> (a plain-text file). That licence lets anyone reuse the code if they keep its copyright and permission notice.</p>
+
+<h2 id="axes">A position is three numbers, in millimetres</h2>
+
+<p>The atlas is a block of small cubes: 394 × 466 × 378 of them along its three directions. Each cube is 0.5 mm (half a millimetre) on a side. A cube is called a voxel. Each voxel carries the number of one region, or the number 0 if it belongs to no region.</p>
+
+<p>A position names the centre of one voxel. It does so with three numbers, one for each direction. The directions are called axes, and their letters are R, A and S:</p>
 
 <table>
-<tr><th>Axis</th><th>Grows towards</th><th>First voxel centre</th></tr>
-<tr><td>R</td><td>the right of the head. Negative R is the left side, R = 0 is the midline.</td><td>−98 mm</td></tr>
-<tr><td>A</td><td>the front of the head (anterior)</td><td>−134 mm</td></tr>
-<tr><td>S</td><td>the top of the head (superior)</td><td>−72 mm</td></tr>
+<tr><th>Axis</th><th>The number grows towards</th><th>Centre of the first voxel</th></tr>
+<tr><td>R</td><td>the right of the head. A negative R is on the left side. R = 0 is the midline, the flat boundary down the middle of the head, between its left and right halves.</td><td>−98 mm</td></tr>
+<tr><td>A</td><td>the front of the head. A stands for anterior, which means towards the front.</td><td>−134 mm</td></tr>
+<tr><td>S</td><td>the top of the head. S stands for superior, which means towards the top.</td><td>−72 mm</td></tr>
 </table>
 
-<p>Every position you type must sit on the grid: a multiple of 0.5 mm on each axis. The 3D model draws each point at (−R, S, A) ÷ 1000, in metres, so a mark in the model and a mark in a cut are the same place.</p>
+<p>Every position you type must sit on the grid. Each of the three numbers must be a multiple of 0.5 mm, for example 12, 12.5 or 13.</p>
 
-<p>On screen the cuts are laid out like this:</p>
+<p>The 3D model keeps the same places in another form. It works in metres, and it puts the three numbers in another order: it draws each point at (−R, S, A) ÷ 1000. That is R with its sign reversed, then S, then A, each divided by 1000 to turn millimetres into metres. The conversion is always the same, so a mark in the model and a mark in a cut are the same place.</p>
+
+<p>The viewer has three kinds of cut. Each is laid out on the screen in a fixed way:</p>
 
 <table>
 <tr><th>Cut</th><th>The slice is</th><th>Left of the picture</th><th>Top of the picture</th></tr>
@@ -43,29 +77,70 @@
 <tr><td>Axial</td><td>horizontal, seen from above</td><td>the left of the head</td><td>the front of the head</td></tr>
 </table>
 
-<p>The 3D model can be turned freely, so there the three letters at the corner of the picture tell you which way each axis points.</p>
+<p>The 3D model is different, because you can turn it freely. There, look at the three letters at the corner of the picture. They show which way each axis points. When R points straight towards you, it reads R ⊙; when it points straight away from you, it reads R ⊗.</p>
 
 <h2 id="annotation-planes">The three flat cuts read the whole grid</h2>
 
-<p><strong>Open three flat cuts</strong> shows three cuts through one voxel, straight from the grid, with nothing smoothed or filled in between voxels. The colours only tell neighbouring regions apart, and a colour can repeat; the name and number under the crosshair are the atlas’s own. A dark tile has no region. These cuts show region numbers, not tissue: the MRI picture the atlas was drawn on is not part of this viewer.</p>
+<p>The button <strong>Open three flat cuts</strong> shows three cuts through one voxel. They come straight from the grid. Nothing is smoothed, and nothing is filled in between voxels.</p>
 
-<p>The grid labels almost only the left side of the brain. Of its 6,999,201 labelled voxels, 6,974,625 lie left of the midline, 14,152 on it and 10,424 right of it. The cuts show all of them as recorded, with nothing mirrored. The 3D model draws the left side up to the midline; a teal cross marks your voxel there when the voxel has a region and lies on that side.</p>
+<ul>
+<li>The colours in these cuts only tell neighbouring regions apart. A colour can repeat, so two regions far apart may share one. They are not the colour groups of the 3D model.</li>
+<li>The name and the number shown under the crosshair are the atlas’s own. The crosshair is the mark where the three cuts cross.</li>
+<li>Each small square in a cut is one voxel, and is called a tile. A dark tile is a voxel that has no region.</li>
+<li>The cuts show region numbers. They do not show tissue. The atlas was drawn on an MRI picture, which is a scanner’s picture of the inside of the head, and that picture is not part of this viewer.</li>
+</ul>
 
-<p><strong>Find a region</strong> knows the 141 regions that have voxels, on each side where they have them: 170 places in all. It lands on the voxel of the region that is nearest to the average position of all the region’s voxels on that side. A region that curves round its own middle has its average outside itself, and the finder still lands inside the region. If two voxels are equally near, it takes the one that comes first in the grid’s own order. The landing point is a place to start from, nothing more.</p>
+<p>The grid labels almost only the left side of the brain. It has 6,999,201 labelled voxels, which are the voxels that belong to a region. Of these, 6,974,625 lie left of the midline, 14,152 lie on it, and 10,424 lie right of it. The cuts show all of them as the atlas file holds them. Nothing is mirrored from one side to the other.</p>
 
-<p><strong>Volume of the selected region</strong> counts the voxels that carry exactly that number and multiplies by 0.125 mm³, the volume of one voxel. A voxel counts as left, midline or right by where its centre lies: R below 0, at 0, or above 0. A region and its sub-regions have separate numbers and are counted separately. A border one voxel wide is already half a millimetre across, so treat the volume as the atlas’s, at the atlas’s resolution.</p>
+<p>The 3D model draws the left side up to the midline. When your voxel has a region and lies on that side, a teal cross marks it in the 3D model.</p>
+
+<h3>How the finder chooses where to land</h3>
+
+<p><strong>Find a region</strong>, in the three flat cuts, knows the 141 regions that have voxels. It knows each of them on every side where it has voxels, which makes 170 places in all.</p>
+
+<ol>
+<li>For a region and a side, the finder works out the average position of all the region’s voxels on that side.</li>
+<li>It lands on the voxel of the region that is nearest to that average.</li>
+<li>If two voxels are equally near, it takes the one that comes first in the grid’s own order.</li>
+</ol>
+
+<p>Some regions curve round their own middle, so that the average falls outside the region. The finder still lands inside the region, because it always lands on one of the region’s own voxels. The landing point is a place to start from, and nothing more.</p>
+
+<h3>How a volume is counted</h3>
+
+<p><strong>Volume of the selected region</strong> counts the voxels that carry exactly that region’s number. It multiplies the count by 0.125 mm³, the volume of one voxel. The unit mm³ is the cubic millimetre.</p>
+
+<ul>
+<li>Each voxel counts as left, midline or right. The centre of the voxel decides: R below 0 is left, R at 0 is midline, and R above 0 is right.</li>
+<li>A region and its sub-regions have separate numbers. They are counted separately.</li>
+<li>A border one voxel wide is already 0.5 mm across. Borders follow the grid, so the volume is approximate.</li>
+</ul>
 
 <h2 id="atlas-ruler-segments">The ruler is a straight line through the grid</h2>
 
-<p><strong>Set A</strong> and <strong>Set B</strong> mark two voxel centres. The distance is the straight line between them, shown to three decimals although the grid itself steps in half millimetres. <strong>B minus A</strong> is the same step split along the three axes.</p>
+<p><strong>Set A</strong> and <strong>Set B</strong> mark two points. Each is the centre of a voxel. The distance is the length of the straight line between them. It is shown to three decimals, although the grid itself steps in half millimetres. <strong>B minus A</strong> is the same step, split along the three axes.</p>
 
-<p><strong>Follow the ruler through the cuts</strong> splits that line wherever it crosses from one voxel into the next, reads the region number of each voxel it passes through from the whole grid, and joins neighbouring pieces that lie in the same region. A voxel the line only grazes at an edge or a corner adds no length. A and B sit at voxel centres, so the first and last voxels contribute only the part of the line inside them. If the line leaves a region and comes back, the region gets two rows.</p>
+<p><strong>Follow the ruler through the cuts</strong> says which regions the line passes through. It works in three steps:</p>
+
+<ol>
+<li>It splits the line wherever the line crosses from one voxel into the next.</li>
+<li>For each voxel that the line passes through, it reads the region number from the whole grid.</li>
+<li>It joins neighbouring pieces that lie in the same region into one stretch.</li>
+</ol>
+
+<p>Three things follow from that:</p>
+
+<ul>
+<li>A voxel that the line only grazes, at an edge or a corner, adds no length.</li>
+<li>A and B sit at voxel centres, so the first and the last voxel contribute only the part of the line that is inside them.</li>
+<li>If the line leaves a region and later comes back to it, the region gets two rows.</li>
+</ul>
 
 <p>The line measures a distance in the atlas’s reference brain. It is not the route of a nerve fibre.</p>
 
 <h2 id="atlas-sections">VPL and VPM, voxel by voxel</h2>
 
-<p>The ventral posterior lateral nucleus (VPL, region 10424) and the ventral posterior medial nucleus (VPM, region 10425) lie side by side in the thalamus, all of both on the left of the grid.</p>
+<p>VPL is short for the ventral posterior lateral nucleus. It is region 10424. VPM is short for the ventral posterior medial nucleus. It is region 10425. A nucleus is a cluster of nerve cells. These two lie side by side in the thalamus, deep in the middle of the brain. Every voxel of both is on the left of the grid.</p>
 
 <table>
 <tr><th></th><th>VPL</th><th>VPM</th></tr>
@@ -73,46 +148,76 @@
 <tr><td>Volume on the grid</td><td>660 mm³</td><td>127 mm³</td></tr>
 </table>
 
-<p>VPM follows the inner edge of VPL: the centre of its voxels lies 5.39 mm nearer the midline than the centre of VPL’s. The two touch across 481 voxel faces, 120.25 mm² in all. Of those faces, 218 face left and right (54.5 mm²), 111 face front and back (27.75 mm²) and 152 face up and down (38 mm²). Voxels that meet only at an edge or a corner are not counted. <a href="assets/vpl-vpm-shared-faces.json">The list of faces</a>.</p>
+<p>VPM follows the inner edge of VPL. The centre of VPM’s voxels lies 5.39 mm nearer the midline than the centre of VPL’s.</p>
 
-<p><strong>Show cuts through VPL and VPM</strong> reads a crop of the grid, 34 × 27 × 30 voxels, that keeps these two regions and blanks everything else. Blue is VPL, copper with white dots is VPM, a dark line follows the edges they share in that layer, and grey is anything else, which may well belong to another region. The cuts open at A −20.5 mm (coronal), R −12.5 mm (sagittal) and S −2 mm (axial). <a href="assets/vpl-vpm-source-grid.json">The crop</a>.</p>
+<p>The two regions touch. A voxel is a cube, and a face is one of its six flat sides. Where a voxel of VPL and a voxel of VPM lie face to face, they share that face. There are 481 shared faces, with an area of 120.25 mm² in all. The unit mm² is the square millimetre. Voxels that meet only at an edge or a corner are not counted.</p>
 
-<p>The atlas names two divisions of VPL (rostral and caudal) and one of VPM (parvocellular) and gives none of them voxels of its own, so the viewer cannot show them.</p>
+<table>
+<tr><th>Facing</th><th>Faces</th><th>Area</th></tr>
+<tr><td>left and right</td><td>218</td><td>54.5 mm²</td></tr>
+<tr><td>front and back</td><td>111</td><td>27.75 mm²</td></tr>
+<tr><td>up and down</td><td>152</td><td>38 mm²</td></tr>
+</table>
 
-<p>Published pictures of the same nuclei, for comparison by eye: <a href="https://bpb-us-e1.wpmucdn.com/sites.northwestern.edu/dist/7/2577/files/2018/11/34-Mesulam_compressed-1fxe431.pdf#page=3">Heckers et al., Figure 1</a> and <a href="https://link.springer.com/article/10.1007/s00429-025-02915-7">Oishi et al., Figures 1–2</a>: stained sections of the adult human thalamus, and MRI of brains after death. They are other brains, cut in other planes. No agreement with them has been measured.</p>
+<p>The viewer keeps <a href="assets/vpl-vpm-shared-faces.json">the list of faces</a> as a file.</p>
+
+<p><strong>Show cuts through VPL and VPM</strong> reads a crop of the grid. A crop is a cut-out block. This one is 34 × 27 × 30 voxels. It keeps these two regions and blanks everything else. In its cuts:</p>
+
+<ul>
+<li>blue is VPL;</li>
+<li>copper with white dots is VPM;</li>
+<li>a dark line follows the edges that the two share in that layer;</li>
+<li>grey is anything else. A grey voxel may belong to another region.</li>
+</ul>
+
+<p>When the cuts first open, the coronal cut is at A = −20.5 mm, the sagittal cut at R = −12.5 mm and the axial cut at S = −2 mm. The viewer keeps <a href="assets/vpl-vpm-source-grid.json">the crop</a> as a file.</p>
+
+<p>The atlas names two divisions of VPL, called rostral and caudal: a front part and a back part. It names one division of VPM, called parvocellular: a part made of small cells. The atlas gives none of these divisions voxels of its own. The viewer therefore cannot show them.</p>
+
+<p>Two published sets of pictures show the same nuclei, for comparison by eye: <a href="https://bpb-us-e1.wpmucdn.com/sites.northwestern.edu/dist/7/2577/files/2018/11/34-Mesulam_compressed-1fxe431.pdf#page=3">Heckers et al., Figure 1</a> and <a href="https://link.springer.com/article/10.1007/s00429-025-02915-7">Oishi et al., Figures 1–2</a>. They are stained sections of the adult human thalamus, and MRI of brains after death. A stained section is a thin slice of tissue coloured so that its structure shows under a microscope. These are other brains, cut in other planes. No agreement between them and this atlas has been measured.</p>
 
 <h2 id="parietal-operculum">The parietal operculum</h2>
 
-<p>The parietal operculum (PaO, region 13230) is the fold along the upper bank of the lateral sulcus, above the insula: it covers the insula from above. In the grid it has 43,319 voxels, 5,414.875 mm³, all on the left. Its surface in the model follows those voxels without smoothing. <a href="assets/parietal-operculum-source-left.glb">The surface file</a>.</p>
+<p>The parietal operculum is region 13230, and its abbreviation is PaO. The lateral sulcus is the deep groove along the side of the brain. The parietal operculum is the back part of the upper bank of that groove, which is the wall of brain above it. The fold lies above the back part of the insula and covers it from above. The insula is a stretch of the brain’s outer layer that lies folded deep inside the side of the brain. Further forward, other regions of the atlas cover the insula from above, chiefly the frontal operculum and the opercular part of the inferior frontal gyrus. In the viewer they are parts of a larger surface.</p>
 
-<p>The atlas draws the fold as one region. Under the microscope it divides into four fields, OP1 to OP4, and touch to different parts of the body produces different responses across them. The atlas outline shows none of that.</p>
+<p>In the grid the parietal operculum has 43,319 voxels. That is 5,414.875 mm³. All of them are on the left. Its surface in the model follows those voxels without smoothing. The viewer keeps <a href="assets/parietal-operculum-source-left.glb">the surface</a> as a file.</p>
+
+<p>The atlas draws the fold as one region. Under the microscope the fold divides into four fields, named OP1 to OP4. In two of those fields, touch to different parts of the body has been found to produce different responses. The atlas outline shows none of that.</p>
 
 <ul>
-<li><a href="https://www.ajnr.org/content/ajnr/25/2/222.full.pdf">Naidich et al. (2004)</a>: the insula and the tissue covering it, in dissection and MRI.</li>
+<li><a href="https://www.ajnr.org/content/ajnr/25/2/222.full.pdf">Naidich et al. (2004)</a>: the insula and the tissue covering it, in dissection and MRI. A dissection is a brain cut open by hand so that its parts can be seen.</li>
 <li><a href="https://academic.oup.com/cercor/article-pdf/16/2/268/789185/bhi106.pdf">Eickhoff et al. (2006)</a>: the four fields of the human parietal operculum.</li>
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/17032710/">Eickhoff et al. (2007)</a>: responses to touch in two of those fields.</li>
 </ul>
 
 <h2 id="pao-sections">The grid around the parietal operculum</h2>
 
-<p><strong>Show cuts through the parietal operculum</strong> steps through every layer of the grid that contains the fold: 192 layers, 66 sagittal, 73 coronal and 53 axial. <strong>PaO and neighbours</strong> shows the fold with 6 mm of its surroundings. <strong>The whole cut</strong> shows the whole layer. The cuts open at A −18 mm (coronal), R −44 mm (sagittal) and S +12 mm (axial). A violet frame marks the layer in the 3D model, and tissue can stand in front of part of it.</p>
-
-<p>If you mark a voxel and change the direction of the cut, the reader follows the voxel. When the new direction has no layer at that voxel, the reader says where the voxel is and hides its mark. <a href="assets/parietal-operculum-sections.json">The index of layers</a>.</p>
-
-<p>Photographs of the same fold in dissected brains: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12872721/">Cullinane, Lim and Barry (2026), Fig. 1a–b</a> and <a href="https://www.arquivosdeneuropsiquiatria.org/article/dissection-technique-for-the-study-of-the-cerebral-sulci-gyri-and-ventricles/">Mattos et al. (2008), Fig. 2A–B</a>. They show which tissue covers which. They are not a measurement of how well the atlas fits a person.</p>
-
-<h2 id="limits">What the surfaces can and cannot tell you</h2>
+<p><strong>Show cuts through the parietal operculum</strong> steps through every layer of the grid that contains the fold. A layer is one flat sheet of the grid, one voxel thick. There are 192 such layers: 66 sagittal, 73 coronal and 53 axial.</p>
 
 <ul>
-<li>One atlas, nobody’s brain. The atlas was drawn on an averaged reference brain, the ICBM 2009b nonlinear symmetric MNI152 average. Every border in the viewer is that atlas’s border. Where a border falls in a living person, and what any region does, need other evidence.</li>
-<li>How the surfaces were made is not how accurate they are. Surfaces follow the half-millimetre grid. The cut face at the midline was closed with a constructed cap of at most 0.25 mm, and an earlier display step moved surfaces by at most 0.125 mm. The surfaces of the twenty regions drawn only when you ask were made the same way, on 21 November 2026. The direction each surface faces was corrected as a whole; local disagreements between the grid and the smoothed surface remain. The shapes of the basal forebrain, the septal nuclei and the bed nucleus of the stria terminalis have not been compared with any outside picture.</li>
-<li>Merged surfaces hide their parts. 82 regions are drawn only as parts of larger surfaces and cannot be lifted out. <a href="omissions.html">Twenty regions are drawn only when you ask</a>, the white matter and the fluid spaces among them.</li>
-<li>The atlas labels two voxels as hypothalamus far from the rest of it. They are in the model and not drawn unless you choose <strong>Show the two voxels</strong> under <strong>Two stray voxels</strong> in the panel.</li>
-<li>Another 3D program may show the colours lighter. The surface files store them as numbers that the viewer shows with its own palette.</li>
+<li>You can choose how much of each layer to see. <strong>PaO and neighbours</strong> shows the fold with 6 mm of its surroundings. <strong>The whole cut</strong> shows the whole layer.</li>
+<li>When the cuts first open, the coronal cut is at A = −18 mm, the sagittal cut at R = −44 mm and the axial cut at S = +12 mm.</li>
+<li>A violet frame marks the layer in the 3D model. Tissue can stand in front of part of the frame.</li>
+<li>If you mark a voxel and then change the direction of the cut, the view of the cuts follows the voxel. Sometimes the new direction has no layer at that voxel. The view then says where the voxel is and hides its mark. The viewer keeps <a href="assets/parietal-operculum-sections.json">the index of layers</a> as a file.</li>
 </ul>
 
-<p>Published pictures the whole model was compared with, by eye: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5054943/">Ding et al. (2016)</a>, the cell-level atlas that supplied the tissue sections and the names (<a href="https://doi.org/10.1002/cne.24130">erratum</a>); <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3171658/">Wang et al. (2011)</a> and <a href="https://doi.org/10.4274/imj.galenos.2020.09633">Güdük et al. (2020)</a>, dissections of the insula and the deep structures; <a href="https://doi.org/10.3389/fnana.2020.00013">Emmi et al. (2020)</a>, stained tissue of the subthalamic region. None of their pictures is included here.</p>
+<p>Two papers have photographs of the same fold in dissected brains: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12872721/">Cullinane, Lim and Barry (2026), Fig. 1a–b</a> and <a href="https://www.arquivosdeneuropsiquiatria.org/article/dissection-technique-for-the-study-of-the-cerebral-sulci-gyri-and-ventricles/">Mattos et al. (2008), Fig. 2A–B</a>. They show which tissue covers which. They are not a measurement of how well the atlas fits a person.</p>
 
-<p><a href="assets/atlas-annotation-notice.txt">How the whole grid was repacked, with its credit</a> · <a href="README.md">What each file in this folder is</a></p>
+<h2 id="limits">What the surfaces can tell you, and what they cannot</h2>
+
+<ul>
+<li>It is one atlas, and nobody’s brain. The atlas was drawn on an averaged reference brain: one brain image made by averaging brain scans. Its name is the ICBM 2009b nonlinear symmetric MNI152 average. Every border in the viewer is that atlas’s border. Where a border falls in a living person, and what any region does, need other evidence.</li>
+<li>How the surfaces were made does not say how accurate they are. The surfaces follow the 0.5 mm grid. The model is cut at the midline, and the cut face was closed with a constructed cap: points of a surface that lay beyond the midline were moved onto it, by at most 0.25 mm. The cap is this project’s work. It is not part of the atlas. After that, most surfaces were smoothed for display: the smoothing moved no point more than 0.125 mm and kept the cap on the midline. The surfaces of the twenty regions drawn only when you ask were made the same way, on 21 November 2026. The surfaces of VPL, VPM, the red nucleus and the parietal operculum were not smoothed.</li>
+<li>Each surface has an inner and an outer side, and the viewer shades it by which side faces out. Which side faces out was made the same over the whole of each surface, after the coordinates were converted. The record of how that was checked, with the cases that go against it, is not part of this download.</li>
+<li>Three shapes have not been compared with any outside picture: the basal forebrain, the septal nuclei and the bed nucleus of the stria terminalis. The viewer’s list of regions offers the three as one ready-made group.</li>
+<li>Merged surfaces hide their parts. 82 regions are drawn only as parts of larger surfaces and cannot be shown alone. Some white matter is among them, such as the white matter of the hindbrain. White matter is the bundles of nerve fibres that join the regions to one another. <a href="omissions.html">Twenty regions are drawn only when you ask</a>. Among them are the white matter of the forebrain, five of its fibre bundles and the nine fluid spaces, which are the cavities that hold the fluid bathing the brain.</li>
+<li>The atlas labels two voxels as hypothalamus far from the rest of the hypothalamus, which is a small region at the base of the brain. The two voxels are in the model. They are not drawn unless you choose <strong>Show the two voxels</strong>, which is under <strong>Two stray voxels</strong> in the panel. The panel is the column of controls beside the model.</li>
+<li>Another 3D program may show the colours lighter. The surface files store the colours as numbers, and the viewer shows those numbers with its own palette, which is its set of colours.</li>
+</ul>
+
+<p>Apart from the basal forebrain, the septal nuclei and the bed nucleus of the stria terminalis, the model was compared by eye with published pictures. They are: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5054943/">Ding et al. (2016)</a>, the cell-level atlas that supplied the tissue sections and the names (with an <a href="https://doi.org/10.1002/cne.24130">erratum</a>, which is a published correction); <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3171658/">Wang et al. (2011)</a> and <a href="https://doi.org/10.4274/imj.galenos.2020.09633">Güdük et al. (2020)</a>, dissections of the insula and the deep structures; and <a href="https://doi.org/10.3389/fnana.2020.00013">Emmi et al. (2020)</a>, stained tissue of the subthalamic region, the part of the brain just below the thalamus. None of their pictures is included here.</p>
+
+<p><a href="assets/atlas-annotation-notice.txt">How the whole grid was repacked, with its credit</a> · <a href="README.md">What each file in this folder is</a> (both are plain-text files)</p>
+<script>for(const a of document.querySelectorAll('nav a+a:not([aria-current])'))a.onclick=()=>{a.hash=location.hash}</script>
 </body>
 </html>
