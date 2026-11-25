@@ -18,6 +18,11 @@ const models = {
     url: 'hand-position-forecast/index.html',
     reading: 'Compare six forecasts of hand movement over 100 milliseconds on three recorded days from one macaque. See how extending recent motion compares with using brain activity or averaging the two forecasts. The coordinate editor starts with invented values.'
   },
+  muscleChange: {
+    title: 'Predict change inside two arm muscles',
+    url: 'muscle-change-forecast/index.html',
+    reading: 'Run five forecasts of how much the spacing of tracked points inside two arm muscles changes in 300 milliseconds. The example starts with invented readings. The lower table shows errors on six people from a reaching study.'
+  },
   visualTailCohort: {
     title: 'Compare tail forecasts across 12 recordings',
     url: 'optic-flow-cohort/index.html',
@@ -306,7 +311,7 @@ const models = {
 };
 
 const choicesByStep = {
-  'map-brain2body': ['humanWrist', 'handForecasts', 'area2Force', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
+  'map-brain2body': ['humanWrist', 'handForecasts', 'muscleChange', 'area2Force', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
   'virtual-challenge': ['words', 'stride'],
   'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail', 'visualTailCohort'],
@@ -316,9 +321,9 @@ const choicesByStep = {
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'overground', 'trip'],
-  'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'area2Force', 'handForecasts', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'handForecasts', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
-  'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
+  'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'area2Force', 'handForecasts', 'muscleChange', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'handForecasts', 'muscleChange', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
+  'myoception': ['muscle', 'muscleChange', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration', 'heartBreathing', 'exercise'],
   'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };

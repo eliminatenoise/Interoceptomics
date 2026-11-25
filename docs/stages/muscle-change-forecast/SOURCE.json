@@ -1,0 +1,20 @@
+{
+  "project": "NeuroTranslation",
+  "published_commit": "70db382047112e8c9d822d7da9b18200ba7ae13b",
+  "online_reader": "https://eliminatenoise.github.io/NeuroTranslation/reaching-ultrasound-300ms/change/",
+  "offline_reader": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/main/docs/reaching-ultrasound-300ms/reaching-change-browser-offline.zip",
+  "study": "https://github.com/eliminatenoise/NeuroTranslation/tree/main/benchmarks/reaching-ultrasound-300ms/change-forecast/reserved",
+  "recording_doi": "10.6084/m9.figshare.31030252.v1",
+  "recording_license": "CC BY 4.0",
+  "scope": "Signed change in ultrasound image-plane point spread, 300 milliseconds ahead. Aggregate errors for six reserved people. Only invented histories are included.",
+  "files": {
+    "index.html": "2b48fabf6f9199273a3c6f98b04d984ac37ff588b6290d32457d93d65a758a6b",
+    "page.js": "7e227174b1fecef8f3768352efe640924ad0f5a1e1ab234a4132db0d77dd8d8c",
+    "style.css": "d4a3783b24d26e7c0f2d33df0a62aebdaeca37bb6f6ff7316a30b2dcd378f2b5",
+    "model-data.js": "07f2710890e0d06b8b141da3943c0119d10f2da5993fad5a7d11c615c69f6bd0",
+    "forecast.js": "063863e14660ea40af0744a00ead6bf3e17b865dbfdbb8320c06ff88fbe642fc",
+    "example-data.js": "08d15591cca467775fefd76a0f48afd18687c3596b33c7a500a23e64608b921c",
+    "example.json": "5adec79b8a3ded156e43bb683a3268bbf8d61ef55b47ce78a804f1f99cda9938",
+    "LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+  }
+}
