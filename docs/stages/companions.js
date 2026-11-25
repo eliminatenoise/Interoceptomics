@@ -303,6 +303,12 @@ const models = {
     url: neuro + 'word-motion/',
     reading: 'Type walk or run. The model generates a repeatable 3D sequence for that word. The comparison recording comes from the training set.'
   },
+  neuroSurge: {
+    title: 'Play NeuroSurge',
+    url: neuro + 'previews/neurosurge/',
+    reading: 'Choose Full or Lite. Press F to type a movement in the Command box. To follow your movement, press C, choose Start camera and allow video access when the browser asks.',
+    externalOnly: true
+  },
   wrist: {
     title: 'Compare wrist-angle forecasts',
     url: neuro + 'shared-motion/',
@@ -313,7 +319,7 @@ const models = {
 const choicesByStep = {
   'map-brain2body': ['humanWrist', 'handForecasts', 'muscleChange', 'area2Force', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
-  'virtual-challenge': ['words', 'stride'],
+  'virtual-challenge': ['neuroSurge', 'words', 'stride'],
   'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail', 'visualTailCohort'],
   'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
   'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp', 'visualTail', 'visualTailCohort'],
@@ -358,6 +364,7 @@ export function bindCompanions(section, shortcut, onSelection) {
     const model=models[select.value];
     caption.textContent=model.reading;
     external.href=model.url;
+    button.hidden=model.externalOnly===true;
     const needsAtlasDownload=model.url.startsWith(atlas) && !backslashDownload.stagesWithResource.includes(currentStep);
     const pack=model.download || (needsAtlasDownload ? backslashDownload : null);
     if(pack){
@@ -367,12 +374,13 @@ export function bindCompanions(section, shortcut, onSelection) {
     }else{
       download.remove();
     }
-    external.textContent='Open in a separate tab';
-    external.setAttribute('aria-label',model.title+' in a separate tab');
+    external.textContent=model.externalOnly ? 'Open NeuroSurge in a separate tab' : 'Open in a separate tab';
+    external.setAttribute('aria-label',model.externalOnly ? external.textContent : model.title+' in a separate tab');
   }
 
   function open() {
     const model=models[select.value];
+    if(model.externalOnly)return;
     const frame=document.createElement('iframe');
     frame.title=model.title;
     frame.setAttribute('allow',"camera 'none'; microphone 'none'; geolocation 'none'");
