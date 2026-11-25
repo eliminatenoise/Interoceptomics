@@ -14,9 +14,9 @@ const models = {
     reading: 'Compare six ways to forecast hand movement over 100 milliseconds. Choose a measured movement group or recorded trial type, then see how adding handle force or recorded sensory activity changes the error.'
   },
   handForecasts: {
-    title: 'Compare hand forecasts from recorded brain signals',
-    url: 'hand-forecasts/index.html',
-    reading: 'Compare NeuroTranslate with staying put across 45,324 forecasts from one macaque recording. Choose how far the hand moved and whether to compare ending position or distance.'
+    title: 'Compare hand forecasts from motion and brain activity',
+    url: 'hand-position-forecast/index.html',
+    reading: 'Compare six forecasts of hand movement over 100 milliseconds on three recorded days from one macaque. See how extending recent motion compares with using brain activity or averaging the two forecasts. The coordinate editor starts with invented values.'
   },
   visualTailCohort: {
     title: 'Compare tail forecasts across 12 recordings',
@@ -316,8 +316,8 @@ const choicesByStep = {
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'overground', 'trip'],
-  'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'area2Force', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
+  'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'area2Force', 'handForecasts', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'handForecasts', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
   'myoception': ['muscle', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration', 'heartBreathing', 'exercise'],
   'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']

@@ -1,0 +1,55 @@
+{
+  "project": "NeuroTranslation",
+  "commit": "d69a01be30437cad037a84002db8ea35ebe4d264",
+  "published_page": "https://eliminatenoise.github.io/NeuroTranslation/hand-position-forecast/",
+  "technical_edition": "https://eliminatenoise.github.io/NeuroTranslation/hand-position-forecast/technical.html",
+  "replay": "https://github.com/eliminatenoise/NeuroTranslation/tree/main/benchmarks/cortical-movement-blend/position-history",
+  "assets": [
+    {
+      "path": "index.html",
+      "bytes": 9840,
+      "sha256": "01626688af78a8023aa0fe6fde523442868321838896939a9b9618d8a6be67d4"
+    },
+    {
+      "path": "technical.html",
+      "bytes": 6449,
+      "sha256": "bdf823f8cccf21897a66d2ad9a49de1f5f83f8655593c43de1bc6c8bb83bfc25"
+    },
+    {
+      "path": "forecast.js",
+      "bytes": 8368,
+      "sha256": "61e2bb32fb635c86e256d101e89933f720ff81eb2c4c0c4c29e3f8535fcae09d"
+    },
+    {
+      "path": "style.css",
+      "bytes": 3643,
+      "sha256": "238aed8c4a4792d67ac393d58dd299e257e50778f8e00a858217bf3d2e3c0c49"
+    },
+    {
+      "path": "study-data.js",
+      "bytes": 68980,
+      "sha256": "88f362ee05007afb4685083690a92c88d4b9962b292683cb514b4d388c0199dc"
+    }
+  ],
+  "licence": {
+    "path": "LICENSE",
+    "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "identifier": "CC0-1.0",
+    "scope": "Project-authored reader code and text"
+  },
+  "dataset": {
+    "title": "Neural population dynamics during reaching",
+    "doi": "10.48324/dandi.000070/0.261122.2046",
+    "authors": [
+      "Mark Churchland",
+      "John P. Cunningham",
+      "Matthew T. Kaufman",
+      "Justin D. Foster",
+      "Paul Nuyujukian",
+      "Stephen I. Ryu",
+      "Krishna V. Shenoy"
+    ],
+    "licence": "CC-BY-4.0"
+  },
+  "scope": "Published aggregate errors for 130,723 previously evaluated forecasts in 9,075 trials across three days in one macaque. The coordinate editor starts from invented values."
+}
