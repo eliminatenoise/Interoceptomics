@@ -1,6 +1,6 @@
 # Interoceptomics Atlas Viewer: the viewer's own files
 
-This folder is the viewer itself: one web page, its code, and the anatomy it draws. Version of 25 November 2026.
+This folder is the viewer itself: one web page, its code, and the anatomy it draws. Version of 27 November 2026.
 
 In the download, open it with a start file in the folder above this one. On the website it opens at <https://eliminatenoise.github.io/Interoceptomics/atlas/>, with nothing to install. The guide says how, and lists every control. It comes in two editions that state the same facts: the [Simple edition](simple.html) explains each step, and the [Technical edition](technical.html) is shorter.
 

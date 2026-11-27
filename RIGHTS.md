@@ -122,10 +122,10 @@ The withdrawn prerelease contained an older deck, earlier scripts and 3D models 
 | | |
 | --- | --- |
 | File | [`Interoceptomics-Atlas-Viewer.zip`](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip), which unpacks to a folder `Interoceptomics-Atlas-Viewer` |
-| Version | 25 November 2026. The file name never carries the version: each new one replaces the last at the same address |
-| Size | 64,348,560 bytes (121,474,997 bytes unpacked) |
+| Version | 27 November 2026. The file name never carries the version: each new one replaces the last at the same address |
+| Size | 64,349,634 bytes (121,479,020 bytes unpacked) |
 | Contents | 100 files. `MANIFEST.json` lists the other 99 with their sizes and checksums |
-| SHA256 | `6257de5bca8639889a92eb85366c02654754be09eea18bec52cbb93a1c9b5935` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
+| SHA256 | `1d8fc9c3999aca298fcb92d30621b7ee360bcf7c0e4daaf4e630a634016b9b15` ([checksum file](downloads/atlas-viewer/Interoceptomics-Atlas-Viewer.zip.sha256)) |
 
 The website serves the same files, without the four start files, at [eliminatenoise.github.io/Interoceptomics/atlas](https://eliminatenoise.github.io/Interoceptomics/atlas/): the folder `docs/atlas/` of this repository, built from the download's own files. The credit and the conditions on this page apply to that copy exactly as they do to the download. The folder `docs/atlas/backslash/` beside the viewer's files is not part of the copy: it is Backslash of the Brain, a separate anatomy atlas that shows the viewer's 3D model inside its own pages. Its sources, and the terms for reusing its own files, are on [its sources page](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/sources.html).
 

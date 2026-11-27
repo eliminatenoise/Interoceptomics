@@ -1,13 +1,50 @@
 Interoceptomics Atlas Viewer
-Version of 25 November 2026
+Version of 27 November 2026
 
 
 WHAT THIS VERSION CHANGES
 
+Four passages of the guide, and one of the page about where the anatomy
+comes from, are made clearer. The viewer, its 3D model, its regions, its
+colours and its controls are as they were in the version before, of
+25 November 2026.
+
+  In the Simple edition's words. When you pick a region from the list,
+  the view can change. The guide now names the regions that leave the
+  view as it is: VPL, VPM, the red nucleus and the twenty regions drawn
+  only when you ask. It says that the parietal operculum changes the
+  view in the same way as a region of the cortex under "Part of a larger
+  surface", and no longer gives it two different results. In the table
+  for when the viewer does not start, "can't open file" with the name
+  launch.py leads to the row about the start file only after you used a
+  start file. After python3 -B launch.py typed in another folder, it
+  leads to the row about moving the terminal into the viewer's folder.
+  The Simple guide says not to put double quotes around a path that you
+  dragged into a terminal: the terminal writes it in the form that cd
+  needs. The blue and the copper of VPL and VPM, in their comparison and
+  in their cuts, only tell the two regions apart. They are not the
+  colour groups, and the pages now say so.
+
+  In the Technical edition's words. Both guides name the regions that
+  keep the view when picked (VPL, VPM, the red nucleus and the twenty
+  drawn only when asked) and state that the parietal operculum, which is
+  also part of the brain's outer surface, acts as a cortical region
+  under "Part of a larger surface" does. The trouble row for "can't open
+  file" with launch.py applies after using a start file, so python3 -B
+  launch.py typed in another folder leads to the row on cd. The Simple
+  guide says that a path dragged into a terminal needs no double quotes
+  added. The guides and the page on where the anatomy comes from state
+  that the blue and copper of VPL and VPM are not the colour groups.
+
+
+WHAT THE VERSION BEFORE CHANGED, ON 25 NOVEMBER 2026
+
+All of it is in this version too.
+
 The guide and the two pages about the anatomy now come in two editions,
 a Simple one and a Technical one. The viewer itself is as it was: the 3D
 model, its regions, its colours and its controls are those of the
-version before, which was built earlier on the same day.
+version before it, which was built earlier on the same day.
 
   In the Simple edition's words. Each of the three help pages can now be
   read in two ways. The Simple edition explains each step, and the words
@@ -98,7 +135,7 @@ version before, which was built earlier on the same day.
     the licence of Three.js opens its text.
 
 
-WHAT THE VERSION BEFORE CHANGED, EARLIER ON 25 NOVEMBER 2026
+WHAT THE VERSION BEFORE THAT CHANGED, EARLIER ON 25 NOVEMBER 2026
 
 All of it is in this version too.
 
@@ -223,13 +260,16 @@ WHAT IT HAS BEEN RUN ON
 
 Linux, in headless Chromium 155, from a copy of the website served on
 this computer and from an unpacked copy of the download served the same
-way. The start files did not change; for this build they were not run.
-For this version: the first view, compared pixel for pixel with the
-version before, on a desktop and on a phone screen; every page of both
-editions at both sizes, with every link followed and the Tab key through
-every link; and the controls that the guide newly describes, tried in
-the viewer. For the versions before, and not again for this one, because
-the viewer's code did not change: the start file on Linux, the white
+way. The start files did not change. For this version: the first view,
+compared pixel for pixel with the version before, on a desktop and on a
+phone screen; every page of both editions at both sizes, with every link
+followed and the Tab key through every link; picking regions in each of
+the four views; and, in a terminal on Linux, the messages that the table
+for when the viewer does not start describes, and cd with a path written
+the ways terminals write a dragged folder (the dragging itself was not
+tried). For the versions before, and not again for this one, because
+the viewer's code did not change: the start file serving the viewer on
+Linux, the white
 matter and fluid spaces in each view, a colour overlay, the waits at 9
 and 1.6 Mbit/s, and the page opened straight from the folder. Phone and
 tablet screens, touch and slow connections were tried only in Chromium's
