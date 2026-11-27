@@ -52,7 +52,7 @@ Cutoffs within a person overlap and are serially dependent. People are the unit 
 **How it was chosen.** Every choice used leave-one-person-out folds inside p004-p013 only:
 
 - Of the 27 R-ECG settings (K 8, 16, 32 × theta 0.7, 0.8, 0.9 × penalty 0.001, 0.02, 0.1), K 32, theta 0.9, penalty 0.001 had the lowest mean person RMSE, 1.3886 mV. The default (K 16, theta 0.8, penalty 0.02) scored 1.4189 mV, 2.18% higher, outside the 1% rule, so the lowest setting was chosen.
-- The MLP family (M-ECG, mean of three seeds) scored 1.4051 mV. The rule chose the MLP only below 0.99 × 1.3886 = 1.3748 mV, so the ridge family was chosen.
+- The multilayer perceptron (MLP, a small neural network; see the table below) family (M-ECG, mean of three seeds) scored 1.4051 mV. The rule chose the MLP only below 0.99 × 1.3886 = 1.3748 mV, so the ridge family was chosen.
 - The chest twin (R-chest, B0 + B2) and the delayed twin (R-delayed, B0 + B2 + B3 from ECG delayed 5.012 s) use the same K and penalty, and the delayed twin the same theta. T-ECG, T-delayed, T-R and C5 use K 32 and theta 0.9.
 - C4's penalty stayed at the default 0.02 (2.8357 mV, within 1% of the lowest, penalty 1 at 2.8313 mV). V1R keeps version 1's penalty 0.02.
 
@@ -594,7 +594,7 @@ None of these changed a forecast, a score or a verdict. The QC1 rule for a missi
 - **No sensation.** Nothing in these recordings measures signals in sensory nerves or anything a person felt. No sensation, interoception, clinical, diagnostic or causal physiological claim follows.
 - **People.** Seven primary test people, three secondary people and one basal recording, all from one database. Cutoffs within a person overlap and are never counted as independent replicates. The bootstrap with seven people is coarse.
 - **Detector constants.** The R and P detector constants were set by inspecting p004, p007 and p008, which makes the development numbers optimistic. The test people played no part in them.
-- **Not a cold forecast.** With the chosen K = 32, every template output, and so every B3 input of v2, stays undefined until 37 R waves have been detected (the frozen `template.py` requires j ≥ K + 4, 0-based). At these people's median RR intervals (0.73-0.95 s) that is about 27-35 s of the same person's recent ECG and SCG readings, plus a 20 s calibration interval. With less history the template inputs take their fill values, and the results above do not apply. The protocol's limit of "about 20 s" was written before K was chosen and fits the default K = 16 (21 beats); its predictor section asks for at least 30 s of history.
+- **Not a cold forecast.** With the chosen K = 32, every template output, and so every B3 input of v2, stays undefined until 37 R waves have been detected (the frozen `template.py` requires j ≥ K + 4, 0-based). At the seven primary test people's median RR intervals (0.73-0.95 s) that is about 27-35 s (about 36 s for p002) of the same person's recent ECG and SCG readings, plus a 20 s calibration interval. With less history the template inputs take their fill values, and the results above do not apply. The protocol's limit of "about 20 s" was written before K was chosen and fits the default K = 16 (21 beats); its predictor section asks for at least 30 s of history.
 - **Wording.** Results are "supported" or "not supported" by the predeclared rule. They do not establish general validity.
 
 ## 16. Measured, derived, predicted and simulated values
