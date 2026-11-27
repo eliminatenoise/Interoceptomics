@@ -4,9 +4,9 @@ Simple edition of protocol version 1, 27 November 2026. The Technical edition is
 
 ## What this page is
 
-A protocol is a plan written down and published before a test is run, so that nobody can adjust the test after seeing how it turns out. This page explains the protocol of version 2 of the chest-vibration forecast for readers who have not worked with heart signals or forecasting models. It covers the same plan as the Technical edition, with more explanation. A few formula-level details, such as exact index ranges, are given only in the Technical edition and in PROTOCOL.json, as noted where they occur.
+A protocol is a plan written down and published before a test is run, so that nobody can adjust the test after seeing how it turns out. This page explains the protocol of version 2 of the chest-vibration forecast for readers who have not worked with heart signals or forecasting models. It covers the same plan as the Technical edition, with more explanation. A few formula-level details, such as exact index ranges and some fixed constants, are given only in the Technical edition and in PROTOCOL.json.
 
-The page reports no result. The test recordings have not been downloaded. When the test has been run, the results will be published in their own Technical and Simple editions. The Simple edition of the results will be built from sentences that this plan already fixes (listed in the section "Sentences fixed now for the Simple edition of the results"); the opening line of the Technical edition refers to that edition when it says that the Simple edition is written with the results. This page is a separate plain-language explanation of the plan itself. It was added after the plan was fixed and changes nothing in it: the plan's files, and the fingerprints recorded in PROTOCOL.json, are unchanged.
+The page reports no result. The test recordings have not been downloaded. When the test has been run, the results will be published in their own Technical and Simple editions. The Simple edition of the results will be built from sentences that this plan already fixes (listed in the section "Sentences fixed now for the Simple edition of the results"). PROTOCOL.md's opening line and the editions entry of PROTOCOL.json say that the Simple edition is written with the results, from those sentences; this page reads that as the Simple edition of the results. This page is a separate plain-language explanation of the plan itself. It was added after the plan was fixed and changes nothing in it: the plan's files, and the fingerprints recorded in PROTOCOL.json, are unchanged.
 
 The plan was fixed before any byte of test data was opened. It becomes binding when a separate reviewer, someone who did not write it, admits it, and when the commit that adds it is visible on GitHub, the public site that keeps every version of the project's files with its date. Any change to the plan needs a new protocol version, a new admission and a new visible commit, all before any test data are opened.
 
@@ -17,20 +17,20 @@ The plan was fixed before any byte of test data was opened. It becomes binding w
 3. **Who.** It learns from ten people of a public database (records p004 to p013). It is tested once on seven other people of the same database (p014 to p020), whom no model has seen.
 4. **What is new.** Version 2 times each heartbeat from the electrical signal. It spots the small wave that comes shortly before each main heartbeat spike and replays that person's own recent vibration pattern at the predicted time. Two kinds of learned model then combine this replayed pattern with recent readings.
 5. **What it is compared with.** Simple rules that need no learning, the first version's models refitted on the same ten people, the first version exactly as published, and two "twins" of version 2: one without the electrical signal and one given the electrical signal from 5.012 seconds earlier.
-6. **What gets a verdict.** Three questions, each answered "supported" or "not supported" by a rule fixed in advance.
+6. **What gets a verdict.** Three questions, each answered "supported" or "not supported" by a rule fixed in advance, or given no verdict if fewer than five of the seven test people pass the data checks.
 7. **What is published.** Every predeclared result, wins and losses alike.
 
-## The three recorded signals
+## The three signals used
 
 The data come from a public database in which volunteers lay still on their backs while four signals were recorded 5,000 times a second.
 
 - **Chest vibration (SCG, for seismocardiogram).** One axis of an accelerometer on the chest. Each heartbeat shakes the chest slightly, and the sensor turns that into a voltage. This is the signal being forecast.
 - **Breathing band (RESP).** A band around the chest whose electrical resistance changes as the chest expands and contracts. It also gives a voltage.
-- **ECG lead II.** The voltage between two skin electrodes, which follows the heart's electrical activity. A second ECG channel, lead I, is in the files but is not used.
+- **ECG (electrocardiogram) lead II.** The voltage between two skin electrodes, which follows the heart's electrical activity. A second ECG channel, lead I, is in the files but is not used.
 
 Two features of the ECG matter here. The **R wave** is the tall spike that marks each heartbeat. The **P wave** is a small wave about 130 to 160 ms before it, produced as the heart's upper chambers start each beat. The study uses the ECG only to time heartbeats and to describe their shape.
 
-All three signals are used as voltages. The chest sensor's voltage is not converted into acceleration in metres per second squared, and the breathing band's voltage is not converted into chest movement or lung volume. Such conversions would need a calibration that the database does not provide.
+All three signals are used as voltages. The chest sensor's voltage is not converted into acceleration in metres per second squared, and the breathing band's voltage is not converted into chest movement or lung volume. Such conversions would need a further calibration, which this study does not apply.
 
 ## What version 1 found, and what version 2 changes
 
@@ -50,10 +50,10 @@ Version 1 had a rule for whether ECG timing helped. The rule was not met (the EC
 Each heartbeat makes a similar vibration pattern on a person's chest. If you know when the next beat will start, you can replay that person's usual beat pattern from that moment. Version 2 builds on this in three steps.
 
 1. **Find each R wave.** A detector watches the ECG and marks each R wave, using only readings that have already arrived.
-2. **Anticipate the next R wave.** In the ten learning people, the chest vibration's largest swing came 28 to 84 ms after the R wave. So the hardest part is the first 80 ms after each R wave: to forecast them, the model must know when the next beat starts at least 80 ms in advance. Guessing that from the last four beat-to-beat intervals misses by 27 to 87 ms (standard deviation), because the heart does not keep perfect time. The P wave helps here. In all ten learning people it peaked 128 to 164 ms before the R wave, and the gap from P to R varied by only 2 to 7 ms (standard deviation). Seeing a P wave therefore says when the next R wave will come, early enough to forecast 80 ms ahead.
+2. **Anticipate the next R wave.** In the ten learning people, the chest vibration's largest swing came 28 to 84 ms after the R wave. So the hardest part is the first 80 ms after each R wave: to forecast them, the model must know when the next beat starts at least 80 ms in advance. Guessing that from the last four beat-to-beat intervals misses by 27 to 87 ms, because the heart does not keep perfect time. The size of the misses is given as a standard deviation (SD), a measure of spread: roughly the typical distance of values from their average. The P wave gives a more precise warning. In all ten learning people it peaked 128 to 164 ms before the R wave, and the gap from P to R varied by only 2 to 7 ms (SD). In these ten people, a P wave therefore gave the time of the next R wave early enough to forecast 80 ms ahead. Whether this helps on new people is what P2 tests.
 3. **Replay the person's own beat pattern.** The model averages the person's chest-vibration pattern over their last few beats, lined up on each beat. This average is called a beat template. The model reads off the template's value at the target moment.
 
-An invented example shows the timing. Suppose a P wave is seen now, and in this person the R wave follows its P wave by about 145 ms. The next R wave is then expected 145 ms from now. The target lies 80 ms from now, which is 65 ms before that R wave. The template says what this person's chest sensor usually reads 65 ms before an R wave, and that value becomes the template forecast.
+An invented example shows the timing. Suppose the whole stretch of a P wave has just been seen, so its peak was 48 ms ago, and in this person the R wave follows the peak of its P wave by about 144 ms. The next R wave is then expected about 96 ms from now. The target lies 80 ms from now, which is 16 ms before that R wave. The template says what this person's chest sensor usually reads 16 ms before an R wave, and that value becomes the template forecast.
 
 Two learned models then combine the template forecast with recent readings: a ridge model, and a small neural network called a multilayer perceptron (MLP), which can capture curved rather than only straight-line relationships. Which of the two becomes "version 2" is decided using the learning people only, by a rule given below.
 
@@ -91,21 +91,25 @@ The exact rule for "beats" is in the section "What counts as success".
 - **Grid step.** The 4 ms between two readings. A forecast 80 ms ahead is 20 grid steps ahead; 5.012 seconds is 1,253 grid steps.
 - **Cutoff.** The moment at which a forecast is made. Only readings up to the cutoff may enter anything used for that forecast.
 - **Calibration stretch.** Seconds 60 to 80 of each recording. Each person's mean and spread there set the scale for that person.
-- **z units.** A reading minus the person's calibration mean, divided by the person's calibration standard deviation (a measure of spread). In z units, 0 is the person's usual level and 1 is one standard deviation above it.
+- **Standard deviation (SD).** A measure of spread: roughly the typical distance of values from their average.
+- **z units.** A reading minus the person's calibration mean, divided by the person's calibration standard deviation. In z units, 0 is the person's usual level and 1 is one standard deviation above it.
 - **cal SD.** The person's chest-sensor calibration standard deviation in mV. Error divided by cal SD gives the error in z units, which makes people with large and small signals comparable.
 - **Leave one person out (LOPO).** Fit on nine of the ten learning people, score the tenth, and repeat for each of the ten in turn. It tests settings on people the fit has not seen, without touching the test people.
 - **Relative reduction.** For one person, 100 × (comparison's error − model's error) / comparison's error, in percent. A positive value means the model's error is lower.
 - **Win.** A person whose relative reduction is above zero. A tie is not a win.
 - **Fingerprint (SHA-256).** A 64-character code computed from a file's exact bytes. Any change to the file gives a different code, so a published fingerprint fixes exactly which bytes are meant.
+- **Seed.** The starting number of a random-number generator. The same seed always gives the same sequence of random numbers, so fixing the seeds in advance makes every random step repeatable: the MLP's starting weights and the order of its training rows, the cutoffs drawn for the future-readings test and their replacement values, and the bootstrap draws (both described further down this page).
+- **Hz (hertz).** Cycles per second. The 65 Hz filter used below removes changes faster than about 65 cycles a second.
+- **Recording, header and annotation files.** Each record has a `.dat` file with the stored numbers, a `.hea` header file and an `.atr` file with the database's beat annotations. The header is a short text file giving, among other things, the sampling rate, the channel names, and each channel's gain and baseline. The gain is the factor that turns stored numbers into mV; the baseline is the stored number that stands for 0 mV.
 - **Separate reviewer, lead and owner.** The reviewer checks and admits the plan without having written it. The lead is the maintainer who commits files and pushes them to GitHub. The owner is the person who owns the project and directs it.
 
 ## The data and who provided it
 
-- **Source.** The Combined measurement of ECG, Breathing and Seismocardiograms (CEBS) database, version 1.0.0, published on PhysioNet, DOI `10.13026/C2KW23`. It was contributed by Miguel Ángel García González and Ariadna Argelagós Palou of the Universitat Politècnica de Catalunya.
+- **Source.** The Combined measurement of ECG, Breathing and Seismocardiograms (CEBS) database, version 1.0.0, published on PhysioNet, DOI `10.13026/C2KW23` (a DOI is a permanent identifier of a published item). It was contributed by Miguel Ángel García González and Ariadna Argelagós Palou of the Universitat Politècnica de Catalunya.
 - **Licence.** Open Data Commons Attribution License v1.0 (ODC-By 1.0). Anyone may use the data if they credit the source. Because the data are openly licensed, the owner's standing approval for openly licensed datasets covers the download.
 - **The volunteers.** 20 presumed healthy volunteers, lying on their backs, still and awake. Each had three recordings in a row: five minutes at rest (files b001 to b020), about 50 minutes while listening to classical music (m001 to m020), and five minutes after the music (p001 to p020).
-- **Recording equipment.** A Biopac MP36 recorder. Channel 1 is ECG lead I and channel 2 ECG lead II (0.05 to 150 Hz); channel 3 is a piezoresistive breathing band around the chest (0.05 to 10 Hz); channel 4 is one axis of a three-axis accelerometer (LIS344ALH, 0.5 to 100 Hz). Each channel was sampled 5,000 times a second and stored in the WFDB file format 16: each sample is a 2-byte number, little-endian, with the four channels interleaved in the order I, II, RESP, SCG.
-- **Duplicate files in the release.** In version 1.0.0 of the database, the resting files b002 to b020 are byte-for-byte copies of the after-music files p002 to p020. No other waveform files are duplicates. Only b001 is a genuine resting recording (1,360,050 samples per channel, labelled "Baseline for subject 1"). So the rest files add no resting recordings for people 2 to 20.
+- **Recording equipment.** A Biopac MP36 recorder. Channel 1 is ECG lead I and channel 2 ECG lead II (0.05 to 150 Hz); channel 3 is a piezoresistive breathing band around the chest (0.05 to 10 Hz); channel 4 is one axis of a three-axis accelerometer (LIS344ALH, 0.5 to 100 Hz). Each channel was sampled 5,000 times a second and stored in the WFDB file format 16: each sample is a 2-byte number, little-endian (the less significant byte comes first), with the four channels interleaved in the order I, II, RESP, SCG.
+- **Duplicate files in the release.** In version 1.0.0 of the database, the resting recording files b002.dat to b020.dat are byte-for-byte copies of the after-music recording files p002.dat to p020.dat. This concerns the `.dat` files only: for example, the p002 and p003 header files give different gains from the b002 and b003 header files. No other recording files are duplicates. Only b001 is a genuine resting recording (1,360,050 samples per channel, labelled "Baseline for subject 1"). So the rest files add no resting recordings for people 2 to 20.
 - **File list.** The database's own list of file fingerprints, `SHA256SUMS.txt` (13,697 bytes, 185 entries), has the fingerprint `75db8c9b809ef307aabeff2c0d1b780e1bb80d4df1044272ba0f980ed06f205e`, the same as in version 1. Every file this study uses is pinned by the fingerprint that list gives it.
 - **Citations kept in the NOTICE file.** García-González MA, Argelagós-Palau A, Fernández-Chimeno M, Ramos-Castro J, *A comparison of heartbeat detectors for the seismocardiogram*, Computing in Cardiology 40, 461-464 (2013); Pollard T and colleagues, *PhysioNet as a global platform for biomedical research*, Nature Health (2026), `10.1038/s44360-026-00096-z`.
 - **Our changes, listed in the NOTICE file.** Filtering, the 250-per-second grid, rescaling to z units, beat detection, beat templates and the choice of forecast stretches. The credit to the database stays attached to the weights and results derived from it.
@@ -119,7 +123,7 @@ There is no random draw. Each subject number is one person, with one recording p
 | Group | Records | Use |
 | --- | --- | --- |
 | Learning people (fit pool) | p004-p013 | Every fit and every model choice. Each person counts 1/10. |
-| Main test people | p014-p020 | Downloaded only after the plan and the frozen models are visible on GitHub. Scored once. The verdicts come from these seven. |
+| Main test people | p014-p020 | Downloaded only after the plan and the frozen models are visible on GitHub. Scored once. The verdicts come from those of these seven who pass the data checks. |
 | Secondary new people | p001-p003 | Scored together with the main test, reported separately, no verdict. |
 | Resting check | b001 | One person, in a different condition (rest before the music). Descriptive, no verdict. |
 
@@ -174,7 +178,7 @@ These numbers come from the ten learning people, measured with exploration code 
 | Ridge on a block of 122 chest and ECG inputs, penalty 1 | 1.626 |
 | MLP on the same 122 inputs, one seed | 1.452 |
 
-On the identical 122 inputs, the MLP had lower error than the ridge model for 10 of 10 people. Which of the two is better is therefore open, and the selection step below compares them on identical inputs.
+On the identical 122 inputs, the MLP had lower error than the ridge model for 10 of 10 people. The plan still treats the choice between them as open: the selection step below compares them on the identical inputs that version 2 uses.
 
 **The same in z units, cutoffs from 90 up to 290 seconds.** Version 1 base refitted: 0.9864 cal SD, 0.91% lower error than the calibration mean, better for 7 of 10 people. Version 1 with aligned ECG: 1.0387, 4.37% higher error than the calibration mean, better for 2 of 10. Calibration mean 0.9956; persistence 1.4896; linear trend 4.01. The R-only rolling personal template (C3) scored 0.790, 20.73% lower error than the calibration mean (standard deviation 9.36%), better for 10 of 10. With ECG delayed 5.012 seconds, C3 had 0.62% higher error than the calibration mean, better for 0 of 10.
 
@@ -190,7 +194,7 @@ The processing is version 1's, unchanged, so that the version 1 comparisons are 
 2. **Smoothing that looks only backwards.** A low-pass filter removes fast fluctuations above about 65 Hz. It is causal: the filtered value at any moment uses only that moment and the 200 samples before it (201 samples, 40 ms at 5,000 per second). Technically it is a 201-tap Hamming-windowed sinc filter whose weights sum to one.
 3. **One reading every 4 ms.** Every 20th filtered sample is kept, giving 250 readings per second, each stamped at the newest sample it uses. Because of the filter, each reading reflects the signal on average about 20 ms earlier; this delay is left in place, not corrected. Version 2 computes the whole recording; each reading equals version 1's at the same moment.
 4. **Missing readings.** A reading counts as missing if any of the 201 samples behind it is missing.
-5. **Calibration for each person.** For every person, including every new person, the mean and standard deviation of the valid ECG, breathing and chest readings from 60 up to 80 seconds. Each channel needs at least 4,500 valid readings out of 5,000, and a spread above zero. Forecasts are made in chest z units and turned back into mV as mean + standard deviation × forecast.
+5. **Calibration for each person.** For every person, including every new person, the mean and standard deviation of the valid ECG, breathing and chest readings from 60 up to 80 seconds. The standard deviation is the population form, which divides by the number of readings. Each channel needs at least 4,500 valid readings out of 5,000, and a spread above zero. Forecasts are made in chest z units and turned back into mV as mean + standard deviation × forecast.
 6. **When forecasts are made.** At every reading from 90 up to 290 seconds: 50,000 cutoffs per after-music recording. The same stretch is used for fitting, for every leave-one-person-out round and for the test.
 7. **A short stretch for comparison with version 1.** From 90 up to 120 seconds, 7,500 cutoffs, which are part of the main stretch.
 8. **The resting recording b001.** From 90 up to 270 seconds, 45,000 cutoffs. This recording is shorter, about 272 seconds.
@@ -231,7 +235,7 @@ The template module turns the detected beats into a forecast. It has two tuned s
 - **K**, the number of earlier beats averaged into a template: 8, 16 or 32.
 - **theta**, how closely a candidate must match the person's P wave to be accepted, as a correlation, where 1 is a perfect match: 0.7, 0.8 or 0.9.
 
-Its fixed settings: the chest template covers 240 ms before to 1,440 ms after each beat; the ECG template covers 400 ms either side; the P wave is looked for 300 to 80 ms before the R wave, in a window of 48 ms either side of its peak; a candidate's size must be between 0.5 and 2 times the template's; the beat interval is estimated from the last four intervals.
+Its fixed settings: the chest template covers 240 ms before to 1,440 ms after each beat; the ECG template covers 400 ms either side; the P wave is looked for 300 to 80 ms before the R wave, in a window of 48 ms either side of its peak; a candidate's size must be between 0.5 and 2 times that of the P wave pattern (described in step 6 below); the beat interval is estimated from the last four intervals. The remaining constants are listed in section 9.3 of the Technical edition.
 
 At each cutoff:
 
@@ -268,7 +272,7 @@ All forecasters are scored on identical cutoffs of every recording.
 
 - **C0, calibration mean:** the person's chest calibration mean, every time.
 - **C1, persistence:** the last filtered chest reading.
-- **C2, linear trend:** a straight line fitted through the last 13 chest readings (48 ms) and extended 80 ms ahead.
+- **C2, linear trend:** a straight line fitted by least squares (the line with the smallest sum of squared misses) through the last 13 chest readings (48 ms) and extended 80 ms ahead.
 - **C3 and C3d:** the R-only rolling personal template, with the ECG aligned and with the ECG delayed 5.012 seconds.
 - **C5, chest-only template:** the continuation from block B2.
 - **T-ECG and T-delayed:** the template forecast of the template module, from the aligned ECG and from the ECG delayed 5.012 seconds.
@@ -293,7 +297,7 @@ Within each family, the three models differ only in the ECG block. **Version 2**
 
 - **Rows and weights.** Each learning person's valid cutoffs (50,000 when complete). Each person counts equally in every fit: 1/9 in a leave-one-person-out round, 1/10 in the final fit.
 - **Ridge models.** Version 1's exact formula, computed in 64-bit floating point. Each person's averages are computed first and then averaged over people. Each input is scaled by its standard deviation, computed with each person counting equally; the penalty is then added to keep the weights small; the constant term is not penalised. The target is the chest reading in z units 80 ms ahead.
-- **MLP.** Two hidden layers of 64 units each, using the tanh form of the GELU activation, then one output. Each input is rescaled by its mean and standard deviation over the training rows, each person counting equally. Training uses the PyTorch library and the AdamW method with learning rate 0.001 and weight decay 0.0001, on a one-cycle schedule (the learning rate rises and then falls over all updates). Batches of 1,024 rows; 4 passes over the data; each pass in an order shuffled by a generator seeded with the model's seed; the last incomplete batch dropped. Training runs in 32-bit floating point on the computer's main processor, with deterministic algorithms, 4 threads, on processor cores 16 to 31. Rows are sorted by person and cutoff before shuffling. If people have different numbers of valid rows, each row counts 1 / (number of people × that person's rows).
+- **MLP.** The inputs pass through two hidden layers of 64 units each, then to one output. Each unit adds up its weighted inputs and passes the sum through GELU, a smooth curved function. GELU is used here in its tanh form, a close approximation written with the hyperbolic tangent, so that NumPy can compute exactly the same formula. These curves let the network represent curved relationships. Each input is rescaled by its mean and standard deviation over the training rows, each person counting equally. Training uses the PyTorch library and AdamW, a standard method that adjusts the weights step by step to reduce the squared error. The learning rate, 0.001, sets the largest step size. The weight decay, 0.0001, pulls the weights slightly towards zero at each step. A one-cycle schedule makes the step size rise and then fall over all updates. Batches of 1,024 rows; 4 passes over the data; each pass in an order shuffled by a generator seeded with the model's seed; the last incomplete batch dropped. Training runs in 32-bit floating point on the computer's main processor, with deterministic algorithms, 4 threads, on processor cores 16 to 31. Rows are sorted by person and cutoff before shuffling. If people have different numbers of valid rows, each row counts 1 / (number of people × that person's rows).
 - **Seeds and averaging.** Three seeds: 20261127, 20261128 and 20261129. The forecaster's output is the average of the three models.
 - **Export.** The weights are exported to NumPy (a standard numerical library), and scoring uses the NumPy calculation. The largest difference between PyTorch's and NumPy's outputs on all training rows is reported in the freeze file and must not exceed 0.0001 z units.
 
@@ -351,7 +355,7 @@ A separate reviewer admits the freeze file. The lead commits it to this folder a
 The checks concern the integrity of the data only. They run before any forecast is scored and are the same for every forecaster. No recording is ever left out because of how the detectors behaved, what the signals looked like or how large any model's error was, and a person who is left out is never replaced. Every check value is reported for every scored recording.
 
 - **QC1, right files.** The recording and header fingerprints match their pins (for p002 and p003, the bytes of b002 and b003 match the pins of p002.dat and p003.dat), and the downloaded file list matches its pin.
-- **QC2, header contents.** Six non-empty lines; the record name; 4 signals; 5,000 samples per second; 1,500,000 samples per channel (b001: 1,360,050); each signal line names the record's `.dat` file with storage format 16 and block 0; labels I, II, RESP and SCG in that order; positive gains; a final comment "#After music listening for subject N" with N the subject number (b001: "#Baseline for subject 1"); a `.dat` file of 8 bytes per sample time; and four whole-recording checksums that match the header.
+- **QC2, header contents.** Six non-empty lines; the record name; 4 signals; 5,000 samples per second; 1,500,000 samples per channel (b001: 1,360,050); each signal line names the record's `.dat` file with storage format 16 and block 0; labels I, II, RESP and SCG in that order; positive gains; a final comment "#After music listening for subject N" with N the subject number (b001: "#Baseline for subject 1"); a `.dat` file of 8 bytes per sample time; and four whole-recording checksums that match the header. A checksum here is the sum of a channel's stored numbers over the whole recording, kept modulo 65,536 (only the remainder after dividing by 65,536), and written in the header so that a damaged file can be detected.
 - **QC3, missing values.** Version 1's rule for missing readings. Calibration needs at least 4,500 of 5,000 valid readings per used channel and a spread above zero. At least 90% of the forecast cutoffs must be valid (45,000 of 50,000; for b001, 40,500 of 45,000).
 - **QC4, flat signal.** From 55 to 291 seconds (b001: to 271 seconds), a run of identical stored values of at least 2,500 samples (0.5 s) in the ECG or chest signal, or at least 25,000 samples (5 s) in the breathing band, excludes the recording.
 - **QC5, clipping.** In the same span, more than 1.0% of samples at the recorder's limits (+32,767 or −32,767) in the ECG, breathing or chest channel excludes the recording; from 0.1% to 1.0% is flagged only.
@@ -383,7 +387,7 @@ There is a single scoring run, and nothing is re-scored after any change. If an 
 
 An invented example: three forecasts miss by +1, −2 and +2 mV. The squares are 1, 4 and 4; their average is 3; the RMSE is the square root of 3, about 1.73 mV. The MAE is (1 + 2 + 2) / 3, about 1.67 mV.
 
-**Across people:** the mean, median and range of each measure, each person counted once, whether their signal is large or small.
+**Across people:** the mean, median and range of each measure, each person counted once.
 
 **Comparisons between two forecasters:** for each person, the relative reduction in percent; then its mean, median and range across people, the number of wins (ties are not wins) and the mean difference in mV. An invented example: if a comparison forecaster's error for one person is 2.00 mV and version 2's is 1.50 mV, the relative reduction is 100 × (2.00 − 1.50) / 2.00 = 25%, and that person is a win. Against C0, the relative reduction equals 100 × the skill.
 
@@ -405,7 +409,7 @@ The verdicts use the n main test people who pass the data checks, with k(n) as a
 | P2, ECG timing adds information | Version 2 beats its chest-only twin, and version 2 beats its delayed twin. |
 | P3, version 2 beats the R-only template | Version 2 beats C3. |
 
-Each verdict is reported as "supported" or "not supported" (or "no verdict" if n is below 5), together with every number it uses. Everything else is descriptive: no verdict, and no claim of statistical significance or about people in general.
+Each verdict is reported as "supported" or "not supported" (or "no verdict" if n is below 5), together with every number it uses. Everything else is descriptive: no verdict, no claim of statistical significance (a formal test of whether a difference could be due to chance), and no claim about people in general.
 
 ## What will be reported whatever the result
 
