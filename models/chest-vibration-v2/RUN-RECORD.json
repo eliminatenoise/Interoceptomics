@@ -1,0 +1,86 @@
+{
+ "study": "chest-vibration v2",
+ "what": "Record of the test stage (PROTOCOL.json download, quality_checks, causality_test, scoring), in the order it ran, with the commits and the departures from the protocol's wording. results.json is the frozen score.py output, unchanged; it has no deviations field, so the departure after the download is recorded here and in source-verification.json.",
+ "commits": {
+  "protocol": "b0ffe4d90a1ee2c25bc3fe02344da7948bdf2e9f",
+  "protocol_published_tip_with_simple_edition": "2b0c9a1def5f3bac7be02f1c5dd8188e0950983f",
+  "freeze_and_github_main_at_download": "1dd00a4fa02949d6f4da6cd9bc237e8a3ea8fbb2",
+  "score_lock": "78e18dc97216a45808b6369935e4c1e41e510bb5"
+ },
+ "sequence_utc": [
+  {
+   "step": "precondition: GitHub main equals the freeze commit; the protocol commit is its ancestor",
+   "utc": "2026-11-27T12:27:56Z"
+  },
+  {
+   "step": "download: manifest first (equal to its pin), then p014-p020 .dat/.hea and p001.dat/.hea, all equal to their pins",
+   "start": "2026-11-27T12:27:56Z",
+   "end": "2026-11-27T12:30:51Z"
+  },
+  {
+   "step": "QC1-QC5 with the frozen qc.py on all 11 scored records; report sealed (SHA-256 recorded) before any forecast",
+   "utc": "2026-11-27T12:31:15Z",
+   "qc_report_sha256": "21231aafe75b1c5f9c57b4edcc94b9f32034a5439407eaa610cca7978573ee8d"
+  },
+  {
+   "step": "causality test with the frozen causality.py, 200 cutoffs per scored record, replacement and truncation; zero changes; no target read",
+   "start": "2026-11-27T12:31:34Z",
+   "end": "2026-11-27T12:37:29Z",
+   "report_sha256": "01a7943f70384799ae20489bfc60d60e57bfaf89bd6778baff33f4deab1d2762"
+  },
+  {
+   "step": "forecasts with the frozen forecast.py and weights for every arm at every scoring cutoff",
+   "start": "2026-11-27T12:37:45Z",
+   "end": "2026-11-27T12:38:19Z"
+  },
+  {
+   "step": "SCORE-LOCK.json with the frozen lock.py",
+   "utc": "2026-11-27T12:38:34Z",
+   "sha256": "72a039bafc0c7467f5ef74daa931e6fa38876f69403007b021365340bd9a9528"
+  },
+  {
+   "step": "lock committed (score_lock commit above) before any target was read",
+   "utc": "2026-11-27T12:38:44Z"
+  },
+  {
+   "step": "the one scoring run, frozen score.py in a separate process; it checked every lock hash before reading targets",
+   "utc": "2026-11-27T12:38:54Z",
+   "results_sha256": "b4e2774c6557238306b2e9220d9db4787b34f534a23676b3f24ac7468ad0bb73"
+  }
+ ],
+ "verdicts_primary": {
+  "n": 7,
+  "k": 6,
+  "P1": "supported",
+  "P2": "supported",
+  "P3": "supported",
+  "parts": {
+   "P1_beats_V1R_base_by_10_percent": true,
+   "P1_C0_condition": true,
+   "P2_beats_chest_twin": true,
+   "P2_beats_delayed_twin": true,
+   "P3_beats_C3": true
+  }
+ },
+ "departures": [
+  {
+   "what": "Download: PROTOCOL.json speaks of 17 requests. physionet.org answered each data-file request with an HTTP 302 redirect to PhysioNet's open-data bucket (physionet-open.s3.amazonaws.com). The first run stopped at the first 302 (p014.dat) without following it; the download was resumed with redirects followed. 34 HTTP exchanges in all: 18 to physionet.org (p014.dat twice) and 16 redirected ones, one per data file.",
+   "effect": "None: every file equals its pin from the pinned manifest. No other file was requested.",
+   "where": "source-verification.json"
+  }
+ ],
+ "not_needed": [
+  "The QC1 rule for a missing or non-WFDB file (freeze review, first minor point): every pinned file was obtained and parsed, so no person needed it and the frozen qc.py ran on all 11 records."
+ ],
+ "not_opened": [
+  "No .atr file was fetched or opened before results.json was written. The five subject 1-3 annotation files in the version 1 maintainer's copy (freeze review, second minor point) were not opened."
+ ],
+ "secondary_and_basal_source": "p002 and p003 were read from b002.dat and b003.dat with the p002 and p003 headers, and b001 from its own files, in the version 1 maintainer's read-only copy; their SHA-256 values equal the pins (qc-report.json, QC1).",
+ "environment": {
+  "python": "3.14.8",
+  "numpy": "2.5.3",
+  "cpus": "24-31 (taskset)",
+  "threads": "NumPy single-threaded (OMP, OpenBLAS and MKL threads 1); the causality test used 8 single-threaded worker processes; no GPU",
+  "same_as_freeze": true
+ }
+}
