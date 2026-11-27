@@ -1,0 +1,20 @@
+{
+ "step": "ridge part of model_selection steps 2 and 6",
+ "r_ecg_grid_lowest": "K=32 theta=0.9 penalty=0.001",
+ "r_ecg_grid_lowest_mean_rmse_mV": 1.3886421252097882,
+ "r_ecg_default": "K=16 theta=0.8 penalty=0.02",
+ "r_ecg_default_mean_rmse_mV": 1.4188950456540543,
+ "default_within_1_percent": false,
+ "K": 32,
+ "theta": 0.9,
+ "penalty": 0.001,
+ "r_ecg_chosen_mean_rmse_mV": 1.3886421252097882,
+ "c4_mean_rmse_mV": {
+  "0.001": 2.83704928469047,
+  "0.02": 2.8356968256362864,
+  "0.1": 2.8351917479821385,
+  "1.0": 2.8312517472744125
+ },
+ "c4_lowest": 1.0,
+ "c4_penalty": 0.02
+}

@@ -1,0 +1,1001 @@
+{
+ "label": "QC1-QC5 code run once on the ten fitting records before the freeze",
+ "manifest_sha256": "75db8c9b809ef307aabeff2c0d1b780e1bb80d4df1044272ba0f980ed06f205e",
+ "manifest_pin": "75db8c9b809ef307aabeff2c0d1b780e1bb80d4df1044272ba0f980ed06f205e",
+ "records": {
+  "p004": {
+   "record": "p004",
+   "QC1": {
+    "dat_sha256": "f9283ba41232a316d7306b8311d06d4684f08ee0fec45a1ed6c5109d1e759a45",
+    "hea_sha256": "f4a56f553a37a83ed8450dcafda7c5ebfc6a967b4f0ade66d33d7bba24fc48da",
+    "dat_pin": "f9283ba41232a316d7306b8311d06d4684f08ee0fec45a1ed6c5109d1e759a45",
+    "hea_pin": "f4a56f553a37a83ed8450dcafda7c5ebfc6a967b4f0ade66d33d7bba24fc48da",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p004",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 4",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -21601,
+     11609,
+     -17160,
+     23082
+    ],
+    "checksums_header": [
+     -21601,
+     11609,
+     -17160,
+     23082
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.12464041565577726,
+     "RESP": 0.22165193263193395,
+     "SCG": 3.3641745355097665
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 59,
+     "RESP": 772,
+     "SCG": 7
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 8.47457627118644e-06,
+     "RESP": 1.440677966101695e-05,
+     "SCG": 1.6949152542372882e-06
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p005": {
+   "record": "p005",
+   "QC1": {
+    "dat_sha256": "559665bc5207d09786178a709da48a98f91eb7bac5539537d83436f05e568987",
+    "hea_sha256": "773803d8c77aaf937f3351e213f79a775260cf0e408077ec8dee395b0acf9b6d",
+    "dat_pin": "559665bc5207d09786178a709da48a98f91eb7bac5539537d83436f05e568987",
+    "hea_pin": "773803d8c77aaf937f3351e213f79a775260cf0e408077ec8dee395b0acf9b6d",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p005",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 5",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -14712,
+     -25368,
+     -23997,
+     -3646
+    ],
+    "checksums_header": [
+     -14712,
+     -25368,
+     -23997,
+     -3646
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.168378986760378,
+     "RESP": 0.9325466538388614,
+     "SCG": 2.075033998555105
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 44,
+     "RESP": 249,
+     "SCG": 7
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 5.084745762711865e-06,
+     "RESP": 2.2033898305084744e-05,
+     "SCG": 2.5423728813559323e-06
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p006": {
+   "record": "p006",
+   "QC1": {
+    "dat_sha256": "a8ec1b2efadd74d189610e95812a227f32d1a1ab821720b6eace236401cc24c1",
+    "hea_sha256": "ed84e14151a962bf3ca97e8fe513ffb7b993289f85c4dcd4ca2bd67b68b05faa",
+    "dat_pin": "a8ec1b2efadd74d189610e95812a227f32d1a1ab821720b6eace236401cc24c1",
+    "hea_pin": "ed84e14151a962bf3ca97e8fe513ffb7b993289f85c4dcd4ca2bd67b68b05faa",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p006",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 6",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -10257,
+     -29326,
+     13896,
+     16549
+    ],
+    "checksums_header": [
+     -10257,
+     -29326,
+     13896,
+     16549
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.21655820226565986,
+     "RESP": 0.9167639146052291,
+     "SCG": 2.4157846721180363
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 73,
+     "RESP": 410,
+     "SCG": 7
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 0.0,
+     "RESP": 3.2203389830508473e-05,
+     "SCG": 4.23728813559322e-06
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p007": {
+   "record": "p007",
+   "QC1": {
+    "dat_sha256": "3e0ccc9e8960427710b47cfbd2531a20fdb73c247bc9f21795e31fecf7069c8d",
+    "hea_sha256": "5a63942dd2431037251adb1fafe037184841c473d8836a38763b1c235571f468",
+    "dat_pin": "3e0ccc9e8960427710b47cfbd2531a20fdb73c247bc9f21795e31fecf7069c8d",
+    "hea_pin": "5a63942dd2431037251adb1fafe037184841c473d8836a38763b1c235571f468",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p007",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 7",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -23367,
+     28460,
+     11602,
+     27759
+    ],
+    "checksums_header": [
+     -23367,
+     28460,
+     11602,
+     27759
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.04174828286262063,
+     "RESP": 0.20915746905676277,
+     "SCG": 2.210883674171119
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 100,
+     "RESP": 1181,
+     "SCG": 58
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 1.6949152542372882e-06,
+     "RESP": 0.0,
+     "SCG": 0.0
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p008": {
+   "record": "p008",
+   "QC1": {
+    "dat_sha256": "e5d75771d3d757ddaaa96177e2265370de46dc29a7d4d42aaf6171c8a4360a64",
+    "hea_sha256": "b6c093ca39df8daef935c7646b810225912d3fd2e74f41e94a8273d8b57d5145",
+    "dat_pin": "e5d75771d3d757ddaaa96177e2265370de46dc29a7d4d42aaf6171c8a4360a64",
+    "hea_pin": "b6c093ca39df8daef935c7646b810225912d3fd2e74f41e94a8273d8b57d5145",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p008",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 8",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -5447,
+     12499,
+     -5738,
+     25192
+    ],
+    "checksums_header": [
+     -5447,
+     12499,
+     -5738,
+     25192
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.2756989278908192,
+     "RESP": 0.1375967837870014,
+     "SCG": 4.493693941182794
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 58,
+     "RESP": 893,
+     "SCG": 7
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 0.0,
+     "RESP": 0.0,
+     "SCG": 1.6949152542372882e-06
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p009": {
+   "record": "p009",
+   "QC1": {
+    "dat_sha256": "db15f9f32e95609e954044db41a620473dc048860d888de8580f6264db77ce22",
+    "hea_sha256": "2146556998ce6d14f0729a019ac3738ccd1cd641b534e7ccc3704af89280770f",
+    "dat_pin": "db15f9f32e95609e954044db41a620473dc048860d888de8580f6264db77ce22",
+    "hea_pin": "2146556998ce6d14f0729a019ac3738ccd1cd641b534e7ccc3704af89280770f",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p009",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 9",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -22940,
+     -12645,
+     15554,
+     -7347
+    ],
+    "checksums_header": [
+     -22940,
+     -12645,
+     15554,
+     -7347
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.253153965483139,
+     "RESP": 0.24545651976443325,
+     "SCG": 2.3895562754990896
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 98,
+     "RESP": 1749,
+     "SCG": 7
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 8.474576271186441e-07,
+     "RESP": 6.1016949152542376e-05,
+     "SCG": 2.5423728813559323e-06
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p010": {
+   "record": "p010",
+   "QC1": {
+    "dat_sha256": "61e2ee05374f0c0d0cbc51b3201ea63038d3ed6fb3e0e58b22600fdb8c89440c",
+    "hea_sha256": "66fcff889955be380cecc602678f1796736498dc9b0c32376bf71afaf408ee43",
+    "dat_pin": "61e2ee05374f0c0d0cbc51b3201ea63038d3ed6fb3e0e58b22600fdb8c89440c",
+    "hea_pin": "66fcff889955be380cecc602678f1796736498dc9b0c32376bf71afaf408ee43",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p010",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 10",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -26802,
+     -15503,
+     1775,
+     -20315
+    ],
+    "checksums_header": [
+     -26802,
+     -15503,
+     1775,
+     -20315
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.12399316673837459,
+     "RESP": 0.1540185674570666,
+     "SCG": 1.9030101819142573
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 74,
+     "RESP": 1067,
+     "SCG": 7
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 1.6949152542372882e-06,
+     "RESP": 0.0,
+     "SCG": 8.474576271186441e-07
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p011": {
+   "record": "p011",
+   "QC1": {
+    "dat_sha256": "93bdffc6954d6826781c9b939355c3b426ae4b72d9305a818b537cf5a9205ab0",
+    "hea_sha256": "ab71922ff0a36262e83cad96e3532d7a4585e7700933b5ca17d4e991c24952ad",
+    "dat_pin": "93bdffc6954d6826781c9b939355c3b426ae4b72d9305a818b537cf5a9205ab0",
+    "hea_pin": "ab71922ff0a36262e83cad96e3532d7a4585e7700933b5ca17d4e991c24952ad",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p011",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 11",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -5316,
+     -25054,
+     21690,
+     -6510
+    ],
+    "checksums_header": [
+     -5316,
+     -25054,
+     21690,
+     -6510
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.10800103983891111,
+     "RESP": 0.2552111366882626,
+     "SCG": 2.6844188972284604
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 81,
+     "RESP": 762,
+     "SCG": 8
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 0.0,
+     "RESP": 0.0001271186440677966,
+     "SCG": 0.0
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p012": {
+   "record": "p012",
+   "QC1": {
+    "dat_sha256": "2fce348588f72290b59dad541c996e5e96eec044cf4caa91872e60de76bcd5a2",
+    "hea_sha256": "d58968e0951bf8b3c26c3c93e33a7891eaad8d96f1e4db7307f65c8d807825f8",
+    "dat_pin": "2fce348588f72290b59dad541c996e5e96eec044cf4caa91872e60de76bcd5a2",
+    "hea_pin": "d58968e0951bf8b3c26c3c93e33a7891eaad8d96f1e4db7307f65c8d807825f8",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p012",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 12",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -32695,
+     -19308,
+     715,
+     -26268
+    ],
+    "checksums_header": [
+     -32695,
+     -19308,
+     715,
+     -26268
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.15228566580953906,
+     "RESP": 2.4484942642817384,
+     "SCG": 4.6371957780354345
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 83,
+     "RESP": 106,
+     "SCG": 8
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 4.23728813559322e-06,
+     "RESP": 3.0508474576271188e-05,
+     "SCG": 1.6949152542372882e-06
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  },
+  "p013": {
+   "record": "p013",
+   "QC1": {
+    "dat_sha256": "5450b077388f52f5ca96c6d36fa0ecc37cd66ced97b393e58bab7f3277a212fc",
+    "hea_sha256": "293d636865682feb101d4df87cbc661bca430f7203b5b7656c7acfb6f4a2bfa4",
+    "dat_pin": "5450b077388f52f5ca96c6d36fa0ecc37cd66ced97b393e58bab7f3277a212fc",
+    "hea_pin": "293d636865682feb101d4df87cbc661bca430f7203b5b7656c7acfb6f4a2bfa4",
+    "manifest_matches_pin": true,
+    "pass": true
+   },
+   "QC2": {
+    "non_empty_lines": 6,
+    "record_name": "p013",
+    "n_signals": "4",
+    "rate_hz": "5000",
+    "frames": "1500000",
+    "final_comment": "#After music listening for subject 13",
+    "dat_bytes": 12000000,
+    "checksums_computed": [
+     -19341,
+     -479,
+     22256,
+     13870
+    ],
+    "checksums_header": [
+     -19341,
+     -479,
+     22256,
+     13870
+    ],
+    "checks": {
+     "six_lines": true,
+     "record_name": true,
+     "four_signals": true,
+     "rate_5000": true,
+     "frames": true,
+     "final_comment": true,
+     "signal_lines": true,
+     "labels": true,
+     "positive_gains": true,
+     "dat_length": true,
+     "checksums": true
+    },
+    "pass": true
+   },
+   "QC3": {
+    "missing_samples": {
+     "II": 0,
+     "RESP": 0,
+     "SCG": 0
+    },
+    "calibration_valid": {
+     "II": 5000,
+     "RESP": 5000,
+     "SCG": 5000
+    },
+    "calibration_sd_mV": {
+     "II": 0.1479478829996537,
+     "RESP": 0.7490121527724343,
+     "SCG": 2.3784405288288726
+    },
+    "calibration_ok": true,
+    "valid_scoring_cutoffs": 50000,
+    "scoring_cutoffs": 50000,
+    "required_valid": 45000,
+    "pass": true
+   },
+   "QC4": {
+    "span_samples": [
+     275000,
+     1455000
+    ],
+    "longest_identical_run": {
+     "II": 100,
+     "RESP": 535,
+     "SCG": 7
+    },
+    "limits": {
+     "II": 2500,
+     "SCG": 2500,
+     "RESP": 25000
+    },
+    "pass": true
+   },
+   "QC5": {
+    "clipped_fraction": {
+     "II": 2.5423728813559323e-06,
+     "RESP": 3.474576271186441e-05,
+     "SCG": 3.3898305084745763e-06
+    },
+    "exclude_above": 0.01,
+    "flag_from": 0.001,
+    "flagged": [],
+    "pass": true
+   },
+   "readable": true,
+   "pass": true
+  }
+ },
+ "passing": [
+  "p004",
+  "p005",
+  "p006",
+  "p007",
+  "p008",
+  "p009",
+  "p010",
+  "p011",
+  "p012",
+  "p013"
+ ],
+ "primary_test_n_passing": 0,
+ "k_of_n": null
+}

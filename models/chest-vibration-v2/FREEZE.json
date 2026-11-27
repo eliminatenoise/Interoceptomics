@@ -1,0 +1,1031 @@
+{
+ "schema": "interoceptomics-freeze/1",
+ "study": "chest-vibration v2",
+ "written_utc": "2026-11-27T12:00:14+00:00",
+ "status": "Everything before the test download is done and frozen here. No primary-test file, no p001 file and no .atr file has been fetched or opened, and no waveform value of subjects 1-3 or b001 has been decoded or analysed (the on-disk search hashes every 12,000,000-byte file, as the protocol requires, which includes b002.dat and b003.dat, the p002 and p003 bytes). A separate reviewer admits this file; the lead commits it and pushes it; the download waits until the protocol commit and the freeze commit are both visible on GitHub.",
+ "protocol": {
+  "commit": "b0ffe4d90a1ee2c25bc3fe02344da7948bdf2e9f",
+  "files_sha256": {
+   "PROTOCOL.json": "4889fa5ea70431b4d3474f628889b8ab636eedddf4e239eb3e83e575a7e9d17e",
+   "PROTOCOL.md": "daaaa9230d6677580a46dc088b37f75bd9de8ce615e5eadb4245beadd83e8f15",
+   "allocate.py": "e354d5a03db8303771d29acfa6b81fbdc20c38b028129a7920435b8436f35223",
+   "ALLOCATION.json": "2654580cd2d9306a4bcb2d9b6571ee33de7ad5907fd6be35128e729d2469d568"
+  },
+  "companion_pins_match": true
+ },
+ "code": {
+  "common.py": {
+   "sha256": "a502e47144a22080ff72a99dfa09478654f56098e5e637efa5825ad693819061",
+   "role": "constants, record lists, hashing"
+  },
+  "signal_path.py": {
+   "sha256": "d723e0dc13ec695a65a793c03098307d7cc5b00799dd1dada7c8962f48e51c35",
+   "role": "native counts to filtered 250 Hz mV, calibration, z units (version 1's path)"
+  },
+  "detectors.py": {
+   "sha256": "04be44fcfbf9f4a55523318b1e829f1f03a2671ca2f020d8b35e7403c61e666c",
+   "role": "R_v2, chest_v2 and C3 detectors; C3 rolling template"
+  },
+  "template.py": {
+   "sha256": "b0774bef0ffc256fff589f50b4fa2a7c1a1f4372121376f24329d8bf858f36e7",
+   "role": "beat template module with the P-wave search"
+  },
+  "features.py": {
+   "sha256": "d86f33e1bc36069017ef2839cf5fd6b0aa30616ad7542c89b7d314a1a260c762",
+   "role": "feature blocks B0-B3d, v1 ECG features, row mask, no-weight arms"
+  },
+  "models.py": {
+   "sha256": "5aaf91f69f6d252205b4188239e23646a9375c547818f8e86156d42b3552bc33",
+   "role": "ridge closed form, MLP training, NumPy forward passes, weight files"
+  },
+  "arms.py": {
+   "sha256": "e75a238253bab36b6f4cd94d225fd12f1bebae10b111cc65b3ecfb247f9c147d",
+   "role": "every arm's forecast from features and frozen weights"
+  },
+  "metrics.py": {
+   "sha256": "76308a33a995ce04a9db7334ff0d57077a814232d596d326c46f6869ee1a2447",
+   "role": "RMSE, MAE, relative reduction, bootstrap, verdict rule"
+  },
+  "develop.py": {
+   "sha256": "3022da950c511e5b5c7ceac99ddd0164e15c75e146b756dd86e5770bd8a9be43",
+   "role": "feature grid, LOPO model choice and development table (fitting people only)"
+  },
+  "final_fit.py": {
+   "sha256": "260e10ac5be852a38911a0f39e1ee9810ad6e4b9c562c021877f3bccf755b2d1",
+   "role": "final fits on the ten fitting people and the NumPy export check"
+  },
+  "causality.py": {
+   "sha256": "b8c5fba6ed96b62df8e650c31219796ef421bef2e2f232025fb68480781666fe",
+   "role": "causality test (replacement and truncation)"
+  },
+  "qc.py": {
+   "sha256": "7cbf552731a65e9cb659d52aac2474b79ddfcc4945be2b24abf1ebfbf224e9ec",
+   "role": "data-integrity checks QC1-QC5"
+  },
+  "forecast.py": {
+   "sha256": "f62e16fd39d50b4c25b3037a4bbe7ebe1045e6e72e22ac05a0d0badf5bed0fa9",
+   "role": "forecast files for scored records"
+  },
+  "lock.py": {
+   "sha256": "099c05570e2f04a2f8d7ada881e92f008944638c9fbf521cfeb7c977ce482bbf",
+   "role": "SCORE-LOCK.json"
+  },
+  "score.py": {
+   "sha256": "90cd6165e2f3cd3280b43b480b7ebe6f3bb9910f994875d206424db923c25f2f",
+   "role": "the one scoring run: metrics, comparisons, bootstrap, verdicts"
+  },
+  "freeze.py": {
+   "sha256": "919ecdc8e3768d31adf662d05bfebd6f9eefa2388d1e082d83e16f819320d8f3",
+   "role": "this file"
+  }
+ },
+ "code_note": "Every code file used to fit, forecast, test causality and score. The version 1 weights used by V1F are ../chest-vibration/weights.json, SHA-256 55a78c3d9585b279b4d9be6a6c33ee60d08760f039b265badcc25d54e3366d8a, unchanged.",
+ "selection": {
+  "K": 32,
+  "theta": 0.9,
+  "ridge_penalty": 0.001,
+  "c4_penalty": 0.02,
+  "family": "ridge",
+  "r_ecg_mean_rmse_mV": 1.3886421252097882,
+  "m_ecg_mean_rmse_mV": 1.4050644344952816,
+  "rule": "MLP if M-ECG mean < 0.99 x R-ECG mean at the chosen (K, theta); otherwise ridge.",
+  "ridge_step": {
+   "step": "ridge part of model_selection steps 2 and 6",
+   "r_ecg_grid_lowest": "K=32 theta=0.9 penalty=0.001",
+   "r_ecg_grid_lowest_mean_rmse_mV": 1.3886421252097882,
+   "r_ecg_default": "K=16 theta=0.8 penalty=0.02",
+   "r_ecg_default_mean_rmse_mV": 1.4188950456540543,
+   "default_within_1_percent": false,
+   "K": 32,
+   "theta": 0.9,
+   "penalty": 0.001,
+   "r_ecg_chosen_mean_rmse_mV": 1.3886421252097882,
+   "c4_mean_rmse_mV": {
+    "0.001": 2.83704928469047,
+    "0.02": 2.8356968256362864,
+    "0.1": 2.8351917479821385,
+    "1.0": 2.8312517472744125
+   },
+   "c4_lowest": 1.0,
+   "c4_penalty": 0.02
+  },
+  "v2": "R-ECG",
+  "chest_twin": "R-chest",
+  "delayed_twin": "R-delayed"
+ },
+ "development_files_sha256": {
+  "causality-fit-pool.json": "cfcc92acb9866c478ec07a3ab58b3f89ec852338a8165ccb6dc17de94ad64e8b",
+  "development-table.json": "4859ba44c19b1f3e1f92fac31e50cb1c82c71ec38e29338f405ce12009a67db3",
+  "lopo-c4.json": "f53ccba3fa5c456faa459e07608b4e51b8b5b8105660865fba932f3e28e57a49",
+  "lopo-r-ecg-grid.json": "c4ea1ceba6972d29f20a1f16db8c1a95279a6b1eea47b94714bb6f3458e25918",
+  "qc-fit-pool.json": "5db899f8aa425050c49b0b660d03c59ef44ee7e484116543cb950c0be6fc9348",
+  "selection-ridge.json": "386124b326fd2d16f6ba7d3be90f66fb7bcf9f036732dcd6b938efe4b5192833",
+  "selection.json": "283fa91df0913acfcc3be7ac15dd4244c555081d9a82dc22ba3c823b14378d67"
+ },
+ "development_note": "lopo-r-ecg-grid.json (27 configurations), lopo-c4.json, selection-ridge.json, selection.json and development-table.json are the full LOPO tables and the choice; development-table.json is labelled optimistic. causality-fit-pool.json and qc-fit-pool.json are the reports below.",
+ "weights_sha256": {
+  "C4.json": "c3beea8d4e37fcec062c4dfd7e6340d87785548fd5acd3d57e912efc41d4d9bf",
+  "M-ECG-20261127.json": "ff10a27d8cf79c773a7f93df002a5b937fca4e43ff01c3380f782857234ed919",
+  "M-ECG-20261128.json": "6df052ee6fd99629f69c058aea97ef71a0ce100e536ab59a26d2a817bc034b12",
+  "M-ECG-20261129.json": "e94b2d493333e66ada6756aa22cef3ca346d8782aa57a5ac1499e47db2870751",
+  "M-chest-20261127.json": "f4c654673f5c1f83a38fff660302ca7e00c59a0585667c2234e8e1e0613b24bf",
+  "M-chest-20261128.json": "6238e37dfcde3b18c6444243d7cca071123b40aa766982bb61f9ae81aa044778",
+  "M-chest-20261129.json": "47e495c9515c572aac6ddbd37b6c1a2c500a6877a7fb73edef63c702a3de0ccb",
+  "M-delayed-20261127.json": "f4c30d8ca6ceac4c036c37dd169f883ceff2fda07c1775ea6bddd749603656aa",
+  "M-delayed-20261128.json": "cacd22e0630c05e460f4195b001af2e26a437e6580b4f447674d93c34af39e68",
+  "M-delayed-20261129.json": "359c905803d8e39907b6f3940c73532dc43df39dbb58c6a4c6a9196a06df6891",
+  "R-ECG.json": "c23b15fc29a05ecd8f6f4e29c7e6d4d3106b8e85bb12cfb9d864ae82da08078b",
+  "R-chest.json": "d4fd14f379d09418ce0e73aa507139b2d388991aadb692d6f6eae393a8a662fe",
+  "R-delayed.json": "8d46e962bc23fe149f2641367eae86ea89cf4e6b31c28070d0a8448140a74721",
+  "V1R-aligned.json": "60343ad2258adb58aff2f39a0fe0df25a85268ef886111c607666a83a3bfe59e",
+  "V1R-base.json": "9dc3b2414409a48fc3f4c313ab0cef297ae1ac07423f6c45f2d7514a3ba1058a",
+  "V1R-delayed.json": "50b1f565d19f354ff50da127a8d032fa9403df894b5454e8f73242c5e53b0e48"
+ },
+ "v1_weights_sha256": "55a78c3d9585b279b4d9be6a6c33ee60d08760f039b265badcc25d54e3366d8a",
+ "mlp_export_check": {
+  "M-chest-20261127": {
+   "max_abs_torch_minus_numpy_z": 2.6226043701171875e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-chest-20261128": {
+   "max_abs_torch_minus_numpy_z": 2.2649765014648438e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-chest-20261129": {
+   "max_abs_torch_minus_numpy_z": 2.7418136596679688e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-ECG-20261127": {
+   "max_abs_torch_minus_numpy_z": 1.9073486328125e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-ECG-20261128": {
+   "max_abs_torch_minus_numpy_z": 1.9073486328125e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-ECG-20261129": {
+   "max_abs_torch_minus_numpy_z": 1.9073486328125e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-delayed-20261127": {
+   "max_abs_torch_minus_numpy_z": 2.6226043701171875e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-delayed-20261128": {
+   "max_abs_torch_minus_numpy_z": 2.1457672119140625e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  },
+  "M-delayed-20261129": {
+   "max_abs_torch_minus_numpy_z": 2.86102294921875e-06,
+   "within_1e-4": true,
+   "updates": 1952,
+   "training_rows": 500000
+  }
+ },
+ "causality_fit_pool": {
+  "report": "development/causality-fit-pool.json",
+  "cutoffs_per_person": 200,
+  "kinds": [
+   "replace",
+   "truncate"
+  ],
+  "items_per_cutoff": 71,
+  "comparisons": 284000,
+  "cutoffs_with_any_change": {
+   "replace": 0,
+   "truncate": 0
+  },
+  "zero_changes": true
+ },
+ "causality_literal_chest_bound": {
+  "purpose": "documents deviation 1: the same test with the chest detector's loop bound as written in PROTOCOL.json",
+  "chest_end_margin": 8,
+  "kinds": [
+   "truncate"
+  ],
+  "cutoffs_with_any_change": {
+   "truncate": 11
+  },
+  "per_record": {
+   "p004": {
+    "truncate": 1
+   },
+   "p005": {
+    "truncate": 0
+   },
+   "p006": {
+    "truncate": 1
+   },
+   "p007": {
+    "truncate": 1
+   },
+   "p008": {
+    "truncate": 3
+   },
+   "p009": {
+    "truncate": 0
+   },
+   "p010": {
+    "truncate": 0
+   },
+   "p011": {
+    "truncate": 1
+   },
+   "p012": {
+    "truncate": 2
+   },
+   "p013": {
+    "truncate": 2
+   }
+  },
+  "changed_items": {
+   "p004": {
+    "truncate": {
+     "feature:B2": 1,
+     "forecast_z:C5": 1,
+     "forecast_z:R-chest": 1,
+     "forecast_z:R-ECG": 1,
+     "forecast_z:R-delayed": 1,
+     "forecast_z:M-chest#20261127": 1,
+     "forecast_z:M-chest#20261128": 1,
+     "forecast_z:M-chest#20261129": 1,
+     "forecast_z:M-chest": 1,
+     "forecast_z:M-ECG#20261127": 1,
+     "forecast_z:M-ECG#20261128": 1,
+     "forecast_z:M-ECG#20261129": 1,
+     "forecast_z:M-ECG": 1,
+     "forecast_z:M-delayed#20261127": 1,
+     "forecast_z:M-delayed#20261128": 1,
+     "forecast_z:M-delayed#20261129": 1,
+     "forecast_z:M-delayed": 1,
+     "forecast_mV:C5": 1,
+     "forecast_mV:R-chest": 1,
+     "forecast_mV:R-ECG": 1,
+     "forecast_mV:R-delayed": 1,
+     "forecast_mV:M-chest#20261127": 1,
+     "forecast_mV:M-chest#20261128": 1,
+     "forecast_mV:M-chest#20261129": 1,
+     "forecast_mV:M-chest": 1,
+     "forecast_mV:M-ECG#20261127": 1,
+     "forecast_mV:M-ECG#20261128": 1,
+     "forecast_mV:M-ECG#20261129": 1,
+     "forecast_mV:M-ECG": 1,
+     "forecast_mV:M-delayed#20261127": 1,
+     "forecast_mV:M-delayed#20261128": 1,
+     "forecast_mV:M-delayed#20261129": 1,
+     "forecast_mV:M-delayed": 1
+    }
+   },
+   "p005": {
+    "truncate": {}
+   },
+   "p006": {
+    "truncate": {
+     "feature:B2": 1,
+     "forecast_z:C5": 1,
+     "forecast_z:R-chest": 1,
+     "forecast_z:R-ECG": 1,
+     "forecast_z:R-delayed": 1,
+     "forecast_z:M-chest#20261127": 1,
+     "forecast_z:M-chest#20261128": 1,
+     "forecast_z:M-chest#20261129": 1,
+     "forecast_z:M-chest": 1,
+     "forecast_z:M-ECG#20261127": 1,
+     "forecast_z:M-ECG#20261128": 1,
+     "forecast_z:M-ECG#20261129": 1,
+     "forecast_z:M-ECG": 1,
+     "forecast_z:M-delayed#20261127": 1,
+     "forecast_z:M-delayed#20261128": 1,
+     "forecast_z:M-delayed#20261129": 1,
+     "forecast_z:M-delayed": 1,
+     "forecast_mV:C5": 1,
+     "forecast_mV:R-chest": 1,
+     "forecast_mV:R-ECG": 1,
+     "forecast_mV:R-delayed": 1,
+     "forecast_mV:M-chest#20261127": 1,
+     "forecast_mV:M-chest#20261128": 1,
+     "forecast_mV:M-chest#20261129": 1,
+     "forecast_mV:M-chest": 1,
+     "forecast_mV:M-ECG#20261127": 1,
+     "forecast_mV:M-ECG#20261128": 1,
+     "forecast_mV:M-ECG#20261129": 1,
+     "forecast_mV:M-ECG": 1,
+     "forecast_mV:M-delayed#20261127": 1,
+     "forecast_mV:M-delayed#20261128": 1,
+     "forecast_mV:M-delayed#20261129": 1,
+     "forecast_mV:M-delayed": 1
+    }
+   },
+   "p007": {
+    "truncate": {
+     "feature:B2": 1,
+     "forecast_z:C5": 1,
+     "forecast_z:R-chest": 1,
+     "forecast_z:R-ECG": 1,
+     "forecast_z:R-delayed": 1,
+     "forecast_z:M-chest#20261127": 1,
+     "forecast_z:M-chest#20261128": 1,
+     "forecast_z:M-chest#20261129": 1,
+     "forecast_z:M-chest": 1,
+     "forecast_z:M-ECG#20261127": 1,
+     "forecast_z:M-ECG#20261128": 1,
+     "forecast_z:M-ECG#20261129": 1,
+     "forecast_z:M-ECG": 1,
+     "forecast_z:M-delayed#20261127": 1,
+     "forecast_z:M-delayed#20261128": 1,
+     "forecast_z:M-delayed#20261129": 1,
+     "forecast_z:M-delayed": 1,
+     "forecast_mV:C5": 1,
+     "forecast_mV:R-chest": 1,
+     "forecast_mV:R-ECG": 1,
+     "forecast_mV:R-delayed": 1,
+     "forecast_mV:M-chest#20261127": 1,
+     "forecast_mV:M-chest#20261128": 1,
+     "forecast_mV:M-chest#20261129": 1,
+     "forecast_mV:M-chest": 1,
+     "forecast_mV:M-ECG#20261127": 1,
+     "forecast_mV:M-ECG#20261128": 1,
+     "forecast_mV:M-ECG#20261129": 1,
+     "forecast_mV:M-ECG": 1,
+     "forecast_mV:M-delayed#20261127": 1,
+     "forecast_mV:M-delayed#20261128": 1,
+     "forecast_mV:M-delayed#20261129": 1,
+     "forecast_mV:M-delayed": 1
+    }
+   },
+   "p008": {
+    "truncate": {
+     "feature:B2": 3,
+     "forecast_z:C5": 3,
+     "forecast_z:R-chest": 3,
+     "forecast_z:R-ECG": 3,
+     "forecast_z:R-delayed": 3,
+     "forecast_z:M-chest#20261127": 3,
+     "forecast_z:M-chest#20261128": 3,
+     "forecast_z:M-chest#20261129": 3,
+     "forecast_z:M-chest": 3,
+     "forecast_z:M-ECG#20261127": 3,
+     "forecast_z:M-ECG#20261128": 3,
+     "forecast_z:M-ECG#20261129": 3,
+     "forecast_z:M-ECG": 3,
+     "forecast_z:M-delayed#20261127": 3,
+     "forecast_z:M-delayed#20261128": 3,
+     "forecast_z:M-delayed#20261129": 3,
+     "forecast_z:M-delayed": 3,
+     "forecast_mV:C5": 3,
+     "forecast_mV:R-chest": 3,
+     "forecast_mV:R-ECG": 3,
+     "forecast_mV:R-delayed": 3,
+     "forecast_mV:M-chest#20261127": 3,
+     "forecast_mV:M-chest#20261128": 3,
+     "forecast_mV:M-chest#20261129": 3,
+     "forecast_mV:M-chest": 3,
+     "forecast_mV:M-ECG#20261127": 3,
+     "forecast_mV:M-ECG#20261128": 3,
+     "forecast_mV:M-ECG#20261129": 3,
+     "forecast_mV:M-ECG": 3,
+     "forecast_mV:M-delayed#20261127": 3,
+     "forecast_mV:M-delayed#20261128": 3,
+     "forecast_mV:M-delayed#20261129": 3,
+     "forecast_mV:M-delayed": 3
+    }
+   },
+   "p009": {
+    "truncate": {}
+   },
+   "p010": {
+    "truncate": {}
+   },
+   "p011": {
+    "truncate": {
+     "feature:B2": 1,
+     "forecast_z:C5": 1,
+     "forecast_z:R-chest": 1,
+     "forecast_z:R-ECG": 1,
+     "forecast_z:R-delayed": 1,
+     "forecast_z:M-chest#20261127": 1,
+     "forecast_z:M-chest#20261128": 1,
+     "forecast_z:M-chest#20261129": 1,
+     "forecast_z:M-chest": 1,
+     "forecast_z:M-ECG#20261127": 1,
+     "forecast_z:M-ECG#20261128": 1,
+     "forecast_z:M-ECG#20261129": 1,
+     "forecast_z:M-ECG": 1,
+     "forecast_z:M-delayed#20261127": 1,
+     "forecast_z:M-delayed#20261128": 1,
+     "forecast_z:M-delayed#20261129": 1,
+     "forecast_z:M-delayed": 1,
+     "forecast_mV:C5": 1,
+     "forecast_mV:R-chest": 1,
+     "forecast_mV:R-ECG": 1,
+     "forecast_mV:R-delayed": 1,
+     "forecast_mV:M-chest#20261127": 1,
+     "forecast_mV:M-chest#20261128": 1,
+     "forecast_mV:M-chest#20261129": 1,
+     "forecast_mV:M-chest": 1,
+     "forecast_mV:M-ECG#20261127": 1,
+     "forecast_mV:M-ECG#20261128": 1,
+     "forecast_mV:M-ECG#20261129": 1,
+     "forecast_mV:M-ECG": 1,
+     "forecast_mV:M-delayed#20261127": 1,
+     "forecast_mV:M-delayed#20261128": 1,
+     "forecast_mV:M-delayed#20261129": 1,
+     "forecast_mV:M-delayed": 1
+    }
+   },
+   "p012": {
+    "truncate": {
+     "feature:B2": 2,
+     "forecast_z:C5": 2,
+     "forecast_z:R-chest": 2,
+     "forecast_z:R-ECG": 2,
+     "forecast_z:R-delayed": 2,
+     "forecast_z:M-chest#20261127": 2,
+     "forecast_z:M-chest#20261128": 2,
+     "forecast_z:M-chest#20261129": 2,
+     "forecast_z:M-chest": 2,
+     "forecast_z:M-ECG#20261127": 2,
+     "forecast_z:M-ECG#20261128": 2,
+     "forecast_z:M-ECG#20261129": 2,
+     "forecast_z:M-ECG": 2,
+     "forecast_z:M-delayed#20261127": 2,
+     "forecast_z:M-delayed#20261128": 2,
+     "forecast_z:M-delayed#20261129": 2,
+     "forecast_z:M-delayed": 2,
+     "forecast_mV:C5": 2,
+     "forecast_mV:R-chest": 2,
+     "forecast_mV:R-ECG": 2,
+     "forecast_mV:R-delayed": 2,
+     "forecast_mV:M-chest#20261127": 2,
+     "forecast_mV:M-chest#20261128": 2,
+     "forecast_mV:M-chest#20261129": 2,
+     "forecast_mV:M-chest": 2,
+     "forecast_mV:M-ECG#20261127": 2,
+     "forecast_mV:M-ECG#20261128": 2,
+     "forecast_mV:M-ECG#20261129": 2,
+     "forecast_mV:M-ECG": 2,
+     "forecast_mV:M-delayed#20261127": 2,
+     "forecast_mV:M-delayed#20261128": 2,
+     "forecast_mV:M-delayed#20261129": 2,
+     "forecast_mV:M-delayed": 2
+    }
+   },
+   "p013": {
+    "truncate": {
+     "feature:B2": 2,
+     "forecast_z:C5": 2,
+     "forecast_z:R-chest": 2,
+     "forecast_z:R-ECG": 2,
+     "forecast_z:R-delayed": 2,
+     "forecast_z:M-chest#20261127": 2,
+     "forecast_z:M-chest#20261128": 2,
+     "forecast_z:M-chest#20261129": 2,
+     "forecast_z:M-chest": 2,
+     "forecast_z:M-ECG#20261127": 2,
+     "forecast_z:M-ECG#20261128": 2,
+     "forecast_z:M-ECG#20261129": 2,
+     "forecast_z:M-ECG": 2,
+     "forecast_z:M-delayed#20261127": 2,
+     "forecast_z:M-delayed#20261128": 2,
+     "forecast_z:M-delayed#20261129": 2,
+     "forecast_z:M-delayed": 2,
+     "forecast_mV:C5": 2,
+     "forecast_mV:R-chest": 2,
+     "forecast_mV:R-ECG": 2,
+     "forecast_mV:R-delayed": 2,
+     "forecast_mV:M-chest#20261127": 2,
+     "forecast_mV:M-chest#20261128": 2,
+     "forecast_mV:M-chest#20261129": 2,
+     "forecast_mV:M-chest": 2,
+     "forecast_mV:M-ECG#20261127": 2,
+     "forecast_mV:M-ECG#20261128": 2,
+     "forecast_mV:M-ECG#20261129": 2,
+     "forecast_mV:M-ECG": 2,
+     "forecast_mV:M-delayed#20261127": 2,
+     "forecast_mV:M-delayed#20261128": 2,
+     "forecast_mV:M-delayed#20261129": 2,
+     "forecast_mV:M-delayed": 2
+    }
+   }
+  },
+  "full_record_check": {
+   "check": "chest_v2 with k < n - 7 against k < n - 8 on the full fitting records",
+   "records": {
+    "p004": {
+     "beats_bound7": 314,
+     "beats_bound8": 314,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p005": {
+     "beats_bound7": 351,
+     "beats_bound8": 351,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p006": {
+     "beats_bound7": 217,
+     "beats_bound8": 217,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p007": {
+     "beats_bound7": 266,
+     "beats_bound8": 266,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p008": {
+     "beats_bound7": 466,
+     "beats_bound8": 466,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p009": {
+     "beats_bound7": 297,
+     "beats_bound8": 297,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p010": {
+     "beats_bound7": 299,
+     "beats_bound8": 299,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p011": {
+     "beats_bound7": 327,
+     "beats_bound8": 327,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p012": {
+     "beats_bound7": 391,
+     "beats_bound8": 391,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    },
+    "p013": {
+     "beats_bound7": 347,
+     "beats_bound8": 347,
+     "B2_identical_at_all_primary_cutoffs_K8_16_32": true,
+     "beats_identical_up_to_grid_72499": true
+    }
+   },
+   "all_identical": true
+  }
+ },
+ "qc_on_fitting_records": {
+  "report": "development/qc-fit-pool.json",
+  "passing": [
+   "p004",
+   "p005",
+   "p006",
+   "p007",
+   "p008",
+   "p009",
+   "p010",
+   "p011",
+   "p012",
+   "p013"
+  ],
+  "all_ten_pass": true,
+  "literal_header_comparison": {
+   "records": {
+    "p004": {
+     "raw_final_line": "#After music listening for subject 4 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p005": {
+     "raw_final_line": "#After music listening for subject 5 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p006": {
+     "raw_final_line": "#After music listening for subject 6 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p007": {
+     "raw_final_line": "#After music listening for subject 7 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p008": {
+     "raw_final_line": "#After music listening for subject 8 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p009": {
+     "raw_final_line": "#After music listening for subject 9 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p010": {
+     "raw_final_line": "#After music listening for subject 10 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p011": {
+     "raw_final_line": "#After music listening for subject 11 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p012": {
+     "raw_final_line": "#After music listening for subject 12 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    },
+    "p013": {
+     "raw_final_line": "#After music listening for subject 13 ",
+     "literal_equal": false,
+     "trimmed_equal": true
+    }
+   },
+   "literal_passes": 0,
+   "trimmed_passes": 10
+  }
+ },
+ "scoring_code_check_on_fitting_people": {
+  "what": "qc.py, forecast.py, lock.py and score.py run end to end on the ten fitting people with the final (in-sample) models, standing in for the primary group (score.py --code-check-on-fit-pool). The output is a code check, kept private, and never a result.",
+  "records": 10,
+  "valid_rows_per_record": [
+   50000
+  ],
+  "v1f_reproduces_v1_published_held_out_rmse": {
+   "records": [
+    "p009",
+    "p010",
+    "p011",
+    "p012",
+    "p013"
+   ],
+   "interval": "90 <= t < 120 s",
+   "arms": "base, aligned, delayed (V1F) and persistence (C1)",
+   "max_abs_difference_mV": 8.881784197001252e-16
+  },
+  "failure_paths": "A malformed header, a short .dat and a flat calibration interval, on modified copies of a fitting record, were reported by qc.py without error and skipped by forecast.py (the copies are not the pinned bytes)."
+ },
+ "reproduction": {
+  "procedure": "A second, independent run of the feature grid, the ridge LOPO, the 90 MLP LOPO fits, the development table and every final fit, from the pinned fitting records into separate scratch folders, with the frozen code and the same thread settings.",
+  "files_byte_identical": {
+   "development/lopo-r-ecg-grid.json": true,
+   "development/lopo-c4.json": true,
+   "development/selection-ridge.json": true,
+   "development/selection.json": true,
+   "development/development-table.json": true,
+   "weights/C4.json": true,
+   "weights/M-ECG-20261127.json": true,
+   "weights/M-ECG-20261128.json": true,
+   "weights/M-ECG-20261129.json": true,
+   "weights/M-chest-20261127.json": true,
+   "weights/M-chest-20261128.json": true,
+   "weights/M-chest-20261129.json": true,
+   "weights/M-delayed-20261127.json": true,
+   "weights/M-delayed-20261128.json": true,
+   "weights/M-delayed-20261129.json": true,
+   "weights/R-ECG.json": true,
+   "weights/R-chest.json": true,
+   "weights/R-delayed.json": true,
+   "weights/V1R-aligned.json": true,
+   "weights/V1R-base.json": true,
+   "weights/V1R-delayed.json": true
+  },
+  "all_files_byte_identical": true,
+  "mlp_lopo_held_out_predictions_identical": true,
+  "export_differences_identical": true
+ },
+ "environment": {
+  "python": "3.14.8",
+  "numpy": "2.5.3",
+  "torch": "2.14.0+rocm10.1.0",
+  "numpy_blas": {
+   "name": "scipy-openblas",
+   "version": "0.3.34.106.0",
+   "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64"
+  },
+  "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+  "logical_cpus": 32,
+  "os": "Linux, an arch-based distribution",
+  "kernel": "7.2.8-9",
+  "machine": "x86_64",
+  "threads": {
+   "cpus_used": "24-31 (taskset), within the protocol's 16-31; at most 8 threads at once",
+   "numpy_steps": "OMP_NUM_THREADS=1, OPENBLAS_NUM_THREADS=1, MKL_NUM_THREADS=1; the feature grid and the causality test used 8 single-threaded worker processes",
+   "mlp": "torch.set_num_threads(4), torch.set_num_interop_threads(1), torch.use_deterministic_algorithms(True), float32 on the CPU; two 4-thread jobs at once on CPUs 24-27 and 28-31",
+   "gpu": "none (CUDA_VISIBLE_DEVICES and HIP_VISIBLE_DEVICES empty)"
+  }
+ },
+ "disk_search": {
+  "roots": [
+   "home tree",
+   "scratch tree (/tmp)"
+  ],
+  "tool": "find (GNU findutils) 4.11.0-modified",
+  "name_pattern": "^(?:[abmp]0(?:1[4-9]|20)\\.(?:dat|hea|atr)|p001\\.dat)$",
+  "size_bytes": 12000000,
+  "name_matches": [],
+  "size_matches": [
+   {
+    "root": "home tree",
+    "name": "b002.dat",
+    "sha256": "99ff01cddebe5b4ecb525ccf313f434d962edd8a2867e44891e0377a95dff05a",
+    "manifest_entries": [
+     "p002.dat (secondary_new_people)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "b003.dat",
+    "sha256": "c84387aa069de0d6bdc38d85f5c8149982fc807bf0de661c8a5982f073509bc0",
+    "manifest_entries": [
+     "p003.dat (secondary_new_people)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p004.dat",
+    "sha256": "f9283ba41232a316d7306b8311d06d4684f08ee0fec45a1ed6c5109d1e759a45",
+    "manifest_entries": [
+     "p004.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p004.dat",
+    "sha256": "f9283ba41232a316d7306b8311d06d4684f08ee0fec45a1ed6c5109d1e759a45",
+    "manifest_entries": [
+     "p004.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p005.dat",
+    "sha256": "559665bc5207d09786178a709da48a98f91eb7bac5539537d83436f05e568987",
+    "manifest_entries": [
+     "p005.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p005.dat",
+    "sha256": "559665bc5207d09786178a709da48a98f91eb7bac5539537d83436f05e568987",
+    "manifest_entries": [
+     "p005.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p006.dat",
+    "sha256": "a8ec1b2efadd74d189610e95812a227f32d1a1ab821720b6eace236401cc24c1",
+    "manifest_entries": [
+     "p006.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p006.dat",
+    "sha256": "a8ec1b2efadd74d189610e95812a227f32d1a1ab821720b6eace236401cc24c1",
+    "manifest_entries": [
+     "p006.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p007.dat",
+    "sha256": "3e0ccc9e8960427710b47cfbd2531a20fdb73c247bc9f21795e31fecf7069c8d",
+    "manifest_entries": [
+     "p007.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p007.dat",
+    "sha256": "3e0ccc9e8960427710b47cfbd2531a20fdb73c247bc9f21795e31fecf7069c8d",
+    "manifest_entries": [
+     "p007.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p008.dat",
+    "sha256": "e5d75771d3d757ddaaa96177e2265370de46dc29a7d4d42aaf6171c8a4360a64",
+    "manifest_entries": [
+     "p008.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p008.dat",
+    "sha256": "e5d75771d3d757ddaaa96177e2265370de46dc29a7d4d42aaf6171c8a4360a64",
+    "manifest_entries": [
+     "p008.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p009.dat",
+    "sha256": "db15f9f32e95609e954044db41a620473dc048860d888de8580f6264db77ce22",
+    "manifest_entries": [
+     "p009.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p009.dat",
+    "sha256": "db15f9f32e95609e954044db41a620473dc048860d888de8580f6264db77ce22",
+    "manifest_entries": [
+     "p009.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p010.dat",
+    "sha256": "61e2ee05374f0c0d0cbc51b3201ea63038d3ed6fb3e0e58b22600fdb8c89440c",
+    "manifest_entries": [
+     "p010.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p010.dat",
+    "sha256": "61e2ee05374f0c0d0cbc51b3201ea63038d3ed6fb3e0e58b22600fdb8c89440c",
+    "manifest_entries": [
+     "p010.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p011.dat",
+    "sha256": "93bdffc6954d6826781c9b939355c3b426ae4b72d9305a818b537cf5a9205ab0",
+    "manifest_entries": [
+     "p011.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p011.dat",
+    "sha256": "93bdffc6954d6826781c9b939355c3b426ae4b72d9305a818b537cf5a9205ab0",
+    "manifest_entries": [
+     "p011.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p012.dat",
+    "sha256": "2fce348588f72290b59dad541c996e5e96eec044cf4caa91872e60de76bcd5a2",
+    "manifest_entries": [
+     "p012.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p012.dat",
+    "sha256": "2fce348588f72290b59dad541c996e5e96eec044cf4caa91872e60de76bcd5a2",
+    "manifest_entries": [
+     "p012.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p013.dat",
+    "sha256": "5450b077388f52f5ca96c6d36fa0ecc37cd66ced97b393e58bab7f3277a212fc",
+    "manifest_entries": [
+     "p013.dat (fit_pool)"
+    ]
+   },
+   {
+    "root": "home tree",
+    "name": "p013.dat",
+    "sha256": "5450b077388f52f5ca96c6d36fa0ecc37cd66ced97b393e58bab7f3277a212fc",
+    "manifest_entries": [
+     "p013.dat (fit_pool)"
+    ]
+   }
+  ],
+  "unreadable_directories": [
+   {
+    "root": "scratch tree (/tmp)",
+    "name": "systemd-private-fa56064911df4e2f8fe26c6df3a6eaec-upower.service-73rxdS"
+   },
+   {
+    "root": "scratch tree (/tmp)",
+    "name": "systemd-private-fa56064911df4e2f8fe26c6df3a6eaec-power-profiles-daemon.service-0iSjNd"
+   },
+   {
+    "root": "scratch tree (/tmp)",
+    "name": "systemd-private-fa56064911df4e2f8fe26c6df3a6eaec-polkit.service-N8lXrZ"
+   },
+   {
+    "root": "scratch tree (/tmp)",
+    "name": "systemd-private-fa56064911df4e2f8fe26c6df3a6eaec-systemd-logind.service-qk20Mm"
+   },
+   {
+    "root": "scratch tree (/tmp)",
+    "name": "systemd-private-fa56064911df4e2f8fe26c6df3a6eaec-bolt.service-INA85E"
+   },
+   {
+    "root": "scratch tree (/tmp)",
+    "name": "systemd-private-fa56064911df4e2f8fe26c6df3a6eaec-bluetooth.service-wqnqod"
+   },
+   {
+    "root": "scratch tree (/tmp)",
+    "name": "systemd-private-fa56064911df4e2f8fe26c6df3a6eaec-NetworkManager.service-WicOrV"
+   }
+  ],
+  "primary_test_waveform_found": false,
+  "p001_waveform_found": false,
+  "no_primary_test_file_and_no_p001": true
+ },
+ "deviations": [
+  {
+   "id": 1,
+   "what": "The chest-only detector (chest_v2) scans while k < n - 7. PROTOCOL.json detectors.chest_v2.scan[0] writes 'Continue while k < n - 8'.",
+   "why": "The admission review found that with k < n - 8 a chest beat triggered at k = t - 7, available at t, is missed in a record truncated after native sample 20t (n = t + 1), while the full record includes it at cutoff t, so the truncation part of the causality test would report changes that are not leaks. k < n - 7 is the bound R_v2 already uses; it keeps every availability time k + 7 inside the record.",
+   "effect": "The two bounds differ only for a trigger at k = n - 8. In a full p-series record (n = 75,000) that is grid 74,992, after every primary cutoff and every availability time a primary cutoff can use. On all ten fitting records both bounds give the same beats up to grid 72,499 and identical B2 at all 50,000 primary cutoffs for K = 8, 16 and 32, so no development value, selection or weight depends on the choice. Every fit and forecast used the fixed bound.",
+   "evidence": "causality_literal_chest_bound (the same truncation test with the bound as written in PROTOCOL.json) and causality_fit_pool (the fixed code, zero changes).",
+   "when": "Fixed in code before any fit used for the freeze, on fitting people only, as the review asked; PROTOCOL.json is unchanged."
+  },
+  {
+   "id": 2,
+   "what": "QC2 compares header lines after removing surrounding whitespace.",
+   "why": "Every line of the CEBSDB 1.0.0 headers ends with a space (the final line of p004.hea is '#After music listening for subject 4 '). A literal comparison would exclude every record, giving n = 0 and no verdict. The admission review asked for a trimmed comparison and for the QC code to be run on the fitting records before the freeze.",
+   "effect": "QC1-QC5, run once on p004-p013 with the frozen code, pass all ten records (qc_on_fitting_records). The literal final-comment comparison fails all ten fitting headers and the trimmed comparison passes all ten (qc_on_fitting_records.literal_header_comparison)."
+  }
+ ],
+ "implementation_notes": [
+  "Template module, P search skipped: when an ECG-template value the P template needs is undefined, the cutoff has no candidate, so pcorr = -1 and has_p = 0 (the protocol's 'pcorr = -1 with no candidate').",
+  "Template module, ECG template: E(o) is computed at offsets -100..-8, the only offsets the P template can use (baseline -100..-81, P peak -75..-20, P window dP - 12..dP + 12). For these offsets R_i + o <= R_{j-1} - 8 < R_j <= A_j <= t, so the protocol's 'R_i + o <= t' condition always holds; the code applies it with t = A_j.",
+  "Template module, first candidate: floor(R_j + max(0.7 rr, rr - 50)) is computed literally in float64. next_rr uses m = phi - rr rounded half to even (numpy.rint).",
+  "Template module, has_p with phi_next outside -60..360: next_p = 0 and pred = next_p, as PROTOCOL.json writes.",
+  "C3 detector: the 2 s reference maximum and median ignore missing readings (nanmax and nanmedian), as in the second draft design that built this control. The fitting records have no missing readings, so this choice did not affect any development value. C3 and C3d reproduce that design's per-person values (for example p004 0.7211 and 1.0054 cal SD).",
+  "Detector slope energies and every template mean are sums added in a fixed order with elementwise operations, and the NumPy forward passes of ridge and MLP add their terms in a fixed order, so the value at a cutoff does not depend on the record length, on where the computation starts or on which other cutoffs are evaluated with it. The causality test compares single-cutoff runs on perturbed records with the full-record scoring run, so it checks this property as well.",
+  "Signal path: every filtered reading equals version 1's at the same endpoint, bit for bit (checked on p004, p009 and p013 against version 1's own filter function). V1F on p009-p013 at 90-120 s reproduces version 1's published held-out RMSE for base, aligned and delayed and persistence to the sixth decimal.",
+  "MLP loss: plain mean squared error when every fitting person has the same number of valid rows (all ten have 50,000); otherwise each row is weighted N / (P n_p) in the batch mean, proportional to the protocol's 1 / (P n_p).",
+  "MLP schedule: OneCycleLR with PyTorch defaults, which include cycle_momentum = True (Adam beta1 cycles between 0.85 and 0.95).",
+  "MLP export: weight files are JSON; float32 weights are written as the exact float64 value of each float32 number, so reading them back reproduces the arrays bit for bit. Ridge files hold the coefficients in z units of the inputs, as version 1's weights.json does.",
+  "Compute: the task restricted this work to at most 8 threads on CPUs 24-31, inside the protocol's 16-31. NumPy steps ran single-threaded; MLP jobs ran with 4 intra-op threads and 1 inter-op thread, two at once.",
+  "The chosen K = 32 needs K + 5 = 37 available beats before the template outputs are defined. On the fitting people they were defined at every primary cutoff. A person whose heart rate stays below about 28 beats per minute from 10 s to 90 s would reach 90 s with undefined template values; the outputs then take the fill values, as the protocol fixes."
+ ],
+ "review_minors": {
+  "fixed_here": [
+   "Chest detector loop bound against the truncation test: deviation 1.",
+   "QC2 literal header comparison: deviation 2, and the QC code was run once on the fitting records."
+  ],
+  "left_for_the_result_stage": [
+   "P1's condition against C0 is mean > 0 with at least k(n) wins and no bootstrap bound; reports must use the PROTOCOL.json wording (score.py implements exactly that).",
+   "The Technical edition should state precisely that the version 1 maintainer's source check decoded b001-b003 in full to compute checksums and 60-72 s channel statistics, as integrity checks.",
+   "Whether the writing policy's Simple edition, rewrite and reader apply to the protocol commit is the lead's decision.",
+   "The twins inherit the K and penalty chosen for R-ECG and V1R keeps penalty 0.02: state this in the results."
+  ]
+ },
+ "development_findings": [
+  "Chosen by the predeclared rules: K = 32, theta = 0.9, ridge penalty 0.001 (the default K 16, theta 0.8, penalty 0.02 was 2.18% above the lowest mean, outside the 1% rule), C4 penalty 0.02 (default kept, within 1% of the lowest, which was penalty 1), family ridge (M-ECG 1.4051 mV against R-ECG 1.3886 mV; MLP needed < 1.3747 mV). v2 is therefore R-ECG, with R-chest and R-delayed as its twins.",
+  "Development table (optimistic, fitting people only): v2 R-ECG 1.389 mV against T-ECG 1.389 mV, so learned stacking added almost nothing over the template forecast; V1R base 2.824 mV, C0 2.849 mV, C3 2.265 mV, R-chest 2.520 mV, R-delayed 2.519 mV."
+ ],
+ "timings_seconds": {
+  "note": "Wall-clock times of the official run (CPUs 24-31). The protocol's ETAs for S2d and S2e (25 and 45 minutes) came from the exploration code; one MLP fit took 2-3 s here.",
+  "feature_grid_9_settings_x_10_people": 3,
+  "ridge_lopo_27_configurations_and_c4": 13,
+  "mlp_lopo_90_fits": 109,
+  "development_table": 9,
+  "final_fits_7_ridge_and_9_mlp": 55,
+  "qc_on_fitting_records": 1,
+  "scoring_code_check": 29,
+  "causality_test_4000_perturbed_runs": 370,
+  "causality_literal_bound_and_chest_check": 158,
+  "independent_reproduction_run": 191
+ },
+ "steps_done_before_the_freeze": [
+  "S2a implementation of the pipeline, detectors, template module, feature blocks, fits, causality test, QC and scoring code, on fitting people only.",
+  "S2b feature grid: 9 (K, theta) settings x 10 people, aligned and delayed.",
+  "S2c ridge LOPO: 27 R-ECG configurations, C4 (4 penalties), V1R base, aligned and delayed, R-chest and R-delayed.",
+  "S2d M-ECG LOPO, 3 seeds x 10 folds; family choice.",
+  "S2e M-chest and M-delayed LOPO, 3 seeds x 10 folds each; development table.",
+  "S2f final fits of every learned arm on all ten fitting people; NumPy export check of all 9 MLP models.",
+  "S2g causality test on the ten fitting people, 200 cutoffs each, replacement and truncation, every feature and every arm.",
+  "S2h this file, with the on-disk search; QC code run once on the fitting records; scoring code run end to end on the fitting people as a code check; independent reproduction run."
+ ],
+ "not_done_here": "No download. In this stage no primary-test file, no p001 file and no .atr file was fetched or opened; no header of subjects 1-3, 14-20 or b001 was opened; no waveform value of subjects 1-3 or b001 was decoded or analysed. The on-disk search computed the SHA-256 of every 12,000,000-byte file, as section 15 requires; besides the fitting records this includes b002.dat and b003.dat (the p002 and p003 bytes), hashed only. The download (S3) waits for the lead to push the protocol commit and the freeze commit and to record both ids.",
+ "code_identity": {
+  "statement": "Every code file is byte-identical to the version that ran the official sequence (feature grid, LOPO, development table, final fits, QC on the fitting records, the scoring code check, both causality runs and the reproduction run); their SHA-256 values were recorded before that run.",
+  "changed_after_the_official_run": []
+ }
+}
