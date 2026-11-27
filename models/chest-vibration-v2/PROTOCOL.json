@@ -1,0 +1,535 @@
+{
+  "schema": "interoceptomics-protocol/1",
+  "name": "Chest-vibration forecast, version 2: a heartbeat-timed forecast of the chest-vibration sensor voltage 80 ms ahead, fitted on ten people and tested once on seven people no model has seen",
+  "folder": "models/chest-vibration-v2",
+  "protocol_version": 1,
+  "model_version": 2,
+  "date": "2026-11-27",
+  "status": "Fixed before any evaluation byte is opened. Binding once a separate reviewer admits it and the commit that adds it is visible on GitHub. No primary-test file, no p001 waveform and no secondary or basal waveform value has been read.",
+  "governing_document": "This file governs where PROTOCOL.md differs. Any change needs a new protocol version, a separate reviewer's admission and a commit visible on GitHub before any evaluation byte is opened. Every version stays in the repository.",
+  "editions": {
+    "technical": "PROTOCOL.md",
+    "simple": "Written with the results, from the statements fixed in prewritten_simple_statements."
+  },
+  "companion_files": {
+    "PROTOCOL.md": {"sha256": "daaaa9230d6677580a46dc088b37f75bd9de8ce615e5eadb4245beadd83e8f15", "role": "Technical edition of this protocol."},
+    "allocate.py": {"sha256": "e354d5a03db8303771d29acfa6b81fbdc20c38b028129a7920435b8436f35223", "role": "Recomputes ALLOCATION.json from the release manifest alone. Standard-library Python 3.10 or later."},
+    "ALLOCATION.json": {"sha256": "2654580cd2d9306a4bcb2d9b6571ee33de7ad5907fd6be35128e729d2469d568", "groups_sha256": "bc7c7a9dfadd779c80d3e5e2bed210bc6f93cbfad03c45a0518ff791151dfbf3", "role": "Output of allocate.py run on the pinned manifest."},
+    ".gitattributes": {"sha256": "7ecc96e513528a2cbcd62734db4c0651e76e7b9101d54d6da9e73422c696fc63", "role": "Keeps the bytes of every file in this folder identical on every operating system."}
+  },
+  "predecessor": {
+    "folder": "models/chest-vibration",
+    "protocol_sha256": "6e3be3dd3a3fb19a643865df1953616d88cd927fe192904de1ed2e1a095bf5f5",
+    "commits": ["e3e24734 (fit and test)", "d5e3717 (offline recording check)"],
+    "repository_main_at_writing": "bbc8154",
+    "design": "Ridge, penalty 0.02, on the last 204 ms (51 lags at 250 Hz) of standardised chest-vibration (SCG) and breathing-band (RESP) readings, with or without ECG lead II levels and absolute changes; fitted on p004-p008, tested on p009-p013 at 90 <= t < 120 s.",
+    "results_mean_person_rmse_mV": {"base": 2.838, "aligned_ecg": 3.016, "delayed_ecg": 2.839, "persistence": 4.220},
+    "timing_criterion": "Not met: adding ECG changed error by -8.76% on average, 2 of 5 people better.",
+    "open_question_named_in_its_README": "whether a different model, more people or a different interval would predict better",
+    "weights_json_sha256": "55a78c3d9585b279b4d9be6a6c33ee60d08760f039b265badcc25d54e3366d8a",
+    "predict_py_sha256": "283c6b630f15ff816fd20111dc7cd94cbe76bd4135ebe0d485df4c7b703a9afd",
+    "reproduce_py_sha256": "c6c8ff7ca9276962d7771bf2c812d3747262d1575759a98fc4eef41de174b499",
+    "v1_files_change": "None. Every file in models/chest-vibration stays byte for byte as published."
+  },
+  "question": {
+    "summary": "On seven people never opened (CEBSDB p014-p020, post-music supine rest), does a causal model that times each heartbeat from ECG lead II (the P and R waves) and replays that person's own recent chest-vibration beat shape forecast the filtered chest-vibration sensor voltage 80 ms ahead with lower error than the version 1 models re-fitted on the same ten people, than the same model without ECG, than the same model given ECG from 5.012 s earlier, and than each person's own heartbeat template timed from the R wave alone?",
+    "P1": "v2 forecasts with lower error than version 1 re-fitted on the same ten fitting people (V1R base), by at least 10% on average, and also beats each person's calibration mean (C0).",
+    "P2": "ECG timing adds information: v2 beats its own chest-only twin and its own ECG-delayed twin.",
+    "P3": "v2 beats the R-only rolling personal heartbeat template (C3), which has no fitted weights."
+  },
+  "claim_limits": [
+    "Healthy volunteers lying supine and still, recorded about five minutes after roughly 50 minutes of music, in one laboratory with one acquisition system. A positive result covers that condition only.",
+    "SCG and RESP are sensor output voltages in mV. They are not calibrated acceleration, chest displacement or lung volume.",
+    "ECG lead II is the electrical potential between skin electrodes. It is used here only as heartbeat timing and shape.",
+    "Nothing in these recordings measures signals in sensory nerves (afferent signalling) or anything a person felt. No sensation, interoception, clinical, diagnostic or causal physiological claim follows from any result.",
+    "Seven primary test people. Forecast cutoffs within a person overlap and are serially dependent; they describe that person's error and are never counted as independent replicates.",
+    "The forecast needs about 20 s of the same person's own recent chest and ECG readings plus a 20 s calibration interval. It does not forecast a person cold.",
+    "Results are stated as 'supported' or 'not supported' by the predeclared rule. Never 'validated' or 'proves'."
+  ],
+  "terms": {
+    "grid index k": "Endpoint index on the 250 Hz grid: k corresponds to native sample 20k and time k/250 s.",
+    "cutoff t": "The grid index at which a forecast is issued. Only readings at grid indices <= t may enter any input, detector state, template or calibration used for that forecast.",
+    "z units": "A reading minus that person's calibration mean, divided by that person's calibration SD (60 <= t < 80 s).",
+    "cal SD": "The person's SCG calibration standard deviation, in mV. RMSE / cal SD is the error in z units.",
+    "LOPO": "Leave one person out: fit on nine fitting people, score the tenth, for each of the ten in turn.",
+    "relative reduction": "100 x (RMSE of the comparator - RMSE of the model) / RMSE of the comparator, per person, in percent. Positive means the model's error is lower.",
+    "win": "A person whose relative reduction is strictly positive."
+  },
+  "state_at_writing": {
+    "fitting_people_read": "p004-p013 waveforms were read in full (all 300 s) for exploration and the two draft designs. Their v1 results and their 90-120 s behaviour are known. They are fitting people only and no result on them is ever reported as a new-person result.",
+    "primary_test_people": "No file of subjects 14-20 exists on this machine. A search on 27 November 2026 by exact file name ([abmp]014-020 .dat/.hea/.atr) and by the 12,000,000-byte record size found none apart from the fitting records and the two b002/b003 byte copies of p002/p003.",
+    "secondary_and_basal": "p001.dat is not on disk. The b001, b002 and b003 waveform files and the p001, p002 and p003 headers are on disk in a read-only copy kept by the v1 maintainer. b002.dat and b003.dat are byte-identical to the release's p002.dat and p003.dat. The public sensor viewer shows 60-72 s of b001, b002 and b003, a window the v1 maintainer chose before opening any waveform; these seconds lie inside the calibration interval. No model has been fitted or scored on subjects 1-3. Apart from those viewer excerpts, no waveform value of subjects 1-3 has been read for any analysis; the designers of this study hashed the files and read the headers only.",
+    "header_and_hash_checks_done": "The SHA-256 of p004-p013 .dat and .hea, b001-b003 .dat and .hea and p001-p003 .hea equal the release manifest. The p002 and p003 headers give different gains from the b002 and b003 headers, so the b headers would give wrong voltages for these bytes.",
+    "annotation_files": "No .atr file has been read for this study."
+  },
+  "prior_facts": {
+    "label": "Development facts from the ten fitting people, measured with exploration code before this protocol. They are not evidence about new people. The R and P detector constants were set by inspection of p004, p007 and p008, so these numbers are optimistic. All development tables are recomputed under this protocol's exact rules before the freeze.",
+    "signal": [
+      "At 80 ms ahead the filtered SCG has little linear memory: autocorrelation -0.33 to +0.06 at 80 ms lag, and 0.05 to 0.30 at the best lag near one heartbeat, because beat-to-beat timing varies.",
+      "A causal R detector on ECG II found plausible beats in all ten people (54-97 beats per minute; RR 0.53-1.20 s). An R-aligned SCG beat template explained 75-88% of SCG variance in-sample. The largest SCG deflection came 28-84 ms after R.",
+      "The lead II P wave peaked 128-164 ms before R in all ten people; P-to-R timing jitter was 2-7 ms SD, against 27-87 ms SD for predicting the next R from the last four RR intervals."
+    ],
+    "lopo_mean_person_rmse_window_90_295_s": {
+      "units": "SCG mV (cal SD in brackets); 51,250 cutoffs per person; leave one person out over p004-p013",
+      "persistence": "4.259 (1.492)",
+      "climatology (each person's calibration mean)": "2.852 (0.997)",
+      "v1 base re-fitted": "2.826 (0.988)",
+      "v1 aligned ECG re-fitted": "2.961 (1.040)",
+      "v1 delayed ECG re-fitted": "2.827 (0.988)",
+      "one-cycle ridge on 1.2 s of SCG and RESP, penalty 1": "2.835 (0.989)",
+      "chest-only beat template": "2.541",
+      "R-timed continuation without the P wave": "2.320",
+      "T-ECG template forecast alone (K 16, theta 0.8)": "1.423 (0.482)",
+      "T-delayed": "2.934 (1.026)",
+      "ridge on v1 base lags plus four template features, penalty 0.02": "1.426 (0.484)",
+      "ridge on the 122-column chest + ECG block, penalty 1": "1.626",
+      "MLP on the same 122-column block, one seed": "1.452 (lower than that ridge in 10 of 10 people)",
+      "ridge chest-only block / delayed-ECG block, penalty 1": "2.575 / 2.575"
+    },
+    "lopo_window_90_290_s": {
+      "units": "RMSE in cal SD; 50,000 cutoffs per person",
+      "v1 base re-fitted": "0.9864, +0.91% against climatology, 7 of 10 better",
+      "v1 aligned re-fitted": "1.0387, -4.37% against climatology, 2 of 10 better",
+      "v1 delayed re-fitted": "0.9867",
+      "persistence": "1.4896",
+      "climatology": "0.9956",
+      "C3 R-only rolling personal template": "0.790, +20.73% against climatology (SD 9.36), 10 of 10 better",
+      "C3 with ECG delayed 5.012 s": "-0.62% against climatology, 0 of 10 better",
+      "linear trend": "4.01"
+    },
+    "v1_frozen_weights_on_its_own_test_people": "Descriptive and after the fact: on p009-p013 at 90-120 s the published v1 base model was +0.002% better than climatology on average (2 of 5 people better) and v1 aligned was 8.93% worse. This goes in the v2 Technical edition only, labelled descriptive. v1 files stay unchanged.",
+    "training_qc_maxima_55_to_291_s": {"longest_identical_run_samples": {"II": 100, "SCG": 58, "RESP": 1749}, "largest_clipped_fraction": "0.0127% (RESP, p011)", "missing_samples": 0},
+    "timings": "Features 4-7 s per person per pass on one core; ridge LOPO 5-10 s; one 10-fold MLP set 970-1,175 s at 4 threads."
+  },
+  "data_sources": [
+    {
+      "name": "Combined measurement of ECG, Breathing and Seismocardiograms (CEBS) database, version 1.0.0",
+      "doi": "10.13026/C2KW23",
+      "landing_page": "https://physionet.org/content/cebsdb/1.0.0/",
+      "files_url": "https://physionet.org/files/cebsdb/1.0.0/",
+      "licence": "Open Data Commons Attribution License v1.0 (ODC-By 1.0)",
+      "licence_url": "https://physionet.org/content/cebsdb/view-license/1.0.0/",
+      "contributors": "Miguel Angel Garcia Gonzalez and Ariadna Argelagos Palou, Electronic and Biomedical Instrumentation group, Universitat Politecnica de Catalunya",
+      "citations": [
+        "Garcia-Gonzalez MA, Argelagos-Palau A, Fernandez-Chimeno M, Ramos-Castro J. A comparison of heartbeat detectors for the seismocardiogram. Computing in Cardiology 40, 461-464 (2013).",
+        "Pollard T and colleagues. PhysioNet as a global platform for biomedical research. Nature Health (2026). doi:10.1038/s44360-026-00096-z"
+      ],
+      "release_manifest": {"url": "https://physionet.org/files/cebsdb/1.0.0/SHA256SUMS.txt", "sha256": "75db8c9b809ef307aabeff2c0d1b780e1bb80d4df1044272ba0f980ed06f205e", "bytes": 13697, "entries": 185},
+      "acquisition": "Biopac MP36; channel 1 ECG lead I, channel 2 ECG lead II (0.05-150 Hz), channel 3 thoracic piezoresistive breathing band (0.05-10 Hz), channel 4 one axis of a triaxial accelerometer (LIS344ALH, 0.5-100 Hz); each sampled at 5 kHz; WFDB format 16, little-endian, channels interleaved I, II, RESP, SCG.",
+      "protocol_of_the_source": "20 presumed healthy volunteers, supine, still and awake: 5 min basal (b001-b020), about 50 min of classical music (m001-m020), then 5 min after the music (p001-p020).",
+      "release_aliasing": "In release 1.0.0, b002.dat-b020.dat are byte-identical to p002.dat-p020.dat (the only .dat alias groups in the manifest). b001.dat is the only distinct basal waveform (1,360,050 frames, header comment 'Baseline for subject 1'). The b-series therefore adds no basal recordings for subjects 2-20.",
+      "checksums_known_so_far": "Every file this study uses is pinned by SHA-256 from the manifest in allocation.groups and in ALLOCATION.json."
+    }
+  ],
+  "allocation": {
+    "rule": "No random draw. Each subject number is one person; one recording per person. Fit pool: the post-music p-series record of every subject numbered 4-13. Primary test: the post-music p-series record of every subject numbered 14-20. Secondary new-person group, reported separately: the post-music p-series record of subjects 1-3. Basal check, one person, descriptive: b001 only.",
+    "hash_rule": "Group membership is a fixed function of subject number applied to the release manifest whose SHA-256 is pinned (75db8c9b...). Each assigned file's SHA-256 is copied from that manifest, so the exact bytes are fixed before any download. allocate.py recomputes the groups, the pins, the alias groups and the checks from the manifest alone and writes ALLOCATION.json deterministically. groups_sha256 is the SHA-256 of the 'groups' object serialised with sorted keys and compact separators.",
+    "script": "allocate.py",
+    "output": "ALLOCATION.json",
+    "groups_sha256": "bc7c7a9dfadd779c80d3e5e2bed210bc6f93cbfad03c45a0518ff791151dfbf3",
+    "groups": {
+      "fit_pool": {
+        "records": ["p004", "p005", "p006", "p007", "p008", "p009", "p010", "p011", "p012", "p013"],
+        "note": "p004-p008 fitted v1; p009-p013 were v1's test people and their v1 scores are known. All ten are fitting people now. Each person weighs 1/10 in every fit and every development summary.",
+        "files_sha256": {
+          "p004.dat": "f9283ba41232a316d7306b8311d06d4684f08ee0fec45a1ed6c5109d1e759a45",
+          "p004.hea": "f4a56f553a37a83ed8450dcafda7c5ebfc6a967b4f0ade66d33d7bba24fc48da",
+          "p005.dat": "559665bc5207d09786178a709da48a98f91eb7bac5539537d83436f05e568987",
+          "p005.hea": "773803d8c77aaf937f3351e213f79a775260cf0e408077ec8dee395b0acf9b6d",
+          "p006.dat": "a8ec1b2efadd74d189610e95812a227f32d1a1ab821720b6eace236401cc24c1",
+          "p006.hea": "ed84e14151a962bf3ca97e8fe513ffb7b993289f85c4dcd4ca2bd67b68b05faa",
+          "p007.dat": "3e0ccc9e8960427710b47cfbd2531a20fdb73c247bc9f21795e31fecf7069c8d",
+          "p007.hea": "5a63942dd2431037251adb1fafe037184841c473d8836a38763b1c235571f468",
+          "p008.dat": "e5d75771d3d757ddaaa96177e2265370de46dc29a7d4d42aaf6171c8a4360a64",
+          "p008.hea": "b6c093ca39df8daef935c7646b810225912d3fd2e74f41e94a8273d8b57d5145",
+          "p009.dat": "db15f9f32e95609e954044db41a620473dc048860d888de8580f6264db77ce22",
+          "p009.hea": "2146556998ce6d14f0729a019ac3738ccd1cd641b534e7ccc3704af89280770f",
+          "p010.dat": "61e2ee05374f0c0d0cbc51b3201ea63038d3ed6fb3e0e58b22600fdb8c89440c",
+          "p010.hea": "66fcff889955be380cecc602678f1796736498dc9b0c32376bf71afaf408ee43",
+          "p011.dat": "93bdffc6954d6826781c9b939355c3b426ae4b72d9305a818b537cf5a9205ab0",
+          "p011.hea": "ab71922ff0a36262e83cad96e3532d7a4585e7700933b5ca17d4e991c24952ad",
+          "p012.dat": "2fce348588f72290b59dad541c996e5e96eec044cf4caa91872e60de76bcd5a2",
+          "p012.hea": "d58968e0951bf8b3c26c3c93e33a7891eaad8d96f1e4db7307f65c8d807825f8",
+          "p013.dat": "5450b077388f52f5ca96c6d36fa0ecc37cd66ced97b393e58bab7f3277a212fc",
+          "p013.hea": "293d636865682feb101d4df87cbc661bca430f7203b5b7656c7acfb6f4a2bfa4"
+        }
+      },
+      "primary_test": {
+        "records": ["p014", "p015", "p016", "p017", "p018", "p019", "p020"],
+        "note": "Never on disk before the download step. Downloaded only after the protocol commit and the freeze commit are both visible on GitHub. Scored once.",
+        "files_sha256": {
+          "p014.dat": "3f9fafe238b4e034bef7d076d08a6f64653f65cd5039209cd49b2d2d22278d73",
+          "p014.hea": "fce9340b7ef16e823e17ee5a2c1a8b9f6db2d375c04a373194a38fee84e4d27f",
+          "p015.dat": "4910d0d822ec8b70468a63fe0f604a241a9a11652fb9a1782a6cc3278f5c374c",
+          "p015.hea": "cea0f7c88488caae1ca4867860814b7d519605ff1abbcadefb32e11dc0b3e362",
+          "p016.dat": "7e6f59c23a3bea11f8ccffb82b7fce18ddf43fc0ed45b3193cc626830b51a670",
+          "p016.hea": "e7644c19db375ef92af993cfa9427d2d0871d22e633e179596c369a2cb07aced",
+          "p017.dat": "4c392ba0d47cef5d4188eb690c1ff753445737ec4971a14bdbea946fabd749b6",
+          "p017.hea": "8d30711fb461eb28f740ac88ed35e0e33a2d37de4a1f9d402829507b162916be",
+          "p018.dat": "a23f6d8d61a1abf865752023f7f6eadde2c907250d970b4dbf3d0e38817e213a",
+          "p018.hea": "2d17a94a3b5580fdcfa6e2280270c903ae8d17c50ed051f430a65b74f7f641e1",
+          "p019.dat": "c0eef36d002fac23b61dbf3247a0a3ed6bfe650216a80b16e95c6e842432113e",
+          "p019.hea": "7eaad1ba56b5961c6319ef9edfa49ea30f8580a8ad504d3f7c9104925c52a17f",
+          "p020.dat": "d30acff4e8faca7a36622639711f863be7daf22d2cea24c3902b47b0c79110ad",
+          "p020.hea": "7700c47a05d0c3fcd995a1cb059f0e8901d6066e34851b12c6e0864473d38232"
+        }
+      },
+      "secondary_new_people": {
+        "records": ["p001", "p002", "p003"],
+        "note": "Never fitted or scored. Read only after the freeze commit is visible on GitHub, in the same scoring run as the primary test. p001.dat and p001.hea are downloaded after the freeze. p002 and p003 waveforms are read from the release's byte-identical b002.dat and b003.dat (hash required to equal the manifest's p002.dat and p003.dat) with the p002 and p003 headers. Reported separately; a pooled ten-person table is secondary.",
+        "files_sha256": {
+          "p001.dat": "d47e7497fd98a730293f2e5f8b2809a8300faf5ab97d6191c01d25d3897c33f5",
+          "p001.hea": "e14372329e24e804fa067b23bfa15b8c25a07021cc0b7a6edb084219c90cc1fb",
+          "p002.dat (bytes read from b002.dat)": "99ff01cddebe5b4ecb525ccf313f434d962edd8a2867e44891e0377a95dff05a",
+          "p002.hea": "3e17f8249e038d83310a79bc4f2b115491a5010aa009ee48d53a080896a119c3",
+          "p003.dat (bytes read from b003.dat)": "c84387aa069de0d6bdc38d85f5c8149982fc807bf0de661c8a5982f073509bc0",
+          "p003.hea": "43b9d1c0765fc70e96fce868d44c31c97588bf519b6d14f136c6721227f15a8f"
+        }
+      },
+      "basal_check": {
+        "records": ["b001"],
+        "note": "Subject 1 before music, 1,360,050 frames (272.01 s). One person, a different condition, descriptive only, no verdict. b002 and b003 are byte copies of p002 and p003 and are never called basal.",
+        "files_sha256": {
+          "b001.dat": "a005044bb47b58ab6a39b53d29b6667eefe04a0ea82d725a84fccf81956e96e6",
+          "b001.hea": "d3c32b4b83712b954d34319fb25dd81e108a4fa753c20bbfffe652d167353d7f"
+        }
+      }
+    },
+    "never_fetched_or_opened_before_scoring": "b014-b020 (.dat, .hea, .atr), m014-m020 (.dat, .hea, .atr) and p014-p020 .atr: the 49 manifest names listed in ALLOCATION.json. The p014-p020 .atr files may be fetched after results.json is sealed, for a descriptive detector check only. Legacy correction-archive files (a001-a020) are not part of release 1.0.0 and are never used; a014-a020 belong to test people and stay untouched.",
+    "not_used": "m-series files of every subject; b-series files other than b001 (b002/b003 bytes serve only as the p002/p003 waveform source); all .atr files before scoring.",
+    "inner_folds": "Leave one person out over the ten fit-pool records, ten folds, listed in ALLOCATION.json. Every model choice is made by these folds only."
+  },
+  "inputs": {
+    "rule": "Every input to every arm at cutoff t uses only readings at grid indices <= t. Calibration uses 60 <= t < 80 s, which precedes every cutoff. Delayed-ECG inputs use readings at grid indices <= t - 1253.",
+    "source_files": "For each record: the pinned .dat and .hea. Only ECG lead II, RESP and SCG are used; lead I is unused, as in v1. No annotation file is used for any input.",
+    "signal_path": {
+      "native": "Native samples i = 0..F-1 (F frames) at 5000 Hz. WFDB value -32768 marks a missing sample.",
+      "millivolts": "(count - header baseline) / header gain, per channel, from the header field gain(baseline)/mV.",
+      "filter": "Causal unit-sum 201-tap Hamming-windowed sinc low-pass, cutoff 65 Hz at 5000 Hz: n = -100..100, s(n) = (130/5000) sinc(130 n / 5000), h = hamming(201) * s / sum(hamming(201) * s). The filtered value at native endpoint i is sum over m = 0..200 of h[m] x(i - 200 + m).",
+      "grid": "Endpoints i = 20k for every k >= 10 up to the end of the record: 250 Hz, endpoint-stamped, 20 ms group delay, no delay compensation. Computed over the whole record.",
+      "missing": "A filtered reading is missing if any native sample in its 201-sample support (i - 200 .. i) of that channel is missing.",
+      "identity_with_v1": "Each filtered reading equals v1's at the same endpoint; v1 computed only the endpoints it needed."
+    },
+    "calibration": "Per person, every person including each new person: mean and population SD of the valid filtered readings of ECG II, RESP and SCG at grid 15000 <= k < 20000 (60 <= t < 80 s). Each channel needs >= 4,500 valid readings of 5,000 and SD > 0. z = (reading - mean) / SD. Forecasts are made in z units of SCG and decoded to SCG mV as mean + SD x forecast.",
+    "cutoffs": {
+      "primary": "Every grid index 22500 <= t < 72500 (90 <= t < 290 s): 50,000 cutoffs per p-series record, used for fitting, for every development fold and for scoring. The target at t + 20 lies at most at 290.08 s, inside the 300 s record.",
+      "secondary_interval": "22500 <= t < 30000 (90 <= t < 120 s), 7,500 cutoffs, a subset of the primary rows, scored descriptively for comparison with v1's interval.",
+      "basal_b001": "22500 <= t < 67500 (90 <= t < 270 s), 45,000 cutoffs.",
+      "detector_history_start": "The v2 R detector and the chest detector scan from grid 2500 (10 s). The C3 detector scans from the start of the filtered record. The viewer's 60-72 s excerpt may enter calibration and input history but is never a scored target."
+    },
+    "valid_row_mask": "One mask per record, common to every arm: a cutoff is valid if the target z_SCG(t + 20) is finite, z_SCG(t - l) is finite for l = 0..299, z_RESP(t - l) is finite for l = 0..295, and z_II(t - l) and z_II(t - 1253 - l) are finite for l = 0..51. Detector, template and C3 outputs never remove a row; when undefined they take the fixed fill values below."
+  },
+  "targets_and_units": {
+    "target": "The filtered SCG reading at grid t + 20 (80 ms after the cutoff endpoint; its native-sample support is t + 40 ms to t + 80 ms), in SCG sensor mV.",
+    "fitting_scale": "Models fit z_SCG(t + 20); predictions are decoded to mV with the person's SCG calibration mean and SD.",
+    "units": "SCG sensor mV: the accelerometer channel's output voltage as given by the header ADC gain. Not acceleration in m/s^2. RESP is breathing-band sensor mV. ECG II is skin-electrode potential in mV."
+  },
+  "detectors": {
+    "R_v2": {
+      "used_by": ["B3", "B3d", "T-ECG", "T-delayed", "T-R"],
+      "input": "x = z_II on the 250 Hz grid, with missing readings replaced by 0. For B3d and T-delayed: x_d(k) = z_II(k - 1253), and 0 where k - 1253 has no valid reading.",
+      "slope_energy": "d(k) = x(k) - x(k-1); e(k) = sum of d(i)^2 for i = k-4..k (20 ms); undefined for k < 5.",
+      "initial_energy": "E0 = 99.5th percentile (linear interpolation) of e(k) over 15000 <= k < 20000 of the same input series.",
+      "state": "Memory M of the last 8 QRS energies, initialised to 8 copies of E0; threshold thr = 0.35 x E0; last trigger = -10^9.",
+      "scan": [
+        "Start at k = 2500. Continue while k < n - 7, where n is the number of grid entries in the series.",
+        "If e(k) is defined, e(k) > thr and k - last trigger > 62 (248 ms): it is a trigger. Let lo = k - 3 and hi = k + 7. base = median of x(k-50) .. x(k-11) (40 readings). R = lo + the first index of the maximum of |x(lo..hi) - base|. Availability A = hi (28 ms after the trigger). Append max e(k..hi) to M and drop the oldest; thr = 0.35 x median(M); last trigger = k; continue at k = hi + 1.",
+        "Otherwise, if k - last trigger > 500 and (k - last trigger) is a multiple of 500, halve thr. Continue at k + 1."
+      ],
+      "causality": "A beat may be used at cutoff t only if A <= t. Every quantity it uses is at grid <= A."
+    },
+    "chest_v2": {
+      "used_by": ["B2", "C5"],
+      "input": "s = z_SCG with missing readings replaced by 0. Uses no ECG.",
+      "slope_energy": "d(k) = s(k) - s(k-1) with d(0) = s(0); e(k) = sum of d(i)^2 for i = k-9..k (40 ms) for k >= 10, and 0 for k < 10.",
+      "initial_energy": "E0 = 99th percentile (linear interpolation) of e(k) over 15000 <= k < 20000.",
+      "state": "M = 8 copies of E0; thr = 0.4 x E0; last trigger = -10^9; list of RR intervals empty.",
+      "scan": [
+        "Start at k = 2500. Continue while k < n - 8.",
+        "refractory = max(62, floor(0.6 x median of the last 4 RR intervals)) once 4 intervals exist, otherwise 100.",
+        "If e(k) > thr and k - last trigger > refractory: lo = k - 3, hi = k + 7; beat time = lo + the first index of the maximum of |s(lo..hi)|; if an earlier beat exists append (beat time - previous beat time) to the RR list; availability = hi; append max e(k..hi) to M and drop the oldest; thr = 0.4 x median(M); last trigger = k; continue at hi + 1.",
+        "Otherwise continue at k + 1."
+      ]
+    },
+    "C3_detector": {
+      "used_by": ["C3", "C3d"],
+      "input": "z_II.",
+      "polarity": "+1 if (max - median) >= (median - min) of z_II over 15000 <= k < 20000, otherwise -1. e = polarity x z_II.",
+      "scan": "For every grid k, let j = k - 2. If j >= 500 and e(j-2..k) are all finite, j is a candidate when e(j) is the maximum of e(j-2..j+2), e(j) > e(j-1) and e(j) >= e(j+1). It is accepted, with confirmation time k, if e(j) - med > 0.45 x (ref - med) and j - previous accepted peak > 62.5 grid steps, where ref = max of e(k-500..k) and med = median of e(k-500), e(k-495), ..., e(k) (every fifth reading). last(k) = the most recent peak accepted at a confirmation time <= k, or none.",
+      "time_since_beat": "tsb(k) = k - last(k), or undefined when there is no accepted peak.",
+      "delayed_form_for_C3d": "tsb_d(k) = (k - 1253) - last(k - 1253): the same detections shifted 1253 grid steps later."
+    }
+  },
+  "template_module": {
+    "used_by": "B3 and T-ECG / T-R (P search on, R_v2 beats); B3d and T-delayed (P search on, R_v2 beats from the delayed series and the delayed ECG); B2 and C5 (P search off, chest_v2 beats, no ECG).",
+    "constants": {"H": 20, "SCG template offsets": "-60..360 grid steps (-240 to +1440 ms)", "ECG template offsets": "-100..100", "P search offsets": "-75..-20 (300 to 80 ms before R)", "P half width": 12, "early window": 50, "amplitude ratio": "0.5 to 2.0", "RR intervals for the estimate": 4},
+    "tuned": {"K (earlier beats in each template; the SCG template also includes the last beat's readings up to the cutoff)": [8, 16, 32], "theta (P correlation needed)": [0.7, 0.8, 0.9]},
+    "at_cutoff_t": [
+      "j = the last beat with availability <= t. If none, or if j < K + 4 (0-based), every output is undefined.",
+      "SCG template S(o), o = -60..360: mean of z_SCG(R_i + o) over beats i = j-K..j, using only terms with R_i + o <= t and a valid reading; undefined if no term.",
+      "ECG template E(o), o = -100..100: mean of z_II(R_i + o) over beats i = j-K..j-1, using only terms with R_i + o <= t and a valid reading; undefined if no term. (For B3d, z_II is the delayed series.)",
+      "rr = median of the last four intervals R_{j-3}-R_{j-4}, ..., R_j-R_{j-1}. phi = t + 20 - R_j.",
+      "cont = S(phi) if phi <= 360, else undefined. next_rr = S(m) with m = phi - rr rounded to the nearest integer (halves to even), if -60 <= m <= 360, else undefined.",
+      "P template (P search on only): base = median of E(-100..-81); dP = the first offset in -75..-20 that maximises |E(o) - base|; p(u) = E(dP + u) minus its mean over u = -12..12. If any E value needed here is undefined, the P search is skipped at this cutoff.",
+      "P search: candidates q from floor(R_j + max(0.7 rr, rr - 50)) to t - dP - 12. For each, w(u) = ECG(q + dP + u), u = -12..12, minus its mean; a window with an invalid reading scores -1. cc = (w . p) / (|w| |p| + 1e-12); amp = (w . p) / (|p|^2 + 1e-12); cc = -1 if amp is outside 0.5..2.0. q* = the first candidate with the largest cc; pcorr = cc(q*), or -1 with no candidate. has_p = 1 if pcorr >= theta.",
+      "If has_p: phi_next = t + 20 - q*; next_p = S(phi_next) if -60 <= phi_next <= 360, else 0; pred = next_p; d* = phi_next. Otherwise pred = cont, d* = phi, and phi_next and next_p are undefined.",
+      "nb(o) = S(d* + o) for o = -6, -3, +3, +6 when -60 <= d* + o <= 360, else undefined.",
+      "Template forecast = pred, or 0 (the calibration mean) when undefined."
+    ]
+  },
+  "feature_blocks": {
+    "B0": "v1 base lags: z_SCG(t - l) for l = 0..50, then z_RESP(t - l) for l = 0..50. 102 columns.",
+    "B1": "One-cycle lags: z_SCG(t - l) for l = 0..299 (1.2 s), then z_RESP(t - l) for l = 0, 5, ..., 295. 360 columns.",
+    "B2": "Chest-only beat template (template module, P search off, chest_v2 beats, chosen K): cont, next_rr (undefined -> 0), phi / 250 in s (undefined -> -1), rr / 250 in s (undefined -> 0). 4 columns. RESP level and 100 ms change are already B0 columns (lags 0 and 25) and are not repeated.",
+    "B3": "ECG beat phase (template module, P search on, R_v2 beats, chosen K and theta): pred, cont, next_p, next_rr, has_p, pcorr, nb(-6), nb(-3), nb(+3), nb(+6) (undefined -> 0); phi / 250 and phi_next / 250 in s (undefined -> -1); rr / 250 in s (undefined -> 0). 13 columns.",
+    "B3d": "B3 computed by the same code from ECG II delayed 1253 grid steps (5.012 s), with the SCG left current. 13 columns.",
+    "v1_ecg": "v1's ECG features: z_II(t - l) and |z_II(t - l) - z_II(t - l - 1)| for l = 0..50 (102 columns); the delayed form uses t - 1253 in place of t."
+  },
+  "models_and_controls": {
+    "no_fitted_weights": {
+      "C0 climatology": "Forecast 0 in z units: the person's SCG calibration mean.",
+      "C1 persistence": "z_SCG(t).",
+      "C2 linear trend": "Least-squares line through z_SCG(t-12..t) against positions -12..0 (48 ms), evaluated at +20.",
+      "C3 R-only rolling personal template": "Running mean of the person's own z_SCG(k) binned by tsb(k) in 4 ms bins 0..499 (0-2 s), over every pair (tsb(k), z_SCG(k)) with 15000 <= k < t, tsb(k) defined and < 500 and z_SCG(k) valid (seeded from the calibration interval, updated with every later reading before the cutoff). Forecast = the bin mean at tsb(t) + 20 if that bin holds >= 3 readings, else 0; 0 when tsb(t) is undefined or tsb(t) + 20 >= 500. No other person, no fitted parameter.",
+      "C3d": "C3 with tsb_d in place of tsb.",
+      "C5 chest-only template": "B2's cont (undefined -> 0) at the chosen K.",
+      "T-ECG": "The template forecast with R_v2 beats and P search, chosen K and theta.",
+      "T-delayed": "T-ECG computed from the delayed ECG series.",
+      "T-R": "B3's cont (undefined -> 0): the R-timed continuation without P-wave anticipation, chosen K. Descriptive; it separates P-wave anticipation from detector differences, since C3 uses its own detector."
+    },
+    "v1": {
+      "V1F": "The published v1 weights (weights.json, sha256 55a78c3d...), base, aligned and delayed, applied unchanged to v1 features computed under this protocol's calibration. The published specialist.",
+      "V1R": "v1's features, standardisation and closed-form ridge with penalty 0.02, re-fitted on p004-p013 over the primary cutoffs: base (B0), aligned (B0 + v1_ecg), delayed (B0 + delayed v1_ecg, delayed in fit and test). V1R base is P1's comparator."
+    },
+    "learned": {
+      "C4 one-cycle ridge": "Ridge on B1; penalty chosen from {0.001, 0.02, 0.1, 1} by its own LOPO.",
+      "R-chest": "Ridge on B0 + B2 (106 columns).",
+      "R-ECG": "Ridge on B0 + B2 + B3 (119 columns).",
+      "R-delayed": "Ridge on B0 + B2 + B3d (119 columns).",
+      "M-chest / M-ECG / M-delayed": "MLP on the identical blocks; prediction = mean of three seed models.",
+      "nesting": "Within each family the three arms differ only in the ECG block (none, B3, B3d)."
+    },
+    "v2_primary": "R-ECG or M-ECG, chosen by model_selection. Its chest twin and delayed twin are the same family's chest and delayed arms with the same settings.",
+    "not_applicable": {
+      "NeuroTranslate 0.0 / 0.1 checkpoint control": "Neither checkpoint accepts ECG, SCG or breathing-band input, so it cannot forecast this target. Recorded as not applicable.",
+      "random-encoder control": "No pretrained or shared encoder is claimed; the MLP is a small regressor trained from scratch on fixed features. Recorded as not applicable; no random-feature MLP is run."
+    },
+    "fitting": {
+      "rows": "Each fitting person's valid primary rows (50,000 when complete). Each person weighs 1/P in every fit (P = 9 in a fold, 10 in the final fit).",
+      "ridge": "v1's closed form in float64: per person, feature means, target mean, X'X / n and X'y / n; average over people; covariance = E[xx'] - mean mean'; scale each feature by the square root of its covariance diagonal (0 -> 1); add the penalty to the diagonal of the scaled matrix; solve; intercept unpenalised and set from the person-weighted means. Target z_SCG(t + 20).",
+      "mlp": {
+        "architecture": "Linear(d, 64) - GELU (tanh form) - Linear(64, 64) - GELU (tanh form) - Linear(64, 1). PyTorch default initialisation after torch.manual_seed(seed).",
+        "inputs": "Each column standardised by the person-weighted training mean and SD (SD 0 -> 1). Target z_SCG(t + 20), not rescaled.",
+        "optimiser": "AdamW, learning rate 1e-3, betas (0.9, 0.999), eps 1e-8, weight decay 1e-4; OneCycleLR with max_lr 1e-3 over all updates (PyTorch defaults otherwise: pct_start 0.3, cosine annealing, div_factor 25, final_div_factor 1e4).",
+        "batches": "Batch 1024; 4 epochs; each epoch a random permutation from a torch.Generator seeded with the seed; the last partial batch dropped. Rows ordered by subject number, then cutoff, before permutation. Loss: mean squared error; if people have unequal valid rows, each row is weighted 1 / (P x n_p).",
+        "determinism": "float32 on the CPU, torch.use_deterministic_algorithms(True), 4 intra-op threads, 1 inter-op thread, CPUs within 16-31.",
+        "ensemble": "Three seed models; the arm's forecast is the mean of their float32 outputs in float64.",
+        "export": "Weights exported to NumPy arrays. Scoring uses the NumPy forward pass (float32). The largest absolute difference between torch and NumPy outputs on all training rows is reported in FREEZE.json and must be <= 1e-4 z units, otherwise the freeze stops."
+      }
+    }
+  },
+  "model_selection": {
+    "where": "Only by LOPO inside the ten fitting people, scored on the held person's 50,000 primary rows. Every summary is the mean over the ten held people of person RMSE in SCG mV.",
+    "steps": [
+      "1. For each (K, theta) in {8, 16, 32} x {0.7, 0.8, 0.9}, compute B2 (depends on K), B3 and B3d for all ten fitting people.",
+      "2. R-ECG LOPO for each (K, theta, penalty) with penalty in {0.001, 0.02, 0.1}: 27 configurations. Choose the lowest mean; if the default (K 16, theta 0.8, penalty 0.02) is within 1% of the lowest (default <= 1.01 x lowest), choose the default.",
+      "3. M-ECG LOPO at the chosen (K, theta) with seeds 20261127, 20261128 and 20261129 (ensemble mean in each fold).",
+      "4. Family: MLP if M-ECG's mean < 0.99 x R-ECG's mean at the chosen configuration; otherwise ridge.",
+      "5. Twins: the chosen family's chest and delayed arms with the chosen K (and theta for the delayed arm; penalty for ridge). T-ECG, T-delayed, T-R and C5 use the same K (and theta).",
+      "6. C4 penalty from {0.001, 0.02, 0.1, 1} by its own LOPO; the default 0.02 is chosen if within 1% of the lowest.",
+      "7. Development table: LOPO for every learned arm at the chosen settings (R-chest, R-ECG, R-delayed, M-chest, M-ECG, M-delayed, C4, V1R base / aligned / delayed) and every no-weight arm per person; V1F on all ten, labelled in-sample for p004-p008. Labelled optimistic.",
+      "8. Final fits on all ten fitting people with the chosen settings, for every learned arm."
+    ],
+    "optimism_label": "The detector constants were set by inspecting p004, p007 and p008, and p004-p013 at 90-120 s and v1's p009-p013 results were already known. The development tables are therefore optimistic and are never presented as new-person results."
+  },
+  "budgets": {
+    "configurations": "R-ECG 27; C4 4; MLP 1 configuration (the chosen K and theta) x 3 seeds; no other tuning. V1R, the twins and every no-weight arm use fixed or inherited settings.",
+    "mlp_updates_per_fit": "4 x floor(N / 1024): 1,756 per LOPO fold (450,000 rows), 1,952 per final fit (500,000 rows) when all rows are valid.",
+    "mlp_fits": "LOPO: 3 arms x 3 seeds x 10 folds = 90. Final: 3 arms x 3 seeds = 9.",
+    "compute": "CPU only, at most 16 threads in total, pinned to CPUs 16-31; MLP jobs use 4 threads each, at most four at once. RAM under 8 GB. Private disk under 300 MB. No GPU."
+  },
+  "seeds": {
+    "mlp": [20261127, 20261128, 20261129],
+    "bootstrap": 20261127,
+    "causality_cutoffs": "numpy.random.default_rng(20261127 + subject number) draws 200 of the 50,000 primary cutoffs without replacement (b001: 20261127 + 101, from its 45,000 cutoffs).",
+    "causality_replacement_values": "numpy.random.default_rng([20261127, subject number, cutoff]) for the replacement samples (b001 uses subject number 101).",
+    "other": "Ridge is closed-form and every detector and template is deterministic; there is no other random element."
+  },
+  "causality_test": {
+    "what": "For each tested cutoff t, two perturbed copies of the record are processed through the complete pipeline from native counts: (a) every native sample with index > 20t in all four channels is replaced by an integer drawn uniformly from -32767..32767; (b) the record is truncated after native sample 20t. Every arm's forecast and every feature value at t must equal the unperturbed values exactly.",
+    "fitting_people": "200 cutoffs per fitting person, every arm, before the freeze. Any change is a code error: fix it on fitting people, rerun the development tables and selection, and record the fix in FREEZE.json.",
+    "scored_records": "200 cutoffs on each primary-test, secondary and basal record, after the QC report is sealed and before any error is computed. It reads no target and computes no error. Any change stops the scoring and is reported to the lead; nothing is scored until a reviewed protocol version decides, recorded as a deviation."
+  },
+  "freeze": {
+    "file": "FREEZE.json in this folder.",
+    "contents": [
+      "This protocol's commit and the SHA-256 of PROTOCOL.json, PROTOCOL.md, allocate.py and ALLOCATION.json.",
+      "SHA-256 of every code file used to fit, forecast, test causality and score.",
+      "The chosen K, theta, ridge penalty, C4 penalty and family, with the full LOPO tables (file and SHA-256).",
+      "SHA-256 of every weight file (each ridge arm, each MLP seed model, C4, V1R).",
+      "The torch-to-NumPy maximum difference for each MLP model.",
+      "The fitting-people causality report (must show zero changes).",
+      "Environment: Python, NumPy and torch versions, CPU model, thread settings, operating system.",
+      "An on-disk search over the home and scratch trees, by name ([abmp]014-020 .dat/.hea/.atr and p001.dat) and by SHA-256 of every file of 12,000,000 bytes, showing that no primary-test file and no p001.dat exists."
+    ],
+    "admission": "A separate reviewer admits FREEZE.json; the lead commits it to this folder and pushes it."
+  },
+  "download": {
+    "precondition": "Both the protocol commit and the freeze commit are visible on GitHub (github.com/eliminatenoise/Interoceptomics). Their commit ids are recorded in DOWNLOADS.json before the first request.",
+    "requests": "From https://physionet.org/files/cebsdb/1.0.0/: SHA256SUMS.txt first (must equal 75db8c9b...; otherwise stop and report to the lead, nothing else is fetched), then p014-p020 .dat and .hea (14 files), then p001.dat and p001.hea. 17 requests, about 96 MB.",
+    "pacing": "One connection, sequential, at least 1 s between requests. Stop at any HTTP 429 or other refusal and record it; the lead decides when to resume, honouring any Retry-After. No automatic retry beyond the integrity re-fetch below.",
+    "integrity": "Each file's SHA-256 must equal its pin. On a mismatch, one re-fetch after at least 60 s. If the re-fetch also mismatches, stop and report to the lead; nobody is substituted. If the pinned bytes cannot be obtained, that person fails QC1.",
+    "storage": "A private folder outside the repository (private/cebs-test/). Never committed.",
+    "log": "private/DOWNLOADS.json: for every request the URL, HTTP status, UTC time, bytes and SHA-256. A public copy without local paths goes into source-verification.json.",
+    "never": "No .atr, b-series or m-series file of subjects 14-20 and no other file is requested before results.json is sealed."
+  },
+  "quality_checks": {
+    "principle": "Data-integrity checks only, decided by these rules before any forecast is scored and identical for every arm. Never based on detector behaviour, signal shape or any model's error. An excluded person is never replaced. QC values are reported for every scored record.",
+    "QC1_source": "SHA-256 of the .dat and .hea equal the pins (for p002/p003, the b002/b003 bytes equal the p002.dat/p003.dat pins); the downloaded manifest equals its pin.",
+    "QC2_header": "Exactly 6 non-empty header lines; record name equals the record id; 4 signals; 5000 Hz; 1,500,000 frames (b001: 1,360,050); every signal line names the record's .dat file, format 16 and block 0; labels I, II, RESP, SCG in that order; positive gains; final comment '#After music listening for subject N' with N the subject number (b001: '#Baseline for subject 1'); .dat length = 8 x frames; the four full-record modulo-65536 checksums equal the header values.",
+    "QC3_missing": "v1's missing-reading rule. Calibration needs >= 4,500 of 5,000 valid readings per used channel and SD > 0. At least 90% of the scoring cutoffs must be valid on the common mask (45,000 of 50,000; b001 40,500 of 45,000).",
+    "QC4_flat": "Within native samples from 55 s to 291 s (b001: 55 s to 271 s), a run of identical counts of at least 2,500 samples (0.5 s) in II or SCG, or at least 25,000 samples (5 s) in RESP, excludes the record.",
+    "QC5_clipping": "Within the same span, more than 1.0% of native samples at +32767 or -32767 in II, RESP or SCG excludes the record; 0.1% to 1.0% is flagged and reported only.",
+    "sealing": "The QC report (every value for every scored record) is written and its SHA-256 recorded before any forecast file is written.",
+    "n_and_k": "n = number of primary-test people passing QC1-QC5; k(n) = ceil(0.8 n): 6 of 7, 5 of 6, 4 of 5. If n < 5, every result is reported and no verdict is given.",
+    "excluded_but_readable": "Where an excluded record is readable, every arm is still scored on it and reported as descriptive."
+  },
+  "scoring": {
+    "sequence": [
+      "1. Download (download section).",
+      "2. QC on every scored record; seal the QC report.",
+      "3. Causality test on every scored record (no targets read).",
+      "4. Forecasts for every arm at every scoring cutoff of every scored record, written to private forecast files with the row mask.",
+      "5. SCORE-LOCK.json: SHA-256 of every forecast file, the QC report, FREEZE.json and the scoring code. Written before any error is computed.",
+      "6. A separate process reads the targets and the locked forecasts and computes every metric once, writing results.json.",
+      "7. Independent review of results.json against this protocol."
+    ],
+    "once": "One scoring run. No re-scoring after any change. If an error is found after scoring, the original results stay published beside any correction, which is labelled post hoc."
+  },
+  "metrics": {
+    "per_person": "For each arm: RMSE in SCG mV over the person's valid scoring rows (primary metric); RMSE / cal SD; MAE in mV; skill against C0 = 1 - RMSE / RMSE_C0.",
+    "summaries": "Mean, median and range over people, each person counted once, of RMSE in mV and in cal SD.",
+    "comparisons": "Per person, relative reduction in percent; then mean, median, range, number of wins (ties are not wins), and the mean difference in mV.",
+    "serial_dependence": "Cutoffs are overlapping and serially dependent. People are the unit of replication."
+  },
+  "uncertainty": {
+    "method": "Paired bootstrap over people: 10,000 resamples with replacement of the n people, numpy.random.default_rng(20261127), one index matrix per scoring group drawn once and reused for every comparison in that group.",
+    "intervals": "Percentile 95% intervals (2.5th and 97.5th percentiles, linear interpolation) of the mean relative reduction, the mean mV difference and each arm's mean RMSE.",
+    "note": "With seven people the bootstrap is coarse; its lower bound is roughly the mean minus 0.72 SD across people."
+  },
+  "success_rules": {
+    "group": "Primary-test people passing QC (n). k(n) = ceil(0.8 n). No verdict if n < 5.",
+    "condition": "A comparison 'v2 beats X' holds when the mean relative reduction against X is > 0, at least k(n) of n people are wins, and the bootstrap 95% lower bound of the mean relative reduction is > 0.",
+    "P1_v2_beats_v1": "v2 beats V1R base with a mean relative reduction of at least 10%; and against C0 the mean relative reduction is > 0 with at least k(n) wins.",
+    "P2_ecg_timing": "v2 beats its chest twin, and v2 beats its delayed twin.",
+    "P3_beats_R_only_template": "v2 beats C3.",
+    "wording": "Each of P1, P2 and P3 is reported as 'supported' or 'not supported' (or 'no verdict' if n < 5), with every number used. Never 'validated' or 'proves'.",
+    "everything_else": "Descriptive only, with no verdict and no significance or population claim."
+  },
+  "descriptive_analyses": [
+    "Every arm on every scored record: RMSE in mV and cal SD, MAE, skill against C0.",
+    "T-ECG against v2 (what learned stacking adds over the template).",
+    "T-ECG against T-R (P-wave anticipation within one detector), and T-R against C3 (detector and template differences).",
+    "M-ECG against R-ECG, whichever family was chosen.",
+    "V1F base, aligned and delayed on new people (the published specialist).",
+    "V1R aligned against V1R base and V1R delayed (v1's question asked again on new people).",
+    "T-ECG against T-delayed, C3 against C3d (non-learned timing checks), with the delayed template's own error reported beside each delayed control.",
+    "C4, C5, persistence and linear trend.",
+    "Error by target position relative to the last available R_v2 beat (40 ms bins from 0 to 1.2 s, plus a 'beyond 1.2 s or no beat' bin) for v2, T-ECG, C3 and C0.",
+    "Detector diagnostics per record: R_v2 beats in 10-290 s, RR median and range, share of cutoffs with an accepted P wave, share of cutoffs with the template defined, chest_v2 beats.",
+    "The 90-120 s table.",
+    "p001-p003 per person and their mean, and the pooled primary + secondary table with bootstrap intervals; no verdict.",
+    "b001: every arm, RMSE in mV and cal SD; no verdict.",
+    "After results.json is sealed, optionally: R_v2 detections against the p014-p020 .atr annotations (share of annotated beats with a detection within 50 ms and share of detections matched), descriptive only, affecting no result."
+  ],
+  "secondary_groups": {
+    "p001_p003": "Same pipeline, frozen final models, primary cutoffs 90 <= t < 290 s, same QC. The public viewer's 60-72 s of b002 and b003 (the p002 and p003 bytes) lies inside calibration and input history and is never scored. Reported separately from the seven primary people; the pooled table is secondary. No verdict.",
+    "b001": "Same pipeline and frozen models; calibration 60 <= t < 80 s; cutoffs 90 <= t < 270 s; QC with its own frame count and comment. The viewer's 60-72 s lies inside calibration and input history and is never scored. One person in a different condition; kept apart; no verdict."
+  },
+  "prewritten_simple_statements": {
+    "rule": "Fixed before the result. Results are substituted for X, Z, N, Y, a and b; the matching outcome sentence is chosen by the rule. No other outcome wording is added.",
+    "always": [
+      "Version 2 learned from ten volunteers and was tested once on seven others whose recordings were downloaded only after the plan and the finished models were published.",
+      "Each forecast uses only readings taken up to the moment of the forecast.",
+      "The vibration sensor and the breathing band give voltages in millivolts. They do not measure chest movement in physical units, signals in sensory nerves, or anything a person felt. All recordings come from one laboratory, with people lying still after listening to music.",
+      "We compared it with simple rules: each person's usual reading, the last reading, the recent trend, and each person's own average heartbeat shape timed by the heart's electrical signal."
+    ],
+    "P1": {
+      "supported": "Its error was lower than that of the first version's model, refitted on the same ten volunteers, for X of N people, by Y% on average (range a% to b%).",
+      "not_supported": "It did not meet the rule for doing better than the first version's model refitted on the same ten volunteers: its error was lower for X of N people, by Y% on average (range a% to b%)."
+    },
+    "P2": {
+      "supported": "Heartbeat timing from the skin electrodes lowered the error for X of N people compared with the same model without it, and for Z of N compared with timing taken from 5 seconds earlier.",
+      "not_supported": "Heartbeat timing from the skin electrodes did not lower the error consistently (X and Z of N people)."
+    },
+    "P3": {
+      "supported": "It also did better than each person's own average heartbeat shape for X of N people, by Y% on average.",
+      "not_supported": "It did not consistently do better than each person's own average heartbeat shape (X of N people, Y% on average)."
+    },
+    "no_verdict": "Fewer than five test recordings passed the data checks, so no conclusion is drawn; every result is still listed.",
+    "exclusion": "Recording ID was not used for the conclusions because REASON.",
+    "technical_only": "The after-the-fact finding that version 1 was close to each person's calibration mean appears in the Technical edition only, labelled descriptive."
+  },
+  "technical_edition_contents": [
+    "Protocol, allocation and freeze SHA-256 values and commits; data pins; download log summary.",
+    "QC table for every scored record.",
+    "Per-person tables for every arm (mV, cal SD, MAE, skill against C0).",
+    "Every comparison with mean, median, range, wins and bootstrap 95% interval; P1, P2 and P3 as given by the rule.",
+    "The development table, labelled optimistic.",
+    "Error by beat phase; detector diagnostics.",
+    "The 90-120 s table; V1F on new people; the p001-p003 and b001 tables.",
+    "The after-the-fact v1 climatology finding, labelled descriptive.",
+    "Deviations from this protocol, or 'none'.",
+    "Limits as in claim_limits."
+  ],
+  "publication": {
+    "where": "This folder (models/chest-vibration-v2) of the Interoceptomics repository, on a new branch from a new worktree; commits authored and committed by Interoceptomics contributors. The lead pushes.",
+    "this_commit": ["PROTOCOL.md", "PROTOCOL.json", "allocate.py", "ALLOCATION.json", ".gitattributes"],
+    "freeze_commit": ["FREEZE.json", "the fitting, forecasting, causality and scoring code", "weight files", "LOPO tables"],
+    "result_commit": ["results.json", "qc-report.json", "SCORE-LOCK.json", "source-verification.json", "NOTICE.md", "README.md (Technical edition) and the Simple edition", "predict.py (NumPy only)", "invented-examples.json", "reproduce.py", "requirements.txt", "SHA256SUMS"],
+    "predict_py": "NumPy only. Inputs: the person's 20 s calibration readings (or their means, SDs and detector initial energies) and a contiguous filtered 250 Hz history of at least 30 s ending at the cutoff, ordered ECG II, RESP, SCG. It runs the frozen detectors and templates from the start of the supplied history and returns every arm's forecast 80 ms ahead in SCG mV. Forecasts depend on the history start until the detector memories and templates have filled (about K + 4 beats); with fewer beats it returns the fill values and says so. The evaluation, with detectors started at 10 s, is the reference.",
+    "examples": "Invented input examples only. No participant waveform, template or forecast array is committed; templates are computed at run time from the user's own data.",
+    "editions": "Technical and Simple README editions, each with a first draft, a distinct rewrite and a separate reader before publication.",
+    "not_now": "No browser page: Interoceptomics presentation work is paused. The v1 folder is not changed."
+  },
+  "rights": {
+    "data": "CEBSDB 1.0.0 under ODC-By 1.0. NOTICE.md credits the contributors, the database DOI, the licence, the 2013 CinC paper and the PhysioNet platform paper, and lists our changes: filtering, 250 Hz grid, standardisation, beat detection, templates, cutoff windows. The attribution is kept with the weights and results derived from the database.",
+    "code": "CC0 1.0, the repository's LICENSE.",
+    "other_sources": "None. No share-alike, non-commercial or unclear-licence data is used.",
+    "approval": "Openly licensed data covered by the owner's pre-approval for openly licensed datasets."
+  },
+  "steps_and_etas": [
+    {"step": "S1", "work": "Separate reviewer admits this protocol; the lead commits and pushes it.", "eta": "reviewer and lead time"},
+    {"step": "S2a", "work": "Implement the pipeline, detectors, template module, feature blocks, fits, causality test and scoring code (fitting people only).", "eta": "about 2 h"},
+    {"step": "S2b", "work": "Feature grid: 9 (K, theta) settings x 10 people, aligned and delayed.", "eta": "about 5 min"},
+    {"step": "S2c", "work": "Ridge LOPO: 27 R-ECG configurations, C4, V1R and the ridge twins.", "eta": "under 2 min"},
+    {"step": "S2d", "work": "M-ECG LOPO, 3 seeds x 10 folds, four 4-thread jobs.", "eta": "about 25 min"},
+    {"step": "S2e", "work": "M-chest and M-delayed LOPO for the development table.", "eta": "about 45 min"},
+    {"step": "S2f", "work": "Final fits of every learned arm; NumPy export check.", "eta": "about 15 min"},
+    {"step": "S2g", "work": "Causality test on the ten fitting people, 200 cutoffs each, both perturbations, parallel.", "eta": "about 20-40 min"},
+    {"step": "S2h", "work": "FREEZE.json with the on-disk search; separate reviewer admits; the lead commits and pushes.", "eta": "about 30 min plus reviewer and lead time"},
+    {"step": "S3", "work": "Download 17 files (about 96 MB).", "eta": "about 2 min"},
+    {"step": "S4", "work": "QC and seal; causality test on 11 scored records; forecasts; SCORE-LOCK; one scoring run.", "eta": "about 20-40 min"},
+    {"step": "S5", "work": "Independent result review; Technical and Simple editions (draft, rewrite, separate reader); NOTICE, predictor and examples.", "eta": "about 2 h plus reader time"},
+    {"total": "About 6 h of work from admission to a reviewed result, plus reviewer and commit waits."}
+  ],
+  "deviations": "Any departure from this protocol after admission is recorded with its reason in FREEZE.json (before the download) or in results.json (after it) and stated in both editions. A change made after any test byte is read cannot affect a verdict; it is reported as post hoc.",
+  "lead_items": [
+    "Confirm that the owner's 27 November 2026 instruction to continue training the models is the task lease for this training and download.",
+    "Push the protocol commit and, later, the freeze commit before any download, and record both ids."
+  ],
+  "owner_items": "Nothing blocking. Optional for later: genuine basal recordings of subjects 2-20 exist only in an unreleased legacy correction archive (a002-a020) with unclear licence and provenance; they are not used. a014-a020 belong to test people and stay untouched regardless.",
+  "departures_from_reviewed_design": [
+    "ECG template: each beat contributes only samples at grid <= t (the exploration code took every beat's full +/-400 ms window, which can read past t when an RR interval is under 400 ms).",
+    "Missing readings: detectors see 0; templates average valid readings only; a P-search window with a missing reading scores -1; a P search with an undefined template value is skipped.",
+    "B2 has 4 columns: the exploration code's duplicate continuation column and its RESP level and change columns (copies of B0 columns) are not repeated.",
+    "MLP LOPO runs only at the (K, theta) chosen on R-ECG, to keep the budget; the MLP has no penalty to tune.",
+    "GELU uses the tanh form so the NumPy predictor implements the same formula; scoring uses the NumPy export.",
+    "C4's penalty grid adds 1, as in the first draft design.",
+    "Tie rule made exact: the default setting is chosen when within 1% of the lowest mean.",
+    "T-R added as a descriptive arm, because C3 uses its own detector and P3 compares v2 with C3.",
+    "The manifest is downloaded first as the anchor for the integrity checks.",
+    "The causality test uses both replacement and truncation and checks every feature as well as every forecast.",
+    "The secondary group of three gets per-person and mean results without a bootstrap; the pooled ten-person table gets one."
+  ]
+}

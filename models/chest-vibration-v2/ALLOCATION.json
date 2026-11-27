@@ -1,0 +1,601 @@
+{
+  "schema": "interoceptomics-allocation/1",
+  "study": "chest-vibration v2",
+  "dataset": "PhysioNet CEBSDB 1.0.0, DOI 10.13026/C2KW23, Open Data Commons Attribution License v1.0",
+  "manifest": {
+    "url": "https://physionet.org/files/cebsdb/1.0.0/SHA256SUMS.txt",
+    "sha256": "75db8c9b809ef307aabeff2c0d1b780e1bb80d4df1044272ba0f980ed06f205e",
+    "bytes": 13697,
+    "entries": 185
+  },
+  "rule": "No random draw. Each CEBSDB subject number is one person. Fit pool: the post-music p-series record of every subject numbered 4 to 13. Primary test: the post-music p-series record of every subject numbered 14 to 20. Secondary new-person group, reported separately: the post-music p-series record of subjects 1 to 3. Basal check, one person, descriptive: b001 only, the one b-series waveform that is not a byte copy of a p-series waveform. One recording per person. Every file named in the manifest for subjects 14 to 20 other than the 14 primary-test .dat and .hea files is never fetched or opened before scoring; their .atr files may be fetched after scoring for a descriptive detector check only.",
+  "groups": {
+    "fit_pool": [
+      {
+        "record": "p004",
+        "subject": 4,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p004.dat",
+          "sha256": "f9283ba41232a316d7306b8311d06d4684f08ee0fec45a1ed6c5109d1e759a45"
+        },
+        "hea": {
+          "name": "p004.hea",
+          "sha256": "f4a56f553a37a83ed8450dcafda7c5ebfc6a967b4f0ade66d33d7bba24fc48da"
+        }
+      },
+      {
+        "record": "p005",
+        "subject": 5,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p005.dat",
+          "sha256": "559665bc5207d09786178a709da48a98f91eb7bac5539537d83436f05e568987"
+        },
+        "hea": {
+          "name": "p005.hea",
+          "sha256": "773803d8c77aaf937f3351e213f79a775260cf0e408077ec8dee395b0acf9b6d"
+        }
+      },
+      {
+        "record": "p006",
+        "subject": 6,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p006.dat",
+          "sha256": "a8ec1b2efadd74d189610e95812a227f32d1a1ab821720b6eace236401cc24c1"
+        },
+        "hea": {
+          "name": "p006.hea",
+          "sha256": "ed84e14151a962bf3ca97e8fe513ffb7b993289f85c4dcd4ca2bd67b68b05faa"
+        }
+      },
+      {
+        "record": "p007",
+        "subject": 7,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p007.dat",
+          "sha256": "3e0ccc9e8960427710b47cfbd2531a20fdb73c247bc9f21795e31fecf7069c8d"
+        },
+        "hea": {
+          "name": "p007.hea",
+          "sha256": "5a63942dd2431037251adb1fafe037184841c473d8836a38763b1c235571f468"
+        }
+      },
+      {
+        "record": "p008",
+        "subject": 8,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p008.dat",
+          "sha256": "e5d75771d3d757ddaaa96177e2265370de46dc29a7d4d42aaf6171c8a4360a64"
+        },
+        "hea": {
+          "name": "p008.hea",
+          "sha256": "b6c093ca39df8daef935c7646b810225912d3fd2e74f41e94a8273d8b57d5145"
+        }
+      },
+      {
+        "record": "p009",
+        "subject": 9,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p009.dat",
+          "sha256": "db15f9f32e95609e954044db41a620473dc048860d888de8580f6264db77ce22"
+        },
+        "hea": {
+          "name": "p009.hea",
+          "sha256": "2146556998ce6d14f0729a019ac3738ccd1cd641b534e7ccc3704af89280770f"
+        }
+      },
+      {
+        "record": "p010",
+        "subject": 10,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p010.dat",
+          "sha256": "61e2ee05374f0c0d0cbc51b3201ea63038d3ed6fb3e0e58b22600fdb8c89440c"
+        },
+        "hea": {
+          "name": "p010.hea",
+          "sha256": "66fcff889955be380cecc602678f1796736498dc9b0c32376bf71afaf408ee43"
+        }
+      },
+      {
+        "record": "p011",
+        "subject": 11,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p011.dat",
+          "sha256": "93bdffc6954d6826781c9b939355c3b426ae4b72d9305a818b537cf5a9205ab0"
+        },
+        "hea": {
+          "name": "p011.hea",
+          "sha256": "ab71922ff0a36262e83cad96e3532d7a4585e7700933b5ca17d4e991c24952ad"
+        }
+      },
+      {
+        "record": "p012",
+        "subject": 12,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p012.dat",
+          "sha256": "2fce348588f72290b59dad541c996e5e96eec044cf4caa91872e60de76bcd5a2"
+        },
+        "hea": {
+          "name": "p012.hea",
+          "sha256": "d58968e0951bf8b3c26c3c93e33a7891eaad8d96f1e4db7307f65c8d807825f8"
+        }
+      },
+      {
+        "record": "p013",
+        "subject": 13,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p013.dat",
+          "sha256": "5450b077388f52f5ca96c6d36fa0ecc37cd66ced97b393e58bab7f3277a212fc"
+        },
+        "hea": {
+          "name": "p013.hea",
+          "sha256": "293d636865682feb101d4df87cbc661bca430f7203b5b7656c7acfb6f4a2bfa4"
+        }
+      }
+    ],
+    "primary_test": [
+      {
+        "record": "p014",
+        "subject": 14,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p014.dat",
+          "sha256": "3f9fafe238b4e034bef7d076d08a6f64653f65cd5039209cd49b2d2d22278d73"
+        },
+        "hea": {
+          "name": "p014.hea",
+          "sha256": "fce9340b7ef16e823e17ee5a2c1a8b9f6db2d375c04a373194a38fee84e4d27f"
+        }
+      },
+      {
+        "record": "p015",
+        "subject": 15,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p015.dat",
+          "sha256": "4910d0d822ec8b70468a63fe0f604a241a9a11652fb9a1782a6cc3278f5c374c"
+        },
+        "hea": {
+          "name": "p015.hea",
+          "sha256": "cea0f7c88488caae1ca4867860814b7d519605ff1abbcadefb32e11dc0b3e362"
+        }
+      },
+      {
+        "record": "p016",
+        "subject": 16,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p016.dat",
+          "sha256": "7e6f59c23a3bea11f8ccffb82b7fce18ddf43fc0ed45b3193cc626830b51a670"
+        },
+        "hea": {
+          "name": "p016.hea",
+          "sha256": "e7644c19db375ef92af993cfa9427d2d0871d22e633e179596c369a2cb07aced"
+        }
+      },
+      {
+        "record": "p017",
+        "subject": 17,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p017.dat",
+          "sha256": "4c392ba0d47cef5d4188eb690c1ff753445737ec4971a14bdbea946fabd749b6"
+        },
+        "hea": {
+          "name": "p017.hea",
+          "sha256": "8d30711fb461eb28f740ac88ed35e0e33a2d37de4a1f9d402829507b162916be"
+        }
+      },
+      {
+        "record": "p018",
+        "subject": 18,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p018.dat",
+          "sha256": "a23f6d8d61a1abf865752023f7f6eadde2c907250d970b4dbf3d0e38817e213a"
+        },
+        "hea": {
+          "name": "p018.hea",
+          "sha256": "2d17a94a3b5580fdcfa6e2280270c903ae8d17c50ed051f430a65b74f7f641e1"
+        }
+      },
+      {
+        "record": "p019",
+        "subject": 19,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p019.dat",
+          "sha256": "c0eef36d002fac23b61dbf3247a0a3ed6bfe650216a80b16e95c6e842432113e"
+        },
+        "hea": {
+          "name": "p019.hea",
+          "sha256": "7eaad1ba56b5961c6319ef9edfa49ea30f8580a8ad504d3f7c9104925c52a17f"
+        }
+      },
+      {
+        "record": "p020",
+        "subject": 20,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p020.dat",
+          "sha256": "d30acff4e8faca7a36622639711f863be7daf22d2cea24c3902b47b0c79110ad"
+        },
+        "hea": {
+          "name": "p020.hea",
+          "sha256": "7700c47a05d0c3fcd995a1cb059f0e8901d6066e34851b12c6e0864473d38232"
+        }
+      }
+    ],
+    "secondary_new_people": [
+      {
+        "record": "p001",
+        "subject": 1,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p001.dat",
+          "sha256": "d47e7497fd98a730293f2e5f8b2809a8300faf5ab97d6191c01d25d3897c33f5"
+        },
+        "hea": {
+          "name": "p001.hea",
+          "sha256": "e14372329e24e804fa067b23bfa15b8c25a07021cc0b7a6edb084219c90cc1fb"
+        }
+      },
+      {
+        "record": "p002",
+        "subject": 2,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p002.dat",
+          "sha256": "99ff01cddebe5b4ecb525ccf313f434d962edd8a2867e44891e0377a95dff05a"
+        },
+        "hea": {
+          "name": "p002.hea",
+          "sha256": "3e17f8249e038d83310a79bc4f2b115491a5010aa009ee48d53a080896a119c3"
+        },
+        "waveform_byte_source": {
+          "name": "b002.dat",
+          "sha256": "99ff01cddebe5b4ecb525ccf313f434d962edd8a2867e44891e0377a95dff05a",
+          "note": "Byte-identical copy of p002.dat in the same release. Read it only with p002.hea."
+        }
+      },
+      {
+        "record": "p003",
+        "subject": 3,
+        "phase": "after music listening",
+        "dat": {
+          "name": "p003.dat",
+          "sha256": "c84387aa069de0d6bdc38d85f5c8149982fc807bf0de661c8a5982f073509bc0"
+        },
+        "hea": {
+          "name": "p003.hea",
+          "sha256": "43b9d1c0765fc70e96fce868d44c31c97588bf519b6d14f136c6721227f15a8f"
+        },
+        "waveform_byte_source": {
+          "name": "b003.dat",
+          "sha256": "c84387aa069de0d6bdc38d85f5c8149982fc807bf0de661c8a5982f073509bc0",
+          "note": "Byte-identical copy of p003.dat in the same release. Read it only with p003.hea."
+        }
+      }
+    ],
+    "basal_check": [
+      {
+        "record": "b001",
+        "subject": 1,
+        "phase": "baseline before music",
+        "dat": {
+          "name": "b001.dat",
+          "sha256": "a005044bb47b58ab6a39b53d29b6667eefe04a0ea82d725a84fccf81956e96e6"
+        },
+        "hea": {
+          "name": "b001.hea",
+          "sha256": "d3c32b4b83712b954d34319fb25dd81e108a4fa753c20bbfffe652d167353d7f"
+        }
+      }
+    ]
+  },
+  "groups_sha256": "bc7c7a9dfadd779c80d3e5e2bed210bc6f93cbfad03c45a0518ff791151dfbf3",
+  "groups_sha256_rule": "SHA-256 of the 'groups' object serialised as JSON with sorted keys, ',' and ':' separators and ASCII escapes.",
+  "inner_folds": [
+    {
+      "fold": 1,
+      "held_out": "p004",
+      "fitted_on": [
+        "p005",
+        "p006",
+        "p007",
+        "p008",
+        "p009",
+        "p010",
+        "p011",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 2,
+      "held_out": "p005",
+      "fitted_on": [
+        "p004",
+        "p006",
+        "p007",
+        "p008",
+        "p009",
+        "p010",
+        "p011",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 3,
+      "held_out": "p006",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p007",
+        "p008",
+        "p009",
+        "p010",
+        "p011",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 4,
+      "held_out": "p007",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p006",
+        "p008",
+        "p009",
+        "p010",
+        "p011",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 5,
+      "held_out": "p008",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p006",
+        "p007",
+        "p009",
+        "p010",
+        "p011",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 6,
+      "held_out": "p009",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p006",
+        "p007",
+        "p008",
+        "p010",
+        "p011",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 7,
+      "held_out": "p010",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p006",
+        "p007",
+        "p008",
+        "p009",
+        "p011",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 8,
+      "held_out": "p011",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p006",
+        "p007",
+        "p008",
+        "p009",
+        "p010",
+        "p012",
+        "p013"
+      ]
+    },
+    {
+      "fold": 9,
+      "held_out": "p012",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p006",
+        "p007",
+        "p008",
+        "p009",
+        "p010",
+        "p011",
+        "p013"
+      ]
+    },
+    {
+      "fold": 10,
+      "held_out": "p013",
+      "fitted_on": [
+        "p004",
+        "p005",
+        "p006",
+        "p007",
+        "p008",
+        "p009",
+        "p010",
+        "p011",
+        "p012"
+      ]
+    }
+  ],
+  "dat_alias_groups": [
+    [
+      "b002.dat",
+      "p002.dat"
+    ],
+    [
+      "b003.dat",
+      "p003.dat"
+    ],
+    [
+      "b004.dat",
+      "p004.dat"
+    ],
+    [
+      "b005.dat",
+      "p005.dat"
+    ],
+    [
+      "b006.dat",
+      "p006.dat"
+    ],
+    [
+      "b007.dat",
+      "p007.dat"
+    ],
+    [
+      "b008.dat",
+      "p008.dat"
+    ],
+    [
+      "b009.dat",
+      "p009.dat"
+    ],
+    [
+      "b010.dat",
+      "p010.dat"
+    ],
+    [
+      "b011.dat",
+      "p011.dat"
+    ],
+    [
+      "b012.dat",
+      "p012.dat"
+    ],
+    [
+      "b013.dat",
+      "p013.dat"
+    ],
+    [
+      "b014.dat",
+      "p014.dat"
+    ],
+    [
+      "b015.dat",
+      "p015.dat"
+    ],
+    [
+      "b016.dat",
+      "p016.dat"
+    ],
+    [
+      "b017.dat",
+      "p017.dat"
+    ],
+    [
+      "b018.dat",
+      "p018.dat"
+    ],
+    [
+      "b019.dat",
+      "p019.dat"
+    ],
+    [
+      "b020.dat",
+      "p020.dat"
+    ]
+  ],
+  "never_fetch_or_open_before_scoring": [
+    "b014.atr",
+    "b014.dat",
+    "b014.hea",
+    "b015.atr",
+    "b015.dat",
+    "b015.hea",
+    "b016.atr",
+    "b016.dat",
+    "b016.hea",
+    "b017.atr",
+    "b017.dat",
+    "b017.hea",
+    "b018.atr",
+    "b018.dat",
+    "b018.hea",
+    "b019.atr",
+    "b019.dat",
+    "b019.hea",
+    "b020.atr",
+    "b020.dat",
+    "b020.hea",
+    "m014.atr",
+    "m014.dat",
+    "m014.hea",
+    "m015.atr",
+    "m015.dat",
+    "m015.hea",
+    "m016.atr",
+    "m016.dat",
+    "m016.hea",
+    "m017.atr",
+    "m017.dat",
+    "m017.hea",
+    "m018.atr",
+    "m018.dat",
+    "m018.hea",
+    "m019.atr",
+    "m019.dat",
+    "m019.hea",
+    "m020.atr",
+    "m020.dat",
+    "m020.hea",
+    "p014.atr",
+    "p015.atr",
+    "p016.atr",
+    "p017.atr",
+    "p018.atr",
+    "p019.atr",
+    "p020.atr"
+  ],
+  "never_used_outside_manifest": "Legacy correction-archive files (a001-a020 and their proposed v1.1 index) are not part of release 1.0.0 and are not used.",
+  "checks": {
+    "manifest_sha256_matches_pin": true,
+    "manifest_has_185_entries": true,
+    "fit_pool_waveforms_distinct": true,
+    "primary_test_waveforms_distinct": true,
+    "primary_test_waveforms_differ_from_every_other_group": true,
+    "primary_test_aliases_are_only_their_own_b_copies": true,
+    "b001_differs_from_every_p_and_m_waveform": true,
+    "b002_b003_equal_p002_p003": true,
+    "secondary_waveforms_differ_from_fit_pool": true,
+    "only_dat_alias_groups_are_bNNN_pNNN_for_2_to_20": true
+  }
+}

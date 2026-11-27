@@ -1,0 +1,2 @@
+# Preserve bytes checked by the protocol hashes and the package-wide checksum index.
+* -text
