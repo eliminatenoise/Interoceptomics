@@ -50,12 +50,12 @@ It also did better than each person's own average heartbeat shape for 7 of 7 peo
 18. [Measured, derived, predicted and simulated values](#18-measured-derived-predicted-and-simulated-values)
 19. [How to rerun the test](#19-how-to-rerun-the-test)
 20. [Files in this folder](#20-files-in-this-folder)
-21. [Every forecaster on every recording](#21-every-forecaster-on-every-recording)
+21. [Every forecaster on every recording, and every 40 ms step](#21-every-forecaster-on-every-recording-and-every-40-ms-step)
 
 ## 1. Words used on this page
 
 - **Reading.** One value on a regular grid of 250 values per second, one every 4 ms, made from the recording's 5,000 samples per second.
-- **Cutoff.** The moment at which a forecast is made. Only readings up to the cutoff may enter anything used for that forecast. Forecasts were made at every reading from 90 up to 290 seconds into each five-minute recording: 50,000 cutoffs per person.
+- **Cutoff.** The moment at which a forecast is made. Only readings up to the cutoff may enter anything used for that forecast. Forecasts were made at every reading from 90 up to 290 seconds into each five-minute after-music recording: 50,000 cutoffs per person. The resting recording b001 is shorter; its cutoffs run from 90 up to 270 seconds, 45,000 in all (section 12).
 - **Target.** The chest-sensor reading 80 ms after the cutoff, the value being forecast. Because of the smoothing filter (section 2), it is built from raw samples taken 40 to 80 ms after the cutoff.
 - **Millivolt (mV).** A thousandth of a volt. All errors on this page are in the chest sensor's own millivolts.
 - **Standard deviation (SD).** A measure of spread: roughly the typical distance of values from their average.
@@ -64,13 +64,18 @@ It also did better than each person's own average heartbeat shape for 7 of 7 peo
 - **MAE (mean absolute error).** The average size of the misses, ignoring their sign.
 - **Relative reduction.** For one person, 100 × (the comparison's error − version 2's error) / the comparison's error, in percent. A positive value means version 2's error was lower. For example, in section 7, p014's error was 1.087 mV for version 2 and 2.110 mV for the first version refitted, so the reduction is 100 × (2.110 − 1.087) / 2.110 = 48.5%.
 - **Win.** A person whose relative reduction is above zero. A tie is not a win.
+- **Skill.** For one recording, 1 minus a forecaster's error divided by the error of the usual level C0. 100 × skill is that forecaster's relative reduction against C0, in percent.
 - **Bootstrap interval.** A way to show how much an average over seven people could move with a different set of people. The computer draws seven people at random from the seven, with repeats allowed, computes the average for that draw, and does this 10,000 times with a fixed starting number (seed 20261127). The interval reported is the middle 95% of those 10,000 averages. "Paired" means each draw keeps every person's results together across all comparisons. With only seven people the interval is rough.
 - **R wave and P wave.** The R wave is the tall spike of each heartbeat in the ECG. The P wave is a small wave about 130 to 160 ms before it, produced as the heart's upper chambers start each beat.
+- **Recording file, header file and WFDB.** Each recording is stored in WFDB format (the waveform-database format used by PhysioNet) as two files: a recording file (`.dat`) with the stored numbers, and a header file (`.hea`), a short text file that describes the recording: its name, number of signals, samples per second, length, the scale factors (gains) that turn stored numbers into millivolts, and one checksum per signal.
+- **Checksum.** A number computed from all the stored values of one signal: their sum, wrapped around within the range of 65,536 values. The header file records it, so recomputing it shows whether the stored values are complete and unchanged.
 - **Fingerprint (SHA-256).** A 64-character code computed from a file's exact bytes. Any change to the file gives a different code, so a published fingerprint fixes exactly which bytes are meant. Fingerprints on this page are shortened to their first 8 characters followed by "…"; the full codes are in the files.
 - **Commit.** One saved version of the project's files on GitHub, the public site that keeps every version with its date. Each commit has an identifier such as `1dd00a4`.
 - **Separate reviewer, lead and owner.** A separate reviewer checks work without having written it. The lead is the maintainer who commits files and puts them on GitHub. The owner directs the project.
 
 People, not cutoffs, are what count. Forecasts made 4 ms apart overlap and depend on each other, so the 50,000 cutoffs of one person describe that person's error and are never treated as 50,000 separate tests. Every average on this page counts each person once.
+
+In the tables, −0.0% marks a value below zero that rounds to 0.0%.
 
 ## 2. The three signals
 
@@ -95,7 +100,7 @@ Each heartbeat makes a similar vibration pattern on a person's chest. If you kno
 
 An invented example shows the timing in step 3. Suppose a P wave's peak was seen 48 ms ago (the comparison needs 48 ms of readings after the peak), and in this person the R wave follows the P peak by about 144 ms. The next R wave is then expected about 96 ms from now. The target lies 80 ms from now, which is 16 ms before that R wave, so the template forecast is the template's value 16 ms before an R wave. The numbers in this example are invented to show the method.
 
-**How the settings were chosen.** All choices were made with the ten learning people only, by "leave one person out": fit on nine, score the tenth, and repeat for each of the ten. Of the 27 combinations tried (K 8, 16 or 32; theta 0.7, 0.8 or 0.9; penalty 0.001, 0.02 or 0.1), K 32, theta 0.9 and penalty 0.001 gave the lowest average error, 1.3886 mV. The plan's default (K 16, theta 0.8, penalty 0.02) gave 1.4189 mV, 2.18% higher. The plan kept the default only if it was within 1% of the lowest, so the lowest was chosen. A small neural network (MLP, which can also represent curved relationships) scored 1.4051 mV with the same inputs. The plan chose the MLP only if it scored below 0.99 × 1.3886 = 1.3748 mV, so the ridge model became version 2. Its official name in the files is **R-ECG**.
+**How the settings were chosen.** All choices were made with the ten learning people only, by "leave one person out": fit on nine, score the tenth, and repeat for each of the ten. Of the 27 combinations tried (K 8, 16 or 32; theta 0.7, 0.8 or 0.9; penalty 0.001, 0.02 or 0.1), K 32, theta 0.9 and penalty 0.001 gave the lowest average error, 1.3886 mV. The plan's default (K 16, theta 0.8, penalty 0.02) gave 1.4189 mV, 2.18% higher. The plan kept the default only if it was within 1% of the lowest, so the lowest was chosen. A small neural network (a multilayer perceptron, MLP, which can also represent curved relationships) scored 1.4051 mV with the same inputs. The plan chose the MLP only if it scored below 0.99 × 1.3886 = 1.3748 mV, so the ridge model became version 2. Its official name in the files is **R-ECG**.
 
 ## 4. Every forecaster in the comparison
 
@@ -128,7 +133,7 @@ All times are UTC (Coordinated Universal Time) on 27 November 2026. The order ma
 
 | Step | Time | Kept in |
 | --- | --- | --- |
-| The plan (commit `b0ffe4d`) was admitted by a separate reviewer and published on GitHub together with commit `2b0c9a1`, which adds only the plan's Simple edition. | on GitHub at 10:54:02 | `PROTOCOL.json`, `PROTOCOL.md` |
+| The plan (commit `b0ffe4d`) was admitted by a separate reviewer and published on GitHub together with three later commits (`c64e6e7`, `0c93c5a` and `2b0c9a1`), which add and then edit only the plan's Simple edition. | on GitHub at 10:54:02 | `PROTOCOL.json`, `PROTOCOL.md` |
 | The finished models were frozen (commit `1dd00a4`), admitted by a separate reviewer, and published. | on GitHub at 12:23:21 | `FREEZE.json` (`13ff5a16…`) |
 | Check that GitHub showed the freeze commit, with the plan commit before it. | 12:27:56 | `source-verification.json` |
 | Download of the file list and 16 recording and header files (p014 to p020 and p001). | 12:27:56 to 12:30:51 | `source-verification.json` |
@@ -144,11 +149,11 @@ The reviewer admitted the freeze when it was in an earlier commit. Before public
 
 **How the files hold each other in place.** `results.json` records the fingerprints of the plan files, of `FREEZE.json`, of the lock file and of the data-check report. The lock file records the fingerprints of the 23 forecast files (two per recording, plus an empty list of recordings without forecasts), the data-check report, `FREEZE.json`, the 12 scoring programs and the 16 weight files. The scoring program checked every fingerprint in the lock file before it read any measured target. The 44 frozen files (43 listed in `FREEZE.json`, plus `FREEZE.json` itself) matched their fingerprints before the download and again after scoring.
 
-**Independent check of the results (step 7 of the plan).** A separate reviewer reran the frozen data checks, forecasts and scoring and got byte-identical files: the same data-check report, the same 23 forecast files and the same `results.json`. The reviewer also wrote separate programs from the plan's text alone, without using any of the frozen programs. With them, the data-check values and the lists of valid cutoffs were identical, all 7,947 numbers compared in `results.json` agreed to within 10⁻¹² (a millionth of a millionth), and the reviewer's own forecasts from the simple rules C0, C1 and C2 and from the first version's models agreed with the locked forecasts to within 4.3 × 10⁻¹⁴ mV. The reviewer's own test for peeking at the future, at 242 cutoffs chosen separately (22 per recording, including the moments when a new beat or a P wave became available), found no change. The reviewer found no serious problem and four minor points: changes 3 to 5 in section 16, and the two facts about the twins in section 10.3.
+**Independent check of the results (step 7 of the plan).** A separate reviewer reran the frozen data checks, forecasts and scoring and got byte-identical files: the same data-check report, the same 23 forecast files and the same `results.json`. The reviewer also wrote separate programs from the plan's text alone, without using any of the frozen programs. With them, the data-check values and the lists of valid cutoffs were identical, all 7,947 numbers compared in `results.json` agreed to within 10⁻¹² (a millionth of a millionth), and the reviewer's own forecasts from the simple rules C0, C1 and C2 and from the first version's models agreed with the locked forecasts to within 4.3 × 10⁻¹⁴ mV. The reviewer's own test for peeking at the future, at 242 cutoffs chosen separately (22 per recording, including the moments when a new beat or a P wave became available), found no change. The reviewer found no serious problem. Its minor points concern changes 3 to 5 in section 16 and three facts, all reported on this page: T-ECG scored about the same as version 2 (section 10.1), the delayed twin scored the same as the chest twin, and the chest-only beat detector counts extra beats in some recordings (both in section 10.3).
 
 ## 6. The three questions and how they were answered
 
-The plan fixed three claims to be tested, each answered "supported" or "not supported":
+The plan fixed three questions in advance. Each question is a claim that the test finds "supported" or "not supported":
 
 - **P1, improvement on the first version.** Version 2's error is lower than that of the first version refitted on the same ten people (V1R base), by at least 10% on average, and version 2 also beats each person's usual level (C0).
 - **P2, value of ECG timing.** Version 2 beats both its chest twin (no ECG) and its delayed twin (ECG from 5.012 seconds earlier, which carries as much ECG information but out of step with the present heartbeat).
@@ -271,7 +276,7 @@ Everything in this section is descriptive. It carries no verdict and no claim of
 
 ### 10.2 Where in the heartbeat the errors are
 
-The plan sorts every cutoff by how long after the last available R wave the target falls, in steps of 40 ms from 0 to 1.2 seconds, plus one group for later or no beat; `results.json` holds every step for every recording. For this page the steps are grouped into three ranges. For each person, the error over a range is computed exactly from the steps' errors and their numbers of cutoffs; the table gives the average over the seven people, in mV.
+The plan sorts every cutoff by how long after the last available R wave the target falls, in steps of 40 ms from 0 to 1.2 seconds, plus one group for later or no beat; `results.json` holds every step for every recording. For this page the steps are grouped into three ranges. For each person, the error over a range is computed exactly from the steps' errors and their numbers of cutoffs; the table gives the average over the seven people, in mV. Every 40 ms step is in the last table of section 21.
 
 | Forecaster | Target 80–400 ms after the last R wave | Target 400–800 ms after the last R wave | Target 800–1,200 ms after the last R wave |
 | --- | ---: | ---: | ---: |
@@ -281,13 +286,13 @@ The plan sorts every cutoff by how long after the last available R wave the targ
 | C0 (usual level) | 2.009 | 1.512 | 4.020 |
 | Forecasts per person in this range | 15,740–19,945 | 21,075–25,778 | 4,241–13,185 |
 
-No target fell less than 80 ms after the last available R wave. Only p018 had targets 1.2 seconds or more after it (36 cutoffs, not in the table). In the first 400 ms after an R wave, version 2, T-ECG and C3 have the same error, about 1.01 mV: all three replay a beat template lined up on the R wave. From 800 ms on, where the next beat begins, C3's error rises to 3.90 mV and version 2's to 1.66 mV. This is the part of the heartbeat where the P wave gives the timing of the next beat.
+No target fell less than 80 ms after the last available R wave. Only p018 had targets 1.2 seconds or more after it (36 cutoffs, not in this table; their errors are in section 21). In the first 400 ms after an R wave, version 2, T-ECG and C3 have the same error, about 1.01 mV: all three replay a beat template lined up on the R wave. From 800 ms on, where the next beat begins, C3's error rises to 3.90 mV and version 2's to 1.66 mV. This is the part of the heartbeat where the P wave gives the timing of the next beat.
 
 ### 10.3 The checks with ECG from 5.012 seconds earlier, and the twins
 
 - **Templates without learned weights.** T-ECG against T-delayed: 51.5% lower error (interval 48.0 to 55.8%), 7 of 7. C3 against C3d: 17.8% (interval 14.0 to 22.1%), 7 of 7.
 - **The delayed templates on their own** did slightly worse than the usual level: T-delayed had 1.55% higher error than C0 on average and C3d 0.82% higher, and neither was better than C0 for any of the 7 people. The plan noted that for a very regular heart whose beat period fits evenly into 5.012 seconds, a delayed template could partly line up again. For these seven people it did not.
-- **The delayed twin scored like the chest twin.** Both had an average error of 2.2052 mV to four decimals, and each person's two errors differ by less than 0.001 mV. Given the ECG of 5.012 seconds earlier, the ridge model's forecasts came out almost as if it had no ECG at all. That is why the two P2 comparisons give the same 46.9%: they are close to a single test.
+- **The delayed twin scored like the chest twin.** Both had an average error of 2.2052 mV to four decimals (2.20521 mV for the delayed twin and 2.20515 mV for the chest twin), and each person's two errors differ by less than 0.001 mV. Given the ECG of 5.012 seconds earlier, the ridge model's errors came out almost the same as without any ECG. That is why the two P2 comparisons give the same 46.9%: they are close to a single test.
 - **The chest-only beat detector counts extra beats in some recordings.** In p018 and p020 (and in p001, p003 and b001) it found 1.76 to 2.66 beats for every beat found from the ECG (table in section 10.6). The chest twin's template inputs are built from these detections.
 
 ### 10.4 The first version on new people
@@ -338,7 +343,7 @@ The database marks every heartbeat in an annotation file (`.atr`). The plan allo
 | p020 | 315 | 314 | 99.68% | 100.00% | 20.0 | 0.0 |
 | Mean over people |  |  | 99.95% | 99.95% | 20.4 | 0.4 |
 
-One marked beat in p020 had no detection within 50 ms, and one detection in p019 had no marked beat within 50 ms. The median timing difference of 20.4 ms equals the filter's delay of 20 ms; with that delay removed it is 0.4 ms. Against channel 0 (lead I) the shares are the same and the median difference is 22.1 ms. A first private version of this check counted both channels together, which counts each beat twice; it was replaced by this version, which treats the channels separately, before anything was committed. The program that reads the annotation files is a small one written for this check; on the WFDB sample files 100s, 100a, snip and 100x it gives the same annotations as the `wfdb` package (version 4.3.1). The program of this check is not in this folder.
+One marked beat in p020 had no detection within 50 ms, and one detection in p019 had no marked beat within 50 ms. The average over the seven people of each person's median timing difference, 20.4 ms, is close to the filter's delay of 20 ms; with that delay removed it is 0.4 ms. Against channel 0 (lead I) the shares are the same and the median difference is 22.1 ms. A first private version of this check counted both channels together, which counts each beat twice; it was replaced by this version, which treats the channels separately, before anything was committed. The program that reads the annotation files is a small one written for this check; on the WFDB sample files 100s, 100a, snip and 100x it gives the same annotations as the `wfdb` package (a widely used program library for WFDB files, version 4.3.1). The program of this check is not in this folder.
 
 ## 11. The stretch from 90 to 120 seconds
 
@@ -357,7 +362,7 @@ The first version was tested on the stretch from 90 to 120 seconds. For comparis
 | T-R, heartbeat shape timed by R waves only (v2's detector) | 2.047 | [1.735, 2.385] | 1.831 | 1.470–2.749 | 0.857 | 1.154 | 14.3% | 7 of 7 |
 | V1F base, first version as published | 2.376 | [2.072, 2.704] | 2.218 | 1.866–3.129 | 1.000 | 1.569 | 0.1% | 2 of 7 |
 | V1F with ECG, as published | 2.468 | [2.107, 2.814] | 2.420 | 1.703–3.205 | 1.035 | 1.648 | −3.6% | 1 of 7 |
-| V1F with delayed ECG, as published | 2.377 | [2.074, 2.706] | 2.220 | 1.867–3.130 | 1.001 | 1.573 | 0.0% | 2 of 7 |
+| V1F with delayed ECG, as published | 2.377 | [2.074, 2.706] | 2.220 | 1.867–3.130 | 1.001 | 1.573 | −0.0% | 2 of 7 |
 | V1R base, first version refitted | 2.365 | [2.076, 2.683] | 2.240 | 1.886–3.079 | 0.996 | 1.560 | 0.5% | 4 of 7 |
 | V1R with ECG, refitted | 2.432 | [2.118, 2.752] | 2.406 | 1.839–3.096 | 1.023 | 1.619 | −2.3% | 1 of 7 |
 | V1R with delayed ECG, refitted | 2.366 | [2.076, 2.684] | 2.241 | 1.886–3.080 | 0.996 | 1.562 | 0.4% | 4 of 7 |
@@ -385,7 +390,7 @@ The first version was tested on the stretch from 90 to 120 seconds. For comparis
 | T-ECG against T-delayed | 51.1% | [47.4, 55.1] | 50.5% | 43.9 to 60.3% | 7 of 7 | 1.246 | [1.038, 1.461] |
 | C3 against C3d | 18.8% | [14.7, 23.7] | 15.6% | 13.3 to 30.1% | 7 of 7 | 0.443 | [0.359, 0.530] |
 
-On this stretch version 2's average error was 1.172 mV, against 2.365 mV for the first version refitted and 2.376 mV for the first version as published. Against the first version refitted, version 2's error was 50.1% lower (interval 46.2 to 53.8%), for 7 of 7 people. The first version's own published test (2.838 mV for its base model) used five other people (p009 to p013), so its millivolt values cannot be compared directly with these.
+On this stretch version 2's average error was 1.172 mV, against 2.365 mV for the first version refitted and 2.376 mV for the first version as published. Against the first version refitted, version 2's error was 50.1% lower (interval 46.2 to 53.7%), for 7 of 7 people. The first version's own published test (2.838 mV for its base model) used five other people (p009 to p013), so its millivolt values cannot be compared directly with these.
 
 ## 12. People 1 to 3, the ten together, and the resting recording
 
@@ -443,7 +448,7 @@ Every forecaster, average over p001 to p003:
 | T-ECG against T-delayed | 49.4% | 51.7% | 35.8 to 60.7% | 3 of 3 | 0.884 |
 | C3 against C3d | 32.6% | 25.5% | 23.3 to 49.0% | 3 of 3 | 0.600 |
 
-For people 1 to 3, version 2's error was lower than the first version refitted for all 3, by 51.2% on average, and lower than C3 for all 3, by 24.7% (from 16.7% to 35.1%). C3 did comparatively well for p002 (1.105 mV, 0.504 cal SD).
+For people 1 to 3, version 2's error was lower than the first version refitted for all 3, by 51.2% on average, and lower than C3 for all 3, by 24.7% (for the three people separately, from 16.7% to 35.1%; there is no interval for this group). C3 did comparatively well for p002 (1.105 mV, 0.504 cal SD).
 
 **The seven test people and people 1 to 3 together** (ten people, with intervals; a secondary table):
 
@@ -607,8 +612,8 @@ The Technical edition also records one after-the-fact check of the first version
 **The data checks (QC1 to QC5)** concern the integrity of the data only. They ran once, with the frozen program `qc.py`, before any forecast was made.
 
 - QC1: the files' fingerprints match their pins.
-- QC2: the header file has the expected contents, and the four whole-recording checksums match.
-- QC3: no more than 10% of forecast moments lost to missing values, and enough valid calibration readings.
+- QC2: the header file has the expected contents (six lines, the record name, 4 signals at 5,000 samples per second, the expected length, the signal names I, II, RESP and SCG, positive gains and the expected closing comment), the recording file has the expected size, and the four whole-recording checksums match the header.
+- QC3: at least 90% of the forecast moments are valid, that is, not lost to missing values (at least 45,000 of 50,000; for b001 40,500 of 45,000), and at least 4,500 of the 5,000 calibration readings of each signal used are valid, with a spread above zero.
 - QC4: no long run of identical stored values (at least 2,500 samples, 0.5 s, in the ECG or chest signal; at least 25,000 samples, 5 s, in the breathing band).
 - QC5: no more than 1.0% of samples at the recorder's limits (clipping); 0.1% to 1.0% is flagged only.
 
@@ -626,7 +631,7 @@ The Technical edition also records one after-the-fact check of the first version
 | p003 | pass | pass | 50,000 / 50,000 | 121 / 2,077 / 7 | 0.0003 / 0.0000 / 0.0000 | 1.580 | pass |
 | b001 | pass | pass | 45,000 / 45,000 | 69 / 607 / 47 | 0.0004 / 0.0118 / 0.0000 | 1.830 | pass |
 
-All 11 recordings passed every check, and none was flagged: the largest share of clipped samples was 0.0118%, in the breathing band of b001. So n = 7 test people count for the verdicts, and a comparison needs 6 wins. The review of the frozen programs had noted that `qc.py` stops with an error, instead of recording a QC1 failure, if a file is missing or its header is not a proper header file. That did not happen: every file was obtained and read.
+All 11 recordings passed every check, and none was flagged: the largest share of clipped samples was 0.0118%, in the breathing band of b001. So n = 7 test people count for the verdicts, and a comparison needs 6 wins. The review of the frozen programs had noted that `qc.py` stops with an error, instead of recording a QC1 failure, if a file is missing or its header file is not a proper WFDB header. That did not happen: every file was obtained and read.
 
 **The test for peeking at the future.** After the data checks were sealed and before any forecast was written, each scored recording was tested at 200 cutoffs drawn with the plan's fixed seeds (20261127 plus the subject number; b001 counts as 101). For each cutoff, two altered copies of the recording were made: one with every raw sample after the cutoff replaced by random numbers, and one cut off right after the cutoff. The whole chain, from the raw stored numbers on, was run on both. Every input value and every forecast at that cutoff, including each of the three MLP seed models, in the person's scale and in mV (71 values per cutoff), had to equal the unaltered ones exactly. 11 recordings × 200 cutoffs × 2 altered copies × 71 values = 312,400 comparisons; none changed. The test read no target.
 
@@ -641,7 +646,7 @@ After the freeze (recorded in `RUN-RECORD.json` and `source-verification.json`, 
 
 3. **Download requests.** The plan describes 17 requests to physionet.org. There were 34 exchanges, because of the redirects and the repeated first file (section 14). The plan's stop rule covers "too many requests" (HTTP 429) and refusals; a redirect is neither. No file other than the plan's 17 was requested, and every byte matches its pin.
 4. **Where later changes are recorded.** The plan says a change after the download is recorded in `results.json`. `results.json` is the unchanged output of the frozen scoring program and has no field for changes, and editing it would break the chain of fingerprints. Change 3 is therefore recorded in `RUN-RECORD.json` (committed with `results.json`) and in `source-verification.json` (committed with the lock).
-5. **Private disk use.** The private working folder reached 364 MB, above the plan's 300 MB budget: copies of the learning recordings (115 MB), the downloaded test files (92 MB) and the locked forecast files (140 MB). This affects no file or result.
+5. **Private disk use.** The private working folder holds about 380 MB (megabytes of a million bytes each), above the plan's 300 MB budget. Most of it is copies of the learning recordings (120 MB), the downloaded test files (96 MB) and the locked forecast files (146 MB); the rest is 18 MB of outputs from choosing the settings, and small logs. This affects no file or result.
 
 None of these changed a forecast, a score or a verdict.
 
@@ -653,7 +658,7 @@ None of these changed a forecast, a score or a verdict.
 - **No sensation.** Nothing in these recordings measures signals in sensory nerves or anything a person felt. No claim about sensation, interoception (the sense of the body's internal state), clinical use, diagnosis or physiological cause follows.
 - **Few people.** Seven main test people, three secondary people and one resting recording, all from one database. The bootstrap interval with seven people is rough.
 - **Detector settings.** The settings of the R and P wave detectors were chosen by looking at three learning people (p004, p007 and p008). This makes the learning-people numbers optimistic. The test people played no part in them.
-- **Recent readings needed.** A forecast needs about 20 seconds of the same person's recent chest and ECG readings, plus a 20-second calibration stretch from that person. It cannot forecast someone from whom it has no readings.
+- **Recent readings needed.** Version 2's beat template can only be computed once the R-wave detector has found at least 37 heartbeats of the person: the 33 beats the template averages (K = 32) plus 4 earlier ones. For these people, whose median time between beats was 0.73 to 0.95 seconds, that takes about 27 to 35 seconds of the same person's recent ECG and chest readings. A 20-second calibration stretch from that person is also needed. With fewer beats, every template input takes a fixed fill value, and the results on this page would not apply. The plan's own list of limits said "about 20 seconds"; it was written before K was chosen and fits the plan's default setting K = 16 (21 heartbeats). The plan's description of the predictor program asks for at least 30 seconds. The model cannot forecast someone from whom it has no readings.
 - **Careful wording.** Results are stated as "supported" or "not supported" by the rule fixed in advance. They do not show that the model works in general.
 
 ## 18. Measured, derived, predicted and simulated values
@@ -752,11 +757,11 @@ In order: `grid` computes the beat-timing inputs for every combination of K and 
 | [detector-check-atr.json](detector-check-atr.json) | The check of the detector against the database's beat marks, made after the results |
 | [NOTICE.md](NOTICE.md) | Data credit, licence, citations and our changes |
 
-No participant's recording, template or forecast values are in this folder. The plan also lists, for this stage, a predictor program, invented example inputs, a one-command rerun script, a requirements file and a checksum list; they are not in this folder yet.
+No participant's recording, template or forecast values are in this folder. The plan also lists, for this stage, a predictor program, invented example inputs, a one-command rerun script, a requirements file and a list of file fingerprints; they are not in this folder yet.
 
 The first version's folder, [`models/chest-vibration`](../chest-vibration), is unchanged. V1F reads its `weights.json` without changing it.
 
-## 21. Every forecaster on every recording
+## 21. Every forecaster on every recording, and every 40 ms step
 
 p014 to p020 are the main test people, p001 to p003 the secondary people, and b001 the resting recording. The values come from `results.json` (`records`, then each recording's `arms`).
 
@@ -863,7 +868,43 @@ p014 to p020 are the main test people, p001 to p003 the secondary people, and b0
 | C4, ridge on 1.2 s of readings | −1.9% | 1.1% | −0.7% | 3.7% | 2.9% | 4.4% | 1.0% | 0.7% | −1.3% | −2.5% | 4.4% |
 | R-chest, v2 without ECG (chest twin) | 9.7% | 3.5% | 4.4% | 11.1% | 4.9% | 12.5% | 4.2% | 0.0% | 5.0% | 0.7% | 3.1% |
 | **R-ECG, version 2** | 47.5% | 56.4% | 56.6% | 45.4% | 47.3% | 57.1% | 45.5% | 51.4% | 60.3% | 35.9% | 59.4% |
-| R-delayed, v2 with ECG from 5.012 s earlier (delayed twin) | 9.7% | 3.5% | 4.4% | 11.2% | 4.9% | 12.5% | 4.2% | 0.0% | 5.0% | 0.7% | 3.1% |
+| R-delayed, v2 with ECG from 5.012 s earlier (delayed twin) | 9.7% | 3.5% | 4.4% | 11.2% | 4.9% | 12.5% | 4.2% | −0.0% | 5.0% | 0.7% | 3.1% |
 | M-chest, MLP without ECG | 9.9% | 1.0% | 9.1% | 4.5% | 2.7% | 10.6% | −4.1% | −10.0% | −7.0% | −4.3% | −6.7% |
 | M-ECG, MLP with ECG | 48.5% | 55.9% | 56.4% | 43.3% | 45.4% | 54.9% | 46.3% | 49.9% | 58.5% | 38.4% | 58.2% |
 | M-delayed, MLP with delayed ECG | 9.8% | 0.7% | 8.7% | 4.9% | 3.0% | 8.2% | −3.6% | −10.0% | −7.9% | −4.8% | −7.7% |
+
+**Error by where the target falls after the last available R wave, every 40 ms step** (`results.json`, `records`, then each recording's `error_by_position_after_last_R`; the seven main test people). Each row is one step of the target's position: the time from the last R wave that version 2's detector had found by the cutoff to the target. For each step, a forecaster's error is the average over the people who have forecasts in that step, in mV. "People" counts those people and "Forecasts" is their total number of forecasts in the step. Steps with few forecasts give unsteady values.
+
+| Target position after the last R wave | Version 2 | T-ECG | C3 | C0 (usual level) | People | Forecasts |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0–40 ms | – | – | – | – | 0 | 0 |
+| 40–80 ms | – | – | – | – | 0 | 0 |
+| 80–120 ms | 1.154 | 1.135 | 1.136 | 2.774 | 7 | 8,071 |
+| 120–160 ms | 0.873 | 0.854 | 0.860 | 2.690 | 7 | 16,320 |
+| 160–200 ms | 0.736 | 0.736 | 0.730 | 1.870 | 7 | 16,320 |
+| 200–240 ms | 0.764 | 0.770 | 0.761 | 1.227 | 7 | 16,319 |
+| 240–280 ms | 0.698 | 0.701 | 0.693 | 1.071 | 7 | 16,312 |
+| 280–320 ms | 0.672 | 0.676 | 0.671 | 1.106 | 7 | 16,308 |
+| 320–360 ms | 1.003 | 1.007 | 0.998 | 1.483 | 7 | 16,300 |
+| 360–400 ms | 1.604 | 1.607 | 1.615 | 2.772 | 7 | 16,291 |
+| 400–440 ms | 1.071 | 1.076 | 1.084 | 1.822 | 7 | 16,290 |
+| 440–480 ms | 0.877 | 0.885 | 0.896 | 1.872 | 7 | 16,296 |
+| 480–520 ms | 0.941 | 0.948 | 0.950 | 1.412 | 7 | 16,310 |
+| 520–560 ms | 0.774 | 0.780 | 0.778 | 1.322 | 7 | 16,328 |
+| 560–600 ms | 0.753 | 0.755 | 0.749 | 1.069 | 7 | 16,330 |
+| 600–640 ms | 0.807 | 0.808 | 0.795 | 0.899 | 7 | 16,330 |
+| 640–680 ms | 0.740 | 0.742 | 0.796 | 0.901 | 7 | 16,339 |
+| 680–720 ms | 0.846 | 0.846 | 1.089 | 1.175 | 7 | 16,323 |
+| 720–760 ms | 1.077 | 1.073 | 1.485 | 1.553 | 7 | 16,163 |
+| 760–800 ms | 1.241 | 1.236 | 1.940 | 1.998 | 7 | 15,684 |
+| 800–840 ms | 1.279 | 1.278 | 2.337 | 2.399 | 7 | 14,987 |
+| 840–880 ms | 1.442 | 1.445 | 3.140 | 3.184 | 7 | 13,966 |
+| 880–920 ms | 1.528 | 1.524 | 3.849 | 3.902 | 7 | 12,357 |
+| 920–960 ms | 1.754 | 1.750 | 4.432 | 4.544 | 7 | 9,849 |
+| 960–1,000 ms | 1.858 | 1.856 | 4.569 | 4.891 | 7 | 7,125 |
+| 1,000–1,040 ms | 2.103 | 2.115 | 4.429 | 4.907 | 7 | 4,143 |
+| 1,040–1,080 ms | 1.750 | 1.748 | 3.968 | 5.011 | 7 | 1,907 |
+| 1,080–1,120 ms | 2.235 | 2.244 | 4.058 | 4.842 | 6 | 733 |
+| 1,120–1,160 ms | 2.294 | 2.310 | 4.022 | 4.552 | 5 | 211 |
+| 1,160–1,200 ms | 2.135 | 2.059 | 2.302 | 4.694 | 4 | 52 |
+| 1.2 s or later, or no beat | 3.420 | 3.407 | 6.533 | 6.701 | 1 | 36 |

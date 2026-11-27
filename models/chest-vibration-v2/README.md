@@ -7,7 +7,7 @@ Version 2 forecasts the output voltage of a chest-vibration sensor (seismocardio
 - Mean person RMSE was **1.156 mV** for version 2 (0.494 in units of each person's calibration SD). Version 1 re-fitted on the same ten people (V1R base) scored 2.375 mV, each person's calibration mean (C0) 2.376 mV, and the R-only rolling heartbeat template (C3) 1.980 mV.
 - Version 2's error was lower than V1R base's for 7 of 7 people, by 50.8% on average (95% bootstrap interval 47.3 to 54.7%; range 45.6 to 57.2%). Against C3 it was lower for 7 of 7, by 40.3% (34.0 to 46.2%).
 - Most of the gain comes from the ECG-timed beat template with P-wave anticipation, which has no fitted weights. That template alone (T-ECG) scored 1.157 mV, and the ridge model on top lowered person RMSE by a further 0.08% on average (−0.18 to 0.28%). Within one detector, P-wave anticipation lowered the error by 41.8% against the same template timed by R waves only (T-R, 2.032 mV).
-- Scope: presumed healthy volunteers lying supine and still, about five minutes after roughly 50 minutes of music, in one laboratory with one acquisition system. SCG and RESP are sensor voltages, not acceleration, chest displacement or lung volume. Nothing here measures signals in sensory nerves (afferent signalling) or anything a person felt. The R and P detector constants were set by inspecting three fitting people (p004, p007, p008). Every input and target is measured; nothing is simulated.
+- Scope: presumed healthy volunteers lying supine and still, in the five-minute recording made after about 50 minutes of classical music (scored from 90 to 290 s into it), in one laboratory with one acquisition system. SCG and RESP are sensor voltages, not acceleration, chest displacement or lung volume. Nothing here measures signals in sensory nerves (afferent signalling) or anything a person felt. The R and P detector constants were set by inspecting three fitting people (p004, p007, p008). Every input and target is measured; nothing is simulated.
 
 ## Contents
 
@@ -29,7 +29,7 @@ Version 2 forecasts the output voltage of a chest-vibration sensor (seismocardio
 16. [Measured, derived, predicted and simulated values](#16-measured-derived-predicted-and-simulated-values)
 17. [How to rerun](#17-how-to-rerun)
 18. [Files](#18-files)
-19. [Appendix: every arm on every scored record](#19-appendix-every-arm-on-every-scored-record)
+19. [Appendix: every arm on every scored record, and every 40 ms bin](#19-appendix-every-arm-on-every-scored-record-and-every-40-ms-bin)
 
 ## 1. Terms
 
@@ -37,11 +37,13 @@ Version 2 forecasts the output voltage of a chest-vibration sensor (seismocardio
 - **cal SD:** the person's SCG standard deviation over the calibration interval, 60-80 s, in mV. RMSE / cal SD is the error in z units and makes people with large and small signals comparable.
 - **RMSE, MAE:** root mean squared error and mean absolute error over a person's valid cutoffs, in SCG mV. RMSE is the primary metric.
 - **Relative reduction:** for one person, 100 × (comparator RMSE − model RMSE) / comparator RMSE. Positive means the model's error is lower. A **win** is a person with a strictly positive reduction.
+- **Skill:** for one record, 1 − arm RMSE / C0 RMSE. 100 × skill is the arm's relative reduction against C0.
 - **Bootstrap interval:** a paired bootstrap over people, 10,000 resamples, `numpy.random.default_rng(20261127)`, one index matrix per scoring group; percentile 95% interval. With seven people it is coarse.
 - **R wave, P wave:** the tall spike of each heartbeat in the ECG, and the small wave about 130-160 ms before it.
 - **Arm:** one forecaster in the comparison. The arms are listed in section 2.
+- **QC1-QC5:** the five predeclared data-integrity checks on each scored record: file hashes, header, valid readings, runs of identical values and clipping. Their thresholds are in section 13.
 
-Cutoffs within a person overlap and are serially dependent. People are the unit of replication; every mean below weights each person once.
+Cutoffs within a person overlap and are serially dependent. People are the unit of replication; every mean below weights each person once. In the tables, −0.0% marks a value below zero that rounds to 0.0%.
 
 ## 2. The model and the controls
 
@@ -69,7 +71,7 @@ Cutoffs within a person overlap and are serially dependent. People are the unit 
 | V1R base, aligned, delayed | Version 1's features and ridge (penalty 0.02) re-fitted on p004-p013 over the same cutoffs. V1R base is P1's comparator. |
 | C4 | Ridge on one cardiac cycle (SCG lags 0-299, RESP lags 0-295 in steps of 5). |
 | R-chest, R-ECG, R-delayed | Ridge on B0 + B2, B0 + B2 + B3, B0 + B2 + B3d. **R-ECG is version 2.** |
-| M-chest, M-ECG, M-delayed | MLP (two hidden layers of 64, GELU) on the same blocks, mean of seeds 20261127-20261129. |
+| M-chest, M-ECG, M-delayed | Multilayer perceptron (MLP: two hidden layers of 64 units with the GELU activation, the Gaussian error linear unit) on the same blocks, mean of seeds 20261127-20261129. |
 
 The NeuroTranslate 0.0 and 0.1 checkpoints accept no ECG, SCG or breathing-band input, so they are not an arm. No shared encoder is claimed, so the random-encoder control does not apply.
 
@@ -79,7 +81,7 @@ All times are UTC on 27 November 2026.
 
 | Step | Time | Record |
 | --- | --- | --- |
-| Protocol commit `b0ffe4d`, admitted by a separate reviewer, pushed to main with `2b0c9a1`, which adds only `PROTOCOL-SIMPLE.md` | pushed 10:54:02 | `PROTOCOL.json` `4889fa5e…`, `PROTOCOL.md` `daaaa923…`, `ALLOCATION.json` `2654580c…` |
+| Protocol commit `b0ffe4d`, admitted by a separate reviewer, pushed to main with three later commits (`c64e6e7`, `0c93c5a`, `2b0c9a1`) that add and then edit only `PROTOCOL-SIMPLE.md` | pushed 10:54:02 | `PROTOCOL.json` `4889fa5e…`, `PROTOCOL.md` `daaaa923…`, `ALLOCATION.json` `2654580c…` |
 | Freeze commit `1dd00a4`, admitted by a separate reviewer | pushed 12:23:21 | `FREEZE.json` `13ff5a16…6eb7b48` |
 | Precondition: GitHub main equals `1dd00a4`, and `b0ffe4d` is its ancestor | 12:27:56 | `source-verification.json` |
 | Download of the manifest and the 16 `.dat`/`.hea` files of p014-p020 and p001 | 12:27:56-12:30:51 | `source-verification.json` |
@@ -95,7 +97,7 @@ The reviewer admitted the freeze in an earlier commit with the same content. Tha
 
 `results.json` records the protocol commit, the four protocol-file hashes, and the hashes of `FREEZE.json`, `SCORE-LOCK.json` and `qc-report.json`. `SCORE-LOCK.json` holds the SHA-256 of the 23 forecast files (a JSON and an NPZ file per record, plus a list of skipped records, which is empty), the QC report, `FREEZE.json`, the 12 scoring-code files and the 16 weight files. `score.py` checked every hash in the lock before it read any target. All 44 frozen files (43 hashed in `FREEZE.json`, plus `FREEZE.json`) matched before the download and again after scoring.
 
-**Independent result review (protocol step 7).** A separate reviewer reran the frozen `qc.py`, `forecast.py` and `score.py` and obtained a byte-identical QC report, the 23 locked forecast files byte for byte, and a byte-identical `results.json`. It also wrote its own QC and scoring code from the protocol text without importing any frozen module: QC values and row masks were identical, 7,947 values of `results.json` agreed within 1e-12, and its own C0, C1, C2, V1R and V1F forecasts agreed with the locked ones within 4.3e-14 mV. Its own truncation check at 242 cutoffs chosen independently of `causality.py` (22 per record, including detector-availability and P-acceptance edges) found no change. It found no blocker and no major problem; its four minor points are departures 3 to 5 in section 14 and the two descriptive facts about the twins in section 8.3.
+**Independent result review (protocol step 7).** A separate reviewer reran the frozen `qc.py`, `forecast.py` and `score.py` and obtained a byte-identical QC report, the 23 locked forecast files byte for byte, and a byte-identical `results.json`. It also wrote its own QC and scoring code from the protocol text without importing any frozen module: QC values and row masks were identical, 7,947 values of `results.json` agreed within 1e-12, and its own C0, C1, C2, V1R and V1F forecasts agreed with the locked ones within 4.3e-14 mV. Its own truncation check at 242 cutoffs chosen independently of `causality.py` (22 per record, including detector-availability and P-acceptance edges) found no change. It found no blocker and no major problem. Its minor points concern departures 3 to 5 (section 14) and three descriptive facts, all reported here: T-ECG scored about the same as v2 (section 8.1), R-delayed scored the same as R-chest, and the chest-only detector over-counts beats in some records (both in section 8.3).
 
 ## 4. Verdicts
 
@@ -204,7 +206,7 @@ Everything in this section is descriptive: no verdict, no significance claim.
 
 ### 8.2 Error by target position after the last available R wave
 
-The protocol bins every scored cutoff by the target's position after the last R wave available at the cutoff, in 40 ms bins from 0 to 1.2 s plus a bin for later or no beat; `results.json` holds every bin for every record. For this table the 40 ms bins were grouped into three ranges: within each person the RMSE over a range is computed exactly from the bins' row counts and RMSEs, and the table gives the mean over the seven people, in mV.
+The protocol bins every scored cutoff by the target's position after the last R wave available at the cutoff, in 40 ms bins from 0 to 1.2 s plus a bin for later or no beat; `results.json` holds every bin for every record. For this table the 40 ms bins were grouped into three ranges: within each person the RMSE over a range is computed exactly from the bins' row counts and RMSEs, and the table gives the mean over the seven people, in mV. Every 40 ms bin is in the appendix (section 19).
 
 | Arm | 80–400 ms after R | 400–800 ms after R | 800–1,200 ms after R |
 | --- | ---: | ---: | ---: |
@@ -214,13 +216,13 @@ The protocol bins every scored cutoff by the target's position after the last R 
 | C0 | 2.009 | 1.512 | 4.020 |
 | Rows per person | 15,740–19,945 | 21,075–25,778 | 4,241–13,185 |
 
-No target fell less than 80 ms after the last available R wave. Only p018 had targets 1.2 s or more after it (36 cutoffs, not in the table). In the first 400 ms after an R wave, v2, T-ECG and C3 have the same error, about 1.01 mV: all three replay an R-aligned beat template. From 800 ms on, where the next beat begins, C3's error rises to 3.90 mV and v2's to 1.66 mV. This is the part of the cycle where the P wave gives the timing of the next beat.
+No target fell less than 80 ms after the last available R wave. Only p018 had targets 1.2 s or more after it (36 cutoffs, not in this table; their RMSEs are in the appendix). In the first 400 ms after an R wave, v2, T-ECG and C3 have the same error, about 1.01 mV: all three replay an R-aligned beat template. From 800 ms on, where the next beat begins, C3's error rises to 3.90 mV and v2's to 1.66 mV. This is the part of the cycle where the P wave gives the timing of the next beat.
 
 ### 8.3 The delayed-ECG controls and the twins
 
 - **Non-learned timing checks.** T-ECG against T-delayed: 51.5% (48.0 to 55.8%), 7 of 7. C3 against C3d: 17.8% (14.0 to 22.1%), 7 of 7.
 - **The delayed templates themselves** were slightly worse than the calibration mean: T-delayed −1.55% against C0, C3d −0.82%, each 0 of 7 wins. The protocol noted that a delayed template could partly realign for a very regular heart whose beat period divides 5.012 s; on these seven people it did not.
-- **R-delayed equals R-chest.** Both scored 2.2052 mV to four decimals, and each person's two RMSEs differ by less than 0.001 mV. With ECG delayed by 5.012 s, the delayed twin performs like the chest-only twin. P2's two comparisons therefore give almost the same numbers (46.9% each) and are close to a single test.
+- **R-delayed scored the same as R-chest.** Both scored 2.2052 mV to four decimals (R-delayed 2.20521 mV, R-chest 2.20515 mV), and each person's two RMSEs differ by less than 0.001 mV. With ECG delayed by 5.012 s, the delayed twin's errors were almost those of the chest-only twin. P2's two comparisons therefore give almost the same numbers (46.9% each) and are close to a single test.
 - **The chest-only detector over-counts in some records.** In p018 and p020 (and p001, p003 and b001) it found 1.76-2.66 beats per R-wave beat (section 8.6). The chest twin's template block B2 is built from these detections.
 
 ### 8.4 Version 1 on new people
@@ -271,7 +273,7 @@ This check was allowed by the protocol only after `results.json` was sealed; it 
 | p020 | 315 | 314 | 99.68% | 100.00% | 20.0 | 0.0 |
 | Mean over people |  |  | 99.95% | 99.95% | 20.4 | 0.4 |
 
-One annotated beat in p020 had no detection within 50 ms, and one detection in p019 had no annotated beat within 50 ms. The median offset of +20.4 ms equals the filter's 20 ms group delay on the 250 Hz grid; with 20 ms removed it is +0.4 ms. Against channel 0 (lead I) the shares are the same and the median offset is +22.1 ms. A first private run pooled both channels, which counts each beat twice; it was replaced by this per-channel version before anything was committed. The annotation reader is a small standard-library reader, checked against the `wfdb` package (4.3.1) on the WFDB sample files 100s, 100a, snip and 100x. The script of this check is not in this folder.
+One annotated beat in p020 had no detection within 50 ms, and one detection in p019 had no annotated beat within 50 ms. The mean over people of each person's median offset, +20.4 ms, is close to the filter's 20 ms group delay on the 250 Hz grid; with 20 ms removed it is +0.4 ms. Against channel 0 (lead I) the shares are the same and the median offset is +22.1 ms. A first private run pooled both channels, which counts each beat twice; it was replaced by this per-channel version before anything was committed. The annotation reader is a small standard-library reader, checked against the `wfdb` package (4.3.1) on the WFDB sample files 100s, 100a, snip and 100x. The script of this check is not in this folder.
 
 ## 9. The 90-120 s interval
 
@@ -290,7 +292,7 @@ The protocol reports 90 ≤ t < 120 s (7,500 cutoffs per person, a subset of the
 | T-R R-timed template, no P wave | 2.047 | [1.735, 2.385] | 1.831 | 1.470–2.749 | 0.857 | 1.154 | 14.3% | 7 of 7 |
 | V1F base (published v1) | 2.376 | [2.072, 2.704] | 2.218 | 1.866–3.129 | 1.000 | 1.569 | 0.1% | 2 of 7 |
 | V1F aligned ECG (published v1) | 2.468 | [2.107, 2.814] | 2.420 | 1.703–3.205 | 1.035 | 1.648 | −3.6% | 1 of 7 |
-| V1F delayed ECG (published v1) | 2.377 | [2.074, 2.706] | 2.220 | 1.867–3.130 | 1.001 | 1.573 | 0.0% | 2 of 7 |
+| V1F delayed ECG (published v1) | 2.377 | [2.074, 2.706] | 2.220 | 1.867–3.130 | 1.001 | 1.573 | −0.0% | 2 of 7 |
 | V1R base (v1 re-fitted) | 2.365 | [2.076, 2.683] | 2.240 | 1.886–3.079 | 0.996 | 1.560 | 0.5% | 4 of 7 |
 | V1R aligned ECG (v1 re-fitted) | 2.432 | [2.118, 2.752] | 2.406 | 1.839–3.096 | 1.023 | 1.619 | −2.3% | 1 of 7 |
 | V1R delayed ECG (v1 re-fitted) | 2.366 | [2.076, 2.684] | 2.241 | 1.886–3.080 | 0.996 | 1.562 | 0.4% | 4 of 7 |
@@ -318,7 +320,7 @@ The protocol reports 90 ≤ t < 120 s (7,500 cutoffs per person, a subset of the
 | T-ECG vs T-delayed | 51.1% | [47.4, 55.1] | 50.5% | 43.9 to 60.3% | 7 of 7 | 1.246 | [1.038, 1.461] |
 | C3 vs C3d | 18.8% | [14.7, 23.7] | 15.6% | 13.3 to 30.1% | 7 of 7 | 0.443 | [0.359, 0.530] |
 
-On this interval v2 scored 1.172 mV against 2.365 mV for V1R base and 2.376 mV for V1F base, a reduction of 50.1% (46.2 to 53.8%) against V1R base for 7 of 7 people. Version 1's published test numbers (p009-p013, 90-120 s: 2.838 mV for the base model) concern five other people and are not directly comparable in mV.
+On this interval v2 scored 1.172 mV against 2.365 mV for V1R base and 2.376 mV for V1F base, a reduction of 50.1% (46.2 to 53.7%) against V1R base for 7 of 7 people. Version 1's published test numbers (p009-p013, 90-120 s: 2.838 mV for the base model) concern five other people and are not directly comparable in mV.
 
 ## 10. Secondary people p001-p003, the pooled ten and b001
 
@@ -376,7 +378,7 @@ Every arm, p001-p003, mean over the three:
 | T-ECG vs T-delayed | 49.4% | 51.7% | 35.8 to 60.7% | 3 of 3 | 0.884 |
 | C3 vs C3d | 32.6% | 25.5% | 23.3 to 49.0% | 3 of 3 | 0.600 |
 
-Against V1R base, v2's error was lower for 3 of 3 secondary people, by 51.2% on average; against C3, by 24.7% (16.7 to 35.1%). C3 did comparatively well on p002 (1.105 mV, 0.504 cal SD).
+Against V1R base, v2's error was lower for 3 of 3 secondary people, by 51.2% on average; against C3, by 24.7% (range 16.7 to 35.1%; no bootstrap interval for this group). C3 did comparatively well on p002 (1.105 mV, 0.504 cal SD).
 
 **Pooled primary and secondary people** (n = 10, bootstrap intervals; secondary):
 
@@ -539,7 +541,15 @@ From `https://physionet.org/files/cebsdb/1.0.0/`: first `SHA256SUMS.txt` (13,697
 
 ### Data checks (QC1-QC5)
 
-Run once with the frozen `qc.py` before any forecast file was written. All 11 records pass; no record was flagged (QC5 flags from 0.1% clipped samples; the largest was 0.0118%, RESP of b001). The longest identical runs are far below the limits (2,500 samples for II and SCG, 25,000 for RESP).
+The protocol's rules (`PROTOCOL.json`, `quality_checks`):
+
+- **QC1 source:** the SHA-256 of each `.dat` and `.hea` equals its pin, and the downloaded manifest equals its pin.
+- **QC2 header:** six header lines with the expected record name, 4 signals at 5,000 Hz, the expected frame count, format 16, labels I, II, RESP, SCG, positive gains and the expected final comment; the `.dat` length matches; the four whole-record modulo-65536 checksums equal the header values.
+- **QC3 valid readings:** at least 4,500 of 5,000 valid calibration readings per used channel with SD > 0, and at least 90% of the scoring cutoffs valid (45,000 of 50,000; b001 40,500 of 45,000).
+- **QC4 identical runs:** a run of identical stored values of at least 2,500 samples (0.5 s) in II or SCG, or at least 25,000 samples (5 s) in RESP, between 55 and 291 s (b001: 55 to 271 s), excludes the record.
+- **QC5 clipping:** more than 1.0% of samples at ±32767 in II, RESP or SCG over the same span excludes the record; 0.1% to 1.0% is flagged only.
+
+QC ran once with the frozen `qc.py` before any forecast file was written. All 11 records pass; no record was flagged (the largest clipped share was 0.0118%, RESP of b001). The longest identical runs are far below the limits.
 
 | Record | QC1 source | QC2 header | QC3 valid cutoffs | QC4 longest identical run, II / RESP / SCG (samples) | QC5 clipped %, II / RESP / SCG | SCG cal SD (mV) | All |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
@@ -572,19 +582,19 @@ After the freeze (recorded in `RUN-RECORD.json` and `source-verification.json`, 
 
 3. **Download requests.** The protocol describes 17 requests to physionet.org; there were 34 HTTP exchanges, because of the redirects and the resumed first file (section 13). The stop rule covers HTTP 429 and refusals; a 302 is neither. No file other than the 17 protocol files was requested, and every byte equals its pin.
 4. **Where post-download departures are recorded.** Protocol section 26 says a departure after the download is recorded in `results.json`. `results.json` is the unchanged output of the frozen `score.py` and has no deviations field; editing it would break the lock and hash chain. Departure 3 is therefore recorded in `RUN-RECORD.json` (committed with `results.json`) and `source-verification.json` (committed with the lock).
-5. **Private disk budget.** The private working folder reached 364 MB, above the protocol's 300 MB budget (section 25): copies of the fitting records (115 MB), the test downloads (92 MB) and the locked forecast arrays (140 MB). This affects no file or result.
+5. **Private disk budget.** The private working folder holds about 380 MB (decimal megabytes, 10⁶ bytes), above the protocol's 300 MB budget (section 25). It is mainly copies of the fitting records (120 MB), the test downloads (96 MB) and the locked forecast arrays (146 MB); the rest is 18 MB of development outputs and smaller logs. This affects no file or result.
 
 None of these changed a forecast, a score or a verdict. The QC1 rule for a missing or unreadable file was not needed.
 
 ## 15. Limits
 
-- **Condition.** Presumed healthy volunteers lying supine and still, about five minutes after roughly 50 minutes of classical music, in one laboratory with one acquisition system (Biopac MP36). The results cover that condition only. b001 is one person at rest before the music.
+- **Condition.** Presumed healthy volunteers lying supine and still, in the five-minute recording made after about 50 minutes of classical music, in one laboratory with one acquisition system (Biopac MP36). The results cover that condition only. b001 is one person at rest before the music.
 - **Units.** SCG and RESP are sensor output voltages in mV. They are not calibrated acceleration, chest displacement or lung volume.
 - **ECG.** Lead II is the potential between skin electrodes, used only as heartbeat timing and shape.
 - **No sensation.** Nothing in these recordings measures signals in sensory nerves or anything a person felt. No sensation, interoception, clinical, diagnostic or causal physiological claim follows.
 - **People.** Seven primary test people, three secondary people and one basal recording, all from one database. Cutoffs within a person overlap and are never counted as independent replicates. The bootstrap with seven people is coarse.
 - **Detector constants.** The R and P detector constants were set by inspecting p004, p007 and p008, which makes the development numbers optimistic. The test people played no part in them.
-- **Not a cold forecast.** A forecast needs about 20 s of the same person's recent SCG and ECG readings plus a 20 s calibration interval.
+- **Not a cold forecast.** With the chosen K = 32, every template output, and so every B3 input of v2, stays undefined until 37 R waves have been detected (the frozen `template.py` requires j ≥ K + 4, 0-based). At these people's median RR intervals (0.73-0.95 s) that is about 27-35 s of the same person's recent ECG and SCG readings, plus a 20 s calibration interval. With less history the template inputs take their fill values, and the results above do not apply. The protocol's limit of "about 20 s" was written before K was chosen and fits the default K = 16 (21 beats); its predictor section asks for at least 30 s of history.
 - **Wording.** Results are "supported" or "not supported" by the predeclared rule. They do not establish general validity.
 
 ## 16. Measured, derived, predicted and simulated values
@@ -685,7 +695,7 @@ No participant waveform, template or forecast array is committed. The NumPy pred
 
 The version 1 folder, [`models/chest-vibration`](../chest-vibration), is unchanged; V1F uses its `weights.json` read-only.
 
-## 19. Appendix: every arm on every scored record
+## 19. Appendix: every arm on every scored record, and every 40 ms bin
 
 p014-p020 are the primary people, p001-p003 the secondary people and b001 the basal check. Values come from `results.json` (`records.*.arms`).
 
@@ -792,7 +802,43 @@ p014-p020 are the primary people, p001-p003 the secondary people and b001 the ba
 | C4 one-cycle ridge | −1.9% | 1.1% | −0.7% | 3.7% | 2.9% | 4.4% | 1.0% | 0.7% | −1.3% | −2.5% | 4.4% |
 | R-chest (chest twin) | 9.7% | 3.5% | 4.4% | 11.1% | 4.9% | 12.5% | 4.2% | 0.0% | 5.0% | 0.7% | 3.1% |
 | **R-ECG = v2** | 47.5% | 56.4% | 56.6% | 45.4% | 47.3% | 57.1% | 45.5% | 51.4% | 60.3% | 35.9% | 59.4% |
-| R-delayed (delayed twin) | 9.7% | 3.5% | 4.4% | 11.2% | 4.9% | 12.5% | 4.2% | 0.0% | 5.0% | 0.7% | 3.1% |
+| R-delayed (delayed twin) | 9.7% | 3.5% | 4.4% | 11.2% | 4.9% | 12.5% | 4.2% | −0.0% | 5.0% | 0.7% | 3.1% |
 | M-chest (MLP) | 9.9% | 1.0% | 9.1% | 4.5% | 2.7% | 10.6% | −4.1% | −10.0% | −7.0% | −4.3% | −6.7% |
 | M-ECG (MLP) | 48.5% | 55.9% | 56.4% | 43.3% | 45.4% | 54.9% | 46.3% | 49.9% | 58.5% | 38.4% | 58.2% |
 | M-delayed (MLP) | 9.8% | 0.7% | 8.7% | 4.9% | 3.0% | 8.2% | −3.6% | −10.0% | −7.9% | −4.8% | −7.7% |
+
+**Error by target position after the last available R wave, every 40 ms bin** (`results.json`, `records.*.error_by_position_after_last_R`, primary people). A bin is the target's position, t + 20 minus the last R_v2 beat available at t. For each bin, the RMSE of each arm is the mean over the people who have cutoffs in that bin, in mV; "People" counts them and "Cutoffs" is their total number of cutoffs in the bin. Bins with few cutoffs are noisy.
+
+| Target position after the last R | v2 (R-ECG) | T-ECG | C3 | C0 | People | Cutoffs |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0–40 ms | – | – | – | – | 0 | 0 |
+| 40–80 ms | – | – | – | – | 0 | 0 |
+| 80–120 ms | 1.154 | 1.135 | 1.136 | 2.774 | 7 | 8,071 |
+| 120–160 ms | 0.873 | 0.854 | 0.860 | 2.690 | 7 | 16,320 |
+| 160–200 ms | 0.736 | 0.736 | 0.730 | 1.870 | 7 | 16,320 |
+| 200–240 ms | 0.764 | 0.770 | 0.761 | 1.227 | 7 | 16,319 |
+| 240–280 ms | 0.698 | 0.701 | 0.693 | 1.071 | 7 | 16,312 |
+| 280–320 ms | 0.672 | 0.676 | 0.671 | 1.106 | 7 | 16,308 |
+| 320–360 ms | 1.003 | 1.007 | 0.998 | 1.483 | 7 | 16,300 |
+| 360–400 ms | 1.604 | 1.607 | 1.615 | 2.772 | 7 | 16,291 |
+| 400–440 ms | 1.071 | 1.076 | 1.084 | 1.822 | 7 | 16,290 |
+| 440–480 ms | 0.877 | 0.885 | 0.896 | 1.872 | 7 | 16,296 |
+| 480–520 ms | 0.941 | 0.948 | 0.950 | 1.412 | 7 | 16,310 |
+| 520–560 ms | 0.774 | 0.780 | 0.778 | 1.322 | 7 | 16,328 |
+| 560–600 ms | 0.753 | 0.755 | 0.749 | 1.069 | 7 | 16,330 |
+| 600–640 ms | 0.807 | 0.808 | 0.795 | 0.899 | 7 | 16,330 |
+| 640–680 ms | 0.740 | 0.742 | 0.796 | 0.901 | 7 | 16,339 |
+| 680–720 ms | 0.846 | 0.846 | 1.089 | 1.175 | 7 | 16,323 |
+| 720–760 ms | 1.077 | 1.073 | 1.485 | 1.553 | 7 | 16,163 |
+| 760–800 ms | 1.241 | 1.236 | 1.940 | 1.998 | 7 | 15,684 |
+| 800–840 ms | 1.279 | 1.278 | 2.337 | 2.399 | 7 | 14,987 |
+| 840–880 ms | 1.442 | 1.445 | 3.140 | 3.184 | 7 | 13,966 |
+| 880–920 ms | 1.528 | 1.524 | 3.849 | 3.902 | 7 | 12,357 |
+| 920–960 ms | 1.754 | 1.750 | 4.432 | 4.544 | 7 | 9,849 |
+| 960–1,000 ms | 1.858 | 1.856 | 4.569 | 4.891 | 7 | 7,125 |
+| 1,000–1,040 ms | 2.103 | 2.115 | 4.429 | 4.907 | 7 | 4,143 |
+| 1,040–1,080 ms | 1.750 | 1.748 | 3.968 | 5.011 | 7 | 1,907 |
+| 1,080–1,120 ms | 2.235 | 2.244 | 4.058 | 4.842 | 6 | 733 |
+| 1,120–1,160 ms | 2.294 | 2.310 | 4.022 | 4.552 | 5 | 211 |
+| 1,160–1,200 ms | 2.135 | 2.059 | 2.302 | 4.694 | 4 | 52 |
+| 1.2 s or later, or no beat | 3.420 | 3.407 | 6.533 | 6.701 | 1 | 36 |
