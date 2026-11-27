@@ -1,0 +1,521 @@
+{
+ "what": "R_v2 detections against the p014-p020 .atr annotations; descriptive only, affects no result.",
+ "method": "R_v2 detections come from the frozen code (signal_path, features.record_state) run from native counts on the whole record, exactly as in forecasting. Window 10 s <= time < 290 s for both detections (grid index 2500..72499) and annotations (native sample 50,000..1,449,999). Shares (literal, as the protocol words it): annotated beats with a detection within 50 ms (nearest detection), and detections with an annotated beat within 50 ms. Detection time is the grid endpoint k / 250 s with no delay compensation, as in the protocol's grid. Supplementary, stated before running: the same shares with detection times moved 20 ms earlier, the filter's group delay given in PROTOCOL.json section 7, and the median signed offset.",
+ "annotation_channels": "Each .atr file marks every beat twice, once with WFDB chan 0 and once with chan 1. The chan field is the signal number in the header (0 = ECG lead I, 1 = ECG lead II); R_v2 runs on lead II. Shares are given per channel. A first private run of this check pooled both channels, which counts each beat twice; it is superseded by this per-channel file.",
+ "records": {
+  "p014": {
+   "atr_sha256": "cb93050880baa73961c60ea1534ae47b01f335e2d49f4b0b9ec3440f2ce67981",
+   "annotation_codes_by_channel": {
+    "0": {
+     "1": 345
+    },
+    "1": {
+     "1": 345
+    }
+   },
+   "R_v2_detections_10_290_s": 321,
+   "annotation_channel_1_lead_II": {
+    "annotated_beats_10_290_s": 321,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 20.39999999999509
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 0.3999999999848569
+    }
+   },
+   "annotation_channel_0_lead_I": {
+    "annotated_beats_10_290_s": 321,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 18.799999999998818
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": -1.2000000000114142
+    }
+   }
+  },
+  "p015": {
+   "atr_sha256": "3e4b9d823f43327093e0ba1be07c395b5a72409dd7cebd64454e25da07159494",
+   "annotation_codes_by_channel": {
+    "0": {
+     "1": 330
+    },
+    "1": {
+     "1": 330
+    }
+   },
+   "R_v2_detections_10_290_s": 308,
+   "annotation_channel_1_lead_II": {
+    "annotated_beats_10_290_s": 308,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 21.399999999999864
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 1.3999999999896318
+    }
+   },
+   "annotation_channel_0_lead_I": {
+    "annotated_beats_10_290_s": 308,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 25.80000000000382
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 5.799999999993588
+    }
+   }
+  },
+  "p016": {
+   "atr_sha256": "66c23cd29c96874ba4ec4ae4811626c89551f1c7892769b5a1fc31d81074e2af",
+   "annotation_codes_by_channel": {
+    "0": {
+     "1": 352
+    },
+    "1": {
+     "1": 352
+    }
+   },
+   "R_v2_detections_10_290_s": 329,
+   "annotation_channel_1_lead_II": {
+    "annotated_beats_10_290_s": 329,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 20.000000000010232
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 0.0
+    }
+   },
+   "annotation_channel_0_lead_I": {
+    "annotated_beats_10_290_s": 329,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 22.600000000011278
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 2.6000000000294676
+    }
+   }
+  },
+  "p017": {
+   "atr_sha256": "5c4a877b86e0756970e2bf4948c34ad278b8deb172ed3efe1f91434804411f31",
+   "annotation_codes_by_channel": {
+    "0": {
+     "1": 366
+    },
+    "1": {
+     "1": 366
+    }
+   },
+   "R_v2_detections_10_290_s": 342,
+   "annotation_channel_1_lead_II": {
+    "annotated_beats_10_290_s": 342,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 20.19999999998845
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 0.1999999999782176
+    }
+   },
+   "annotation_channel_0_lead_I": {
+    "annotated_beats_10_290_s": 342,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 23.59999999998763
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 3.599999999977399
+    }
+   }
+  },
+  "p018": {
+   "atr_sha256": "ad9dac54e325c37e7813fa092df07a56751122f7f1c17fd9354c810efc06f2fd",
+   "annotation_codes_by_channel": {
+    "0": {
+     "1": 400
+    },
+    "1": {
+     "1": 400
+    }
+   },
+   "R_v2_detections_10_290_s": 375,
+   "annotation_channel_1_lead_II": {
+    "annotated_beats_10_290_s": 375,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 20.20000000001687
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 0.2000000000066393
+    }
+   },
+   "annotation_channel_0_lead_I": {
+    "annotated_beats_10_290_s": 375,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 23.79999999999427
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 3.7999999999840384
+    }
+   }
+  },
+  "p019": {
+   "atr_sha256": "af61888fe9f2cd3d9132c0f35618dd81db652ca09cc7b049f8b98fbb46852784",
+   "annotation_codes_by_channel": {
+    "0": {
+     "1": 316
+    },
+    "1": {
+     "1": 316
+    }
+   },
+   "R_v2_detections_10_290_s": 296,
+   "annotation_channel_1_lead_II": {
+    "annotated_beats_10_290_s": 295,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 0.9966216216216216,
+     "median_offset_detection_minus_annotation_ms": 20.39999999999509
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 0.9966216216216216,
+     "median_offset_detection_minus_annotation_ms": 0.4000000000132786
+    }
+   },
+   "annotation_channel_0_lead_I": {
+    "annotated_beats_10_290_s": 295,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 0.9966216216216216,
+     "median_offset_detection_minus_annotation_ms": 23.999999999993804
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 1.0,
+     "detections_matched_within_50ms": 0.9966216216216216,
+     "median_offset_detection_minus_annotation_ms": 3.9999999999906777
+    }
+   }
+  },
+  "p020": {
+   "atr_sha256": "2ccb2da344b8a58eb9e2ab0f0951dafd7ef92f1abe42cebd7e41aee70135841f",
+   "annotation_codes_by_channel": {
+    "0": {
+     "1": 338
+    },
+    "1": {
+     "1": 338
+    }
+   },
+   "R_v2_detections_10_290_s": 314,
+   "annotation_channel_1_lead_II": {
+    "annotated_beats_10_290_s": 315,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 0.9968253968253968,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 19.99999999998181
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 0.9968253968253968,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": -1.7763568394002505e-11
+    }
+   },
+   "annotation_channel_0_lead_I": {
+    "annotated_beats_10_290_s": 315,
+    "literal": {
+     "annotated_beats_with_detection_within_50ms": 0.9968253968253968,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": 15.900000000002024
+    },
+    "supplementary_group_delay_20ms_removed": {
+     "annotated_beats_with_detection_within_50ms": 0.9968253968253968,
+     "detections_matched_within_50ms": 1.0,
+     "median_offset_detection_minus_annotation_ms": -4.099999999993997
+    }
+   }
+  }
+ },
+ "mean_over_people": {
+  "annotation_channel_1_lead_II": {
+   "literal": {
+    "annotated_beats_with_detection_within_50ms": 0.999546485260771,
+    "detections_matched_within_50ms": 0.9995173745173745,
+    "median_offset_detection_minus_annotation_ms": 20.371428571426772
+   },
+   "supplementary_group_delay_20ms_removed": {
+    "annotated_beats_with_detection_within_50ms": 0.999546485260771,
+    "detections_matched_within_50ms": 0.9995173745173745,
+    "median_offset_detection_minus_annotation_ms": 0.37142857142212293
+   }
+  },
+  "annotation_channel_0_lead_I": {
+   "literal": {
+    "annotated_beats_with_detection_within_50ms": 0.999546485260771,
+    "detections_matched_within_50ms": 0.9995173745173745,
+    "median_offset_detection_minus_annotation_ms": 22.07142857142738
+   },
+   "supplementary_group_delay_20ms_removed": {
+    "annotated_beats_with_detection_within_50ms": 0.999546485260771,
+    "detections_matched_within_50ms": 0.9995173745173745,
+    "median_offset_detection_minus_annotation_ms": 2.0714285714242515
+   }
+  }
+ },
+ "atr_download": {
+  "after_results_commit": "c6b600cd966b3ffefe8b4c2788ecc2858237d34d",
+  "why": "Descriptive detector check only, allowed by the protocol after results.json is sealed; affects no result.",
+  "pins_from": "the pinned release manifest (SHA256SUMS.txt) fetched first in the test download",
+  "started_utc": "2026-11-27T12:40:18.056+00:00",
+  "finished_utc": "2026-11-27T12:40:50.560+00:00",
+  "complete": true,
+  "http_exchanges": [
+   {
+    "seq": 1,
+    "file": "p014.atr",
+    "attempt": 1,
+    "hop": 0,
+    "url": "https://physionet.org/files/cebsdb/1.0.0/p014.atr",
+    "start_utc": "2026-11-27T12:40:18.060+00:00",
+    "end_utc": "2026-11-27T12:40:19.064+00:00",
+    "http_status": 302,
+    "location": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p014.atr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pin": "cb93050880baa73961c60ea1534ae47b01f335e2d49f4b0b9ec3440f2ce67981",
+    "matches_pin": false
+   },
+   {
+    "seq": 2,
+    "file": "p014.atr",
+    "attempt": 1,
+    "hop": 1,
+    "url": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p014.atr",
+    "start_utc": "2026-11-27T12:40:20.567+00:00",
+    "end_utc": "2026-11-27T12:40:21.377+00:00",
+    "http_status": 200,
+    "bytes": 7592,
+    "sha256": "cb93050880baa73961c60ea1534ae47b01f335e2d49f4b0b9ec3440f2ce67981",
+    "pin": "cb93050880baa73961c60ea1534ae47b01f335e2d49f4b0b9ec3440f2ce67981",
+    "matches_pin": true,
+    "saved_as": "p014.atr"
+   },
+   {
+    "seq": 3,
+    "file": "p015.atr",
+    "attempt": 1,
+    "hop": 0,
+    "url": "https://physionet.org/files/cebsdb/1.0.0/p015.atr",
+    "start_utc": "2026-11-27T12:40:22.881+00:00",
+    "end_utc": "2026-11-27T12:40:23.894+00:00",
+    "http_status": 302,
+    "location": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p015.atr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pin": "3e4b9d823f43327093e0ba1be07c395b5a72409dd7cebd64454e25da07159494",
+    "matches_pin": false
+   },
+   {
+    "seq": 4,
+    "file": "p015.atr",
+    "attempt": 1,
+    "hop": 1,
+    "url": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p015.atr",
+    "start_utc": "2026-11-27T12:40:25.399+00:00",
+    "end_utc": "2026-11-27T12:40:26.152+00:00",
+    "http_status": 200,
+    "bytes": 7260,
+    "sha256": "3e4b9d823f43327093e0ba1be07c395b5a72409dd7cebd64454e25da07159494",
+    "pin": "3e4b9d823f43327093e0ba1be07c395b5a72409dd7cebd64454e25da07159494",
+    "matches_pin": true,
+    "saved_as": "p015.atr"
+   },
+   {
+    "seq": 5,
+    "file": "p016.atr",
+    "attempt": 1,
+    "hop": 0,
+    "url": "https://physionet.org/files/cebsdb/1.0.0/p016.atr",
+    "start_utc": "2026-11-27T12:40:27.656+00:00",
+    "end_utc": "2026-11-27T12:40:28.729+00:00",
+    "http_status": 302,
+    "location": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p016.atr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pin": "66c23cd29c96874ba4ec4ae4811626c89551f1c7892769b5a1fc31d81074e2af",
+    "matches_pin": false
+   },
+   {
+    "seq": 6,
+    "file": "p016.atr",
+    "attempt": 1,
+    "hop": 1,
+    "url": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p016.atr",
+    "start_utc": "2026-11-27T12:40:30.233+00:00",
+    "end_utc": "2026-11-27T12:40:31.044+00:00",
+    "http_status": 200,
+    "bytes": 7744,
+    "sha256": "66c23cd29c96874ba4ec4ae4811626c89551f1c7892769b5a1fc31d81074e2af",
+    "pin": "66c23cd29c96874ba4ec4ae4811626c89551f1c7892769b5a1fc31d81074e2af",
+    "matches_pin": true,
+    "saved_as": "p016.atr"
+   },
+   {
+    "seq": 7,
+    "file": "p017.atr",
+    "attempt": 1,
+    "hop": 0,
+    "url": "https://physionet.org/files/cebsdb/1.0.0/p017.atr",
+    "start_utc": "2026-11-27T12:40:32.549+00:00",
+    "end_utc": "2026-11-27T12:40:33.863+00:00",
+    "http_status": 302,
+    "location": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p017.atr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pin": "5c4a877b86e0756970e2bf4948c34ad278b8deb172ed3efe1f91434804411f31",
+    "matches_pin": false
+   },
+   {
+    "seq": 8,
+    "file": "p017.atr",
+    "attempt": 1,
+    "hop": 1,
+    "url": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p017.atr",
+    "start_utc": "2026-11-27T12:40:35.367+00:00",
+    "end_utc": "2026-11-27T12:40:36.168+00:00",
+    "http_status": 200,
+    "bytes": 8052,
+    "sha256": "5c4a877b86e0756970e2bf4948c34ad278b8deb172ed3efe1f91434804411f31",
+    "pin": "5c4a877b86e0756970e2bf4948c34ad278b8deb172ed3efe1f91434804411f31",
+    "matches_pin": true,
+    "saved_as": "p017.atr"
+   },
+   {
+    "seq": 9,
+    "file": "p018.atr",
+    "attempt": 1,
+    "hop": 0,
+    "url": "https://physionet.org/files/cebsdb/1.0.0/p018.atr",
+    "start_utc": "2026-11-27T12:40:37.672+00:00",
+    "end_utc": "2026-11-27T12:40:38.645+00:00",
+    "http_status": 302,
+    "location": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p018.atr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pin": "ad9dac54e325c37e7813fa092df07a56751122f7f1c17fd9354c810efc06f2fd",
+    "matches_pin": false
+   },
+   {
+    "seq": 10,
+    "file": "p018.atr",
+    "attempt": 1,
+    "hop": 1,
+    "url": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p018.atr",
+    "start_utc": "2026-11-27T12:40:40.149+00:00",
+    "end_utc": "2026-11-27T12:40:40.942+00:00",
+    "http_status": 200,
+    "bytes": 8800,
+    "sha256": "ad9dac54e325c37e7813fa092df07a56751122f7f1c17fd9354c810efc06f2fd",
+    "pin": "ad9dac54e325c37e7813fa092df07a56751122f7f1c17fd9354c810efc06f2fd",
+    "matches_pin": true,
+    "saved_as": "p018.atr"
+   },
+   {
+    "seq": 11,
+    "file": "p019.atr",
+    "attempt": 1,
+    "hop": 0,
+    "url": "https://physionet.org/files/cebsdb/1.0.0/p019.atr",
+    "start_utc": "2026-11-27T12:40:42.446+00:00",
+    "end_utc": "2026-11-27T12:40:43.434+00:00",
+    "http_status": 302,
+    "location": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p019.atr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pin": "af61888fe9f2cd3d9132c0f35618dd81db652ca09cc7b049f8b98fbb46852784",
+    "matches_pin": false
+   },
+   {
+    "seq": 12,
+    "file": "p019.atr",
+    "attempt": 1,
+    "hop": 1,
+    "url": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p019.atr",
+    "start_utc": "2026-11-27T12:40:44.938+00:00",
+    "end_utc": "2026-11-27T12:40:45.743+00:00",
+    "http_status": 200,
+    "bytes": 6952,
+    "sha256": "af61888fe9f2cd3d9132c0f35618dd81db652ca09cc7b049f8b98fbb46852784",
+    "pin": "af61888fe9f2cd3d9132c0f35618dd81db652ca09cc7b049f8b98fbb46852784",
+    "matches_pin": true,
+    "saved_as": "p019.atr"
+   },
+   {
+    "seq": 13,
+    "file": "p020.atr",
+    "attempt": 1,
+    "hop": 0,
+    "url": "https://physionet.org/files/cebsdb/1.0.0/p020.atr",
+    "start_utc": "2026-11-27T12:40:47.246+00:00",
+    "end_utc": "2026-11-27T12:40:48.246+00:00",
+    "http_status": 302,
+    "location": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p020.atr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pin": "2ccb2da344b8a58eb9e2ab0f0951dafd7ef92f1abe42cebd7e41aee70135841f",
+    "matches_pin": false
+   },
+   {
+    "seq": 14,
+    "file": "p020.atr",
+    "attempt": 1,
+    "hop": 1,
+    "url": "https://physionet-open.s3.amazonaws.com/cebsdb/1.0.0/p020.atr",
+    "start_utc": "2026-11-27T12:40:49.749+00:00",
+    "end_utc": "2026-11-27T12:40:50.559+00:00",
+    "http_status": 200,
+    "bytes": 7438,
+    "sha256": "2ccb2da344b8a58eb9e2ab0f0951dafd7ef92f1abe42cebd7e41aee70135841f",
+    "pin": "2ccb2da344b8a58eb9e2ab0f0951dafd7ef92f1abe42cebd7e41aee70135841f",
+    "matches_pin": true,
+    "saved_as": "p020.atr"
+   }
+  ],
+  "note": "physionet.org redirected each file to physionet-open.s3.amazonaws.com; each redirect was followed once."
+ },
+ "code": "R_v2 detections from the frozen signal_path.py and features.py (imported, unchanged); a small standard-library reader for WFDB MIT-format annotations, checked against the wfdb package (4.3.1) on the WFDB sample files 100s, 100a, snip and 100x (identical annotation times, codes and channels)."
+}
