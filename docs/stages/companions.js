@@ -272,8 +272,13 @@ const models = {
     url: '../inside/',
     reading: 'Move the cursor through one recording. At each instant, compare the ECG with the voltages from the chest accelerometer and the breathing band.'
   },
+  vibrationV2: {
+    title: 'Compare chest-vibration forecasts at rest',
+    url: 'chest-vibration-v2/',
+    reading: 'Select a person and a method to compare errors in predicting chest-sensor voltage 80 milliseconds ahead. The three-signal model and the ECG-timed personal template had nearly equal average errors across seven people.'
+  },
   vibration: {
-    title: 'Check a chest-vibration forecast',
+    title: 'Version 1 · Reveal a recorded chest voltage',
     url: '../inside/recording-forecast.html',
     reading: 'See what chest vibration, breathing and skin electrodes predict. Then reveal the voltage recorded by the chest sensor 80 milliseconds later. A report of what the person felt would need a separate measurement.'
   },
@@ -325,9 +330,9 @@ const choicesByStep = {
   'map-brain2body': ['humanWrist', 'handForecasts', 'muscleChange', 'area2Force', 'crossPersonWrist', 'contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'wrist', 'spindle', 'muscle', 'cortex', 'coverage', 'scalp'],
   'map-body2body': ['walkingInstructions', 'melbourneWalkingForecast', 'targetReach', 'cylinderRotation', 'stride', 'words', 'pedal', 'utahForceForecast'],
   'virtual-challenge': ['neuroSurge', 'words', 'stride'],
-  'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibration', 'visualTail', 'visualTailCohort'],
+  'motorsensation': ['contactForecast', 'fingertipTouch', 'macaqueTouch', 'reachFeedback', 'reachWeek', 'corticalReach', 'visualBalance', 'spindle', 'exercise', 'vibrationV2', 'vibration', 'visualTail', 'visualTailCohort'],
   'handler': ['graspBalanceRecording', 'graspSensors', 'targetReach', 'cylinderRotation', 'graspBalanceForecast'],
-  'read-function': ['humanWrist', 'crossPersonWrist', 'vibration', 'trip', 'cortex', 'coverage', 'scalp', 'visualTail', 'visualTailCohort'],
+  'read-function': ['humanWrist', 'crossPersonWrist', 'vibrationV2', 'vibration', 'trip', 'cortex', 'coverage', 'scalp', 'visualTail', 'visualTailCohort'],
   '0.1': ['trip', 'wrist'],
   '0.2': ['trip'],
   '5.3': ['exercise', 'trip'],
@@ -335,7 +340,7 @@ const choicesByStep = {
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'area2Force', 'handForecasts', 'muscleChange', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
   'movement-model': ['graspBalanceForecast', 'reachPaths', 'handForecasts', 'pinchHook', 'muscleChange', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
   'myoception': ['muscle', 'muscleChange', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
-  'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibration', 'heartBreathing', 'exercise'],
+  'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibrationV2', 'vibration', 'heartBreathing', 'exercise'],
   'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']
 };
 

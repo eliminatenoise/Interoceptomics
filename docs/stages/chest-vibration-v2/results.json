@@ -1,0 +1,426 @@
+{
+  "people": [
+    "p014",
+    "p015",
+    "p016",
+    "p017",
+    "p018",
+    "p019",
+    "p020"
+  ],
+  "fitted_method": "R-ECG",
+  "valid_forecasts": {
+    "p014": 50000,
+    "p015": 50000,
+    "p016": 50000,
+    "p017": 50000,
+    "p018": 50000,
+    "p019": 50000,
+    "p020": 50000
+  },
+  "methods": {
+    "C0": {
+      "label": "Calibration mean",
+      "definition": "Each person’s average chest reading during calibration.",
+      "mean_rmse_mV": 2.3756594431742526,
+      "rmse_mV": {
+        "p014": 2.0708930976546114,
+        "p015": 2.7590136956584352,
+        "p016": 2.890099868929049,
+        "p017": 2.6444746455312473,
+        "p018": 1.97424499454119,
+        "p019": 2.3615425712216154,
+        "p020": 1.9293472286836204
+      }
+    },
+    "C1": {
+      "label": "Last reading",
+      "definition": "Carry the last filtered chest-sensor voltage forward.",
+      "mean_rmse_mV": 3.4776784482362535,
+      "rmse_mV": {
+        "p014": 2.649019189331815,
+        "p015": 4.098075564476316,
+        "p016": 3.820504131862603,
+        "p017": 4.072048028408333,
+        "p018": 3.094406984327209,
+        "p019": 3.6561534187354905,
+        "p020": 2.953541820512007
+      }
+    },
+    "C2": {
+      "label": "Recent trend",
+      "definition": "Extend a straight line through the last 13 chest readings.",
+      "mean_rmse_mV": 9.487599224944342,
+      "rmse_mV": {
+        "p014": 7.9169874142609435,
+        "p015": 11.17694734776574,
+        "p016": 12.910380762496573,
+        "p017": 9.53182868096372,
+        "p018": 8.594657267835611,
+        "p019": 8.11443672460319,
+        "p020": 8.167956376684607
+      }
+    },
+    "C3": {
+      "label": "R-wave beat template",
+      "definition": "A separate detector finds the tall spike in the heart’s electrical signal. Use the person’s usual vibration at the same time after that spike.",
+      "mean_rmse_mV": 1.9796610427715182,
+      "rmse_mV": {
+        "p014": 1.79373341342894,
+        "p015": 2.436686031520548,
+        "p016": 2.5480908705461007,
+        "p017": 2.2039885222084115,
+        "p018": 1.664429595391858,
+        "p019": 1.7933941360158474,
+        "p020": 1.4173047302889221
+      }
+    },
+    "C3d": {
+      "label": "R-wave template, delayed ECG",
+      "definition": "Use the same R-wave template with heartbeat timing from 5.012 seconds earlier.",
+      "mean_rmse_mV": 2.395322255903749,
+      "rmse_mV": {
+        "p014": 2.0808396937749825,
+        "p015": 2.7833071832396725,
+        "p016": 2.918070235215781,
+        "p017": 2.666466955100399,
+        "p018": 1.9880277248631641,
+        "p019": 2.381832938178194,
+        "p020": 1.94871106095405
+      }
+    },
+    "C5": {
+      "label": "Chest-timed beat template",
+      "definition": "Use the pattern of previous beats timed from the chest signal itself.",
+      "mean_rmse_mV": 2.2119345455695294,
+      "rmse_mV": {
+        "p014": 1.8763512795038306,
+        "p015": 2.6563252932444428,
+        "p016": 2.7634072222792154,
+        "p017": 2.359250822829569,
+        "p018": 1.8937179970450067,
+        "p019": 2.0865827553928886,
+        "p020": 1.847906448691753
+      }
+    },
+    "T-ECG": {
+      "label": "ECG-timed beat template",
+      "definition": "Use the person’s recent vibration pattern. A tall spike in the heart’s electrical signal marks each beat, and a smaller, earlier wave helps time the next one.",
+      "mean_rmse_mV": 1.1570428772233814,
+      "rmse_mV": {
+        "p014": 1.08988901548454,
+        "p015": 1.1968863670054037,
+        "p016": 1.2556227014734282,
+        "p017": 1.4419353453902313,
+        "p018": 1.0434768320590093,
+        "p019": 1.0157544026889556,
+        "p020": 1.0557354764621039
+      }
+    },
+    "T-delayed": {
+      "label": "ECG template, delayed timing",
+      "definition": "Use the ECG-timed beat template with heartbeat timing from 5.012 seconds earlier.",
+      "mean_rmse_mV": 2.412667414082418,
+      "rmse_mV": {
+        "p014": 2.101103523193078,
+        "p015": 2.8101271102971648,
+        "p016": 2.933434761127456,
+        "p017": 2.681649440216072,
+        "p018": 2.0042960881887333,
+        "p019": 2.3974123307029176,
+        "p020": 1.9606486448515075
+      }
+    },
+    "T-R": {
+      "label": "ECG template, R wave alone",
+      "definition": "Time the personal vibration pattern from the tall heartbeat spike alone. This uses the same detector as version 2.",
+      "mean_rmse_mV": 2.03217259795888,
+      "rmse_mV": {
+        "p014": 1.7516022184542952,
+        "p015": 2.5697346554950538,
+        "p016": 2.6308551177035056,
+        "p017": 2.209134881061102,
+        "p018": 1.7285635610372334,
+        "p019": 1.8015756005161838,
+        "p020": 1.533742151444783
+      }
+    },
+    "V1R-base": {
+      "label": "Version 1 refit",
+      "definition": "The original model using chest and breathing signals, fitted again on the same ten people as version 2.",
+      "mean_rmse_mV": 2.3751839017113148,
+      "rmse_mV": {
+        "p014": 2.11023816913363,
+        "p015": 2.748371072064565,
+        "p016": 2.930701088252184,
+        "p017": 2.6847746331953886,
+        "p018": 1.9259957204806726,
+        "p019": 2.294290284231989,
+        "p020": 1.9319163446207752
+      }
+    },
+    "V1R-aligned": {
+      "label": "Version 1 refit with ECG",
+      "definition": "Refit version 1 with its original ECG timing features.",
+      "mean_rmse_mV": 2.4434794216553035,
+      "rmse_mV": {
+        "p014": 2.1655818092933377,
+        "p015": 2.869380804749749,
+        "p016": 2.9377551634589554,
+        "p017": 2.7794851907552944,
+        "p018": 2.014455790196236,
+        "p019": 2.465995860343696,
+        "p020": 1.8717013327898564
+      }
+    },
+    "V1R-delayed": {
+      "label": "Version 1 refit, delayed ECG",
+      "definition": "Refit version 1 using its delayed ECG timing features.",
+      "mean_rmse_mV": 2.3758494073255467,
+      "rmse_mV": {
+        "p014": 2.111835686581621,
+        "p015": 2.7481548764965917,
+        "p016": 2.9316554956167624,
+        "p017": 2.6866960794711625,
+        "p018": 1.9258755566267027,
+        "p019": 2.294930870455477,
+        "p020": 1.9317972860305106
+      }
+    },
+    "V1F-base": {
+      "label": "Published version 1",
+      "definition": "Use the original published chest-and-breathing model weights.",
+      "mean_rmse_mV": 2.3876430550506256,
+      "rmse_mV": {
+        "p014": 2.151601193456756,
+        "p015": 2.7686978819337367,
+        "p016": 2.983566402374003,
+        "p017": 2.6800534523331345,
+        "p018": 1.9107646519040096,
+        "p019": 2.2767280471194002,
+        "p020": 1.9420897562333412
+      }
+    },
+    "V1F-aligned": {
+      "label": "Published version 1 with ECG",
+      "definition": "Use the original published version 1 weights and ECG timing features.",
+      "mean_rmse_mV": 2.479405688899477,
+      "rmse_mV": {
+        "p014": 2.3950438669000715,
+        "p015": 2.915515105819585,
+        "p016": 3.021524570300963,
+        "p017": 2.820997062691134,
+        "p018": 2.023422954216004,
+        "p019": 2.4299997463428156,
+        "p020": 1.7493365160257641
+      }
+    },
+    "V1F-delayed": {
+      "label": "Published version 1, delayed ECG",
+      "definition": "Use the original published version 1 weights with delayed ECG timing features.",
+      "mean_rmse_mV": 2.3892744630997744,
+      "rmse_mV": {
+        "p014": 2.1538912866563265,
+        "p015": 2.771261710923972,
+        "p016": 2.9838185231001115,
+        "p017": 2.6829255384558586,
+        "p018": 1.9121920207059397,
+        "p019": 2.2789461027396514,
+        "p020": 1.9418860591165612
+      }
+    },
+    "C4": {
+      "label": "One-cycle ridge model",
+      "definition": "Use a regularized linear fit to a longer chest and breathing history.",
+      "mean_rmse_mV": 2.3401005923453084,
+      "rmse_mV": {
+        "p014": 2.110908971821901,
+        "p015": 2.7279198072876873,
+        "p016": 2.9092023091957486,
+        "p017": 2.5474707979212465,
+        "p018": 1.9170202524805111,
+        "p019": 2.258612809633223,
+        "p020": 1.9095691980768408
+      }
+    },
+    "R-chest": {
+      "label": "Version 2 without ECG",
+      "definition": "Fit the same kind of weighted formula using chest vibration and breathing, with beat timing estimated from the chest sensor.",
+      "mean_rmse_mV": 2.20515331208115,
+      "rmse_mV": {
+        "p014": 1.8700646068643738,
+        "p015": 2.662597860150418,
+        "p016": 2.761915775778076,
+        "p017": 2.3496447977500616,
+        "p018": 1.8774423267089788,
+        "p019": 2.066826608599834,
+        "p020": 1.8475812087163062
+      }
+    },
+    "R-ECG": {
+      "label": "Version 2 · three signals",
+      "definition": "Combine chest vibration, breathing and heartbeat timing from the ECG in the selected ridge model.",
+      "mean_rmse_mV": 1.1564026351084904,
+      "rmse_mV": {
+        "p014": 1.0868313726697314,
+        "p015": 1.2037672413058134,
+        "p016": 1.253846159965128,
+        "p017": 1.4445231935538714,
+        "p018": 1.0408610472803372,
+        "p019": 1.0131076466621507,
+        "p020": 1.0518817843224013
+      }
+    },
+    "R-delayed": {
+      "label": "Version 2 with delayed ECG",
+      "definition": "Fit the same kind of weighted formula with the skin-electrode timing shifted back by 5.012 seconds.",
+      "mean_rmse_mV": 2.2052121729393033,
+      "rmse_mV": {
+        "p014": 1.8700305011616147,
+        "p015": 2.662313088148414,
+        "p016": 2.7617985793000814,
+        "p017": 2.349125059351363,
+        "p018": 1.8777996030787891,
+        "p019": 2.0673760772337486,
+        "p020": 1.8480423023011123
+      }
+    },
+    "M-chest": {
+      "label": "Neural network without ECG",
+      "definition": "Use a neural network on the same chest and breathing features as the ridge model without ECG.",
+      "mean_rmse_mV": 2.255732777408261,
+      "rmse_mV": {
+        "p014": 1.8666674044007616,
+        "p015": 2.7312670657194316,
+        "p016": 2.6257007748874246,
+        "p017": 2.526657609928178,
+        "p018": 1.921581364736177,
+        "p019": 2.1105733771756414,
+        "p020": 2.0076818450102123
+      }
+    },
+    "M-ECG": {
+      "label": "Three-signal neural network",
+      "definition": "Use a neural network on the same three-signal features as the selected ridge model.",
+      "mean_rmse_mV": 1.1742622116577917,
+      "rmse_mV": {
+        "p014": 1.0656105430124796,
+        "p015": 1.217126800920392,
+        "p016": 1.2613703416597999,
+        "p017": 1.4985722555511887,
+        "p018": 1.0775099131205355,
+        "p019": 1.064286987024891,
+        "p020": 1.0353586403152533
+      }
+    },
+    "M-delayed": {
+      "label": "Neural network with delayed ECG",
+      "definition": "Use a neural network with the delayed ECG features.",
+      "mean_rmse_mV": 2.2629554193940136,
+      "rmse_mV": {
+        "p014": 1.8681157841116915,
+        "p015": 2.7397297480385343,
+        "p016": 2.637229193537459,
+        "p017": 2.514799918598614,
+        "p018": 1.9148375182952804,
+        "p019": 2.16800032588615,
+        "p020": 1.9979754472903644
+      }
+    }
+  },
+  "comparisons": {
+    "V1R-base": {
+      "comparison": "v2_vs_V1R-base",
+      "wins": 7,
+      "mean_difference_mV": 1.2187812666028244,
+      "difference_mV_ci95": [
+        1.0114684933678049,
+        1.4390618484691253
+      ],
+      "mean_reduction_percent": 50.780342256440655,
+      "reduction_percent_ci95": [
+        47.31523905270783,
+        54.71173910212841
+      ]
+    },
+    "C0": {
+      "comparison": "v2_vs_C0",
+      "wins": 7,
+      "mean_difference_mV": 1.2192568080657622,
+      "difference_mV_ci95": [
+        1.016037098972491,
+        1.430464874716124
+      ],
+      "mean_reduction_percent": 50.81966650726332,
+      "reduction_percent_ci95": [
+        47.2627153400536,
+        55.0089016343923
+      ]
+    },
+    "R-chest": {
+      "comparison": "v2_vs_chest_twin",
+      "wins": 7,
+      "mean_difference_mV": 1.0487506769726593,
+      "difference_mV_ci95": [
+        0.8482992690294372,
+        1.2780514281980946
+      ],
+      "mean_reduction_percent": 46.915076825853546,
+      "reduction_percent_ci95": [
+        42.455301039976106,
+        51.36008249918247
+      ]
+    },
+    "R-delayed": {
+      "comparison": "v2_vs_delayed_twin",
+      "wins": 7,
+      "mean_difference_mV": 1.0488095378308129,
+      "difference_mV_ci95": [
+        0.8486561547054098,
+        1.2780193227565422
+      ],
+      "mean_reduction_percent": 46.91741353363475,
+      "reduction_percent_ci95": [
+        42.450507236990624,
+        51.361933766833104
+      ]
+    },
+    "C3": {
+      "comparison": "v2_vs_C3",
+      "wins": 7,
+      "mean_difference_mV": 0.8232584076630277,
+      "difference_mV_ci95": [
+        0.6035195495605041,
+        1.0517581115321568
+      ],
+      "mean_reduction_percent": 40.287912845757205,
+      "reduction_percent_ci95": [
+        33.974264846604285,
+        46.19417236446067
+      ]
+    },
+    "T-ECG": {
+      "comparison": "v2_vs_T-ECG",
+      "wins": 5,
+      "mean_difference_mV": 0.0006402421148912207,
+      "difference_mV_ci95": [
+        -0.002308631071851292,
+        0.002927722768610514
+      ],
+      "mean_reduction_percent": 0.07770562722012311,
+      "reduction_percent_ci95": [
+        -0.1759576231970781,
+        0.27625619514740024
+      ]
+    }
+  },
+  "reverse_comparison": {
+    "method": "M-ECG",
+    "comparison": "M-ECG_vs_R-ECG",
+    "mean_difference_mV": -0.01785957654930091,
+    "difference_mV_ci95": [
+      -0.03828420169565198,
+      0.0033986740141796873
+    ]
+  }
+}
