@@ -18,6 +18,11 @@ const models = {
     url: 'hand-position-forecast/index.html',
     reading: 'Compare six forecasts of hand movement over 100 milliseconds on three recorded days from one macaque. See how extending recent motion compares with using brain activity or averaging the two forecasts. The coordinate editor starts with invented values.'
   },
+  fingerAngleTest: {
+    title: 'Finger-angle forecasts in two new people',
+    url: 'finger-angle-test/',
+    reading: 'Compare ten predictions of finger movement 320 milliseconds ahead. Earlier finger motion gave the closest average forecast in this test of repeated gestures.'
+  },
   pinchHook: {
     title: 'Pinch and hook forecasts',
     url: 'https://eliminatenoise.github.io/NeuroTranslation/finger-angle-forecast/gesture-replay/',
@@ -343,7 +348,7 @@ const choicesByStep = {
   '5.3': ['exercise', 'trip'],
   'composite': ['exercise', 'overground', 'trip'],
   'mechanics': ['contactForecast', 'reachFeedback', 'reachWeek', 'corticalReach', 'area2Force', 'handForecasts', 'muscleChange', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'stride', 'spindle', 'reflex', 'knee', 'overground', 'pedal'],
-  'movement-model': ['graspBalanceForecast', 'reachPaths', 'handForecasts', 'pinchHook', 'muscleChange', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
+  'movement-model': ['graspBalanceForecast', 'reachPaths', 'handForecasts', 'fingerAngleTest', 'pinchHook', 'muscleChange', 'runReachForecast', 'kuopioLift', 'kuopioTurning', 'chairDirections', 'standSitForce', 'squatMarkerGaps', 'squatSensors', 'georgiaSquatSensors', 'runningStrideForecast', 'bathInclineForecast', 'walkingFloorForce', 'walkingPassCount', 'forceWaist', 'forceForecast', 'insolePressure', 'targetReach', 'cylinderRotation', 'graspBalanceRecording', 'stride', 'words', 'trip', 'knee', 'overground', 'utahForceForecast'],
   'myoception': ['muscle', 'muscleChange', 'spindle', 'muscleBalance', 'reflex', 'wrist', 'rhythm', 'overground', 'exercise'],
   'visceroception': ['visceral', 'pelvic', 'visceralClock', 'vibrationV2', 'vibration', 'heartBreathing', 'exercise'],
   'humans': ['humanWrist', 'fingertipTouch', 'macaqueTouch', 'crossPersonWrist', 'wrist', 'stride', 'cortex', 'coverage', 'scalp']

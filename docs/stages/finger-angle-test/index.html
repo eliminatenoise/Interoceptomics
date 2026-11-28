@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finger-angle forecasts in two new people · Interoceptomics</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<nav aria-label="Study navigation"><a data-stage-back href="../#movement-model/fingerAngleTest" target="_top">Stage guide</a><span>Finger movement</span></nav>
+<header><h1>Finger-angle forecasts in two new people</h1>
+<p>Ten methods predicted how much four knuckles would bend or straighten over the next 320 milliseconds. Replaying an earlier movement had the lowest average error across the two people.</p></header>
+<div class="guides"><a href="simple.html">Simple guide</a><a href="technical.html">Technical guide</a><a href="results.json" download>Download the grouped results</a></div>
+<form aria-label="Choose recorded results">
+<label>Participant<select id="person"><option value="">Both participants</option><option value="A">Participant A</option><option value="B">Participant B</option></select></label>
+<label>Movement<select id="gesture"><option value="">All four movements</option></select></label>
+<label>Speed<select id="speed" disabled><option value="">All recorded speeds</option></select></label>
+<label>Finger<select id="finger"><option value="">All four fingers</option></select></label>
+</form>
+<section aria-labelledby="heading"><h2 id="heading">Average angle error</h2>
+<p id="scope" aria-live="polite">Loading the recorded results…</p>
+<table><caption>Difference in degrees between the predicted angle change and the change measured by the cameras. A smaller value means a closer forecast.</caption>
+<thead><tr><th scope="col">Method</th><th scope="col">Error</th></tr></thead><tbody id="bars"></tbody></table>
+</section>
+<aside><h2>What was measured</h2><p>Four people provided the data for fitting. Two other people then repeated the gestures in the same recording setup. A camera system measured the index, middle, ring and little fingers. The ultrasound-only models received summaries of forearm images.</p>
+<p>The initial view gives each test participant and each movement equal weight. Choose a movement to compare the speeds recorded for it.</p></aside>
+<footer><a href="https://zenodo.org/records/21825018">Source recordings and licence</a><a href="https://doi.org/10.1109/TMRB.2023.3237774">Original acquisition study</a></footer>
+<noscript><p>The interactive comparison requires JavaScript. The simple and technical guides contain the overall results.</p></noscript>
+</main><script type="module" src="view.js"></script></body></html>
