@@ -52,6 +52,20 @@
       },
       "sha256": "ea9ac232b11f7a4cac5b66741ee3f0c2442d46178da7e7491fbf04b991fd7cd9"
     },
+    "finger-angle-forecast": {
+      "archive_url": "https://raw.githubusercontent.com/eliminatenoise/NeuroTranslation/22065435c14fea1447d83fd9d4b76e736920174c/docs/finger-angle-forecast-offline.zip",
+      "path": "docs/finger-angle-forecast-offline.zip",
+      "routes": {
+        "/finger-angle-forecast/": "NeuroTranslate Finger Angle Forecast/"
+      },
+      "sha256": "fe6dfcdfdf1a1fbe94b268280861225a97fed05699b901022ca3bca888e1cb77",
+      "source_commit": "22065435c14fea1447d83fd9d4b76e736920174c",
+      "source_repository": "https://github.com/eliminatenoise/NeuroTranslation",
+      "stage_route": {
+        "local": "/finger-angle-forecast/gesture-replay/",
+        "online": "https://eliminatenoise.github.io/NeuroTranslation/finger-angle-forecast/gesture-replay/"
+      }
+    },
     "fingertip-touch": {
       "path": "downloads/fingertip-touch.zip",
       "routes": {
@@ -160,12 +174,12 @@
     }
   },
   "file_blobs": {
-    "docs/stages/README.md": "230df7a14924706c56d99aa5f7b4ca89b29d10b0",
+    "docs/stages/README.md": "643b5ad2fd9cc817c8b2996625c5f431b7c86361",
     "docs/stages/area2-hand-force/compare.js": "b8528ffee44c093c00a2e21cce48d1f66cff97b0",
     "docs/stages/area2-hand-force/index.html": "09eef93ba7dfc7c707cf8ab33ec1895cbd2bc9df",
     "docs/stages/area2-hand-force/results.json": "5e231f13e6569bd89827d03aa26781efd3598987",
     "docs/stages/area2-hand-force/technical.html": "72d8f76c8517212b92c1098df37e89ff8fa911d2",
-    "docs/stages/companions.js": "e4160ef9600052ab93da9c41b8a521de38f79ad3",
+    "docs/stages/companions.js": "c21cff5a1bc44688066ba88f73154af130221fb3",
     "docs/stages/force-forecast/LICENSE": "0e259d42c996742e9e3cba14c677129b2c1b6311",
     "docs/stages/force-forecast/SOURCE.json": "384037845e02c292afe5c51b2acf120fa15ee5b7",
     "docs/stages/force-forecast/forecast/index.html": "4fa7e24678b0527a02a20d5043e9fecd798e3f60",
@@ -223,9 +237,9 @@
     "docs/stages/recording/ramp-summary.js": "f07dda0639fd1f099f6ddbb2c7993123b4c88f46",
     "docs/stages/recording/wrist.js": "999886a9fffbf441543890d416bad1062fc9ba1f",
     "docs/stages/roadmap.js": "cffc6b554cd3acb224ab5c415cc3a6ff110d9928",
-    "docs/stages/simple.html": "03d8702f3b3dc0afc908bcc36951bf31db6a380f",
+    "docs/stages/simple.html": "29d8b71f58ea29049f113086e8d0d2c9988d05d2",
     "docs/stages/style.css": "a4c5018d471db9ac9dd1ee2aa04994b2093f9b07",
-    "docs/stages/technical.html": "f658b7d91fc6f30d12b6405ea35c67a0a378b296",
+    "docs/stages/technical.html": "be1fad8a5d43dfc486c5c1e2dc17ede2155eae11",
     "docs/stages/walking-force-forecast.html": "34306a02261402878d473d3232aaad5d15af7f52",
     "docs/stages/walking-pass-count/compare.js": "490791b84bd6f9e91f148f02cfcabaea8af63d25",
     "docs/stages/walking-pass-count/index.html": "4d9373e263011b60a83508674f54fe8365651cf2",
@@ -251,12 +265,12 @@
     "docs/inside/recording-forecast.html": "b9ce42f1b9fdb462df3abb4a5c1e343c2dc7ed059934df82e2b6cf5974542f47",
     "docs/inside/style.css": "53583e6efddcb09f00f05997ab9fa55764d7adf32cede6d41735bcef8152a699",
     "docs/inside/viewer.js": "4ff8d4d47526ef3a50747f3a62e421f4a801475df471ec4f379d1b690728fc15",
-    "docs/stages/README.md": "e781620823c6f9f7763fbaa79826243604e0684a157ad7db7ad1bd2825c4561c",
+    "docs/stages/README.md": "7c81f43899295954944d6671bee8c4ef1871d16e2352bda3716aacae45e9c400",
     "docs/stages/area2-hand-force/compare.js": "127c1c1e3242a9198ca9f8ceba05b103b346c1a92c78d30f9c1906a7853860b7",
     "docs/stages/area2-hand-force/index.html": "9392254c6932d16772e13c56396cb28f1c4b050c6118f2d72fd7ae637fb7ad36",
     "docs/stages/area2-hand-force/results.json": "e1569226aeef2cf9d5e9511edc8b81f48a0df313e4dfbaa75174a27faf9554e8",
     "docs/stages/area2-hand-force/technical.html": "813bafbc3f4e2db2551a010e7930d1af06be4c8aead7319b8be029514bb4781e",
-    "docs/stages/companions.js": "f98bffbaf338f18b572045940fdb47cdd604c4dd1c756ff661abe0f4de927884",
+    "docs/stages/companions.js": "62d9bc7a219406a525606713930ce56da46ade24b3eabca854b93cccf78f2fa2",
     "docs/stages/force-forecast/LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
     "docs/stages/force-forecast/SOURCE.json": "1a7ea40855a68ed9d4233cd8bbd3640c88e6113e78bf8733c1d31882cac11f78",
     "docs/stages/force-forecast/forecast/index.html": "625998ed483fe20d09c7a5448994c05a6166f669ce10716075026064d5b3d06c",
@@ -333,9 +347,9 @@
     "docs/stages/recording/wtrack/view.js": "44d8c9eb8fba02911c83432ec4ffa21f29afa91b37bcebd3f4b0aba48da18314",
     "docs/stages/roadmap.js": "fb8322f55cad184ce434feea0776f6cc2fda3494ddb18c625a18ba1790674f6e",
     "docs/stages/scene.js": "471a725ab24cb491a78bfc047f0306e6e8bc19005c5918e23a41b96c9c649381",
-    "docs/stages/simple.html": "8f88da578ec0db5810ddf023ce3d2b2d731b7d260511d43387e0bc68ab8189b5",
+    "docs/stages/simple.html": "a5095287814dc996df30a8c620cf815ab39648a8148082a01e26a90111a480e6",
     "docs/stages/style.css": "daeaf842277aa56546ff5887f59c3c5284f11b8eb4f6890e6bd492469cbea909",
-    "docs/stages/technical.html": "d72d30a4e6df03fb3eab4c76eb14ac7d70026c42abe6205e40c70bff093b54ab",
+    "docs/stages/technical.html": "7ef60bccb360e35d9e08ed1f975a22527393f7ddd9d7dda8d0c8f2199fff8c99",
     "docs/stages/walking-force-forecast.html": "41bc5a3993a5d366b8cc76ba2f09fc9374651d9061b70b6e32c648b1e4aa512c",
     "docs/stages/walking-pass-count/compare.js": "6c63bb0644d5c50611914c0fb7d6b723ff3a3771ce74d861305f6ba0bca9a740",
     "docs/stages/walking-pass-count/index.html": "500b3e5f30c60013bcbd623974b6f86f00f0c33b3c0a38b7a8bc3c2dd2f020ee",
