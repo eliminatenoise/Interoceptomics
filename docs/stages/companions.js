@@ -317,6 +317,11 @@ const models = {
     title: 'Play NeuroSurge',
     url: neuro + 'previews/neurosurge/',
     reading: 'Choose Full or Lite. Press F to type a movement in the Command box. To follow your movement, press C, choose Start camera and allow video access when the browser asks.',
+    offlineReading: 'Open NeuroSurge Lite in its own tab. If you still need the game ZIP, the tab shows where to get it. Press F to type a movement. Press C to open the camera controls.',
+    download: {
+      label: 'Download NeuroSurge Lite for offline play (ZIP)',
+      url: 'https://github.com/eliminatenoise/NeuroTranslation/releases/download/neurosurge-body81-reach-view-2026-11-28/NeuroSurge-Lite.zip'
+    },
     externalOnly: true
   },
   wrist: {

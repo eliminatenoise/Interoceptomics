@@ -39,13 +39,17 @@ def checked_name(name):
     return name
 
 
-def offline_companions(data, archives):
+def offline_companions(data, archives, game_archive):
     text = data.decode('utf-8')
     original = '    caption.textContent=model.reading;'
     if text.count(original) != 1:
         raise ValueError('Stage controls changed; review standalone source transformations.')
     text = text.replace(original, """    const online = new URL(model.url, location.href).origin !== location.origin;
-    caption.textContent = model.reading + (online ? ' This companion needs internet access.' : '');""")
+    caption.textContent = (model.offlineReading || model.reading) + (online ? ' This companion needs internet access.' : '');""")
+    game = "url: neuro + 'previews/neurosurge/',"
+    if text.count(game) != 1 or text.count(game_archive['download_url']) != 1:
+        raise ValueError('The NeuroSurge stage route changed.')
+    text = text.replace(game, "url: '/open-neurosurge/',")
     for product in archives.values():
         if 'stage_route' not in product:
             continue
@@ -108,7 +112,7 @@ def main():
                 data = source_bytes(path, digest, inventory['source_commit'],
                                     inventory.get('file_blobs', {}).get(path))
                 if path == 'docs/stages/companions.js':
-                    data = offline_companions(data, archives)
+                    data = offline_companions(data, archives, inventory['neurosurge_virtual_challenge']['optional_archive'])
                 if path.startswith('docs/'):
                     add('www/' + path.removeprefix('docs/'), data)
                 else:
@@ -138,6 +142,7 @@ def main():
                             add(launcher, data, 0o644 if launcher.endswith('.cmd') else 0o755)
 
             add('launch.py', (HERE / 'launch.py').read_bytes())
+            add('offline_game.py', (HERE / 'offline_game.py').read_bytes())
             add('START-HERE.html', (HERE / 'START-HERE.html').read_bytes())
             add('www/index.html', (HERE / 'home.html').read_bytes())
             add('SOURCES.json', (HERE / 'sources.json').read_bytes())

@@ -9,6 +9,8 @@ from threading import Thread
 from urllib.parse import quote, urlsplit
 import webbrowser
 
+from offline_game import optional_game
+
 
 class GuideHandler(SimpleHTTPRequestHandler):
     """Keep the published guide paths pointing to the companion editions included here."""
@@ -19,6 +21,13 @@ class GuideHandler(SimpleHTTPRequestHandler):
 
     def send_head(self):
         request = urlsplit(self.path)
+        if request.path.rstrip('/') == '/open-neurosurge':
+            self.send_response(302)
+            self.send_header('Location', self.server.game_target)
+            self.send_header('Cache-Control', 'no-store')
+            self.send_header('Content-Length', '0')
+            self.end_headers()
+            return None
         for prefix, target in self.aliases:
             if request.path == prefix.rstrip('/') or request.path.startswith(prefix):
                 suffix = request.path[len(prefix):]
@@ -48,10 +57,11 @@ def main():
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
     website = root / 'www'
-    if not (website / 'stages' / 'index.html').is_file() or not (root / 'routes.json').is_file():
+    if not all(p.is_file() for p in (website / 'stages/index.html', root / 'routes.json', root / 'SOURCES.json')):
         print('Extract the entire stage guide ZIP into one folder and open the launcher again.', file=sys.stderr)
         return 1
     routes = json.loads((root / 'routes.json').read_text(encoding='utf-8'))
+    sources = json.loads((root / 'SOURCES.json').read_text(encoding='utf-8'))
     aliases = sorted(routes.items(), key=lambda item: len(item[0]), reverse=True)
     handler = partial(GuideHandler, directory=str(website), aliases=aliases)
     try:
@@ -59,17 +69,17 @@ def main():
     except OSError as exc:
         print(f'The local guide could not start: {exc}', file=sys.stderr)
         return 1
-    try:
+    with server, optional_game(root, sources['neurosurge_virtual_challenge']['optional_archive']) as game_target:
+        server.game_target = game_target
         url = f'http://127.0.0.1:{server.server_port}/stages/'
         print('Open', url, flush=True)
         if not args.no_browser:
             # Some browser openers wait for the page to load before returning.
             Thread(target=open_browser, args=(url,), daemon=True).start()
-        server.serve_forever()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        server.server_close()
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            pass
     return 0
 
 
