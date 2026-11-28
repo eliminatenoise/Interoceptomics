@@ -1,0 +1,11 @@
+# Sources and licences
+
+The three Carnegie Mellon examples were obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217. The Graphics Lab permits copying, modifying and redistributing its motion data and prohibits direct resale of the motion data. The examples retain those terms. We translated the marker positions by a fixed offset, used marker averages for specified body sites and generated the two illustrative camera projections. [CMU motion capture terms](https://mocap.cs.cmu.edu/faqs.php)
+
+Céline Schreiber and Florent Moissenet provided the overground recordings under CC BY 4.0. The release includes two short excerpts. We combined specified anatomical markers, shifted their origins, interpolated them to display times and computed trailing 30 ms RMS voltages from the eight right-leg channels. That processing is ours. The original authors describe the trial-level filtering. [Version 8 data](https://doi.org/10.6084/m9.figshare.7734767.v8) · [Research article](https://doi.org/10.1038/s41597-019-0124-4) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Scherpereel, Molinaro, Inan, Shepherd and Young supplied the Georgia Tech walking data under CC BY 4.0. The model used derived marker positions from their treadmill recordings. [Georgia Tech data](https://doi.org/10.35090/gatech/70296) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Ghorbani and colleagues supplied MoVi and its camera calibration for the external evaluation. This distribution includes aggregate evaluation results. The recordings and individual trajectories remain available under the authors' research access terms. [MoVi study](https://doi.org/10.1371/journal.pone.0253157) · [MoVi archive](https://doi.org/10.5683/SP2/JRHDRN) · [Authors' projection code](https://github.com/saeed1262/MoVi-Toolbox)
+
+The image-feedback method uses the earlier NeuroTranslate 0.0 and human camera checkpoints. The compact image model's upstream attribution and licences accompany the portable JavaScript files. The game also includes its own earlier tracker and asset notices. The new project code and the project's rights in the new weights use the repository CC0 dedication. Upstream data, code and models retain their own terms. [Project licence](LICENSE)

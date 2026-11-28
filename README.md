@@ -2,6 +2,8 @@
 
 **[Open the 3D atlas](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/) · [Explore the experiment guide](https://eliminatenoise.github.io/Interoceptomics/stages/) · [Read the atlas PDF](https://eliminatenoise.github.io/Interoceptomics/atlas/backslash/atlas.pdf)**
 
+[Open the 3D movement forecast](https://eliminatenoise.github.io/Interoceptomics/stages/#movement-model/spatialMotion) to compare predicted and measured body positions and try the paired muscle recordings.
+
 [Download the offline atlas](https://github.com/eliminatenoise/Interoceptomics/raw/main/downloads/backslash/Backslash-Atlas.zip) · [Download the offline experiment guide](https://raw.githubusercontent.com/eliminatenoise/Interoceptomics/main/downloads/stage-guide/Interoceptomics-Stage-Guide.zip)
 
 **[Open the Interoceptomics dashboard](https://eliminatenoise.github.io/NeuroTranslation/projects/?project=interoceptomics)** · [Technical index](https://eliminatenoise.github.io/NeuroTranslation/projects/technical.html?project=interoceptomics)

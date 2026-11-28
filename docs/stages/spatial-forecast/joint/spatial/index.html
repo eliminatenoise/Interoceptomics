@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3D movement forecast · NeuroTranslate</title><link rel="stylesheet" href="style.css"></head><body><main><nav aria-label="Stage navigation"><a data-stage-back href="../../../#movement-model/spatialMotion" target="_top">Stage guide</a></nav>
+<nav aria-label="Study pages"><a href="simple.html">Simple guide</a><a href="technical.html">Technical guide</a><a href="https://eliminatenoise.github.io/NeuroTranslation/previews/neurosurge/">Open NeuroSurge</a></nav>
+<h1>3D movement forecast</h1>
+<p>Choose a recording and a body point. The model reads five earlier poses and forecasts the next 120 milliseconds. Reveal the later optical measurement to see how far the forecast missed.</p>
+<div class="controls"><label>Recording<select id="record"></select></label><label>Body point<select id="point"></select></label><label>Coordinates<select id="space"><option value="lab">Room axes</option><option value="hips">Relative to hips</option></select></label>
+<label>Forecast method<select id="method"><option value="model">Trained 3D model</option><option value="linear">Linear model</option><option value="velocity">Continue the latest speed</option><option value="hold">Keep the last position</option><option value="image_feedback" disabled>Two-camera tracking feedback</option></select></label></div>
+<div class="body"><section class="stage"><canvas id="body" width="720" height="480" aria-label="Current body position, forecast and later measurement when revealed"></canvas>
+<div class="legend"><span>● Current pose</span><span class="green">○ Forecast</span><span class="orange">× Later measurement</span></div>
+<div class="buttons"><button id="left">Turn left</button><button id="right">Turn right</button><button id="reset">Reset view</button></div>
+</section><section class="reading"><h2 id="name">Selected point</h2><p id="delta" class="number"></p><p id="axes"></p>
+<button id="reveal" aria-pressed="false">Reveal later measurement</button><p id="measured" aria-live="polite"></p>
+<label>Recorded time <output id="clock"></output><input id="frame" type="range" min="4" step="1" value="4"></label><button id="play">Play recording</button>
+<label id="muscle-choice" hidden><input type="checkbox" id="muscles"> Use the recorded right-leg muscle signals</label>
+<p id="info"></p><a id="credit">Recording source</a></section></div>
+<details><summary>Open my own recording</summary><p>Open a five-frame 3D pose file or two synchronized tracks with camera calibration. Use millimetres for spatial coordinates and seconds for time. Your file stays in this browser.</p>
+<label>Recording JSON<input id="upload" type="file" accept=".json,application/json"></label><div class="buttons"><button id="pair">Try the example camera pair</button><a href="example-pair.json" download>Download camera-pair example</a><a href="example-mm.json" download>Download 3D example</a></div></details>
+<p id="status" role="status"></p>
+</main><script type="module" src="viewer.mjs"></script><script>  document.querySelector("[data-stage-back]").addEventListener("click", event => {
+    if (window.parent === window) return;
+    try {
+      const parentDoc = window.parent.document;
+      const frame = window.frameElement;
+      const holder = parentDoc.getElementById("companion-frame");
+      const button = parentDoc.querySelector('#companions button[aria-controls="companion-frame"]');
+      if (frame && holder?.contains(frame) && button?.getAttribute("aria-expanded") === "true") {
+        event.preventDefault();
+        button.click();
+      }
+    } catch {
+      // The ordinary link also works when the outer page has another origin.
+    }
+  });</script></body></html>
